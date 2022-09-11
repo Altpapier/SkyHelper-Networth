@@ -1,6 +1,7 @@
 const { calculatePet } = require('../calculators/petCalculator');
 const { calculateSackItem } = require('../calculators/sacksCalculator');
 const { calculateItem } = require('../calculators/itemCalculator');
+const { getPetLevel } = require('../constants/pets');
 
 const calculateNetworth = async (items, purseBalance, bankBalance, prices, onlyNetworth) => {
   const categories = {};
@@ -53,6 +54,19 @@ const calculateNetworth = async (items, purseBalance, bankBalance, prices, onlyN
   };
 };
 
+const calculateItemNetworth = (item, prices) => {
+  const isPet = item.tag?.ExtraAttributes?.petInfo || item.exp;
+  if (isPet) {
+    const petInfo = item.tag?.ExtraAttributes?.petInfo ? JSON.parse(item.tag.ExtraAttributes.petInfo) : item;
+    const level = getPetLevel(petInfo);
+    petInfo.level = level.level;
+    petInfo.xpMax = level.xpMax;
+    return calculatePet(petInfo, prices);
+  }
+  return calculateItem(item, prices);
+};
+
 module.exports = {
   calculateNetworth,
+  calculateItemNetworth,
 };

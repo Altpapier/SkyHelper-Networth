@@ -1,6 +1,6 @@
 const { NetworthError, PricesError } = require('./helper/errors');
 const { parseItems } = require('./helper/parseItems');
-const { calculateNetworth } = require('./helper/calculateNetworth');
+const { calculateNetworth, calculateItemNetworth } = require('./helper/calculateNetworth');
 const axios = require('axios');
 
 /**
@@ -29,6 +29,24 @@ const getNetworth = async (profileData, bankBalance, options) => {
 };
 
 /**
+ * Returns the networth of an item
+ * @param {object} item - The item the networth should be calculated for
+ * @param {{ prices: object }} options - prices: A prices object generated from the getPrices function. If not provided, the prices will be retrieved every time the function is called
+ * @returns {object} - An object containing the item's networth calculation
+ */
+const getItemNetworth = async (item, options) => {
+  if (options?.prices) {
+    if (!options.prices instanceof Object || prices[Object.keys(options.prices)[0]] instanceof Object) throw new NetworthError('Invalid prices data provided');
+  }
+
+  if (!item?.tag && !item?.exp) throw new NetworthError('Invalid item provided');
+
+  const prices = options?.prices || (await getPrices());
+
+  return await calculateItemNetworth(item, prices);
+};
+
+/**
  * Returns the prices used in the networth calculation, optimally this can be cached and used when calling `getNetworth`
  * @returns {object} - An object containing the prices for the items in the game from the SkyHelper Prices list
  */
@@ -54,5 +72,6 @@ const getPrices = async () => {
 
 module.exports = {
   getNetworth,
+  getItemNetworth,
   getPrices,
 };
