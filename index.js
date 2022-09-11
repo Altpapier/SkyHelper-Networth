@@ -36,7 +36,7 @@ const getNetworth = async (profileData, bankBalance, options) => {
  */
 const getItemNetworth = async (item, options) => {
   if (options?.prices) {
-    if (!options.prices instanceof Object || prices[Object.keys(options.prices)[0]] instanceof Object) throw new NetworthError('Invalid prices data provided');
+    if (!options.prices instanceof Object || options.prices[Object.keys(options.prices)[0]] instanceof Object) throw new NetworthError('Invalid prices data provided');
   }
 
   if (!item?.tag && !item?.exp) throw new NetworthError('Invalid item provided');
