@@ -1,0 +1,29 @@
+{
+  "name": "skyhelper-networth",
+  "version": "1.0.0",
+  "description": "SkyHelper's Networth Calculation for Hypixel Skyblock",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [
+    "hypixel",
+    "skyblock",
+    "networth",
+    "skyhelper"
+  ],
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/Altpapier/SkyHelper-Networth.git"
+  },
+  "bugs": {
+    "url": "https://github.com/Altpapier/SkyHelper-Networth/issues"
+  },
+  "homepage": "https://skyhelper.altpapier.dev",
+  "author": "Altpapier",
+  "license": "MIT",
+  "dependencies": {
+    "axios": "^0.27.2",
+    "prismarine-nbt": "^2.2.1"
+  }
+}
