@@ -14,12 +14,26 @@ const calculateNetworth = async (items, purseBalance, bankBalance, prices, onlyN
 
       categories[category].total += result?.price || 0;
       if (!result?.soulbound) categories[category].unsoulboundTotal += result?.price || 0;
-      if (!onlyNetworth && result) categories[category].items.push(result);
+      if (!onlyNetworth && result && result?.price) categories[category].items.push(result);
     }
 
     // Sort items by price
-    for (const category of Object.keys(categories)) {
-      if (!onlyNetworth) categories[category].items.sort((a, b) => b.price - a.price);
+    if (!onlyNetworth && categories[category].items.length > 0) {
+      categories[category].items = categories[category].items
+        .sort((a, b) => b.price - a.price)
+        .reduce((r, a) => {
+          const last = r[r.length - 1];
+          if (last && last.name === a.name && !a?.isPet && last.soulbound === a.soulbound) {
+            last.price += a.price;
+            last.count += a.count;
+            last.base = last.base || a.base;
+            last.calculation = last.calculation || a.calculation;
+          } else {
+            r.push(a);
+          }
+          return r;
+        }, [])
+        .filter((e) => e);
     }
 
     if (onlyNetworth) delete categories[category].items;
