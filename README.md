@@ -69,6 +69,23 @@ Returns the networth of a profile
 | onlyNetworth | Only return a player's networth without showing all player's items                                                                        |
 | prices       | Provide prices from the getPrices() function for the bot not to request SkyHelper's prices each time the getNetworth() function is called |
 
+### `getItemNetworth()`
+
+Returns the networth of an item
+
+#### Arguments
+
+| Argument | Description                              |
+| -------- | ---------------------------------------- |
+| item     | The data of an item (either pet or item) |
+| options  | See table below                          |
+
+##### `options`
+
+| Option | Description                                                                                                                             |
+| ------ | --------------------------------------------------------------------------------------------------------------------------------------- |
+| prices | Provide prices from the getPrices() function for the bot not to request SkyHelper's prices each time the getNetworth() function is call |
+
 ### `getPrices()`
 
 Returns the prices used in the networth calculation, optimally this can be cached and used when calling `getNetworth`
