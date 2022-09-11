@@ -15,7 +15,7 @@ const getNetworth = async (profileData, bankBalance, options) => {
   if (!profileData) throw new NetworthError('No profile data provided');
   if (!profileData.stats) throw new NetworthError('Invalid profile data provided');
   if (options?.prices) {
-    if (!options.prices instanceof Object || prices[Object.keys(options.prices)[0]] instanceof Object) throw new NetworthError('Invalid prices data provided');
+    if (!options.prices instanceof Object || options.prices[Object.keys(options.prices)[0]] instanceof Object) throw new NetworthError('Invalid prices data provided');
   }
 
   const purse = profileData.coin_purse;
