@@ -241,6 +241,18 @@ const calculateItem = (item, prices) => {
       calculation.push(calculationData);
     }
 
+    // ART OF PEACE
+    if (ExtraAttributes.art_of_peace_count) {
+      const calculationData = {
+        id: 'THE_ART_OF_PEACE',
+        type: 'the_art_of_peace',
+        price: (prices['the_art_of_peace'] || 0) * ExtraAttributes.art_of_peace_count * applicationWorth.artOfPeace,
+        count: ExtraAttributes.art_of_peace_count,
+      };
+      price += calculationData.price;
+      calculation.push(calculationData);
+    }
+
     // FARMING FOR DUMMIES
     if (ExtraAttributes.farming_for_dummies_count) {
       const calculationData = {

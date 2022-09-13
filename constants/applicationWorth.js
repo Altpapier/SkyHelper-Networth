@@ -10,6 +10,7 @@ const applicationWorth = {
   fumingPotatoBook: 0.6,
   dye: 0.9,
   artOfWar: 0.6,
+  artOfPeace: 0.8,
   farmingForDummies: 0.5,
   enrichment: 0.75,
   recomb: 0.8,
