@@ -22,6 +22,7 @@ The following list shows how much each modifier counts towards an item's worth
 - Hot Potato Books: **100%**
 - Fuming Potato Books: **60%**
 - Art of War: **60%**
+- Art of Peace: **80%**
 - Farming for Dummies: **50%**
 - Enrichments: **75%**
 - Recombobulators: **80%**
