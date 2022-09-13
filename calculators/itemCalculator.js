@@ -22,8 +22,8 @@ const calculateItem = (item, prices) => {
   if (item.tag?.ExtraAttributes?.id) {
     let itemName = item.tag.display.Name.replace(/§[0-9a-fk-or]/gi, '');
     let itemId = item.tag.ExtraAttributes.id.toLowerCase();
-
     const ExtraAttributes = item.tag.ExtraAttributes;
+    const skyblockItem = skyblockItems.find((i) => i.id === itemId.toUpperCase());
 
     if (ExtraAttributes.skin) {
       itemId += `_skinned_${ExtraAttributes.skin.toLowerCase()}`;
@@ -269,11 +269,10 @@ const calculateItem = (item, prices) => {
 
     // GEMSTONES
     if (ExtraAttributes.gems) {
-      const gemstoneSlots = skyblockItems.find((item) => item.id === itemId.toUpperCase())?.gemstone_slots;
       const unlockedSlots = [];
       const gems = [];
-      if (gemstoneSlots) {
-        gemstoneSlots.forEach((slot) => {
+      if (skyblockItem?.gemstone_slots) {
+        skyblockItem?.gemstone_slots.forEach((slot) => {
           if (slot.costs && ExtraAttributes.gems.unlocked_slots) {
             for (const [index, type] of ExtraAttributes.gems.unlocked_slots.entries()) {
               if (type.startsWith(slot.slot_type)) {
@@ -324,15 +323,14 @@ const calculateItem = (item, prices) => {
     }
 
     // STARS
-    const foundItem = skyblockItems.find((item) => item.id === itemId.toUpperCase());
     const dungeonItemLevel = parseInt((ExtraAttributes.dungeon_item_level || 0).toString().replace(/\D/g, ''));
     const upgradeLevel = parseInt((ExtraAttributes.upgrade_level || 0).toString().replace(/\D/g, ''));
-    if (foundItem?.upgrade_costs && (dungeonItemLevel > 5 || upgradeLevel > 5)) {
+    if (skyblockItem?.upgrade_costs && (dungeonItemLevel > 5 || upgradeLevel > 5)) {
       const starsUsedDungeons = dungeonItemLevel - 5;
       const starsUsedUpgrade = (upgradeLevel || 0) - 5;
       const starsUsed = Math.max(starsUsedDungeons, starsUsedUpgrade);
 
-      if (foundItem.upgrade_costs.length <= 5) {
+      if (skyblockItem.upgrade_costs.length <= 5) {
         for (const star of Array(starsUsed).keys()) {
           const calculationData = {
             id: masterStars[star],
@@ -346,8 +344,8 @@ const calculateItem = (item, prices) => {
       }
     }
 
-    if (foundItem?.upgrade_costs && (dungeonItemLevel > 0 || upgradeLevel > 0)) {
-      const itemUpgrades = foundItem.upgrade_costs;
+    if (skyblockItem?.upgrade_costs && (dungeonItemLevel > 0 || upgradeLevel > 0)) {
+      const itemUpgrades = skyblockItem.upgrade_costs;
       const level = Math.max(dungeonItemLevel, upgradeLevel);
 
       for (let i = 0; i < level; i++) {
@@ -368,11 +366,11 @@ const calculateItem = (item, prices) => {
 
     // NECRON BLADE SCROLLS
     if (ExtraAttributes.ability_scroll) {
-      for (const item of Object.values(ExtraAttributes.ability_scroll)) {
+      for (const id of Object.values(ExtraAttributes.ability_scroll)) {
         const calculationData = {
-          id: item,
+          id,
           type: 'necron_scroll',
-          price: (prices[item.toLowerCase()] || 0) * applicationWorth.necronBladeScroll,
+          price: (prices[id.toLowerCase()] || 0) * applicationWorth.necronBladeScroll,
           count: 1,
         };
         price += calculationData.price;
