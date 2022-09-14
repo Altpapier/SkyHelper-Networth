@@ -179,7 +179,7 @@ const calculateItem = (item, prices) => {
     }
 
     // RUNES  (Applied)
-    if (ExtraAttributes.runes && !itemId.startsWith('rune')) {
+    if (ExtraAttributes.runes?.length > 0 && !itemId.startsWith('rune')) {
       const [runeType, runeTier] = Object.entries(ExtraAttributes.runes)[0];
       const runeId = `${runeType}_${runeTier}`;
       if (validRunes.includes(runeId)) {
