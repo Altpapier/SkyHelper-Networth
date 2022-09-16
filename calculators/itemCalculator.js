@@ -30,7 +30,7 @@ const calculateItem = (item, prices) => {
     }
 
     // RUNES (Item)
-    if (ExtraAttributes.id === 'RUNE' && ExtraAttributes.runes?.length > 0) {
+    if (ExtraAttributes.id === 'RUNE' && ExtraAttributes.runes && Object.keys(ExtraAttributes.runes).length > 0) {
       const [runeType, runeTier] = Object.entries(ExtraAttributes.runes)[0];
       itemId = `rune_${runeType}_${runeTier}`.toLowerCase();
     }
@@ -179,7 +179,7 @@ const calculateItem = (item, prices) => {
     }
 
     // RUNES  (Applied)
-    if (ExtraAttributes.runes?.length > 0 && !itemId.startsWith('rune')) {
+    if (ExtraAttributes.runes && Object.keys(ExtraAttributes.runes).length > 0 && !itemId.startsWith('rune')) {
       const [runeType, runeTier] = Object.entries(ExtraAttributes.runes)[0];
       const runeId = `${runeType}_${runeTier}`;
       if (validRunes.includes(runeId)) {
