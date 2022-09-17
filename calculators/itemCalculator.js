@@ -92,6 +92,10 @@ const calculateItem = (item, prices) => {
       price = calculationData.price;
       calculation.push(calculationData);
     }
+    
+    
+    
+    
 
     // ENCHANTMENTS
     if (itemId === 'enchanted_book' && ExtraAttributes.enchantments) {
