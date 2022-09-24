@@ -298,7 +298,7 @@ const calculateItem = (item, prices) => {
           const key = Object.keys(ExtraAttributes.gems).find((k) => k.startsWith(slot.slot_type) && !k.endsWith('_gem'));
           if (key) {
             const type = ['COMBAT', 'OFFENSIVE', 'DEFENSIVE', 'MINING', 'UNIVERSAL'].includes(slot.slot_type) ? ExtraAttributes.gems[`${key}_gem`] : slot.slot_type;
-            gems.push({ type, tier: ExtraAttributes.gems[key], slotType: slot.slot_type });
+            gems.push({ type, tier: ExtraAttributes.gems[key] instanceof Object ? ExtraAttributes.gems[key].quality : ExtraAttributes.gems[key], slotType: slot.slot_type });
 
             delete ExtraAttributes.gems[key];
             if (slot.costs && !ExtraAttributes.gems.unlocked_slots) unlockedSlots.push(slot.slot_type);
