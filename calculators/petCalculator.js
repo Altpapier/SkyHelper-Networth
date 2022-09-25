@@ -4,10 +4,11 @@ const { applicationWorth } = require('../constants/applicationWorth');
 
 const getPetLevelPrices = (pet, prices) => {
   const skin = pet.skin;
+  const tierName = `${pet.tier}_${pet.type}`.toLowerCase();
   return {
-    lvl1: prices[`lvl_1_${pet.tier}_${pet.type}${skin ? `_skinned_${skin}` : ''}`.toLowerCase()] || 0,
-    lvl100: prices[`lvl_100_${pet.tier}_${pet.type}${skin ? `_skinned_${skin}` : ''}`.toLowerCase()] || 0,
-    lvl200: prices[`lvl_200_${pet.tier}_${pet.type}${skin ? `_skinned_${skin}` : ''}`.toLowerCase()] || 0,
+    lvl1: prices[`lvl_1_${tierName}${skin ? `_skinned_${skin}` : ''}`.toLowerCase()] || prices[`lvl_1_${tierName}`] || 0,
+    lvl100: prices[`lvl_100_${tierName}${skin ? `_skinned_${skin}` : ''}`.toLowerCase()] || prices[`lvl_100_${tierName}`] || 0,
+    lvl200: prices[`lvl_200_${tierName}${skin ? `_skinned_${skin}` : ''}`.toLowerCase()] || prices[`lvl_200_${tierName}`] || 0,
   };
 };
 
