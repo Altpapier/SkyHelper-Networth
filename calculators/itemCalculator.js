@@ -34,6 +34,8 @@ const calculateItem = (item, prices) => {
       const [runeType, runeTier] = Object.entries(ExtraAttributes.runes)[0];
       itemId = `rune_${runeType}_${runeTier}`.toLowerCase();
     }
+    // CAKES (Item)
+    if (ExtraAttributes.id === 'NEW_YEAR_CAKE') itemId = `new_year_cake_${ExtraAttributes.new_years_cake}`;
 
     const itemData = prices[itemId];
     let price = (itemData || 0) * item.Count;
@@ -424,6 +426,21 @@ const calculateItem = (item, prices) => {
         id: 'ETHERWARP_CONDUIT',
         type: 'etherwarp_conduit',
         price: (prices['etherwarp_conduit'] || 0) * applicationWorth.etherwarp,
+        count: 1,
+      };
+
+      price += calculationData.price;
+      calculation.push(calculationData);
+    }
+
+    // NEW YEAR CAKE BAG
+    if (ExtraAttributes.new_year_cake_bag_years) {
+      let cakesPrice = 0;
+      for (const year of ExtraAttributes.new_year_cake_bag_years) cakesPrice += prices[`new_year_cake_${year}`] || 0;
+      const calculationData = {
+        id: 'NEW_YEAR_CAKE',
+        type: 'NEW_YEAR_CAKES',
+        price: cakesPrice,
         count: 1,
       };
 
