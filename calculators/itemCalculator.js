@@ -436,18 +436,16 @@ const calculateItem = (item, prices) => {
     // NEW YEAR CAKE BAG
     if (ExtraAttributes.new_year_cake_bag_years) {
       let cakesPrice = 0;
-      for (const year of ExtraAttributes.new_year_cake_bag_years) {
-        cakesPrice += prices[`new_year_cake_${year}`] || 0;
-        const calculationData = {
-          id: `NEW_YEAR_CAKE_${year}`,
-          type: 'new_year_cake',
-          price: cakesPrice,
-          count: 1,
-        };
+      for (const year of ExtraAttributes.new_year_cake_bag_years) cakesPrice += prices[`new_year_cake_${year}`] || 0;
+      const calculationData = {
+        id: `NEW_YEAR_CAKE_${year}`,
+        type: 'new_year_cake',
+        price: cakesPrice,
+        count: 1,
+      };
 
-        price += calculationData.price;
-        calculation.push(calculationData);
-      }
+      price += calculationData.price;
+      calculation.push(calculationData);
     }
 
     const isSoulbound = !!(ExtraAttributes.donated_museum || item.tag.display?.Lore?.includes('§8§l* §8Co-op Soulbound §8§l*') || item.tag.display?.Lore?.includes('§8§l* §8Soulbound §8§l*'));
