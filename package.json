@@ -1,6 +1,6 @@
 {
   "name": "skyhelper-networth",
-  "version": "1.1.0",
+  "version": "1.0.12",
   "description": "SkyHelper's Networth Calculation for Hypixel Skyblock",
   "main": "index.js",
   "scripts": {
