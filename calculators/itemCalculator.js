@@ -438,8 +438,8 @@ const calculateItem = (item, prices) => {
       let cakesPrice = 0;
       for (const year of ExtraAttributes.new_year_cake_bag_years) cakesPrice += prices[`new_year_cake_${year}`] || 0;
       const calculationData = {
-        id: `NEW_YEAR_CAKE_${year}`,
-        type: 'new_year_cake',
+        id: 'NEW_YEAR_CAKE',
+        type: 'NEW_YEAR_CAKES',
         price: cakesPrice,
         count: 1,
       };
