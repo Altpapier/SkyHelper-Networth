@@ -66,7 +66,9 @@ const parseContainer = async (data) => {
   for (item of decoded) {
     if (!item.tag?.ExtraAttributes?.new_year_cake_bag_data) continue;
     const cakes = await decodeData(item.tag?.ExtraAttributes?.new_year_cake_bag_data);
-    item.tag.ExtraAttributes.new_year_cake_bag_years = cakes.filter((cake) => cake.id && cake.tag?.ExtraAttributes?.new_years_cake).map((cake) => cake.tag.ExtraAttributes.new_years_cake);
+    if (item?.tag?.ExtraAttributes) {
+      item.tag.ExtraAttributes.new_year_cake_bag_years = cakes.filter((cake) => cake.id && cake.tag?.ExtraAttributes?.new_years_cake).map((cake) => cake.tag.ExtraAttributes.new_years_cake);
+    }
   }
   return decoded;
 };
