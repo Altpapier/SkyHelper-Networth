@@ -28,7 +28,7 @@ const parseItems = async (profileData) => {
   for (const [container, key] of Object.entries(singleContainers)) {
     items[container] = [];
     if (profileData[key]) {
-      items[container] = await decodeData(profileData[key].data);
+      items[container] = await parseContainer(profileData[key].data);
     }
   }
 
@@ -37,12 +37,12 @@ const parseItems = async (profileData) => {
   if (profileData.backpack_contents && profileData.backpack_icons) {
     // Parse Storage Contents
     for (const backpackContent of Object.values(profileData.backpack_contents)) {
-      items.storage.push(await decodeData(backpackContent.data));
+      items.storage.push(await parseContainer(backpackContent.data));
     }
 
     // Parse Storage Backpacks
     for (const backpack of Object.values(profileData.backpack_icons)) {
-      items.storage.push(await decodeData(backpack.data));
+      items.storage.push(await parseContainer(backpack.data));
     }
 
     items.storage = items.storage.flat();
@@ -59,6 +59,16 @@ const parseItems = async (profileData) => {
   }
 
   return items;
+};
+
+const parseContainer = async (data) => {
+  const decoded = await decodeData(data);
+  for (item of decoded) {
+    if (!item.tag?.ExtraAttributes?.new_year_cake_bag_data) continue;
+    const cakes = await decodeData(item.tag?.ExtraAttributes?.new_year_cake_bag_data);
+    item.tag.ExtraAttributes.new_year_cake_bag_years = cakes.filter((cake) => cake.id && cake.tag?.ExtraAttributes?.new_years_cake).map((cake) => cake.tag.ExtraAttributes.new_years_cake);
+  }
+  return decoded;
 };
 
 const decodeData = async (data) => {
