@@ -24,7 +24,7 @@ const calculateNetworth = async (items, purseBalance, bankBalance, prices, onlyN
         .sort((a, b) => b.price - a.price)
         .reduce((r, a) => {
           const last = r[r.length - 1];
-          if (last && last.name === a.name && !a?.isPet && last.soulbound === a.soulbound) {
+          if (last && last.name === a.name && last.price / last.count === a.price / a.count && !a?.isPet && last.soulbound === a.soulbound) {
             last.price += a.price;
             last.count += a.count;
             last.base = last.base || a.base;
