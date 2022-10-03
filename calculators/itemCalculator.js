@@ -244,12 +244,12 @@ const calculateItem = (item, prices) => {
     }
 
     // ART OF PEACE
-    if (ExtraAttributes.art_of_peace_count) {
+    if (ExtraAttributes.artOfPeaceApplied) {
       const calculationData = {
         id: 'THE_ART_OF_PEACE',
         type: 'the_art_of_peace',
-        price: (prices['the_art_of_peace'] || 0) * ExtraAttributes.art_of_peace_count * applicationWorth.artOfPeace,
-        count: ExtraAttributes.art_of_peace_count,
+        price: (prices['the_art_of_peace'] || 0) * ExtraAttributes.artOfPeaceApplied * applicationWorth.artOfPeace,
+        count: ExtraAttributes.artOfPeaceApplied,
       };
       price += calculationData.price;
       calculation.push(calculationData);
