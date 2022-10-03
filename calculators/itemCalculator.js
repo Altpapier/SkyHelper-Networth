@@ -40,6 +40,10 @@ const calculateItem = (item, prices) => {
     const itemData = prices[itemId];
     let price = (itemData || 0) * item.Count;
     let base = (itemData || 0) * item.Count;
+    if (!price && ExtraAttributes.price) {
+      price = parseInt(ExtraAttributes.price) * 0.85;
+      base = parseInt(ExtraAttributes.price) * 0.85;
+    }
     const calculation = [];
 
     // UPGRADABLE ARMOR PRICE CALCULATION (eg. crimson)
