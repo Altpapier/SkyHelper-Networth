@@ -3,8 +3,7 @@ const { titleCase } = require('../helper/functions');
 const { getPetLevel } = require('../constants/pets');
 const { prestiges } = require('../constants/prestiges');
 const { applicationWorth, enchantsWorth } = require('../constants/applicationWorth');
-const { blockedEnchants, ignoredEnchants, stackingEnchants, masterStars, thunderCharge, validRunes } = require('../constants/misc');
-const { accessories } = require('../constants/accessories');
+const { blockedEnchants, ignoredEnchants, stackingEnchants, masterStars, thunderCharge, validRunes, allowedRecombTypes } = require('../constants/misc');
 const { reforges } = require('../constants/reforges');
 const skyblockItems = require('../constants/items.json');
 
@@ -275,7 +274,7 @@ const calculateItem = (item, prices) => {
 
     // RECOMBS
     if (ExtraAttributes.rarity_upgrades > 0 && !ExtraAttributes.item_tier) {
-      if (ExtraAttributes.enchantments || accessories.includes(itemId)) {
+      if (ExtraAttributes.enchantments || allowedRecombTypes.includes(skyblockItem?.category)) {
         const calculationData = {
           id: 'RECOMBOBULATOR_3000',
           type: 'recombobulator_3000',
@@ -332,7 +331,7 @@ const calculateItem = (item, prices) => {
     }
 
     // REFORGES
-    if (ExtraAttributes.modifier && !accessories[itemId]) {
+    if (ExtraAttributes.modifier && skyblockItem?.category !== 'ACCESSORY') {
       const reforge = ExtraAttributes.modifier;
 
       if (reforges[reforge]) {
