@@ -292,26 +292,31 @@ const calculateItem = (item, prices) => {
       const unlockedSlots = [];
       const gems = [];
       if (skyblockItem?.gemstone_slots) {
-        skyblockItem?.gemstone_slots.forEach((slot) => {
-          if (slot.costs && ExtraAttributes.gems.unlocked_slots) {
-            for (const [index, type] of ExtraAttributes.gems.unlocked_slots.entries()) {
-              if (type.startsWith(slot.slot_type)) {
-                unlockedSlots.push(slot.slot_typ);
-                ExtraAttributes.gems.unlocked_slots.slice(Number(index), 1);
-                break;
+        if (ExtraAttributes.gems.formatted) {
+          unlockedSlots = ExtraAttributes.gems.unlockedSlots;
+          gems = ExtraAttributes.gems.gems;
+        } else {
+          skyblockItem?.gemstone_slots.forEach((slot) => {
+            if (slot.costs && ExtraAttributes.gems.unlocked_slots) {
+              for (const [index, type] of ExtraAttributes.gems.unlocked_slots.entries()) {
+                if (type.startsWith(slot.slot_type)) {
+                  unlockedSlots.push(slot.slot_typ);
+                  ExtraAttributes.gems.unlocked_slots.slice(Number(index), 1);
+                  break;
+                }
               }
             }
-          }
-          if (!slot.costs) unlockedSlots.push(slot.slot_type);
-          const key = Object.keys(ExtraAttributes.gems).find((k) => k.startsWith(slot.slot_type) && !k.endsWith('_gem'));
-          if (key) {
-            const type = ['COMBAT', 'OFFENSIVE', 'DEFENSIVE', 'MINING', 'UNIVERSAL'].includes(slot.slot_type) ? ExtraAttributes.gems[`${key}_gem`] : slot.slot_type;
-            gems.push({ type, tier: ExtraAttributes.gems[key] instanceof Object ? ExtraAttributes.gems[key].quality : ExtraAttributes.gems[key], slotType: slot.slot_type });
+            if (!slot.costs) unlockedSlots.push(slot.slot_type);
+            const key = Object.keys(ExtraAttributes.gems).find((k) => k.startsWith(slot.slot_type) && !k.endsWith('_gem'));
+            if (key) {
+              const type = ['COMBAT', 'OFFENSIVE', 'DEFENSIVE', 'MINING', 'UNIVERSAL'].includes(slot.slot_type) ? ExtraAttributes.gems[`${key}_gem`] : slot.slot_type;
+              gems.push({ type, tier: ExtraAttributes.gems[key] instanceof Object ? ExtraAttributes.gems[key].quality : ExtraAttributes.gems[key], slotType: slot.slot_type });
 
-            delete ExtraAttributes.gems[key];
-            if (slot.costs && !ExtraAttributes.gems.unlocked_slots) unlockedSlots.push(slot.slot_type);
-          }
-        });
+              delete ExtraAttributes.gems[key];
+              if (slot.costs && !ExtraAttributes.gems.unlocked_slots) unlockedSlots.push(slot.slot_type);
+            }
+          });
+        }
 
         for (const gemstone of gems) {
           const calculationData = {
