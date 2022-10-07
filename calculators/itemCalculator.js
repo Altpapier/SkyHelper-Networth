@@ -289,8 +289,8 @@ const calculateItem = (item, prices) => {
 
     // GEMSTONES
     if (ExtraAttributes.gems) {
-      const unlockedSlots = [];
-      const gems = [];
+      let unlockedSlots = [];
+      let gems = [];
       if (skyblockItem?.gemstone_slots) {
         if (ExtraAttributes.gems.formatted) {
           unlockedSlots = ExtraAttributes.gems.unlockedSlots;
