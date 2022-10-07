@@ -142,8 +142,10 @@ const calculateItem = (item, prices) => {
           price: (prices[`enchantment_${name}_${value}`] || 0) * (enchantsWorth[name] || applicationWorth.enchants),
           count: 1,
         };
-        price += calculationData.price;
-        calculation.push(calculationData);
+        if (calculationData.price) {
+          price += calculationData.price;
+          calculation.push(calculationData);
+        }
       }
     }
 
