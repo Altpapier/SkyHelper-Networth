@@ -1,7 +1,9 @@
 const skyblockItems = require('../constants/items.json');
+const { validRunes } = require('../constants/misc');
 
 const calculateSackItem = (item, prices) => {
   const itemPrice = prices[item.id.toLowerCase()] || 0;
+  if (item.id.startsWith('RUNE_') && !validRunes.includes(item.id)) return null;
   if (itemPrice) {
     return {
       name: skyblockItems.find((skyblockItem) => skyblockItem.id === item.id)?.name || 'Unknown',
