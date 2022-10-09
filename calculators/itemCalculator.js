@@ -28,6 +28,10 @@ const calculateItem = (item, prices) => {
       itemId += `_skinned_${ExtraAttributes.skin.toLowerCase()}`;
     }
 
+    if (['Beastmaster Crest', 'Griffin Upgrade Stone', 'Wisp Upgrade Stone'].includes(itemName) || itemName.endsWith(' Exp Boost')) {
+      itemName = `${itemName} (${titleCase(skyblockItem.tier.replaceAll('_', ' '))})`;
+    }
+
     // RUNES (Item)
     if (ExtraAttributes.id === 'RUNE' && ExtraAttributes.runes && Object.keys(ExtraAttributes.runes).length > 0) {
       const [runeType, runeTier] = Object.entries(ExtraAttributes.runes)[0];
