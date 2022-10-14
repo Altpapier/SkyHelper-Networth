@@ -28,8 +28,10 @@ const calculateItem = (item, prices) => {
       itemId += `_skinned_${ExtraAttributes.skin.toLowerCase()}`;
     }
 
-    if (['Beastmaster Crest', 'Griffin Upgrade Stone', 'Wisp Upgrade Stone'].includes(itemName) || itemName.endsWith(' Exp Boost')) {
-      itemName = `${itemName}${skyblockItem.tier ? ` (${titleCase(skyblockItem.tier.replace(/_/g, ' '))})` : ''}`;
+    if (['Beastmaster Crest', 'Griffin Upgrade Stone', 'Wisp Upgrade Stone'].includes(itemName)) {
+      itemName = `${itemName} (${skyblockItem.tier ? titleCase(skyblockItem.tier.replaceAll('_', ' ')) : 'Unknown'})`;
+    } else if (itemName.endsWith(' Exp Boost')) {
+      itemName = `${itemName} (${skyblockItem.id ? titleCase(skyblockItem.id.split('_').at(-1)) : 'Unknown'})`;
     }
 
     // RUNES (Item)
