@@ -55,7 +55,7 @@ const getPrices = async () => {
     const response = await axios.get('https://raw.githubusercontent.com/SkyHelperBot/Prices/main/prices.json');
 
     // Remove this later when prices.json file is updated
-    if (response.data[Object.keys(response.data)[0]]) {
+    if (response.data[Object.keys(response.data)[0]] instanceof Object) {
       const prices = {};
       for (const [item, priceObject] of Object.entries(response.data)) {
         prices[item] = priceObject.price;
