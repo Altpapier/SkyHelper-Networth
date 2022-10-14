@@ -12,20 +12,10 @@ const axios = require('axios');
  */
 
 const getNetworth = async (profileData, bankBalance, options) => {
-  if (!profileData) throw new NetworthError('No profile data provided');
-  if (!profileData.stats) throw new NetworthError('Invalid profile data provided');
-  if (options?.prices) {
-    if (!options.prices instanceof Object || options.prices[Object.keys(options.prices)[0]] instanceof Object) throw new NetworthError('Invalid prices data provided');
-  }
-
   const purse = profileData.coin_purse;
-
-  const prices = options?.prices || (await getPrices());
-
+  const prices = await parsePrices(options?.prices);
   const items = await parseItems(profileData);
-  const networth = await calculateNetworth(items, purse, bankBalance, prices, options?.onlyNetworth);
-
-  return networth;
+  return await calculateNetworth(items, purse, bankBalance, prices, options?.onlyNetworth);
 };
 
 /**
@@ -35,16 +25,20 @@ const getNetworth = async (profileData, bankBalance, options) => {
  * @returns {object} - An object containing the item's networth calculation
  */
 const getItemNetworth = async (item, options) => {
-  if (options?.prices) {
-    if (!options.prices instanceof Object || options.prices[Object.keys(options.prices)[0]] instanceof Object) throw new NetworthError('Invalid prices data provided');
-  }
-
   if (!item?.tag && !item?.exp) throw new NetworthError('Invalid item provided');
-
-  const prices = options?.prices || (await getPrices());
-
+  const prices = await parsePrices(options?.prices);
   return await calculateItemNetworth(item, prices);
 };
+
+async function parsePrices(prices) {
+  if (prices) {
+    const firstKey = Object.keys(prices)[0];
+    if (!prices instanceof Object || prices[firstKey] instanceof Object) throw new NetworthError('Invalid prices data provided');
+    if (firstKey !== firstKey.toLowerCase()) for (id of Object.keys(prices)) prices[id.toLowerCase()] = prices;
+  }
+
+  return prices || (await getPrices());
+}
 
 /**
  * Returns the prices used in the networth calculation, optimally this can be cached and used when calling `getNetworth`
@@ -55,10 +49,19 @@ const getPrices = async () => {
     const response = await axios.get('https://raw.githubusercontent.com/SkyHelperBot/Prices/main/prices.json');
 
     // Remove this later when prices.json file is updated
-    if (response.data[Object.keys(response.data)[0]] instanceof Object) {
+    const firstKey = Object.keys(response.data)[0];
+    if (response.data[firstKey] instanceof Object) {
       const prices = {};
       for (const [item, priceObject] of Object.entries(response.data)) {
-        prices[item] = priceObject.price;
+        prices[item.toLowerCase()] = priceObject.price;
+      }
+      return prices;
+    }
+
+    if (firstKey !== firstKey.toLowerCase()) {
+      const prices = {};
+      for (const [item, price] of Object.entries(response.data)) {
+        prices[item.toLowerCase()] = price;
       }
       return prices;
     }
