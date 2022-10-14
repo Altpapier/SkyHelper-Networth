@@ -29,7 +29,7 @@ const calculateItem = (item, prices) => {
     }
 
     if (['Beastmaster Crest', 'Griffin Upgrade Stone', 'Wisp Upgrade Stone'].includes(itemName) || itemName.endsWith(' Exp Boost')) {
-      itemName = `${itemName} (${titleCase(skyblockItem.tier.replace(/_/g, ' '))})`;
+      itemName = `${itemName}${skyblockItem.tier ? ` (${titleCase(skyblockItem.tier.replace(/_/g, ' '))})` : ''}`;
     }
 
     // RUNES (Item)
