@@ -34,7 +34,7 @@ async function parsePrices(prices) {
   if (prices) {
     const firstKey = Object.keys(prices)[0];
     if (!prices instanceof Object || prices[firstKey] instanceof Object) throw new NetworthError('Invalid prices data provided');
-    if (firstKey !== firstKey.toLowerCase()) for (id of Object.keys(prices)) prices[id.toLowerCase()] = prices;
+    if (firstKey !== firstKey.toLowerCase()) for (id of Object.keys(prices)) prices[id.toLowerCase()] = prices[id];
   }
 
   return prices || (await getPrices());
