@@ -9,6 +9,8 @@ const ignoredEnchants = {
 
 const stackingEnchants = ['expertise', 'compact', 'cultivating', 'champion', 'hecatomb'];
 
+const ignoreSilex = ['promising_spade'];
+
 const masterStars = ['first_master_star', 'second_master_star', 'third_master_star', 'fourth_master_star', 'fifth_master_star'];
 
 const thunderCharge = { UNCOMMON: 0, RARE: 150000, EPIC: 1000000, LEGENDARY: 5000000 };
@@ -21,6 +23,7 @@ module.exports = {
   blockedEnchants,
   ignoredEnchants,
   stackingEnchants,
+  ignoreSilex,
   masterStars,
   thunderCharge,
   validRunes,

@@ -3,7 +3,7 @@ const { titleCase } = require('../helper/functions');
 const { getPetLevel } = require('../constants/pets');
 const { prestiges } = require('../constants/prestiges');
 const { applicationWorth, enchantsWorth } = require('../constants/applicationWorth');
-const { blockedEnchants, ignoredEnchants, stackingEnchants, masterStars, thunderCharge, validRunes, allowedRecombTypes } = require('../constants/misc');
+const { blockedEnchants, ignoredEnchants, stackingEnchants, ignoreSilex, masterStars, thunderCharge, validRunes, allowedRecombTypes } = require('../constants/misc');
 const { reforges } = require('../constants/reforges');
 const skyblockItems = require('../constants/items.json');
 
@@ -132,7 +132,7 @@ const calculateItem = (item, prices) => {
         if (stackingEnchants.includes(name)) value = 1;
 
         // SILEX
-        if (name === 'efficiency' && value > 5) {
+        if (name === 'efficiency' && value > 5 && !ignoreSilex.includes(itemId)) {
           const calculationData = {
             id: 'SIL_EX',
             type: 'silex',
