@@ -2,7 +2,7 @@
 
 ## About
 
-[SkyHelper](https://skyhelper.altpapier.dev/)'s Networth Calculation as a Node.js module to calculate a player's Skyblock networth by using their profile data provided by the [Hypixel API](https://api.hypixel.net/).
+[SkyHelper](https://skyhelper.altpapier.dev/)'s Networth Calculation as a Node.js module to calculate a player's SkyBlock networth by using their profile data provided by the [Hypixel API](https://api.hypixel.net/).
 
 ## Installation
 
