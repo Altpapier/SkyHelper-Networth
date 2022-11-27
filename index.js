@@ -7,13 +7,13 @@ const axios = require('axios');
  * Returns the networth of a profile
  * @param {object} profileData - The profile player data from the Hypixel API (profile.members[uuid])
  * @param {number} bankBalance - The player's bank balance from the Hypixel API (profile.banking?.balance)
- * @param {{ onlyNetworth: boolean, prices: object }} options - (Optional) onlyNetworth: If true, only the networth will be returned, prices: A prices object generated from the getPrices function. If not provided, the prices will be retrieved every time the function is called
+ * @param {{ cache: boolean, onlyNetworth: boolean, prices: object }} options - (Optional) cache: By default true (5 minute cache), if set to false it will always make a request to get the latest prices from github, onlyNetworth: If true, only the networth will be returned, prices: A prices object generated from the getPrices function. If not provided, the prices will be retrieved every time the function is called
  * @returns {object} - An object containing the player's networth calculation
  */
 
 const getNetworth = async (profileData, bankBalance, options) => {
   const purse = profileData.coin_purse;
-  const prices = await parsePrices(options?.prices);
+  const prices = await parsePrices(options?.prices, options?.cache);
   const items = await parseItems(profileData);
   return await calculateNetworth(items, purse, bankBalance, prices, options?.onlyNetworth);
 };
@@ -21,16 +21,16 @@ const getNetworth = async (profileData, bankBalance, options) => {
 /**
  * Returns the networth of an item
  * @param {object} item - The item the networth should be calculated for
- * @param {{ prices: object }} options - prices: A prices object generated from the getPrices function. If not provided, the prices will be retrieved every time the function is called
+ * @param {{ cache: boolean, prices: object }} options - (Optional) cache: By default true (5 minute cache), if set to false it will always make a request to get the latest prices from github, prices: A prices object generated from the getPrices function. If not provided, the prices will be retrieved every time the function is called
  * @returns {object} - An object containing the item's networth calculation
  */
 const getItemNetworth = async (item, options) => {
   if (!item?.tag && !item?.exp) throw new NetworthError('Invalid item provided');
-  const prices = await parsePrices(options?.prices);
+  const prices = await parsePrices(options?.prices, options?.cache);
   return await calculateItemNetworth(item, prices);
 };
 
-async function parsePrices(prices) {
+async function parsePrices(prices, cache) {
   try {
     if (prices) {
       const firstKey = Object.keys(prices)[0];
@@ -41,15 +41,20 @@ async function parsePrices(prices) {
     throw new NetworthError('Unable to parse prices');
   }
 
-  return prices || (await getPrices());
+  return prices || (await getPrices(cache));
 }
 
+let cachedPrices;
 /**
  * Returns the prices used in the networth calculation, optimally this can be cached and used when calling `getNetworth`
+ * @param {boolean} cache - (Optional) By default true (5 minute cache), if set to false it will always make a request to get the latest prices from github
  * @returns {object} - An object containing the prices for the items in the game from the SkyHelper Prices list
  */
-const getPrices = async () => {
+const getPrices = async (cache) => {
   try {
+    if (cachedPrices?.lastCache > Date.now() - 1000 * 60 * 5 && cache !== false) {
+      return cachedPrices.prices; // Cache for 5 minutes
+    }
     const response = await axios.get('https://raw.githubusercontent.com/SkyHelperBot/Prices/main/prices.json');
 
     // Remove this later when prices.json file is updated
@@ -59,6 +64,7 @@ const getPrices = async () => {
       for (const [item, priceObject] of Object.entries(response.data)) {
         prices[item.toLowerCase()] = priceObject.price;
       }
+      cachedPrices = { prices, lastCache: Date.now() };
       return prices;
     }
 
@@ -67,10 +73,12 @@ const getPrices = async () => {
       for (const [item, price] of Object.entries(response.data)) {
         prices[item.toLowerCase()] = price;
       }
+      cachedPrices = { prices, lastCache: Date.now() };
       return prices;
     }
     // -----------------------------
 
+    cachedPrices = { prices: response.data, lastCache: Date.now() };
     return response.data;
   } catch (err) {
     throw new PricesError(`Failed to retrieve prices with status code ${err?.response?.status || 'Unknown'}`);

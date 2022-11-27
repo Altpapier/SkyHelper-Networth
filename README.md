@@ -67,6 +67,7 @@ Returns the networth of a profile
 
 | Option       | Description                                                                                                                               |
 | ------------ | ----------------------------------------------------------------------------------------------------------------------------------------- |
+| cache        | By default true (5 minute cache), if set to false it will always make a request to get the latest prices from github                      |
 | onlyNetworth | Only return a player's networth without showing all player's items                                                                        |
 | prices       | Provide prices from the getPrices() function for the bot not to request SkyHelper's prices each time the getNetworth() function is called |
 
@@ -85,6 +86,7 @@ Returns the networth of an item
 
 | Option | Description                                                                                                                             |
 | ------ | --------------------------------------------------------------------------------------------------------------------------------------- |
+| cache  | By default true (5 minute cache), if set to false it will always make a request to get the latest prices from github                    |
 | prices | Provide prices from the getPrices() function for the bot not to request SkyHelper's prices each time the getNetworth() function is call |
 
 ### `getPrices()`
