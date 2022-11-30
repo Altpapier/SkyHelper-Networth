@@ -282,7 +282,7 @@ const calculateItem = (item, prices) => {
 
     // RECOMBS
     if (ExtraAttributes.rarity_upgrades > 0 && !ExtraAttributes.item_tier) {
-      if (ExtraAttributes.enchantments || allowedRecombTypes.includes(skyblockItem?.category)) {
+      if (ExtraAttributes.enchantments || allowedRecombTypes.includes(skyblockItem?.category) || item.tag.display?.Lore?.at(-1)?.includes('ACCESSORY')) {
         const calculationData = {
           id: 'RECOMBOBULATOR_3000',
           type: 'recombobulator_3000',
