@@ -3,7 +3,7 @@ const { titleCase } = require('../helper/functions');
 const { getPetLevel } = require('../constants/pets');
 const { prestiges } = require('../constants/prestiges');
 const { applicationWorth, enchantsWorth } = require('../constants/applicationWorth');
-const { blockedEnchants, ignoredEnchants, stackingEnchants, ignoreSilex, masterStars, thunderCharge, validRunes, allowedRecombTypes } = require('../constants/misc');
+const { blockedEnchants, ignoredEnchants, stackingEnchants, ignoreSilex, masterStars, thunderCharge, validRunes, allowedRecombTypes, allowedRecombIds } = require('../constants/misc');
 const { reforges } = require('../constants/reforges');
 const skyblockItems = require('../constants/items.json');
 
@@ -282,7 +282,7 @@ const calculateItem = (item, prices) => {
 
     // RECOMBS
     if (ExtraAttributes.rarity_upgrades > 0 && !ExtraAttributes.item_tier) {
-      if (ExtraAttributes.enchantments || allowedRecombTypes.includes(skyblockItem?.category)) {
+      if (ExtraAttributes.enchantments || allowedRecombTypes.includes(skyblockItem?.category) || allowedRecombIds.includes(itemId)) {
         const calculationData = {
           id: 'RECOMBOBULATOR_3000',
           type: 'recombobulator_3000',

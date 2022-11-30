@@ -18,6 +18,7 @@ const thunderCharge = { UNCOMMON: 0, RARE: 150000, EPIC: 1000000, LEGENDARY: 500
 const validRunes = ['MUSIC_1', 'MUSIC_2', 'MUSIC_3', 'ENCHANT_1', 'ENCHANT_2', 'ENCHANT_3', 'GRAND_SEARING_3'];
 
 const allowedRecombTypes = ['ACCESSORY', 'NECKLACE', 'GLOVES', 'BRACELET', 'BELT', 'CLOAK'];
+const allowedRecombIds = ['DIVAN_HELMET', 'DIVAN_CHESTPLATE', 'DIVAN_LEGGINGS', 'DIVAN_BOOTS'];
 
 module.exports = {
   blockedEnchants,
@@ -28,4 +29,5 @@ module.exports = {
   thunderCharge,
   validRunes,
   allowedRecombTypes,
+  allowedRecombIds,
 };
