@@ -1,6 +1,7 @@
 const applicationWorth = {
   essence: 0.75,
   prestigeItem: 1,
+  shensAuctionPrice: 0.85,
   winningBid: 1,
   silex: 0.75,
   enchants: 0.85,

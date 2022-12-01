@@ -42,6 +42,7 @@ The following list shows how much each modifier counts towards an item's worth
 - Necron Blade Scrolls: **100%**
 - Gemstone Chambers: **90%**
 - Dyes: **90%**
+- Shen's Auction Price Paid: **85%**
 
 **Pets**:
 

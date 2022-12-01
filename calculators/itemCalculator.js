@@ -93,6 +93,20 @@ const calculateItem = (item, prices) => {
       }
     }
 
+    // SHENS AUCTIONS PRICE PAID
+    if (ExtraAttributes.price && ExtraAttributes.auction !== undefined && ExtraAttributes.bid !== undefined) {
+      const pricePaid = Number(ExtraAttributes.price) * applicationWorth.shensAuctionPrice;
+      if (pricePaid > price) {
+        price = pricePaid;
+        calculation.push({
+          id: itemId,
+          type: 'shens_auction',
+          price: pricePaid,
+          count: 1,
+        });
+      }
+    }
+
     // PRICE PAYED IN DARK AUCTION
     if (ExtraAttributes.winning_bid && itemId !== 'hegemony_artifact') {
       const maxBid = itemId === 'midas_sword' ? 50_000_000 : itemId === 'midas_staff' ? 100_000_000 : Infinity;
