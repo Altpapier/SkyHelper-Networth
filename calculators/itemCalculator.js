@@ -107,17 +107,32 @@ const calculateItem = (item, prices) => {
       }
     }
 
-    // PRICE PAYED IN DARK AUCTION
-    if (ExtraAttributes.winning_bid && itemId !== 'hegemony_artifact') {
-      const maxBid = itemId === 'midas_sword' ? 50_000_000 : itemId === 'midas_staff' ? 100_000_000 : Infinity;
-      const calculationData = {
-        id: itemId,
-        type: 'winning_bid',
-        price: Math.min(ExtraAttributes.winning_bid, maxBid) * applicationWorth.winningBid,
-        count: 1,
-      };
-      price = calculationData.price;
-      calculation.push(calculationData);
+    // MIDAS WEAPONS
+    if (itemId === 'midas_staff' || itemId === 'midas_sword') {
+      const maxBid = itemId === 'midas_sword' ? 50_000_000 : 100_000_000;
+      const type = itemId === 'midas_sword' ? 'MIDAS_SWORD_50M' : 'MIDAS_STAFF_100M';
+
+      // If max price paid
+      if (ExtraAttributes.winning_bid >= maxBid) {
+        const calculationData = {
+          id: itemId,
+          type: type,
+          price: prices[type] || price,
+          count: 1,
+        };
+        price = calculationData.price;
+        calculation.push(calculationData);
+      } else {
+        // Else use winning bid amount
+        const calculationData = {
+          id: itemId,
+          type: 'winning_bid',
+          price: ExtraAttributes.winning_bid * applicationWorth.winningBid,
+          count: 1,
+        };
+        price = calculationData.price;
+        calculation.push(calculationData);
+      }
     }
 
     // ENCHANTMENTS
