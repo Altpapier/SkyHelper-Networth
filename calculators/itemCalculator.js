@@ -376,6 +376,30 @@ const calculateItem = (item, prices) => {
           });
         }
 
+        const gemstoneSlots = JSON.parse(JSON.stringify(skyblockItem.gemstone_slots));
+        for (const unlockedSlot of unlockedSlots) {
+          const slot = gemstoneSlots.find((s) => s.slot_type === unlockedSlot);
+          const slotIndex = gemstoneSlots.findIndex((s) => s.slot_type === unlockedSlot);
+          if (slotIndex > -1) {
+            let total = 0;
+            for (const cost of slot.costs || []) {
+              if (cost.type === 'COINS') total += cost.coins;
+              else if (cost.type === 'ITEM') total += (prices[cost.item_id.toLowerCase()] || 0) * cost.amount;
+            }
+
+            const calculationData = {
+              id: `${unlockedSlot}`,
+              type: 'gemstone_slot',
+              price: total * applicationWorth.gemstone_slots,
+              count: 1,
+            };
+            price += calculationData.price;
+            calculation.push(calculationData);
+
+            gemstoneSlots.splice(slotIndex, 1);
+          }
+        }
+
         for (const gemstone of gems) {
           const calculationData = {
             id: `${gemstone.tier}_${gemstone.type}_GEM`,
@@ -459,19 +483,6 @@ const calculateItem = (item, prices) => {
         price += calculationData.price;
         calculation.push(calculationData);
       }
-    }
-
-    // GEMSTONE CHAMBERS
-    if (ExtraAttributes.gemstone_slots || ['divan_chestplate', 'divan_leggings', 'divan_boots', 'divan_helmet'].includes(itemId)) {
-      const gemstoneSlotAmount = ExtraAttributes.gemstone_slots ? ExtraAttributes.gemstone_slots : ExtraAttributes.gems?.unlocked_slots ? ExtraAttributes.gems.unlocked_slots.length : 0;
-      const calculationData = {
-        id: 'GEMSTONE_CHAMBER',
-        type: 'gemstone_chamber',
-        price: (prices['gemstone_chamber'] || 0) * gemstoneSlotAmount * applicationWorth.gemstoneChamber,
-        count: gemstoneSlotAmount,
-      };
-      price += calculationData.price;
-      calculation.push(calculationData);
     }
 
     // DRILLS

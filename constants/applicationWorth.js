@@ -16,10 +16,11 @@ const applicationWorth = {
   enrichment: 0.75,
   recomb: 0.8,
   gemstone: 1,
+  // TODO: adjust to @Head Hunter's liking
+  gemstone_slots: 0.8,
   reforge: 1,
   masterStar: 1,
   necronBladeScroll: 1,
-  gemstoneChamber: 0.9,
   drillPart: 1,
   etherwarp: 1,
   thunderInABottle: 0.8,
