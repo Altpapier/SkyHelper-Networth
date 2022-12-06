@@ -3,7 +3,7 @@ const { titleCase } = require('../helper/functions');
 const { getPetLevel } = require('../constants/pets');
 const { prestiges } = require('../constants/prestiges');
 const { applicationWorth, enchantsWorth } = require('../constants/applicationWorth');
-const { blockedEnchants, ignoredEnchants, stackingEnchants, ignoreSilex, masterStars, thunderCharge, validRunes, allowedRecombTypes, allowedRecombIds } = require('../constants/misc');
+const { blockedEnchants, ignoredEnchants, stackingEnchants, ignoreSilex, masterStars, thunderCharge, validRunes, allowedRecombTypes, allowedRecombIds, attributesBaseCosts } = require('../constants/misc');
 const { reforges } = require('../constants/reforges');
 const skyblockItems = require('../constants/items.json');
 
@@ -182,6 +182,28 @@ const calculateItem = (item, prices) => {
           price += calculationData.price;
           calculation.push(calculationData);
         }
+      }
+    }
+
+    if (ExtraAttributes.attributes) {
+      for (const [attribute, tier] of Object.entries(ExtraAttributes.attributes)) {
+        if (tier === 1) continue;
+        // Base price times the amount needed to get that tier which is 2^tier - 1 because of the base item
+        const shards = 2 ** (tier - 1) - 1;
+        let baseAttributePrice = prices[`attribute_shard_${attribute}`];
+        if (attributesBaseCosts[itemId] && prices[attributesBaseCosts[itemId]] < baseAttributePrice) {
+          baseAttributePrice = prices[attributesBaseCosts[itemId]];
+        }
+        const attributePrice = baseAttributePrice * shards * applicationWorth.attributes;
+
+        price += attributePrice;
+        calculation.push({
+          id: `${attribute}_${tier}`.toUpperCase(),
+          type: 'attribute',
+          price: attributePrice,
+          count: 1,
+          shards,
+        });
       }
     }
 

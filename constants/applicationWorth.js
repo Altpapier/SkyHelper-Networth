@@ -26,6 +26,7 @@ const applicationWorth = {
   runes: 0.6,
   petItem: 1,
   petCandy: 0.65,
+  attributes: 1,
 };
 
 const enchantsWorth = {
