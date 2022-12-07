@@ -376,6 +376,8 @@ const calculateItem = (item, prices) => {
           });
         }
 
+        // UNLOCKED GEMSTONE SLOTS
+        // Currently just gemstone chambers
         if (['divan_helmet', 'divan_chestplate', 'divan_leggings', 'divan_boots'].includes(itemId)) {
           const gemstoneSlots = JSON.parse(JSON.stringify(skyblockItem.gemstone_slots));
           for (const unlockedSlot of unlockedSlots) {
@@ -402,6 +404,7 @@ const calculateItem = (item, prices) => {
           }
         }
 
+        // GEMSTONES
         for (const gemstone of gems) {
           const calculationData = {
             id: `${gemstone.tier}_${gemstone.type}_GEM`,
