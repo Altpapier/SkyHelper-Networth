@@ -19,6 +19,9 @@ The following list shows how much each modifier counts towards an item's worth
 - Enchantments: **85%**
   → Overload, Soul Eater, Inferno, Fatal Tempo: **35%**
   → Counter Strike: **20%**
+- Attributes: **100%**
+  → Based off the corresponding attribute shard's price
+  → Lava Fishing rods and Crimson Hunter set use their base item's price instead
 - Hot Potato Books: **100%**
 - Fuming Potato Books: **60%**
 - Art of War: **60%**

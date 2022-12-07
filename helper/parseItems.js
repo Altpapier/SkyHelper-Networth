@@ -1,6 +1,7 @@
 const { parse, simplify } = require('prismarine-nbt');
 const { promisify } = require('util');
 const { getPetLevel } = require('../constants/pets');
+const { titleCase } = require('./functions');
 const parseNbt = promisify(parse);
 
 const singleContainers = {
@@ -22,6 +23,11 @@ const parseItems = async (profileData) => {
     for (const [id, amount] of Object.entries(profileData.sacks_counts)) {
       if (amount) items.sacks.push({ id, amount });
     }
+  }
+
+  // Parse Essence
+  for (const id of Object.keys(profileData)) {
+    if (id.startsWith('essence_')) items.sacks.push({ id, amount: profileData[id], name: `${titleCase(id.split('_')[1])} Essence` });
   }
 
   // Parse Single Containers (Armor, Equipment, Wardrobe, Inventory, Enderchest, Personal Vault)

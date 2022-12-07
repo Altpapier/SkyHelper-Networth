@@ -16,16 +16,17 @@ const applicationWorth = {
   enrichment: 0.75,
   recomb: 0.8,
   gemstone: 1,
+  gemstoneSlots: 0.9,
   reforge: 1,
   masterStar: 1,
   necronBladeScroll: 1,
-  gemstoneChamber: 0.9,
   drillPart: 1,
   etherwarp: 1,
   thunderInABottle: 0.8,
   runes: 0.6,
   petItem: 1,
   petCandy: 0.65,
+  attributes: 1,
 };
 
 const enchantsWorth = {

@@ -3,7 +3,7 @@ const { titleCase } = require('../helper/functions');
 const { getPetLevel } = require('../constants/pets');
 const { prestiges } = require('../constants/prestiges');
 const { applicationWorth, enchantsWorth } = require('../constants/applicationWorth');
-const { blockedEnchants, ignoredEnchants, stackingEnchants, ignoreSilex, masterStars, thunderCharge, validRunes, allowedRecombTypes, allowedRecombIds } = require('../constants/misc');
+const { blockedEnchants, ignoredEnchants, stackingEnchants, ignoreSilex, masterStars, thunderCharge, validRunes, allowedRecombTypes, allowedRecombIds, attributesBaseCosts } = require('../constants/misc');
 const { reforges } = require('../constants/reforges');
 const skyblockItems = require('../constants/items.json');
 
@@ -185,6 +185,28 @@ const calculateItem = (item, prices) => {
       }
     }
 
+    if (ExtraAttributes.attributes) {
+      for (const [attribute, tier] of Object.entries(ExtraAttributes.attributes)) {
+        if (tier === 1) continue;
+        // Base price times the amount needed to get that tier which is 2^tier - 1 because of the base item
+        const shards = 2 ** (tier - 1) - 1;
+        let baseAttributePrice = prices[`attribute_shard_${attribute}`];
+        if (attributesBaseCosts[itemId] && prices[attributesBaseCosts[itemId]] < baseAttributePrice) {
+          baseAttributePrice = prices[attributesBaseCosts[itemId]];
+        }
+        const attributePrice = baseAttributePrice * shards * applicationWorth.attributes;
+
+        price += attributePrice;
+        calculation.push({
+          id: `${attribute}_${tier}`.toUpperCase(),
+          type: 'attribute',
+          price: attributePrice,
+          count: 1,
+          shards,
+        });
+      }
+    }
+
     // WOOD SINGULARITY
     if (ExtraAttributes.wood_singularity_count) {
       const calculationData = {
@@ -354,6 +376,35 @@ const calculateItem = (item, prices) => {
           });
         }
 
+        // UNLOCKED GEMSTONE SLOTS
+        // Currently just gemstone chambers
+        if (['divan_helmet', 'divan_chestplate', 'divan_leggings', 'divan_boots'].includes(itemId)) {
+          const gemstoneSlots = JSON.parse(JSON.stringify(skyblockItem.gemstone_slots));
+          for (const unlockedSlot of unlockedSlots) {
+            const slot = gemstoneSlots.find((s) => s.slot_type === unlockedSlot);
+            const slotIndex = gemstoneSlots.findIndex((s) => s.slot_type === unlockedSlot);
+            if (slotIndex > -1) {
+              let total = 0;
+              for (const cost of slot.costs || []) {
+                if (cost.type === 'COINS') total += cost.coins;
+                else if (cost.type === 'ITEM') total += (prices[cost.item_id.toLowerCase()] || 0) * cost.amount;
+              }
+
+              const calculationData = {
+                id: `${unlockedSlot}`,
+                type: 'gemstone_slot',
+                price: total * applicationWorth.gemstoneSlots,
+                count: 1,
+              };
+              price += calculationData.price;
+              calculation.push(calculationData);
+
+              gemstoneSlots.splice(slotIndex, 1);
+            }
+          }
+        }
+
+        // GEMSTONES
         for (const gemstone of gems) {
           const calculationData = {
             id: `${gemstone.tier}_${gemstone.type}_GEM`,
@@ -437,19 +488,6 @@ const calculateItem = (item, prices) => {
         price += calculationData.price;
         calculation.push(calculationData);
       }
-    }
-
-    // GEMSTONE CHAMBERS
-    if (ExtraAttributes.gemstone_slots || ['divan_chestplate', 'divan_leggings', 'divan_boots', 'divan_helmet'].includes(itemId)) {
-      const gemstoneSlotAmount = ExtraAttributes.gemstone_slots ? ExtraAttributes.gemstone_slots : ExtraAttributes.gems?.unlocked_slots ? ExtraAttributes.gems.unlocked_slots.length : 0;
-      const calculationData = {
-        id: 'GEMSTONE_CHAMBER',
-        type: 'gemstone_chamber',
-        price: (prices['gemstone_chamber'] || 0) * gemstoneSlotAmount * applicationWorth.gemstoneChamber,
-        count: gemstoneSlotAmount,
-      };
-      price += calculationData.price;
-      calculation.push(calculationData);
     }
 
     // DRILLS
