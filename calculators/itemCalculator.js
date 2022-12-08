@@ -5,7 +5,7 @@ const { prestiges } = require('../constants/prestiges');
 const { applicationWorth, enchantsWorth } = require('../constants/applicationWorth');
 const { blockedEnchants, ignoredEnchants, stackingEnchants, ignoreSilex, masterStars, thunderCharge, validRunes, allowedRecombTypes, allowedRecombIds, attributesBaseCosts } = require('../constants/misc');
 const { reforges } = require('../constants/reforges');
-const skyblockItems = require('../constants/items.json');
+const { getHypixelItemInformationFromId } = require("../constants/itemsMap")
 
 const calculateItem = (item, prices) => {
   // TODO: Implement Backpack Calculations
@@ -22,7 +22,7 @@ const calculateItem = (item, prices) => {
     let itemName = item.tag.display.Name.replace(/§[0-9a-fk-or]/gi, '');
     let itemId = item.tag.ExtraAttributes.id.toLowerCase();
     const ExtraAttributes = item.tag.ExtraAttributes;
-    const skyblockItem = skyblockItems.find((i) => i.id === itemId.toUpperCase());
+    const skyblockItem = getHypixelItemInformationFromId(itemId.toUpperCase())
 
     if (ExtraAttributes.skin) {
       itemId += `_skinned_${ExtraAttributes.skin.toLowerCase()}`;
@@ -59,7 +59,7 @@ const calculateItem = (item, prices) => {
       const prestige = prestiges[itemId.toUpperCase()];
       if (prestige) {
         for (const prestigeItem of prestige) {
-          const foundItem = skyblockItems.find((i) => i.id === prestigeItem);
+          const foundItem = getHypixelItemInformationFromId(prestigeItem)
           if (isNaN(price)) price = 0;
 
           if (foundItem?.upgrade_costs) {
