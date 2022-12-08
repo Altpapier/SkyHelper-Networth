@@ -22,7 +22,7 @@ const calculateItem = (item, prices) => {
     let itemName = item.tag.display.Name.replace(/§[0-9a-fk-or]/gi, '');
     let itemId = item.tag.ExtraAttributes.id.toLowerCase();
     const ExtraAttributes = item.tag.ExtraAttributes;
-    const skyblockItem = skyblockItems.find((i) => i.id === itemId.toUpperCase());
+    const skyblockItem = skyblockItems[itemId.toUpperCase()];
 
     if (ExtraAttributes.skin) {
       itemId += `_skinned_${ExtraAttributes.skin.toLowerCase()}`;
@@ -31,7 +31,7 @@ const calculateItem = (item, prices) => {
     if (['Beastmaster Crest', 'Griffin Upgrade Stone', 'Wisp Upgrade Stone'].includes(itemName)) {
       itemName = `${itemName} (${skyblockItem.tier ? titleCase(skyblockItem.tier.replaceAll('_', ' ')) : 'Unknown'})`;
     } else if (itemName.endsWith(' Exp Boost')) {
-      itemName = `${itemName} (${skyblockItem.id ? titleCase(skyblockItem.id.split('_').at(-1)) : 'Unknown'})`;
+      itemName = `${itemName} (${skyblockItem ? titleCase(itemId.toUpperCase().split('_').at(-1)) : 'Unknown'})`;
     }
 
     // RUNES (Item)
@@ -59,7 +59,7 @@ const calculateItem = (item, prices) => {
       const prestige = prestiges[itemId.toUpperCase()];
       if (prestige) {
         for (const prestigeItem of prestige) {
-          const foundItem = skyblockItems.find((i) => i.id === prestigeItem);
+          const foundItem = skyblockItems[prestigeItem];
           if (isNaN(price)) price = 0;
 
           if (foundItem?.upgrade_costs) {
@@ -185,6 +185,7 @@ const calculateItem = (item, prices) => {
       }
     }
 
+    // ATTRIBUTES
     if (ExtraAttributes.attributes) {
       for (const [attribute, tier] of Object.entries(ExtraAttributes.attributes)) {
         if (tier === 1) continue;
