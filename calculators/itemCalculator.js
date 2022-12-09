@@ -1,5 +1,5 @@
 const { calculatePet } = require('./petCalculator');
-const { titleCase, decodeData } = require('../helper/functions');
+const { titleCase } = require('../helper/functions');
 const { getPetLevel } = require('../constants/pets');
 const { prestiges } = require('../constants/prestiges');
 const { applicationWorth, enchantsWorth } = require('../constants/applicationWorth');
@@ -7,7 +7,7 @@ const { blockedEnchants, ignoredEnchants, stackingEnchants, ignoreSilex, masterS
 const { reforges } = require('../constants/reforges');
 const { getHypixelItemInformationFromId } = require('../constants/itemsMap');
 
-const calculateItem = async (item, prices) => {
+const calculateItem = (item, prices) => {
   // TODO: Implement Backpack Calculations
 
   if (item.tag?.ExtraAttributes?.id === 'PET' && item.tag?.ExtraAttributes?.petInfo) {
@@ -519,15 +519,9 @@ const calculateItem = async (item, prices) => {
     }
 
     // NEW YEAR CAKE BAG
-    if (ExtraAttributes.new_year_cake_bag_data) {
-      const cakes = await decodeData(ExtraAttributes.new_year_cake_bag_data);
+    if (ExtraAttributes.new_year_cake_bag_years) {
       let cakesPrice = 0;
-
-      for (const cake of cakes) {
-        if (cake.id && cake.tag?.ExtraAttributes?.new_years_cake) {
-          cakesPrice += prices[`new_year_cake_${cake.tag.ExtraAttributes.new_years_cake}`] || 0;
-        }
-      }
+      for (const year of ExtraAttributes.new_year_cake_bag_years) cakesPrice += prices[`new_year_cake_${year}`] || 0;
 
       const calculationData = {
         id: `NEW_YEAR_CAKES`,

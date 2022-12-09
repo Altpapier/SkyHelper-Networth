@@ -14,20 +14,6 @@ const singleContainers = {
 const parseItems = async (profileData) => {
   const items = {};
 
-  // Parse Sacks
-  items.sacks = [];
-  if (profileData.sacks_counts) {
-    for (const [id, amount] of Object.entries(profileData.sacks_counts)) {
-      if (amount) items.sacks.push({ id, amount });
-    }
-  }
-
-  // Parse Essence
-  items.essence = [];
-  for (const id of Object.keys(profileData)) {
-    if (id.startsWith('essence_')) items.essence.push({ id, amount: profileData[id] });
-  }
-
   // Parse Single Containers (Armor, Equipment, Wardrobe, Inventory, Enderchest, Personal Vault)
   for (const [container, key] of Object.entries(singleContainers)) {
     items[container] = [];
@@ -52,6 +38,38 @@ const parseItems = async (profileData) => {
     items.storage = items.storage.flat();
   }
 
+  await postParseItems(profileData, items);
+
+  return items;
+};
+
+const postParseItems = async (profileData, items) => {
+  // Parse Cake Bags
+  for (const categoryItems of Object.values(items)) {
+    for (item of categoryItems) {
+      if (!item.tag?.ExtraAttributes?.new_year_cake_bag_data) continue;
+      const cakes = await decodeData(item.tag?.ExtraAttributes?.new_year_cake_bag_data);
+      if (item?.tag?.ExtraAttributes) {
+        item.tag.ExtraAttributes.new_year_cake_bag_years = cakes.filter((cake) => cake.id && cake.tag?.ExtraAttributes?.new_years_cake).map((cake) => cake.tag.ExtraAttributes.new_years_cake);
+      }
+    }
+  }
+
+  // Parse Sacks
+  items.sacks = [];
+  if (profileData.sacks_counts) {
+    for (const [id, amount] of Object.entries(profileData.sacks_counts)) {
+      if (amount) items.sacks.push({ id, amount });
+    }
+  }
+
+  // Parse Essence
+  items.essence = [];
+  for (const id of Object.keys(profileData)) {
+    if (id.startsWith('essence_')) items.essence.push({ id, amount: profileData[id] });
+  }
+
+  // Parse Pets
   items.pets = [];
   if (profileData.pets) {
     for (const pet of profileData.pets) {
@@ -61,10 +79,9 @@ const parseItems = async (profileData) => {
       items.pets.push(pet);
     }
   }
-
-  return items;
 };
 
 module.exports = {
   parseItems,
+  postParseItems,
 };
