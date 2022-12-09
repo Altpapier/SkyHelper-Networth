@@ -1,9 +1,10 @@
 const { calculatePet } = require('../calculators/petCalculator');
 const { calculateSackItem } = require('../calculators/sacksCalculator');
+const { calculateEssence } = require('../calculators/essenceCalculator');
 const { calculateItem } = require('../calculators/itemCalculator');
 const { getPetLevel } = require('../constants/pets');
 
-const calculateNetworth = async (items, purseBalance, bankBalance, prices, onlyNetworth) => {
+const calculateNetworth = (items, purseBalance, bankBalance, prices, onlyNetworth) => {
   const categories = {};
 
   for (const [category, categoryItems] of Object.entries(items)) {
@@ -11,7 +12,7 @@ const calculateNetworth = async (items, purseBalance, bankBalance, prices, onlyN
     categories[category] = { total: 0, unsoulboundTotal: 0, items: [] };
 
     for (const item of categoryItems) {
-      const result = category === 'pets' ? calculatePet(item, prices) : category === 'sacks' ? calculateSackItem(item, prices) : calculateItem(item, prices);
+      const result = category === 'pets' ? calculatePet(item, prices) : category === 'sacks' ? calculateSackItem(item, prices) : category === 'essence' ? calculateEssence(item, prices) : calculateItem(item, prices);
 
       categories[category].total += result?.price || 0;
       if (!result?.soulbound) categories[category].unsoulboundTotal += result?.price || 0;

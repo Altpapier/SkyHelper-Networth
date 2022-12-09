@@ -67,6 +67,19 @@ Returns the networth of a profile
 | bankBalance | The player's bank balance from the Hypixel API `profile.banking?.balance` |
 | options     | See table below                                                           |
 
+### `getPreDecodedNetworth()`
+
+Returns the networth of a profile using pre-decoded items (used to save resources if you already have decoded the profile's inventories)
+
+#### Arguments
+
+| Argument    | Description                                                                                                                      |
+| ----------- | -------------------------------------------------------------------------------------------------------------------------------- |
+| profileData | The profile player data from the Hypixel API `profile.members[uuid]`                                                             |
+| items       | Decoded and simplified inventories `{ armor, equipment, wardrobe, inventory, enderchest, accessories, personal_vault, storage }` |
+| bankBalance | The player's bank balance from the Hypixel API `profile.banking?.balance`                                                        |
+| options     | See table below                                                                                                                  |
+
 ##### `options`
 
 | Option       | Description                                                                                                                               |
