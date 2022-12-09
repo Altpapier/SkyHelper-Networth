@@ -1,8 +1,5 @@
-const { parse, simplify } = require('prismarine-nbt');
-const { promisify } = require('util');
 const { getPetLevel } = require('../constants/pets');
-const { titleCase } = require('./functions');
-const parseNbt = promisify(parse);
+const { decodeData } = require('../helper/functions');
 
 const singleContainers = {
   armor: 'inv_armor',
@@ -26,15 +23,16 @@ const parseItems = async (profileData) => {
   }
 
   // Parse Essence
+  items.essence = [];
   for (const id of Object.keys(profileData)) {
-    if (id.startsWith('essence_')) items.sacks.push({ id, amount: profileData[id], name: `${titleCase(id.split('_')[1])} Essence` });
+    if (id.startsWith('essence_')) items.essence.push({ id, amount: profileData[id] });
   }
 
   // Parse Single Containers (Armor, Equipment, Wardrobe, Inventory, Enderchest, Personal Vault)
   for (const [container, key] of Object.entries(singleContainers)) {
     items[container] = [];
     if (profileData[key]) {
-      items[container] = await parseContainer(profileData[key].data);
+      items[container] = await decodeData(profileData[key].data);
     }
   }
 
@@ -43,12 +41,12 @@ const parseItems = async (profileData) => {
   if (profileData.backpack_contents && profileData.backpack_icons) {
     // Parse Storage Contents
     for (const backpackContent of Object.values(profileData.backpack_contents)) {
-      items.storage.push(await parseContainer(backpackContent.data));
+      items.storage.push(await decodeData(backpackContent.data));
     }
 
     // Parse Storage Backpacks
     for (const backpack of Object.values(profileData.backpack_icons)) {
-      items.storage.push(await parseContainer(backpack.data));
+      items.storage.push(await decodeData(backpack.data));
     }
 
     items.storage = items.storage.flat();
@@ -65,24 +63,6 @@ const parseItems = async (profileData) => {
   }
 
   return items;
-};
-
-const parseContainer = async (data) => {
-  const decoded = await decodeData(data);
-  for (item of decoded) {
-    if (!item.tag?.ExtraAttributes?.new_year_cake_bag_data) continue;
-    const cakes = await decodeData(item.tag?.ExtraAttributes?.new_year_cake_bag_data);
-    if (item?.tag?.ExtraAttributes) {
-      item.tag.ExtraAttributes.new_year_cake_bag_years = cakes.filter((cake) => cake.id && cake.tag?.ExtraAttributes?.new_years_cake).map((cake) => cake.tag.ExtraAttributes.new_years_cake);
-    }
-  }
-  return decoded;
-};
-
-const decodeData = async (data) => {
-  const parsedNbt = await parseNbt(Buffer.from(data, 'base64'));
-  const simplifiedNbt = simplify(parsedNbt);
-  return simplifiedNbt.i;
 };
 
 module.exports = {

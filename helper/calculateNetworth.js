@@ -1,5 +1,6 @@
 const { calculatePet } = require('../calculators/petCalculator');
 const { calculateSackItem } = require('../calculators/sacksCalculator');
+const { calculateEssence } = require('../calculators/essenceCalculator');
 const { calculateItem } = require('../calculators/itemCalculator');
 const { getPetLevel } = require('../constants/pets');
 
@@ -11,7 +12,8 @@ const calculateNetworth = async (items, purseBalance, bankBalance, prices, onlyN
     categories[category] = { total: 0, unsoulboundTotal: 0, items: [] };
 
     for (const item of categoryItems) {
-      const result = category === 'pets' ? calculatePet(item, prices) : category === 'sacks' ? calculateSackItem(item, prices) : calculateItem(item, prices);
+      const result =
+        category === 'pets' ? calculatePet(item, prices) : category === 'sacks' ? calculateSackItem(item, prices) : category === 'essence' ? calculateEssence(item, prices) : await calculateItem(item, prices);
 
       categories[category].total += result?.price || 0;
       if (!result?.soulbound) categories[category].unsoulboundTotal += result?.price || 0;
@@ -54,7 +56,7 @@ const calculateNetworth = async (items, purseBalance, bankBalance, prices, onlyN
   };
 };
 
-const calculateItemNetworth = (item, prices) => {
+const calculateItemNetworth = async (item, prices) => {
   const isPet = item.tag?.ExtraAttributes?.petInfo || item.exp;
   if (isPet) {
     const petInfo = item.tag?.ExtraAttributes?.petInfo ? JSON.parse(item.tag.ExtraAttributes.petInfo) : item;
@@ -63,7 +65,7 @@ const calculateItemNetworth = (item, prices) => {
     petInfo.xpMax = level.xpMax;
     return calculatePet(petInfo, prices);
   }
-  return calculateItem(item, prices);
+  return await calculateItem(item, prices);
 };
 
 module.exports = {

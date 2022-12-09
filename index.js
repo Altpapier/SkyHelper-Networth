@@ -8,13 +8,37 @@ const axios = require('axios');
  * @param {object} profileData - The profile player data from the Hypixel API (profile.members[uuid])
  * @param {number} bankBalance - The player's bank balance from the Hypixel API (profile.banking?.balance)
  * @param {{ cache: boolean, onlyNetworth: boolean, prices: object }} options - (Optional) cache: By default true (5 minute cache), if set to false it will always make a request to get the latest prices from github, onlyNetworth: If true, only the networth will be returned, prices: A prices object generated from the getPrices function. If not provided, the prices will be retrieved every time the function is called
- * @returns {object} - An object containing the player's networth calculation
+ * @returns An object containing the player's networth calculation
  */
-
 const getNetworth = async (profileData, bankBalance, options) => {
   const purse = profileData.coin_purse;
   const prices = await parsePrices(options?.prices, options?.cache);
   const items = await parseItems(profileData);
+  return await calculateNetworth(items, purse, bankBalance, prices, options?.onlyNetworth);
+};
+
+/**
+ * Returns the networth of a profile using pre-decoded items
+ * @param {{
+ *          sacks: [{ id: string, amount: number }],
+ *          essence: [{ id: string, amount: number }],
+ *          armor: [],
+ *          equipment: [],
+ *          wardrobe: [],
+ *          inventory: [],
+ *          enderchest: [],
+ *          accessories: [],
+ *          personal_vault: [],
+ *          storage: [],
+ *          pets: [{ type: string, exp: number, tier: string, heldItem: string, candyUsed: number, skin: string, level: number, xpMax: number }]
+ *        }} items - Pre-parsed inventories, most inventories are just decoded except for sacks, essence, and pets which are parsed specifically as listed above
+ * @param {number} purse - The player's purse from the Hypixel API (profile.members[uuid].coin_purse)
+ * @param {number} bankBalance - The player's bank balance from the Hypixel API (profile.banking?.balance)
+ * @param {{ cache: boolean, onlyNetworth: boolean, prices: object }} options - (Optional) cache: By default true (5 minute cache), if set to false it will always make a request to get the latest prices from github, onlyNetworth: If true, only the networth will be returned, prices: A prices object generated from the getPrices function. If not provided, the prices will be retrieved every time the function is called
+ * @returns An object containing the player's networth calculation
+ */
+const getPreDecodedNetworth = async (items, purse, bankBalance, options) => {
+  const prices = await parsePrices(options?.prices, options?.cache);
   return await calculateNetworth(items, purse, bankBalance, prices, options?.onlyNetworth);
 };
 
@@ -87,6 +111,7 @@ const getPrices = async (cache) => {
 
 module.exports = {
   getNetworth,
+  getPreDecodedNetworth,
   getItemNetworth,
   getPrices,
 };

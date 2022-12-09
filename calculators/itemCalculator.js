@@ -1,13 +1,13 @@
 const { calculatePet } = require('./petCalculator');
-const { titleCase } = require('../helper/functions');
+const { titleCase, decodeData } = require('../helper/functions');
 const { getPetLevel } = require('../constants/pets');
 const { prestiges } = require('../constants/prestiges');
 const { applicationWorth, enchantsWorth } = require('../constants/applicationWorth');
 const { blockedEnchants, ignoredEnchants, stackingEnchants, ignoreSilex, masterStars, thunderCharge, validRunes, allowedRecombTypes, allowedRecombIds, attributesBaseCosts } = require('../constants/misc');
 const { reforges } = require('../constants/reforges');
-const { getHypixelItemInformationFromId } = require("../constants/itemsMap")
+const { getHypixelItemInformationFromId } = require('../constants/itemsMap');
 
-const calculateItem = (item, prices) => {
+const calculateItem = async (item, prices) => {
   // TODO: Implement Backpack Calculations
 
   if (item.tag?.ExtraAttributes?.id === 'PET' && item.tag?.ExtraAttributes?.petInfo) {
@@ -22,7 +22,7 @@ const calculateItem = (item, prices) => {
     let itemName = item.tag.display.Name.replace(/§[0-9a-fk-or]/gi, '');
     let itemId = item.tag.ExtraAttributes.id.toLowerCase();
     const ExtraAttributes = item.tag.ExtraAttributes;
-    const skyblockItem = getHypixelItemInformationFromId(itemId.toUpperCase())
+    const skyblockItem = getHypixelItemInformationFromId(itemId.toUpperCase());
 
     if (ExtraAttributes.skin) {
       itemId += `_skinned_${ExtraAttributes.skin.toLowerCase()}`;
@@ -59,7 +59,7 @@ const calculateItem = (item, prices) => {
       const prestige = prestiges[itemId.toUpperCase()];
       if (prestige) {
         for (const prestigeItem of prestige) {
-          const foundItem = getHypixelItemInformationFromId(prestigeItem)
+          const foundItem = getHypixelItemInformationFromId(prestigeItem);
           if (isNaN(price)) price = 0;
 
           if (foundItem?.upgrade_costs) {
@@ -519,9 +519,15 @@ const calculateItem = (item, prices) => {
     }
 
     // NEW YEAR CAKE BAG
-    if (ExtraAttributes.new_year_cake_bag_years) {
+    if (ExtraAttributes.new_year_cake_bag_data) {
+      const cakes = await decodeData(ExtraAttributes.new_year_cake_bag_data);
       let cakesPrice = 0;
-      for (const year of ExtraAttributes.new_year_cake_bag_years) cakesPrice += prices[`new_year_cake_${year}`] || 0;
+
+      for (const cake of cakes) {
+        if (cake.id && cake.tag?.ExtraAttributes?.new_years_cake) {
+          cakesPrice += prices[`new_year_cake_${cake.tag.ExtraAttributes.new_years_cake}`] || 0;
+        }
+      }
 
       const calculationData = {
         id: `NEW_YEAR_CAKES`,

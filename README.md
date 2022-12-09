@@ -67,6 +67,28 @@ Returns the networth of a profile
 | bankBalance | The player's bank balance from the Hypixel API `profile.banking?.balance` |
 | options     | See table below                                                           |
 
+### `getPreDecodedNetworth()`
+
+Returns the networth of a profile using pre-decoded items (used to save resources if you already have decoded the profile's inventories)
+
+#### Arguments
+
+| Argument    | Description                                                                                                                                 |
+| ----------- | ------------------------------------------------------------------------------------------------------------------------------------------- |
+| items       | Pre-parsed inventories, most inventories are just decoded except for sacks, essence, and pets which are parsed specifically as listed below |
+| purse       | The player's purse from the Hypixel API `profile.members[uuid].coin_purse`                                                                  |
+| bankBalance | The player's bank balance from the Hypixel API `profile.banking?.balance`                                                                   |
+| options     | See table below                                                                                                                             |
+
+##### `items`
+
+| Key                                                                                         | Value                                                                                          |
+| ------------------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------------------- |
+| sacks                                                                                       | Item Id and amount for each sack item from `sacks_counts`: `[{ id: string, amount: number }] ` |
+| essence                                                                                     | Essence Id and the amount of that essence`[{ id: string, amount: number }]`                    |
+| armor, equipment, wardrobe, inventory, enderchest, accessories, personal_vault, and storage | All these keys are the NBT decoded values for the corresponding data                           |
+| pets                                                                                        | Normal pet data plus `level` and `xpMax` keys: `[{ ...pet, level: number, xpMax: number }]`    |
+
 ##### `options`
 
 | Option       | Description                                                                                                                               |
