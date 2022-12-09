@@ -358,7 +358,7 @@ const calculateItem = (item, prices) => {
             if (slot.costs && ExtraAttributes.gems.unlocked_slots) {
               for (const [index, type] of ExtraAttributes.gems.unlocked_slots.entries()) {
                 if (type.startsWith(slot.slot_type)) {
-                  unlockedSlots.push(slot.slot_typ);
+                  unlockedSlots.push(slot.slot_type);
                   ExtraAttributes.gems.unlocked_slots.slice(Number(index), 1);
                   break;
                 }
