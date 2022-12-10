@@ -29,6 +29,9 @@ const getNetworth = async (profileData, bankBalance, options) => {
  *          accessories: [],
  *          personal_vault: [],
  *          storage: [],
+ *          fishing_bag: [],
+ *          potion_bag: [],
+ *          candy_inventory: [],
  *        }} items - Pre-parsed inventories, most inventories are just decoded except for sacks, essence, and pets which are parsed specifically as listed above
  * @param {number} bankBalance - The player's bank balance from the Hypixel API (profile.banking?.balance)
  * @param {{ cache: boolean, onlyNetworth: boolean, prices: object }} options - (Optional) cache: By default true (5 minute cache), if set to false it will always make a request to get the latest prices from github, onlyNetworth: If true, only the networth will be returned, prices: A prices object generated from the getPrices function. If not provided, the prices will be retrieved every time the function is called
