@@ -11,7 +11,7 @@ const calculateItem = (item, prices) => {
   // TODO: Implement Backpack Calculations
 
   if (item.tag?.ExtraAttributes?.id === 'PET' && item.tag?.ExtraAttributes?.petInfo) {
-    const petInfo = JSON.parse(item.tag.ExtraAttributes.petInfo);
+    const petInfo = typeof item.tag.ExtraAttributes.petInfo === 'string' ? JSON.parse(item.tag.ExtraAttributes.petInfo) : item.tag.ExtraAttributes.petInfo;
     const level = getPetLevel(petInfo);
     petInfo.level = level.level;
     petInfo.xpMax = level.xpMax;
