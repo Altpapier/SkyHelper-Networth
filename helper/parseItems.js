@@ -9,6 +9,9 @@ const singleContainers = {
   enderchest: 'ender_chest_contents',
   accessories: 'talisman_bag',
   personal_vault: 'personal_vault_contents',
+  fishing_bag: 'fishing_bag',
+  potion_bag: 'potion_bag',
+  candy_inventory: 'candy_inventory_contents',
 };
 
 const parseItems = async (profileData) => {
