@@ -193,7 +193,14 @@ const calculateItem = (item, prices) => {
         let baseAttributePrice = prices[`attribute_shard_${attribute}`];
         if (attributesBaseCosts[itemId] && prices[attributesBaseCosts[itemId]] < baseAttributePrice) {
           baseAttributePrice = prices[attributesBaseCosts[itemId]];
+        } else if (/^(|hot_|fiery_|burning_|infernal_)(aurora|crimson|terror|hollow|fervor)_helmet$/.test(itemId) && prices[`kuudra_helmet_${attribute}`] < baseAttributePrice) {
+          baseAttributePrice = prices[`kuudra_helmet_${attribute}`];
+        } else if (/^(|hot_|fiery_|burning_|infernal_)(aurora|crimson|terror|hollow|fervor)(_chestplate|_leggings|_boots)$/.test(itemId)) {
+          const kuudraPrices = [prices[`kuudra_chestplate_${attribute}`], prices[`kuudra_leggings_${attribute}`], prices[`kuudra_boots_${attribute}`]].filter((v) => v);
+          const kuudraPrice = kuudraPrices.reduce((a, b) => a + b, 0) / kuudraPrices.length;
+          if (kuudraPrice && (!baseAttributePrice || kuudraPrice < baseAttributePrice)) baseAttributePrice = kuudraPrice;
         }
+        if (!baseAttributePrice) continue;
         const attributePrice = baseAttributePrice * shards * applicationWorth.attributes;
 
         price += attributePrice;
@@ -533,6 +540,8 @@ const calculateItem = (item, prices) => {
       price += calculationData.price;
       calculation.push(calculationData);
     }
+
+    if (itemId.includes('burning_aurora')) console.log(calculation);
 
     const isSoulbound = !!(ExtraAttributes.donated_museum || item.tag.display?.Lore?.includes('§8§l* §8Co-op Soulbound §8§l*') || item.tag.display?.Lore?.includes('§8§l* §8Soulbound §8§l*'));
     return { name: itemName, loreName: item.tag.display.Name, id: itemId, price, base, calculation, count: item.Count || 1, soulbound: isSoulbound };
