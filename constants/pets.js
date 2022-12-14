@@ -21,7 +21,7 @@ const tiers = ['COMMON', 'UNCOMMON', 'RARE', 'EPIC', 'LEGENDARY', 'MYTHIC', 'DIV
 
 const getPetLevel = (pet) => {
   const maxPetLevel = specialLevels[pet.type] ? specialLevels[pet.type] : 100;
-  const petOffset = rarityOffset[pet.tier];
+  const petOffset = rarityOffset[pet.type == 'BINGO' ? 'COMMON' : pet.tier];
   const petLevels = levels.slice(petOffset, petOffset + maxPetLevel - 1);
 
   let level = 1;
