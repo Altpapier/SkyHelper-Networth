@@ -33,7 +33,7 @@ const enchantsWorth = {
   overload: 0.35,
   ultimate_soul_eater: 0.35,
   ultimate_inferno: 0.35,
-  ultimate_fatal_tempo: 0.35,
+  ultimate_fatal_tempo: 0.65,
   big_brain: 0.35,
   counter_strike: 0.2,
 };

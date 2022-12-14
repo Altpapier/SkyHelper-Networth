@@ -17,7 +17,8 @@ The following list shows how much each modifier counts towards an item's worth
 **Items**:
 
 - Enchantments: **85%**
-  → Overload, Soul Eater, Inferno, Fatal Tempo: **35%**
+  → atal Tempo: **65%**
+  → Overload, Soul Eater, and Inferno: **35%**
   → Counter Strike: **20%**
 - Attributes: **100%**
   → Based off the corresponding attribute shard's price
