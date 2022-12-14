@@ -541,8 +541,6 @@ const calculateItem = (item, prices) => {
       calculation.push(calculationData);
     }
 
-    if (itemId.includes('burning_aurora')) console.log(calculation);
-
     const isSoulbound = !!(ExtraAttributes.donated_museum || item.tag.display?.Lore?.includes('§8§l* §8Co-op Soulbound §8§l*') || item.tag.display?.Lore?.includes('§8§l* §8Soulbound §8§l*'));
     return { name: itemName, loreName: item.tag.display.Name, id: itemId, price, base, calculation, count: item.Count || 1, soulbound: isSoulbound };
   }
