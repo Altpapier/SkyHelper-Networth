@@ -111,6 +111,23 @@ const getPrices = async (cache) => {
   }
 };
 
+const checkForUpdate = async () => {
+  try {
+    const packageInfo = await axios.get('https://registry.npmjs.org/skyhelper-networth');
+    const latestVersion = packageInfo.data['dist-tags'].latest;
+    const currentVersion = require('./package.json').version;
+
+    if (latestVersion !== currentVersion) {
+      console.log(`[SKYHELPER-NETWORTH] An update is available! Current version: ${currentVersion}, Latest version: ${latestVersion}`);
+    }
+  } catch (error) {
+    console.error(error);
+  }
+};
+checkForUpdate();
+let interval;
+if (!interval) interval = setInterval(checkForUpdate, 1000 * 60 * 60);
+
 module.exports = {
   getNetworth,
   getPreDecodedNetworth,
