@@ -120,9 +120,7 @@ const checkForUpdate = async () => {
     if (latestVersion !== currentVersion) {
       console.log(`[SKYHELPER-NETWORTH] An update is available! Current version: ${currentVersion}, Latest version: ${latestVersion}`);
     }
-  } catch (error) {
-    console.error(error);
-  }
+  } catch (err) {}
 };
 checkForUpdate();
 let interval;
