@@ -50,7 +50,7 @@ const postParseItems = async (profileData, items) => {
   // Parse Cake Bags
   for (const categoryItems of Object.values(items)) {
     for (item of categoryItems) {
-      if (!item.tag?.ExtraAttributes?.new_year_cake_bag_data) continue;
+      if (!item?.tag?.ExtraAttributes?.new_year_cake_bag_data) continue;
       const cakes = await decodeData(item.tag?.ExtraAttributes?.new_year_cake_bag_data);
       if (item?.tag?.ExtraAttributes) {
         item.tag.ExtraAttributes.new_year_cake_bag_years = cakes.filter((cake) => cake.id && cake.tag?.ExtraAttributes?.new_years_cake).map((cake) => cake.tag.ExtraAttributes.new_years_cake);
