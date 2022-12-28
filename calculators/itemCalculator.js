@@ -10,7 +10,7 @@ const { getHypixelItemInformationFromId } = require('../constants/itemsMap');
 const calculateItem = (item, prices) => {
   // TODO: Implement Backpack Calculations
 
-  if (item.tag?.ExtraAttributes?.id === 'PET' && item.tag?.ExtraAttributes?.petInfo) {
+  if (item?.tag?.ExtraAttributes?.id === 'PET' && item?.tag?.ExtraAttributes?.petInfo) {
     const petInfo = typeof item.tag.ExtraAttributes.petInfo === 'string' ? JSON.parse(item.tag.ExtraAttributes.petInfo) : item.tag.ExtraAttributes.petInfo;
     const level = getPetLevel(petInfo);
     petInfo.level = level.level;
@@ -18,7 +18,7 @@ const calculateItem = (item, prices) => {
     return calculatePet(petInfo, prices);
   }
 
-  if (item.tag?.ExtraAttributes?.id) {
+  if (item?.tag?.ExtraAttributes?.id) {
     let itemName = item.tag.display.Name.replace(/§[0-9a-fk-or]/gi, '');
     let itemId = item.tag.ExtraAttributes.id.toLowerCase();
     const ExtraAttributes = item.tag.ExtraAttributes;
