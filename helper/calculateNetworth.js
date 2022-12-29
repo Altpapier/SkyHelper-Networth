@@ -58,7 +58,7 @@ const calculateNetworth = (items, purseBalance, bankBalance, prices, onlyNetwort
 const calculateItemNetworth = (item, prices) => {
   const isPet = item.tag?.ExtraAttributes?.petInfo || item.exp;
   if (isPet) {
-    const petInfo = item.tag?.ExtraAttributes?.petInfo ? JSON.parse(item.tag.ExtraAttributes.petInfo) : item;
+    const petInfo = typeof item.tag?.ExtraAttributes?.petInfo === "object" ? item.tag?.ExtraAttributes?.petInfo : item.tag?.ExtraAttributes?.petInfo ? JSON.parse(item.tag.ExtraAttributes.petInfo) : item;
     const level = getPetLevel(petInfo);
     petInfo.level = level.level;
     petInfo.xpMax = level.xpMax;
