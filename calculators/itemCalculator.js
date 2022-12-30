@@ -7,7 +7,7 @@ const { blockedEnchants, ignoredEnchants, stackingEnchants, ignoreSilex, masterS
 const { reforges } = require('../constants/reforges');
 const { getHypixelItemInformationFromId } = require('../constants/itemsMap');
 
-const calculateItem = (item, prices) => {
+const calculateItem = (item, prices, returnItemData) => {
   // TODO: Implement Backpack Calculations
 
   if (item?.tag?.ExtraAttributes?.id === 'PET' && item?.tag?.ExtraAttributes?.petInfo) {
@@ -542,7 +542,9 @@ const calculateItem = (item, prices) => {
     }
 
     const isSoulbound = !!(ExtraAttributes.donated_museum || item.tag.display?.Lore?.includes('§8§l* §8Co-op Soulbound §8§l*') || item.tag.display?.Lore?.includes('§8§l* §8Soulbound §8§l*'));
-    return { name: itemName, loreName: item.tag.display.Name, id: itemId, price, base, calculation, count: item.Count || 1, soulbound: isSoulbound };
+    const data = { name: itemName, loreName: item.tag.display.Name, id: itemId, price, base, calculation, count: item.Count || 1, soulbound: isSoulbound };
+    if (returnItemData) data.item = item;
+    return data;
   }
   return null;
 };

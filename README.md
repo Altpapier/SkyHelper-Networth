@@ -17,7 +17,7 @@ The following list shows how much each modifier counts towards an item's worth
 **Items**:
 
 - Enchantments: **85%**
-  → atal Tempo: **65%**
+  → Fatal Tempo: **65%**
   → Overload, Soul Eater, and Inferno: **35%**
   → Counter Strike: **20%**
 - Attributes: **100%**
@@ -83,11 +83,12 @@ Returns the networth of a profile using pre-decoded items (used to save resource
 
 ##### `options`
 
-| Option       | Description                                                                                                                               |
-| ------------ | ----------------------------------------------------------------------------------------------------------------------------------------- |
-| cache        | By default true (5 minute cache), if set to false it will always make a request to get the latest prices from github                      |
-| onlyNetworth | Only return a player's networth without showing all player's items                                                                        |
-| prices       | Provide prices from the getPrices() function for the bot not to request SkyHelper's prices each time the getNetworth() function is called |
+| Option         | Description                                                                                                                               |
+| -------------- | ----------------------------------------------------------------------------------------------------------------------------------------- |
+| cache          | By default true (5 minute cache), if set to false it will always make a request to get the latest prices from github                      |
+| onlyNetworth   | Only return a player's networth without showing all player's items                                                                        |
+| prices         | Provide prices from the getPrices() function for the bot not to request SkyHelper's prices each time the getNetworth() function is called |
+| returnItemData | Will also return the item data that was used to calculate the item worth                                                                  |
 
 ### `getItemNetworth()`
 
@@ -102,10 +103,11 @@ Returns the networth of an item
 
 ##### `options`
 
-| Option | Description                                                                                                                             |
-| ------ | --------------------------------------------------------------------------------------------------------------------------------------- |
-| cache  | By default true (5 minute cache), if set to false it will always make a request to get the latest prices from github                    |
-| prices | Provide prices from the getPrices() function for the bot not to request SkyHelper's prices each time the getNetworth() function is call |
+| Option         | Description                                                                                                                             |
+| -------------- | --------------------------------------------------------------------------------------------------------------------------------------- |
+| cache          | By default true (5 minute cache), if set to false it will always make a request to get the latest prices from github                    |
+| prices         | Provide prices from the getPrices() function for the bot not to request SkyHelper's prices each time the getNetworth() function is call |
+| returnItemData | Will also return the item data that was used to calculate the item worth                                                                |
 
 ### `getPrices()`
 
@@ -128,6 +130,7 @@ console.log(networth);
 ```
 
 Retrieve prices and calculate Networth:
+Note: Prices are cached for 5 minutes by default. Retrieving prices before is not needed for most users
 
 ```js
 const { getNetworth, getPrices } = require('skyhelper-networth');
@@ -142,7 +145,6 @@ const profile = // Retrieved from the Hypixel API with the /skyblock/profiles en
 const profileData = profile.members['<UUID HERE>'];
 const bankBalance = profile.banking?.balance;
 
-// Networth can now be retrieved without having to request SkyHelper's prices every function call
 const networth = await getNetworth(profileData, bankBalance, { prices });
 console.log(networth);
 ```

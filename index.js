@@ -7,14 +7,14 @@ const axios = require('axios');
  * Returns the networth of a profile
  * @param {object} profileData - The profile player data from the Hypixel API (profile.members[uuid])
  * @param {number} bankBalance - The player's bank balance from the Hypixel API (profile.banking?.balance)
- * @param {{ cache: boolean, onlyNetworth: boolean, prices: object }} options - (Optional) cache: By default true (5 minute cache), if set to false it will always make a request to get the latest prices from github, onlyNetworth: If true, only the networth will be returned, prices: A prices object generated from the getPrices function. If not provided, the prices will be retrieved every time the function is called
+ * @param {{ cache: boolean, onlyNetworth: boolean, prices: object, returnItemData: boolean }} options - (Optional) cache: By default true (5 minute cache), if set to false it will always make a request to get the latest prices from github, onlyNetworth: If true, only the networth will be returned, prices: A prices object generated from the getPrices function. If not provided, the prices will be retrieved every time the function is called, returnItemData: If true, the item data will be returned in the object
  * @returns An object containing the player's networth calculation
  */
 const getNetworth = async (profileData, bankBalance, options) => {
   const purse = profileData.coin_purse;
   const prices = await parsePrices(options?.prices, options?.cache);
   const items = await parseItems(profileData);
-  return calculateNetworth(items, purse, bankBalance, prices, options?.onlyNetworth);
+  return calculateNetworth(items, purse, bankBalance, prices, options?.onlyNetworth, options?.returnItemData);
 };
 
 /**
@@ -34,26 +34,26 @@ const getNetworth = async (profileData, bankBalance, options) => {
  *          candy_inventory: [],
  *        }} items - Pre-parsed inventories, most inventories are just decoded except for sacks, essence, and pets which are parsed specifically as listed above
  * @param {number} bankBalance - The player's bank balance from the Hypixel API (profile.banking?.balance)
- * @param {{ cache: boolean, onlyNetworth: boolean, prices: object }} options - (Optional) cache: By default true (5 minute cache), if set to false it will always make a request to get the latest prices from github, onlyNetworth: If true, only the networth will be returned, prices: A prices object generated from the getPrices function. If not provided, the prices will be retrieved every time the function is called
+ * @param {{ cache: boolean, onlyNetworth: boolean, prices: object, returnItemData: boolean }} options - (Optional) cache: By default true (5 minute cache), if set to false it will always make a request to get the latest prices from github, onlyNetworth: If true, only the networth will be returned, prices: A prices object generated from the getPrices function. If not provided, the prices will be retrieved every time the function is called, returnItemData: If true, the item data will be returned in the object
  * @returns An object containing the player's networth calculation
  */
 const getPreDecodedNetworth = async (profileData, items, bankBalance, options) => {
   const purse = profileData.coin_purse;
   await postParseItems(profileData, items);
   const prices = await parsePrices(options?.prices, options?.cache);
-  return calculateNetworth(items, purse, bankBalance, prices, options?.onlyNetworth);
+  return calculateNetworth(items, purse, bankBalance, prices, options?.onlyNetworth, options?.returnItemData);
 };
 
 /**
  * Returns the networth of an item
  * @param {object} item - The item the networth should be calculated for
- * @param {{ cache: boolean, prices: object }} options - (Optional) cache: By default true (5 minute cache), if set to false it will always make a request to get the latest prices from github, prices: A prices object generated from the getPrices function. If not provided, the prices will be retrieved every time the function is called
+ * @param {{ cache: boolean, prices: object, returnItemData: boolean }} options - (Optional) cache: By default true (5 minute cache), if set to false it will always make a request to get the latest prices from github, prices: A prices object generated from the getPrices function. If not provided, the prices will be retrieved every time the function is called, returnItemData: If true, the item data will be returned in the object
  * @returns {object} - An object containing the item's networth calculation
  */
 const getItemNetworth = async (item, options) => {
   if (!item?.tag && !item?.exp) throw new NetworthError('Invalid item provided');
   const prices = await parsePrices(options?.prices, options?.cache);
-  return calculateItemNetworth(item, prices);
+  return calculateItemNetworth(item, prices, options?.returnItemData);
 };
 
 async function parsePrices(prices, cache) {
