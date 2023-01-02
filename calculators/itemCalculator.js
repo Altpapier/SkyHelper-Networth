@@ -341,7 +341,8 @@ const calculateItem = (item, prices, returnItemData) => {
 
     // RECOMBS
     if (ExtraAttributes.rarity_upgrades > 0 && !ExtraAttributes.item_tier) {
-      if (ExtraAttributes.enchantments || allowedRecombTypes.includes(skyblockItem?.category) || allowedRecombIds.includes(itemId)) {
+      const lastLoreLine = item.tag.display?.Lore?.at(-1);
+      if (ExtraAttributes.enchantments || allowedRecombTypes.includes(skyblockItem?.category) || allowedRecombIds.includes(itemId) || lastLoreLine?.includes('ACCESSORY') || lastLoreLine?.includes('HATCCESSORY')) {
         const calculationData = {
           id: 'RECOMBOBULATOR_3000',
           type: 'recombobulator_3000',
