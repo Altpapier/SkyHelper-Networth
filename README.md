@@ -16,43 +16,45 @@ The following list shows how much each modifier counts towards an item's worth
 
 **Items**:
 
+- Farming for Dummies: **50%**
+- Wood Singularity: **50%**
+- Art of War: **60%**
+- Fuming Potato Books: **60%**
+- Popular Runes: **60%**
+  → Music, Enchanting, and Grand Searing Runes only
+- Transmission Tuners: **70%**
+- Enrichments: **75%**
+- Essence: **75%**
+- Silex: **75%**
+- Art of Peace: **80%**
+- Recombobulators: **80%**
+- Thunder In A Bottle: **80%**
 - Enchantments: **85%**
-  → Fatal Tempo: **65%**
-  → Overload, Soul Eater, and Inferno: **35%**
   → Counter Strike: **20%**
+  → Big Brain, Inferno, Overload, and Soul Eater : **35%**
+  → Fatal Tempo: **65%**
+- Shen's Auction Price Paid: **85%**
+- Dyes: **90%**
+- Gemstone Chambers: **90%**
 - Attributes: **100%**
   → Based off the corresponding attribute shard's price
   → Lava Fishing rods and Crimson Hunter set use their base item's price instead
-- Hot Potato Books: **100%**
-- Fuming Potato Books: **60%**
-- Art of War: **60%**
-- Art of Peace: **80%**
-- Farming for Dummies: **50%**
-- Enrichments: **75%**
-- Recombobulators: **80%**
-- Transmission Tuners: **70%**
-- Wood Singularity: **50%**
-- Silex: **75%**
-- Gemstones: **100%**
-- Reforges: **100%**
+  → Kuudra Armor sets use the average sale value of all types with the same attribute
 - Drill Upgrades: **100%**
-- Etherwarp Conduit: **100%**
 - Dungeon Master Stars: **100%**
-- Essence: **75%**
-- Prestige Item: **100%**
-- Thunder In A Bottle: **80%**
-- Popular Runes: **60%**
-- Winning Bid: **100%**
+- Etherwarp Conduit: **100%**
+- Gemstones: **100%**
+- Hot Potato Books: **100%**
 - Necron Blade Scrolls: **100%**
-- Gemstone Chambers: **90%**
-- Dyes: **90%**
-- Shen's Auction Price Paid: **85%**
+- Prestige Item: **100%**
+- Reforges: **100%**
+- Winning Bid: **100%**
 
 **Pets**:
 
 - Pet Item: **100%**
 - Pet Candied: **-35%**
-  → Except Golden Dragon, Ender Dragon and Scatha
+  → Except Ender Dragon, Golden Dragon, and Scatha
 
 ## Functions
 
