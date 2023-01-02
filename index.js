@@ -11,6 +11,7 @@ const axios = require('axios');
  * @returns An object containing the player's networth calculation
  */
 const getNetworth = async (profileData, bankBalance, options) => {
+  if (!profileData) throw new NetworthError('Invalid profile data provided');
   const purse = profileData.coin_purse;
   const prices = await parsePrices(options?.prices, options?.cache);
   const items = await parseItems(profileData);

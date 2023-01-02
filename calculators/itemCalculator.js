@@ -19,6 +19,7 @@ const calculateItem = (item, prices, returnItemData) => {
   }
 
   if (item?.tag?.ExtraAttributes?.id) {
+    if (!item.tag.display) return null;
     let itemName = item.tag.display.Name.replace(/§[0-9a-fk-or]/gi, '');
     let itemId = item.tag.ExtraAttributes.id.toLowerCase();
     const ExtraAttributes = item.tag.ExtraAttributes;
