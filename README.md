@@ -54,7 +54,7 @@ The following list shows how much each modifier counts towards an item's worth
 
 - Pet Item: **100%**
 - Pet Candied: **-35%**
-  → Except Ender Dragon, Golden Dragon, and Scatha
+  - Except Ender Dragon, Golden Dragon, and Scatha
 
 ## Functions
 
