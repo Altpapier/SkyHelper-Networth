@@ -21,7 +21,7 @@ The following list shows how much each modifier counts towards an item's worth
 - Art of War: **60%**
 - Fuming Potato Books: **60%**
 - Popular Runes: **60%**
-  → Music, Enchanting, and Grand Searing Runes only
+  - Music, Enchanting, and Grand Searing Runes only
 - Transmission Tuners: **70%**
 - Enrichments: **75%**
 - Essence: **75%**
@@ -30,16 +30,16 @@ The following list shows how much each modifier counts towards an item's worth
 - Recombobulators: **80%**
 - Thunder In A Bottle: **80%**
 - Enchantments: **85%**
-  → Counter Strike: **20%**
-  → Big Brain, Inferno, Overload, and Soul Eater : **35%**
-  → Fatal Tempo: **65%**
+  - Counter Strike: **20%**
+  - Big Brain, Inferno, Overload, and Soul Eater : **35%**
+  - Fatal Tempo: **65%**
 - Shen's Auction Price Paid: **85%**
 - Dyes: **90%**
 - Gemstone Chambers: **90%**
 - Attributes: **100%**
-  → Based off the corresponding attribute shard's price
-  → Lava Fishing rods and Crimson Hunter set use their base item's price instead
-  → Kuudra Armor sets use the average sale value of all types with the same attribute
+  - Based off the corresponding attribute shard's price
+  - Lava Fishing rods and Crimson Hunter set use their base item's price instead
+  - Kuudra Armor sets use the average sale value of all types with the same attribute
 - Drill Upgrades: **100%**
 - Dungeon Master Stars: **100%**
 - Etherwarp Conduit: **100%**
