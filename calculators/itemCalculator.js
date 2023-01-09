@@ -22,11 +22,12 @@ const calculateItem = (item, prices, returnItemData) => {
     if (!item.tag.display) return null;
     let itemName = item.tag.display.Name.replace(/§[0-9a-fk-or]/gi, '');
     let itemId = item.tag.ExtraAttributes.id.toLowerCase();
+    let customItemId = item.tag.ExtraAttributes.id.toLowerCase();
     const ExtraAttributes = item.tag.ExtraAttributes;
     const skyblockItem = getHypixelItemInformationFromId(itemId.toUpperCase());
 
     if (ExtraAttributes.skin) {
-      itemId += `_skinned_${ExtraAttributes.skin.toLowerCase()}`;
+      customItemId += `_skinned_${ExtraAttributes.skin.toLowerCase()}`;
     }
 
     if (['Beastmaster Crest', 'Griffin Upgrade Stone', 'Wisp Upgrade Stone'].includes(itemName)) {
@@ -38,12 +39,12 @@ const calculateItem = (item, prices, returnItemData) => {
     // RUNES (Item)
     if (ExtraAttributes.id === 'RUNE' && ExtraAttributes.runes && Object.keys(ExtraAttributes.runes).length > 0) {
       const [runeType, runeTier] = Object.entries(ExtraAttributes.runes)[0];
-      itemId = `rune_${runeType}_${runeTier}`.toLowerCase();
+      customItemId = `rune_${runeType}_${runeTier}`.toLowerCase();
     }
     // CAKES (Item)
-    if (ExtraAttributes.id === 'NEW_YEAR_CAKE') itemId = `new_year_cake_${ExtraAttributes.new_years_cake}`;
+    if (ExtraAttributes.id === 'NEW_YEAR_CAKE') customItemId = `new_year_cake_${ExtraAttributes.new_years_cake}`;
     // PARTY_HAT_CRAB (Item)
-    if (ExtraAttributes.id.startsWith('PARTY_HAT_CRAB') && ExtraAttributes.party_hat_color) itemId = `${ExtraAttributes.id.toLowerCase()}_${ExtraAttributes.party_hat_color}`;
+    if (ExtraAttributes.id.startsWith('PARTY_HAT_CRAB') && ExtraAttributes.party_hat_color) customItemId = `${ExtraAttributes.id.toLowerCase()}_${ExtraAttributes.party_hat_color}`;
 
     const itemData = prices[itemId];
     let price = (itemData || 0) * item.Count;
@@ -253,7 +254,7 @@ const calculateItem = (item, prices, returnItemData) => {
     }
 
     // RUNES  (Applied)
-    if (ExtraAttributes.runes && Object.keys(ExtraAttributes.runes).length > 0 && !itemId.startsWith('rune')) {
+    if (ExtraAttributes.runes && Object.keys(ExtraAttributes.runes).length > 0 && itemId !== 'rune') {
       const [runeType, runeTier] = Object.entries(ExtraAttributes.runes)[0];
       const runeId = `${runeType}_${runeTier}`;
       if (validRunes.includes(runeId)) {
@@ -544,7 +545,7 @@ const calculateItem = (item, prices, returnItemData) => {
     }
 
     const isSoulbound = !!(ExtraAttributes.donated_museum || item.tag.display?.Lore?.includes('§8§l* §8Co-op Soulbound §8§l*') || item.tag.display?.Lore?.includes('§8§l* §8Soulbound §8§l*'));
-    const data = { name: itemName, loreName: item.tag.display.Name, id: itemId, price, base, calculation, count: item.Count || 1, soulbound: isSoulbound };
+    const data = { name: itemName, loreName: item.tag.display.Name, id: itemId, customItemId, price, base, calculation, count: item.Count || 1, soulbound: isSoulbound };
     if (returnItemData) data.item = item;
     return data;
   }
