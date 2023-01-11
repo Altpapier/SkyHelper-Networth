@@ -131,6 +131,23 @@ const networth = await getNetworth(profileData, bankBalance);
 console.log(networth);
 ```
 
+Calculate Networth using pre-decoded items:
+
+```js
+const { getPreDecodedNetworth } = require('skyhelper-networth');
+
+const profile = // Retrieved from the Hypixel API with the /skyblock/profiles endpoint: profiles[index]
+
+const profileData = profile.members['<UUID HERE>'];
+const bankBalance = profile.banking?.balance;
+
+const parsedInventoryExample = NBT.simplify(await NBT.parse(Buffer.from(profileData.inv_contents, 'base64')));
+const items = { inventory: parsedInventoryExample, ... }; // Parsed inventories see ./examples/items.json for object format and required keys
+
+const networth = await getPreDecodedNetworth(profileData, items, bankBalance);
+console.log(networth);
+```
+
 Retrieve prices and calculate Networth:
 Note: Prices are cached for 5 minutes by default. Retrieving prices before is not needed for most users
 
