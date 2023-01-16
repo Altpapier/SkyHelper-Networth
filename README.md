@@ -20,6 +20,7 @@ The following list shows how much each modifier counts towards an item's worth
 - Wood Singularity: **50%**
 - Art of War: **60%**
 - Fuming Potato Books: **60%**
+- Gemstone Slot Unlocks (only crimson armor): **60%**
 - Popular Runes: **60%**
   - Music, Enchanting, and Grand Searing Runes only
 - Transmission Tuners: **70%**
