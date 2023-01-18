@@ -7,6 +7,63 @@ const { blockedEnchants, ignoredEnchants, stackingEnchants, ignoreSilex, masterS
 const { reforges } = require('../constants/reforges');
 const { getHypixelItemInformationFromId } = require('../constants/itemsMap');
 
+function starCost(prices, upgrade, star) {
+  const upgradePrice = upgrade.essence_type ? prices[`essence_${upgrade.essence_type.toLowerCase()}`] : prices[upgrade.item_id?.toLowerCase()];
+  if (!upgradePrice) return;
+
+  const calculationData = {
+    id: upgrade.essence_type ? `${upgrade.essence_type}_ESSENCE` : upgrade.item_id,
+    type: star ? 'star' : 'prestige',
+    price: (upgrade.amount || 0) * (upgradePrice || 0) * (upgrade.essence_type ? applicationWorth.essence : 1),
+    count: upgrade.amount || 0,
+  };
+  if (star) calculationData.star = star;
+  return calculationData;
+}
+
+function starCosts(prices, calculation, upgrades, prestigeItem) {
+  let price = 0;
+  let star = 0;
+  const datas = [];
+  for (const upgrade of upgrades) {
+    star++;
+    let data;
+    if (upgrade instanceof Array) {
+      for (const cost of upgrade) {
+        data = starCost(prices, cost, star);
+        datas.push(data);
+        if (!prestigeItem && data) {
+          price += data.price;
+          calculation.push(data);
+        }
+      }
+    } else {
+      data = starCost(prices, upgrade);
+      datas.push(data);
+      if (!prestigeItem && data) {
+        price += data.price;
+        calculation.push(data);
+      }
+    }
+  }
+
+  if (prestigeItem && datas.length) {
+    const prestige = datas[0].type === 'prestige';
+    const calculationData = datas.reduce(
+      (acc, val) => {
+        acc.price += val?.price || 0;
+        return acc;
+      },
+      { id: prestigeItem, type: prestige ? 'prestige' : 'stars', price: 0, count: prestige ? 1 : star }
+    );
+
+    if (prices[prestigeItem.toLowerCase()]) calculationData.price += prices[prestigeItem.toLowerCase()];
+    price += calculationData.price;
+    calculation.push(calculationData);
+  }
+  return price;
+}
+
 const calculateItem = (item, prices, returnItemData) => {
   // TODO: Implement Backpack Calculations
 
@@ -44,8 +101,6 @@ const calculateItem = (item, prices, returnItemData) => {
     if (ExtraAttributes.id === 'NEW_YEAR_CAKE') itemId = `new_year_cake_${ExtraAttributes.new_years_cake}`;
     // PARTY_HAT_CRAB (Item)
     if (ExtraAttributes.id.startsWith('PARTY_HAT_CRAB') && ExtraAttributes.party_hat_color) itemId = `${ExtraAttributes.id.toLowerCase()}_${ExtraAttributes.party_hat_color}`;
-    // GLITCHED WITHER
-    if (ExtraAttributes.color && prices[`${itemId}_${ExtraAttributes.color}`]) itemId = `${itemId}_${ExtraAttributes.color}`;
 
     const itemData = prices[itemId];
     let price = (itemData || 0) * item.Count;
@@ -64,34 +119,8 @@ const calculateItem = (item, prices, returnItemData) => {
         for (const prestigeItem of prestige) {
           const foundItem = getHypixelItemInformationFromId(prestigeItem);
           if (isNaN(price)) price = 0;
-
-          if (foundItem?.upgrade_costs) {
-            const allUpgrades = [...foundItem.upgrade_costs, foundItem.prestige?.costs || {}].flat();
-            for (const upgrade of allUpgrades) {
-              if (upgrade?.essence_type) {
-                const calculationData = {
-                  id: upgrade.essence_type,
-                  type: 'essence',
-                  price: (upgrade.amount || 0) * (prices[`essence_${upgrade.essence_type.toLowerCase()}`] || 0) * applicationWorth.essence,
-                  count: upgrade.amount || 0,
-                };
-                price += calculationData.price;
-                calculation.push(calculationData);
-              } else {
-                const prestigeItemPrice = prices[prestigeItem];
-                if (prestigeItemPrice) {
-                  const calculationData = {
-                    id: prestigeItem,
-                    type: 'prestige',
-                    price: prestigeItemPrice * applicationWorth.prestigeItem,
-                    count: 1,
-                  };
-                  price += calculationData.price;
-                  calculation.push(calculationData);
-                }
-              }
-            }
-          }
+          if (foundItem?.upgrade_costs) price += starCosts(prices, calculation, foundItem.upgrade_costs, prestigeItem);
+          if (foundItem?.prestige?.costs) price += starCosts(prices, calculation, foundItem.prestige.costs, prestigeItem);
         }
       }
     }
@@ -389,7 +418,9 @@ const calculateItem = (item, prices, returnItemData) => {
 
         // UNLOCKED GEMSTONE SLOTS
         // Currently just gemstone chambers
-        if (['divan_helmet', 'divan_chestplate', 'divan_leggings', 'divan_boots'].includes(itemId)) {
+        const isDivansArmor = ['divan_helmet', 'divan_chestplate', 'divan_leggings', 'divan_boots'].includes(itemId);
+        if (isDivansArmor || /^(|hot_|fiery_|burning_|infernal_)(aurora|crimson|terror|hollow|fervor)(_chestplate|_leggings|_boots)$/.test(itemId)) {
+          const application = isDivansArmor ? applicationWorth.gemstoneChambers : applicationWorth.gemstoneSlots;
           const gemstoneSlots = JSON.parse(JSON.stringify(skyblockItem.gemstone_slots));
           for (const unlockedSlot of unlockedSlots) {
             const slot = gemstoneSlots.find((s) => s.slot_type === unlockedSlot);
@@ -404,7 +435,7 @@ const calculateItem = (item, prices, returnItemData) => {
               const calculationData = {
                 id: `${unlockedSlot}`,
                 type: 'gemstone_slot',
-                price: total * applicationWorth.gemstoneSlots,
+                price: total * application,
                 count: 1,
               };
               price += calculationData.price;
@@ -468,23 +499,8 @@ const calculateItem = (item, prices, returnItemData) => {
     }
 
     if (skyblockItem?.upgrade_costs && (dungeonItemLevel > 0 || upgradeLevel > 0)) {
-      const itemUpgrades = skyblockItem.upgrade_costs;
       const level = Math.max(dungeonItemLevel, upgradeLevel);
-
-      for (let i = 0; i < level; i++) {
-        for (const upgrade of itemUpgrades[i] || []) {
-          if (upgrade?.essence_type) {
-            const calculationData = {
-              id: upgrade.essence_type,
-              type: 'essence',
-              price: (prices[`essence_${upgrade.essence_type.toLowerCase()}`] || 0) * upgrade?.amount * applicationWorth.essence,
-              count: upgrade?.amount,
-            };
-            price += calculationData.price;
-            calculation.push(calculationData);
-          }
-        }
-      }
+      price += starCosts(prices, calculation, skyblockItem.upgrade_costs.slice(0, level + 1));
     }
 
     // NECRON BLADE SCROLLS
