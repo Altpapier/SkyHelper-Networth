@@ -1,4 +1,5 @@
 const applicationWorth = {
+  enrichment: 0.5,
   farmingForDummies: 0.5,
   woodSingularity: 0.5,
   artOfWar: 0.6,
@@ -6,7 +7,6 @@ const applicationWorth = {
   gemstoneSlots: 0.6,
   runes: 0.6,
   tunedTransmission: 0.7,
-  enrichment: 0.75,
   essence: 0.75,
   silex: 0.75,
   artOfPeace: 0.8,

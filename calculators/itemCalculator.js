@@ -3,7 +3,19 @@ const { titleCase } = require('../helper/functions');
 const { getPetLevel } = require('../constants/pets');
 const { prestiges } = require('../constants/prestiges');
 const { applicationWorth, enchantsWorth } = require('../constants/applicationWorth');
-const { blockedEnchants, ignoredEnchants, stackingEnchants, ignoreSilex, masterStars, thunderCharge, validRunes, allowedRecombTypes, allowedRecombIds, attributesBaseCosts } = require('../constants/misc');
+const {
+  blockedEnchants,
+  ignoredEnchants,
+  stackingEnchants,
+  ignoreSilex,
+  masterStars,
+  thunderCharge,
+  validRunes,
+  allowedRecombTypes,
+  allowedRecombIds,
+  attributesBaseCosts,
+  enrichments,
+} = require('../constants/misc');
 const { reforges } = require('../constants/reforges');
 const { getHypixelItemInformationFromId } = require('../constants/itemsMap');
 
@@ -368,6 +380,21 @@ const calculateItem = (item, prices, returnItemData) => {
       };
       price += calculationData.price;
       calculation.push(calculationData);
+    }
+
+    // ENRICHMENTS
+    if (ExtraAttributes.talisman_enrichment) {
+      const enrichmentPrice = enrichments.reduce((acc, val) => Math.min(acc, prices[val] || 0), Infinity);
+      if (enrichmentPrice !== Infinity) {
+        const calculationData = {
+          id: ExtraAttributes.talisman_enrichment.toUpperCase(),
+          type: 'talisman_enrichment',
+          price: enrichmentPrice * applicationWorth.enrichment,
+          count: 1,
+        };
+        price += calculationData.price;
+        calculation.push(calculationData);
+      }
     }
 
     // RECOMBS

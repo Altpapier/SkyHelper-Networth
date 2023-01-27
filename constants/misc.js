@@ -32,6 +32,20 @@ const attributesBaseCosts = {
   hellfire_rod: 'magma_rod',
 };
 
+const enrichments = [
+  'TALISMAN_ENRICHMENT_CRITICAL_CHANCE',
+  'TALISMAN_ENRICHMENT_CRITICAL_DAMAGE',
+  'TALISMAN_ENRICHMENT_DEFENSE',
+  'TALISMAN_ENRICHMENT_HEALTH',
+  'TALISMAN_ENRICHMENT_INTELLIGENCE',
+  'TALISMAN_ENRICHMENT_MAGIC_FIND',
+  'TALISMAN_ENRICHMENT_WALK_SPEED',
+  'TALISMAN_ENRICHMENT_STRENGTH',
+  'TALISMAN_ENRICHMENT_ATTACK_SPEED',
+  'TALISMAN_ENRICHMENT_FEROCITY',
+  'TALISMAN_ENRICHMENT_SEA_CREATURE_CHANCE',
+];
+
 module.exports = {
   blockedEnchants,
   ignoredEnchants,
@@ -43,4 +57,5 @@ module.exports = {
   allowedRecombTypes,
   allowedRecombIds,
   attributesBaseCosts,
+  enrichments,
 };

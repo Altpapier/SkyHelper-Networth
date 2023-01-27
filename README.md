@@ -16,6 +16,7 @@ The following list shows how much each modifier counts towards an item's worth
 
 **Items**:
 
+- Enrichments: **50%**
 - Farming for Dummies: **50%**
 - Wood Singularity: **50%**
 - Art of War: **60%**
@@ -24,7 +25,6 @@ The following list shows how much each modifier counts towards an item's worth
 - Popular Runes: **60%**
   - Music, Enchanting, and Grand Searing Runes only
 - Transmission Tuners: **70%**
-- Enrichments: **75%**
 - Essence: **75%**
 - Silex: **75%**
 - Art of Peace: **80%**
