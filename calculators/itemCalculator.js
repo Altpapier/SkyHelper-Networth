@@ -3,19 +3,7 @@ const { titleCase } = require('../helper/functions');
 const { getPetLevel } = require('../constants/pets');
 const { prestiges } = require('../constants/prestiges');
 const { applicationWorth, enchantsWorth } = require('../constants/applicationWorth');
-const {
-  blockedEnchants,
-  ignoredEnchants,
-  stackingEnchants,
-  ignoreSilex,
-  masterStars,
-  thunderCharge,
-  validRunes,
-  allowedRecombTypes,
-  allowedRecombIds,
-  attributesBaseCosts,
-  enrichments,
-} = require('../constants/misc');
+const { blockedEnchants, ignoredEnchants, stackingEnchants, ignoreSilex, masterStars, validRunes, allowedRecombTypes, allowedRecombIds, attributesBaseCosts, enrichments } = require('../constants/misc');
 const { reforges } = require('../constants/reforges');
 const { getHypixelItemInformationFromId } = require('../constants/itemsMap');
 
@@ -284,12 +272,12 @@ const calculateItem = (item, prices, returnItemData) => {
 
     // PULSE RING
     if (ExtraAttributes.thunder_charge && itemId === 'pulse_ring') {
-      const thunderUpgrades = Object.values(thunderCharge).filter((charge) => charge <= ExtraAttributes.thunder_charge);
+      const thunderUpgrades = Math.floor(ExtraAttributes.thunder_charge / 50_000);
       const calculationData = {
         id: 'THUNDER_IN_A_BOTTLE',
         type: 'thunder_charge',
-        price: (prices['thunder_in_a_bottle'] || 0) * (thunderUpgrades.at(-1) / 50_000) * applicationWorth.thunderInABottle,
-        count: thunderUpgrades.at(-1) / 50_000,
+        price: (prices['thunder_in_a_bottle'] || 0) * thunderUpgrades * applicationWorth.thunderInABottle,
+        count: thunderUpgrades,
       };
       price += calculationData.price;
       calculation.push(calculationData);
