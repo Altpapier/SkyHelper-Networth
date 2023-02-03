@@ -50,7 +50,6 @@ module.exports = {
   stackingEnchants,
   ignoreSilex,
   masterStars,
-  thunderCharge,
   validRunes,
   allowedRecombTypes,
   allowedRecombIds,
