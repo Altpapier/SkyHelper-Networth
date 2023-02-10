@@ -52,7 +52,7 @@ const getPreDecodedNetworth = async (profileData, items, bankBalance, options) =
  * @returns {object} - An object containing the item's networth calculation
  */
 const getItemNetworth = async (item, options) => {
-  if (!item?.tag && !item?.exp) throw new NetworthError('Invalid item provided');
+  if (item?.tag === undefined && item?.exp === undefined) throw new NetworthError('Invalid item provided');
   const prices = await parsePrices(options?.prices, options?.cache);
   return calculateItemNetworth(item, prices, options?.returnItemData);
 };
