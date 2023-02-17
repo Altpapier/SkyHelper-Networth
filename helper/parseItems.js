@@ -77,7 +77,6 @@ const postParseItems = async (profileData, items) => {
   if (profileData.pets) {
     for (const pet of profileData.pets) {
       const level = getPetLevel(pet);
-      if (pet.type === 'ENDER_DRAGON') console.log({ ...pet, level: level.level, xpMax: level.xpMax });
       items.pets.push({ ...pet, level: level.level, xpMax: level.xpMax });
     }
   }
