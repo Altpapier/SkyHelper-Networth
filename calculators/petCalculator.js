@@ -1,5 +1,5 @@
 const { titleCase } = require('../helper/functions');
-const { blockedCandyReducePets, recombPetItems, tiers, soulboundPets } = require('../constants/pets');
+const { blockedCandyReducePets, soulboundPets } = require('../constants/pets');
 const { applicationWorth } = require('../constants/applicationWorth');
 
 const getPetLevelPrices = (pet, prices) => {
@@ -68,7 +68,6 @@ const calculatePet = (pet, prices) => {
     }
   }
 
-  pet.tier = recombPetItems.includes(pet.heldItem) ? tiers[tiers.indexOf(pet.tier) + 1] : pet.tier;
   pet.price = price;
   pet.base = base;
   pet.calculation = calculation;
