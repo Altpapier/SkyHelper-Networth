@@ -1,10 +1,11 @@
 const { titleCase } = require('../helper/functions');
-const { blockedCandyReducePets, soulboundPets } = require('../constants/pets');
+const { blockedCandyReducePets, soulboundPets, tiers } = require('../constants/pets');
 const { applicationWorth } = require('../constants/applicationWorth');
 
 const getPetLevelPrices = (pet, prices) => {
+  const tier = pet.heldItem === 'PET_ITEM_TIER_BOOST' ? tiers[tiers.indexOf(pet.tier) + 1] : pet.tier;
   const skin = pet.skin;
-  const tierName = `${pet.tier}_${pet.type}`.toLowerCase();
+  const tierName = `${tier}_${pet.type}`.toLowerCase();
   return {
     lvl1: prices[`lvl_1_${tierName}${skin ? `_skinned_${skin}` : ''}`.toLowerCase()] || prices[`lvl_1_${tierName}`] || 0,
     lvl100: prices[`lvl_100_${tierName}${skin ? `_skinned_${skin}` : ''}`.toLowerCase()] || prices[`lvl_100_${tierName}`] || 0,
