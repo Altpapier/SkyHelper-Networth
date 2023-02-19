@@ -3,7 +3,7 @@ const { blockedCandyReducePets, soulboundPets, tiers } = require('../constants/p
 const { applicationWorth } = require('../constants/applicationWorth');
 
 const getPetLevelPrices = (pet, prices) => {
-  const tier = pet.heldItem === 'PET_ITEM_TIER_BOOST' ? tiers[tiers.indexOf(pet.tier) + 1] : pet.tier;
+  const tier = pet.heldItem === 'PET_ITEM_TIER_BOOST' ? tiers[tiers.indexOf(pet.tier) - 1] : pet.tier;
   const skin = pet.skin;
   const tierName = `${tier}_${pet.type}`.toLowerCase();
   return {
