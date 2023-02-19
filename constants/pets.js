@@ -22,7 +22,7 @@ const tiers = ['COMMON', 'UNCOMMON', 'RARE', 'EPIC', 'LEGENDARY', 'MYTHIC', 'DIV
 const getPetLevel = (pet) => {
   if (recombPetItems.includes(pet.heldItem)) pet.tier = tiers[tiers.indexOf(pet.tier) + 1];
   const maxPetLevel = specialLevels[pet.type] ? specialLevels[pet.type] : 100;
-  const petOffset = rarityOffset[pet.type == 'BINGO' ? 'COMMON' : pet.tier];
+  const petOffset = rarityOffset[pet.type === 'BINGO' ? 'COMMON' : pet.tier];
   const petLevels = levels.slice(petOffset, petOffset + maxPetLevel - 1);
 
   let level = 1;

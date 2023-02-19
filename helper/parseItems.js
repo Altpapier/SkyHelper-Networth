@@ -76,8 +76,11 @@ const postParseItems = async (profileData, items) => {
   items.pets = [];
   if (profileData.pets) {
     for (const pet of profileData.pets) {
-      const level = getPetLevel(pet);
-      items.pets.push({ ...pet, level: level.level, xpMax: level.xpMax });
+      const newPet = { ...pet };
+      const level = getPetLevel(newPet);
+      newPet.level = level.level;
+      newPet.xpMax = level.xpMax;
+      items.pets.push(newPet);
     }
   }
 };
