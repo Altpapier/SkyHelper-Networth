@@ -29,6 +29,7 @@ The following list shows how much each modifier counts towards an item's worth
 - Silex: **75%**
 - Art of Peace: **80%**
 - Recombobulators: **80%**
+  - Bonemerangs: **40%**
 - Thunder In A Bottle: **80%**
 - Enchantments: **85%**
   - Counter Strike: **20%**
