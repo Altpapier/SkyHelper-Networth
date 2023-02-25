@@ -396,7 +396,6 @@ const calculateItem = (item, prices, returnItemData) => {
           price: (prices['recombobulator_3000'] || 0) * recombApplicationWorth,
           count: 1,
         };
-        if (itemId === 'bone_boomerang') console.log(calculationData, recombApplicationWorth);
         price += calculationData.price;
         calculation.push(calculationData);
       }
