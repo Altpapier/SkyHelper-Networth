@@ -389,12 +389,14 @@ const calculateItem = (item, prices, returnItemData) => {
     if (ExtraAttributes.rarity_upgrades > 0 && !ExtraAttributes.item_tier) {
       const lastLoreLine = item.tag.display?.Lore?.at(-1);
       if (ExtraAttributes.enchantments || allowedRecombTypes.includes(skyblockItem?.category) || allowedRecombIds.includes(itemId) || lastLoreLine?.includes('ACCESSORY') || lastLoreLine?.includes('HATCCESSORY')) {
+        const recombApplicationWorth = itemId === 'bone_boomerang' ? applicationWorth.recomb * 0.5 : applicationWorth.recomb;
         const calculationData = {
           id: 'RECOMBOBULATOR_3000',
           type: 'recombobulator_3000',
-          price: (prices['recombobulator_3000'] || 0) * applicationWorth.recomb,
+          price: (prices['recombobulator_3000'] || 0) * recombApplicationWorth,
           count: 1,
         };
+        if (itemId === 'bone_boomerang') console.log(calculationData, recombApplicationWorth);
         price += calculationData.price;
         calculation.push(calculationData);
       }
