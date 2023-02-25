@@ -450,6 +450,13 @@
     "name": "Cactus Knife",
     "category": "HOE",
     "tier": "EPIC",
+    "requirements": [
+      {
+        "type": "SKILL",
+        "skill": "FARMING",
+        "level": 10
+      }
+    ],
     "id": "CACTUS_KNIFE"
   },
   {
@@ -465,6 +472,13 @@
     "name": "Fungi Cutter",
     "category": "HOE",
     "tier": "RARE",
+    "requirements": [
+      {
+        "type": "SKILL",
+        "skill": "FARMING",
+        "level": 10
+      }
+    ],
     "id": "FUNGI_CUTTER"
   },
   {
@@ -472,6 +486,13 @@
     "name": "Hoe of Great Tilling",
     "category": "HOE",
     "tier": "UNCOMMON",
+    "requirements": [
+      {
+        "type": "SKILL",
+        "skill": "FARMING",
+        "level": 2
+      }
+    ],
     "id": "HOE_OF_GREAT_TILLING"
   },
   {
@@ -479,6 +500,13 @@
     "name": "Gauss Carrot Hoe",
     "category": "HOE",
     "tier": "RARE",
+    "requirements": [
+      {
+        "type": "SKILL",
+        "skill": "FARMING",
+        "level": 25
+      }
+    ],
     "id": "THEORETICAL_HOE_CARROT_3"
   },
   {
@@ -486,18 +514,39 @@
     "name": "Euclid's Wheat Hoe",
     "category": "HOE",
     "tier": "UNCOMMON",
+    "requirements": [
+      {
+        "type": "SKILL",
+        "skill": "FARMING",
+        "level": 20
+      }
+    ],
     "id": "THEORETICAL_HOE_WHEAT_2"
   },
   {
     "material": "STONE_HOE",
     "name": "Turing Sugar Cane Hoe",
     "category": "HOE",
+    "requirements": [
+      {
+        "type": "SKILL",
+        "skill": "FARMING",
+        "level": 15
+      }
+    ],
     "id": "THEORETICAL_HOE_CANE_1"
   },
   {
     "material": "STONE_HOE",
     "name": "Euclid's Wheat Hoe",
     "category": "HOE",
+    "requirements": [
+      {
+        "type": "SKILL",
+        "skill": "FARMING",
+        "level": 15
+      }
+    ],
     "id": "THEORETICAL_HOE_WHEAT_1"
   },
   {
@@ -505,6 +554,13 @@
     "name": "Gauss Carrot Hoe",
     "category": "HOE",
     "tier": "UNCOMMON",
+    "requirements": [
+      {
+        "type": "SKILL",
+        "skill": "FARMING",
+        "level": 20
+      }
+    ],
     "id": "THEORETICAL_HOE_CARROT_2"
   },
   {
@@ -512,6 +568,13 @@
     "name": "Turing Sugar Cane Hoe",
     "category": "HOE",
     "tier": "RARE",
+    "requirements": [
+      {
+        "type": "SKILL",
+        "skill": "FARMING",
+        "level": 25
+      }
+    ],
     "id": "THEORETICAL_HOE_CANE_3"
   },
   {
@@ -519,6 +582,13 @@
     "name": "Pythagorean Potato Hoe",
     "category": "HOE",
     "tier": "UNCOMMON",
+    "requirements": [
+      {
+        "type": "SKILL",
+        "skill": "FARMING",
+        "level": 20
+      }
+    ],
     "id": "THEORETICAL_HOE_POTATO_2"
   },
   {
@@ -526,6 +596,13 @@
     "name": "Pythagorean Potato Hoe",
     "category": "HOE",
     "tier": "RARE",
+    "requirements": [
+      {
+        "type": "SKILL",
+        "skill": "FARMING",
+        "level": 25
+      }
+    ],
     "id": "THEORETICAL_HOE_POTATO_3"
   },
   {
@@ -533,12 +610,26 @@
     "name": "Euclid's Wheat Hoe",
     "category": "HOE",
     "tier": "RARE",
+    "requirements": [
+      {
+        "type": "SKILL",
+        "skill": "FARMING",
+        "level": 25
+      }
+    ],
     "id": "THEORETICAL_HOE_WHEAT_3"
   },
   {
     "material": "STONE_HOE",
     "name": "Gauss Carrot Hoe",
     "category": "HOE",
+    "requirements": [
+      {
+        "type": "SKILL",
+        "skill": "FARMING",
+        "level": 15
+      }
+    ],
     "id": "THEORETICAL_HOE_CARROT_1"
   },
   {
@@ -546,6 +637,13 @@
     "name": "Newton Nether Warts Hoe",
     "category": "HOE",
     "tier": "RARE",
+    "requirements": [
+      {
+        "type": "SKILL",
+        "skill": "FARMING",
+        "level": 25
+      }
+    ],
     "id": "THEORETICAL_HOE_WARTS_3"
   },
   {
@@ -553,18 +651,39 @@
     "name": "Turing Sugar Cane Hoe",
     "category": "HOE",
     "tier": "UNCOMMON",
+    "requirements": [
+      {
+        "type": "SKILL",
+        "skill": "FARMING",
+        "level": 20
+      }
+    ],
     "id": "THEORETICAL_HOE_CANE_2"
   },
   {
     "material": "STONE_HOE",
     "name": "Newton Nether Warts Hoe",
     "category": "HOE",
+    "requirements": [
+      {
+        "type": "SKILL",
+        "skill": "FARMING",
+        "level": 15
+      }
+    ],
     "id": "THEORETICAL_HOE_WARTS_1"
   },
   {
     "material": "STONE_HOE",
     "name": "Pythagorean Potato Hoe",
     "category": "HOE",
+    "requirements": [
+      {
+        "type": "SKILL",
+        "skill": "FARMING",
+        "level": 15
+      }
+    ],
     "id": "THEORETICAL_HOE_POTATO_1"
   },
   {
@@ -572,6 +691,13 @@
     "name": "Newton Nether Warts Hoe",
     "category": "HOE",
     "tier": "UNCOMMON",
+    "requirements": [
+      {
+        "type": "SKILL",
+        "skill": "FARMING",
+        "level": 20
+      }
+    ],
     "id": "THEORETICAL_HOE_WARTS_2"
   },
   {
@@ -594,6 +720,13 @@
     "name": "Hoe of Greater Tilling",
     "category": "HOE",
     "tier": "RARE",
+    "requirements": [
+      {
+        "type": "SKILL",
+        "skill": "FARMING",
+        "level": 5
+      }
+    ],
     "id": "HOE_OF_GREATER_TILLING"
   },
   {
@@ -13842,7 +13975,7 @@
     "item_specific": {
       "portal": {
         "holo_name": "Crystal Nucleus",
-        "description_name": "the Crytsal Nucleus",
+        "description_name": "the Crystal Nucleus",
         "destination_mode": "crystal_hollows",
         "location_tag": "nucleus",
         "schematic_file": "sb_portal_crystal_hollows",
@@ -14368,9 +14501,17 @@
     "tier": "RARE",
     "stats": {
       "DEFENSE": 75,
-      "HEALTH": 20
+      "HEALTH": 20,
+      "FARMING_FORTUNE": 10
     },
     "npc_sell_price": 5200,
+    "requirements": [
+      {
+        "type": "SKILL",
+        "skill": "FARMING",
+        "level": 10
+      }
+    ],
     "id": "FARM_ARMOR_CHESTPLATE"
   },
   {
@@ -14460,6 +14601,13 @@
     "name": "Chicken Axe",
     "category": "AXE",
     "tier": "UNCOMMON",
+    "requirements": [
+      {
+        "type": "SKILL",
+        "skill": "FARMING",
+        "level": 15
+      }
+    ],
     "id": "CHICKEN_AXE"
   },
   {
@@ -14555,7 +14703,7 @@
     "durability": 3,
     "name": "Titan's Helmet",
     "category": "HELMET",
-    "tier": "LEGENDARY",
+    "tier": "UNOBTAINABLE",
     "stats": {
       "DEFENSE": 100,
       "HEALTH": 150,
@@ -15609,7 +15757,7 @@
     "durability": 3,
     "name": "Kindred",
     "category": "HELMET",
-    "tier": "LEGENDARY",
+    "tier": "UNOBTAINABLE",
     "stats": {
       "WALK_SPEED": 70
     },
@@ -15640,6 +15788,13 @@
     "category": "HOE",
     "npc_sell_price": 3,
     "museum": true,
+    "requirements": [
+      {
+        "type": "SKILL",
+        "skill": "FARMING",
+        "level": 1
+      }
+    ],
     "id": "ROOKIE_HOE"
   },
   {
@@ -16123,7 +16278,7 @@
     "durability": 3,
     "name": "Arenjey God",
     "category": "HELMET",
-    "tier": "SPECIAL",
+    "tier": "UNOBTAINABLE",
     "stats": {
       "MAGIC_FIND": 1000
     },
@@ -25532,7 +25687,7 @@
     "material": "GOLD_SWORD",
     "name": "Ferocity Sword 150",
     "category": "SWORD",
-    "tier": "LEGENDARY",
+    "tier": "UNOBTAINABLE",
     "stats": {
       "DAMAGE": 10,
       "FEROCITY": 150
@@ -25608,9 +25763,17 @@
     "tier": "RARE",
     "stats": {
       "DEFENSE": 35,
-      "HEALTH": 20
+      "HEALTH": 20,
+      "FARMING_FORTUNE": 10
     },
     "npc_sell_price": 2500,
+    "requirements": [
+      {
+        "type": "SKILL",
+        "skill": "FARMING",
+        "level": 10
+      }
+    ],
     "id": "FARM_ARMOR_BOOTS"
   },
   {
@@ -26076,7 +26239,7 @@
     "name": "Zoom",
     "glowing": true,
     "category": "PICKAXE",
-    "tier": "SPECIAL",
+    "tier": "UNOBTAINABLE",
     "stats": {
       "BREAKING_POWER": 10,
       "DAMAGE": 30,
@@ -26205,6 +26368,13 @@
       "HEALTH": 15
     },
     "npc_sell_price": 4,
+    "requirements": [
+      {
+        "type": "SKILL",
+        "skill": "FARMING",
+        "level": 5
+      }
+    ],
     "id": "CACTUS_CHESTPLATE"
   },
   {
@@ -26224,7 +26394,7 @@
     },
     "name": "Sword of the Stars 3000",
     "category": "SWORD",
-    "tier": "SPECIAL",
+    "tier": "UNOBTAINABLE",
     "stats": {
       "DAMAGE": 999999
     },
@@ -26825,6 +26995,13 @@
       "HEALTH": 8
     },
     "npc_sell_price": 8,
+    "requirements": [
+      {
+        "type": "SKILL",
+        "skill": "FARMING",
+        "level": 2
+      }
+    ],
     "id": "PUMPKIN_BOOTS"
   },
   {
@@ -27477,7 +27654,7 @@
     "durability": 3,
     "name": "Boss",
     "category": "HELMET",
-    "tier": "LEGENDARY",
+    "tier": "UNOBTAINABLE",
     "stats": {
       "WALK_SPEED": 60,
       "DEFENSE": 1000,
@@ -27652,7 +27829,7 @@
     "material": "GOLD_CHESTPLATE",
     "name": "Chestplate of the Stars",
     "category": "CHESTPLATE",
-    "tier": "SPECIAL",
+    "tier": "UNOBTAINABLE",
     "stats": {
       "DEFENSE": 5000,
       "HEALTH": 20000,
@@ -27932,7 +28109,7 @@
   {
     "material": "STAINED_GLASS",
     "durability": 14,
-    "name": "Dctr's Space Helmet",
+    "name": "Space Helmet",
     "category": "HELMET",
     "tier": "SPECIAL",
     "museum": true,
@@ -28799,6 +28976,13 @@
       "HEALTH": 40
     },
     "npc_sell_price": 163840,
+    "requirements": [
+      {
+        "type": "SKILL",
+        "skill": "FARMING",
+        "level": 18
+      }
+    ],
     "id": "FARMER_BOOTS"
   },
   {
@@ -29063,7 +29247,7 @@
     "material": "DIAMOND_BOOTS",
     "name": "Titan's Boots",
     "category": "BOOTS",
-    "tier": "LEGENDARY",
+    "tier": "UNOBTAINABLE",
     "stats": {
       "DEFENSE": 100,
       "HEALTH": 100,
@@ -30281,6 +30465,13 @@
       "HEALTH": 14
     },
     "npc_sell_price": 16,
+    "requirements": [
+      {
+        "type": "SKILL",
+        "skill": "FARMING",
+        "level": 2
+      }
+    ],
     "id": "PUMPKIN_CHESTPLATE"
   },
   {
@@ -30315,7 +30506,7 @@
     },
     "name": "Sword of the Stars 9000",
     "category": "SWORD",
-    "tier": "SPECIAL",
+    "tier": "UNOBTAINABLE",
     "stats": {
       "DAMAGE": 9999999
     },
@@ -30404,9 +30595,17 @@
     "name": "Farm Suit Boots",
     "category": "BOOTS",
     "stats": {
-      "DEFENSE": 15
+      "DEFENSE": 15,
+      "FARMING_FORTUNE": 5
     },
     "npc_sell_price": 20,
+    "requirements": [
+      {
+        "type": "SKILL",
+        "skill": "FARMING",
+        "level": 3
+      }
+    ],
     "id": "FARM_SUIT_BOOTS"
   },
   {
@@ -31440,6 +31639,13 @@
       "HEALTH": 5
     },
     "npc_sell_price": 2,
+    "requirements": [
+      {
+        "type": "SKILL",
+        "skill": "FARMING",
+        "level": 5
+      }
+    ],
     "id": "CACTUS_BOOTS"
   },
   {
@@ -33340,7 +33546,7 @@
     "material": "DIAMOND_LEGGINGS",
     "name": "Titan's Leggings",
     "category": "LEGGINGS",
-    "tier": "LEGENDARY",
+    "tier": "UNOBTAINABLE",
     "stats": {
       "DEFENSE": 175,
       "HEALTH": 200,
@@ -34062,7 +34268,7 @@
     },
     "name": "Sword of the Stars",
     "category": "SWORD",
-    "tier": "SPECIAL",
+    "tier": "UNOBTAINABLE",
     "stats": {
       "DAMAGE": 99999
     },
@@ -34740,9 +34946,17 @@
     "name": "Farm Suit Helmet",
     "category": "HELMET",
     "stats": {
-      "DEFENSE": 15
+      "DEFENSE": 15,
+      "FARMING_FORTUNE": 5
     },
     "npc_sell_price": 25,
+    "requirements": [
+      {
+        "type": "SKILL",
+        "skill": "FARMING",
+        "level": 3
+      }
+    ],
     "id": "FARM_SUIT_HELMET"
   },
   {
@@ -36866,9 +37080,17 @@
     "tier": "RARE",
     "stats": {
       "DEFENSE": 50,
-      "HEALTH": 20
+      "HEALTH": 20,
+      "FARMING_FORTUNE": 10
     },
     "npc_sell_price": 4500,
+    "requirements": [
+      {
+        "type": "SKILL",
+        "skill": "FARMING",
+        "level": 10
+      }
+    ],
     "id": "FARM_ARMOR_LEGGINGS"
   },
   {
@@ -37968,9 +38190,17 @@
     "name": "Farm Suit Chestplate",
     "category": "CHESTPLATE",
     "stats": {
-      "DEFENSE": 40
+      "DEFENSE": 40,
+      "FARMING_FORTUNE": 5
     },
     "npc_sell_price": 40,
+    "requirements": [
+      {
+        "type": "SKILL",
+        "skill": "FARMING",
+        "level": 3
+      }
+    ],
     "id": "FARM_SUIT_CHESTPLATE"
   },
   {
@@ -38213,6 +38443,13 @@
       "HEALTH": 8
     },
     "npc_sell_price": 10,
+    "requirements": [
+      {
+        "type": "SKILL",
+        "skill": "FARMING",
+        "level": 2
+      }
+    ],
     "id": "PUMPKIN_HELMET"
   },
   {
@@ -39506,7 +39743,7 @@
     "material": "SKULL_ITEM",
     "durability": 3,
     "name": "Giant pile of Cash",
-    "tier": "SPECIAL",
+    "tier": "UNOBTAINABLE",
     "npc_sell_price": 1000000000,
     "dungeon_item": true,
     "id": "PILE_OF_CASH"
@@ -41671,7 +41908,6 @@
     "category": "REFORGE_STONE",
     "tier": "RARE",
     "npc_sell_price": 1,
-    "description": "%%gray%%%%italic%%Extremely rare stone, only found in the Crystal Hollows.",
     "id": "JADERALD"
   },
   {
@@ -43052,6 +43288,13 @@
     "name": "Sheep Axe",
     "category": "AXE",
     "tier": "UNCOMMON",
+    "requirements": [
+      {
+        "type": "SKILL",
+        "skill": "FARMING",
+        "level": 15
+      }
+    ],
     "id": "SHEEP_AXE"
   },
   {
@@ -43298,6 +43541,13 @@
       "HEALTH": 10
     },
     "npc_sell_price": 16,
+    "requirements": [
+      {
+        "type": "SKILL",
+        "skill": "FARMING",
+        "level": 7
+      }
+    ],
     "id": "MUSHROOM_CHESTPLATE"
   },
   {
@@ -43638,6 +43888,13 @@
       "HEALTH": 20
     },
     "npc_sell_price": 82000,
+    "requirements": [
+      {
+        "type": "SKILL",
+        "skill": "FARMING",
+        "level": 15
+      }
+    ],
     "id": "ENCHANTED_JACK_O_LANTERN"
   },
   {
@@ -43998,6 +44255,13 @@
       "HEALTH": 5
     },
     "npc_sell_price": 3,
+    "requirements": [
+      {
+        "type": "SKILL",
+        "skill": "FARMING",
+        "level": 5
+      }
+    ],
     "id": "CACTUS_HELMET"
   },
   {
@@ -46237,6 +46501,13 @@
     "name": "Pig Axe",
     "category": "AXE",
     "tier": "UNCOMMON",
+    "requirements": [
+      {
+        "type": "SKILL",
+        "skill": "FARMING",
+        "level": 15
+      }
+    ],
     "id": "PIG_AXE"
   },
   {
@@ -48155,6 +48426,7 @@
   {
     "material": "SEEDS",
     "name": "Enchanted Seeds",
+    "tier": "UNCOMMON",
     "glowing": true,
     "npc_sell_price": 80,
     "id": "ENCHANTED_SEEDS"
@@ -49025,7 +49297,7 @@
     "material": "GOLD_SWORD",
     "name": "Ferocity Sword 50",
     "category": "SWORD",
-    "tier": "LEGENDARY",
+    "tier": "UNOBTAINABLE",
     "stats": {
       "DAMAGE": 10,
       "FEROCITY": 50
@@ -50148,7 +50420,7 @@
     "durability": 3,
     "name": "The Fast",
     "category": "HELMET",
-    "tier": "LEGENDARY",
+    "tier": "UNOBTAINABLE",
     "stats": {
       "WALK_SPEED": 1000
     },
@@ -50356,9 +50628,17 @@
     "name": "Farm Suit Leggings",
     "category": "LEGGINGS",
     "stats": {
-      "DEFENSE": 30
+      "DEFENSE": 30,
+      "FARMING_FORTUNE": 5
     },
     "npc_sell_price": 32,
+    "requirements": [
+      {
+        "type": "SKILL",
+        "skill": "FARMING",
+        "level": 3
+      }
+    ],
     "id": "FARM_SUIT_LEGGINGS"
   },
   {
@@ -50955,6 +51235,13 @@
       "DEFENSE": 70,
       "HEALTH": 100
     },
+    "requirements": [
+      {
+        "type": "SKILL",
+        "skill": "FARMING",
+        "level": 21
+      }
+    ],
     "id": "RANCHERS_BOOTS"
   },
   {
@@ -51165,6 +51452,13 @@
       "HEALTH": 15
     },
     "npc_sell_price": 8,
+    "requirements": [
+      {
+        "type": "SKILL",
+        "skill": "FARMING",
+        "level": 7
+      }
+    ],
     "id": "MUSHROOM_BOOTS"
   },
   {
@@ -51195,7 +51489,7 @@
     "material": "GOLD_BOOTS",
     "name": "Boots of the Stars",
     "category": "BOOTS",
-    "tier": "SPECIAL",
+    "tier": "UNOBTAINABLE",
     "stats": {
       "DEFENSE": 2500,
       "HEALTH": 7500,
@@ -51218,7 +51512,7 @@
     },
     "name": "Raygun",
     "category": "BOW",
-    "tier": "SPECIAL",
+    "tier": "UNOBTAINABLE",
     "stats": {
       "DAMAGE": 99999999
     },
@@ -53392,7 +53686,7 @@
     "material": "GOLD_HELMET",
     "name": "Helmet of the Stars",
     "category": "HELMET",
-    "tier": "SPECIAL",
+    "tier": "UNOBTAINABLE",
     "stats": {
       "DEFENSE": 3000,
       "HEALTH": 10000,
@@ -53769,7 +54063,7 @@
     "durability": 3,
     "name": "Voodoo",
     "category": "HELMET",
-    "tier": "LEGENDARY",
+    "tier": "UNOBTAINABLE",
     "stats": {
       "DEFENSE": 1000
     },
@@ -54609,6 +54903,13 @@
     "name": "Mushroom Cow Axe",
     "category": "AXE",
     "tier": "UNCOMMON",
+    "requirements": [
+      {
+        "type": "SKILL",
+        "skill": "FARMING",
+        "level": 15
+      }
+    ],
     "id": "MUSHROOM_COW_AXE"
   },
   {
@@ -55371,6 +55672,13 @@
       "HEALTH": 10
     },
     "npc_sell_price": 3,
+    "requirements": [
+      {
+        "type": "SKILL",
+        "skill": "FARMING",
+        "level": 5
+      }
+    ],
     "id": "CACTUS_LEGGINGS"
   },
   {
@@ -59124,7 +59432,7 @@
     "material": "DIAMOND_CHESTPLATE",
     "name": "Titan's Chestplate",
     "category": "CHESTPLATE",
-    "tier": "LEGENDARY",
+    "tier": "UNOBTAINABLE",
     "stats": {
       "DEFENSE": 200,
       "HEALTH": 300,
@@ -59206,9 +59514,17 @@
     "tier": "RARE",
     "stats": {
       "DEFENSE": 40,
-      "HEALTH": 20
+      "HEALTH": 20,
+      "FARMING_FORTUNE": 10
     },
     "npc_sell_price": 3200,
+    "requirements": [
+      {
+        "type": "SKILL",
+        "skill": "FARMING",
+        "level": 10
+      }
+    ],
     "id": "FARM_ARMOR_HELMET"
   },
   {
@@ -59332,7 +59648,7 @@
     "material": "GOLD_LEGGINGS",
     "name": "Leggings of the Stars",
     "category": "LEGGINGS",
-    "tier": "SPECIAL",
+    "tier": "UNOBTAINABLE",
     "stats": {
       "DEFENSE": 4000,
       "HEALTH": 15000,
@@ -61710,6 +62026,13 @@
       "HEALTH": 20
     },
     "npc_sell_price": 10,
+    "requirements": [
+      {
+        "type": "SKILL",
+        "skill": "FARMING",
+        "level": 7
+      }
+    ],
     "id": "MUSHROOM_HELMET"
   },
   {
@@ -61849,7 +62172,7 @@
     },
     "name": "Sword of the Universe",
     "category": "SWORD",
-    "tier": "SPECIAL",
+    "tier": "UNOBTAINABLE",
     "stats": {
       "DAMAGE": 99999999
     },
@@ -62395,8 +62718,8 @@
     "id": "SHIMMERING_LIGHT_TUNIC"
   },
   {
-    "material": "PAPER",
-    "name": "Journal Entry",
+    "material": "BOOK",
+    "name": "Journal",
     "tier": "RARE",
     "npc_sell_price": 1,
     "dungeon_item": true,
@@ -62586,6 +62909,13 @@
       "HEALTH": 10
     },
     "npc_sell_price": 14,
+    "requirements": [
+      {
+        "type": "SKILL",
+        "skill": "FARMING",
+        "level": 7
+      }
+    ],
     "id": "MUSHROOM_LEGGINGS"
   },
   {
@@ -63250,7 +63580,7 @@
     "durability": 3,
     "name": "Anubis",
     "category": "HELMET",
-    "tier": "LEGENDARY",
+    "tier": "UNOBTAINABLE",
     "stats": {
       "HEALTH": 3000
     },
@@ -63756,6 +64086,13 @@
     "name": "Cow Axe",
     "category": "AXE",
     "tier": "UNCOMMON",
+    "requirements": [
+      {
+        "type": "SKILL",
+        "skill": "FARMING",
+        "level": 15
+      }
+    ],
     "id": "COW_AXE"
   },
   {
@@ -64768,7 +65105,7 @@
     "material": "WATCH",
     "name": "Enchanted Clock",
     "glowing": true,
-    "tier": "RARE",
+    "tier": "UNOBTAINABLE",
     "npc_sell_price": 205000,
     "id": "ENCHANTED_CLOCK"
   },
@@ -65172,6 +65509,13 @@
     "name": "Rabbit Axe",
     "category": "AXE",
     "tier": "UNCOMMON",
+    "requirements": [
+      {
+        "type": "SKILL",
+        "skill": "FARMING",
+        "level": 15
+      }
+    ],
     "id": "RABBIT_AXE"
   },
   {
@@ -65801,6 +66145,13 @@
       "HEALTH": 10
     },
     "npc_sell_price": 14,
+    "requirements": [
+      {
+        "type": "SKILL",
+        "skill": "FARMING",
+        "level": 2
+      }
+    ],
     "id": "PUMPKIN_LEGGINGS"
   },
   {
@@ -71433,6 +71784,915 @@
     "id": "TROPICAL_BIRD_2_PERSONALITY"
   },
   {
+    "material": "GOLD_AXE",
+    "name": "Pumpkin Dicer 2.0",
+    "description": "%%italic%%Someone once said, 2 is always better than 1!",
+    "category": "AXE",
+    "tier": "EPIC",
+    "id": "PUMPKIN_DICER_2"
+  },
+  {
+    "material": "SKULL_ITEM",
+    "durability": 3,
+    "name": "Squash",
+    "tier": "EPIC",
+    "npc_sell_price": 750,
+    "id": "SQUASH"
+  },
+  {
+    "material": "BROWN_MUSHROOM",
+    "name": "Organic Brown Mushroom",
+    "npc_sell_price": 4,
+    "glowing": true,
+    "tier": "UNCOMMON",
+    "id": "ORGANIC_BROWN_MUSHROOM"
+  },
+  {
+    "material": "WOOL",
+    "name": "Organic Wool",
+    "npc_sell_price": 3,
+    "glowing": true,
+    "tier": "UNCOMMON",
+    "id": "ORGANIC_WOOL"
+  },
+  {
+    "material": "CARROT_ITEM",
+    "name": "Organic Carrot",
+    "npc_sell_price": 1,
+    "glowing": true,
+    "tier": "UNCOMMON",
+    "id": "ORGANIC_CARROT_ITEM"
+  },
+  {
+    "material": "NETHER_STALK",
+    "name": "Organic Nether Wart",
+    "npc_sell_price": 2,
+    "glowing": true,
+    "tier": "UNCOMMON",
+    "id": "ORGANIC_NETHER_STALK"
+  },
+  {
+    "material": "WHEAT",
+    "name": "Organic Wheat",
+    "npc_sell_price": 1,
+    "glowing": true,
+    "tier": "UNCOMMON",
+    "id": "ORGANIC_WHEAT"
+  },
+  {
+    "material": "RED_MUSHROOM",
+    "name": "Organic Mushroom",
+    "npc_sell_price": 4,
+    "glowing": true,
+    "tier": "UNCOMMON",
+    "id": "ORGANIC_MUSHROOM"
+  },
+  {
+    "material": "EGG",
+    "name": "Organic Egg",
+    "npc_sell_price": 3,
+    "glowing": true,
+    "tier": "UNCOMMON",
+    "id": "ORGANIC_EGG"
+  },
+  {
+    "material": "SUGAR_CANE",
+    "name": "Organic Sugar Cane",
+    "npc_sell_price": 2,
+    "glowing": true,
+    "tier": "UNCOMMON",
+    "id": "ORGANIC_SUGAR_CANE"
+  },
+  {
+    "material": "MILK_BUCKET",
+    "name": "Organic Milk",
+    "npc_sell_price": 3,
+    "glowing": true,
+    "tier": "UNCOMMON",
+    "id": "ORGANIC_MILK"
+  },
+  {
+    "material": "POTATO_ITEM",
+    "name": "Organic Potato",
+    "npc_sell_price": 1,
+    "glowing": true,
+    "tier": "UNCOMMON",
+    "id": "ORGANIC_POTATO_ITEM"
+  },
+  {
+    "material": "CACTUS",
+    "name": "Organic Cactus",
+    "npc_sell_price": 1,
+    "glowing": true,
+    "tier": "UNCOMMON",
+    "id": "ORGANIC_CACTUS"
+  },
+  {
+    "material": "MELON",
+    "name": "Organic Melon",
+    "npc_sell_price": 0.5,
+    "glowing": true,
+    "tier": "UNCOMMON",
+    "id": "ORGANIC_MELON"
+  },
+  {
+    "material": "PUMPKIN",
+    "name": "Organic Pumpkin",
+    "npc_sell_price": 4,
+    "glowing": true,
+    "tier": "UNCOMMON",
+    "id": "ORGANIC_PUMPKIN"
+  },
+  {
+    "material": "RED_MUSHROOM",
+    "name": "Organic Red Mushroom",
+    "npc_sell_price": 4,
+    "glowing": true,
+    "tier": "UNCOMMON",
+    "id": "ORGANIC_RED_MUSHROOM"
+  },
+  {
+    "material": "INK_SACK",
+    "durability": 3,
+    "name": "Organic Cocoa Beans",
+    "npc_sell_price": 3,
+    "glowing": true,
+    "tier": "UNCOMMON",
+    "id": "ORGANIC_COCOA_BEANS"
+  },
+  {
+    "material": "SKULL_ITEM",
+    "durability": 3,
+    "name": "Compost",
+    "tier": "UNCOMMON",
+    "npc_sell_price": 4,
+    "id": "COMPOST"
+  },
+  {
+    "material": "DIAMOND_AXE",
+    "name": "Melon Dicer 3.0",
+    "description": "%%italic%%Almost identical to the Melon Dicer 2.0, but it has 3.0 in the name!",
+    "category": "AXE",
+    "tier": "LEGENDARY",
+    "id": "MELON_DICER_3"
+  },
+  {
+    "material": "SKULL_ITEM",
+    "durability": 3,
+    "name": "Fermento Helmet",
+    "tier": "LEGENDARY",
+    "category": "HELMET",
+    "stats": {
+      "FARMING_FORTUNE": 30,
+      "walk_speed": 5,
+      "health": 130,
+      "defense": 40
+    },
+    "requirements": [
+      {
+        "type": "SKILL",
+        "skill": "FARMING",
+        "level": 40
+      }
+    ],
+    "id": "FERMENTO_HELMET"
+  },
+  {
+    "material": "LEATHER_CHESTPLATE",
+    "color": "88,137,12",
+    "name": "Fermento Chestplate",
+    "tier": "LEGENDARY",
+    "category": "CHESTPLATE",
+    "stats": {
+      "FARMING_FORTUNE": 35,
+      "walk_speed": 6,
+      "health": 195,
+      "defense": 40
+    },
+    "requirements": [
+      {
+        "type": "SKILL",
+        "skill": "FARMING",
+        "level": 40
+      }
+    ],
+    "id": "FERMENTO_CHESTPLATE"
+  },
+  {
+    "material": "LEATHER_BOOTS",
+    "color": "131,176,59",
+    "name": "Fermento Boots",
+    "tier": "LEGENDARY",
+    "category": "BOOTS",
+    "stats": {
+      "FARMING_FORTUNE": 30,
+      "walk_speed": 5,
+      "health": 130,
+      "defense": 40
+    },
+    "requirements": [
+      {
+        "type": "SKILL",
+        "skill": "FARMING",
+        "level": 40
+      }
+    ],
+    "id": "FERMENTO_BOOTS"
+  },
+  {
+    "material": "LEATHER_LEGGINGS",
+    "color": "106,156,27",
+    "name": "Fermento Leggings",
+    "category": "LEGGINGS",
+    "tier": "LEGENDARY",
+    "stats": {
+      "FARMING_FORTUNE": 35,
+      "walk_speed": 6,
+      "health": 195,
+      "defense": 40
+    },
+    "requirements": [
+      {
+        "type": "SKILL",
+        "skill": "FARMING",
+        "level": 40
+      }
+    ],
+    "id": "FERMENTO_LEGGINGS"
+  },
+  {
+    "material": "LEATHER_LEGGINGS",
+    "color": "148,69,31",
+    "name": "Cropie Leggings",
+    "tier": "RARE",
+    "category": "LEGGINGS",
+    "stats": {
+      "FARMING_FORTUNE": 25,
+      "walk_speed": 4,
+      "health": 165,
+      "defense": 30
+    },
+    "requirements": [
+      {
+        "type": "SKILL",
+        "skill": "FARMING",
+        "level": 30
+      }
+    ],
+    "id": "CROPIE_LEGGINGS"
+  },
+  {
+    "material": "SKULL_ITEM",
+    "durability": 3,
+    "name": "Cropie Helmet",
+    "tier": "RARE",
+    "category": "HELMET",
+    "stats": {
+      "FARMING_FORTUNE": 20,
+      "walk_speed": 3,
+      "health": 110,
+      "defense": 30
+    },
+    "requirements": [
+      {
+        "type": "SKILL",
+        "skill": "FARMING",
+        "level": 30
+      }
+    ],
+    "id": "CROPIE_HELMET"
+  },
+  {
+    "material": "LEATHER_BOOTS",
+    "color": "187,101,53",
+    "name": "Cropie Boots",
+    "tier": "RARE",
+    "category": "BOOTS",
+    "stats": {
+      "FARMING_FORTUNE": 20,
+      "walk_speed": 4,
+      "health": 110,
+      "defense": 30
+    },
+    "requirements": [
+      {
+        "type": "SKILL",
+        "skill": "FARMING",
+        "level": 30
+      }
+    ],
+    "id": "CROPIE_BOOTS"
+  },
+  {
+    "material": "LEATHER_CHESTPLATE",
+    "color": "122,41,0",
+    "name": "Cropie Chestplate",
+    "tier": "RARE",
+    "category": "CHESTPLATE",
+    "stats": {
+      "FARMING_FORTUNE": 25,
+      "walk_speed": 4,
+      "health": 165,
+      "defense": 30
+    },
+    "requirements": [
+      {
+        "type": "SKILL",
+        "skill": "FARMING",
+        "level": 30
+      }
+    ],
+    "id": "CROPIE_CHESTPLATE"
+  },
+  {
+    "material": "LEATHER_CHESTPLATE",
+    "name": "Cashmere Jacket",
+    "tier": "RARE",
+    "category": "CHESTPLATE",
+    "stats": {
+      "health": 25,
+      "defense": 10
+    },
+    "id": "CASHMERE_JACKET"
+  },
+  {
+    "material": "LEATHER_BOOTS",
+    "name": "Oxford Shoes",
+    "tier": "RARE",
+    "category": "BOOTS",
+    "stats": {
+      "health": 25,
+      "defense": 10
+    },
+    "id": "OXFORD_SHOES"
+  },
+  {
+    "material": "LEATHER_LEGGINGS",
+    "name": "Satin Trousers",
+    "tier": "RARE",
+    "category": "LEGGINGS",
+    "stats": {
+      "health": 25,
+      "defense": 10
+    },
+    "id": "SATIN_TROUSERS"
+  },
+  {
+    "material": "LEATHER_HELMET",
+    "name": "Velvet Top Hat",
+    "tier": "RARE",
+    "category": "HELMET",
+    "stats": {
+      "health": 25,
+      "defense": 10
+    },
+    "id": "VELVET_TOP_HAT"
+  },
+  {
+    "material": "LEATHER_CHESTPLATE",
+    "color": "203,210,219",
+    "name": "Rabbit Chestplate",
+    "category": "CHESTPLATE",
+    "stats": {
+      "FARMING_FORTUNE": 15
+    },
+    "requirements": [
+      {
+        "type": "SKILL",
+        "skill": "FARMING",
+        "level": 15
+      }
+    ],
+    "id": "RABBIT_CHESTPLATE"
+  },
+  {
+    "material": "LEATHER_LEGGINGS",
+    "color": "203,210,219",
+    "name": "Rabbit Leggings",
+    "category": "LEGGINGS",
+    "stats": {
+      "FARMING_FORTUNE": 15
+    },
+    "requirements": [
+      {
+        "type": "SKILL",
+        "skill": "FARMING",
+        "level": 15
+      }
+    ],
+    "id": "RABBIT_LEGGINGS"
+  },
+  {
+    "material": "LEATHER_HELMET",
+    "color": "203,210,219",
+    "name": "Rabbit Helmet",
+    "category": "HELMET",
+    "stats": {
+      "FARMING_FORTUNE": 15
+    },
+    "requirements": [
+      {
+        "type": "SKILL",
+        "skill": "FARMING",
+        "level": 15
+      }
+    ],
+    "id": "RABBIT_HELMET"
+  },
+  {
+    "material": "LEATHER_BOOTS",
+    "color": "203,210,219",
+    "name": "Rabbit Boots",
+    "category": "BOOTS",
+    "stats": {
+      "FARMING_FORTUNE": 15
+    },
+    "requirements": [
+      {
+        "type": "SKILL",
+        "skill": "FARMING",
+        "level": 15
+      }
+    ],
+    "id": "RABBIT_BOOTS"
+  },
+  {
+    "material": "LEATHER_LEGGINGS",
+    "color": "12,74,22",
+    "name": "Squash Leggings",
+    "tier": "EPIC",
+    "category": "LEGGINGS",
+    "stats": {
+      "FARMING_FORTUNE": 30,
+      "walk_speed": 5,
+      "health": 180,
+      "defense": 35
+    },
+    "requirements": [
+      {
+        "type": "SKILL",
+        "skill": "FARMING",
+        "level": 35
+      }
+    ],
+    "id": "SQUASH_LEGGINGS"
+  },
+  {
+    "material": "SKULL_ITEM",
+    "durability": 3,
+    "name": "Squash Helmet",
+    "tier": "EPIC",
+    "category": "HELMET",
+    "stats": {
+      "FARMING_FORTUNE": 25,
+      "walk_speed": 4,
+      "health": 120,
+      "defense": 35
+    },
+    "requirements": [
+      {
+        "type": "SKILL",
+        "skill": "FARMING",
+        "level": 35
+      }
+    ],
+    "id": "SQUASH_HELMET"
+  },
+  {
+    "material": "LEATHER_CHESTPLATE",
+    "color": "3,67,14",
+    "name": "Squash Chestplate",
+    "tier": "EPIC",
+    "category": "CHESTPLATE",
+    "stats": {
+      "FARMING_FORTUNE": 30,
+      "walk_speed": 5,
+      "health": 180,
+      "defense": 35
+    },
+    "requirements": [
+      {
+        "type": "SKILL",
+        "skill": "FARMING",
+        "level": 35
+      }
+    ],
+    "id": "SQUASH_CHESTPLATE"
+  },
+  {
+    "material": "LEATHER_BOOTS",
+    "color": "19,86,30",
+    "name": "Squash Boots",
+    "tier": "EPIC",
+    "category": "BOOTS",
+    "stats": {
+      "FARMING_FORTUNE": 25,
+      "walk_speed": 4,
+      "health": 120,
+      "defense": 35
+    },
+    "requirements": [
+      {
+        "type": "SKILL",
+        "skill": "FARMING",
+        "level": 35
+      }
+    ],
+    "id": "SQUASH_BOOTS"
+  },
+  {
+    "material": "MELON_BLOCK",
+    "name": "Melon Helmet",
+    "category": "HELMET",
+    "tier": "UNCOMMON",
+    "stats": {
+      "FARMING_FORTUNE": 15,
+      "walk_speed": 2,
+      "health": 100,
+      "defense": 25
+    },
+    "requirements": [
+      {
+        "type": "SKILL",
+        "skill": "FARMING",
+        "level": 25
+      }
+    ],
+    "id": "MELON_HELMET"
+  },
+  {
+    "material": "LEATHER_BOOTS",
+    "color": "137,158,32",
+    "name": "Melon Boots",
+    "tier": "UNCOMMON",
+    "category": "BOOTS",
+    "stats": {
+      "FARMING_FORTUNE": 15,
+      "walk_speed": 2,
+      "health": 100,
+      "defense": 25
+    },
+    "requirements": [
+      {
+        "type": "SKILL",
+        "skill": "FARMING",
+        "level": 25
+      }
+    ],
+    "id": "MELON_BOOTS"
+  },
+  {
+    "material": "LEATHER_CHESTPLATE",
+    "color": "137,158,32",
+    "name": "Melon Chestplate",
+    "tier": "UNCOMMON",
+    "category": "CHESTPLATE",
+    "stats": {
+      "FARMING_FORTUNE": 20,
+      "walk_speed": 3,
+      "health": 150,
+      "defense": 25
+    },
+    "requirements": [
+      {
+        "type": "SKILL",
+        "skill": "FARMING",
+        "level": 25
+      }
+    ],
+    "id": "MELON_CHESTPLATE"
+  },
+  {
+    "material": "LEATHER_LEGGINGS",
+    "color": "137,158,32",
+    "name": "Melon Leggings",
+    "tier": "UNCOMMON",
+    "category": "LEGGINGS",
+    "stats": {
+      "FARMING_FORTUNE": 20,
+      "walk_speed": 3,
+      "health": 150,
+      "defense": 25
+    },
+    "requirements": [
+      {
+        "type": "SKILL",
+        "skill": "FARMING",
+        "level": 25
+      }
+    ],
+    "id": "MELON_LEGGINGS"
+  },
+  {
+    "name": "Copper",
+    "material": "SKULL_ITEM",
+    "durability": 3,
+    "tier": "COMMON",
+    "npc_sell_price": 10,
+    "id": "COPPER"
+  },
+  {
+    "material": "SKULL_ITEM",
+    "durability": 3,
+    "tier": "RARE",
+    "name": "Box of Seeds",
+    "id": "BOX_OF_SEEDS"
+  },
+  {
+    "material": "LONG_GRASS",
+    "name": "Fertilizer",
+    "durability": 2,
+    "tier": "UNCOMMON",
+    "npc_sell_price": 4,
+    "id": "FERTILIZER"
+  },
+  {
+    "material": "SKULL_ITEM",
+    "durability": 3,
+    "name": "Jake's Plushie",
+    "tier": "UNCOMMON",
+    "category": "ACCESSORY",
+    "stats": {
+      "HEALTH": 2
+    },
+    "id": "JAKE_PLUSHIE"
+  },
+  {
+    "material": "GOLD_AXE",
+    "name": "Pumpkin Dicer 3.0",
+    "description": "%%italic%%\"3.0 is better than the 2.0 version\" - CEO of PumpkinDicer LLC.",
+    "category": "AXE",
+    "tier": "LEGENDARY",
+    "id": "PUMPKIN_DICER_3"
+  },
+  {
+    "material": "DIAMOND_AXE",
+    "name": "Melon Dicer 2.0",
+    "description": "%%italic%%Same as the Melon Dicer 1.0, just better!",
+    "category": "AXE",
+    "tier": "EPIC",
+    "id": "MELON_DICER_2"
+  },
+  {
+    "material": "DIAMOND_HOE",
+    "name": "Hoe of Greatest Tilling",
+    "category": "HOE",
+    "tier": "EPIC",
+    "glowing": true,
+    "requirements": [
+      {
+        "type": "SKILL",
+        "skill": "FARMING",
+        "level": 10
+      }
+    ],
+    "id": "HOE_OF_GREATEST_TILLING"
+  },
+  {
+    "material": "BLAZE_ROD",
+    "name": "Builder's Ruler",
+    "glowing": true,
+    "tier": "LEGENDARY",
+    "unstackable": true,
+    "id": "BUILDERS_RULER"
+  },
+  {
+    "material": "SKULL_ITEM",
+    "durability": 3,
+    "name": "Condensed Fermento",
+    "tier": "LEGENDARY",
+    "npc_sell_price": 9000,
+    "id": "CONDENSED_FERMENTO"
+  },
+  {
+    "material": "CAKE",
+    "name": "Pet Cake",
+    "npc_sell_price": 10,
+    "tier": "COMMON",
+    "id": "PET_CAKE"
+  },
+  {
+    "material": "SKULL_ITEM",
+    "durability": 3,
+    "name": "Cropie",
+    "tier": "RARE",
+    "npc_sell_price": 500,
+    "id": "CROPIE"
+  },
+  {
+    "material": "SKULL_ITEM",
+    "durability": 3,
+    "name": "Compost Bundle",
+    "tier": "RARE",
+    "npc_sell_price": 10,
+    "id": "ENCHANTED_COMPOST"
+  },
+  {
+    "material": "SKULL_ITEM",
+    "durability": 3,
+    "name": "Fermento",
+    "tier": "LEGENDARY",
+    "npc_sell_price": 1000,
+    "id": "FERMENTO"
+  },
+  {
+    "material": "DEAD_BUSH",
+    "name": "Mysterious Crop",
+    "glowing": true,
+    "id": "MYSTERIOUS_CROP"
+  },
+  {
+    "material": "SKULL_ITEM",
+    "durability": 3,
+    "name": "Lotus Bracelet",
+    "category": "BRACELET",
+    "tier": "RARE",
+    "npc_sell_price": 100,
+    "stats": {
+      "FARMING_FORTUNE": 5,
+      "health": 10
+    },
+    "requirements": [
+      {
+        "type": "GARDEN_LEVEL",
+        "level": 2
+      },
+      {
+        "type": "SKILL",
+        "skill": "FARMING",
+        "level": 10
+      }
+    ],
+    "id": "LOTUS_BRACELET"
+  },
+  {
+    "material": "IRON_HOE",
+    "name": "Basic Gardening Hoe",
+    "category": "HOE",
+    "tier": "UNCOMMON",
+    "npc_sell_price": 100,
+    "stats": {
+      "FARMING_FORTUNE": 5
+    },
+    "requirements": [
+      {
+        "type": "GARDEN_LEVEL",
+        "level": 1
+      },
+      {
+        "type": "SKILL",
+        "skill": "FARMING",
+        "level": 5
+      }
+    ],
+    "id": "BASIC_GARDENING_HOE"
+  },
+  {
+    "material": "SKULL_ITEM",
+    "durability": 3,
+    "name": "Lotus Belt",
+    "category": "BELT",
+    "tier": "RARE",
+    "npc_sell_price": 100,
+    "stats": {
+      "FARMING_FORTUNE": 5,
+      "health": 10
+    },
+    "requirements": [
+      {
+        "type": "GARDEN_LEVEL",
+        "level": 3
+      },
+      {
+        "type": "SKILL",
+        "skill": "FARMING",
+        "level": 10
+      }
+    ],
+    "id": "LOTUS_BELT"
+  },
+  {
+    "material": "SKULL_ITEM",
+    "durability": 3,
+    "name": "Lotus Necklace",
+    "category": "NECKLACE",
+    "tier": "RARE",
+    "npc_sell_price": 100,
+    "stats": {
+      "FARMING_FORTUNE": 5,
+      "health": 10
+    },
+    "requirements": [
+      {
+        "type": "GARDEN_LEVEL",
+        "level": 4
+      },
+      {
+        "type": "SKILL",
+        "skill": "FARMING",
+        "level": 10
+      }
+    ],
+    "id": "LOTUS_NECKLACE"
+  },
+  {
+    "material": "DIAMOND_HOE",
+    "name": "Advanced Gardening Hoe",
+    "category": "HOE",
+    "tier": "RARE",
+    "npc_sell_price": 100,
+    "stats": {
+      "FARMING_FORTUNE": 10
+    },
+    "requirements": [
+      {
+        "type": "GARDEN_LEVEL",
+        "level": 3
+      },
+      {
+        "type": "SKILL",
+        "skill": "FARMING",
+        "level": 7
+      }
+    ],
+    "id": "ADVANCED_GARDENING_HOE"
+  },
+  {
+    "material": "DIAMOND_AXE",
+    "name": "Advanced Gardening Axe",
+    "category": "AXE",
+    "tier": "RARE",
+    "npc_sell_price": 100,
+    "stats": {
+      "FARMING_FORTUNE": 10
+    },
+    "requirements": [
+      {
+        "type": "GARDEN_LEVEL",
+        "level": 6
+      }
+    ],
+    "id": "ADVANCED_GARDENING_AXE"
+  },
+  {
+    "material": "IRON_AXE",
+    "name": "Basic Gardening Axe",
+    "category": "AXE",
+    "tier": "UNCOMMON",
+    "npc_sell_price": 100,
+    "stats": {
+      "FARMING_FORTUNE": 5
+    },
+    "requirements": [
+      {
+        "type": "GARDEN_LEVEL",
+        "level": 4
+      }
+    ],
+    "id": "BASIC_GARDENING_AXE"
+  },
+  {
+    "material": "IRON_HOE",
+    "name": "Garden Scythe",
+    "tier": "RARE",
+    "npc_sell_price": 100,
+    "glowing": true,
+    "id": "GARDEN_SCYTHE"
+  },
+  {
+    "material": "SKULL_ITEM",
+    "durability": 3,
+    "name": "Lotus Cloak",
+    "category": "CLOAK",
+    "tier": "RARE",
+    "npc_sell_price": 100,
+    "stats": {
+      "FARMING_FORTUNE": 5,
+      "health": 10
+    },
+    "requirements": [
+      {
+        "type": "GARDEN_LEVEL",
+        "level": 5
+      },
+      {
+        "type": "SKILL",
+        "skill": "FARMING",
+        "level": 10
+      }
+    ],
+    "id": "LOTUS_CLOAK"
+  },
+  {
+    "material": "WOOD_HOE",
+    "name": "Sam's Scythe",
+    "tier": "COMMON",
+    "npc_sell_price": 1,
+    "glowing": true,
+    "soulbound": "COOP",
+    "id": "SAM_SCYTHE"
+  },
+  {
     "material": "SKULL_ITEM",
     "durability": 3,
     "name": "Snow Cloak",
@@ -72648,6 +73908,12 @@
     "npc_sell_price": 20840,
     "description": "%%gray%%%%italic%%May cause diseases",
     "id": "GOBLIN_OMELETTE"
+  },
+  {
+    "material": "MONSTER_EGG",
+    "durability": 101,
+    "name": "Move Sam",
+    "id": "SAM_ASSISTANT"
   },
   {
     "material": "SKULL_ITEM",
