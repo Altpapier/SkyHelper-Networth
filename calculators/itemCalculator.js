@@ -102,7 +102,7 @@ const calculateItem = (item, prices, returnItemData) => {
     // PARTY_HAT_CRAB (Item)
     if (ExtraAttributes.id.startsWith('PARTY_HAT_CRAB') && ExtraAttributes.party_hat_color) itemId = `${ExtraAttributes.id.toLowerCase()}_${ExtraAttributes.party_hat_color}`;
     // DCTR_SPACE_HELM (Editioned)
-    if (ExtraAttributes.id === 'DCTR_SPACE_HELM' && ExtraAttributes.edition) itemId = 'dctr_space_helm_editioned';
+    if (ExtraAttributes.id === 'DCTR_SPACE_HELM' && ExtraAttributes.edition !== undefined) itemId = 'dctr_space_helm_editioned';
 
     const itemData = prices[itemId];
     let price = (itemData || 0) * item.Count;
