@@ -11,7 +11,7 @@ const reforges = {
   precise: 'optical_lens',
   ridiculous: 'red_nose',
   loving: 'red_scarf',
-  spiritual: 'spirit_stone',
+  spiritual: 'spirit_decoy',
   warped: 'warped_stone',
   giant: 'giant_tooth',
   empowered: 'sadans_brooch',
