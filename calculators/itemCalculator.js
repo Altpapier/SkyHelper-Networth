@@ -83,7 +83,7 @@ const calculateItem = (item, prices, returnItemData) => {
     const skyblockItem = getHypixelItemInformationFromId(itemId.toUpperCase());
 
     if (ExtraAttributes.skin) {
-      itemId += `_skinned_${ExtraAttributes.skin.toLowerCase()}`;
+      if (prices[`${itemId}_skinned_${ExtraAttributes.skin.toLowerCase()}`]) itemId += `_skinned_${ExtraAttributes.skin.toLowerCase()}`;
     }
 
     if (['Beastmaster Crest', 'Griffin Upgrade Stone', 'Wisp Upgrade Stone'].includes(itemName)) {
