@@ -10,6 +10,7 @@ const applicationWorth = {
   essence: 0.75,
   silex: 0.75,
   artOfPeace: 0.8,
+  manaDisintegrator: 0.8,
   recomb: 0.8,
   thunderInABottle: 0.8,
   enchants: 0.85,

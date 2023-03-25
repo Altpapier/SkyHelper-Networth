@@ -286,6 +286,18 @@ const calculateItem = (item, prices, returnItemData) => {
       calculation.push(calculationData);
     }
 
+    // MANA DISINTEGRATOR
+    if (ExtraAttributes.mana_disintegrator_count) {
+      const calculationData = {
+        id: 'MANA_DISINTEGRATOR',
+        type: 'mana_disintegrator',
+        price: (prices['mana_disintegrator'] || 0) * ExtraAttributes.mana_disintegrator_count * applicationWorth.manaDisintegrator,
+        count: ExtraAttributes.mana_disintegrator_count,
+      };
+      price += calculationData.price;
+      calculation.push(calculationData);
+    }
+
     // PULSE RING
     if (ExtraAttributes.thunder_charge && itemId === 'pulse_ring') {
       const thunderUpgrades = Math.floor(ExtraAttributes.thunder_charge / 50_000);
