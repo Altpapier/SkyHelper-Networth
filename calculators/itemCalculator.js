@@ -184,6 +184,20 @@ const calculateItem = (item, prices, returnItemData) => {
         price = calculationData.price;
         calculation.push(calculationData);
         itemName = titleCase((name === 'aiming' ? 'dragon tracer' : name).replace(/_/g, ' '));
+      } else {
+        // MULTI ENCHANTMENT BOOK
+        let enchantmentPrice = 0;
+        for (const [name, value] of Object.entries(ExtraAttributes.enchantments)) {
+          const calculationData = {
+            id: `${name}_${value}`.toUpperCase(),
+            type: 'enchant',
+            price: (prices[`enchantment_${name}_${value}`] || 0) * applicationWorth.enchants,
+            count: 1,
+          };
+          enchantmentPrice += calculationData.price;
+          calculation.push(calculationData);
+        }
+        price = enchantmentPrice;
       }
     } else if (ExtraAttributes.enchantments) {
       // ITEM ENCHANTMENTS
