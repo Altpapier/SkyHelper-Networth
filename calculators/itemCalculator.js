@@ -178,7 +178,7 @@ const calculateItem = (item, prices, returnItemData) => {
         const calculationData = {
           id: `${name}_${value}`.toUpperCase(),
           type: 'enchant',
-          price: prices[`enchantment_${name}_${value}`] || 0,
+          price: prices[`enchantment_${name.toLowerCase()}_${value}`] || 0,
           count: 1,
         };
         price = calculationData.price;
@@ -191,7 +191,7 @@ const calculateItem = (item, prices, returnItemData) => {
           const calculationData = {
             id: `${name}_${value}`.toUpperCase(),
             type: 'enchant',
-            price: (prices[`enchantment_${name}_${value}`] || 0) * applicationWorth.enchants,
+            price: (prices[`enchantment_${name.toLowerCase()}_${value}`] || 0) * applicationWorth.enchants,
             count: 1,
           };
           enchantmentPrice += calculationData.price;
@@ -202,6 +202,7 @@ const calculateItem = (item, prices, returnItemData) => {
     } else if (ExtraAttributes.enchantments) {
       // ITEM ENCHANTMENTS
       for (let [name, value] of Object.entries(ExtraAttributes.enchantments)) {
+        name = name.toLowerCase();
         if (blockedEnchants[itemId]?.includes(name)) continue;
         if (ignoredEnchants[name] == value) continue;
 
