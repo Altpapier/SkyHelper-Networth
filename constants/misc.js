@@ -16,7 +16,7 @@ const masterStars = ['first_master_star', 'second_master_star', 'third_master_st
 const validRunes = ['MUSIC_1', 'MUSIC_2', 'MUSIC_3', 'ENCHANT_1', 'ENCHANT_2', 'ENCHANT_3', 'GRAND_SEARING_3'];
 
 const allowedRecombTypes = ['ACCESSORY', 'NECKLACE', 'GLOVES', 'BRACELET', 'BELT', 'CLOAK'];
-const allowedRecombIds = ['divan_helmet', 'divan_chestplate', 'divan_leggings', 'divan_boots'];
+const allowedRecombIds = ['divan_helmet', 'divan_chestplate', 'divan_leggings', 'divan_boots', 'fermento_helmet', 'fermento_chestplate', 'fermento_leggings', 'fermento_boots'];
 
 const attributesBaseCosts = {
   glowstone_gauntlet: 'glowstone_gauntlet',

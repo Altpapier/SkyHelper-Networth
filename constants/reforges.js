@@ -11,7 +11,7 @@ const reforges = {
   fabled: 'dragon_claw',
   spiked: 'dragon_scale',
   hyper: 'endstone_geode',
-  coldfused: 'entropy_suppressor',
+  coldfusion: 'entropy_suppressor',
   blooming: 'flowering_bouquet',
   jaded: 'jaderald',
   jerry: 'jerry_stone',
