@@ -4,13 +4,23 @@ const { applicationWorth } = require('../constants/applicationWorth');
 
 const getPetLevelPrices = (pet, prices) => {
   const tier = pet.heldItem === 'PET_ITEM_TIER_BOOST' ? tiers[tiers.indexOf(pet.tier) - 1] : pet.tier;
-  const skin = pet.skin;
+  const skin = pet.skin?.toLowerCase();
   const tierName = `${tier}_${pet.type}`.toLowerCase();
-  return {
-    lvl1: prices[`lvl_1_${tierName}${skin ? `_skinned_${skin}` : ''}`.toLowerCase()] || prices[`lvl_1_${tierName}`] || 0,
-    lvl100: prices[`lvl_100_${tierName}${skin ? `_skinned_${skin}` : ''}`.toLowerCase()] || prices[`lvl_100_${tierName}`] || 0,
-    lvl200: prices[`lvl_200_${tierName}${skin ? `_skinned_${skin}` : ''}`.toLowerCase()] || prices[`lvl_200_${tierName}`] || 0,
+  const basePrices = {
+    lvl1: prices[`lvl_1_${tierName}`] || 0,
+    lvl100: prices[`lvl_100_${tierName}`] || 0,
+    lvl200: prices[`lvl_200_${tierName}`] || 0,
   };
+
+  if (skin) {
+    return {
+      lvl1: Math.max(prices[`lvl_1_${tierName}${skin ? `_skinned_${skin}` : ''}`] || 0, basePrices.lvl1),
+      lvl100: Math.max(prices[`lvl_100_${tierName}${skin ? `_skinned_${skin}` : ''}`] || 0, basePrices.lvl100),
+      lvl200: Math.max(prices[`lvl_200_${tierName}${skin ? `_skinned_${skin}` : ''}`] || 0, basePrices.lvl200),
+    };
+  } else {
+    return basePrices;
+  }
 };
 
 const calculatePet = (pet, prices) => {
