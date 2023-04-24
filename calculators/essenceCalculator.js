@@ -1,4 +1,5 @@
 const { titleCase } = require('../helper/functions');
+const { applicationWorth } = require('../constants/applicationWorth');
 
 const calculateEssence = (item, prices) => {
   const itemPrice = prices[item.id.toLowerCase()] || 0;
@@ -7,7 +8,7 @@ const calculateEssence = (item, prices) => {
     return {
       name: `${titleCase(item.id.split('_')[1])} Essence`,
       id: item.id,
-      price: itemPrice * item.amount,
+      price: itemPrice * item.amount * applicationWorth.essence,
       calculation: [],
       count: item.amount,
       soulbound: false,
