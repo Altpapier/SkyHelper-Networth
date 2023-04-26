@@ -8,7 +8,7 @@ const calculateEssence = (item, prices) => {
     return {
       name: `${titleCase(item.id.split('_')[1])} Essence`,
       id: item.id,
-      price: itemPrice * item.amount * applicationWorth.essence,
+      price: itemPrice * item.amount,
       calculation: [],
       count: item.amount,
       soulbound: false,
