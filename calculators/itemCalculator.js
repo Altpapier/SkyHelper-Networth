@@ -356,7 +356,7 @@ const calculateItem = (item, prices, returnItemData) => {
       const calculationData = {
         id: ExtraAttributes.dye_item,
         type: 'dye',
-        price: (prices[ExtraAttributes.dye_item] || 0) * applicationWorth.dye,
+        price: (prices[ExtraAttributes.dye_item.toLowerCase()] || 0) * applicationWorth.dye,
         count: 1,
       };
       price += calculationData.price;
