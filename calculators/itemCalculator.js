@@ -439,24 +439,25 @@ const calculateItem = (item, prices, returnItemData) => {
           unlockedSlots = ExtraAttributes.gems.unlockedSlots;
           gems = ExtraAttributes.gems.gems;
         } else {
+          const ExtraAttributesGems = JSON.parse(JSON.stringify(ExtraAttributes.gems));
           skyblockItem?.gemstone_slots.forEach((slot) => {
-            if (slot.costs && ExtraAttributes.gems.unlocked_slots) {
-              for (const [index, type] of ExtraAttributes.gems.unlocked_slots.entries()) {
+            if (slot.costs && ExtraAttributesGems.unlocked_slots) {
+              for (const [index, type] of ExtraAttributesGems.unlocked_slots.entries()) {
                 if (type.startsWith(slot.slot_type)) {
                   unlockedSlots.push(slot.slot_type);
-                  ExtraAttributes.gems.unlocked_slots.slice(Number(index), 1);
+                  ExtraAttributesGems.unlocked_slots.slice(Number(index), 1);
                   break;
                 }
               }
             }
             if (!slot.costs) unlockedSlots.push(slot.slot_type);
-            const key = Object.keys(ExtraAttributes.gems).find((k) => k.startsWith(slot.slot_type) && !k.endsWith('_gem'));
+            const key = Object.keys(ExtraAttributesGems).find((k) => k.startsWith(slot.slot_type) && !k.endsWith('_gem'));
             if (key) {
-              const type = ['COMBAT', 'OFFENSIVE', 'DEFENSIVE', 'MINING', 'UNIVERSAL'].includes(slot.slot_type) ? ExtraAttributes.gems[`${key}_gem`] : slot.slot_type;
-              gems.push({ type, tier: ExtraAttributes.gems[key] instanceof Object ? ExtraAttributes.gems[key].quality : ExtraAttributes.gems[key], slotType: slot.slot_type });
+              const type = ['COMBAT', 'OFFENSIVE', 'DEFENSIVE', 'MINING', 'UNIVERSAL'].includes(slot.slot_type) ? ExtraAttributesGems[`${key}_gem`] : slot.slot_type;
+              gems.push({ type, tier: ExtraAttributesGems[key] instanceof Object ? ExtraAttributesGems[key].quality : ExtraAttributesGems[key], slotType: slot.slot_type });
 
-              delete ExtraAttributes.gems[key];
-              if (slot.costs && !ExtraAttributes.gems.unlocked_slots) unlockedSlots.push(slot.slot_type);
+              delete ExtraAttributesGems[key];
+              if (slot.costs && !ExtraAttributesGems.unlocked_slots) unlockedSlots.push(slot.slot_type);
             }
           });
         }
