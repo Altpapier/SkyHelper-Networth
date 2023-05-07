@@ -7,6 +7,7 @@ const getPetLevelPrices = (pet, prices) => {
   const skin = pet.skin?.toLowerCase();
   const tierName = `${tier}_${pet.type}`.toLowerCase();
   const basePrices = {
+    id: `${tierName}${skin ? `_skinned_${skin}` : ''}`,
     lvl1: prices[`lvl_1_${tierName}`] || 0,
     lvl100: prices[`lvl_100_${tierName}`] || 0,
     lvl200: prices[`lvl_200_${tierName}`] || 0,
@@ -14,6 +15,7 @@ const getPetLevelPrices = (pet, prices) => {
 
   if (skin) {
     return {
+      id: basePrices.id,
       lvl1: Math.max(prices[`lvl_1_${tierName}${skin ? `_skinned_${skin}` : ''}`] || 0, basePrices.lvl1),
       lvl100: Math.max(prices[`lvl_100_${tierName}${skin ? `_skinned_${skin}` : ''}`] || 0, basePrices.lvl100),
       lvl200: Math.max(prices[`lvl_200_${tierName}${skin ? `_skinned_${skin}` : ''}`] || 0, basePrices.lvl200),
@@ -24,7 +26,7 @@ const getPetLevelPrices = (pet, prices) => {
 };
 
 const calculatePet = (pet, prices) => {
-  const { lvl1, lvl100, lvl200 } = getPetLevelPrices(pet, prices);
+  const { lvl1, lvl100, lvl200, id } = getPetLevelPrices(pet, prices);
   pet.name = `[Lvl ${pet.level}] ${titleCase(`${pet.tier} ${pet.type}`)}${pet.skin ? ' ✦' : ''}`;
   if (lvl1 == undefined || lvl100 == undefined) return null;
 
@@ -79,6 +81,7 @@ const calculatePet = (pet, prices) => {
     }
   }
 
+  pet.id = id;
   pet.price = price;
   pet.base = base;
   pet.calculation = calculation;
