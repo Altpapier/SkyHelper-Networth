@@ -107,6 +107,13 @@ const calculateItem = (item, prices, returnItemData) => {
     const itemData = prices[itemId];
     let price = (itemData || 0) * item.Count;
     let base = (itemData || 0) * item.Count;
+    if (ExtraAttributes.skin) {
+      const newPrice = prices[item.tag.ExtraAttributes.id.toLowerCase()];
+      if (newPrice && newPrice > price) {
+        price = newPrice * item.Count;
+        base = newPrice * item.Count;
+      }
+    }
     if (!price && ExtraAttributes.price) {
       price = parseInt(ExtraAttributes.price) * 0.85;
       base = parseInt(ExtraAttributes.price) * 0.85;
