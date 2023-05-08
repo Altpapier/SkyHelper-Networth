@@ -1,6 +1,10 @@
 const blockedEnchants = {
   bone_boomerang: ['overload', 'power', 'ultimate_soul_eater'],
   death_bow: ['overload', 'power', 'ultimate_soul_eater'],
+  gardening_axe: ['replenish'],
+  gardening_hoe: ['replenish'],
+  advanced_gardening_axe: ['replenish'],
+  advanced_gardening_hoe: ['replenish'],
 };
 
 const ignoredEnchants = {
