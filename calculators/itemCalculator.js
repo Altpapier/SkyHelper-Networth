@@ -474,7 +474,7 @@ const calculateItem = (item, prices, returnItemData) => {
         // UNLOCKED GEMSTONE SLOTS
         // Currently just gemstone chambers
         const isDivansArmor = ['divan_helmet', 'divan_chestplate', 'divan_leggings', 'divan_boots'].includes(itemId);
-        if (isDivansArmor || /^(|hot_|fiery_|burning_|infernal_)(aurora|crimson|terror|hollow|fervor)(_chestplate|_leggings|_boots)$/.test(itemId)) {
+        if (isDivansArmor || /^(|hot_|fiery_|burning_|infernal_)(aurora|crimson|terror|hollow|fervor)(_helmet|_chestplate|_leggings|_boots)$/.test(itemId)) {
           const application = isDivansArmor ? applicationWorth.gemstoneChambers : applicationWorth.gemstoneSlots;
           const gemstoneSlots = JSON.parse(JSON.stringify(skyblockItem.gemstone_slots));
           for (const unlockedSlot of unlockedSlots) {
