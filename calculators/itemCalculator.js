@@ -408,7 +408,7 @@ const calculateItem = (item, prices, returnItemData) => {
 
     // ENRICHMENTS
     if (ExtraAttributes.talisman_enrichment) {
-      const enrichmentPrice = enrichments.reduce((acc, val) => Math.min(acc, prices[val] || 0), Infinity);
+      const enrichmentPrice = enrichments.reduce((acc, val) => Math.min(acc, prices[val.toLowerCase()] || 0), Infinity);
       if (enrichmentPrice !== Infinity) {
         const calculationData = {
           id: ExtraAttributes.talisman_enrichment.toUpperCase(),
