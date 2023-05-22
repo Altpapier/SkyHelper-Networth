@@ -576,14 +576,16 @@ const calculateItem = (item, prices, returnItemData) => {
     const drillPartTypes = ['drill_part_upgrade_module', 'drill_part_fuel_tank', 'drill_part_engine'];
     if (drillPartTypes.some((type) => Object.keys(ExtraAttributes).includes(type))) {
       for (const type of drillPartTypes) {
-        const calculationData = {
-          id: ExtraAttributes[type],
-          type: 'drill_part',
-          price: (prices[ExtraAttributes[type]] || 0) * applicationWorth.drillPart,
-          count: 1,
-        };
-        price += calculationData.price;
-        calculation.push(calculationData);
+        if (ExtraAttributes[type]) {
+          const calculationData = {
+            id: ExtraAttributes[type],
+            type: 'drill_part',
+            price: (prices[ExtraAttributes[type]] || 0) * applicationWorth.drillPart,
+            count: 1,
+          };
+          price += calculationData.price;
+          calculation.push(calculationData);
+        }
       }
     }
 
