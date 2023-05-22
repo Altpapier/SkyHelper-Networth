@@ -4,11 +4,48 @@ const { calculateNetworth, calculateItemNetworth } = require('./helper/calculate
 const axios = require('axios');
 
 /**
+ * @typedef {object} Item
+ * @property {string} name - The name of the item
+ * @property {string} loreName - The lore name of the item
+ * @property {string} id - The ID of the item
+ * @property {number} price - The price of the item
+ * @property {number} base - The base value of the item
+ * @property {{ id: string, type: string, price: number, count: number, shards?: number, star?: number }[]} calculation - The calculation array of the item
+ * @property {number} count - The count of the item
+ * @property {boolean} soulbound - Whether the item is soulbound or not
+ */
+
+/**
+ * @typedef {object} NetworthData
+ * @property {boolean} noInventory - Indicates if there is no inventory
+ * @property {number} networth - The net worth
+ * @property {number} unsoulboundNetworth - The unsoulbound net worth
+ * @property {number} purse - The purse value
+ * @property {number} bank - The bank value
+ * @property {{
+ *    armor: { total: number, unsoulboundTotal: number, items: Item[] },
+ *    equipment: { total: number, unsoulboundTotal: number, items: Item[] },
+ *    wardrobe: { total: number, unsoulboundTotal: number, items: Item[] },
+ *    inventory: { total: number, unsoulboundTotal: number, items: Item[] },
+ *    enderchest: { total: number, unsoulboundTotal: number, items: Item[] },
+ *    accessories: { total: number, unsoulboundTotal: number, items: Item[] },
+ *    personal_vault: { total: number, unsoulboundTotal: number, items: Item[] },
+ *    fishing_bag: { total: number, unsoulboundTotal: number, items: Item[] },
+ *    potion_bag: { total: number, unsoulboundTotal: number, items: Item[] },
+ *    candy_inventory: { total: number, unsoulboundTotal: number, items: Item[] },
+ *    storage: { total: number, unsoulboundTotal: number, items: Item[] },
+ *    sacks: { total: number, unsoulboundTotal: number, items: Item[] },
+ *    essence: { total: number, unsoulboundTotal: number, items: Item[] },
+ *    pets: { total: number, unsoulboundTotal: number, items: Item[] }
+ * }} types - The various types and their respective item details
+ */
+
+/**
  * Returns the networth of a profile
  * @param {object} profileData - The profile player data from the Hypixel API (profile.members[uuid])
  * @param {number} bankBalance - The player's bank balance from the Hypixel API (profile.banking?.balance)
  * @param {{ cache: boolean, onlyNetworth: boolean, prices: object, returnItemData: boolean }} options - (Optional) cache: By default true (5 minute cache), if set to false it will always make a request to get the latest prices from github, onlyNetworth: If true, only the networth will be returned, prices: A prices object generated from the getPrices function. If not provided, the prices will be retrieved every time the function is called, returnItemData: If true, the item data will be returned in the object
- * @returns An object containing the player's networth calculation
+ * @returns {NetworthData} An object containing the player's networth calculation
  */
 const getNetworth = async (profileData, bankBalance, options) => {
   if (!profileData) throw new NetworthError('Invalid profile data provided');
@@ -36,7 +73,7 @@ const getNetworth = async (profileData, bankBalance, options) => {
  *        }} items - Pre-parsed inventories, most inventories are just decoded except for sacks, essence, and pets which are parsed specifically as listed above
  * @param {number} bankBalance - The player's bank balance from the Hypixel API (profile.banking?.balance)
  * @param {{ cache: boolean, onlyNetworth: boolean, prices: object, returnItemData: boolean }} options - (Optional) cache: By default true (5 minute cache), if set to false it will always make a request to get the latest prices from github, onlyNetworth: If true, only the networth will be returned, prices: A prices object generated from the getPrices function. If not provided, the prices will be retrieved every time the function is called, returnItemData: If true, the item data will be returned in the object
- * @returns An object containing the player's networth calculation
+ * @returns {NetworthData} An object containing the player's networth calculation
  */
 const getPreDecodedNetworth = async (profileData, items, bankBalance, options) => {
   const purse = profileData.coin_purse;
@@ -72,7 +109,7 @@ async function parsePrices(prices, cache) {
 }
 
 let cachedPrices;
-let isLoadingPrices = false
+let isLoadingPrices = false;
 /**
  * Returns the prices used in the networth calculation, optimally this can be cached and used when calling `getNetworth`
  * @param {boolean} cache - (Optional) By default true (5 minute cache), if set to false it will always make a request to get the latest prices from github
@@ -83,12 +120,12 @@ const getPrices = async (cache) => {
     if (cachedPrices?.lastCache > Date.now() - 1000 * 60 * 5 && cache !== false) {
       return cachedPrices.prices; // Cache for 5 minutes
     }
-    
+
     if (isLoadingPrices) {
       while (isLoadingPrices) {
-        await new Promise(r => setTimeout(r, 100)) //re-check if prices have loaded yet in 100ms
+        await new Promise((r) => setTimeout(r, 100)); //re-check if prices have loaded yet in 100ms
       }
-      return cachedPrices.prices
+      return cachedPrices.prices;
     }
 
     isLoadingPrices = true;
