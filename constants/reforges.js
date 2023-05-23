@@ -52,7 +52,7 @@ const reforges = {
   stellar: 'petrified_starfall',
   ancient: 'precursor_gear',
   refined: 'refined_amber',
-  empowered: 'sadans_brooch',
+  empowered: 'sadan_brooch',
   withered: 'wither_blood',
   heated: 'hot_stuff',
 
