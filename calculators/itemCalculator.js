@@ -104,7 +104,7 @@ const calculateItem = (item, prices, returnItemData) => {
     // DCTR_SPACE_HELM (Editioned)
     if (ExtraAttributes.id === 'DCTR_SPACE_HELM' && ExtraAttributes.edition !== undefined) itemId = 'dctr_space_helm_editioned';
     // SHINY
-    if (ExtraAttributes.shiny && prices[`${itemId}_shiny`]) itemId = `${itemId}_shiny`;
+    if (ExtraAttributes.is_shiny && prices[`${itemId}_shiny`]) itemId = `${itemId}_shiny`;
 
     const itemData = prices[itemId];
     let price = (itemData || 0) * item.Count;
