@@ -3,7 +3,7 @@ const { titleCase } = require('../helper/functions');
 const { getPetLevel } = require('../constants/pets');
 const { prestiges } = require('../constants/prestiges');
 const { applicationWorth, enchantsWorth } = require('../constants/applicationWorth');
-const { blockedEnchants, ignoredEnchants, stackingEnchants, ignoreSilex, masterStars, validRunes, allowedRecombTypes, allowedRecombIds, attributesBaseCosts, enrichments } = require('../constants/misc');
+const { blockedEnchants, ignoredEnchants, stackingEnchants, ignoreSilex, masterStars, validRunes, allowedRecombTypes, allowedRecombIds, attributesBaseCosts, enrichments, pickonimbusDurability } = require('../constants/misc');
 const { reforges } = require('../constants/reforges');
 const { getHypixelItemInformationFromId } = require('../constants/itemsMap');
 
@@ -617,6 +617,20 @@ const calculateItem = (item, prices, returnItemData) => {
       price += calculationData.price;
       calculation.push(calculationData);
     }
+
+    if (ExtraAttributes.id == "PICKONIMBUS" && ExtraAttributes.pickonimbus_durability) {
+      const reduction = ExtraAttributes.pickonimbus_durability / pickonimbusDurability;
+
+      const calculationData = {
+        id: 'PICKONIMBUS_DURABILITY',
+        type: 'pickonimbus_durability',
+        price: price * (reduction - 1),
+        count: 1,
+      };
+
+      price += calculationData.price;
+      calculation.push(calculationData);
+    } 
 
     const isSoulbound = !!(ExtraAttributes.donated_museum || item.tag.display?.Lore?.includes('§8§l* §8Co-op Soulbound §8§l*') || item.tag.display?.Lore?.includes('§8§l* §8Soulbound §8§l*'));
     const data = { name: itemName, loreName: item.tag.display.Name, id: itemId, price, base, calculation, count: item.Count || 1, soulbound: isSoulbound };
