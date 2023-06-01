@@ -122,6 +122,20 @@ const calculateItem = (item, prices, returnItemData) => {
     }
     const calculation = [];
 
+    if (ExtraAttributes.id == "PICKONIMBUS" && ExtraAttributes.pickonimbus_durability) {
+      const reduction = ExtraAttributes.pickonimbus_durability / pickonimbusDurability;
+
+      const calculationData = {
+        id: 'PICKONIMBUS_DURABILITY',
+        type: 'pickonimbus_durability',
+        price: price * (reduction - 1),
+        count: 1,
+      };
+
+      price += calculationData.price;
+      calculation.push(calculationData);
+    } 
+
     // UPGRADABLE ARMOR PRICE CALCULATION (eg. crimson)
     if (!itemData) {
       // if armor piece does not have base value
@@ -617,20 +631,6 @@ const calculateItem = (item, prices, returnItemData) => {
       price += calculationData.price;
       calculation.push(calculationData);
     }
-
-    if (ExtraAttributes.id == "PICKONIMBUS" && ExtraAttributes.pickonimbus_durability) {
-      const reduction = ExtraAttributes.pickonimbus_durability / pickonimbusDurability;
-
-      const calculationData = {
-        id: 'PICKONIMBUS_DURABILITY',
-        type: 'pickonimbus_durability',
-        price: price * (reduction - 1),
-        count: 1,
-      };
-
-      price += calculationData.price;
-      calculation.push(calculationData);
-    } 
 
     const isSoulbound = !!(ExtraAttributes.donated_museum || item.tag.display?.Lore?.includes('§8§l* §8Co-op Soulbound §8§l*') || item.tag.display?.Lore?.includes('§8§l* §8Soulbound §8§l*'));
     const data = { name: itemName, loreName: item.tag.display.Name, id: itemId, price, base, calculation, count: item.Count || 1, soulbound: isSoulbound };
