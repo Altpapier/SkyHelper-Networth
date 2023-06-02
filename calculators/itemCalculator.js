@@ -125,15 +125,8 @@ const calculateItem = (item, prices, returnItemData) => {
     if (ExtraAttributes.id == "PICKONIMBUS" && ExtraAttributes.pickonimbus_durability) {
       const reduction = ExtraAttributes.pickonimbus_durability / pickonimbusDurability;
 
-      const calculationData = {
-        id: 'PICKONIMBUS_DURABILITY',
-        type: 'pickonimbus_durability',
-        price: price * (reduction - 1),
-        count: pickonimbusDurability,
-      };
-
-      price += calculationData.price;
-      calculation.push(calculationData);
+      price += price * (reduction - 1);
+      base += price * (reduction - 1);
     } 
 
     // UPGRADABLE ARMOR PRICE CALCULATION (eg. crimson)
