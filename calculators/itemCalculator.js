@@ -85,6 +85,9 @@ const calculateItem = (item, prices, returnItemData) => {
     if (ExtraAttributes.skin) {
       if (prices[`${itemId}_skinned_${ExtraAttributes.skin.toLowerCase()}`]) itemId += `_skinned_${ExtraAttributes.skin.toLowerCase()}`;
     }
+    if (itemId === 'PARTY_HAT_SLOTH' && ExtraAttributes.party_hat_emoji) {
+      if (prices[`${itemId}_${ExtraAttributes.party_hat_emoji.toLowerCase()}`]) itemId += `_${ExtraAttributes.party_hat_emoji.toLowerCase()}`;
+    }
 
     if (['Beastmaster Crest', 'Griffin Upgrade Stone', 'Wisp Upgrade Stone'].includes(itemName)) {
       itemName = `${itemName} (${skyblockItem.tier ? titleCase(skyblockItem.tier.replaceAll('_', ' ')) : 'Unknown'})`;
