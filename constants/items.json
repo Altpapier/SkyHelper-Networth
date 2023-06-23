@@ -406,7 +406,7 @@
   },
   {
     "material": "GOLD_AXE",
-    "name": "Coco Chopper",
+    "name": "Cocoa Chopper",
     "category": "AXE",
     "tier": "EPIC",
     "id": "COCO_CHOPPER"
@@ -436,6 +436,7 @@
     "material": "NAME_TAG",
     "name": "Jacob's Ticket",
     "tier": "UNCOMMON",
+    "npc_sell_price": 10000,
     "id": "JACOBS_TICKET"
   },
   {
@@ -779,6 +780,14 @@
   {
     "material": "SKULL_ITEM",
     "durability": 3,
+    "name": "Flower Sack",
+    "tier": "EPIC",
+    "unstackable": true,
+    "id": "FLOWER_SACK"
+  },
+  {
+    "material": "SKULL_ITEM",
+    "durability": 3,
     "name": "Dungeon Sack",
     "tier": "LEGENDARY",
     "unstackable": true,
@@ -860,6 +869,34 @@
   {
     "material": "SKULL_ITEM",
     "durability": 3,
+    "name": "Silver Trophy Fishing Sack",
+    "tier": "RARE",
+    "unstackable": true,
+    "requirements": [
+      {
+        "type": "TROPHY_FISHING",
+        "reward": "SILVER"
+      }
+    ],
+    "id": "SILVER_TROPHY_FISHING_SACK"
+  },
+  {
+    "material": "SKULL_ITEM",
+    "durability": 3,
+    "name": "Bronze Trophy Fishing Sack",
+    "tier": "UNCOMMON",
+    "unstackable": true,
+    "requirements": [
+      {
+        "type": "TROPHY_FISHING",
+        "reward": "BRONZE"
+      }
+    ],
+    "id": "BRONZE_TROPHY_FISHING_SACK"
+  },
+  {
+    "material": "SKULL_ITEM",
+    "durability": 3,
     "name": "Large Enchanted Husbandry Sack",
     "tier": "EPIC",
     "unstackable": true,
@@ -881,6 +918,14 @@
     "unstackable": true,
     "npc_sell_price": 128000,
     "id": "MEDIUM_LAVA_FISHING_SACK"
+  },
+  {
+    "material": "SKULL_ITEM",
+    "durability": 3,
+    "name": "Dwarven Sack",
+    "tier": "EPIC",
+    "unstackable": true,
+    "id": "DWARVEN_MINES_SACK"
   },
   {
     "material": "SKULL_ITEM",
@@ -921,6 +966,14 @@
     "tier": "UNCOMMON",
     "unstackable": true,
     "id": "SMALL_COMBAT_SACK"
+  },
+  {
+    "material": "SKULL_ITEM",
+    "durability": 3,
+    "name": "Crystal Hollows Sack",
+    "tier": "EPIC",
+    "unstackable": true,
+    "id": "CRYSTAL_HOLLOWS_SACK"
   },
   {
     "material": "SKULL_ITEM",
@@ -987,6 +1040,30 @@
     "tier": "UNCOMMON",
     "unstackable": true,
     "id": "SMALL_MINING_SACK"
+  },
+  {
+    "material": "SKULL_ITEM",
+    "durability": 3,
+    "name": "Small Dragon Sack",
+    "tier": "UNCOMMON",
+    "unstackable": true,
+    "id": "SMALL_DRAGON_SACK"
+  },
+  {
+    "material": "SKULL_ITEM",
+    "durability": 3,
+    "name": "Medium Dragon Sack",
+    "tier": "RARE",
+    "unstackable": true,
+    "id": "MEDIUM_DRAGON_SACK"
+  },
+  {
+    "material": "SKULL_ITEM",
+    "durability": 3,
+    "name": "Large Dragon Sack",
+    "tier": "EPIC",
+    "unstackable": true,
+    "id": "LARGE_DRAGON_SACK"
   },
   {
     "material": "SKULL_ITEM",
@@ -7252,6 +7329,29 @@
   {
     "material": "SKULL_ITEM",
     "durability": 3,
+    "name": "Piece of Wizard Portal",
+    "tier": "SPECIAL",
+    "category": "MEMENTO",
+    "item_specific": {
+      "city_project": "repair_wizard_portal"
+    },
+    "id": "WIZARD_PORTAL_MEMENTO"
+  },
+  {
+    "material": "SKULL_ITEM",
+    "durability": 3,
+    "name": "Coins on Fire!",
+    "tier": "SPECIAL",
+    "category": "MEMENTO",
+    "item_specific": {
+      "city_project": "inflation_fixer"
+    },
+    "description": "\n%%dark_gray%%It's about sending a message...",
+    "id": "BURNING_COINS"
+  },
+  {
+    "material": "SKULL_ITEM",
+    "durability": 3,
     "name": "Floral Lamppost",
     "furniture": "FLORAL_LAMPPOST",
     "tier": "EPIC",
@@ -11370,6 +11470,30 @@
   {
     "material": "SKULL_ITEM",
     "durability": 3,
+    "name": "Sloth Hat of Celebration",
+    "category": "ACCESSORY",
+    "stats": {
+      "magic_find": 1
+    },
+    "museum": true,
+    "tier": "SPECIAL",
+    "id": "PARTY_HAT_SLOTH"
+  },
+  {
+    "material": "SKULL_ITEM",
+    "durability": 3,
+    "name": "Crab Hat of Celebration (2020)",
+    "category": "ACCESSORY",
+    "stats": {
+      "magic_find": 1
+    },
+    "museum": true,
+    "tier": "SPECIAL",
+    "id": "PARTY_HAT_CRAB"
+  },
+  {
+    "material": "SKULL_ITEM",
+    "durability": 3,
     "name": "Barry Century Cake",
     "furniture": "EPOCH_CAKE_AQUA",
     "tier": "UNCOMMON",
@@ -11571,7 +11695,7 @@
     "material": "SKULL_ITEM",
     "durability": 3,
     "name": "Small Gemstone Sack",
-    "tier": "RARE",
+    "tier": "UNCOMMON",
     "unstackable": true,
     "id": "SMALL_GEMSTONE_SACK"
   },
@@ -12314,7 +12438,7 @@
     "description": "%%gray%%It's strangely sweet and somewhat sticky...",
     "tier": "UNCOMMON",
     "glowing": true,
-    "npc_sell_price": 0,
+    "npc_sell_price": 1,
     "id": "SWEET_FLESH"
   },
   {
@@ -12333,7 +12457,7 @@
     "name": "Wet Pumpkin",
     "description": "%%gray%%A squishy moist mess.",
     "tier": "EPIC",
-    "npc_sell_price": 0,
+    "npc_sell_price": 1,
     "id": "WET_PUMPKIN"
   },
   {
@@ -12351,7 +12475,7 @@
     "name": "Decayed Bat",
     "description": "%%gray%%A withering husk of its former self.",
     "tier": "RARE",
-    "npc_sell_price": 0,
+    "npc_sell_price": 1,
     "id": "DECAYED_BAT"
   },
   {
@@ -12390,7 +12514,7 @@
     "name": "Poisoned Candy",
     "description": "%%gray%%A delicious, vibrant, and round candy with an extra kick.",
     "tier": "UNCOMMON",
-    "npc_sell_price": 0,
+    "npc_sell_price": 1,
     "hide_from_viewrecipe_command": true,
     "id": "POISONED_CANDY"
   },
@@ -13509,6 +13633,34 @@
   {
     "material": "SKULL_ITEM",
     "durability": 3,
+    "name": "10th Anniversary Podium",
+    "furniture": "ANNI_PODIUM_NOTES_THIRD",
+    "tier": "EPIC",
+    "soulbound": "COOP",
+    "unstackable": true,
+    "id": "ANNI_PODIUM_NOTES_THIRD"
+  },
+  {
+    "material": "SKULL_ITEM",
+    "durability": 3,
+    "name": "10th Anniversary Podium",
+    "furniture": "ANNI_PODIUM_MEMORY_FIRST",
+    "tier": "EPIC",
+    "soulbound": "COOP",
+    "unstackable": true,
+    "id": "ANNI_PODIUM_MEMORY_FIRST"
+  },
+  {
+    "material": "SKULL_ITEM",
+    "durability": 3,
+    "name": "Floral Wheelbarrow",
+    "furniture": "FLORAL_WHEELBARROW",
+    "tier": "EPIC",
+    "id": "FLORAL_WHEELBARROW"
+  },
+  {
+    "material": "SKULL_ITEM",
+    "durability": 3,
     "name": "Volleyball Court",
     "furniture": "VOLLEYBALL",
     "tier": "EPIC",
@@ -13521,6 +13673,16 @@
     "furniture": "CHRISTMAS_TREE",
     "tier": "EPIC",
     "id": "CHRISTMAS_TREE"
+  },
+  {
+    "material": "SKULL_ITEM",
+    "durability": 3,
+    "name": "10th Anniversary Podium",
+    "furniture": "ANNI_PODIUM_ART_SECOND",
+    "tier": "EPIC",
+    "soulbound": "COOP",
+    "unstackable": true,
+    "id": "ANNI_PODIUM_ART_SECOND"
   },
   {
     "material": "SKULL_ITEM",
@@ -13541,10 +13703,28 @@
   {
     "material": "SKULL_ITEM",
     "durability": 3,
+    "name": "10th Anniversary Podium",
+    "furniture": "ANNI_PODIUM_ART_THIRD",
+    "tier": "EPIC",
+    "soulbound": "COOP",
+    "unstackable": true,
+    "id": "ANNI_PODIUM_ART_THIRD"
+  },
+  {
+    "material": "SKULL_ITEM",
+    "durability": 3,
     "name": "Ice Cream Cart",
     "furniture": "ICE_CREAM_CART",
     "tier": "EPIC",
     "id": "ICE_CREAM_CART"
+  },
+  {
+    "material": "SKULL_ITEM",
+    "durability": 3,
+    "name": "Lattice Bench",
+    "furniture": "LATTICE_BENCH",
+    "tier": "EPIC",
+    "id": "LATTICE_BENCH"
   },
   {
     "material": "SKULL_ITEM",
@@ -13569,6 +13749,26 @@
     "furniture": "PUMPKIN_CRAFTING_TABLE",
     "tier": "EPIC",
     "id": "PUMPKIN_CRAFTING_TABLE"
+  },
+  {
+    "material": "SKULL_ITEM",
+    "durability": 3,
+    "name": "10th Anniversary Podium",
+    "furniture": "ANNI_PODIUM_MEMORY_THIRD",
+    "tier": "EPIC",
+    "soulbound": "COOP",
+    "unstackable": true,
+    "id": "ANNI_PODIUM_MEMORY_THIRD"
+  },
+  {
+    "material": "SKULL_ITEM",
+    "durability": 3,
+    "name": "10th Anniversary Podium",
+    "furniture": "ANNI_PODIUM_MEME_RUNNERUP",
+    "tier": "EPIC",
+    "soulbound": "COOP",
+    "unstackable": true,
+    "id": "ANNI_PODIUM_MEME_RUNNERUP"
   },
   {
     "material": "SKULL_ITEM",
@@ -13605,6 +13805,26 @@
   {
     "material": "SKULL_ITEM",
     "durability": 3,
+    "name": "10th Anniversary Podium",
+    "furniture": "ANNI_PODIUM_MEME_FIRST",
+    "tier": "EPIC",
+    "soulbound": "COOP",
+    "unstackable": true,
+    "id": "ANNI_PODIUM_MEME_FIRST"
+  },
+  {
+    "material": "SKULL_ITEM",
+    "durability": 3,
+    "name": "10th Anniversary Podium",
+    "furniture": "ANNI_PODIUM_NOTES_FIRST",
+    "tier": "EPIC",
+    "soulbound": "COOP",
+    "unstackable": true,
+    "id": "ANNI_PODIUM_NOTES_FIRST"
+  },
+  {
+    "material": "SKULL_ITEM",
+    "durability": 3,
     "name": "Hammock",
     "furniture": "HAMMOCK",
     "tier": "RARE",
@@ -13613,10 +13833,68 @@
   {
     "material": "SKULL_ITEM",
     "durability": 3,
+    "name": "10th Anniversary Podium",
+    "furniture": "ANNI_PODIUM_MEMORY_SECOND",
+    "tier": "EPIC",
+    "soulbound": "COOP",
+    "unstackable": true,
+    "id": "ANNI_PODIUM_MEMORY_SECOND"
+  },
+  {
+    "material": "SKULL_ITEM",
+    "durability": 3,
+    "name": "10th Anniversary Podium",
+    "furniture": "ANNI_PODIUM_ART_RUNNERUP",
+    "tier": "EPIC",
+    "soulbound": "COOP",
+    "unstackable": true,
+    "id": "ANNI_PODIUM_ART_RUNNERUP"
+  },
+  {
+    "material": "SKULL_ITEM",
+    "durability": 3,
+    "name": "Bee Hive",
+    "furniture": "BEE_HIVE",
+    "tier": "EPIC",
+    "id": "BEE_HIVE"
+  },
+  {
+    "material": "SKULL_ITEM",
+    "durability": 3,
+    "name": "10th Anniversary Podium",
+    "furniture": "ANNI_PODIUM_ART_FIRST",
+    "tier": "EPIC",
+    "soulbound": "COOP",
+    "unstackable": true,
+    "id": "ANNI_PODIUM_ART_FIRST"
+  },
+  {
+    "material": "SKULL_ITEM",
+    "durability": 3,
+    "name": "10th Anniversary Podium",
+    "furniture": "ANNI_PODIUM_MEME_THIRD",
+    "tier": "EPIC",
+    "soulbound": "COOP",
+    "unstackable": true,
+    "id": "ANNI_PODIUM_MEME_THIRD"
+  },
+  {
+    "material": "SKULL_ITEM",
+    "durability": 3,
     "name": "Skeleton Statue",
     "furniture": "SKELETON_STATUE",
     "tier": "EPIC",
     "id": "SKELETON_STATUE"
+  },
+  {
+    "material": "SKULL_ITEM",
+    "durability": 3,
+    "name": "10th Anniversary Podium",
+    "furniture": "ANNI_PODIUM_NOTES_RUNNERUP",
+    "tier": "EPIC",
+    "soulbound": "COOP",
+    "unstackable": true,
+    "id": "ANNI_PODIUM_NOTES_RUNNERUP"
   },
   {
     "material": "SKULL_ITEM",
@@ -13637,10 +13915,40 @@
   {
     "material": "SKULL_ITEM",
     "durability": 3,
+    "name": "10th Anniversary Podium",
+    "furniture": "ANNI_PODIUM_MEMORY_RUNNERUP",
+    "tier": "EPIC",
+    "soulbound": "COOP",
+    "unstackable": true,
+    "id": "ANNI_PODIUM_MEMORY_RUNNERUP"
+  },
+  {
+    "material": "SKULL_ITEM",
+    "durability": 3,
     "name": "Holiday Train",
     "furniture": "HOLIDAY_TRAIN",
     "tier": "EPIC",
     "id": "HOLIDAY_TRAIN"
+  },
+  {
+    "material": "SKULL_ITEM",
+    "durability": 3,
+    "name": "10th Anniversary Podium",
+    "furniture": "ANNI_PODIUM_NOTES_SECOND",
+    "tier": "EPIC",
+    "soulbound": "COOP",
+    "unstackable": true,
+    "id": "ANNI_PODIUM_NOTES_SECOND"
+  },
+  {
+    "material": "SKULL_ITEM",
+    "durability": 3,
+    "name": "10th Anniversary Podium",
+    "furniture": "ANNI_PODIUM_MEME_SECOND",
+    "tier": "EPIC",
+    "soulbound": "COOP",
+    "unstackable": true,
+    "id": "ANNI_PODIUM_MEME_SECOND"
   },
   {
     "material": "SKULL_ITEM",
@@ -13830,7 +14138,7 @@
     "item_specific": {
       "portal": {
         "holo_name": "Top of the Nest",
-        "description_name": "the Top of the Nest",
+        "description_name": "%%gray%%the %%aqua%%Top of the Nest",
         "destination_mode": "combat_1",
         "location_tag": "top_of_nest",
         "schematic_file": "sb_portal_spiders_den_top",
@@ -13851,7 +14159,7 @@
     "item_specific": {
       "portal": {
         "holo_name": "The Wasteland",
-        "description_name": "The Wasteland",
+        "description_name": "%%red%%The Wasteland",
         "destination_mode": "crimson_isle",
         "location_tag": "wasteland",
         "schematic_file": "sb_portal_wasteland",
@@ -13872,7 +14180,7 @@
     "item_specific": {
       "portal": {
         "holo_name": "Crystal Hollows",
-        "description_name": "the Crystal Hollows",
+        "description_name": "%%gray%%the %%aqua%%Crystal Hollows",
         "destination_mode": "crystal_hollows",
         "schematic_file": "sb_portal_crystal_hollows",
         "offset": "NEW",
@@ -13892,7 +14200,7 @@
     "item_specific": {
       "portal": {
         "holo_name": "Void Sepulture",
-        "description_name": "the Void Sepulture",
+        "description_name": "%%gray%%the %%light_purple%%Void Sepulture",
         "destination_mode": "combat_3",
         "location_tag": "void_sepulture",
         "schematic_file": "sb_portal_void_sepulture",
@@ -13913,7 +14221,7 @@
     "item_specific": {
       "portal": {
         "holo_name": "Hub Castle",
-        "description_name": "the Hub Castle",
+        "description_name": "%%gray%%the %%aqua%%Hub Castle",
         "destination_mode": "hub",
         "location_tag": "castle",
         "schematic_file": "sb_portal_hub_castle",
@@ -13934,7 +14242,7 @@
     "item_specific": {
       "portal": {
         "holo_name": "Dwarven Mines",
-        "description_name": "the Dwarven Mines",
+        "description_name": "%%gray%%the %%dark_green%%Dwarven Mines",
         "destination_mode": "mining_3",
         "schematic_file": "sb_portal_mining_3",
         "offset": "NEW",
@@ -13975,7 +14283,7 @@
     "item_specific": {
       "portal": {
         "holo_name": "Crystal Nucleus",
-        "description_name": "the Crystal Nucleus",
+        "description_name": "%%gray%%the %%dark_purple%%Crystal Nucleus",
         "destination_mode": "crystal_hollows",
         "location_tag": "nucleus",
         "schematic_file": "sb_portal_crystal_hollows",
@@ -13996,7 +14304,7 @@
     "item_specific": {
       "portal": {
         "holo_name": "Dragontail",
-        "description_name": "Dragontail",
+        "description_name": "%%dark_green%%Dragontail",
         "destination_mode": "crimson_isle",
         "location_tag": "dragontail",
         "schematic_file": "sb_portal_dragontail",
@@ -14017,7 +14325,7 @@
     "item_specific": {
       "portal": {
         "holo_name": "Forgotten Skull",
-        "description_name": "the Forgotten Skull",
+        "description_name": "%%gold%%Forgotten Skull",
         "destination_mode": "crimson_isle",
         "location_tag": "forgotten_skull",
         "schematic_file": "sb_portal_nether_fortress_boss",
@@ -14038,7 +14346,7 @@
     "item_specific": {
       "portal": {
         "holo_name": "Smoldering Tomb",
-        "description_name": "the Smoldering Tomb",
+        "description_name": "%%gray%%the %%red%%Smoldering Tomb",
         "destination_mode": "crimson_isle",
         "location_tag": "smoldering_chambers",
         "schematic_file": "sb_portal_smoldering_chambers",
@@ -14059,7 +14367,7 @@
     "item_specific": {
       "portal": {
         "holo_name": "Arachne's Sanctuary",
-        "description_name": "Arachne's Sanctuary",
+        "description_name": "%%dark_red%%Arachne's Sanctuary",
         "destination_mode": "combat_1",
         "location_tag": "arachne_sanctuary",
         "schematic_file": "sb_portal_arachne_sanctuary",
@@ -14080,7 +14388,7 @@
     "item_specific": {
       "portal": {
         "holo_name": "Dragon's Nest",
-        "description_name": "the Dragon's Nest",
+        "description_name": "%%gray%%the %%dark_purple%%Dragon's Nest",
         "destination_mode": "combat_3",
         "location_tag": "dragon_nest",
         "schematic_file": "sb_portal_dragon_nest",
@@ -14101,7 +14409,7 @@
     "item_specific": {
       "portal": {
         "holo_name": "Hub Crypts",
-        "description_name": "the Crypts",
+        "description_name": "%%gray%%the %%aqua%%Hub Crypts",
         "destination_mode": "hub",
         "location_tag": "crypts",
         "schematic_file": "sb_portal_hub_crypts",
@@ -14122,7 +14430,7 @@
     "item_specific": {
       "portal": {
         "holo_name": "Trapper's Den",
-        "description_name": "the Trapper's Den",
+        "description_name": "%%gray%%the %%aqua%%Trapper's Den",
         "destination_mode": "farming_1",
         "schematic_file": "sb_portal_farming_1",
         "location_tag": "trappers_den",
@@ -14143,7 +14451,7 @@
     "item_specific": {
       "portal": {
         "holo_name": "Scarleton",
-        "description_name": "Scarleton",
+        "description_name": "%%dark_purple%%Scarleton",
         "destination_mode": "crimson_isle",
         "location_tag": "scarleton",
         "schematic_file": "sb_portal_scarleton",
@@ -14164,7 +14472,7 @@
     "item_specific": {
       "portal": {
         "holo_name": "Museum",
-        "description_name": "the Museum",
+        "description_name": "%%gray%%the %%dark_aqua%%Museum",
         "destination_mode": "hub",
         "location_tag": "museum",
         "schematic_file": "sb_portal_museum",
@@ -14180,12 +14488,12 @@
   {
     "material": "SKULL_ITEM",
     "durability": 3,
-    "name": "Portal to the Howling Caves",
+    "name": "Portal to the Howling Cave",
     "category": "PORTAL",
     "item_specific": {
       "portal": {
-        "holo_name": "Howling Caves",
-        "description_name": "the Howling Caves",
+        "holo_name": "Howling Cave",
+        "description_name": "%%gray%%the %%aqua%%Howling Cave",
         "destination_mode": "foraging_1",
         "location_tag": "howling_cave",
         "schematic_file": "sb_portal_park_cave",
@@ -14206,7 +14514,7 @@
     "item_specific": {
       "portal": {
         "holo_name": "Jungle Island",
-        "description_name": "the Jungle Island",
+        "description_name": "%%green%%Jungle Island",
         "destination_mode": "foraging_1",
         "offset": "FORAGING",
         "schematic_file": "sb_portal_foraging3",
@@ -14227,7 +14535,7 @@
     "item_specific": {
       "portal": {
         "holo_name": "Birch Park",
-        "description_name": "the Birch Park",
+        "description_name": "%%green%%Birch Park",
         "destination_mode": "foraging_1",
         "offset": "FORAGING",
         "schematic_file": "sb_portal_foraging1",
@@ -14248,7 +14556,7 @@
     "item_specific": {
       "portal": {
         "holo_name": "Deep Caverns",
-        "description_name": "the Deep Caverns",
+        "description_name": "%%gray%%the %%aqua%%Deep Caverns",
         "destination_mode": "mining_2",
         "schematic_file": "sb_portal_minelapiz",
         "offset": "MINE",
@@ -14268,7 +14576,7 @@
     "item_specific": {
       "portal": {
         "holo_name": "Crimson Isle",
-        "description_name": "the Crimson Isle",
+        "description_name": "%%gray%%the %%red%%Crimson Isle",
         "destination_mode": "crimson_isle",
         "schematic_file": "sb_portal_danger2",
         "skill_requirement": {
@@ -14289,6 +14597,7 @@
     "item_specific": {
       "portal": {
         "holo_name": "The End",
+        "description_name": "%%light_purple%%The End",
         "destination_mode": "combat_3",
         "schematic_file": "sb_portal_danger3",
         "offset": "MINE",
@@ -14304,12 +14613,12 @@
     "id": "DANGER_1_PORTAL",
     "material": "SKULL_ITEM",
     "durability": 3,
-    "name": "Portal to Spider's Den",
+    "name": "Portal to the Spider's Den",
     "category": "PORTAL",
     "item_specific": {
       "portal": {
         "holo_name": "Spider's Den",
-        "description_name": "Spider's Den",
+        "description_name": "%%gray%%the %%red%%Spider's Den",
         "destination_mode": "combat_1",
         "schematic_file": "sb_portal_danger1",
         "skill_requirement": {
@@ -14327,7 +14636,7 @@
     "item_specific": {
       "portal": {
         "holo_name": "Dark Thicket",
-        "description_name": "the Dark Thicket",
+        "description_name": "%%green%%Dark Thicket",
         "destination_mode": "foraging_1",
         "offset": "FORAGING",
         "schematic_file": "sb_portal_foraging5",
@@ -14348,7 +14657,7 @@
     "item_specific": {
       "portal": {
         "holo_name": "Savanna Woodland",
-        "description_name": "the Savanna Woodland",
+        "description_name": "%%green%%Savanna Woodland",
         "destination_mode": "foraging_1",
         "offset": "FORAGING",
         "schematic_file": "sb_portal_foraging4",
@@ -14369,7 +14678,7 @@
     "item_specific": {
       "portal": {
         "holo_name": "Mushroom Island",
-        "description_name": "the desert settlement of the Mushroom Island",
+        "description_name": "%%gray%%the %%yellow%%Desert Settlement %%gray%%of %%aqua%%Mushroom Island",
         "destination_mode": "farming_1",
         "schematic_file": "sb_portal_farming_2",
         "location_tag": "desert_settlement",
@@ -14390,7 +14699,7 @@
     "item_specific": {
       "portal": {
         "holo_name": "Gold Mine",
-        "description_name": "the Gold Mine",
+        "description_name": "%%gray%%the %%gold%%Gold Mine",
         "destination_mode": "mining_1",
         "offset": "MINE",
         "schematic_file": "sb_portal_minecoal",
@@ -14429,7 +14738,7 @@
     "category": "PORTAL",
     "item_specific": {
       "portal": {
-        "holo_name": "The Hub",
+        "holo_name": "%%gray%%the %%aqua%%Hub",
         "destination_mode": "hub",
         "schematic_file": "sb_portal_hub",
         "offset": "MINE",
@@ -14449,7 +14758,7 @@
     "item_specific": {
       "portal": {
         "holo_name": "Spruce Woods",
-        "description_name": "the Spruce Woods",
+        "description_name": "%%green%%Spruce Woods",
         "destination_mode": "foraging_1",
         "offset": "FORAGING",
         "schematic_file": "sb_portal_foraging2",
@@ -14583,7 +14892,9 @@
   {
     "material": "RABBIT_STEW",
     "name": "Mushroom & Warts Stew",
+    "description": "%%gray%%%%italic%%Made with love, and an array of slightly more questionable ingredients.",
     "tier": "RARE",
+    "soulbound": "COOP",
     "id": "WARTS_STEW"
   },
   {
@@ -15037,6 +15348,13 @@
     "name": "Hilt of True Ice",
     "glowing": true,
     "tier": "LEGENDARY",
+    "salvages": [
+      {
+        "type": "ESSENCE",
+        "essence_type": "ICE",
+        "amount": 50
+      }
+    ],
     "id": "HILT_OF_TRUE_ICE"
   },
   {
@@ -15768,6 +16086,8 @@
     "material": "DOUBLE_PLANT",
     "durability": 4,
     "name": "Rose Bouquet",
+    "description": "%%gray%%%%italic%%A hastily-made bouquet consisting of Marco's finest roses.",
+    "soulbound": "COOP",
     "id": "ROSE_BOUQUET"
   },
   {
@@ -18623,6 +18943,13 @@
     "name": "Krampus Helmet",
     "category": "HELMET",
     "tier": "EPIC",
+    "salvages": [
+      {
+        "type": "ESSENCE",
+        "essence_type": "ICE",
+        "amount": 25
+      }
+    ],
     "id": "KRAMPUS_HELMET"
   },
   {
@@ -19465,7 +19792,7 @@
   {
     "material": "MELON",
     "name": "Melon",
-    "npc_sell_price": 0.5,
+    "npc_sell_price": 2,
     "id": "MELON"
   },
   {
@@ -20610,7 +20937,7 @@
     "name": "Enchanted Baked Potato",
     "glowing": true,
     "tier": "UNCOMMON",
-    "npc_sell_price": 25600,
+    "npc_sell_price": 76800,
     "id": "ENCHANTED_BAKED_POTATO"
   },
   {
@@ -20625,6 +20952,7 @@
       "HEALTH": 310,
       "INTELLIGENCE": 20
     },
+    "npc_sell_price": 5000,
     "upgrade_costs": [
       [
         {
@@ -21660,7 +21988,7 @@
   {
     "material": "PUMPKIN",
     "name": "Pumpkin",
-    "npc_sell_price": 4,
+    "npc_sell_price": 10,
     "id": "PUMPKIN"
   },
   {
@@ -22834,9 +23162,9 @@
     "gear_score": 50,
     "requirements": [
       {
-        "type": "DUNGEON_SKILL",
+        "type": "DUNGEON_TIER",
         "dungeon_type": "CATACOMBS",
-        "level": 7
+        "tier": 7
       }
     ],
     "dungeon_item": true,
@@ -23636,7 +23964,7 @@
   {
     "material": "CACTUS",
     "name": "Cactus",
-    "npc_sell_price": 1,
+    "npc_sell_price": 3,
     "id": "CACTUS"
   },
   {
@@ -23762,7 +24090,7 @@
     "durability": 3,
     "name": "Polished Pumpkin",
     "tier": "RARE",
-    "npc_sell_price": 102400,
+    "npc_sell_price": 256000,
     "id": "POLISHED_PUMPKIN"
   },
   {
@@ -24154,7 +24482,7 @@
   {
     "material": "HUGE_MUSHROOM_1",
     "name": "Brown Mushroom Block",
-    "npc_sell_price": 4,
+    "npc_sell_price": 10,
     "id": "HUGE_MUSHROOM_1"
   },
   {
@@ -24176,7 +24504,7 @@
     "name": "Enchanted Hay Bale",
     "glowing": true,
     "tier": "UNCOMMON",
-    "npc_sell_price": 1300,
+    "npc_sell_price": 7776,
     "id": "ENCHANTED_HAY_BLOCK"
   },
   {
@@ -24209,6 +24537,7 @@
       "CRITICAL_DAMAGE": 45,
       "INTELLIGENCE": 15
     },
+    "npc_sell_price": 5000,
     "upgrade_costs": [
       [
         {
@@ -24710,8 +25039,10 @@
   {
     "material": "PAPER",
     "name": "Poem of True Love",
+    "description": "%%gray%%%%italic%%Filled with poor punctuation and misspellings, but its message is profound.",
     "glowing": true,
     "tier": "EPIC",
+    "soulbound": "COOP",
     "id": "POEM_OF_INFINITE_LOVE"
   },
   {
@@ -24749,8 +25080,10 @@
   {
     "material": "GOLD_NUGGET",
     "name": "Very Official Yellow Rock of Love!",
+    "description": "%%gray%%%%italic%%A majestic, one-of-a-kind mineral that glistens in the morning sun.",
     "glowing": true,
     "tier": "LEGENDARY",
+    "soulbound": "COOP",
     "id": "VERY_OFFICIAL_YELLOW_ROCK"
   },
   {
@@ -25476,7 +25809,7 @@
   {
     "material": "BROWN_MUSHROOM",
     "name": "Brown Mushroom",
-    "npc_sell_price": 4,
+    "npc_sell_price": 10,
     "id": "BROWN_MUSHROOM"
   },
   {
@@ -25887,7 +26220,7 @@
     "name": "Enchanted Carrot",
     "glowing": true,
     "tier": "UNCOMMON",
-    "npc_sell_price": 160,
+    "npc_sell_price": 480,
     "id": "ENCHANTED_CARROT"
   },
   {
@@ -26483,6 +26816,7 @@
     "name": "Shady Ring",
     "category": "ACCESSORY",
     "tier": "UNCOMMON",
+    "soulbound": "COOP",
     "id": "SHADY_RING"
   },
   {
@@ -27848,7 +28182,7 @@
     "name": "Enchanted Potato",
     "glowing": true,
     "tier": "UNCOMMON",
-    "npc_sell_price": 160,
+    "npc_sell_price": 480,
     "id": "ENCHANTED_POTATO"
   },
   {
@@ -27886,7 +28220,6 @@
     "material": "GHAST_TEAR",
     "name": "Vampire Fang",
     "glowing": true,
-    "category": "PET_ITEM",
     "tier": "LEGENDARY",
     "id": "PET_ITEM_VAMPIRE_FANG"
   },
@@ -28284,7 +28617,9 @@
     "material": "SKULL_ITEM",
     "durability": 3,
     "name": "Secret Gift for Juliette",
+    "description": "%%gray%%%%italic%%A well-wrapped present that's hot to the touch.",
     "tier": "EPIC",
+    "soulbound": "COOP",
     "id": "WRAPPED_GIFT_FOR_JULIETTE"
   },
   {
@@ -28831,7 +29166,7 @@
     "material": "INK_SACK",
     "durability": 2,
     "name": "Cactus Green",
-    "npc_sell_price": 1,
+    "npc_sell_price": 3,
     "id": "INK_SACK:2"
   },
   {
@@ -29620,6 +29955,7 @@
       "HEALTH": 260,
       "INTELLIGENCE": 20
     },
+    "npc_sell_price": 5000,
     "upgrade_costs": [
       [
         {
@@ -31829,7 +32165,7 @@
     "durability": 3,
     "name": "Mutant Nether Wart",
     "tier": "RARE",
-    "npc_sell_price": 51200,
+    "npc_sell_price": 102400,
     "id": "MUTANT_NETHER_STALK"
   },
   {
@@ -32511,7 +32847,7 @@
   {
     "material": "BAKED_POTATO",
     "name": "Baked Potato",
-    "npc_sell_price": 1,
+    "npc_sell_price": 3,
     "id": "BAKED_POTATO"
   },
   {
@@ -32906,6 +33242,7 @@
       "HEALTH": 210,
       "INTELLIGENCE": 30
     },
+    "npc_sell_price": 5000,
     "upgrade_costs": [
       [
         {
@@ -33312,6 +33649,7 @@
       "CRITICAL_DAMAGE": 45,
       "INTELLIGENCE": 10
     },
+    "npc_sell_price": 5000,
     "upgrade_costs": [
       [
         {
@@ -35361,7 +35699,6 @@
     "material": "SKULL_ITEM",
     "durability": 3,
     "name": "Jerry 3D Glasses",
-    "category": "PET_ITEM",
     "tier": "LEGENDARY",
     "id": "PET_ITEM_TOY_JERRY"
   },
@@ -35501,7 +35838,7 @@
     "name": "Enchanted Golden Carrot",
     "glowing": true,
     "tier": "UNCOMMON",
-    "npc_sell_price": 20608,
+    "npc_sell_price": 61440,
     "id": "ENCHANTED_GOLDEN_CARROT"
   },
   {
@@ -35943,7 +36280,7 @@
     "durability": 3,
     "name": "Tightly-Tied Hay Bale",
     "tier": "RARE",
-    "npc_sell_price": 187200,
+    "npc_sell_price": 1119744,
     "id": "TIGHTLY_TIED_HAY_BALE"
   },
   {
@@ -36637,6 +36974,7 @@
       "CRITICAL_DAMAGE": 45,
       "INTELLIGENCE": 10
     },
+    "npc_sell_price": 5000,
     "upgrade_costs": [
       [
         {
@@ -38669,6 +39007,7 @@
     "name": "Dragon Claw",
     "category": "REFORGE_STONE",
     "tier": "RARE",
+    "npc_sell_price": 1,
     "id": "DRAGON_CLAW"
   },
   {
@@ -39370,6 +39709,7 @@
     "name": "Seal of the Family",
     "category": "ACCESSORY",
     "tier": "EPIC",
+    "soulbound": "COOP",
     "id": "SEAL_OF_THE_FAMILY"
   },
   {
@@ -39721,7 +40061,9 @@
     "material": "SKULL_ITEM",
     "durability": 3,
     "name": "Solved Rubix Prism",
+    "description": "%%gray%%%%italic%%It took hard work and patience, but that's what love is all about!",
     "tier": "EPIC",
+    "soulbound": "COOP",
     "id": "SOLVED_PRISM"
   },
   {
@@ -39769,7 +40111,7 @@
     "material": "HUGE_MUSHROOM_2",
     "name": "Enchanted Red Mushroom Block",
     "glowing": true,
-    "npc_sell_price": 2300,
+    "npc_sell_price": 51200,
     "tier": "RARE",
     "id": "ENCHANTED_HUGE_MUSHROOM_2"
   },
@@ -40016,7 +40358,7 @@
     "name": "Enchanted Sugar",
     "glowing": true,
     "tier": "UNCOMMON",
-    "npc_sell_price": 320,
+    "npc_sell_price": 640,
     "id": "ENCHANTED_SUGAR"
   },
   {
@@ -41201,7 +41543,7 @@
   {
     "material": "CARROT_ITEM",
     "name": "Carrot",
-    "npc_sell_price": 1,
+    "npc_sell_price": 3,
     "id": "CARROT_ITEM"
   },
   {
@@ -41569,7 +41911,7 @@
   {
     "material": "MELON_SEEDS",
     "name": "Melon Seeds",
-    "npc_sell_price": 0.5,
+    "npc_sell_price": 1,
     "id": "MELON_SEEDS"
   },
   {
@@ -42286,7 +42628,7 @@
   {
     "material": "HUGE_MUSHROOM_2",
     "name": "Red Mushroom Block",
-    "npc_sell_price": 4,
+    "npc_sell_price": 10,
     "id": "HUGE_MUSHROOM_2"
   },
   {
@@ -42823,7 +43165,7 @@
     "name": "Enchanted Melon Block",
     "glowing": true,
     "tier": "RARE",
-    "npc_sell_price": 25600,
+    "npc_sell_price": 51200,
     "id": "ENCHANTED_MELON_BLOCK"
   },
   {
@@ -42883,6 +43225,7 @@
       "CRITICAL_DAMAGE": 45,
       "INTELLIGENCE": 10
     },
+    "npc_sell_price": 5000,
     "upgrade_costs": [
       [
         {
@@ -43201,7 +43544,7 @@
   {
     "material": "HAY_BLOCK",
     "name": "Hay Bale",
-    "npc_sell_price": 9,
+    "npc_sell_price": 54,
     "id": "HAY_BLOCK"
   },
   {
@@ -44138,6 +44481,7 @@
     "durability": 3,
     "name": "Hot Stuff",
     "tier": "LEGENDARY",
+    "category": "REFORGE_STONE",
     "id": "HOT_STUFF"
   },
   {
@@ -44294,7 +44638,6 @@
     "durability": 3,
     "name": "Dante Talisman",
     "category": "ACCESSORY",
-    "npc_sell_price": 22,
     "museum": true,
     "id": "DANTE_TALISMAN",
     "tier": "COMMON"
@@ -45504,6 +45847,16 @@
   {
     "material": "SKULL_ITEM",
     "durability": 3,
+    "name": "Dante Ring",
+    "category": "ACCESSORY",
+    "museum": true,
+    "description": "Found in a hidden warehouse. Not very useful but still pretty nice to wear.",
+    "id": "DANTE_RING",
+    "tier": "COMMON"
+  },
+  {
+    "material": "SKULL_ITEM",
+    "durability": 3,
     "name": "Kuudra Mandible",
     "category": "REFORGE_STONE",
     "tier": "EPIC",
@@ -46270,7 +46623,7 @@
   {
     "material": "WHEAT",
     "name": "Wheat",
-    "npc_sell_price": 1,
+    "npc_sell_price": 6,
     "id": "WHEAT"
   },
   {
@@ -47808,8 +48161,8 @@
   },
   {
     "material": "MELON_BLOCK",
-    "name": "Melon",
-    "npc_sell_price": 4.5,
+    "name": "Melon Block",
+    "npc_sell_price": 18,
     "id": "MELON_BLOCK"
   },
   {
@@ -48396,6 +48749,16 @@
   {
     "material": "SKULL_ITEM",
     "durability": 3,
+    "name": "Kuudra Follower Relic",
+    "category": "ACCESSORY",
+    "tier": "LEGENDARY",
+    "unstackable": true,
+    "soulbound": "COOP",
+    "id": "KUUDRA_FOLLOWER_RELIC"
+  },
+  {
+    "material": "SKULL_ITEM",
+    "durability": 3,
     "name": "Jar of Pickles",
     "tier": "RARE",
     "id": "JAR_OF_PICKLES"
@@ -48428,7 +48791,7 @@
     "name": "Enchanted Seeds",
     "tier": "UNCOMMON",
     "glowing": true,
-    "npc_sell_price": 80,
+    "npc_sell_price": 480,
     "id": "ENCHANTED_SEEDS"
   },
   {
@@ -49232,7 +49595,7 @@
   {
     "material": "SUGAR_CANE",
     "name": "Sugar Cane",
-    "npc_sell_price": 2,
+    "npc_sell_price": 4,
     "id": "SUGAR_CANE"
   },
   {
@@ -49303,18 +49666,6 @@
       "FEROCITY": 50
     },
     "id": "FEROCITY_SWORD_50"
-  },
-  {
-    "material": "SKULL_ITEM",
-    "durability": 3,
-    "name": "Crab Hat of Celebration (2020)",
-    "category": "ACCESSORY",
-    "stats": {
-      "MAGIC_FIND": 1
-    },
-    "museum": true,
-    "tier": "SPECIAL",
-    "id": "PARTY_HAT_CRAB"
   },
   {
     "material": "BOOK_AND_QUILL",
@@ -49763,7 +50114,7 @@
   {
     "material": "NETHER_STALK",
     "name": "Nether Wart",
-    "npc_sell_price": 2,
+    "npc_sell_price": 4,
     "id": "NETHER_STALK"
   },
   {
@@ -50525,7 +50876,7 @@
     "name": "Enchanted Nether Wart",
     "glowing": true,
     "tier": "UNCOMMON",
-    "npc_sell_price": 320,
+    "npc_sell_price": 640,
     "id": "ENCHANTED_NETHER_STALK"
   },
   {
@@ -51465,7 +51816,7 @@
     "material": "BROWN_MUSHROOM",
     "name": "Enchanted Brown Mushroom",
     "glowing": true,
-    "npc_sell_price": 640,
+    "npc_sell_price": 1600,
     "tier": "UNCOMMON",
     "id": "ENCHANTED_BROWN_MUSHROOM"
   },
@@ -51712,7 +52063,7 @@
     "name": "Enchanted Cactus Green",
     "glowing": true,
     "tier": "UNCOMMON",
-    "npc_sell_price": 160,
+    "npc_sell_price": 480,
     "id": "ENCHANTED_CACTUS_GREEN"
   },
   {
@@ -53377,7 +53728,7 @@
     "name": "Enchanted Pumpkin",
     "glowing": true,
     "tier": "UNCOMMON",
-    "npc_sell_price": 640,
+    "npc_sell_price": 1600,
     "id": "ENCHANTED_PUMPKIN"
   },
   {
@@ -55550,7 +55901,7 @@
     "name": "Hot Potato Book",
     "glowing": true,
     "tier": "EPIC",
-    "npc_sell_price": 13000,
+    "npc_sell_price": 38400,
     "id": "HOT_POTATO_BOOK"
   },
   {
@@ -57063,7 +57414,7 @@
     "material": "HUGE_MUSHROOM_1",
     "name": "Enchanted Brown Mushroom Block",
     "glowing": true,
-    "npc_sell_price": 2300,
+    "npc_sell_price": 51200,
     "tier": "RARE",
     "id": "ENCHANTED_HUGE_MUSHROOM_1"
   },
@@ -57406,6 +57757,7 @@
     "name": "Crooked Artifact",
     "category": "ACCESSORY",
     "tier": "RARE",
+    "soulbound": "COOP",
     "id": "CROOKED_ARTIFACT"
   },
   {
@@ -57514,7 +57866,9 @@
     "material": "SKULL_ITEM",
     "durability": 3,
     "name": "Flower Maelstrom",
+    "description": "%%gray%%%%italic%%A handcrafted bouquet made with love and some of the finest flowers around.",
     "tier": "EPIC",
+    "soulbound": "COOP",
     "id": "FLOWER_MAELSTROM"
   },
   {
@@ -58673,6 +59027,7 @@
   {
     "material": "GOLD_NUGGET",
     "name": "Yellow Rock",
+    "description": "%%gray%%%%italic%%A little rough around the edges, but beauty can be found within.",
     "glowing": true,
     "id": "YELLOW_ROCK"
   },
@@ -58934,7 +59289,9 @@
   {
     "material": "ENDER_STONE",
     "name": "Chunk of the Moon",
+    "description": "%%gray%%%%italic%%Where love is rife, the preconceived laws of physics mean nothing.",
     "tier": "RARE",
+    "soulbound": "COOP",
     "id": "MOON_CHUNK"
   },
   {
@@ -59477,7 +59834,7 @@
     "material": "RED_MUSHROOM",
     "name": "Enchanted Red Mushroom",
     "glowing": true,
-    "npc_sell_price": 640,
+    "npc_sell_price": 1600,
     "tier": "UNCOMMON",
     "id": "ENCHANTED_RED_MUSHROOM"
   },
@@ -59947,6 +60304,7 @@
     "name": "Dwarven Tankard",
     "tier": "EPIC",
     "npc_sell_price": 10,
+    "soulbound": "COOP",
     "id": "DWARVEN_TANKARD"
   },
   {
@@ -60830,6 +61188,7 @@
       "HEALTH": 190,
       "INTELLIGENCE": 20
     },
+    "npc_sell_price": 5000,
     "upgrade_costs": [
       [
         {
@@ -61007,7 +61366,7 @@
     "name": "Enchanted Melon",
     "glowing": true,
     "tier": "UNCOMMON",
-    "npc_sell_price": 160,
+    "npc_sell_price": 320,
     "id": "ENCHANTED_MELON"
   },
   {
@@ -61151,7 +61510,7 @@
     "name": "Enchanted Red Sand",
     "glowing": true,
     "tier": "UNCOMMON",
-    "npc_sell_price": 320,
+    "npc_sell_price": 800,
     "id": "ENCHANTED_RED_SAND"
   },
   {
@@ -62148,7 +62507,7 @@
     "name": "Enchanted Sugar Cane",
     "glowing": true,
     "tier": "RARE",
-    "npc_sell_price": 51200,
+    "npc_sell_price": 102400,
     "id": "ENCHANTED_SUGAR_CANE"
   },
   {
@@ -63113,7 +63472,7 @@
   {
     "material": "POTATO_ITEM",
     "name": "Potato",
-    "npc_sell_price": 1,
+    "npc_sell_price": 3,
     "id": "POTATO_ITEM"
   },
   {
@@ -63167,6 +63526,8 @@
     "material": "SKULL_ITEM",
     "durability": 3,
     "name": "Poorly Wrapped Rock",
+    "description": "%%gray%%%%italic%%Uneven, unkempt, disjointed, and that's just the guy who wrapped it!",
+    "soulbound": "COOP",
     "id": "POORLY_WRAPPED_ROCK"
   },
   {
@@ -63582,7 +63943,7 @@
     "category": "HELMET",
     "tier": "UNOBTAINABLE",
     "stats": {
-      "HEALTH": 3000
+      "HEALTH": 3001
     },
     "npc_sell_price": 1000000,
     "id": "ANUBIS"
@@ -64110,7 +64471,9 @@
   {
     "material": "EMERALD_BLOCK",
     "name": "Fake Emerald Altar",
+    "description": "%%gray%%%%italic%%Can't bring the girl to the altar? Bring the altar to the girl!",
     "tier": "UNCOMMON",
+    "soulbound": "COOP",
     "id": "FAKE_EMERALD_ALTAR"
   },
   {
@@ -64559,7 +64922,7 @@
     "name": "Enchanted Cactus",
     "glowing": true,
     "tier": "RARE",
-    "npc_sell_price": 25600,
+    "npc_sell_price": 76800,
     "id": "ENCHANTED_CACTUS"
   },
   {
@@ -64701,7 +65064,7 @@
   {
     "material": "RED_MUSHROOM",
     "name": "Red Mushroom",
-    "npc_sell_price": 4,
+    "npc_sell_price": 10,
     "id": "RED_MUSHROOM"
   },
   {
@@ -66743,7 +67106,7 @@
   {
     "material": "SEEDS",
     "name": "Seeds",
-    "npc_sell_price": 0.5,
+    "npc_sell_price": 3,
     "id": "SEEDS"
   },
   {
@@ -66893,7 +67256,7 @@
     "category": "BOOTS",
     "tier": "RARE",
     "npc_sell_price": 77777,
-    "description": "%%gray%%%%italic%%Boots made of pure ghost essense",
+    "description": "%%gray%%%%italic%%Boots made of pure ghost essence.",
     "museum": true,
     "id": "GHOST_BOOTS"
   },
@@ -70901,6 +71264,13 @@
         "level": 25
       }
     ],
+    "salvages": [
+      {
+        "type": "ESSENCE",
+        "essence_type": "ICE",
+        "amount": 20
+      }
+    ],
     "id": "YETI_ROD"
   },
   {
@@ -71172,6 +71542,13 @@
       }
     ],
     "museum": true,
+    "salvages": [
+      {
+        "type": "ESSENCE",
+        "essence_type": "ICE",
+        "amount": 5
+      }
+    ],
     "id": "ICE_ROD"
   },
   {
@@ -71784,6 +72161,51 @@
     "id": "TROPICAL_BIRD_2_PERSONALITY"
   },
   {
+    "material": "SKULL_ITEM",
+    "durability": 3,
+    "name": "Overgrown Grass",
+    "category": "REFORGE_STONE",
+    "tier": "RARE",
+    "npc_sell_price": 1,
+    "id": "OVERGROWN_GRASS"
+  },
+  {
+    "material": "SKULL_ITEM",
+    "durability": 3,
+    "name": "Large Walnut",
+    "category": "REFORGE_STONE",
+    "tier": "RARE",
+    "npc_sell_price": 1,
+    "id": "LARGE_WALNUT"
+  },
+  {
+    "material": "SKULL_ITEM",
+    "durability": 3,
+    "name": "Flowering Bouquet",
+    "category": "REFORGE_STONE",
+    "tier": "RARE",
+    "npc_sell_price": 1,
+    "id": "FLOWERING_BOUQUET"
+  },
+  {
+    "material": "SKULL_ITEM",
+    "durability": 3,
+    "name": "Burrowing Spores",
+    "category": "REFORGE_STONE",
+    "tier": "RARE",
+    "npc_sell_price": 1,
+    "id": "BURROWING_SPORES"
+  },
+  {
+    "material": "SKULL_ITEM",
+    "durability": 3,
+    "name": "SkyMart Brochure",
+    "category": "REFORGE_STONE",
+    "tier": "RARE",
+    "npc_sell_price": 1,
+    "id": "SKYMART_BROCHURE"
+  },
+  {
     "material": "GOLD_AXE",
     "name": "Pumpkin Dicer 2.0",
     "description": "%%italic%%Someone once said, 2 is always better than 1!",
@@ -71796,7 +72218,7 @@
     "durability": 3,
     "name": "Squash",
     "tier": "EPIC",
-    "npc_sell_price": 750,
+    "npc_sell_price": 75000,
     "id": "SQUASH"
   },
   {
@@ -72384,6 +72806,22 @@
     "id": "MELON_LEGGINGS"
   },
   {
+    "material": "SKULL_ITEM",
+    "durability": 3,
+    "name": "Squash Ring",
+    "tier": "UNCOMMON",
+    "category": "ACCESSORY",
+    "id": "SQUASH_RING"
+  },
+  {
+    "material": "SKULL_ITEM",
+    "durability": 3,
+    "name": "Cropie Talisman",
+    "tier": "COMMON",
+    "category": "ACCESSORY",
+    "id": "CROPIE_TALISMAN"
+  },
+  {
     "name": "Copper",
     "material": "SKULL_ITEM",
     "durability": 3,
@@ -72396,6 +72834,7 @@
     "durability": 3,
     "tier": "RARE",
     "name": "Box of Seeds",
+    "npc_sell_price": 76800,
     "id": "BOX_OF_SEEDS"
   },
   {
@@ -72411,6 +72850,7 @@
     "durability": 3,
     "name": "Jake's Plushie",
     "tier": "UNCOMMON",
+    "soulbound": "SOLO",
     "category": "ACCESSORY",
     "stats": {
       "HEALTH": 2
@@ -72461,7 +72901,7 @@
     "durability": 3,
     "name": "Condensed Fermento",
     "tier": "LEGENDARY",
-    "npc_sell_price": 9000,
+    "npc_sell_price": 2250000,
     "id": "CONDENSED_FERMENTO"
   },
   {
@@ -72476,8 +72916,16 @@
     "durability": 3,
     "name": "Cropie",
     "tier": "RARE",
-    "npc_sell_price": 500,
+    "npc_sell_price": 25000,
     "id": "CROPIE"
+  },
+  {
+    "material": "SKULL_ITEM",
+    "durability": 3,
+    "name": "Fermento Artifact",
+    "tier": "RARE",
+    "category": "ACCESSORY",
+    "id": "FERMENTO_ARTIFACT"
   },
   {
     "material": "SKULL_ITEM",
@@ -72492,7 +72940,7 @@
     "durability": 3,
     "name": "Fermento",
     "tier": "LEGENDARY",
-    "npc_sell_price": 1000,
+    "npc_sell_price": 250000,
     "id": "FERMENTO"
   },
   {
@@ -72604,6 +73052,9 @@
     "stats": {
       "FARMING_FORTUNE": 10
     },
+    "enchantments": {
+      "replenish": 1
+    },
     "requirements": [
       {
         "type": "GARDEN_LEVEL",
@@ -72625,6 +73076,9 @@
     "npc_sell_price": 100,
     "stats": {
       "FARMING_FORTUNE": 10
+    },
+    "enchantments": {
+      "replenish": 1
     },
     "requirements": [
       {
@@ -72772,6 +73226,13 @@
       }
     ],
     "npc_sell_price": 1000,
+    "salvages": [
+      {
+        "type": "ESSENCE",
+        "essence_type": "ICE",
+        "amount": 15
+      }
+    ],
     "id": "NUTCRACKER_HELMET"
   },
   {
@@ -72785,6 +73246,13 @@
       "HEALTH": 100
     },
     "npc_sell_price": 1000,
+    "salvages": [
+      {
+        "type": "ESSENCE",
+        "essence_type": "ICE",
+        "amount": 10
+      }
+    ],
     "id": "SNOW_SUIT_CHESTPLATE"
   },
   {
@@ -72807,6 +73275,13 @@
       }
     ],
     "npc_sell_price": 1000,
+    "salvages": [
+      {
+        "type": "ESSENCE",
+        "essence_type": "ICE",
+        "amount": 15
+      }
+    ],
     "id": "NUTCRACKER_BOOTS"
   },
   {
@@ -72820,6 +73295,13 @@
       "HEALTH": 75
     },
     "npc_sell_price": 1000,
+    "salvages": [
+      {
+        "type": "ESSENCE",
+        "essence_type": "ICE",
+        "amount": 10
+      }
+    ],
     "id": "SNOW_SUIT_LEGGINGS"
   },
   {
@@ -72833,6 +73315,13 @@
       "HEALTH": 65
     },
     "npc_sell_price": 1000,
+    "salvages": [
+      {
+        "type": "ESSENCE",
+        "essence_type": "ICE",
+        "amount": 10
+      }
+    ],
     "id": "SNOW_SUIT_BOOTS"
   },
   {
@@ -72846,6 +73335,13 @@
       "HEALTH": 70
     },
     "npc_sell_price": 1000,
+    "salvages": [
+      {
+        "type": "ESSENCE",
+        "essence_type": "ICE",
+        "amount": 10
+      }
+    ],
     "id": "SNOW_SUIT_HELMET"
   },
   {
@@ -72868,6 +73364,13 @@
       }
     ],
     "npc_sell_price": 1000,
+    "salvages": [
+      {
+        "type": "ESSENCE",
+        "essence_type": "ICE",
+        "amount": 15
+      }
+    ],
     "id": "NUTCRACKER_CHESTPLATE"
   },
   {
@@ -72890,6 +73393,13 @@
       }
     ],
     "npc_sell_price": 1000,
+    "salvages": [
+      {
+        "type": "ESSENCE",
+        "essence_type": "ICE",
+        "amount": 15
+      }
+    ],
     "id": "NUTCRACKER_LEGGINGS"
   },
   {
@@ -72978,11 +73488,29 @@
   {
     "material": "SKULL_ITEM",
     "durability": 3,
+    "name": "Terry's Snowglobe",
+    "category": "REFORGE_STONE",
+    "tier": "RARE",
+    "npc_sell_price": 1,
+    "id": "TERRY_SNOWGLOBE"
+  },
+  {
+    "material": "SKULL_ITEM",
+    "durability": 3,
     "name": "Rusty Anchor",
     "category": "REFORGE_STONE",
     "tier": "RARE",
     "npc_sell_price": 1,
     "id": "RUSTY_ANCHOR"
+  },
+  {
+    "material": "SKULL_ITEM",
+    "durability": 3,
+    "name": "Frozen Bauble",
+    "category": "REFORGE_STONE",
+    "tier": "EPIC",
+    "npc_sell_price": 1,
+    "id": "FROZEN_BAUBLE"
   },
   {
     "material": "SKULL_ITEM",
@@ -94161,6 +94689,16 @@
     "tier": "RARE",
     "npc_sell_price": 22222,
     "id": "PITCHIN_KOI"
+  },
+  {
+    "material": "SKULL_ITEM",
+    "durability": 3,
+    "name": "Kuudra Follower Artifact",
+    "category": "ACCESSORY",
+    "tier": "EPIC",
+    "unstackable": true,
+    "soulbound": "COOP",
+    "id": "KUUDRA_FOLLOWER_ARTIFACT"
   },
   {
     "material": "SKULL_ITEM",
