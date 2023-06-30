@@ -69,7 +69,9 @@ const calculatePet = (pet, prices) => {
   }
 
   // PET CANDY REDUCE
-  if (pet.candyUsed > 0 && !blockedCandyReducePets.includes(pet.type)) {
+  const maxPetCandyXp = pet.candyUsed * 1000000;
+  const xpLessPetCandy = pet.exp - maxPetCandyXp;
+  if (pet.candyUsed > 0 && !blockedCandyReducePets.includes(pet.type) && xpLessPetCandy >= pet.xpMax) {
     const reducedValue = price * applicationWorth.petCandy;
 
     if (!isNaN(price)) {
