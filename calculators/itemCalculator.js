@@ -96,7 +96,7 @@ const calculateItem = (item, prices, returnItemData) => {
     }
 
     // RUNES (Item)
-    if (ExtraAttributes.id === 'RUNE' && ExtraAttributes.runes && Object.keys(ExtraAttributes.runes).length > 0) {
+    if ((ExtraAttributes.id === 'RUNE' || ExtraAttributes.id === 'UNIQUE_RUNE') && ExtraAttributes.runes && Object.keys(ExtraAttributes.runes).length > 0) {
       const [runeType, runeTier] = Object.entries(ExtraAttributes.runes)[0];
       itemId = `rune_${runeType}_${runeTier}`.toLowerCase();
     }
