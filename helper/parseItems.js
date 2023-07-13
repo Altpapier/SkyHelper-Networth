@@ -14,7 +14,7 @@ const singleContainers = {
   candy_inventory: 'candy_inventory_contents',
 };
 
-const parseItems = async (profileData) => {
+const parseItems = async (profileData, museumData) => {
   const items = {};
 
   // Parse Single Containers (Armor, Equipment, Wardrobe, Inventory, Enderchest, Personal Vault)
@@ -41,12 +41,12 @@ const parseItems = async (profileData) => {
     items.storage = items.storage.flat();
   }
 
-  await postParseItems(profileData, items);
+  await postParseItems(profileData, items, museumData);
 
   return items;
 };
 
-const postParseItems = async (profileData, items) => {
+const postParseItems = async (profileData, items, museumData) => {
   // Parse Cake Bags
   for (const categoryItems of Object.values(items)) {
     for (const item of categoryItems) {
@@ -81,6 +81,27 @@ const postParseItems = async (profileData, items) => {
       newPet.level = level.level;
       newPet.xpMax = level.xpMax;
       items.pets.push(newPet);
+    }
+  }
+
+  // Parse Museum
+  items.museum = [];
+  if (museumData?.items) {
+    for (const [, data] of Object.entries(museumData.items)) {
+      if (data.borrowing === true) continue;
+      if (data.items?.data === undefined) continue;
+
+      const decodedItem = await decodeData(data.items.data);
+
+      items.museum.push(...decodedItem);
+    }
+
+    for (const data of museumData.special) {
+      if (data.items?.data === undefined) continue;
+
+      const decodedItem = await decodeData(data.items.data);
+
+      items.museum.push(...decodedItem);
     }
   }
 };
