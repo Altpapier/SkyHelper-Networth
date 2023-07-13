@@ -71,6 +71,7 @@ Returns the networth of a profile
 | ----------- | ------------------------------------------------------------------------- |
 | profileData | The profile player data from the Hypixel API `profile.members[uuid]`      |
 | bankBalance | The player's bank balance from the Hypixel API `profile.banking?.balance` |
+| musemData   | The player's museum data from the Hypixel API `museum.members[uuid]`      |
 | options     | See table below                                                           |
 
 ### `getPreDecodedNetworth()`
@@ -82,7 +83,7 @@ Returns the networth of a profile using pre-decoded items (used to save resource
 | Argument    | Description                                                                                                                                                                |
 | ----------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
 | profileData | The profile player data from the Hypixel API `profile.members[uuid]`                                                                                                       |
-| items       | Decoded and simplified inventories `{ armor, equipment, wardrobe, inventory, enderchest, storage, accessories, personal_vault, fishing_bag, potion_bag, candy_inventory }` |
+| items       | Decoded and simplified inventories `{ armor, equipment, wardrobe, inventory, enderchest, storage, accessories, personal_vault, fishing_bag, potion_bag, candy_inventory, museum }`, museum is an array of member[uuid].items and member[uuid].special combined |
 | bankBalance | The player's bank balance from the Hypixel API `profile.banking?.balance`                                                                                                  |
 | options     | See table below                                                                                                                                                            |
 
@@ -126,11 +127,12 @@ Calculate Networth:
 const { getNetworth } = require('skyhelper-networth');
 
 const profile = // Retrieved from the Hypixel API with the /skyblock/profiles endpoint: profiles[index]
+const museumData = // Retrieved from the Hypixel API with the /skyblock/museum endpoint: museum.members[uuid]
 
 const profileData = profile.members['<UUID HERE>'];
 const bankBalance = profile.banking?.balance;
 
-const networth = await getNetworth(profileData, bankBalance);
+const networth = await getNetworth(profileData, museumData, bankBalance);
 console.log(networth);
 ```
 
@@ -140,6 +142,7 @@ Calculate Networth using pre-decoded items:
 const { getPreDecodedNetworth } = require('skyhelper-networth');
 
 const profile = // Retrieved from the Hypixel API with the /skyblock/profiles endpoint: profiles[index]
+const museumData = // Retrieved from the Hypixel API with the /skyblock/museum endpoint: museum.members[uuid]
 
 const profileData = profile.members['<UUID HERE>'];
 const bankBalance = profile.banking?.balance;
@@ -163,10 +166,11 @@ setInterval(async () => {
 }, 1000 * 60 * 5); // Retrieve prices every 5 minutes
 
 const profile = // Retrieved from the Hypixel API with the /skyblock/profiles endpoint: profiles[index]
+const museumData = // Retrieved from the Hypixel API with the /skyblock/museum endpoint: museum.members[uuid]
 
 const profileData = profile.members['<UUID HERE>'];
 const bankBalance = profile.banking?.balance;
 
-const networth = await getNetworth(profileData, bankBalance, { prices });
+const networth = await getNetworth(profileData, museumData, bankBalance, { prices });
 console.log(networth);
 ```
