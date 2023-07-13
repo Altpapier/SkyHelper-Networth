@@ -1,4 +1,4 @@
-const API_KEY = "1090a4d3-864d-43a1-8641-820617fe21d9";
+const API_KEY = "HYPIXEL_API_KEY";
 const axios = require("axios");
 
 async function getUUID(username) {
