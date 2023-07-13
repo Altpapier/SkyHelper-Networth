@@ -87,7 +87,7 @@ const postParseItems = async (profileData, items, museumData) => {
   // Parse Museum
   items.museum = [];
   if (museumData?.items) {
-    for (const [, data] of Object.entries(museumData.items)) {
+    for (const data of Object.values(museumData.items)) {
       if (data.borrowing === true) continue;
       if (data.items?.data === undefined) continue;
 
