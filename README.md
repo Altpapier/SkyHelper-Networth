@@ -71,7 +71,6 @@ Returns the networth of a profile
 | ----------- | ------------------------------------------------------------------------- |
 | profileData | The profile player data from the Hypixel API `profile.members[uuid]`      |
 | bankBalance | The player's bank balance from the Hypixel API `profile.banking?.balance` |
-| musemData   | The player's museum data from the Hypixel API `museum.members[uuid]`      |
 | options     | See table below                                                           |
 
 ### `getPreDecodedNetworth()`
@@ -95,6 +94,7 @@ Returns the networth of a profile using pre-decoded items (used to save resource
 | onlyNetworth   | Only return a player's networth without showing all player's items                                                                        |
 | prices         | Provide prices from the getPrices() function for the bot not to request SkyHelper's prices each time the getNetworth() function is called |
 | returnItemData | Will also return the item data that was used to calculate the item worth                                                                  |
+| museumData     | Retrieved from the Hypixel API with the /skyblock/museum endpoint: museum.members[uuid]                                                                |
 
 ### `getItemNetworth()`
 
@@ -132,7 +132,7 @@ const museumData = // Retrieved from the Hypixel API with the /skyblock/museum e
 const profileData = profile.members['<UUID HERE>'];
 const bankBalance = profile.banking?.balance;
 
-const networth = await getNetworth(profileData, museumData, bankBalance);
+const networth = await getNetworth(profileData, bankBalance, { museumData });
 console.log(networth);
 ```
 
@@ -171,6 +171,6 @@ const museumData = // Retrieved from the Hypixel API with the /skyblock/museum e
 const profileData = profile.members['<UUID HERE>'];
 const bankBalance = profile.banking?.balance;
 
-const networth = await getNetworth(profileData, museumData, bankBalance, { prices });
+const networth = await getNetworth(profileData, bankBalance, { prices, museumData });
 console.log(networth);
 ```

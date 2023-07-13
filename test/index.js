@@ -15,8 +15,9 @@ const profileName = null;
     console.log(`Fetched ${username}'s museum on ${profileData.cute_name} profile!`);
 
     const bank = profileData.banking?.balance ?? 0;
-    const networth = await getNetworth(profile, bank, museum, {
+    const networth = await getNetworth(profile, bank, {
       cache: true,
+      //museumData: museum,
     });
 
     console.log(networth);
