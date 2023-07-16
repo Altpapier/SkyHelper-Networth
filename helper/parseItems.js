@@ -96,7 +96,7 @@ const postParseItems = async (profileData, items, museumData) => {
       items.museum.push(...decodedItem);
     }
 
-    for (const data of museumData.special) {
+    for (const data of museumData.special || []) {
       if (data.items?.data === undefined) continue;
 
       const decodedItem = await decodeData(data.items.data);
