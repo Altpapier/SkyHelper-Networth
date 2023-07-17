@@ -41,12 +41,33 @@ const parseItems = async (profileData, museumData) => {
     items.storage = items.storage.flat();
   }
 
-  await postParseItems(profileData, items, museumData);
+  // Parse Museum
+  items.museum = [];
+  if (museumData?.items) {
+    for (const data of Object.values(museumData.items)) {
+      if (data.borrowing) continue;
+      if (data.items?.data === undefined) continue;
+
+      const decodedItem = await decodeData(data.items.data);
+
+      items.museum.push(...decodedItem);
+    }
+
+    for (const data of museumData.special || []) {
+      if (data.items?.data === undefined) continue;
+
+      const decodedItem = await decodeData(data.items.data);
+
+      items.museum.push(...decodedItem);
+    }
+  }
+
+  await postParseItems(profileData, items);
 
   return items;
 };
 
-const postParseItems = async (profileData, items, museumData) => {
+const postParseItems = async (profileData, items) => {
   // Parse Cake Bags
   for (const categoryItems of Object.values(items)) {
     for (const item of categoryItems) {
@@ -81,27 +102,6 @@ const postParseItems = async (profileData, items, museumData) => {
       newPet.level = level.level;
       newPet.xpMax = level.xpMax;
       items.pets.push(newPet);
-    }
-  }
-
-  // Parse Museum
-  items.museum = [];
-  if (museumData?.items) {
-    for (const data of Object.values(museumData.items)) {
-      if (data.borrowing) continue;
-      if (data.items?.data === undefined) continue;
-
-      const decodedItem = await decodeData(data.items.data);
-
-      items.museum.push(...decodedItem);
-    }
-
-    for (const data of museumData.special || []) {
-      if (data.items?.data === undefined) continue;
-
-      const decodedItem = await decodeData(data.items.data);
-
-      items.museum.push(...decodedItem);
     }
   }
 };
