@@ -15,7 +15,7 @@ const getNetworth = async (profileData, bankBalance, options) => {
   const purse = profileData.coin_purse;
   const prices = await parsePrices(options?.prices, options?.cache);
   const items = await parseItems(profileData);
-  return calculateNetworth(items, purse, bankBalance, prices, options?.onlyNetworth, options?.returnItemData);
+  return calculateNetworth(items, purse, bankBalance, prices, options?.onlyNetworth, options?.returnItemData, options?.sortData ?? true);
 };
 
 /**
@@ -83,7 +83,7 @@ const getPrices = async (cache) => {
     if (cachedPrices?.lastCache > Date.now() - 1000 * 60 * 5 && cache !== false) {
       return cachedPrices.prices; // Cache for 5 minutes
     }
-    
+
     if (isLoadingPrices) {
       while (isLoadingPrices) {
         await new Promise(r => setTimeout(r, 100)) //re-check if prices have loaded yet in 100ms
@@ -134,7 +134,7 @@ const checkForUpdate = async () => {
     if (latestVersion !== currentVersion) {
       console.log(`[SKYHELPER-NETWORTH] An update is available! Current version: ${currentVersion}, Latest version: ${latestVersion}`);
     }
-  } catch (err) {}
+  } catch (err) { }
 };
 checkForUpdate();
 let interval;

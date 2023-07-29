@@ -4,7 +4,7 @@ const { calculateEssence } = require('../calculators/essenceCalculator');
 const { calculateItem } = require('../calculators/itemCalculator');
 const { getPetLevel } = require('../constants/pets');
 
-const calculateNetworth = (items, purseBalance, bankBalance, prices, onlyNetworth, returnItemData) => {
+const calculateNetworth = (items, purseBalance, bankBalance, prices, onlyNetworth, returnItemData, sortData) => {
   const categories = {};
 
   for (const [category, categoryItems] of Object.entries(items)) {
@@ -27,7 +27,7 @@ const calculateNetworth = (items, purseBalance, bankBalance, prices, onlyNetwort
     }
 
     // Sort items by price
-    if (!onlyNetworth && categories[category].items.length > 0) {
+    if (sortData && !onlyNetworth && categories[category].items.length > 0) {
       categories[category].items = categories[category].items
         .sort((a, b) => b.price - a.price)
         .reduce((r, a) => {
