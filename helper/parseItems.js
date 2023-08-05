@@ -14,7 +14,7 @@ const singleContainers = {
   candy_inventory: 'candy_inventory_contents',
 };
 
-const parseItems = async (profileData) => {
+const parseItems = async (profileData, museumData) => {
   const items = {};
 
   // Parse Single Containers (Armor, Equipment, Wardrobe, Inventory, Enderchest, Personal Vault)
@@ -39,6 +39,27 @@ const parseItems = async (profileData) => {
     }
 
     items.storage = items.storage.flat();
+  }
+
+  // Parse Museum
+  items.museum = [];
+  if (museumData?.items) {
+    for (const data of Object.values(museumData.items)) {
+      if (data.borrowing) continue;
+      if (data.items?.data === undefined) continue;
+
+      const decodedItem = await decodeData(data.items.data);
+
+      items.museum.push(...decodedItem);
+    }
+
+    for (const data of museumData.special || []) {
+      if (data.items?.data === undefined) continue;
+
+      const decodedItem = await decodeData(data.items.data);
+
+      items.museum.push(...decodedItem);
+    }
   }
 
   await postParseItems(profileData, items);
