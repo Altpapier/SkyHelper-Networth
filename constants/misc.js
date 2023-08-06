@@ -17,7 +17,7 @@ const ignoreSilex = ['promising_spade'];
 
 const masterStars = ['first_master_star', 'second_master_star', 'third_master_star', 'fourth_master_star', 'fifth_master_star'];
 
-const validRunes = ['MUSIC_1', 'MUSIC_2', 'MUSIC_3', 'ENCHANT_1', 'ENCHANT_2', 'ENCHANT_3', 'GRAND_SEARING_3', 'SPELLBOUND_3'];
+const validRunes = ['MUSIC_1', 'MUSIC_2', 'MUSIC_3', 'ENCHANT_1', 'ENCHANT_2', 'ENCHANT_3', 'GRAND_SEARING_3', 'SPELLBOUND_3', 'GRAND_FREEZING_3'];
 
 const allowedRecombTypes = ['ACCESSORY', 'NECKLACE', 'GLOVES', 'BRACELET', 'BELT', 'CLOAK'];
 const allowedRecombIds = ['divan_helmet', 'divan_chestplate', 'divan_leggings', 'divan_boots', 'fermento_helmet', 'fermento_chestplate', 'fermento_leggings', 'fermento_boots'];
