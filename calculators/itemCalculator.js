@@ -148,7 +148,7 @@ const calculateItem = (item, prices, returnItemData) => {
     // GOD ROLL ATTRIBUTES
     if (itemId !== 'attribute_shard' && ExtraAttributes.attributes) {
       const sortedAttributes = Object.keys(ExtraAttributes.attributes).sort((a, b) => a.toLowerCase().localeCompare(b.toLowerCase()));
-      const godRollId = `${itemId}${sortedAttributes.map((attribute) => `_roll_${attribute.toLowerCase()}`).join('')}`;
+      const godRollId = `${itemId.replace(/(hot_|fiery_|burning_|infernal_)/g, "")}${sortedAttributes.map((attribute) => `_roll_${attribute.toLowerCase()}`).join('')}`;
       const godRollPrice = prices[godRollId];
       if (godRollPrice > price) {
         price = godRollPrice;
