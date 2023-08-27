@@ -48,6 +48,8 @@ const enrichments = [
   'TALISMAN_ENRICHMENT_SEA_CREATURE_CHANCE',
 ];
 
+const pickonimbusDurability = 5000;
+
 module.exports = {
   blockedEnchants,
   ignoredEnchants,
@@ -59,4 +61,5 @@ module.exports = {
   allowedRecombIds,
   attributesBaseCosts,
   enrichments,
+  pickonimbusDurability,
 };

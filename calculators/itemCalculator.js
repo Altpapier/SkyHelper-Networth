@@ -3,7 +3,7 @@ const { titleCase } = require('../helper/functions');
 const { getPetLevel } = require('../constants/pets');
 const { prestiges } = require('../constants/prestiges');
 const { applicationWorth, enchantsWorth } = require('../constants/applicationWorth');
-const { blockedEnchants, ignoredEnchants, stackingEnchants, ignoreSilex, masterStars, validRunes, allowedRecombTypes, allowedRecombIds, attributesBaseCosts, enrichments } = require('../constants/misc');
+const { blockedEnchants, ignoredEnchants, stackingEnchants, ignoreSilex, masterStars, validRunes, allowedRecombTypes, allowedRecombIds, attributesBaseCosts, enrichments, pickonimbusDurability } = require('../constants/misc');
 const { reforges } = require('../constants/reforges');
 const { getHypixelItemInformationFromId } = require('../constants/itemsMap');
 
@@ -125,6 +125,14 @@ const calculateItem = (item, prices, returnItemData) => {
     }
     const calculation = [];
 
+    // PICONIMBUS DURABILITY REDUCTION
+    if (ExtraAttributes.id == "PICKONIMBUS" && ExtraAttributes.pickonimbus_durability) {
+      const reduction = ExtraAttributes.pickonimbus_durability / pickonimbusDurability;
+
+      price += price * (reduction - 1);
+      base += price * (reduction - 1);
+    } 
+
     // GOD ROLL ATTRIBUTES
     if (itemId !== 'attribute_shard' && ExtraAttributes.attributes) {
       const sortedAttributes = Object.keys(ExtraAttributes.attributes).sort((a, b) => a.toLowerCase().localeCompare(b.toLowerCase()));
@@ -141,6 +149,7 @@ const calculateItem = (item, prices, returnItemData) => {
         });
       }
     }
+
 
     // UPGRADABLE ARMOR PRICE CALCULATION (eg. crimson)
     if (!itemData) {
