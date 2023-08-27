@@ -85,6 +85,9 @@ const calculateItem = (item, prices, returnItemData) => {
     if (ExtraAttributes.skin) {
       if (prices[`${itemId}_skinned_${ExtraAttributes.skin.toLowerCase()}`]) itemId += `_skinned_${ExtraAttributes.skin.toLowerCase()}`;
     }
+    if (itemId === 'party_hat_sloth' && ExtraAttributes.party_hat_emoji) {
+      if (prices[`${itemId}_${ExtraAttributes.party_hat_emoji.toLowerCase()}`]) itemId += `_${ExtraAttributes.party_hat_emoji.toLowerCase()}`;
+    }
 
     if (['Beastmaster Crest', 'Griffin Upgrade Stone', 'Wisp Upgrade Stone'].includes(itemName)) {
       itemName = `${itemName} (${skyblockItem.tier ? titleCase(skyblockItem.tier.replaceAll('_', ' ')) : 'Unknown'})`;
@@ -93,7 +96,7 @@ const calculateItem = (item, prices, returnItemData) => {
     }
 
     // RUNES (Item)
-    if (ExtraAttributes.id === 'RUNE' && ExtraAttributes.runes && Object.keys(ExtraAttributes.runes).length > 0) {
+    if ((ExtraAttributes.id === 'RUNE' || ExtraAttributes.id === 'UNIQUE_RUNE') && ExtraAttributes.runes && Object.keys(ExtraAttributes.runes).length > 0) {
       const [runeType, runeTier] = Object.entries(ExtraAttributes.runes)[0];
       itemId = `rune_${runeType}_${runeTier}`.toLowerCase();
     }
@@ -122,12 +125,31 @@ const calculateItem = (item, prices, returnItemData) => {
     }
     const calculation = [];
 
+    // PICONIMBUS DURABILITY REDUCTION
     if (ExtraAttributes.id == "PICKONIMBUS" && ExtraAttributes.pickonimbus_durability) {
       const reduction = ExtraAttributes.pickonimbus_durability / pickonimbusDurability;
 
       price += price * (reduction - 1);
       base += price * (reduction - 1);
     } 
+
+    // GOD ROLL ATTRIBUTES
+    if (itemId !== 'attribute_shard' && ExtraAttributes.attributes) {
+      const sortedAttributes = Object.keys(ExtraAttributes.attributes).sort((a, b) => a.toLowerCase().localeCompare(b.toLowerCase()));
+      const godRollId = `${itemId}${sortedAttributes.map((attribute) => `_roll_${attribute.toLowerCase()}`).join('')}`;
+      const godRollPrice = prices[godRollId];
+      if (godRollPrice > price) {
+        price = godRollPrice;
+        base = godRollPrice;
+        calculation.push({
+          id: godRollId.slice(itemId.length + 1),
+          type: 'god_roll',
+          price: godRollPrice,
+          count: 1,
+        });
+      }
+    }
+
 
     // UPGRADABLE ARMOR PRICE CALCULATION (eg. crimson)
     if (!itemData) {

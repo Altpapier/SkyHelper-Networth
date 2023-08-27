@@ -38,6 +38,9 @@ const reforges = {
   bustling: 'skymart_brochure',
   spiritual: 'spirit_decoy',
   suspicious: 'suspicious_vial',
+  fanged: 'full_jaw_fanged_kit',
+  blood_soaked: 'presumed_gallon_of_red_paint',
+  snowy: 'terry_snowglobe',
 
   // High Reforge Stones
   ambered: 'amber_material',
@@ -55,6 +58,7 @@ const reforges = {
   empowered: 'sadan_brooch',
   withered: 'wither_blood',
   heated: 'hot_stuff',
+  festive: 'frozen_bauble',
 
   // Non-bazaar
   dirty: 'dirt_bottle',
