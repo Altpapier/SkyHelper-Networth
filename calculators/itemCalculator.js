@@ -125,6 +125,23 @@ const calculateItem = (item, prices, returnItemData) => {
     }
     const calculation = [];
 
+    // GOD ROLL ATTRIBUTES
+    if (itemId !== 'attribute_shard' && ExtraAttributes.attributes) {
+      const sortedAttributes = Object.keys(ExtraAttributes.attributes).sort((a, b) => a.toLowerCase().localeCompare(b.toLowerCase()));
+      const godRollId = `${itemId}${sortedAttributes.map((attribute) => `_roll_${attribute.toLowerCase()}`).join('')}`;
+      const godRollPrice = prices[godRollId];
+      if (godRollPrice > price) {
+        price = godRollPrice;
+        base = godRollPrice;
+        calculation.push({
+          id: godRollId.slice(itemId.length + 1),
+          type: 'god_roll',
+          price: godRollPrice,
+          count: 1,
+        });
+      }
+    }
+
     // UPGRADABLE ARMOR PRICE CALCULATION (eg. crimson)
     if (!itemData) {
       // if armor piece does not have base value
