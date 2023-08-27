@@ -151,7 +151,7 @@ const calculateItem = (item, prices, returnItemData) => {
       const godRollId = `${itemId.replace(/(hot_|fiery_|burning_|infernal_)/g, "")}${sortedAttributes.map((attribute) => `_roll_${attribute.toLowerCase()}`).join('')}`;
       const godRollPrice = prices[godRollId];
       if (godRollPrice > price) {
-        price += godRollPrice;
+        price = godRollPrice;
         base = godRollPrice;
         calculation.push({
           id: godRollId.slice(itemId.replace(/(hot_|fiery_|burning_|infernal_)/g, "").length + 1),
