@@ -260,14 +260,19 @@ const calculateItem = (item, prices, returnItemData) => {
 
         // SILEX
         if (name === 'efficiency' && value > 5 && !ignoreSilex.includes(itemId)) {
-          const calculationData = {
-            id: 'SIL_EX',
-            type: 'silex',
-            price: (prices['sil_ex'] || 0) * (value - (itemId === 'stonk_pickaxe' ? 6 : 5)) * applicationWorth.silex,
-            count: 1,
-          };
-          price += calculationData.price;
-          calculation.push(calculationData);
+          const efficiencyLevel = value - (itemId === 'stonk_pickaxe' ? 6 : 5);
+          
+          if (efficiencyLevel > 0) {
+            const calculationData = {
+              id: 'SIL_EX',
+              type: 'silex',
+              price: (prices['sil_ex'] || 0) * efficiencyLevel * applicationWorth.silex,
+              count: 1,
+            };
+            price += calculationData.price;
+            calculation.push(calculationData);
+          }
+
         }
 
         const calculationData = {
