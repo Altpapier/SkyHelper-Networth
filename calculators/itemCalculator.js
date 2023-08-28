@@ -148,13 +148,14 @@ const calculateItem = (item, prices, returnItemData) => {
     // GOD ROLL ATTRIBUTES
     if (itemId !== 'attribute_shard' && ExtraAttributes.attributes) {
       const sortedAttributes = Object.keys(ExtraAttributes.attributes).sort((a, b) => a.toLowerCase().localeCompare(b.toLowerCase()));
-      const godRollId = `${itemId.replace(/(hot_|fiery_|burning_|infernal_)/g, "")}${sortedAttributes.map((attribute) => `_roll_${attribute.toLowerCase()}`).join('')}`;
+      const formattedId = itemId.replace(/(hot_|fiery_|burning_|infernal_)/g, '');
+      const godRollId = `${formattedId}${sortedAttributes.map((attribute) => `_roll_${attribute.toLowerCase()}`).join('')}`;
       const godRollPrice = prices[godRollId];
       if (godRollPrice > price) {
         price = godRollPrice;
         base = godRollPrice;
         calculation.push({
-          id: godRollId.slice(itemId.length + 1),
+          id: godRollId.slice(formattedId.length + 1),
           type: 'god_roll',
           price: godRollPrice,
           count: 1,
@@ -261,7 +262,7 @@ const calculateItem = (item, prices, returnItemData) => {
         // SILEX
         if (name === 'efficiency' && value > 5 && !ignoreSilex.includes(itemId)) {
           const efficiencyLevel = value - (itemId === 'stonk_pickaxe' ? 6 : 5);
-          
+
           if (efficiencyLevel > 0) {
             const calculationData = {
               id: 'SIL_EX',
@@ -272,7 +273,6 @@ const calculateItem = (item, prices, returnItemData) => {
             price += calculationData.price;
             calculation.push(calculationData);
           }
-
         }
 
         const calculationData = {
