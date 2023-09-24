@@ -13786,6 +13786,14 @@
   {
     "material": "SKULL_ITEM",
     "durability": 3,
+    "name": "Fancy Beach Chair",
+    "furniture": "FANCY_BEACH_CHAIR",
+    "tier": "EPIC",
+    "id": "FANCY_BEACH_CHAIR"
+  },
+  {
+    "material": "SKULL_ITEM",
+    "durability": 3,
     "name": "Witch Hat",
     "furniture": "WITCH_HAT",
     "tier": "RARE",
@@ -13808,6 +13816,14 @@
     "soulbound": "COOP",
     "unstackable": true,
     "id": "ANNI_PODIUM_ART_THIRD"
+  },
+  {
+    "material": "SKULL_ITEM",
+    "durability": 3,
+    "name": "Fisherman's Cooler",
+    "furniture": "FISHERMAN_COOLER",
+    "tier": "EPIC",
+    "id": "FISHERMAN_COOLER"
   },
   {
     "material": "SKULL_ITEM",
@@ -13952,10 +13968,26 @@
   {
     "material": "SKULL_ITEM",
     "durability": 3,
+    "name": "Lifeguard Chair",
+    "furniture": "LIFEGUARD_CHAIR",
+    "tier": "EPIC",
+    "id": "LIFEGUARD_CHAIR"
+  },
+  {
+    "material": "SKULL_ITEM",
+    "durability": 3,
     "name": "Bee Hive",
     "furniture": "BEE_HIVE",
     "tier": "EPIC",
     "id": "BEE_HIVE"
+  },
+  {
+    "material": "SKULL_ITEM",
+    "durability": 3,
+    "name": "Greenhouse Planter",
+    "furniture": "GREENHOUSE",
+    "tier": "EPIC",
+    "id": "GREENHOUSE"
   },
   {
     "material": "SKULL_ITEM",
@@ -14002,6 +14034,14 @@
     "furniture": "SMALL_POOL",
     "tier": "RARE",
     "id": "SMALL_POOL"
+  },
+  {
+    "material": "SKULL_ITEM",
+    "durability": 3,
+    "name": "Flamingo Float",
+    "furniture": "FLAMINGO",
+    "tier": "EPIC",
+    "id": "FLAMINGO"
   },
   {
     "material": "SKULL_ITEM",
@@ -14209,6 +14249,20 @@
     "id": "EXTREME_BINGO_CARD"
   },
   {
+    "material": "GOLD_BARDING",
+    "name": "Bingo Blaster",
+    "category": "WAND",
+    "tier": "EPIC",
+    "stats": {
+      "ABILITY_DAMAGE_PERCENT": 20,
+      "WEAPON_ABILITY_DAMAGE": 625,
+      "INTELLIGENCE": 300
+    },
+    "origin": "BINGO",
+    "soulbound": "SOLO",
+    "id": "BINGO_BLASTER"
+  },
+  {
     "material": "SKULL_ITEM",
     "durability": 3,
     "name": "Portal to The Forge",
@@ -14347,7 +14401,7 @@
         "offset": "NEW",
         "skill_requirement": {
           "skill": "MINING",
-          "level": 15
+          "level": 12
         }
       }
     },
@@ -15270,6 +15324,14 @@
     "npc_sell_price": 9,
     "motes_sell_price": 105,
     "id": "BOW"
+  },
+  {
+    "material": "SKULL_ITEM",
+    "durability": 3,
+    "name": "Rune",
+    "category": "COSMETIC",
+    "tier": "UNCOMMON",
+    "id": "UNIQUE_RUNE"
   },
   {
     "material": "FIREWORK_CHARGE",
@@ -17669,6 +17731,7 @@
     "tier": "EPIC",
     "npc_sell_price": 1000,
     "dungeon_item": true,
+    "rift_transferrable": true,
     "stats": {
       "rift_Time": 11
     },
@@ -19208,7 +19271,7 @@
   },
   {
     "material": "GOLD_BOOTS",
-    "name": "Boots Of Divan",
+    "name": "Boots of Divan",
     "category": "BOOTS",
     "tier": "LEGENDARY",
     "stats": {
@@ -19636,6 +19699,13 @@
     "id": "GOLD_PICKAXE"
   },
   {
+    "material": "SKULL_ITEM",
+    "durability": 3,
+    "name": "Metaphysical Serum",
+    "tier": "EPIC",
+    "id": "METAPHYSICAL_SERUM"
+  },
+  {
     "material": "NETHER_BRICK",
     "name": "Nether Bricks",
     "npc_sell_price": 2,
@@ -20031,7 +20101,8 @@
     "material": "SKULL_ITEM",
     "durability": 3,
     "name": "Game Annihilator",
-    "tier": "SPECIAL",
+    "tier": "VERY_SPECIAL",
+    "soulbound": "COOP",
     "museum": true,
     "id": "GAME_ANNIHILATOR"
   },
@@ -24771,7 +24842,7 @@
   },
   {
     "material": "BOW",
-    "name": "Machine Gun Bow",
+    "name": "Machine Gun Shortbow",
     "category": "BOW",
     "tier": "RARE",
     "npc_sell_price": 1,
@@ -25156,7 +25227,7 @@
     "stats": {
       "DEFENSE": 12
     },
-    "npc_sell_price": 1,
+    "npc_sell_price": 7,
     "id": "CHAINMAIL_HELMET"
   },
   {
@@ -25991,7 +26062,7 @@
     "stats": {
       "DEFENSE": 7
     },
-    "npc_sell_price": 1,
+    "npc_sell_price": 6,
     "id": "CHAINMAIL_BOOTS"
   },
   {
@@ -26718,7 +26789,7 @@
     "npc_sell_price": 100000,
     "dungeon_item_conversion_cost": {
       "essence_type": "DRAGON",
-      "amount": 700
+      "amount": 70
     },
     "upgrade_costs": [
       [
@@ -26794,7 +26865,7 @@
     "name": "Iron Helmet",
     "category": "HELMET",
     "stats": {
-      "DEFENSE": 10
+      "DEFENSE": 12
     },
     "npc_sell_price": 7,
     "id": "IRON_HELMET"
@@ -29351,7 +29422,7 @@
     "npc_sell_price": 100000,
     "dungeon_item_conversion_cost": {
       "essence_type": "DRAGON",
-      "amount": 600
+      "amount": 60
     },
     "upgrade_costs": [
       [
@@ -32299,7 +32370,7 @@
     "stats": {
       "DEFENSE": 20
     },
-    "npc_sell_price": 1,
+    "npc_sell_price": 10,
     "id": "CHAINMAIL_LEGGINGS"
   },
   {
@@ -34602,7 +34673,7 @@
     "stats": {
       "DEFENSE": 30
     },
-    "npc_sell_price": 1,
+    "npc_sell_price": 12,
     "id": "CHAINMAIL_CHESTPLATE"
   },
   {
@@ -34613,7 +34684,7 @@
     "tier": "MYTHIC",
     "stats": {
       "BREAKING_POWER": 10,
-      "DAMAGE": 70,
+      "DAMAGE": 75,
       "MINING_FORTUNE": 150,
       "MINING_SPEED": 1800
     },
@@ -39362,7 +39433,7 @@
     "stats": {
       "BREAKING_POWER": 5,
       "DAMAGE": 30,
-      "MINING_SPEED": 200
+      "MINING_SPEED": 225
     },
     "npc_sell_price": 500,
     "id": "FRACTURED_MITHRIL_PICKAXE"
@@ -40408,7 +40479,7 @@
     "npc_sell_price": 100000,
     "dungeon_item_conversion_cost": {
       "essence_type": "DRAGON",
-      "amount": 350
+      "amount": 35
     },
     "upgrade_costs": [
       [
@@ -41753,6 +41824,7 @@
     "material": "SAPLING",
     "name": "Oak Sapling",
     "npc_sell_price": 0.25,
+    "motes_sell_price": 2,
     "id": "SAPLING"
   },
   {
@@ -43556,7 +43628,7 @@
     "durability": 3,
     "name": "Quick Claw",
     "category": "PET_ITEM",
-    "tier": "RARE",
+    "tier": "EPIC",
     "id": "PET_ITEM_QUICK_CLAW"
   },
   {
@@ -47325,7 +47397,7 @@
   },
   {
     "material": "IRON_PICKAXE",
-    "name": "Refined Titanium Pickaxe",
+    "name": "Polished Titanium Pickaxe",
     "glowing": true,
     "category": "PICKAXE",
     "tier": "RARE",
@@ -48672,7 +48744,7 @@
   },
   {
     "material": "GOLD_LEGGINGS",
-    "name": "Leggings Of Divan",
+    "name": "Leggings of Divan",
     "category": "LEGGINGS",
     "tier": "LEGENDARY",
     "stats": {
@@ -49168,7 +49240,7 @@
   },
   {
     "material": "GOLD_CHESTPLATE",
-    "name": "Chestplate Of Divan",
+    "name": "Chestplate of Divan",
     "category": "CHESTPLATE",
     "tier": "LEGENDARY",
     "stats": {
@@ -49733,7 +49805,7 @@
   {
     "material": "BOW",
     "item_durability": -1,
-    "name": "Spirit Bow",
+    "name": "Spirit Shortbow",
     "category": "BOW",
     "tier": "LEGENDARY",
     "stats": {
@@ -52433,7 +52505,7 @@
     "stats": {
       "BREAKING_POWER": 4,
       "DAMAGE": 30,
-      "MINING_SPEED": 230
+      "MINING_SPEED": 220
     },
     "npc_sell_price": 12,
     "id": "DIAMOND_PICKAXE"
@@ -53444,6 +53516,7 @@
     "name": "Oil Barrel",
     "tier": "UNCOMMON",
     "description": "%%gray%%%%italic%%100% unrenewable energy!",
+    "npc_sell_price": 1000,
     "id": "OIL_BARREL"
   },
   {
@@ -54186,6 +54259,7 @@
       "STRENGTH": 20
     },
     "npc_sell_price": 20,
+    "museum": true,
     "id": "BLAZE_HAT"
   },
   {
@@ -54208,6 +54282,22 @@
     },
     "npc_sell_price": 400,
     "id": "MINER_OUTFIT_HELMET"
+  },
+  {
+    "material": "DIAMOND_PICKAXE",
+    "name": "Lapis Pickaxe",
+    "category": "PICKAXE",
+    "tier": "UNCOMMON",
+    "stats": {
+      "BREAKING_POWER": 4,
+      "DAMAGE": 20,
+      "MINING_SPEED": 200
+    },
+    "npc_sell_price": 256,
+    "item_specific": {
+      "bonus_experience_chance": 25
+    },
+    "id": "LAPIS_PICKAXE"
   },
   {
     "material": "PRISMARINE_SHARD",
@@ -55379,6 +55469,7 @@
     "tier": "LEGENDARY",
     "npc_sell_price": 1000,
     "dungeon_item": true,
+    "rift_transferrable": true,
     "stats": {
       "rift_Time": 12
     },
@@ -56230,6 +56321,7 @@
       "INTELLIGENCE": 50
     },
     "npc_sell_price": 80,
+    "museum": true,
     "id": "MAGMA_FISH_HAT"
   },
   {
@@ -59041,13 +59133,6 @@
     "category": "REFORGE_STONE",
     "tier": "EPIC",
     "npc_sell_price": 1,
-    "requirements": [
-      {
-        "type": "SKILL",
-        "skill": "MINING",
-        "level": 30
-      }
-    ],
     "id": "AMBER_MATERIAL"
   },
   {
@@ -60500,7 +60585,7 @@
         10
       ]
     },
-    "description": "%%gray%%A ceremonial mask worn by the members of the Kalhuiki Tribe.",
+    "description": "%%gray%%A ceremonial mask worn by the members of the Kalhuiki Tribe.\n\n%%gray%%While wearing this mask, members of the Kalhuiki Tribe will not attack you!",
     "id": "KALHUIKI_MASK"
   },
   {
@@ -60930,6 +61015,9 @@
       "DAMAGE": 50,
       "MINING_SPEED": 330
     },
+    "enchantments": {
+      "efficiency": 5
+    },
     "requirements": [
       {
         "type": "HEART_OF_THE_MOUNTAIN",
@@ -61051,7 +61139,7 @@
     "tier": "RARE",
     "glowing": true,
     "soulbound": "COOP",
-    "description": "%%gray%%%%italic%%Some say that the same substance can be found in the abdomen of Dragons, allowing them to breathe fire. Fire bats are much cuter though.",
+    "description": "%%gray%%%%italic%%Some say that the same substance can be found in the abdomen of Dragons, allowing them to breathe fire. Cinderbats are much cuter though.",
     "npc_sell_price": 200,
     "id": "FLAMES"
   },
@@ -61242,7 +61330,7 @@
   {
     "material": "SKULL_ITEM",
     "durability": 3,
-    "name": "Helmet Of Divan",
+    "name": "Helmet of Divan",
     "category": "HELMET",
     "tier": "LEGENDARY",
     "stats": {
@@ -61801,7 +61889,6 @@
     "material": "DRAGON_EGG",
     "name": "Dragon Egg",
     "tier": "LEGENDARY",
-    "npc_sell_price": 100,
     "id": "DRAGON_EGG"
   },
   {
@@ -63295,7 +63382,7 @@
     "npc_sell_price": 100000,
     "dungeon_item_conversion_cost": {
       "essence_type": "DRAGON",
-      "amount": 400
+      "amount": 40
     },
     "upgrade_costs": [
       [
@@ -65155,6 +65242,7 @@
     "name": "Sea Lantern Hat",
     "category": "HELMET",
     "tier": "UNCOMMON",
+    "museum": true,
     "id": "SEA_LANTERN_HAT"
   },
   {
@@ -65740,9 +65828,10 @@
     "name": "Game Fixer",
     "glowing": true,
     "category": "PICKAXE",
-    "tier": "SPECIAL",
+    "tier": "VERY_SPECIAL",
     "npc_sell_price": 777,
     "description": "%%gray%%Given to individuals who broke the game too many times. Thanks for your great help!",
+    "soulbound": "COOP",
     "museum": true,
     "id": "GAME_FIXER"
   },
@@ -66770,6 +66859,13 @@
       }
     ],
     "id": "NECROMANCER_LORD_BOOTS"
+  },
+  {
+    "material": "BOOK",
+    "name": "Book of Progression",
+    "category": "ACCESSORY",
+    "tier": "COMMON",
+    "id": "BOOK_OF_PROGRESSION"
   },
   {
     "material": "REDSTONE_TORCH_ON",
@@ -70757,6 +70853,7 @@
     "tier": "RARE",
     "unstackable": true,
     "soulbound": "COOP",
+    "origin": "RIFT",
     "requirements": [
       {
         "type": "SLAYER",
@@ -71111,7 +71208,7 @@
   {
     "material": "RAW_FISH",
     "durability": 1,
-    "name": "Grizzly Bait",
+    "name": "Grizzly Salmon",
     "tier": "RARE",
     "unstackable": true,
     "id": "GRIZZLY_BAIT"
@@ -72313,6 +72410,7 @@
     "name": "Travel Scroll to the Wizard Tower",
     "category": "TRAVEL_SCROLL",
     "tier": "EPIC",
+    "origin": "RIFT",
     "rift_transferrable": true,
     "id": "HUB_WIZARD_TOWER_TRAVEL_SCROLL"
   },
@@ -73871,6 +73969,7 @@
     "name": "Vermin Belt",
     "category": "BELT",
     "tier": "EPIC",
+    "origin": "RIFT",
     "stats": {
       "RIFT_TIME": 100,
       "rift_walk_speed": 4,
@@ -73884,6 +73983,7 @@
     "name": "Enigma Cloak",
     "category": "CLOAK",
     "tier": "EPIC",
+    "origin": "RIFT",
     "id": "ENIGMA_CLOAK"
   },
   {
@@ -73893,6 +73993,7 @@
     "category": "NECKLACE",
     "tier": "MYTHIC",
     "soulbound": "SOLO",
+    "origin": "RIFT",
     "item_specific": {
       "scaling": {
         "tiers": [
@@ -74066,6 +74167,7 @@
     "name": "Silkrider Safety Belt",
     "category": "BELT",
     "tier": "UNCOMMON",
+    "origin": "RIFT",
     "stats": {
       "RIFT_TIME": 60,
       "rift_walk_speed": 2
@@ -74078,6 +74180,7 @@
     "name": "Disinfestor Gloves",
     "category": "GLOVES",
     "tier": "RARE",
+    "origin": "RIFT",
     "stats": {
       "RIFT_TIME": 30
     },
@@ -74089,6 +74192,7 @@
     "name": "Leech Belt",
     "category": "BELT",
     "tier": "RARE",
+    "origin": "RIFT",
     "stats": {
       "RIFT_TIME": 80,
       "rift_walk_speed": 3,
@@ -74100,6 +74204,7 @@
     "material": "GLOWSTONE_DUST",
     "name": "%%yellow%%Wizard's Breadcrumbs",
     "tier": "RARE",
+    "origin": "RIFT",
     "id": "WIZARD_BREADCRUMBS"
   },
   {
@@ -74107,6 +74212,7 @@
     "durability": 3,
     "name": "Cruxmotion",
     "tier": "EPIC",
+    "origin": "RIFT",
     "description": "Ultimately, it's life that is weird.",
     "id": "CRUXMOTION"
   },
@@ -74116,6 +74222,7 @@
     "name": "Exceedingly Comfy Sneakers",
     "category": "BOOTS",
     "tier": "RARE",
+    "origin": "RIFT",
     "stats": {
       "RIFT_TIME": 45,
       "rift_walk_speed": 5
@@ -74129,6 +74236,7 @@
     "name": "Femurgrowth Leggings",
     "category": "LEGGINGS",
     "tier": "EPIC",
+    "origin": "RIFT",
     "stats": {
       "RIFT_TIME": 65,
       "rift_mana_regen": 5,
@@ -74143,6 +74251,7 @@
     "name": "Orange Chestplate",
     "category": "CHESTPLATE",
     "tier": "EPIC",
+    "origin": "RIFT",
     "stats": {
       "RIFT_TIME": 45,
       "rift_intelligence": 5,
@@ -74157,6 +74266,7 @@
     "name": "Agaricus Cap Cap",
     "tier": "RARE",
     "category": "HELMET",
+    "origin": "RIFT",
     "stats": {
       "RIFT_TIME": 50,
       "RIFT_INTELLIGENCE": 15
@@ -74172,6 +74282,7 @@
     "name": "Used Detransfigured Face",
     "category": "HELMET",
     "tier": "EPIC",
+    "origin": "RIFT",
     "stats": {
       "RIFT_TIME": 80,
       "RIFT_INTELLIGENCE": 20
@@ -74188,6 +74299,7 @@
     "name": "Snake-in-a-Boot",
     "category": "BOOTS",
     "tier": "EPIC",
+    "origin": "RIFT",
     "stats": {
       "RIFT_TIME": 60,
       "rift_walk_speed": 7
@@ -74201,6 +74313,7 @@
     "name": "Wyld Boots",
     "category": "BOOTS",
     "tier": "UNCOMMON",
+    "origin": "RIFT",
     "stats": {
       "RIFT_TIME": 15
     },
@@ -74212,6 +74325,7 @@
     "name": "Wyld Helmet on a Helmet",
     "category": "HELMET",
     "tier": "UNCOMMON",
+    "origin": "RIFT",
     "stats": {
       "RIFT_TIME": 15,
       "RIFT_INTELLIGENCE": 10
@@ -74227,6 +74341,7 @@
     "name": "Wyld Leggings",
     "category": "LEGGINGS",
     "tier": "UNCOMMON",
+    "origin": "RIFT",
     "stats": {
       "RIFT_TIME": 15
     },
@@ -74237,6 +74352,7 @@
     "name": "Wyld Chain Top",
     "category": "CHESTPLATE",
     "tier": "UNCOMMON",
+    "origin": "RIFT",
     "stats": {
       "RIFT_TIME": 15
     },
@@ -74247,6 +74363,7 @@
     "name": "etalptsehC norI",
     "category": "CHESTPLATE",
     "tier": "RARE",
+    "origin": "RIFT",
     "stats": {
       "RIFT_TIME": 30
     },
@@ -74259,6 +74376,7 @@
     "name": "Not-Dead-Gehog Mask",
     "category": "HELMET",
     "tier": "UNCOMMON",
+    "origin": "RIFT",
     "stats": {
       "RIFT_TIME": 30,
       "RIFT_INTELLIGENCE": 15
@@ -74275,6 +74393,7 @@
     "category": "LEGGINGS",
     "tier": "RARE",
     "description": "%%dark_gray%%Sometimes you pretend to be a dolphin, sometimes a chicken. Cluck cluck!",
+    "origin": "RIFT",
     "stats": {
       "RIFT_TIME": 35
     },
@@ -74286,6 +74405,7 @@
     "name": "Gunther's Sneakers",
     "category": "BOOTS",
     "tier": "RARE",
+    "origin": "RIFT",
     "stats": {
       "RIFT_TIME": 30,
       "rift_walk_speed": 4
@@ -74298,6 +74418,7 @@
     "name": "Anti-Bite Scarf",
     "tier": "MYTHIC",
     "category": "HELMET",
+    "origin": "RIFT",
     "stats": {
       "RIFT_TIME": 110,
       "RIFT_INTELLIGENCE": 22,
@@ -74315,6 +74436,7 @@
     "name": "Lively Sepulture Chestplate",
     "category": "CHESTPLATE",
     "tier": "LEGENDARY",
+    "origin": "RIFT",
     "stats": {
       "RIFT_TIME": 65,
       "rift_health": 1,
@@ -74329,6 +74451,7 @@
     "name": "Leggings of the Coven",
     "category": "LEGGINGS",
     "tier": "EPIC",
+    "origin": "RIFT",
     "stats": {
       "rift_time": 80,
       "rift_health": 1,
@@ -74349,6 +74472,7 @@
     "name": "Anti-Bite Scarf",
     "tier": "LEGENDARY",
     "category": "HELMET",
+    "origin": "RIFT",
     "stats": {
       "RIFT_TIME": 100,
       "RIFT_INTELLIGENCE": 20,
@@ -74367,6 +74491,7 @@
     "name": "Placeable Fairy Soul",
     "tier": "EPIC",
     "rift_transferrable": true,
+    "origin": "RIFT",
     "unstackable": true,
     "id": "PLACEABLE_FAIRY_SOUL_RIFT"
   },
@@ -74391,6 +74516,7 @@
     "tier": "RARE",
     "category": "PET_ITEM",
     "rift_transferrable": true,
+    "origin": "RIFT",
     "id": "DEAD_CAT_FOOD"
   },
   {
@@ -74400,6 +74526,7 @@
     "tier": "RARE",
     "category": "ACCESSORY",
     "rift_transferrable": true,
+    "origin": "RIFT",
     "id": "RIFT_PRISM"
   },
   {
@@ -74416,6 +74543,7 @@
     "name": "Punchcard Artifact",
     "category": "ACCESSORY",
     "tier": "EPIC",
+    "origin": "RIFT",
     "stats": {
       "rift_time": 30
     },
@@ -74439,6 +74567,7 @@
     "name": "Flex Helmet",
     "category": "HELMET",
     "tier": "LEGENDARY",
+    "origin": "RIFT",
     "item_specific": {
       "flex_skins": [
         {
@@ -74511,6 +74640,7 @@
     "durability": 3,
     "name": "Gateway Wand",
     "category": "WAND",
+    "origin": "RIFT",
     "tier": "RARE",
     "id": "GATEWAY_WAND"
   },
@@ -74520,6 +74650,7 @@
     "name": "Warding Trinket",
     "category": "ACCESSORY",
     "tier": "EPIC",
+    "origin": "RIFT",
     "stats": {
       "RIFT_TIME": 40,
       "rift_intelligence": 5
@@ -74532,6 +74663,7 @@
     "name": "Harmonious Surgery Toolkit",
     "category": "ACCESSORY",
     "tier": "UNCOMMON",
+    "origin": "RIFT",
     "stats": {
       "rift_walk_speed": 2,
       "rift_time": 10
@@ -74544,6 +74676,7 @@
     "name": "Crux Relic",
     "tier": "EPIC",
     "category": "ACCESSORY",
+    "origin": "RIFT",
     "stats": {
       "rift_time": 55,
       "rift_intelligence": 7
@@ -74556,6 +74689,7 @@
     "name": "Crux Artifact",
     "tier": "RARE",
     "category": "ACCESSORY",
+    "origin": "RIFT",
     "stats": {
       "rift_time": 35,
       "rift_intelligence": 5
@@ -74568,6 +74702,7 @@
     "name": "Crux Ring",
     "tier": "UNCOMMON",
     "category": "ACCESSORY",
+    "origin": "RIFT",
     "stats": {
       "rift_time": 20,
       "rift_intelligence": 2
@@ -74580,6 +74715,7 @@
     "name": "Crux Heirloom",
     "tier": "LEGENDARY",
     "category": "ACCESSORY",
+    "origin": "RIFT",
     "stats": {
       "rift_time": 70,
       "rift_intelligence": 10,
@@ -74593,6 +74729,7 @@
     "name": "Crux Talisman",
     "tier": "COMMON",
     "category": "ACCESSORY",
+    "origin": "RIFT",
     "stats": {
       "rift_time": 10
     },
@@ -74604,6 +74741,7 @@
     "name": "Crux Chronomicon",
     "tier": "MYTHIC",
     "category": "ACCESSORY",
+    "origin": "RIFT",
     "stats": {
       "rift_time": 100,
       "rift_intelligence": 15,
@@ -74617,6 +74755,7 @@
     "name": "Ring of Broken Love",
     "category": "ACCESSORY",
     "tier": "LEGENDARY",
+    "origin": "RIFT",
     "stats": {
       "RIFT_TIME": 80
     },
@@ -74629,6 +74768,7 @@
     "name": "Argofay Trinket",
     "category": "ACCESSORY",
     "tier": "EPIC",
+    "origin": "RIFT",
     "stats": {
       "RIFT_INTELLIGENCE": 2
     },
@@ -74640,6 +74780,7 @@
     "name": "Defective Monitor",
     "category": "ACCESSORY",
     "tier": "EPIC",
+    "origin": "RIFT",
     "stats": {
       "RIFT_INTELLIGENCE": 6,
       "RIFT_TIME": 60
@@ -74653,12 +74794,14 @@
     "tier": "RARE",
     "glowing": true,
     "unstackable": true,
+    "origin": "RIFT",
     "id": "WAND_OF_WARDING"
   },
   {
     "material": "WOOD_SPADE",
     "name": "Aspect of the Leech",
     "category": "WAND",
+    "origin": "RIFT",
     "tier": "RARE",
     "id": "ASPECT_OF_THE_LEECH_1"
   },
@@ -74666,6 +74809,7 @@
     "material": "WOOD_SPADE",
     "name": "Aspect of the Leech",
     "category": "WAND",
+    "origin": "RIFT",
     "tier": "RARE",
     "id": "ASPECT_OF_THE_LEECH_2"
   },
@@ -74674,6 +74818,7 @@
     "durability": 11,
     "name": "Living Metal",
     "tier": "RARE",
+    "origin": "RIFT",
     "motes_sell_price": 5,
     "description": "It snakes around your blocky hand as your hold it.",
     "id": "LIVING_METAL"
@@ -74684,6 +74829,7 @@
     "tier": "RARE",
     "motes_sell_price": 25,
     "category": "SWORD",
+    "origin": "RIFT",
     "stats": {
       "rift_damage": 5
     },
@@ -74696,6 +74842,7 @@
     "material": "ICE",
     "name": "Frozen Water",
     "tier": "RARE",
+    "origin": "RIFT",
     "motes_sell_price": 10,
     "description": "One could say it's... ice cold.",
     "id": "FROZEN_WATER"
@@ -74704,6 +74851,7 @@
     "material": "SPIDER_EYE",
     "name": "Frozen Water Pungi",
     "tier": "EPIC",
+    "origin": "RIFT",
     "motes_sell_price": 10,
     "unstackable": true,
     "id": "FROZEN_WATER_PUNGI"
@@ -74713,6 +74861,7 @@
     "durability": 3,
     "name": "Living Metal Heart",
     "tier": "RARE",
+    "origin": "RIFT",
     "motes_sell_price": 250,
     "id": "METAL_HEART"
   },
@@ -74723,6 +74872,7 @@
     "tier": "RARE",
     "category": "ACCESSORY",
     "rift_transferrable": true,
+    "origin": "RIFT",
     "stats": {
       "rift_time": 30,
       "intelligence": -1,
@@ -74736,6 +74886,7 @@
     "tier": "RARE",
     "rift_transferrable": true,
     "unstackable": true,
+    "origin": "RIFT",
     "id": "POLARVOID_BOOK"
   },
   {
@@ -74745,6 +74896,7 @@
     "motes_sell_price": 100,
     "unstackable": true,
     "glowing": true,
+    "origin": "RIFT",
     "description": "This anchor has a life.\n%%gray%%It likes music!\n%%gray%%Its favorite genre?\n%%gray%%Heavy metal.\n\n%%dark_gray%%Reed needs this item.",
     "id": "LIVING_METAL_ANVIL"
   },
@@ -74753,6 +74905,7 @@
     "durability": 3,
     "name": "Frosty Crux",
     "tier": "UNCOMMON",
+    "origin": "RIFT",
     "description": "The illest of the chillest.",
     "motes_sell_price": 100,
     "id": "FROSTY_CRUX"
@@ -74762,6 +74915,7 @@
     "durability": 11,
     "name": "Nullified Metal",
     "tier": "UNCOMMON",
+    "origin": "RIFT",
     "motes_sell_price": 100,
     "id": "NULLIFIED_METAL"
   },
@@ -74770,6 +74924,7 @@
     "durability": 54,
     "name": "Living Metal Pantspawn",
     "tier": "RARE",
+    "origin": "RIFT",
     "motes_sell_price": 100,
     "id": "LM_EGG_LEGS"
   },
@@ -74778,6 +74933,7 @@
     "durability": 67,
     "name": "Living Metal Chestspawn",
     "tier": "RARE",
+    "origin": "RIFT",
     "motes_sell_price": 100,
     "id": "LM_EGG_CHEST"
   },
@@ -74786,6 +74942,7 @@
     "durability": 58,
     "name": "Living Metal Bootspawn",
     "tier": "RARE",
+    "origin": "RIFT",
     "motes_sell_price": 100,
     "id": "LM_EGG_BOOTS"
   },
@@ -74794,6 +74951,7 @@
     "durability": 94,
     "name": "Living Metal Capspawn",
     "tier": "RARE",
+    "origin": "RIFT",
     "motes_sell_price": 100,
     "id": "LM_EGG_CAP"
   },
@@ -74802,6 +74960,7 @@
     "durability": 3,
     "name": "Caducous Stem Bunch",
     "tier": "UNCOMMON",
+    "origin": "RIFT",
     "description": "Bundling what bees find attractive together in an industrial production process is definitely what nature planned.",
     "id": "CADUCOUS_STEM_BUNCH"
   },
@@ -74810,6 +74969,7 @@
     "durability": 3,
     "name": "Caducous Extract",
     "tier": "UNCOMMON",
+    "origin": "RIFT",
     "description": "Bundling what bees find attractive together in an industrial production process is definitely what nature planned.",
     "id": "CADUCOUS_EXTRACT"
   },
@@ -74818,7 +74978,8 @@
     "durability": 4,
     "name": "Caducous Stem",
     "tier": "COMMON",
-    "description": "The color and shape of flowers are a precise record of what bees find attractice.",
+    "origin": "RIFT",
+    "description": "The color and shape of flowers are a precise record of what bees find attractive.",
     "id": "CADUCOUS_STEM"
   },
   {
@@ -74826,6 +74987,7 @@
     "name": "Caducous Legume",
     "tier": "UNCOMMON",
     "glowing": true,
+    "origin": "RIFT",
     "item_specific": {
       "rift_time_gain": 90
     },
@@ -74850,6 +75012,7 @@
       }
     ],
     "rift_transferrable": true,
+    "origin": "RIFT",
     "id": "CADUCOUS_FEEDER"
   },
   {
@@ -74857,6 +75020,7 @@
     "name": "Wand of Farming",
     "category": "WAND",
     "tier": "RARE",
+    "origin": "RIFT",
     "glowing": true,
     "id": "FARMING_WAND"
   },
@@ -74864,6 +75028,7 @@
     "material": "NETHER_STALK",
     "name": "Riftwart Roots",
     "tier": "UNCOMMON",
+    "origin": "RIFT",
     "description": "Do not eat.",
     "id": "RIFTWART_ROOTS"
   },
@@ -74871,6 +75036,7 @@
     "material": "DEAD_BUSH",
     "name": "Wilted Berberis",
     "tier": "COMMON",
+    "origin": "RIFT",
     "description": "The plant equivalent of an alien zombie.",
     "id": "WILTED_BERBERIS"
   },
@@ -74956,6 +75122,7 @@
     "name": "Wilted Berberis Bunch",
     "tier": "UNCOMMON",
     "description": "The plant equivalent of... ALIEN revenant viscera?",
+    "origin": "RIFT",
     "glowing": true,
     "rift_transferrable": true,
     "id": "WILTED_BERBERIS_BUNCH"
@@ -74966,6 +75133,7 @@
     "tier": "RARE",
     "rift_transferrable": true,
     "glowing": true,
+    "origin": "RIFT",
     "id": "BERBERIS_FUEL_INJECTOR"
   },
   {
@@ -74973,6 +75141,7 @@
     "durability": 3,
     "name": "Agaricus Chumcap",
     "tier": "UNCOMMON",
+    "origin": "RIFT",
     "rift_transferrable": true,
     "id": "AGARICUS_CHUM_CAP"
   },
@@ -75025,6 +75194,7 @@
     "durability": 3,
     "name": "Agaricus Cap",
     "tier": "COMMON",
+    "origin": "RIFT",
     "id": "AGARICUS_CAP"
   },
   {
@@ -75043,6 +75213,7 @@
     "durability": 3,
     "name": "Agaricus Cap Bunch",
     "tier": "UNCOMMON",
+    "origin": "RIFT",
     "description": "It's one nether of a cap!",
     "id": "AGARICUS_CAP_BUNCH"
   },
@@ -75050,6 +75221,7 @@
     "material": "RABBIT_STEW",
     "name": "Agaricus Soup",
     "tier": "UNCOMMON",
+    "origin": "RIFT",
     "item_specific": {
       "speed_duration_seconds": 60,
       "cooldown_seconds": 60
@@ -75060,12 +75232,14 @@
     "material": "STICK",
     "name": "Berberis Blowgun",
     "tier": "RARE",
+    "origin": "RIFT",
     "id": "BERBERIS_BLOWGUN"
   },
   {
     "material": "EGG",
     "name": "Metaphoric Egg",
     "tier": "RARE",
+    "origin": "RIFT",
     "description": "A ticking time bomb to new life. Acquired using Berberis Blowgun.",
     "id": "METAPHORIC_EGG"
   },
@@ -75074,6 +75248,7 @@
     "durability": 3,
     "name": "Proto-Chicken",
     "tier": "EPIC",
+    "origin": "RIFT",
     "description": "The animal which came right before the first chicken.",
     "id": "PROTOCHICKEN"
   },
@@ -75081,6 +75256,7 @@
     "material": "LEVER",
     "name": "Barry's Montgray Pen",
     "tier": "UNCOMMON",
+    "origin": "RIFT",
     "description": "Use at the old election box in the back of the HQ.\n\n%%dark_gray%%Signature Edition - get it?",
     "id": "BARRY_PEN"
   },
@@ -75089,6 +75265,7 @@
     "durability": 3,
     "name": "Bacte Fragment",
     "tier": "RARE",
+    "origin": "RIFT",
     "id": "BACTE_FRAGMENT"
   },
   {
@@ -75096,6 +75273,7 @@
     "durability": 3,
     "name": "Hot Dog",
     "tier": "COMMON",
+    "origin": "RIFT",
     "unstackable": true,
     "description": "Deposit on Joey's plate.",
     "soulbound": "SOLO",
@@ -75107,6 +75285,7 @@
     "name": "Retro-Encabulating Visor",
     "tier": "MYTHIC",
     "category": "HELMET",
+    "origin": "RIFT",
     "stats": {
       "RIFT_INTELLIGENCE": -50
     },
@@ -75117,6 +75296,7 @@
     "durability": 2,
     "name": "Gunthesizer Lichen",
     "tier": "RARE",
+    "origin": "RIFT",
     "id": "GUNTHESIZER_LICHEN"
   },
   {
@@ -75125,6 +75305,7 @@
     "name": "Zoop the Fish",
     "glowing": true,
     "tier": "SPECIAL",
+    "origin": "RIFT",
     "museum": true,
     "rift_transferrable": true,
     "id": "ZOOP_THE_FISH"
@@ -75134,6 +75315,7 @@
     "durability": 3,
     "name": "Shadow Crux",
     "tier": "UNCOMMON",
+    "origin": "RIFT",
     "description": "Trust no one.\nNot even your own shadow.\nIt's always acting shady.",
     "motes_sell_price": 100,
     "id": "SHADOW_CRUX"
@@ -75142,6 +75324,7 @@
     "material": "WATER_BUCKET",
     "name": "Plumber's Bucket",
     "tier": "UNCOMMON",
+    "origin": "RIFT",
     "unstackable": true,
     "id": "RIFT_BUCKET"
   },
@@ -75150,6 +75333,7 @@
     "name": "Dark Pebble",
     "museum": true,
     "rift_transferrable": true,
+    "origin": "RIFT",
     "id": "DARK_PEBBLE"
   },
   {
@@ -75157,6 +75341,7 @@
     "durability": 3,
     "name": "Detective Scanner",
     "tier": "RARE",
+    "origin": "RIFT",
     "id": "DETECTIVE_SCANNER"
   },
   {
@@ -75164,6 +75349,7 @@
     "durability": 3,
     "name": "Stability Elixir",
     "tier": "RARE",
+    "origin": "RIFT",
     "unstackable": true,
     "id": "RIFT_STABILITY_ELIXIR"
   },
@@ -75173,6 +75359,7 @@
     "tier": "RARE",
     "npc_sell_price": 100000,
     "rift_transferrable": true,
+    "origin": "RIFT",
     "unstackable": true,
     "glowing": true,
     "id": "FAMILY_DOUBLOON"
@@ -75200,6 +75387,7 @@
     "durability": 12,
     "name": "Tree-like Wool",
     "tier": "COMMON",
+    "origin": "RIFT",
     "description": "Good for bridging.",
     "motes_sell_price": 10,
     "id": "BEDWARS_WOOL"
@@ -75209,6 +75397,7 @@
     "durability": 3,
     "name": "Scribe Crux",
     "tier": "UNCOMMON",
+    "origin": "RIFT",
     "description": "What dinosaur is a scribe's best friend?\nThesaurus.",
     "motes_sell_price": 120,
     "id": "SCRIBE_CRUX"
@@ -75218,6 +75407,7 @@
     "durability": 3,
     "name": "Anti-Morph Potion",
     "tier": "EPIC",
+    "origin": "RIFT",
     "id": "ANTI_MORPH_POTION"
   },
   {
@@ -75225,6 +75415,7 @@
     "durability": 3,
     "name": "Volt Crux",
     "tier": "UNCOMMON",
+    "origin": "RIFT",
     "description": "Watt is this?",
     "motes_sell_price": 100,
     "id": "VOLT_CRUX"
@@ -75234,6 +75425,7 @@
     "name": "Deadgehog Spine",
     "tier": "UNCOMMON",
     "description": "Contrary to popular belief, Deadgehogs aren't rodents.\n\nThey are in fact mangled wraith remnants of warriors who couldn't find true love.",
+    "origin": "RIFT",
     "motes_sell_price": 111,
     "id": "DEADGEHOG_SPINE"
   },
@@ -75242,6 +75434,7 @@
     "name": "Lil' Pad",
     "tier": "UNCOMMON",
     "description": "Can be placed on water, especially if you're scared of said water.",
+    "origin": "RIFT",
     "motes_sell_price": 5,
     "id": "LIL_PAD"
   },
@@ -75249,6 +75442,7 @@
     "material": "SKULL_ITEM",
     "durability": 3,
     "name": "Leech Supreme Fragment",
+    "origin": "RIFT",
     "tier": "RARE",
     "id": "LEECH_SUPREME_FRAGMENT"
   },
@@ -75256,6 +75450,7 @@
     "material": "MAP",
     "name": "Very Scientific Paper",
     "tier": "RARE",
+    "origin": "RIFT",
     "description": "Authored, peer-reviewed and published by Kay.",
     "id": "VERY_SCIENTIFIC_PAPER"
   },
@@ -75263,6 +75458,7 @@
     "material": "BOAT",
     "name": "Rift Boat",
     "tier": "UNCOMMON",
+    "origin": "RIFT",
     "description": "Built by Reed, who turns out to be a bit of a scammer.",
     "id": "REED_BOAT"
   },
@@ -75272,6 +75468,7 @@
     "name": "Tiny Dancer",
     "tier": "UNCOMMON",
     "category": "ACCESSORY",
+    "origin": "RIFT",
     "soulbound": "COOP",
     "rift_transferrable": true,
     "stats": {
@@ -75285,6 +75482,7 @@
     "name": "Test Bucket Please Ignore",
     "tier": "UNCOMMON",
     "category": "ACCESSORY",
+    "origin": "RIFT",
     "soulbound": "COOP",
     "rift_transferrable": true,
     "description": "Was it all a test?",
@@ -75301,6 +75499,7 @@
     },
     "name": "Enchanted Book Bundle",
     "tier": "UNCOMMON",
+    "origin": "RIFT",
     "unstackable": true,
     "rift_transferrable": true,
     "id": "ENCHANTED_BOOK_BUNDLE_REFLECTION"
@@ -75308,36 +75507,42 @@
   {
     "material": "SLIME_BALL",
     "name": "llabemilS",
+    "origin": "RIFT",
     "motes_sell_price": 30,
     "id": "MIRRORED_SLIME_BALL"
   },
   {
     "material": "STRING",
     "name": "gnirtS",
+    "origin": "RIFT",
     "motes_sell_price": 30,
     "id": "MIRRORED_STRING"
   },
   {
     "material": "WOOD",
     "name": "knalP dooW kaO",
+    "origin": "RIFT",
     "motes_sell_price": 30,
     "id": "MIRRORED_WOOD"
   },
   {
     "material": "STICK",
     "name": "kcitS",
+    "origin": "RIFT",
     "motes_sell_price": 15,
     "id": "MIRRORED_STICK"
   },
   {
     "material": "FISHING_ROD",
     "name": "doR gnihsiF",
+    "origin": "RIFT",
     "motes_sell_price": 30,
     "id": "MIRRORED_FISHING_ROD"
   },
   {
     "material": "LEASH",
     "name": "daeL",
+    "origin": "RIFT",
     "motes_sell_price": 75,
     "id": "MIRRORED_LEASH"
   },
@@ -75345,6 +75550,7 @@
     "material": "BOW",
     "name": "woB",
     "category": "BOW",
+    "origin": "RIFT",
     "id": "MIRRORED_BOW"
   },
   {
@@ -75352,6 +75558,7 @@
     "name": "remmaH yniT",
     "tier": "UNCOMMON",
     "description": ".wohemoS",
+    "origin": "RIFT",
     "motes_sell_price": 495,
     "id": "TINY_HAMMER"
   },
@@ -75359,6 +75566,7 @@
     "material": "BLAZE_ROD",
     "name": "Emmett Pointer",
     "tier": "UNCOMMON",
+    "origin": "RIFT",
     "id": "EMMETT_POINTER"
   },
   {
@@ -75367,6 +75575,7 @@
     "name": "Big Brain Talisman",
     "tier": "COMMON",
     "category": "ACCESSORY",
+    "origin": "RIFT",
     "soulbound": "COOP",
     "rift_transferrable": true,
     "stats": {
@@ -75380,6 +75589,7 @@
     "name": "Miniaturized Tubulator",
     "tier": "UNCOMMON",
     "category": "ACCESSORY",
+    "origin": "RIFT",
     "soulbound": "COOP",
     "rift_transferrable": true,
     "description": "Don't hate the player, hate the game. - Ice T",
@@ -75393,6 +75603,7 @@
     "durability": 3,
     "name": "Jump Elixir",
     "tier": "RARE",
+    "origin": "RIFT",
     "unstackable": true,
     "id": "RIFT_JUMP_ELIXIR"
   },
@@ -75401,6 +75612,7 @@
     "durability": 3,
     "name": "Strength Elixir",
     "tier": "RARE",
+    "origin": "RIFT",
     "unstackable": true,
     "id": "RIFT_STRENGTH_ELIXIR"
   },
@@ -75409,6 +75621,7 @@
     "durability": 3,
     "name": "Speed Elixir",
     "tier": "RARE",
+    "origin": "RIFT",
     "unstackable": true,
     "id": "RIFT_SPEED_ELIXIR"
   },
@@ -75417,6 +75630,7 @@
     "durability": 3,
     "name": "Shy Crux",
     "tier": "UNCOMMON",
+    "origin": "RIFT",
     "description": "Rumors are that Argofays and other creatures really like this.",
     "motes_sell_price": 100,
     "id": "SHAME_CRUX"
@@ -75425,6 +75639,7 @@
     "material": "TRIPWIRE_HOOK",
     "name": "Larva Hook",
     "tier": "UNCOMMON",
+    "origin": "RIFT",
     "unstackable": true,
     "id": "LARVA_HOOK"
   },
@@ -75432,6 +75647,7 @@
     "material": "STRING",
     "name": "Larva Silk",
     "tier": "UNCOMMON",
+    "origin": "RIFT",
     "glowing": true,
     "id": "LARVA_SILK"
   },
@@ -75439,6 +75655,7 @@
     "material": "STICK",
     "name": "Silkwire Stick",
     "tier": "RARE",
+    "origin": "RIFT",
     "glowing": true,
     "id": "SILKWIRE_STICK"
   },
@@ -75446,12 +75663,14 @@
     "material": "GLASS_BOTTLE",
     "name": "Empty Odonata Bottle",
     "tier": "UNCOMMON",
+    "origin": "RIFT",
     "id": "EMPTY_ODONATA_BOTTLE"
   },
   {
     "material": "EXP_BOTTLE",
     "name": "Bottled Odonata",
     "tier": "RARE",
+    "origin": "RIFT",
     "id": "BOTTLED_ODONATA"
   },
   {
@@ -75459,6 +75678,7 @@
     "durability": 3,
     "name": "Muted Bark",
     "tier": "UNCOMMON",
+    "origin": "RIFT",
     "description": "No longer barking.",
     "motes_sell_price": 50,
     "id": "MUTED_BARK"
@@ -75468,6 +75688,7 @@
     "durability": 7,
     "name": "Cat Detector",
     "tier": "RARE",
+    "origin": "RIFT",
     "glowing": true,
     "id": "DEAD_CAT_DETECTOR"
   },
@@ -75480,6 +75701,8 @@
     "motes_sell_price": 10000,
     "npc_sell_price": 10000,
     "rift_transferrable": true,
+    "lose_motes_value_on_transfer": true,
+    "origin": "RIFT",
     "id": "BUBBA_BLISTER"
   },
   {
@@ -75490,6 +75713,8 @@
     "motes_sell_price": 10000,
     "npc_sell_price": 10000,
     "rift_transferrable": true,
+    "lose_motes_value_on_transfer": true,
+    "origin": "RIFT",
     "id": "CHOCOLATE_CHIP"
   },
   {
@@ -75499,6 +75724,7 @@
     "tier": "EPIC",
     "motes_sell_price": 4000,
     "category": "ACCESSORY",
+    "origin": "RIFT",
     "id": "GARLIC_FLAVORED_GUMMY_BEAR"
   },
   {
@@ -75507,6 +75733,7 @@
     "name": "McGrubber's Burger",
     "tier": "EPIC",
     "motes_sell_price": 30000,
+    "origin": "RIFT",
     "item_specific": {
       "rift_time_per_eat": 12,
       "motes_percent_per_eat": 5,
@@ -75529,6 +75756,7 @@
     "tier": "UNCOMMON",
     "npc_sell_price": 100,
     "rift_transferrable": true,
+    "origin": "RIFT",
     "description": "Dropped by vampires from the multiverse coven.",
     "id": "HEMOVIBE"
   },
@@ -75545,9 +75773,10 @@
     "durability": 3,
     "name": "Hemobomb",
     "tier": "EPIC",
-    "motes_sell_price": 1200,
+    "motes_sell_price": 400,
     "npc_sell_price": 240000,
     "rift_transferrable": true,
+    "origin": "RIFT",
     "id": "HEMOBOMB"
   },
   {
@@ -75561,6 +75790,7 @@
     "unstackable": true,
     "npc_sell_price": 1000,
     "rift_transferrable": true,
+    "origin": "RIFT",
     "id": "ENCHANTED_BOOK_BUNDLE_TRANSYLVANIAN"
   },
   {
@@ -75581,6 +75811,7 @@
     "npc_sell_price": 2000,
     "description": "There's like 5 liters in you.",
     "rift_transferrable": true,
+    "origin": "RIFT",
     "stats": {
       "health_regeneration": 2,
       "rift_time": 10,
@@ -75597,6 +75828,7 @@
     "npc_sell_price": 10000,
     "description": "The human body produces 2-3 million red blood cells per SECOND.",
     "rift_transferrable": true,
+    "origin": "RIFT",
     "stats": {
       "health_regeneration": 3,
       "rift_time": 15,
@@ -75613,6 +75845,7 @@
     "npc_sell_price": 800,
     "description": "Do your part bro.",
     "rift_transferrable": true,
+    "origin": "RIFT",
     "stats": {
       "health_regeneration": 1,
       "rift_time": 5
@@ -75624,9 +75857,10 @@
     "durability": 3,
     "name": "Hemoglass",
     "tier": "RARE",
-    "motes_sell_price": 80,
+    "motes_sell_price": 25,
     "npc_sell_price": 16000,
     "rift_transferrable": true,
+    "origin": "RIFT",
     "id": "HEMOGLASS"
   },
   {
@@ -75635,6 +75869,7 @@
     "tier": "RARE",
     "motes_sell_price": 5,
     "unstackable": true,
+    "origin": "RIFT",
     "item_specific": {
       "duration_ticks": 30,
       "damage_multiplier": 0.2
@@ -75646,7 +75881,9 @@
     "durability": 3,
     "name": "Unfanged Vampire Part",
     "tier": "LEGENDARY",
+    "origin": "RIFT",
     "motes_sell_price": 50000,
+    "lose_motes_value_on_transfer": true,
     "id": "UNFANGED_VAMPIRE_PART"
   },
   {
@@ -75654,14 +75891,16 @@
     "durability": 1,
     "name": "Bloodbadge",
     "tier": "RARE",
+    "origin": "RIFT",
     "description": "You and killing stuff in the rift, name a more iconic duo.",
-    "motes_sell_price": 10,
+    "motes_sell_price": 2000,
     "id": "BLOODBADGE"
   },
   {
     "material": "NETHER_STALK",
     "name": "Coven Seal",
     "tier": "UNCOMMON",
+    "origin": "RIFT",
     "description": "Given to you by a powerful vampire, proving you bested them in combat.",
     "motes_sell_price": 10,
     "id": "COVEN_SEAL"
@@ -75673,6 +75912,7 @@
     "category": "SWORD",
     "sword_type": "KARAMBIT",
     "glowing": true,
+    "origin": "RIFT",
     "stats": {
       "rift_damage": 6,
       "rift_walk_speed": 15
@@ -75690,6 +75930,7 @@
     "tier": "EPIC",
     "category": "SWORD",
     "sword_type": "KARAMBIT",
+    "origin": "RIFT",
     "stats": {
       "rift_damage": 5,
       "rift_walk_speed": 10
@@ -75712,6 +75953,8 @@
     "motes_sell_price": 8000,
     "npc_sell_price": 15000,
     "rift_transferrable": true,
+    "origin": "RIFT",
+    "lose_motes_value_on_transfer": true,
     "id": "ENCHANTED_BOOK_BUNDLE_QUANTUM"
   },
   {
@@ -75726,6 +75969,7 @@
     "motes_sell_price": 25000,
     "npc_sell_price": 90000,
     "rift_transferrable": true,
+    "origin": "RIFT",
     "id": "ENCHANTED_BOOK_BUNDLE_THE_ONE"
   },
   {
@@ -75735,6 +75979,7 @@
     "glowing": true,
     "motes_sell_price": 5,
     "unstackable": true,
+    "origin": "RIFT",
     "item_specific": {
       "heal": 12,
       "mana_cost": 50
@@ -75747,6 +75992,7 @@
     "tier": "EPIC",
     "motes_sell_price": 5,
     "unstackable": true,
+    "origin": "RIFT",
     "item_specific": {
       "heal": 9,
       "mana_cost": 50
@@ -75759,6 +76005,7 @@
     "tier": "UNCOMMON",
     "motes_sell_price": 5,
     "unstackable": true,
+    "origin": "RIFT",
     "item_specific": {
       "heal": 7,
       "mana_cost": 50
@@ -75771,7 +76018,7 @@
     "name": "Vampire Dentist Relic",
     "tier": "LEGENDARY",
     "category": "ACCESSORY",
-    "motes_sell_price": 50000,
+    "origin": "RIFT",
     "npc_sell_price": 80000,
     "rift_transferrable": true,
     "stats": {
@@ -75794,6 +76041,8 @@
     "motes_sell_price": 5000,
     "npc_sell_price": 30000,
     "rift_transferrable": true,
+    "lose_motes_value_on_transfer": true,
+    "origin": "RIFT",
     "id": "GUARDIAN_LUCKY_BLOCK"
   },
   {
@@ -75802,6 +76051,7 @@
     "tier": "EPIC",
     "category": "CHESTPLATE",
     "motes_sell_price": 15,
+    "origin": "RIFT",
     "stats": {
       "rift_damage": 60,
       "rift_intelligence": 50,
@@ -75815,6 +76065,7 @@
     "durability": 3,
     "name": "Splatter Crux",
     "tier": "UNCOMMON",
+    "origin": "RIFT",
     "description": "How many vampires does it take to change a light bulb?\n\nNone... why would they need it?",
     "motes_sell_price": 90,
     "id": "SPLATTER_CRUX"
@@ -75824,6 +76075,7 @@
     "name": "Steak Stake",
     "tier": "RARE",
     "category": "SWORD",
+    "origin": "RIFT",
     "motes_sell_price": 15,
     "id": "STEAK_STAKE"
   },
@@ -75833,6 +76085,7 @@
     "tier": "UNCOMMON",
     "glowing": true,
     "motes_sell_price": 21000,
+    "origin": "RIFT",
     "description": "Worth more %%light_purple%%Motes %%gray%%than the sum of its parts, because it's glowing!",
     "id": "ENCHANTED_VAMPIRIC_MELON"
   },
@@ -75841,6 +76094,7 @@
     "name": "Vampiric Melon",
     "tier": "UNCOMMON",
     "motes_sell_price": 120,
+    "origin": "RIFT",
     "description": "Perfect ingredient for a healing melon.",
     "id": "VAMPIRIC_MELON"
   },
@@ -75848,6 +76102,7 @@
     "material": "CARROT_ITEM",
     "name": "Nearly-Whole Carrot",
     "tier": "UNCOMMON",
+    "origin": "RIFT",
     "glowing": true,
     "description": "The whole is better than the sum of its parts...",
     "id": "NEARLY_WHOLE_CARROT"
@@ -75856,12 +76111,14 @@
     "material": "CARROT_ITEM",
     "name": "Half-Eaten Carrot",
     "tier": "COMMON",
+    "origin": "RIFT",
     "id": "HALF_EATEN_CARROT"
   },
   {
     "material": "POWERED_MINECART",
     "name": "Horsezooka",
     "tier": "EPIC",
+    "origin": "RIFT",
     "id": "HORSEZOOKA"
   },
   {
@@ -75871,6 +76128,7 @@
     "tier": "UNCOMMON",
     "npc_sell_price": 20,
     "rift_transferrable": true,
+    "origin": "RIFT",
     "item_specific": {
       "permanent_health": 5,
       "permanent_carrots_ff": 12
@@ -75881,28 +76139,15 @@
     "material": "CARROT_STICK",
     "name": "Nearly Coherent doR gnihsiF",
     "tier": "UNCOMMON",
+    "origin": "RIFT",
     "id": "NEARLY_COHERENT_ROD"
   },
   {
     "material": "HOPPER_MINECART",
     "name": "Turbomax Vacuum Cleaner",
     "tier": "RARE",
+    "origin": "RIFT",
     "id": "TURBOMAX_VACUUM"
-  },
-  {
-    "material": "CAULDRON",
-    "name": "Spider Receptacle (Plastic)",
-    "tier": "RARE",
-    "motes_sell_price": 30,
-    "id": "SPIDER_RECEPTACLE"
-  },
-  {
-    "material": "SKULL_ITEM",
-    "durability": 3,
-    "name": "Glass Honey Aerosol",
-    "tier": "RARE",
-    "motes_sell_price": 30,
-    "id": "GLASS_HONEY_AEROSOL"
   },
   {
     "material": "GOLD_NUGGET",
@@ -75910,6 +76155,7 @@
     "tier": "RARE",
     "glowing": true,
     "motes_sell_price": 5,
+    "origin": "RIFT",
     "description": "Hold this item in your inventory to use the soul in the infested house.",
     "unstackable": true,
     "id": "KEY_TO_KAT_SOUL"
@@ -75919,6 +76165,7 @@
     "durability": 3,
     "name": "Fake Neuroscience Degree",
     "tier": "RARE",
+    "origin": "RIFT",
     "rift_transferrable": true,
     "soulbound": "SOLO",
     "unstackable": true,
@@ -75929,6 +76176,7 @@
     "name": "Wyld Sword",
     "tier": "UNCOMMON",
     "category": "SWORD",
+    "origin": "RIFT",
     "stats": {
       "RIFT_DAMAGE": 2
     },
@@ -75950,6 +76198,7 @@
     "name": "Leech Sword",
     "tier": "RARE",
     "category": "SWORD",
+    "origin": "RIFT",
     "stats": {
       "RIFT_DAMAGE": 3
     },
@@ -75962,6 +76211,7 @@
     "name": "Sword of the Multiverse",
     "category": "SWORD",
     "tier": "UNOBTAINABLE",
+    "origin": "RIFT",
     "stats": {
       "RIFT_DAMAGE": 99999999
     },
@@ -75973,6 +76223,7 @@
     "name": "Tactician's Murder Weapon",
     "tier": "RARE",
     "category": "SWORD",
+    "origin": "RIFT",
     "stats": {
       "RIFT_DAMAGE": 4
     },
@@ -76695,6 +76946,14 @@
     "npc_sell_price": 1000,
     "dungeon_item": true,
     "id": "INFINITE_SPIRIT_LEAP"
+  },
+  {
+    "material": "PAPER",
+    "name": "Saul's Recommendation",
+    "tier": "LEGENDARY",
+    "soulbound": "SOLO",
+    "glowing": true,
+    "id": "SAULS_RECOMMENDATION"
   },
   {
     "material": "SKULL_ITEM",
@@ -90818,56 +91077,56 @@
         {
           "type": "ESSENCE",
           "essence_type": "CRIMSON",
-          "amount": 5000
+          "amount": 900
         }
       ],
       [
         {
           "type": "ESSENCE",
           "essence_type": "CRIMSON",
-          "amount": 5600
+          "amount": 1000
         }
       ],
       [
         {
           "type": "ESSENCE",
           "essence_type": "CRIMSON",
-          "amount": 6300
+          "amount": 1125
         }
       ],
       [
         {
           "type": "ESSENCE",
           "essence_type": "CRIMSON",
-          "amount": 7000
+          "amount": 1270
         }
       ],
       [
         {
           "type": "ESSENCE",
           "essence_type": "CRIMSON",
-          "amount": 8000
+          "amount": 1450
         }
       ],
       [
         {
           "type": "ESSENCE",
           "essence_type": "CRIMSON",
-          "amount": 9000
+          "amount": 1650
         }
       ],
       [
         {
           "type": "ESSENCE",
           "essence_type": "CRIMSON",
-          "amount": 10200
+          "amount": 1850
         }
       ],
       [
         {
           "type": "ESSENCE",
           "essence_type": "CRIMSON",
-          "amount": 11500
+          "amount": 2100
         },
         {
           "type": "ITEM",
@@ -90879,7 +91138,7 @@
         {
           "type": "ESSENCE",
           "essence_type": "CRIMSON",
-          "amount": 13000
+          "amount": 2350
         },
         {
           "type": "ITEM",
@@ -90891,7 +91150,7 @@
         {
           "type": "ESSENCE",
           "essence_type": "CRIMSON",
-          "amount": 14500
+          "amount": 2650
         },
         {
           "type": "ITEM",
@@ -90906,7 +91165,7 @@
         {
           "type": "ESSENCE",
           "essence_type": "CRIMSON",
-          "amount": 25500
+          "amount": 4500
         },
         {
           "type": "ITEM",
