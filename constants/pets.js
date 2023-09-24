@@ -15,7 +15,7 @@ const levels = [
 ];
 
 const blockedCandyReducePets = ['ENDER_DRAGON', 'GOLDEN_DRAGON', 'SCATHA'];
-const recombPetItems = ['PET_ITEM_TIER_BOOST', 'PET_ITEM_VAMPIRE_FANG', 'PET_ITEM_TOY_JERRY'];
+const recombPetItems = ['PET_ITEM_TIER_BOOST'];
 const soulboundPets = ['GRANDMA_WOLF', 'KUUDRA', 'BINGO'];
 const tiers = ['COMMON', 'UNCOMMON', 'RARE', 'EPIC', 'LEGENDARY', 'MYTHIC', 'DIVINE', 'SPECIAL', 'VERY_SPECIAL'];
 
