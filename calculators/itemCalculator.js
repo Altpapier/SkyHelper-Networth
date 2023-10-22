@@ -268,7 +268,7 @@ const calculateItem = (item, prices, returnItemData) => {
               id: 'SIL_EX',
               type: 'silex',
               price: (prices['sil_ex'] || 0) * efficiencyLevel * applicationWorth.silex,
-              count: 1,
+              count: efficiencyLevel,
             };
             price += calculationData.price;
             calculation.push(calculationData);
