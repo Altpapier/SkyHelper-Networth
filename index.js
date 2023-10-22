@@ -73,7 +73,7 @@ async function parsePrices(prices, cache) {
 }
 
 let cachedPrices;
-let isLoadingPrices = false
+let isLoadingPrices = false;
 /**
  * Returns the prices used in the networth calculation, optimally this can be cached and used when calling `getNetworth`
  * @param {boolean} cache - (Optional) By default true (5 minute cache), if set to false it will always make a request to get the latest prices from github
@@ -84,12 +84,12 @@ const getPrices = async (cache) => {
     if (cachedPrices?.lastCache > Date.now() - 1000 * 60 * 5 && cache !== false) {
       return cachedPrices.prices; // Cache for 5 minutes
     }
-    
+
     if (isLoadingPrices) {
       while (isLoadingPrices) {
-        await new Promise(r => setTimeout(r, 100)) //re-check if prices have loaded yet in 100ms
+        await new Promise((r) => setTimeout(r, 100)); //re-check if prices have loaded yet in 100ms
       }
-      return cachedPrices.prices
+      return cachedPrices.prices;
     }
 
     isLoadingPrices = true;
