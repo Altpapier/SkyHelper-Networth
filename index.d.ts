@@ -29,6 +29,7 @@ declare module "skyhelper-networth" {
     price: number;
     count: number;
     star?: number;
+    shards?: number;
   }
 
   export interface Item {
