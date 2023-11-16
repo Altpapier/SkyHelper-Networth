@@ -48,6 +48,7 @@ declare module "skyhelper-networth" {
     total: number;
     unsoulboundTotal: number;
     items?: Item[];
+    item?: object;
   }
 
   export interface Categories {
