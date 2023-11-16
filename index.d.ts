@@ -1,14 +1,4 @@
 declare module "skyhelper-networth" {
-  export interface ItemData {
-    name: string;
-    count: number;
-    value: number;
-    lore?: string[];
-    attributes?: object;
-    enchantments?: object;
-    texture?: string;
-  }
-
   export interface NetworthOptions {
     cache?: boolean;
     onlyNetworth?: boolean;
@@ -38,7 +28,7 @@ declare module "skyhelper-networth" {
     type?: string;
     exp?: number;
     active?: boolean;
-    teir?: string;
+    tier?: string;
     heldItem?: string | null;
     candyUsed?: number;
     skin?: string | null;
