@@ -42,13 +42,13 @@ declare module "skyhelper-networth" {
     calculation: ItemCalculation[];
     count: number;
     soulbound: boolean;
+    item?: object;
   }
 
   export interface Category {
     total: number;
     unsoulboundTotal: number;
     items?: Item[];
-    item?: object;
   }
 
   export interface Categories {
