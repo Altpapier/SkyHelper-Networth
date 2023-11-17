@@ -7,14 +7,14 @@ const axios = require('axios');
  * Returns the networth of a profile
  * @param {object} profileData - The profile player data from the Hypixel API (profile.members[uuid])
  * @param {number} bankBalance - The player's bank balance from the Hypixel API (profile.banking?.balance)
- * @param {{ cache: boolean, onlyNetworth: boolean, prices: object, returnItemData: boolean, museumData: object }} options - (Optional) cache: By default true (5 minute cache), if set to false it will always make a request to get the latest prices from github, onlyNetworth: If true, only the networth will be returned, prices: A prices object generated from the getPrices function. If not provided, the prices will be retrieved every time the function is called, returnItemData: If true, the item data will be returned in the object, museumData: player's museum data from the Hypixel API (museum.members[uuid])
+ * @param {{ v2Endpoint: boolean, cache: boolean, onlyNetworth: boolean, prices: object, returnItemData: boolean, museumData: object }} options - (Optional) v2Endpoint: By default false check true if you are using the new v2 endpoints from hypixel, cache: By default true (5 minute cache), if set to false it will always make a request to get the latest prices from github, onlyNetworth: If true, only the networth will be returned, prices: A prices object generated from the getPrices function. If not provided, the prices will be retrieved every time the function is called, returnItemData: If true, the item data will be returned in the object, museumData: player's museum data from the Hypixel API (museum.members[uuid])
  * @returns An object containing the player's networth calculation
  */
 const getNetworth = async (profileData, bankBalance, options) => {
   if (!profileData) throw new NetworthError('Invalid profile data provided');
-  const purse = profileData.coin_purse;
+  const purse = options?.v2Endpoint ? profileData.currencies?.coin_purse : profileData.coin_purse;
   const prices = await parsePrices(options?.prices, options?.cache);
-  const items = await parseItems(profileData, options?.museumData);
+  const items = await parseItems(profileData, options?.museumData, options?.v2Endpoint);
   return calculateNetworth(items, purse, bankBalance, prices, options?.onlyNetworth, options?.returnItemData);
 };
 
@@ -36,12 +36,12 @@ const getNetworth = async (profileData, bankBalance, options) => {
  *          museum: [],
  *        }} items - Pre-parsed inventories, most inventories are just decoded except for sacks, essence, and pets which are parsed specifically as listed above, museum is an array of member[uuid].items and member[uuid].special combined
  * @param {number} bankBalance - The player's bank balance from the Hypixel API (profile.banking?.balance)
- * @param {{ cache: boolean, onlyNetworth: boolean, prices: object, returnItemData: boolean }} options - (Optional) cache: By default true (5 minute cache), if set to false it will always make a request to get the latest prices from github, onlyNetworth: If true, only the networth will be returned, prices: A prices object generated from the getPrices function. If not provided, the prices will be retrieved every time the function is called, returnItemData: If true, the item data will be returned in the object
+ * @param {{ v2Endpoint: boolean, cache: boolean, onlyNetworth: boolean, prices: object, returnItemData: boolean }} options - (Optional) v2Endpoint: By default false check true if you are using the new v2 endpoints from hypixel, cache: By default true (5 minute cache), if set to false it will always make a request to get the latest prices from github, onlyNetworth: If true, only the networth will be returned, prices: A prices object generated from the getPrices function. If not provided, the prices will be retrieved every time the function is called, returnItemData: If true, the item data will be returned in the object
  * @returns An object containing the player's networth calculation
  */
 const getPreDecodedNetworth = async (profileData, items, bankBalance, options) => {
-  const purse = profileData.coin_purse;
-  await postParseItems(profileData, items);
+  const purse = options?.v2Endpoint ? profileData.currencies?.coin_purse : profileData.coin_purse;
+  await postParseItems(profileData, items, v2Endpoint);
   const prices = await parsePrices(options?.prices, options?.cache);
   return calculateNetworth(items, purse, bankBalance, prices, options?.onlyNetworth, options?.returnItemData);
 };

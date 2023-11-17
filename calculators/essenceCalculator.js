@@ -1,5 +1,4 @@
 const { titleCase } = require('../helper/functions');
-const { applicationWorth } = require('../constants/applicationWorth');
 
 const calculateEssence = (item, prices) => {
   const itemPrice = prices[item.id.toLowerCase()] || 0;
