@@ -423,10 +423,33 @@
     "id": "ARACHNE_CRYSTAL"
   },
   {
+    "material": "SKULL_ITEM",
+    "durability": 3,
+    "name": "Anita's Talisman",
+    "category": "ACCESSORY",
+    "tier": "COMMON",
+    "id": "ANITA_TALISMAN"
+  },
+  {
+    "material": "SKULL_ITEM",
+    "durability": 3,
+    "name": "Pesthunter Ring",
+    "category": "ACCESSORY",
+    "tier": "RARE",
+    "soulbound": "COOP",
+    "stats": {
+      "bonus_pest_chance": 40
+    },
+    "id": "PESTHUNTER_RING"
+  },
+  {
     "material": "GOLD_AXE",
     "name": "Cocoa Chopper",
     "category": "AXE",
     "tier": "EPIC",
+    "stats": {
+      "cocoa_beans_fortune": 20
+    },
     "id": "COCO_CHOPPER"
   },
   {
@@ -460,6 +483,14 @@
   {
     "material": "SKULL_ITEM",
     "durability": 3,
+    "name": "Anita's Artifact",
+    "category": "ACCESSORY",
+    "tier": "RARE",
+    "id": "ANITA_ARTIFACT"
+  },
+  {
+    "material": "SKULL_ITEM",
+    "durability": 3,
     "name": "Nether Wart Pouch",
     "tier": "RARE",
     "id": "NETHER_WART_POUCH"
@@ -481,6 +512,14 @@
   {
     "material": "SKULL_ITEM",
     "durability": 3,
+    "name": "Anita's Ring",
+    "category": "ACCESSORY",
+    "tier": "UNCOMMON",
+    "id": "ANITA_RING"
+  },
+  {
+    "material": "SKULL_ITEM",
+    "durability": 3,
     "name": "Basket of Seeds",
     "glowing": true,
     "tier": "EPIC",
@@ -490,7 +529,7 @@
     "material": "GOLD_HOE",
     "name": "Fungi Cutter",
     "category": "HOE",
-    "tier": "RARE",
+    "tier": "EPIC",
     "requirements": [
       {
         "type": "SKILL",
@@ -499,6 +538,30 @@
       }
     ],
     "id": "FUNGI_CUTTER"
+  },
+  {
+    "material": "SKULL_ITEM",
+    "durability": 3,
+    "name": "Pesthunter Badge",
+    "category": "ACCESSORY",
+    "tier": "UNCOMMON",
+    "soulbound": "COOP",
+    "stats": {
+      "bonus_pest_chance": 20
+    },
+    "id": "PESTHUNTER_BADGE"
+  },
+  {
+    "material": "SKULL_ITEM",
+    "durability": 3,
+    "name": "Pesthunter Artifact",
+    "category": "ACCESSORY",
+    "tier": "EPIC",
+    "soulbound": "COOP",
+    "stats": {
+      "bonus_pest_chance": 60
+    },
+    "id": "PESTHUNTER_ARTIFACT"
   },
   {
     "material": "STONE_HOE",
@@ -883,6 +946,14 @@
     "tier": "RARE",
     "unstackable": true,
     "id": "MEDIUM_COMBAT_SACK"
+  },
+  {
+    "material": "SKULL_ITEM",
+    "durability": 3,
+    "name": "Garden Sack",
+    "tier": "EPIC",
+    "unstackable": true,
+    "id": "GARDEN_SACK"
   },
   {
     "material": "SKULL_ITEM",
@@ -7691,7 +7762,7 @@
   {
     "material": "LEATHER_BOOTS",
     "color": "191,188,178",
-    "name": "⚚ Adaptive Boots",
+    "name": "Adaptive Boots",
     "category": "BOOTS",
     "tier": "EPIC",
     "stats": {
@@ -7757,7 +7828,7 @@
   {
     "material": "SKULL_ITEM",
     "durability": 3,
-    "name": "⚚ Adaptive Helmet",
+    "name": "Adaptive Helmet",
     "category": "HELMET",
     "tier": "EPIC",
     "stats": {
@@ -7955,7 +8026,7 @@
   {
     "material": "LEATHER_LEGGINGS",
     "color": "191,188,178",
-    "name": "⚚ Adaptive Leggings",
+    "name": "Adaptive Leggings",
     "category": "LEGGINGS",
     "tier": "EPIC",
     "stats": {
@@ -8021,7 +8092,7 @@
   {
     "material": "LEATHER_CHESTPLATE",
     "color": "191,188,178",
-    "name": "⚚ Adaptive Chestplate",
+    "name": "Adaptive Chestplate",
     "category": "CHESTPLATE",
     "tier": "EPIC",
     "stats": {
@@ -8425,6 +8496,76 @@
       }
     ],
     "id": "PERFECT_HELMET_4"
+  },
+  {
+    "material": "DIAMOND_BOOTS",
+    "name": "Perfect Boots - Tier XIII",
+    "category": "BOOTS",
+    "tier": "LEGENDARY",
+    "stats": {
+      "DEFENSE": 330
+    },
+    "npc_sell_price": 4915200,
+    "dungeon_item_conversion_cost": {
+      "essence_type": "DIAMOND",
+      "amount": 35
+    },
+    "upgrade_costs": [
+      [
+        {
+          "type": "ESSENCE",
+          "essence_type": "DIAMOND",
+          "amount": 20
+        }
+      ],
+      [
+        {
+          "type": "ESSENCE",
+          "essence_type": "DIAMOND",
+          "amount": 30
+        }
+      ],
+      [
+        {
+          "type": "ESSENCE",
+          "essence_type": "DIAMOND",
+          "amount": 40
+        }
+      ],
+      [
+        {
+          "type": "ESSENCE",
+          "essence_type": "DIAMOND",
+          "amount": 90
+        }
+      ],
+      [
+        {
+          "type": "ESSENCE",
+          "essence_type": "DIAMOND",
+          "amount": 140
+        }
+      ]
+    ],
+    "catacombs_requirements": [
+      {
+        "type": "DUNGEON_SKILL",
+        "dungeon_type": "CATACOMBS",
+        "level": 21
+      }
+    ],
+    "gemstone_slots": [
+      {
+        "slot_type": "AMETHYST"
+      },
+      {
+        "slot_type": "AMETHYST"
+      },
+      {
+        "slot_type": "AMETHYST"
+      }
+    ],
+    "id": "PERFECT_BOOTS_13"
   },
   {
     "material": "DIAMOND_CHESTPLATE",
@@ -9827,6 +9968,76 @@
     "id": "PERFECT_HELMET_7"
   },
   {
+    "material": "DIAMOND_CHESTPLATE",
+    "name": "Perfect Chestplate - Tier XIII",
+    "category": "CHESTPLATE",
+    "tier": "LEGENDARY",
+    "stats": {
+      "DEFENSE": 400
+    },
+    "npc_sell_price": 5324800,
+    "dungeon_item_conversion_cost": {
+      "essence_type": "DIAMOND",
+      "amount": 70
+    },
+    "upgrade_costs": [
+      [
+        {
+          "type": "ESSENCE",
+          "essence_type": "DIAMOND",
+          "amount": 30
+        }
+      ],
+      [
+        {
+          "type": "ESSENCE",
+          "essence_type": "DIAMOND",
+          "amount": 50
+        }
+      ],
+      [
+        {
+          "type": "ESSENCE",
+          "essence_type": "DIAMOND",
+          "amount": 80
+        }
+      ],
+      [
+        {
+          "type": "ESSENCE",
+          "essence_type": "DIAMOND",
+          "amount": 120
+        }
+      ],
+      [
+        {
+          "type": "ESSENCE",
+          "essence_type": "DIAMOND",
+          "amount": 180
+        }
+      ]
+    ],
+    "catacombs_requirements": [
+      {
+        "type": "DUNGEON_SKILL",
+        "dungeon_type": "CATACOMBS",
+        "level": 21
+      }
+    ],
+    "gemstone_slots": [
+      {
+        "slot_type": "AMETHYST"
+      },
+      {
+        "slot_type": "AMETHYST"
+      },
+      {
+        "slot_type": "AMETHYST"
+      }
+    ],
+    "id": "PERFECT_CHESTPLATE_13"
+  },
+  {
     "material": "DIAMOND_BOOTS",
     "name": "Perfect Boots - Tier X",
     "category": "BOOTS",
@@ -9895,6 +10106,76 @@
       }
     ],
     "id": "PERFECT_BOOTS_10"
+  },
+  {
+    "material": "DIAMOND_HELMET",
+    "name": "Perfect Helmet - Tier XIII",
+    "category": "HELMET",
+    "tier": "LEGENDARY",
+    "stats": {
+      "DEFENSE": 350
+    },
+    "npc_sell_price": 5017600,
+    "dungeon_item_conversion_cost": {
+      "essence_type": "DIAMOND",
+      "amount": 40
+    },
+    "upgrade_costs": [
+      [
+        {
+          "type": "ESSENCE",
+          "essence_type": "DIAMOND",
+          "amount": 20
+        }
+      ],
+      [
+        {
+          "type": "ESSENCE",
+          "essence_type": "DIAMOND",
+          "amount": 30
+        }
+      ],
+      [
+        {
+          "type": "ESSENCE",
+          "essence_type": "DIAMOND",
+          "amount": 50
+        }
+      ],
+      [
+        {
+          "type": "ESSENCE",
+          "essence_type": "DIAMOND",
+          "amount": 100
+        }
+      ],
+      [
+        {
+          "type": "ESSENCE",
+          "essence_type": "DIAMOND",
+          "amount": 150
+        }
+      ]
+    ],
+    "catacombs_requirements": [
+      {
+        "type": "DUNGEON_SKILL",
+        "dungeon_type": "CATACOMBS",
+        "level": 21
+      }
+    ],
+    "gemstone_slots": [
+      {
+        "slot_type": "AMETHYST"
+      },
+      {
+        "slot_type": "AMETHYST"
+      },
+      {
+        "slot_type": "AMETHYST"
+      }
+    ],
+    "id": "PERFECT_HELMET_13"
   },
   {
     "material": "DIAMOND_HELMET",
@@ -11158,6 +11439,76 @@
   },
   {
     "material": "DIAMOND_LEGGINGS",
+    "name": "Perfect Leggings - Tier XIII",
+    "category": "LEGGINGS",
+    "tier": "LEGENDARY",
+    "stats": {
+      "DEFENSE": 380
+    },
+    "npc_sell_price": 5222400,
+    "dungeon_item_conversion_cost": {
+      "essence_type": "DIAMOND",
+      "amount": 60
+    },
+    "upgrade_costs": [
+      [
+        {
+          "type": "ESSENCE",
+          "essence_type": "DIAMOND",
+          "amount": 25
+        }
+      ],
+      [
+        {
+          "type": "ESSENCE",
+          "essence_type": "DIAMOND",
+          "amount": 40
+        }
+      ],
+      [
+        {
+          "type": "ESSENCE",
+          "essence_type": "DIAMOND",
+          "amount": 65
+        }
+      ],
+      [
+        {
+          "type": "ESSENCE",
+          "essence_type": "DIAMOND",
+          "amount": 110
+        }
+      ],
+      [
+        {
+          "type": "ESSENCE",
+          "essence_type": "DIAMOND",
+          "amount": 160
+        }
+      ]
+    ],
+    "catacombs_requirements": [
+      {
+        "type": "DUNGEON_SKILL",
+        "dungeon_type": "CATACOMBS",
+        "level": 21
+      }
+    ],
+    "gemstone_slots": [
+      {
+        "slot_type": "AMETHYST"
+      },
+      {
+        "slot_type": "AMETHYST"
+      },
+      {
+        "slot_type": "AMETHYST"
+      }
+    ],
+    "id": "PERFECT_LEGGINGS_13"
+  },
+  {
+    "material": "DIAMOND_LEGGINGS",
     "name": "Perfect Leggings - Tier XI",
     "category": "LEGGINGS",
     "tier": "LEGENDARY",
@@ -11591,7 +11942,7 @@
   {
     "material": "SKULL_ITEM",
     "durability": 3,
-    "name": "Crab Hat of Celebration (2020)",
+    "name": "Crab Hat of Celebration",
     "category": "ACCESSORY",
     "stats": {
       "magic_find": 1
@@ -12710,6 +13061,15 @@
     "id": "GREAT_SPOOK_TALISMAN"
   },
   {
+    "material": "CLAY_BALL",
+    "name": "Nightmare Nullifier",
+    "description": "Why have nightmares when you can drink coffee instead?",
+    "tier": "UNCOMMON",
+    "soulbound": "COOP",
+    "npc_sell_price": 1,
+    "id": "NIGHTMARE_NULLIFIER"
+  },
+  {
     "material": "SKULL_ITEM",
     "durability": 3,
     "name": "Sweet Flesh",
@@ -12718,6 +13078,27 @@
     "glowing": true,
     "npc_sell_price": 1,
     "id": "SWEET_FLESH"
+  },
+  {
+    "material": "SKULL_ITEM",
+    "durability": 3,
+    "name": "Expired Pumpkin",
+    "tier": "UNCOMMON",
+    "npc_sell_price": 500,
+    "item_specific": {
+      "permanent_health": 5,
+      "permanent_crops_farming_fortune": 12
+    },
+    "id": "EXPIRED_PUMPKIN"
+  },
+  {
+    "material": "STAINED_GLASS",
+    "durability": 15,
+    "name": "Scare Fragment",
+    "description": "%%gray%%Imbued with the pure essence of terror, this shard pulsates with an unsettling energy.",
+    "tier": "RARE",
+    "npc_sell_price": 1000,
+    "id": "SCARE_FRAGMENT"
   },
   {
     "material": "LEATHER_BOOTS",
@@ -12797,6 +13178,23 @@
     "id": "POISONED_CANDY"
   },
   {
+    "material": "SKULL_ITEM",
+    "durability": 3,
+    "name": "Dark Candy",
+    "tier": "RARE",
+    "description": "%%gray%%Can be brought to %%red%%Vargul the Unearthed %%gray%%at the back of the Hub island during the %%dark_purple%%Great Spook%%gray%%.",
+    "id": "DARK_CANDY"
+  },
+  {
+    "material": "WOOL",
+    "durability": 15,
+    "name": "Black Woolen Yarn",
+    "tier": "RARE",
+    "npc_sell_price": 0,
+    "hide_from_viewrecipe_command": true,
+    "id": "BLACK_WOOLEN_YARN"
+  },
+  {
     "material": "LEATHER_HELMET",
     "color": "153,51,153",
     "name": "Great Spook Helmet",
@@ -12826,6 +13224,15 @@
     "npc_sell_price": 0,
     "museum": true,
     "id": "GREAT_SPOOK_RING"
+  },
+  {
+    "material": "RAW_FISH",
+    "name": "Sewer Fish",
+    "tier": "UNCOMMON",
+    "description": "Where did you find these? They stink!",
+    "soulbound": "COOP",
+    "npc_sell_price": 1,
+    "id": "SEWER_FISH"
   },
   {
     "material": "SKULL_ITEM",
@@ -12990,7 +13397,7 @@
   {
     "material": "SKULL_ITEM",
     "durability": 3,
-    "name": "God Potion (Legacy)",
+    "name": "God Potion",
     "glowing": true,
     "tier": "SPECIAL",
     "museum": true,
@@ -13303,8 +13710,7 @@
     "durability": 3,
     "name": "Beastmaster Crest",
     "category": "ACCESSORY",
-    "id": "BEASTMASTER_CREST_COMMON",
-    "tier": "COMMON"
+    "id": "BEASTMASTER_CREST_COMMON"
   },
   {
     "material": "WOOD_SWORD",
@@ -13864,8 +14270,7 @@
     "stats": {
       "STRENGTH": 2
     },
-    "id": "RAGGEDY_SHARK_TOOTH_NECKLACE",
-    "tier": "COMMON"
+    "id": "RAGGEDY_SHARK_TOOTH_NECKLACE"
   },
   {
     "material": "SKULL_ITEM",
@@ -13906,6 +14311,14 @@
     "glowing": true,
     "tier": "RARE",
     "id": "BLUE_SHARK_TOOTH"
+  },
+  {
+    "material": "SKULL_ITEM",
+    "durability": 3,
+    "name": "Pirate Cutout",
+    "furniture": "PIRATE_CUTOUT",
+    "tier": "EPIC",
+    "id": "PIRATE_CUTOUT"
   },
   {
     "material": "SKULL_ITEM",
@@ -13976,6 +14389,14 @@
     "furniture": "WITCH_HAT",
     "tier": "RARE",
     "id": "WITCH_HAT"
+  },
+  {
+    "material": "SKULL_ITEM",
+    "durability": 3,
+    "name": "Reanimated Painting",
+    "furniture": "REANIMATED_PAINTING",
+    "tier": "EPIC",
+    "id": "REANIMATED_PAINTING"
   },
   {
     "material": "SKULL_ITEM",
@@ -14078,6 +14499,14 @@
     "furniture": "ROCKING_CHAIR",
     "tier": "EPIC",
     "id": "ROCKING_CHAIR"
+  },
+  {
+    "material": "SKULL_ITEM",
+    "durability": 3,
+    "name": "Mimic Chest",
+    "furniture": "MIMIC_CHEST",
+    "tier": "EPIC",
+    "id": "MIMIC_CHEST"
   },
   {
     "material": "SKULL_ITEM",
@@ -14260,6 +14689,14 @@
   {
     "material": "SKULL_ITEM",
     "durability": 3,
+    "name": "Skeleton Chair",
+    "furniture": "SKELETON_CHAIR",
+    "tier": "EPIC",
+    "id": "SKELETON_CHAIR"
+  },
+  {
+    "material": "SKULL_ITEM",
+    "durability": 3,
     "name": "10th Anniversary Podium",
     "furniture": "ANNI_PODIUM_MEME_SECOND",
     "tier": "EPIC",
@@ -14274,6 +14711,14 @@
     "furniture": "HOT_CHOCOLATE_AND_COOKIES",
     "tier": "EPIC",
     "id": "HOT_CHOCOLATE_AND_COOKIES"
+  },
+  {
+    "material": "SKULL_ITEM",
+    "durability": 3,
+    "name": "Pumpkin Candy Handout",
+    "furniture": "PUMPKIN_CANDY_HANDOUT",
+    "tier": "EPIC",
+    "id": "PUMPKIN_CANDY_HANDOUT"
   },
   {
     "material": "SKULL_ITEM",
@@ -14511,7 +14956,7 @@
         "offset": "NEW",
         "skill_requirement": {
           "skill": "COMBAT",
-          "level": 24
+          "level": 22
         }
       }
     },
@@ -14656,7 +15101,7 @@
         "offset": "NEW",
         "skill_requirement": {
           "skill": "COMBAT",
-          "level": 24
+          "level": 22
         }
       }
     },
@@ -14677,7 +15122,7 @@
         "offset": "NEW",
         "skill_requirement": {
           "skill": "COMBAT",
-          "level": 24
+          "level": 22
         }
       }
     },
@@ -14698,7 +15143,7 @@
         "offset": "NEW",
         "skill_requirement": {
           "skill": "COMBAT",
-          "level": 24
+          "level": 22
         }
       }
     },
@@ -14824,7 +15269,7 @@
         "offset": "NEW",
         "skill_requirement": {
           "skill": "COMBAT",
-          "level": 24
+          "level": 22
         }
       }
     },
@@ -14947,7 +15392,7 @@
         "schematic_file": "sb_portal_danger2",
         "skill_requirement": {
           "skill": "COMBAT",
-          "level": 24
+          "level": 22
         }
       }
     },
@@ -15258,7 +15703,7 @@
   },
   {
     "material": "RABBIT_STEW",
-    "name": "Mushroom & Warts Stew",
+    "name": "§cMushroom & Warts Stew",
     "description": "%%gray%%%%italic%%Made with love, and an array of slightly more questionable ingredients.",
     "tier": "RARE",
     "soulbound": "COOP",
@@ -15267,7 +15712,7 @@
   {
     "material": "SKULL_ITEM",
     "durability": 3,
-    "name": "Neon Blue Sheep Skin",
+    "name": "Neon BlueSheep",
     "category": "COSMETIC",
     "tier": "RARE",
     "unstackable": true,
@@ -15475,7 +15920,7 @@
   {
     "material": "SKULL_ITEM",
     "durability": 3,
-    "name": "Fortified Silverfish Skin",
+    "name": "FortifiedSilverfish",
     "category": "COSMETIC",
     "tier": "EPIC",
     "unstackable": true,
@@ -15739,8 +16184,7 @@
     "name": "Sea Creature Talisman",
     "category": "ACCESSORY",
     "npc_sell_price": 180,
-    "id": "SEA_CREATURE_TALISMAN",
-    "tier": "COMMON"
+    "id": "SEA_CREATURE_TALISMAN"
   },
   {
     "material": "LEATHER_CHESTPLATE",
@@ -16232,7 +16676,7 @@
   {
     "material": "SKULL_ITEM",
     "durability": 3,
-    "name": "Cool Rock Skin",
+    "name": "CoolRock",
     "category": "COSMETIC",
     "tier": "RARE",
     "unstackable": true,
@@ -16460,7 +16904,7 @@
   {
     "material": "DOUBLE_PLANT",
     "durability": 4,
-    "name": "Rose Bouquet",
+    "name": "§cRose Bouquet",
     "description": "%%gray%%%%italic%%A hastily-made bouquet consisting of Marco's finest roses.",
     "soulbound": "COOP",
     "id": "ROSE_BOUQUET"
@@ -16705,7 +17149,7 @@
   },
   {
     "material": "DIAMOND_SWORD",
-    "name": "⚚ Shadow Fury",
+    "name": "Shadow Fury",
     "category": "SWORD",
     "tier": "LEGENDARY",
     "stats": {
@@ -16949,6 +17393,13 @@
     "id": "FANCY_SWORD"
   },
   {
+    "material": "SKULL_ITEM",
+    "durability": 3,
+    "name": "Pure Mithril Gem",
+    "tier": "LEGENDARY",
+    "id": "PET_ITEM_PURE_MITHRIL_GEM"
+  },
+  {
     "material": "LEAVES",
     "durability": 1,
     "name": "Spruce Leaves",
@@ -17058,7 +17509,7 @@
       {
         "type": "SKILL",
         "skill": "COMBAT",
-        "level": 24
+        "level": 22
       }
     ],
     "unstackable": true,
@@ -17088,7 +17539,7 @@
       {
         "type": "SKILL",
         "skill": "COMBAT",
-        "level": 24
+        "level": 22
       }
     ],
     "can_have_attributes": true,
@@ -17588,7 +18039,7 @@
       {
         "type": "SKILL",
         "skill": "COMBAT",
-        "level": 24
+        "level": 22
       }
     ],
     "stats": {
@@ -17749,7 +18200,7 @@
       {
         "type": "SKILL",
         "skill": "COMBAT",
-        "level": 24
+        "level": 22
       }
     ],
     "ability_damage_scaling": 0.3,
@@ -18303,7 +18754,7 @@
   {
     "material": "SKULL_ITEM",
     "durability": 3,
-    "name": "Neon Green Sheep Skin",
+    "name": "Neon GreenSheep",
     "category": "COSMETIC",
     "tier": "RARE",
     "unstackable": true,
@@ -18444,6 +18895,7 @@
         }
       ]
     ],
+    "rarity_salvageable": false,
     "dungeon_item": true,
     "museum": true,
     "id": "GOLD_THORN_HEAD"
@@ -18907,7 +19359,7 @@
   {
     "material": "SKULL_ITEM",
     "durability": 3,
-    "name": "Orange Sheep Skin",
+    "name": "OrangeSheep",
     "category": "COSMETIC",
     "tier": "UNCOMMON",
     "unstackable": true,
@@ -19030,7 +19482,7 @@
       {
         "type": "SKILL",
         "skill": "COMBAT",
-        "level": 24
+        "level": 22
       }
     ],
     "unstackable": true,
@@ -19237,7 +19689,7 @@
   {
     "material": "SKULL_ITEM",
     "durability": 3,
-    "name": "Blue Elephant Skin",
+    "name": "BlueElephant",
     "category": "COSMETIC",
     "tier": "RARE",
     "unstackable": true,
@@ -19754,7 +20206,7 @@
   {
     "material": "SKULL_ITEM",
     "durability": 3,
-    "name": "Henzo Doggo Wolf Skin",
+    "name": "Henzo DoggoWolf",
     "category": "COSMETIC",
     "tier": "SPECIAL",
     "unstackable": true,
@@ -20149,8 +20601,7 @@
     "name": "Night Vision Charm",
     "category": "ACCESSORY",
     "npc_sell_price": 2500,
-    "id": "NIGHT_VISION_CHARM",
-    "tier": "COMMON"
+    "id": "NIGHT_VISION_CHARM"
   },
   {
     "material": "GOLD_RECORD",
@@ -20253,6 +20704,14 @@
     "name": "Green Stained Glass Pane",
     "npc_sell_price": 0.75,
     "id": "STAINED_GLASS_PANE:13"
+  },
+  {
+    "material": "SKULL_ITEM",
+    "durability": 3,
+    "name": "Perfectly Cut Diamond",
+    "description": "An outstanding find. While few are known to exist, even fewer have been successfully retrieved.\n\n%%gold%%Used in an anvil to upgrade Perfect Armor to Tier XIII.",
+    "tier": "LEGENDARY",
+    "id": "PERFECTLY_CUT_DIAMOND"
   },
   {
     "material": "GOLD_INGOT",
@@ -20391,7 +20850,7 @@
   {
     "material": "SKULL_ITEM",
     "durability": 3,
-    "name": "Grown-up Baby Yeti Skin",
+    "name": "Grown-upBaby Yeti",
     "category": "COSMETIC",
     "tier": "EPIC",
     "unstackable": true,
@@ -21082,7 +21541,7 @@
       {
         "type": "SKILL",
         "skill": "COMBAT",
-        "level": 24
+        "level": 22
       }
     ],
     "stats": {
@@ -21872,8 +22331,7 @@
     "name": "Talisman of Coins",
     "category": "ACCESSORY",
     "npc_sell_price": 70,
-    "id": "COIN_TALISMAN",
-    "tier": "COMMON"
+    "id": "COIN_TALISMAN"
   },
   {
     "material": "BOW",
@@ -22047,7 +22505,7 @@
   {
     "material": "SKULL_ITEM",
     "durability": 3,
-    "name": "Thinking Rock Skin",
+    "name": "ThinkingRock",
     "category": "COSMETIC",
     "tier": "RARE",
     "unstackable": true,
@@ -22459,7 +22917,7 @@
   },
   {
     "material": "PAPER",
-    "name": "Fairy Souls Pamphlet",
+    "name": "§dFairy Souls Pamphlet",
     "tier": "RARE",
     "id": "FAIRY_SOULS_PAMPHLET"
   },
@@ -22814,7 +23272,7 @@
       {
         "type": "SKILL",
         "skill": "COMBAT",
-        "level": 24
+        "level": 22
       }
     ],
     "stats": {
@@ -23182,7 +23640,7 @@
       {
         "type": "SKILL",
         "skill": "COMBAT",
-        "level": 24
+        "level": 22
       }
     ],
     "stats": {
@@ -23328,6 +23786,7 @@
         }
       ]
     ],
+    "rarity_salvageable": false,
     "dungeon_item": true,
     "museum": true,
     "id": "DIAMOND_THORN_HEAD"
@@ -23473,7 +23932,7 @@
   {
     "material": "SKULL_ITEM",
     "durability": 3,
-    "name": "Golden Monkey Skin",
+    "name": "GoldenMonkey",
     "category": "COSMETIC",
     "tier": "LEGENDARY",
     "unstackable": true,
@@ -23491,7 +23950,7 @@
       {
         "type": "SKILL",
         "skill": "COMBAT",
-        "level": 24
+        "level": 22
       }
     ],
     "unstackable": true,
@@ -23500,7 +23959,7 @@
   {
     "material": "SKULL_ITEM",
     "durability": 3,
-    "name": "Green Elf Jerry Skin",
+    "name": "Green ElfJerry",
     "category": "COSMETIC",
     "tier": "UNCOMMON",
     "unstackable": true,
@@ -23732,8 +24191,7 @@
     "name": "Fire Talisman",
     "category": "ACCESSORY",
     "npc_sell_price": 6480,
-    "id": "FIRE_TALISMAN",
-    "tier": "COMMON"
+    "id": "FIRE_TALISMAN"
   },
   {
     "material": "SKULL_ITEM",
@@ -24746,7 +25204,7 @@
   {
     "material": "SKULL_ITEM",
     "durability": 3,
-    "name": "Radiant Endermite Skin",
+    "name": "RadiantEndermite",
     "category": "COSMETIC",
     "tier": "MYTHIC",
     "unstackable": true,
@@ -25446,7 +25904,7 @@
   },
   {
     "material": "PAPER",
-    "name": "Poem of True Love",
+    "name": "§dPoem of True Love",
     "description": "%%gray%%%%italic%%Filled with poor punctuation and misspellings, but its message is profound.",
     "glowing": true,
     "tier": "EPIC",
@@ -25487,7 +25945,7 @@
   },
   {
     "material": "GOLD_NUGGET",
-    "name": "Very Official Yellow Rock of Love!",
+    "name": "§eVery Official Yellow Rock of Love!",
     "description": "%%gray%%%%italic%%A majestic, one-of-a-kind mineral that glistens in the morning sun.",
     "glowing": true,
     "tier": "LEGENDARY",
@@ -25519,7 +25977,7 @@
   {
     "material": "SKULL_ITEM",
     "durability": 3,
-    "name": "Monochrome Elephant Skin",
+    "name": "MonochromeElephant",
     "category": "COSMETIC",
     "tier": "EPIC",
     "unstackable": true,
@@ -25563,7 +26021,7 @@
   {
     "material": "SKULL_ITEM",
     "durability": 3,
-    "name": "Twilight Tiger Skin",
+    "name": "TwilightTiger",
     "category": "COSMETIC",
     "tier": "MYTHIC",
     "unstackable": true,
@@ -25579,7 +26037,7 @@
   {
     "material": "SKULL_ITEM",
     "durability": 3,
-    "name": "Red Elf Jerry Skin",
+    "name": "Red ElfJerry",
     "category": "COSMETIC",
     "tier": "UNCOMMON",
     "unstackable": true,
@@ -25627,7 +26085,7 @@
       {
         "type": "SKILL",
         "skill": "COMBAT",
-        "level": 24
+        "level": 22
       }
     ],
     "stats": {
@@ -26439,7 +26897,7 @@
   },
   {
     "material": "COOKIE",
-    "name": "Booster Cookie (FREE)",
+    "name": "Booster Cookie §8(FREE)",
     "glowing": true,
     "tier": "LEGENDARY",
     "unstackable": true,
@@ -26658,7 +27116,7 @@
   {
     "material": "SKULL_ITEM",
     "durability": 3,
-    "name": "Yellow Belt",
+    "name": "§eYellow Belt",
     "tier": "UNCOMMON",
     "stats": {
       "HEALTH": 15,
@@ -27122,7 +27580,7 @@
   {
     "material": "SKULL_ITEM",
     "durability": 3,
-    "name": "Dark Wolf Skin",
+    "name": "DarkWolf",
     "category": "COSMETIC",
     "tier": "EPIC",
     "unstackable": true,
@@ -27192,7 +27650,7 @@
   {
     "material": "SKULL_ITEM",
     "durability": 3,
-    "name": "White Sheep Skin",
+    "name": "WhiteSheep",
     "category": "COSMETIC",
     "tier": "UNCOMMON",
     "unstackable": true,
@@ -27641,7 +28099,7 @@
     "material": "TNT",
     "name": "Infinityboom TNT",
     "glowing": true,
-    "tier": "RARE",
+    "tier": "EPIC",
     "npc_sell_price": 0,
     "id": "INFINITE_SUPERBOOM_TNT"
   },
@@ -27659,13 +28117,12 @@
     "name": "Feather Talisman",
     "category": "ACCESSORY",
     "npc_sell_price": 160,
-    "id": "FEATHER_TALISMAN",
-    "tier": "COMMON"
+    "id": "FEATHER_TALISMAN"
   },
   {
     "material": "SKULL_ITEM",
     "durability": 3,
-    "name": "Rose Rabbit Skin",
+    "name": "RoseRabbit",
     "category": "COSMETIC",
     "tier": "RARE",
     "unstackable": true,
@@ -27779,7 +28236,7 @@
       {
         "type": "SKILL",
         "skill": "COMBAT",
-        "level": 24
+        "level": 22
       }
     ],
     "rarity_salvageable": true,
@@ -28152,7 +28609,7 @@
       {
         "type": "SKILL",
         "skill": "COMBAT",
-        "level": 24
+        "level": 22
       }
     ],
     "rarity_salvageable": true,
@@ -28792,6 +29249,7 @@
         }
       ]
     ],
+    "rarity_salvageable": false,
     "dungeon_item": true,
     "museum": true,
     "id": "GOLD_NECRON_HEAD"
@@ -29025,7 +29483,7 @@
   {
     "material": "SKULL_ITEM",
     "durability": 3,
-    "name": "Secret Gift for Juliette",
+    "name": "§cSecret Gift for Juliette",
     "description": "%%gray%%%%italic%%A well-wrapped present that's hot to the touch.",
     "tier": "EPIC",
     "soulbound": "COOP",
@@ -29188,7 +29646,7 @@
       {
         "type": "SKILL",
         "skill": "COMBAT",
-        "level": 24
+        "level": 22
       }
     ],
     "npc_sell_price": 250000,
@@ -30242,7 +30700,7 @@
   {
     "material": "SKULL_ITEM",
     "durability": 3,
-    "name": "Spooky Enderman Skin",
+    "name": "SpookyEnderman",
     "category": "COSMETIC",
     "tier": "EPIC",
     "unstackable": true,
@@ -30566,7 +31024,7 @@
   {
     "material": "SKULL_ITEM",
     "durability": 3,
-    "name": "Red Sheep Skin",
+    "name": "RedSheep",
     "category": "COSMETIC",
     "tier": "UNCOMMON",
     "unstackable": true,
@@ -30694,7 +31152,7 @@
       {
         "type": "SKILL",
         "skill": "COMBAT",
-        "level": 24
+        "level": 22
       }
     ],
     "npc_sell_price": 185700,
@@ -31612,7 +32070,7 @@
       {
         "type": "SKILL",
         "skill": "COMBAT",
-        "level": 24
+        "level": 22
       }
     ],
     "unstackable": true,
@@ -31834,7 +32292,7 @@
       {
         "type": "SKILL",
         "skill": "COMBAT",
-        "level": 24
+        "level": 22
       }
     ],
     "stats": {
@@ -32012,6 +32470,7 @@
         }
       ]
     ],
+    "rarity_salvageable": false,
     "dungeon_item": true,
     "museum": true,
     "id": "GOLD_PROFESSOR_HEAD"
@@ -32064,6 +32523,7 @@
         }
       ]
     ],
+    "rarity_salvageable": false,
     "dungeon_item": true,
     "museum": true,
     "id": "DIAMOND_SADAN_HEAD"
@@ -32395,7 +32855,7 @@
   {
     "material": "SKULL_ITEM",
     "durability": 3,
-    "name": "Green Sheep Skin",
+    "name": "GreenSheep",
     "category": "COSMETIC",
     "tier": "UNCOMMON",
     "unstackable": true,
@@ -32762,7 +33222,7 @@
   {
     "material": "SKULL_ITEM",
     "durability": 3,
-    "name": "Derpy Rock Skin",
+    "name": "DerpyRock",
     "category": "COSMETIC",
     "tier": "RARE",
     "unstackable": true,
@@ -32797,7 +33257,7 @@
       {
         "type": "SKILL",
         "skill": "COMBAT",
-        "level": 24
+        "level": 22
       }
     ],
     "unstackable": true,
@@ -33010,7 +33470,7 @@
       {
         "type": "SKILL",
         "skill": "COMBAT",
-        "level": 24
+        "level": 22
       }
     ],
     "rarity_salvageable": true,
@@ -33312,7 +33772,7 @@
       {
         "type": "SKILL",
         "skill": "COMBAT",
-        "level": 24
+        "level": 22
       }
     ],
     "can_have_attributes": true,
@@ -33762,7 +34222,7 @@
       {
         "type": "SKILL",
         "skill": "COMBAT",
-        "level": 24
+        "level": 22
       }
     ],
     "npc_sell_price": 5000,
@@ -34309,7 +34769,7 @@
   },
   {
     "material": "BOW",
-    "name": "⚚ Spider Queen's Stinger",
+    "name": "Spider Queen's Stinger",
     "category": "BOW",
     "tier": "EPIC",
     "stats": {
@@ -34593,7 +35053,7 @@
       {
         "type": "SKILL",
         "skill": "COMBAT",
-        "level": 24
+        "level": 22
       }
     ],
     "can_have_attributes": true,
@@ -34988,8 +35448,7 @@
     "name": "Master Skull - Tier 1",
     "category": "ACCESSORY",
     "dungeon_item": true,
-    "id": "MASTER_SKULL_TIER_1",
-    "tier": "COMMON"
+    "id": "MASTER_SKULL_TIER_1"
   },
   {
     "material": "GHAST_TEAR",
@@ -35167,7 +35626,7 @@
       {
         "type": "SKILL",
         "skill": "COMBAT",
-        "level": 24
+        "level": 22
       }
     ],
     "salvageable_from_recipe": true,
@@ -36167,6 +36626,7 @@
         }
       ]
     ],
+    "rarity_salvageable": false,
     "dungeon_item": true,
     "museum": true,
     "id": "GOLD_BONZO_HEAD"
@@ -36443,7 +36903,7 @@
       {
         "type": "SKILL",
         "skill": "COMBAT",
-        "level": 24
+        "level": 22
       }
     ],
     "rarity_salvageable": true,
@@ -36904,7 +37364,7 @@
   {
     "material": "SKULL_ITEM",
     "durability": 3,
-    "name": "Light Green Sheep Skin",
+    "name": "Light GreenSheep",
     "category": "COSMETIC",
     "tier": "UNCOMMON",
     "unstackable": true,
@@ -36920,7 +37380,7 @@
   {
     "material": "LEATHER_LEGGINGS",
     "color": "0,0,0",
-    "name": "⚚ Shadow Assassin Leggings",
+    "name": "Shadow Assassin Leggings",
     "category": "LEGGINGS",
     "tier": "LEGENDARY",
     "stats": {
@@ -37029,7 +37489,7 @@
   {
     "material": "SKULL_ITEM",
     "durability": 3,
-    "name": "Light Gray Sheep Skin",
+    "name": "Light GraySheep",
     "category": "COSMETIC",
     "tier": "UNCOMMON",
     "unstackable": true,
@@ -37046,7 +37506,7 @@
   {
     "material": "SKULL_ITEM",
     "durability": 3,
-    "name": "Void Conqueror Enderman Skin",
+    "name": "Void ConquerorEnderman",
     "category": "COSMETIC",
     "tier": "EPIC",
     "unstackable": true,
@@ -37216,7 +37676,7 @@
       {
         "type": "SKILL",
         "skill": "COMBAT",
-        "level": 24
+        "level": 22
       }
     ],
     "stats": {
@@ -37617,7 +38077,7 @@
       {
         "type": "SKILL",
         "skill": "COMBAT",
-        "level": 24
+        "level": 22
       }
     ],
     "stats": {
@@ -37951,7 +38411,7 @@
       {
         "type": "SKILL",
         "skill": "COMBAT",
-        "level": 24
+        "level": 22
       }
     ],
     "stats": {
@@ -38310,7 +38770,7 @@
       {
         "type": "SKILL",
         "skill": "COMBAT",
-        "level": 24
+        "level": 22
       }
     ],
     "stats": {
@@ -38327,7 +38787,7 @@
   {
     "material": "SKULL_ITEM",
     "durability": 3,
-    "name": "Pastel Ender Dragon Skin",
+    "name": "PastelEnder Dragon",
     "category": "COSMETIC",
     "tier": "LEGENDARY",
     "unstackable": true,
@@ -39332,7 +39792,7 @@
   {
     "material": "LEATHER_BOOTS",
     "color": "0,0,0",
-    "name": "⚚ Shadow Assassin Boots",
+    "name": "Shadow Assassin Boots",
     "category": "BOOTS",
     "tier": "LEGENDARY",
     "stats": {
@@ -39584,7 +40044,7 @@
   {
     "material": "SKULL_ITEM",
     "durability": 3,
-    "name": "Light Blue Sheep Skin",
+    "name": "Light BlueSheep",
     "category": "COSMETIC",
     "tier": "UNCOMMON",
     "unstackable": true,
@@ -39613,7 +40073,7 @@
   {
     "material": "SKULL_ITEM",
     "durability": 3,
-    "name": "Green Elephant Skin",
+    "name": "GreenElephant",
     "category": "COSMETIC",
     "tier": "RARE",
     "unstackable": true,
@@ -39679,7 +40139,7 @@
       {
         "type": "SKILL",
         "skill": "COMBAT",
-        "level": 24
+        "level": 22
       }
     ],
     "stats": {
@@ -40476,7 +40936,7 @@
   {
     "material": "SKULL_ITEM",
     "durability": 3,
-    "name": "Solved Rubix Prism",
+    "name": "§bSolved Rubix Prism",
     "description": "%%gray%%%%italic%%It took hard work and patience, but that's what love is all about!",
     "tier": "EPIC",
     "soulbound": "COOP",
@@ -40647,7 +41107,7 @@
   {
     "material": "SKULL_ITEM",
     "durability": 3,
-    "name": "Embarrassed Rock Skin",
+    "name": "EmbarrassedRock",
     "category": "COSMETIC",
     "tier": "RARE",
     "unstackable": true,
@@ -40943,7 +41403,7 @@
       {
         "type": "SKILL",
         "skill": "COMBAT",
-        "level": 24
+        "level": 22
       }
     ],
     "stats": {
@@ -41392,7 +41852,7 @@
   {
     "material": "SKULL_ITEM",
     "durability": 3,
-    "name": "Aquamarine Rabbit Skin",
+    "name": "AquamarineRabbit",
     "category": "COSMETIC",
     "tier": "RARE",
     "unstackable": true,
@@ -41558,8 +42018,7 @@
     "glowing": true,
     "category": "ACCESSORY",
     "npc_sell_price": 85,
-    "id": "COMPASS_TALISMAN",
-    "tier": "COMMON"
+    "id": "COMPASS_TALISMAN"
   },
   {
     "material": "BOW",
@@ -42080,7 +42539,7 @@
       {
         "type": "SKILL",
         "skill": "COMBAT",
-        "level": 24
+        "level": 22
       }
     ],
     "stats": {
@@ -42336,7 +42795,7 @@
   {
     "material": "SKULL_ITEM",
     "durability": 3,
-    "name": "Blue Sheep Skin",
+    "name": "BlueSheep",
     "category": "COSMETIC",
     "tier": "UNCOMMON",
     "unstackable": true,
@@ -42346,7 +42805,7 @@
   {
     "material": "SKULL_ITEM",
     "durability": 3,
-    "name": "Onyx Black Cat Skin",
+    "name": "OnyxBlack Cat",
     "category": "COSMETIC",
     "tier": "EPIC",
     "unstackable": true,
@@ -42624,6 +43083,7 @@
         }
       ]
     ],
+    "rarity_salvageable": false,
     "dungeon_item": true,
     "museum": true,
     "id": "GOLD_SADAN_HEAD"
@@ -42680,7 +43140,7 @@
       {
         "type": "SKILL",
         "skill": "COMBAT",
-        "level": 24
+        "level": 22
       }
     ],
     "stats": {
@@ -42719,7 +43179,7 @@
   {
     "material": "SKULL_ITEM",
     "durability": 3,
-    "name": "Black Sheep Skin",
+    "name": "BlackSheep",
     "category": "COSMETIC",
     "tier": "UNCOMMON",
     "unstackable": true,
@@ -42741,7 +43201,7 @@
       {
         "type": "SKILL",
         "skill": "COMBAT",
-        "level": 24
+        "level": 22
       }
     ],
     "npc_sell_price": 55000,
@@ -43065,8 +43525,7 @@
     "name": "Village Affinity Talisman",
     "category": "ACCESSORY",
     "npc_sell_price": 200,
-    "id": "VILLAGE_TALISMAN",
-    "tier": "COMMON"
+    "id": "VILLAGE_TALISMAN"
   },
   {
     "material": "LOG",
@@ -43144,7 +43603,7 @@
       {
         "type": "SKILL",
         "skill": "COMBAT",
-        "level": 24
+        "level": 22
       }
     ],
     "tier": "EPIC",
@@ -43901,7 +44360,7 @@
   {
     "material": "SKULL_ITEM",
     "durability": 3,
-    "name": "Yellow Sheep Skin",
+    "name": "YellowSheep",
     "category": "COSMETIC",
     "tier": "UNCOMMON",
     "unstackable": true,
@@ -44593,8 +45052,7 @@
     "name": "Mine Affinity Talisman",
     "category": "ACCESSORY",
     "npc_sell_price": 200,
-    "id": "MINE_TALISMAN",
-    "tier": "COMMON"
+    "id": "MINE_TALISMAN"
   },
   {
     "material": "WOOL",
@@ -44738,7 +45196,7 @@
   {
     "material": "SKULL_ITEM",
     "durability": 3,
-    "name": "Ivory Black Cat Skin",
+    "name": "IvoryBlack Cat",
     "category": "COSMETIC",
     "tier": "EPIC",
     "unstackable": true,
@@ -44858,7 +45316,7 @@
       {
         "type": "SKILL",
         "skill": "COMBAT",
-        "level": 24
+        "level": 22
       }
     ],
     "stats": {
@@ -45047,8 +45505,7 @@
     "name": "Wolf Talisman",
     "category": "ACCESSORY",
     "npc_sell_price": 50,
-    "id": "WOLF_TALISMAN",
-    "tier": "COMMON"
+    "id": "WOLF_TALISMAN"
   },
   {
     "material": "IRON_HOE",
@@ -45065,8 +45522,7 @@
     "name": "Dante Talisman",
     "category": "ACCESSORY",
     "museum": true,
-    "id": "DANTE_TALISMAN",
-    "tier": "COMMON"
+    "id": "DANTE_TALISMAN"
   },
   {
     "material": "SKULL_ITEM",
@@ -45907,6 +46363,7 @@
         }
       ]
     ],
+    "rarity_salvageable": false,
     "dungeon_item": true,
     "museum": true,
     "id": "DIAMOND_NECRON_HEAD"
@@ -46276,8 +46733,7 @@
     "category": "ACCESSORY",
     "museum": true,
     "description": "Found in a hidden warehouse. Not very useful but still pretty nice to wear.",
-    "id": "DANTE_RING",
-    "tier": "COMMON"
+    "id": "DANTE_RING"
   },
   {
     "material": "SKULL_ITEM",
@@ -46419,7 +46875,7 @@
       {
         "type": "SKILL",
         "skill": "COMBAT",
-        "level": 24
+        "level": 22
       }
     ],
     "can_have_attributes": true,
@@ -47252,7 +47708,7 @@
     "material": "SKULL_ITEM",
     "durability": 3,
     "name": "Tasty Cheese",
-    "tier": "RARE",
+    "tier": "UNCOMMON",
     "npc_sell_price": 500,
     "id": "CHEESE_FUEL"
   },
@@ -47686,6 +48142,7 @@
         }
       ]
     ],
+    "rarity_salvageable": false,
     "dungeon_item": true,
     "museum": true,
     "id": "DIAMOND_BONZO_HEAD"
@@ -47842,7 +48299,7 @@
       {
         "type": "SKILL",
         "skill": "COMBAT",
-        "level": 24
+        "level": 22
       }
     ],
     "npc_sell_price": 1750,
@@ -48118,7 +48575,7 @@
   },
   {
     "material": "STONE_SWORD",
-    "name": "⚚ Adaptive Blade",
+    "name": "Adaptive Blade",
     "category": "SWORD",
     "tier": "EPIC",
     "stats": {
@@ -48258,7 +48715,7 @@
       {
         "type": "SKILL",
         "skill": "COMBAT",
-        "level": 24
+        "level": 22
       }
     ],
     "salvageable_from_recipe": true,
@@ -48466,7 +48923,7 @@
   {
     "material": "SKULL_ITEM",
     "durability": 3,
-    "name": "Gray Sheep Skin",
+    "name": "GraySheep",
     "category": "COSMETIC",
     "tier": "UNCOMMON",
     "unstackable": true,
@@ -48475,7 +48932,7 @@
   },
   {
     "material": "BOW",
-    "name": "⚚ Venom's Touch",
+    "name": "Venom's Touch",
     "category": "BOW",
     "tier": "EPIC",
     "stats": {
@@ -48692,8 +49149,7 @@
       "WALK_SPEED": 1
     },
     "museum": true,
-    "id": "POTATO_TALISMAN",
-    "tier": "COMMON"
+    "id": "POTATO_TALISMAN"
   },
   {
     "material": "POTION",
@@ -48727,7 +49183,7 @@
       {
         "type": "SKILL",
         "skill": "COMBAT",
-        "level": 24
+        "level": 22
       }
     ],
     "ability_damage_scaling": 0.3,
@@ -49045,7 +49501,7 @@
       {
         "type": "SKILL",
         "skill": "COMBAT",
-        "level": 24
+        "level": 22
       }
     ],
     "stats": {
@@ -49295,7 +49751,7 @@
   {
     "material": "SKULL_ITEM",
     "durability": 3,
-    "name": "Baby Chick Chicken Skin",
+    "name": "Baby ChickChicken",
     "category": "COSMETIC",
     "tier": "EPIC",
     "unstackable": true,
@@ -49384,7 +49840,7 @@
   {
     "material": "SKULL_ITEM",
     "durability": 3,
-    "name": "⚚ Shadow Assassin Helmet",
+    "name": "Shadow Assassin Helmet",
     "category": "HELMET",
     "tier": "LEGENDARY",
     "stats": {
@@ -49743,7 +50199,7 @@
   {
     "material": "SKULL_ITEM",
     "durability": 3,
-    "name": "Red Elephant Skin",
+    "name": "RedElephant",
     "category": "COSMETIC",
     "tier": "RARE",
     "unstackable": true,
@@ -49779,7 +50235,7 @@
   },
   {
     "material": "POTION",
-    "name": "Bottle of Jyrre",
+    "name": "§cBottle of Jyrre",
     "npc_sell_price": 100,
     "id": "BOTTLE_OF_JYRRE"
   },
@@ -50514,7 +50970,7 @@
   {
     "material": "SKULL_ITEM",
     "durability": 3,
-    "name": "Pink Elephant Skin",
+    "name": "PinkElephant",
     "category": "COSMETIC",
     "tier": "RARE",
     "unstackable": true,
@@ -50594,8 +51050,7 @@
     "stats": {
       "WALK_SPEED": 1
     },
-    "id": "SPEED_TALISMAN",
-    "tier": "COMMON"
+    "id": "SPEED_TALISMAN"
   },
   {
     "material": "SKULL_ITEM",
@@ -50608,7 +51063,7 @@
       {
         "type": "SKILL",
         "skill": "COMBAT",
-        "level": 24
+        "level": 22
       }
     ],
     "stats": {
@@ -50957,7 +51412,7 @@
       {
         "type": "SKILL",
         "skill": "COMBAT",
-        "level": 24
+        "level": 22
       }
     ],
     "stats": {
@@ -51256,6 +51711,7 @@
         }
       ]
     ],
+    "rarity_salvageable": false,
     "dungeon_item": true,
     "museum": true,
     "id": "GOLD_SCARF_HEAD"
@@ -51519,8 +51975,7 @@
     "name": "Scavenger Talisman",
     "category": "ACCESSORY",
     "npc_sell_price": 200,
-    "id": "SCAVENGER_TALISMAN",
-    "tier": "COMMON"
+    "id": "SCAVENGER_TALISMAN"
   },
   {
     "material": "FISHING_ROD",
@@ -51652,7 +52107,7 @@
       {
         "type": "SKILL",
         "skill": "COMBAT",
-        "level": 24
+        "level": 22
       }
     ],
     "stats": {
@@ -51918,6 +52373,7 @@
         }
       ]
     ],
+    "rarity_salvageable": false,
     "dungeon_item": true,
     "museum": true,
     "id": "DIAMOND_LIVID_HEAD"
@@ -51938,6 +52394,14 @@
     "id": "PET_ITEM_FORAGING_SKILL_BOOST_COMMON"
   },
   {
+    "material": "SKULL_ITEM",
+    "durability": 3,
+    "name": "Intimidation Relic",
+    "category": "ACCESSORY",
+    "tier": "EPIC",
+    "id": "INTIMIDATION_RELIC"
+  },
+  {
     "material": "RAW_FISH",
     "name": "Fishing Exp Boost",
     "glowing": true,
@@ -51954,8 +52418,7 @@
     "stats": {
       "vitality": 5
     },
-    "id": "HEALING_TALISMAN",
-    "tier": "COMMON"
+    "id": "HEALING_TALISMAN"
   },
   {
     "material": "SKULL_ITEM",
@@ -52036,7 +52499,7 @@
   {
     "material": "SKULL_ITEM",
     "durability": 3,
-    "name": "Purple Sheep Skin",
+    "name": "PurpleSheep",
     "category": "COSMETIC",
     "tier": "UNCOMMON",
     "unstackable": true,
@@ -52431,7 +52894,7 @@
   {
     "material": "SKULL_ITEM",
     "durability": 3,
-    "name": "Neon Red Sheep Skin",
+    "name": "Neon RedSheep",
     "category": "COSMETIC",
     "tier": "RARE",
     "unstackable": true,
@@ -52510,6 +52973,7 @@
     "durability": 3,
     "name": "Prehistoric Egg",
     "unstackable": true,
+    "npc_sell_price": 1000,
     "id": "PREHISTORIC_EGG"
   },
   {
@@ -52750,7 +53214,7 @@
       {
         "type": "SKILL",
         "skill": "COMBAT",
-        "level": 24
+        "level": 22
       }
     ],
     "stats": {
@@ -53043,6 +53507,7 @@
         }
       ]
     ],
+    "rarity_salvageable": false,
     "dungeon_item": true,
     "museum": true,
     "id": "DIAMOND_SCARF_HEAD"
@@ -53061,7 +53526,7 @@
       {
         "type": "SKILL",
         "skill": "COMBAT",
-        "level": 24
+        "level": 22
       }
     ],
     "npc_sell_price": 4000,
@@ -53237,7 +53702,7 @@
   {
     "material": "SKULL_ITEM",
     "durability": 3,
-    "name": "⚚ Bonzo's Mask",
+    "name": "Bonzo's Mask",
     "category": "HELMET",
     "tier": "RARE",
     "stats": {
@@ -53755,8 +54220,7 @@
     "name": "Potion Affinity Talisman",
     "category": "ACCESSORY",
     "npc_sell_price": 192,
-    "id": "POTION_AFFINITY_TALISMAN",
-    "tier": "COMMON"
+    "id": "POTION_AFFINITY_TALISMAN"
   },
   {
     "material": "BLAZE_ROD",
@@ -54026,7 +54490,7 @@
   {
     "material": "SKULL_ITEM",
     "durability": 3,
-    "name": "Bullhead Megalodon Skin",
+    "name": "BullheadMegalodon",
     "category": "COSMETIC",
     "tier": "RARE",
     "unstackable": true,
@@ -54186,7 +54650,7 @@
       {
         "type": "SKILL",
         "skill": "COMBAT",
-        "level": 24
+        "level": 22
       }
     ],
     "unstackable": true,
@@ -54279,7 +54743,7 @@
   {
     "material": "SKULL_ITEM",
     "durability": 3,
-    "name": "Gorilla Monkey Skin",
+    "name": "GorillaMonkey",
     "category": "COSMETIC",
     "tier": "MYTHIC",
     "unstackable": true,
@@ -54598,8 +55062,7 @@
     "name": "Master Skull - Tier 2",
     "category": "ACCESSORY",
     "dungeon_item": true,
-    "id": "MASTER_SKULL_TIER_2",
-    "tier": "COMMON"
+    "id": "MASTER_SKULL_TIER_2"
   },
   {
     "material": "SKULL_ITEM",
@@ -54744,8 +55207,7 @@
     "name": "Intimidation Talisman",
     "category": "ACCESSORY",
     "npc_sell_price": 200,
-    "id": "INTIMIDATION_TALISMAN",
-    "tier": "COMMON"
+    "id": "INTIMIDATION_TALISMAN"
   },
   {
     "material": "JUNGLE_FENCE",
@@ -54827,7 +55289,7 @@
   {
     "material": "SKULL_ITEM",
     "durability": 3,
-    "name": "Neon Blue Ender Dragon Skin",
+    "name": "Neon BlueEnder Dragon",
     "category": "COSMETIC",
     "tier": "LEGENDARY",
     "unstackable": true,
@@ -55144,7 +55606,7 @@
   },
   {
     "material": "BLAZE_ROD",
-    "name": "⚚ Bonzo's Staff",
+    "name": "Bonzo's Staff",
     "category": "SWORD",
     "tier": "RARE",
     "stats": {
@@ -55249,7 +55711,7 @@
   {
     "material": "SKULL_ITEM",
     "durability": 3,
-    "name": "Brown Sheep Skin",
+    "name": "BrownSheep",
     "category": "COSMETIC",
     "tier": "UNCOMMON",
     "unstackable": true,
@@ -55829,7 +56291,7 @@
   {
     "material": "SKULL_ITEM",
     "durability": 3,
-    "name": "Pink Sheep Skin",
+    "name": "PinkSheep",
     "category": "COSMETIC",
     "tier": "UNCOMMON",
     "unstackable": true,
@@ -55956,7 +56418,7 @@
       {
         "type": "SKILL",
         "skill": "COMBAT",
-        "level": 24
+        "level": 22
       }
     ],
     "stats": {
@@ -56150,7 +56612,7 @@
       {
         "type": "SKILL",
         "skill": "COMBAT",
-        "level": 24
+        "level": 22
       }
     ],
     "rarity_salvageable": true,
@@ -56425,8 +56887,7 @@
     "durability": 3,
     "name": "Bat Person Talisman",
     "category": "ACCESSORY",
-    "id": "BAT_PERSON_TALISMAN",
-    "tier": "COMMON"
+    "id": "BAT_PERSON_TALISMAN"
   },
   {
     "material": "WOOD",
@@ -56575,7 +57036,7 @@
   {
     "material": "SKULL_ITEM",
     "durability": 3,
-    "name": "Neon Red Ender Dragon Skin",
+    "name": "Neon RedEnder Dragon",
     "category": "COSMETIC",
     "tier": "LEGENDARY",
     "unstackable": true,
@@ -56922,7 +57383,7 @@
   },
   {
     "material": "BOW",
-    "name": "⚚ Last Breath",
+    "name": "Last Breath",
     "category": "BOW",
     "tier": "LEGENDARY",
     "stats": {
@@ -57078,7 +57539,7 @@
       {
         "type": "SKILL",
         "skill": "COMBAT",
-        "level": 24
+        "level": 22
       }
     ],
     "stats": {
@@ -57218,7 +57679,7 @@
       {
         "type": "SKILL",
         "skill": "COMBAT",
-        "level": 24
+        "level": 22
       }
     ],
     "stats": {
@@ -57735,7 +58196,7 @@
       {
         "type": "SKILL",
         "skill": "COMBAT",
-        "level": 24
+        "level": 22
       }
     ],
     "stats": {
@@ -57887,6 +58348,12 @@
     "dungeon_item_conversion_cost": {
       "essence_type": "GOLD",
       "amount": 5
+    },
+    "item_specific": {
+      "speed_boost": 100,
+      "effect_duration_seconds": 30,
+      "cooldown_seconds": 5,
+      "mana_cost": 50
     },
     "upgrade_costs": [
       [
@@ -58184,6 +58651,7 @@
         }
       ]
     ],
+    "rarity_salvageable": false,
     "dungeon_item": true,
     "museum": true,
     "id": "DIAMOND_PROFESSOR_HEAD"
@@ -58254,7 +58722,7 @@
       {
         "type": "SKILL",
         "skill": "COMBAT",
-        "level": 24
+        "level": 22
       }
     ],
     "unstackable": true,
@@ -58277,7 +58745,7 @@
   {
     "material": "SKULL_ITEM",
     "durability": 3,
-    "name": "Fossilized Silverfish Skin",
+    "name": "FossilizedSilverfish",
     "category": "COSMETIC",
     "tier": "EPIC",
     "unstackable": true,
@@ -58322,7 +58790,7 @@
   {
     "material": "SKULL_ITEM",
     "durability": 3,
-    "name": "Flower Maelstrom",
+    "name": "§cFlower Maelstrom",
     "description": "%%gray%%%%italic%%A handcrafted bouquet made with love and some of the finest flowers around.",
     "tier": "EPIC",
     "soulbound": "COOP",
@@ -58500,7 +58968,7 @@
   {
     "material": "SKULL_ITEM",
     "durability": 3,
-    "name": "Watcher Guardian Skin",
+    "name": "WatcherGuardian",
     "category": "COSMETIC",
     "tier": "EPIC",
     "unstackable": true,
@@ -58643,8 +59111,7 @@
     "category": "ACCESSORY",
     "npc_sell_price": 2000,
     "soulbound": "COOP",
-    "id": "KING_TALISMAN",
-    "tier": "COMMON"
+    "id": "KING_TALISMAN"
   },
   {
     "material": "LEATHER_LEGGINGS",
@@ -58961,7 +59428,7 @@
   {
     "material": "SKULL_ITEM",
     "durability": 3,
-    "name": "Magenta Sheep Skin",
+    "name": "MagentaSheep",
     "category": "COSMETIC",
     "tier": "UNCOMMON",
     "unstackable": true,
@@ -59039,7 +59506,7 @@
   {
     "material": "SKULL_ITEM",
     "durability": 3,
-    "name": "Red Gift",
+    "name": "§cRed Gift",
     "tier": "RARE",
     "id": "RED_GIFT"
   },
@@ -59474,7 +59941,7 @@
   },
   {
     "material": "GOLD_NUGGET",
-    "name": "Yellow Rock",
+    "name": "§eYellow Rock",
     "description": "%%gray%%%%italic%%A little rough around the edges, but beauty can be found within.",
     "glowing": true,
     "id": "YELLOW_ROCK"
@@ -59601,8 +60068,7 @@
     "name": "Vaccine Talisman",
     "category": "ACCESSORY",
     "npc_sell_price": 22,
-    "id": "VACCINE_TALISMAN",
-    "tier": "COMMON"
+    "id": "VACCINE_TALISMAN"
   },
   {
     "material": "SKULL_ITEM",
@@ -59745,7 +60211,7 @@
   },
   {
     "material": "ENDER_STONE",
-    "name": "Chunk of the Moon",
+    "name": "§fChunk of the Moon",
     "description": "%%gray%%%%italic%%Where love is rife, the preconceived laws of physics mean nothing.",
     "tier": "RARE",
     "soulbound": "COOP",
@@ -60048,7 +60514,7 @@
       {
         "type": "SKILL",
         "skill": "COMBAT",
-        "level": 24
+        "level": 22
       }
     ],
     "unstackable": true,
@@ -60318,8 +60784,7 @@
     "name": "Farming Talisman",
     "category": "ACCESSORY",
     "npc_sell_price": 25,
-    "id": "FARMING_TALISMAN",
-    "tier": "COMMON"
+    "id": "FARMING_TALISMAN"
   },
   {
     "material": "LEATHER_HELMET",
@@ -60439,7 +60904,7 @@
   {
     "material": "SKULL_ITEM",
     "durability": 3,
-    "name": "Neon Yellow Sheep Skin",
+    "name": "Neon YellowSheep",
     "category": "COSMETIC",
     "tier": "RARE",
     "unstackable": true,
@@ -60451,8 +60916,7 @@
     "name": "Skeleton Talisman",
     "category": "ACCESSORY",
     "npc_sell_price": 50,
-    "id": "SKELETON_TALISMAN",
-    "tier": "COMMON"
+    "id": "SKELETON_TALISMAN"
   },
   {
     "material": "MONSTER_EGG",
@@ -60611,7 +61075,7 @@
       {
         "type": "SKILL",
         "skill": "COMBAT",
-        "level": 24
+        "level": 22
       }
     ],
     "stats": {
@@ -60751,7 +61215,7 @@
   {
     "material": "SKULL_ITEM",
     "durability": 3,
-    "name": "Pretty Rabbit Skin",
+    "name": "PrettyRabbit",
     "category": "COSMETIC",
     "tier": "EPIC",
     "unstackable": true,
@@ -61237,7 +61701,7 @@
   {
     "material": "SKULL_ITEM",
     "durability": 3,
-    "name": "Laughing Rock Skin",
+    "name": "LaughingRock",
     "category": "COSMETIC",
     "tier": "RARE",
     "unstackable": true,
@@ -61326,7 +61790,7 @@
   {
     "material": "SKULL_ITEM",
     "durability": 3,
-    "name": "Zombie Skeleton Horse Skin",
+    "name": "ZombieSkeleton Horse",
     "category": "COSMETIC",
     "tier": "EPIC",
     "unstackable": true,
@@ -61536,7 +62000,7 @@
   {
     "material": "SKULL_ITEM",
     "durability": 3,
-    "name": "Neon Purple Ender Dragon Skin",
+    "name": "Neon PurpleEnder Dragon",
     "category": "COSMETIC",
     "tier": "LEGENDARY",
     "unstackable": true,
@@ -61774,7 +62238,7 @@
   {
     "material": "SKULL_ITEM",
     "durability": 3,
-    "name": "Orange Elephant Skin",
+    "name": "OrangeElephant",
     "category": "COSMETIC",
     "tier": "RARE",
     "unstackable": true,
@@ -62523,7 +62987,7 @@
       {
         "type": "SKILL",
         "skill": "COMBAT",
-        "level": 24
+        "level": 22
       }
     ],
     "npc_sell_price": 10000,
@@ -62721,7 +63185,7 @@
   {
     "material": "SKULL_ITEM",
     "durability": 3,
-    "name": "Dark Wither Skeleton Skin",
+    "name": "DarkWither Skeleton",
     "category": "COSMETIC",
     "tier": "EPIC",
     "unstackable": true,
@@ -62754,8 +63218,7 @@
         "slot_type": "AMBER"
       }
     ],
-    "id": "POWER_TALISMAN",
-    "tier": "COMMON"
+    "id": "POWER_TALISMAN"
   },
   {
     "material": "FLINT_AND_STEEL",
@@ -63234,7 +63697,7 @@
       {
         "type": "SKILL",
         "skill": "COMBAT",
-        "level": 24
+        "level": 22
       }
     ],
     "can_have_attributes": true,
@@ -63583,7 +64046,7 @@
   {
     "material": "SKULL_ITEM",
     "durability": 3,
-    "name": "Aqua Sheep Skin",
+    "name": "AquaSheep",
     "category": "COSMETIC",
     "tier": "UNCOMMON",
     "unstackable": true,
@@ -63874,8 +64337,7 @@
     "name": "Zombie Talisman",
     "category": "ACCESSORY",
     "npc_sell_price": 50,
-    "id": "ZOMBIE_TALISMAN",
-    "tier": "COMMON"
+    "id": "ZOMBIE_TALISMAN"
   },
   {
     "material": "SKULL_ITEM",
@@ -64069,6 +64531,7 @@
         }
       ]
     ],
+    "rarity_salvageable": false,
     "dungeon_item": true,
     "museum": true,
     "id": "GOLD_LIVID_HEAD"
@@ -64151,7 +64614,7 @@
       {
         "type": "SKILL",
         "skill": "COMBAT",
-        "level": 24
+        "level": 22
       }
     ],
     "stats": {
@@ -64444,7 +64907,7 @@
   {
     "material": "SKULL_ITEM",
     "durability": 3,
-    "name": "Orca Blue Whale Skin",
+    "name": "OrcaBlue Whale",
     "category": "COSMETIC",
     "tier": "EPIC",
     "unstackable": true,
@@ -64479,7 +64942,7 @@
       {
         "type": "SKILL",
         "skill": "COMBAT",
-        "level": 24
+        "level": 22
       }
     ],
     "can_have_attributes": true,
@@ -64793,7 +65256,7 @@
   },
   {
     "material": "COOKIE",
-    "name": "Booster Cookie (Untradable)",
+    "name": "Booster Cookie §8(Untradable)",
     "glowing": true,
     "tier": "LEGENDARY",
     "unstackable": true,
@@ -64934,7 +65397,7 @@
   },
   {
     "material": "EMERALD_BLOCK",
-    "name": "Fake Emerald Altar",
+    "name": "§aFake Emerald Altar",
     "description": "%%gray%%%%italic%%Can't bring the girl to the altar? Bring the altar to the girl!",
     "tier": "UNCOMMON",
     "soulbound": "COOP",
@@ -64974,7 +65437,7 @@
   },
   {
     "material": "STRING",
-    "name": "Melody's Hair",
+    "name": "§dMelody's Hair",
     "glowing": true,
     "category": "ACCESSORY",
     "tier": "EPIC",
@@ -65118,7 +65581,7 @@
   {
     "material": "SKULL_ITEM",
     "durability": 3,
-    "name": "Snubfin Dolphin Skin",
+    "name": "SnubfinDolphin",
     "category": "COSMETIC",
     "tier": "RARE",
     "unstackable": true,
@@ -65775,7 +66238,7 @@
   {
     "material": "SKULL_ITEM",
     "durability": 3,
-    "name": "Purple Elephant Skin",
+    "name": "PurpleElephant",
     "category": "COSMETIC",
     "tier": "RARE",
     "unstackable": true,
@@ -66079,7 +66542,7 @@
   {
     "material": "LEATHER_CHESTPLATE",
     "color": "0,0,0",
-    "name": "⚚ Shadow Assassin Chestplate",
+    "name": "Shadow Assassin Chestplate",
     "category": "CHESTPLATE",
     "tier": "LEGENDARY",
     "stats": {
@@ -66350,8 +66813,7 @@
     "durability": 3,
     "name": "Blood God Crest",
     "category": "ACCESSORY",
-    "id": "BLOOD_GOD_CREST",
-    "tier": "COMMON"
+    "id": "BLOOD_GOD_CREST"
   },
   {
     "material": "INK_SACK",
@@ -66523,7 +66985,7 @@
       {
         "type": "SKILL",
         "skill": "COMBAT",
-        "level": 24
+        "level": 22
       }
     ],
     "stats": {
@@ -66994,7 +67456,7 @@
   {
     "material": "SKULL_ITEM",
     "durability": 3,
-    "name": "Baby Megalodon Skin",
+    "name": "BabyMegalodon",
     "category": "COSMETIC",
     "tier": "EPIC",
     "unstackable": true,
@@ -67342,7 +67804,7 @@
       {
         "type": "SKILL",
         "skill": "COMBAT",
-        "level": 24
+        "level": 22
       }
     ],
     "salvageable_from_recipe": true,
@@ -67550,7 +68012,7 @@
   {
     "material": "SKULL_ITEM",
     "durability": 3,
-    "name": "Smiling Rock Skin",
+    "name": "SmilingRock",
     "category": "COSMETIC",
     "tier": "RARE",
     "unstackable": true,
@@ -67956,6 +68418,14 @@
     "name": "Inferno Fuel Block",
     "tier": "RARE",
     "id": "INFERNO_FUEL_BLOCK"
+  },
+  {
+    "material": "SKULL_ITEM",
+    "durability": 3,
+    "name": "Very Crude Gabagool",
+    "tier": "RARE",
+    "npc_sell_price": 1,
+    "id": "VERY_CRUDE_GABAGOOL"
   },
   {
     "material": "SKULL_ITEM",
@@ -68436,6 +68906,13 @@
   {
     "material": "SKULL_ITEM",
     "durability": 3,
+    "name": "Capsaicin Eyedrops",
+    "tier": "RARE",
+    "id": "CAPSAICIN_EYEDROPS_NO_CHARGES"
+  },
+  {
+    "material": "SKULL_ITEM",
+    "durability": 3,
     "name": "Entropy Suppressor",
     "category": "REFORGE_STONE",
     "tier": "RARE",
@@ -68896,8 +69373,7 @@
         "level": 5
       }
     ],
-    "id": "HANDY_BLOOD_CHALICE",
-    "tier": "COMMON"
+    "id": "HANDY_BLOOD_CHALICE"
   },
   {
     "material": "SKULL_ITEM",
@@ -68911,8 +69387,7 @@
         "level": 4
       }
     ],
-    "id": "POCKET_ESPRESSO_MACHINE",
-    "tier": "COMMON"
+    "id": "POCKET_ESPRESSO_MACHINE"
   },
   {
     "material": "SKULL_ITEM",
@@ -69149,7 +69624,7 @@
   },
   {
     "material": "GOLD_HOE",
-    "name": "Sinseeker Scythe",
+    "name": "§4Sin§5seeker Scythe",
     "category": "SWORD",
     "tier": "EPIC",
     "stats": {
@@ -72090,6 +72565,7 @@
         "amount": 5
       }
     ],
+    "rarity_salvageable": true,
     "id": "ICE_ROD"
   },
   {
@@ -72711,6 +73187,86 @@
     "id": "TROPICAL_BIRD_2_PERSONALITY"
   },
   {
+    "material": "STORAGE_MINECART",
+    "name": "InfiniVacuum™",
+    "tier": "EPIC",
+    "category": "VACUUM",
+    "stats": {
+      "damage": 200
+    },
+    "requirements": [
+      {
+        "type": "GARDEN_LEVEL",
+        "level": 5
+      }
+    ],
+    "id": "INFINI_VACUUM"
+  },
+  {
+    "material": "EXPLOSIVE_MINECART",
+    "name": "InfiniVacuum™ Hooverius",
+    "tier": "LEGENDARY",
+    "category": "VACUUM",
+    "stats": {
+      "damage": 250
+    },
+    "requirements": [
+      {
+        "type": "GARDEN_LEVEL",
+        "level": 5
+      }
+    ],
+    "id": "INFINI_VACUUM_HOOVERIUS"
+  },
+  {
+    "material": "MINECART",
+    "name": "SkyMart Vacuum",
+    "tier": "COMMON",
+    "category": "VACUUM",
+    "stats": {
+      "damage": 100
+    },
+    "requirements": [
+      {
+        "type": "GARDEN_LEVEL",
+        "level": 5
+      }
+    ],
+    "id": "SKYMART_VACUUM"
+  },
+  {
+    "material": "POWERED_MINECART",
+    "name": "SkyMart Hyper Vacuum",
+    "tier": "RARE",
+    "category": "VACUUM",
+    "stats": {
+      "damage": 150
+    },
+    "requirements": [
+      {
+        "type": "GARDEN_LEVEL",
+        "level": 5
+      }
+    ],
+    "id": "SKYMART_HYPER_VACUUM"
+  },
+  {
+    "material": "HOPPER_MINECART",
+    "name": "SkyMart Turbo Vacuum",
+    "tier": "UNCOMMON",
+    "category": "VACUUM",
+    "stats": {
+      "damage": 120
+    },
+    "requirements": [
+      {
+        "type": "GARDEN_LEVEL",
+        "level": 5
+      }
+    ],
+    "id": "SKYMART_TURBO_VACUUM"
+  },
+  {
     "material": "SKULL_ITEM",
     "durability": 3,
     "name": "Overgrown Grass",
@@ -72722,11 +73278,29 @@
   {
     "material": "SKULL_ITEM",
     "durability": 3,
+    "name": "Beady Eyes",
+    "category": "REFORGE_STONE",
+    "tier": "EPIC",
+    "npc_sell_price": 1,
+    "id": "BEADY_EYES"
+  },
+  {
+    "material": "SKULL_ITEM",
+    "durability": 3,
     "name": "Large Walnut",
     "category": "REFORGE_STONE",
     "tier": "RARE",
     "npc_sell_price": 1,
     "id": "LARGE_WALNUT"
+  },
+  {
+    "material": "SKULL_ITEM",
+    "durability": 3,
+    "name": "Clipped Wings",
+    "category": "REFORGE_STONE",
+    "tier": "EPIC",
+    "npc_sell_price": 1,
+    "id": "CLIPPED_WINGS"
   },
   {
     "material": "SKULL_ITEM",
@@ -73361,6 +73935,14 @@
     "name": "Squash Ring",
     "tier": "UNCOMMON",
     "category": "ACCESSORY",
+    "stats": {
+      "wheat_fortune": 20,
+      "carrot_fortune": 20,
+      "potato_fortune": 20,
+      "melon_fortune": 20,
+      "pumpkin_fortune": 20,
+      "cocoa_beans_fortune": 20
+    },
     "id": "SQUASH_RING"
   },
   {
@@ -73369,6 +73951,11 @@
     "name": "Cropie Talisman",
     "tier": "COMMON",
     "category": "ACCESSORY",
+    "stats": {
+      "wheat_fortune": 10,
+      "carrot_fortune": 10,
+      "potato_fortune": 10
+    },
     "id": "CROPIE_TALISMAN"
   },
   {
@@ -73378,6 +73965,160 @@
     "tier": "COMMON",
     "npc_sell_price": 10,
     "id": "COPPER"
+  },
+  {
+    "material": "SKULL_ITEM",
+    "durability": 3,
+    "name": "Chirping Stereo",
+    "tier": "LEGENDARY",
+    "npc_sell_price": 500,
+    "description": "%%dark_gray%%%%italic%%While nobody is sure who came up with the genius design, everyone agrees that they are one of the true engineering greats.",
+    "id": "CHIRPING_STEREO"
+  },
+  {
+    "material": "SKULL_ITEM",
+    "durability": 3,
+    "name": "Wriggling Larva",
+    "tier": "EPIC",
+    "id": "WRIGGLING_LARVA"
+  },
+  {
+    "material": "RECORD_5",
+    "name": "Slow and Groovy Vinyl",
+    "tier": "UNCOMMON",
+    "npc_sell_price": 1000,
+    "id": "VINYL_SLOW_AND_GROOVY"
+  },
+  {
+    "material": "SKULL_ITEM",
+    "durability": 3,
+    "name": "Sprayonator",
+    "tier": "UNCOMMON",
+    "soulbound": "COOP",
+    "requirements": [
+      {
+        "type": "GARDEN_LEVEL",
+        "level": 5
+      }
+    ],
+    "id": "SPRAYONATOR"
+  },
+  {
+    "material": "WOOL",
+    "durability": 12,
+    "name": "Dung",
+    "tier": "UNCOMMON",
+    "npc_sell_price": 100,
+    "id": "DUNG"
+  },
+  {
+    "material": "RECORD_3",
+    "name": "Cicada Symphony Vinyl",
+    "tier": "UNCOMMON",
+    "npc_sell_price": 1000,
+    "id": "VINYL_CICADA_SYMPHONY"
+  },
+  {
+    "material": "RECORD_6",
+    "name": "Earthworm Ensemble Vinyl",
+    "tier": "UNCOMMON",
+    "npc_sell_price": 1000,
+    "id": "VINYL_EARTHWORM_ENSEMBLE"
+  },
+  {
+    "material": "RECORD_8",
+    "name": "Pretty Fly Vinyl",
+    "tier": "UNCOMMON",
+    "npc_sell_price": 1000,
+    "id": "VINYL_PRETTY_FLY"
+  },
+  {
+    "material": "SKULL_ITEM",
+    "durability": 3,
+    "name": "Pest Repellent MAX",
+    "tier": "RARE",
+    "id": "PEST_REPELLENT_MAX"
+  },
+  {
+    "material": "SKULL_ITEM",
+    "durability": 3,
+    "name": "Honey Jar",
+    "tier": "UNCOMMON",
+    "npc_sell_price": 100,
+    "id": "HONEY_JAR"
+  },
+  {
+    "material": "SKULL_ITEM",
+    "durability": 3,
+    "name": "Atmospheric Filter",
+    "tier": "RARE",
+    "category": "ACCESSORY",
+    "npc_sell_price": 1000,
+    "id": "ATMOSPHERIC_FILTER"
+  },
+  {
+    "material": "RECORD_9",
+    "name": "DynaMITES Vinyl",
+    "tier": "UNCOMMON",
+    "npc_sell_price": 1000,
+    "id": "VINYL_DYNAMITES"
+  },
+  {
+    "material": "SKULL_ITEM",
+    "durability": 3,
+    "name": "Pest Repellent",
+    "tier": "UNCOMMON",
+    "id": "PEST_REPELLENT"
+  },
+  {
+    "material": "RECORD_12",
+    "name": "Wings of Harmony Vinyl",
+    "tier": "UNCOMMON",
+    "npc_sell_price": 1000,
+    "id": "VINYL_WINGS_OF_HARMONY"
+  },
+  {
+    "material": "RECORD_4",
+    "name": "Cricket Choir Vinyl",
+    "tier": "UNCOMMON",
+    "npc_sell_price": 1000,
+    "id": "VINYL_CRICKET_CHOIR"
+  },
+  {
+    "material": "LEAVES",
+    "durability": 3,
+    "name": "Plant Matter",
+    "tier": "UNCOMMON",
+    "npc_sell_price": 100,
+    "id": "PLANT_MATTER"
+  },
+  {
+    "material": "BOOK",
+    "name": "Bookworm's Favorite Book",
+    "tier": "RARE",
+    "npc_sell_price": 250,
+    "id": "BOOKWORM_BOOK"
+  },
+  {
+    "material": "RECORD_10",
+    "name": "Buzzin' Beats Vinyl",
+    "tier": "UNCOMMON",
+    "npc_sell_price": 1000,
+    "id": "VINYL_BUZZIN_BEATS"
+  },
+  {
+    "material": "GOLD_RECORD",
+    "name": "Rodent Revolution Vinyl",
+    "tier": "UNCOMMON",
+    "npc_sell_price": 1000,
+    "id": "VINYL_RODENT_REVOLUTION"
+  },
+  {
+    "material": "RECORD_7",
+    "name": "Not Just a Pest Vinyl",
+    "tier": "UNCOMMON",
+    "npc_sell_price": 1000,
+    "id": "VINYL_BEETLE"
   },
   {
     "material": "SKULL_ITEM",
@@ -73439,6 +74180,109 @@
     "id": "HOE_OF_GREATEST_TILLING"
   },
   {
+    "material": "RED_MUSHROOM",
+    "name": "Mushroom Barn Skin",
+    "tier": "LEGENDARY",
+    "category": "COSMETIC",
+    "id": "MUSHROOM_BARN_SKIN"
+  },
+  {
+    "material": "COBBLESTONE",
+    "name": "Castle Barn Skin",
+    "tier": "LEGENDARY",
+    "category": "COSMETIC",
+    "id": "CASTLE_BARN_SKIN"
+  },
+  {
+    "material": "WOOD",
+    "name": "Pinwheel House Barn Skin",
+    "tier": "LEGENDARY",
+    "category": "COSMETIC",
+    "id": "PINWHEEL_HOUSE_BARN_SKIN"
+  },
+  {
+    "material": "LOG",
+    "name": "Tavern Barn Skin",
+    "tier": "UNCOMMON",
+    "category": "COSMETIC",
+    "id": "TAVERN_BARN_SKIN"
+  },
+  {
+    "material": "LEAVES",
+    "durability": 2,
+    "name": "Autumn Hut Barn Skin",
+    "tier": "UNCOMMON",
+    "category": "COSMETIC",
+    "id": "AUTUMN_HUT_BARN_SKIN"
+  },
+  {
+    "material": "WOOL",
+    "durability": 14,
+    "name": "Cube Barn Skin",
+    "tier": "UNCOMMON",
+    "category": "COSMETIC",
+    "id": "CUBE_BARN_SKIN"
+  },
+  {
+    "material": "FENCE",
+    "name": "Trading Post Barn Skin",
+    "tier": "UNCOMMON",
+    "category": "COSMETIC",
+    "id": "TRADING_POST_BARN_SKIN"
+  },
+  {
+    "material": "FEATHER",
+    "name": "Windmill Barn Skin",
+    "tier": "UNCOMMON",
+    "category": "COSMETIC",
+    "id": "WINDMILL_BARN_SKIN"
+  },
+  {
+    "material": "SKULL_ITEM",
+    "durability": 3,
+    "name": "Jerry Barn Skin",
+    "tier": "LEGENDARY",
+    "category": "COSMETIC",
+    "id": "JERRY_BARN_SKIN"
+  },
+  {
+    "material": "STICK",
+    "name": "Bamboo Barn Skin",
+    "tier": "EPIC",
+    "category": "COSMETIC",
+    "id": "BAMBOO_BARN_SKIN"
+  },
+  {
+    "material": "STAINED_CLAY",
+    "durability": 4,
+    "name": "Hive Barn Skin",
+    "tier": "LEGENDARY",
+    "category": "COSMETIC",
+    "id": "HIVE_BARN_SKIN"
+  },
+  {
+    "material": "MOSSY_COBBLESTONE",
+    "name": "Count's Manor Barn Skin",
+    "tier": "EPIC",
+    "category": "COSMETIC",
+    "id": "COUNTS_MANOR_BARN_SKIN"
+  },
+  {
+    "material": "HAY_BLOCK",
+    "name": "Cozy Cottage Barn Skin",
+    "tier": "UNCOMMON",
+    "category": "COSMETIC",
+    "id": "COZY_COTTAGE_BARN_SKIN"
+  },
+  {
+    "material": "SKULL_ITEM",
+    "durability": 3,
+    "name": "Frog Barn Skin",
+    "tier": "LEGENDARY",
+    "category": "COSMETIC",
+    "id": "FROG_BARN_SKIN"
+  },
+  {
     "material": "BLAZE_ROD",
     "name": "Builder's Ruler",
     "glowing": true,
@@ -73475,6 +74319,9 @@
     "name": "Fermento Artifact",
     "tier": "RARE",
     "category": "ACCESSORY",
+    "stats": {
+      "farming_fortune": 30
+    },
     "id": "FERMENTO_ARTIFACT"
   },
   {
@@ -76369,7 +77216,7 @@
     "origin": "RIFT",
     "item_specific": {
       "permanent_health": 5,
-      "permanent_carrots_ff": 12
+      "permanent_crops_farming_fortune": 12
     },
     "id": "EXPORTABLE_CARROTS"
   },
@@ -76471,7 +77318,7 @@
   },
   {
     "material": "EGG",
-    "name": "Red Goblin Egg",
+    "name": "§cRed Goblin Egg",
     "tier": "RARE",
     "description": "%%gray%%%%italic%%What came first the goblin or the egg?",
     "id": "GOBLIN_EGG_RED"
@@ -76486,21 +77333,21 @@
   },
   {
     "material": "EGG",
-    "name": "Blue Goblin Egg",
+    "name": "§3Blue Goblin Egg",
     "tier": "RARE",
     "description": "%%gray%%%%italic%%What came first the goblin or the egg?",
     "id": "GOBLIN_EGG_BLUE"
   },
   {
     "material": "EGG",
-    "name": "Yellow Goblin Egg",
+    "name": "§eYellow Goblin Egg",
     "tier": "RARE",
     "description": "%%gray%%%%italic%%What came first the goblin or the egg?",
     "id": "GOBLIN_EGG_YELLOW"
   },
   {
     "material": "EGG",
-    "name": "Green Goblin Egg",
+    "name": "§aGreen Goblin Egg",
     "tier": "UNCOMMON",
     "description": "%%gray%%%%italic%%What came first the goblin or the egg?",
     "id": "GOBLIN_EGG_GREEN"
@@ -76981,91 +77828,6 @@
     "id": "END_STONE_BOW"
   },
   {
-    "material": "DIAMOND_SWORD",
-    "name": "Aspect of the Draconic",
-    "category": "SWORD",
-    "tier": "LEGENDARY",
-    "stats": {
-      "DAMAGE": 260,
-      "STRENGTH": 150,
-      "WEAPON_ABILITY_DAMAGE": 20000
-    },
-    "ability_damage_scaling": 0.1,
-    "npc_sell_price": 100000,
-    "dungeon_item_conversion_cost": {
-      "essence_type": "DRAGON",
-      "amount": 150
-    },
-    "upgrade_costs": [
-      [
-        {
-          "type": "ESSENCE",
-          "essence_type": "DRAGON",
-          "amount": 50
-        }
-      ],
-      [
-        {
-          "type": "ESSENCE",
-          "essence_type": "DRAGON",
-          "amount": 100
-        }
-      ],
-      [
-        {
-          "type": "ESSENCE",
-          "essence_type": "DRAGON",
-          "amount": 200
-        }
-      ],
-      [
-        {
-          "type": "ESSENCE",
-          "essence_type": "DRAGON",
-          "amount": 300
-        }
-      ],
-      [
-        {
-          "type": "ESSENCE",
-          "essence_type": "DRAGON",
-          "amount": 400
-        }
-      ]
-    ],
-    "requirements": [
-      {
-        "type": "SKILL",
-        "skill": "COMBAT",
-        "level": 24
-      }
-    ],
-    "catacombs_requirements": [
-      {
-        "type": "DUNGEON_SKILL",
-        "dungeon_type": "CATACOMBS",
-        "level": 24
-      }
-    ],
-    "gemstone_slots": [
-      {
-        "slot_type": "JASPER",
-        "costs": [
-          {
-            "type": "COINS",
-            "coins": 50000
-          },
-          {
-            "type": "ITEM",
-            "item_id": "FINE_JASPER_GEM",
-            "amount": 20
-          }
-        ]
-      }
-    ],
-    "id": "ASPECT_OF_THE_DRACONIC"
-  },
-  {
     "material": "BOW",
     "name": "Ender Bow",
     "category": "BOW",
@@ -77084,6 +77846,17 @@
     "npc_sell_price": 10000,
     "description": "%%dark_gray%%%%italic%%It's all that's left from a draconic sacrifice.",
     "id": "RITUAL_RESIDUE"
+  },
+  {
+    "material": "SKULL_ITEM",
+    "durability": 3,
+    "name": "%%green%%Ballista Fuel Cell",
+    "id": "ELLE_FUEL_CELL"
+  },
+  {
+    "material": "CHEST",
+    "name": "%%green%%Elle's Supplies",
+    "id": "ELLE_SUPPLIES"
   },
   {
     "material": "SKULL_ITEM",
@@ -77341,7 +78114,7 @@
   },
   {
     "material": "BOW",
-    "name": "⚚ Spirit Shortbow",
+    "name": "Spirit Shortbow",
     "category": "BOW",
     "tier": "LEGENDARY",
     "stats": {
@@ -77457,7 +78230,7 @@
   {
     "material": "SKULL_ITEM",
     "durability": 3,
-    "name": "⚚ Shadow Assassin Cloak",
+    "name": "Shadow Assassin Cloak",
     "category": "CLOAK",
     "tier": "LEGENDARY",
     "npc_sell_price": 0,
@@ -77591,7 +78364,7 @@
   {
     "material": "RED_ROSE",
     "durability": 2,
-    "name": "⚚ Spirit Sceptre",
+    "name": "Spirit Sceptre",
     "category": "SWORD",
     "tier": "LEGENDARY",
     "stats": {
@@ -77793,7 +78566,7 @@
   {
     "material": "SKULL_ITEM",
     "durability": 3,
-    "name": "⚚ Spirit Mask",
+    "name": "Spirit Mask",
     "category": "HELMET",
     "tier": "LEGENDARY",
     "stats": {
@@ -77861,7 +78634,7 @@
   },
   {
     "material": "IRON_SWORD",
-    "name": "⚚ Felthorn Reaper",
+    "name": "Felthorn Reaper",
     "category": "LONGSWORD",
     "tier": "LEGENDARY",
     "npc_sell_price": 0,
@@ -78060,7 +78833,7 @@
   {
     "material": "SKULL_ITEM",
     "durability": 3,
-    "name": "⚚ Adaptive Belt",
+    "name": "Adaptive Belt",
     "category": "BELT",
     "tier": "EPIC",
     "npc_sell_price": 0,
@@ -78119,7 +78892,7 @@
   {
     "material": "LEATHER_BOOTS",
     "color": "191,191,191",
-    "name": "⚚ Spirit Boots",
+    "name": "Spirit Boots",
     "category": "BOOTS",
     "tier": "LEGENDARY",
     "stats": {
@@ -78189,7 +78962,7 @@
   },
   {
     "material": "BONE",
-    "name": "⚚ Bonemerang",
+    "name": "Bonemerang",
     "glowing": true,
     "category": "BOW",
     "tier": "LEGENDARY",
@@ -78516,7 +79289,7 @@
       {
         "type": "SKILL",
         "skill": "COMBAT",
-        "level": 24
+        "level": 22
       }
     ],
     "can_have_attributes": true,
@@ -78747,7 +79520,7 @@
       {
         "type": "SKILL",
         "skill": "COMBAT",
-        "level": 24
+        "level": 22
       }
     ],
     "can_have_attributes": true,
@@ -78978,7 +79751,7 @@
       {
         "type": "SKILL",
         "skill": "COMBAT",
-        "level": 24
+        "level": 22
       }
     ],
     "can_have_attributes": true,
@@ -79209,7 +79982,7 @@
       {
         "type": "SKILL",
         "skill": "COMBAT",
-        "level": 24
+        "level": 22
       }
     ],
     "can_have_attributes": true,
@@ -79439,7 +80212,7 @@
       {
         "type": "SKILL",
         "skill": "COMBAT",
-        "level": 24
+        "level": 22
       }
     ],
     "can_have_attributes": true,
@@ -79624,7 +80397,7 @@
       {
         "type": "SKILL",
         "skill": "COMBAT",
-        "level": 24
+        "level": 22
       }
     ],
     "can_have_attributes": true,
@@ -79809,7 +80582,7 @@
       {
         "type": "SKILL",
         "skill": "COMBAT",
-        "level": 24
+        "level": 22
       }
     ],
     "can_have_attributes": true,
@@ -79994,7 +80767,7 @@
       {
         "type": "SKILL",
         "skill": "COMBAT",
-        "level": 24
+        "level": 22
       }
     ],
     "can_have_attributes": true,
@@ -80180,7 +80953,7 @@
       {
         "type": "SKILL",
         "skill": "COMBAT",
-        "level": 24
+        "level": 22
       }
     ],
     "can_have_attributes": true,
@@ -80366,7 +81139,7 @@
       {
         "type": "SKILL",
         "skill": "COMBAT",
-        "level": 24
+        "level": 22
       }
     ],
     "can_have_attributes": true,
@@ -80552,7 +81325,7 @@
       {
         "type": "SKILL",
         "skill": "COMBAT",
-        "level": 24
+        "level": 22
       }
     ],
     "can_have_attributes": true,
@@ -80738,7 +81511,7 @@
       {
         "type": "SKILL",
         "skill": "COMBAT",
-        "level": 24
+        "level": 22
       }
     ],
     "can_have_attributes": true,
@@ -80924,7 +81697,7 @@
       {
         "type": "SKILL",
         "skill": "COMBAT",
-        "level": 24
+        "level": 22
       }
     ],
     "can_have_attributes": true,
@@ -81110,7 +81883,7 @@
       {
         "type": "SKILL",
         "skill": "COMBAT",
-        "level": 24
+        "level": 22
       }
     ],
     "can_have_attributes": true,
@@ -81296,7 +82069,7 @@
       {
         "type": "SKILL",
         "skill": "COMBAT",
-        "level": 24
+        "level": 22
       }
     ],
     "can_have_attributes": true,
@@ -81482,7 +82255,7 @@
       {
         "type": "SKILL",
         "skill": "COMBAT",
-        "level": 24
+        "level": 22
       }
     ],
     "can_have_attributes": true,
@@ -81668,7 +82441,7 @@
       {
         "type": "SKILL",
         "skill": "COMBAT",
-        "level": 24
+        "level": 22
       }
     ],
     "can_have_attributes": true,
@@ -81854,7 +82627,7 @@
       {
         "type": "SKILL",
         "skill": "COMBAT",
-        "level": 24
+        "level": 22
       }
     ],
     "can_have_attributes": true,
@@ -82040,7 +82813,7 @@
       {
         "type": "SKILL",
         "skill": "COMBAT",
-        "level": 24
+        "level": 22
       }
     ],
     "can_have_attributes": true,
@@ -82226,7 +82999,7 @@
       {
         "type": "SKILL",
         "skill": "COMBAT",
-        "level": 24
+        "level": 22
       }
     ],
     "can_have_attributes": true,
@@ -82412,7 +83185,7 @@
       {
         "type": "SKILL",
         "skill": "COMBAT",
-        "level": 24
+        "level": 22
       }
     ],
     "can_have_attributes": true,
@@ -82643,7 +83416,7 @@
       {
         "type": "SKILL",
         "skill": "COMBAT",
-        "level": 24
+        "level": 22
       }
     ],
     "can_have_attributes": true,
@@ -82874,7 +83647,7 @@
       {
         "type": "SKILL",
         "skill": "COMBAT",
-        "level": 24
+        "level": 22
       }
     ],
     "can_have_attributes": true,
@@ -83105,7 +83878,7 @@
       {
         "type": "SKILL",
         "skill": "COMBAT",
-        "level": 24
+        "level": 22
       }
     ],
     "can_have_attributes": true,
@@ -83335,7 +84108,7 @@
       {
         "type": "SKILL",
         "skill": "COMBAT",
-        "level": 24
+        "level": 22
       }
     ],
     "can_have_attributes": true,
@@ -83520,7 +84293,7 @@
       {
         "type": "SKILL",
         "skill": "COMBAT",
-        "level": 24
+        "level": 22
       }
     ],
     "can_have_attributes": true,
@@ -83705,7 +84478,7 @@
       {
         "type": "SKILL",
         "skill": "COMBAT",
-        "level": 24
+        "level": 22
       }
     ],
     "can_have_attributes": true,
@@ -83890,7 +84663,7 @@
       {
         "type": "SKILL",
         "skill": "COMBAT",
-        "level": 24
+        "level": 22
       }
     ],
     "can_have_attributes": true,
@@ -84076,7 +84849,7 @@
       {
         "type": "SKILL",
         "skill": "COMBAT",
-        "level": 24
+        "level": 22
       }
     ],
     "can_have_attributes": true,
@@ -84262,7 +85035,7 @@
       {
         "type": "SKILL",
         "skill": "COMBAT",
-        "level": 24
+        "level": 22
       }
     ],
     "can_have_attributes": true,
@@ -84448,7 +85221,7 @@
       {
         "type": "SKILL",
         "skill": "COMBAT",
-        "level": 24
+        "level": 22
       }
     ],
     "can_have_attributes": true,
@@ -84634,7 +85407,7 @@
       {
         "type": "SKILL",
         "skill": "COMBAT",
-        "level": 24
+        "level": 22
       }
     ],
     "can_have_attributes": true,
@@ -84820,7 +85593,7 @@
       {
         "type": "SKILL",
         "skill": "COMBAT",
-        "level": 24
+        "level": 22
       }
     ],
     "can_have_attributes": true,
@@ -85006,7 +85779,7 @@
       {
         "type": "SKILL",
         "skill": "COMBAT",
-        "level": 24
+        "level": 22
       }
     ],
     "can_have_attributes": true,
@@ -85192,7 +85965,7 @@
       {
         "type": "SKILL",
         "skill": "COMBAT",
-        "level": 24
+        "level": 22
       }
     ],
     "can_have_attributes": true,
@@ -85378,7 +86151,7 @@
       {
         "type": "SKILL",
         "skill": "COMBAT",
-        "level": 24
+        "level": 22
       }
     ],
     "can_have_attributes": true,
@@ -85564,7 +86337,7 @@
       {
         "type": "SKILL",
         "skill": "COMBAT",
-        "level": 24
+        "level": 22
       }
     ],
     "can_have_attributes": true,
@@ -85750,7 +86523,7 @@
       {
         "type": "SKILL",
         "skill": "COMBAT",
-        "level": 24
+        "level": 22
       }
     ],
     "can_have_attributes": true,
@@ -85936,7 +86709,7 @@
       {
         "type": "SKILL",
         "skill": "COMBAT",
-        "level": 24
+        "level": 22
       }
     ],
     "can_have_attributes": true,
@@ -86122,7 +86895,7 @@
       {
         "type": "SKILL",
         "skill": "COMBAT",
-        "level": 24
+        "level": 22
       }
     ],
     "can_have_attributes": true,
@@ -86306,7 +87079,7 @@
       {
         "type": "SKILL",
         "skill": "COMBAT",
-        "level": 24
+        "level": 22
       }
     ],
     "can_have_attributes": true,
@@ -86535,7 +87308,7 @@
       {
         "type": "SKILL",
         "skill": "COMBAT",
-        "level": 24
+        "level": 22
       }
     ],
     "can_have_attributes": true,
@@ -86764,7 +87537,7 @@
       {
         "type": "SKILL",
         "skill": "COMBAT",
-        "level": 24
+        "level": 22
       }
     ],
     "can_have_attributes": true,
@@ -86993,7 +87766,7 @@
       {
         "type": "SKILL",
         "skill": "COMBAT",
-        "level": 24
+        "level": 22
       }
     ],
     "can_have_attributes": true,
@@ -87221,7 +87994,7 @@
       {
         "type": "SKILL",
         "skill": "COMBAT",
-        "level": 24
+        "level": 22
       }
     ],
     "can_have_attributes": true,
@@ -87404,7 +88177,7 @@
       {
         "type": "SKILL",
         "skill": "COMBAT",
-        "level": 24
+        "level": 22
       }
     ],
     "can_have_attributes": true,
@@ -87587,7 +88360,7 @@
       {
         "type": "SKILL",
         "skill": "COMBAT",
-        "level": 24
+        "level": 22
       }
     ],
     "can_have_attributes": true,
@@ -87770,7 +88543,7 @@
       {
         "type": "SKILL",
         "skill": "COMBAT",
-        "level": 24
+        "level": 22
       }
     ],
     "can_have_attributes": true,
@@ -87954,7 +88727,7 @@
       {
         "type": "SKILL",
         "skill": "COMBAT",
-        "level": 24
+        "level": 22
       }
     ],
     "can_have_attributes": true,
@@ -88138,7 +88911,7 @@
       {
         "type": "SKILL",
         "skill": "COMBAT",
-        "level": 24
+        "level": 22
       }
     ],
     "can_have_attributes": true,
@@ -88322,7 +89095,7 @@
       {
         "type": "SKILL",
         "skill": "COMBAT",
-        "level": 24
+        "level": 22
       }
     ],
     "can_have_attributes": true,
@@ -88506,7 +89279,7 @@
       {
         "type": "SKILL",
         "skill": "COMBAT",
-        "level": 24
+        "level": 22
       }
     ],
     "can_have_attributes": true,
@@ -88690,7 +89463,7 @@
       {
         "type": "SKILL",
         "skill": "COMBAT",
-        "level": 24
+        "level": 22
       }
     ],
     "can_have_attributes": true,
@@ -88874,7 +89647,7 @@
       {
         "type": "SKILL",
         "skill": "COMBAT",
-        "level": 24
+        "level": 22
       }
     ],
     "can_have_attributes": true,
@@ -89058,7 +89831,7 @@
       {
         "type": "SKILL",
         "skill": "COMBAT",
-        "level": 24
+        "level": 22
       }
     ],
     "can_have_attributes": true,
@@ -89242,7 +90015,7 @@
       {
         "type": "SKILL",
         "skill": "COMBAT",
-        "level": 24
+        "level": 22
       }
     ],
     "can_have_attributes": true,
@@ -89426,7 +90199,7 @@
       {
         "type": "SKILL",
         "skill": "COMBAT",
-        "level": 24
+        "level": 22
       }
     ],
     "can_have_attributes": true,
@@ -89610,7 +90383,7 @@
       {
         "type": "SKILL",
         "skill": "COMBAT",
-        "level": 24
+        "level": 22
       }
     ],
     "can_have_attributes": true,
@@ -89794,7 +90567,7 @@
       {
         "type": "SKILL",
         "skill": "COMBAT",
-        "level": 24
+        "level": 22
       }
     ],
     "can_have_attributes": true,
@@ -89978,7 +90751,7 @@
       {
         "type": "SKILL",
         "skill": "COMBAT",
-        "level": 24
+        "level": 22
       }
     ],
     "can_have_attributes": true,
@@ -90165,7 +90938,7 @@
       {
         "type": "SKILL",
         "skill": "COMBAT",
-        "level": 24
+        "level": 22
       }
     ],
     "can_have_attributes": true,
@@ -90397,7 +91170,7 @@
       {
         "type": "SKILL",
         "skill": "COMBAT",
-        "level": 24
+        "level": 22
       }
     ],
     "can_have_attributes": true,
@@ -90629,7 +91402,7 @@
       {
         "type": "SKILL",
         "skill": "COMBAT",
-        "level": 24
+        "level": 22
       }
     ],
     "can_have_attributes": true,
@@ -90861,7 +91634,7 @@
       {
         "type": "SKILL",
         "skill": "COMBAT",
-        "level": 24
+        "level": 22
       }
     ],
     "can_have_attributes": true,
@@ -91090,7 +91863,7 @@
       {
         "type": "SKILL",
         "skill": "COMBAT",
-        "level": 24
+        "level": 22
       }
     ],
     "npc_sell_price": 10000,
@@ -91116,7 +91889,7 @@
       {
         "type": "SKILL",
         "skill": "COMBAT",
-        "level": 24
+        "level": 22
       }
     ],
     "can_have_attributes": true,
@@ -91302,7 +92075,7 @@
       {
         "type": "SKILL",
         "skill": "COMBAT",
-        "level": 24
+        "level": 22
       }
     ],
     "can_have_attributes": true,
@@ -91488,7 +92261,7 @@
       {
         "type": "SKILL",
         "skill": "COMBAT",
-        "level": 24
+        "level": 22
       }
     ],
     "can_have_attributes": true,
@@ -91674,7 +92447,7 @@
       {
         "type": "SKILL",
         "skill": "COMBAT",
-        "level": 24
+        "level": 22
       }
     ],
     "can_have_attributes": true,
@@ -91861,7 +92634,7 @@
       {
         "type": "SKILL",
         "skill": "COMBAT",
-        "level": 24
+        "level": 22
       }
     ],
     "can_have_attributes": true,
@@ -92048,7 +92821,7 @@
       {
         "type": "SKILL",
         "skill": "COMBAT",
-        "level": 24
+        "level": 22
       }
     ],
     "can_have_attributes": true,
@@ -92235,7 +93008,7 @@
       {
         "type": "SKILL",
         "skill": "COMBAT",
-        "level": 24
+        "level": 22
       }
     ],
     "can_have_attributes": true,
@@ -92422,7 +93195,7 @@
       {
         "type": "SKILL",
         "skill": "COMBAT",
-        "level": 24
+        "level": 22
       }
     ],
     "can_have_attributes": true,
@@ -92609,7 +93382,7 @@
       {
         "type": "SKILL",
         "skill": "COMBAT",
-        "level": 24
+        "level": 22
       }
     ],
     "can_have_attributes": true,
@@ -92796,7 +93569,7 @@
       {
         "type": "SKILL",
         "skill": "COMBAT",
-        "level": 24
+        "level": 22
       }
     ],
     "can_have_attributes": true,
@@ -92983,7 +93756,7 @@
       {
         "type": "SKILL",
         "skill": "COMBAT",
-        "level": 24
+        "level": 22
       }
     ],
     "can_have_attributes": true,
@@ -93170,7 +93943,7 @@
       {
         "type": "SKILL",
         "skill": "COMBAT",
-        "level": 24
+        "level": 22
       }
     ],
     "can_have_attributes": true,
@@ -93357,7 +94130,7 @@
       {
         "type": "SKILL",
         "skill": "COMBAT",
-        "level": 24
+        "level": 22
       }
     ],
     "can_have_attributes": true,
@@ -93544,7 +94317,7 @@
       {
         "type": "SKILL",
         "skill": "COMBAT",
-        "level": 24
+        "level": 22
       }
     ],
     "can_have_attributes": true,
@@ -93731,7 +94504,7 @@
       {
         "type": "SKILL",
         "skill": "COMBAT",
-        "level": 24
+        "level": 22
       }
     ],
     "can_have_attributes": true,
@@ -93918,7 +94691,7 @@
       {
         "type": "SKILL",
         "skill": "COMBAT",
-        "level": 24
+        "level": 22
       }
     ],
     "can_have_attributes": true,
@@ -94102,7 +94875,7 @@
       {
         "type": "SKILL",
         "skill": "COMBAT",
-        "level": 24
+        "level": 22
       }
     ],
     "can_have_attributes": true,
@@ -94331,7 +95104,7 @@
       {
         "type": "SKILL",
         "skill": "COMBAT",
-        "level": 24
+        "level": 22
       }
     ],
     "can_have_attributes": true,
@@ -94560,7 +95333,7 @@
       {
         "type": "SKILL",
         "skill": "COMBAT",
-        "level": 24
+        "level": 22
       }
     ],
     "can_have_attributes": true,
@@ -94789,7 +95562,7 @@
       {
         "type": "SKILL",
         "skill": "COMBAT",
-        "level": 24
+        "level": 22
       }
     ],
     "can_have_attributes": true,
@@ -95017,7 +95790,7 @@
       {
         "type": "SKILL",
         "skill": "COMBAT",
-        "level": 24
+        "level": 22
       }
     ],
     "can_have_attributes": true,
@@ -95200,7 +95973,7 @@
       {
         "type": "SKILL",
         "skill": "COMBAT",
-        "level": 24
+        "level": 22
       }
     ],
     "can_have_attributes": true,
@@ -95383,7 +96156,7 @@
       {
         "type": "SKILL",
         "skill": "COMBAT",
-        "level": 24
+        "level": 22
       }
     ],
     "can_have_attributes": true,
@@ -95566,7 +96339,7 @@
       {
         "type": "SKILL",
         "skill": "COMBAT",
-        "level": 24
+        "level": 22
       }
     ],
     "can_have_attributes": true,
@@ -95750,7 +96523,7 @@
       {
         "type": "SKILL",
         "skill": "COMBAT",
-        "level": 24
+        "level": 22
       }
     ],
     "can_have_attributes": true,
@@ -95934,7 +96707,7 @@
       {
         "type": "SKILL",
         "skill": "COMBAT",
-        "level": 24
+        "level": 22
       }
     ],
     "can_have_attributes": true,
@@ -96118,7 +96891,7 @@
       {
         "type": "SKILL",
         "skill": "COMBAT",
-        "level": 24
+        "level": 22
       }
     ],
     "can_have_attributes": true,
@@ -96302,7 +97075,7 @@
       {
         "type": "SKILL",
         "skill": "COMBAT",
-        "level": 24
+        "level": 22
       }
     ],
     "can_have_attributes": true,
@@ -96486,7 +97259,7 @@
       {
         "type": "SKILL",
         "skill": "COMBAT",
-        "level": 24
+        "level": 22
       }
     ],
     "can_have_attributes": true,
@@ -96670,7 +97443,7 @@
       {
         "type": "SKILL",
         "skill": "COMBAT",
-        "level": 24
+        "level": 22
       }
     ],
     "can_have_attributes": true,
@@ -96854,7 +97627,7 @@
       {
         "type": "SKILL",
         "skill": "COMBAT",
-        "level": 24
+        "level": 22
       }
     ],
     "can_have_attributes": true,
@@ -97038,7 +97811,7 @@
       {
         "type": "SKILL",
         "skill": "COMBAT",
-        "level": 24
+        "level": 22
       }
     ],
     "can_have_attributes": true,
@@ -97222,7 +97995,7 @@
       {
         "type": "SKILL",
         "skill": "COMBAT",
-        "level": 24
+        "level": 22
       }
     ],
     "can_have_attributes": true,
@@ -97406,7 +98179,7 @@
       {
         "type": "SKILL",
         "skill": "COMBAT",
-        "level": 24
+        "level": 22
       }
     ],
     "can_have_attributes": true,
@@ -97590,7 +98363,7 @@
       {
         "type": "SKILL",
         "skill": "COMBAT",
-        "level": 24
+        "level": 22
       }
     ],
     "can_have_attributes": true,
@@ -97774,7 +98547,7 @@
       {
         "type": "SKILL",
         "skill": "COMBAT",
-        "level": 24
+        "level": 22
       }
     ],
     "can_have_attributes": true,
@@ -98984,8 +99757,7 @@
     "name": "Campfire Initiate Badge",
     "category": "ACCESSORY",
     "soulbound": "COOP",
-    "id": "CAMPFIRE_TALISMAN_1",
-    "tier": "COMMON"
+    "id": "CAMPFIRE_TALISMAN_1"
   },
   {
     "material": "SKULL_ITEM",
@@ -99047,8 +99819,7 @@
     "name": "Campfire Initiate Badge",
     "category": "ACCESSORY",
     "soulbound": "COOP",
-    "id": "CAMPFIRE_TALISMAN_2",
-    "tier": "COMMON"
+    "id": "CAMPFIRE_TALISMAN_2"
   },
   {
     "material": "SKULL_ITEM",
@@ -99110,8 +99881,7 @@
     "name": "Campfire Initiate Badge",
     "category": "ACCESSORY",
     "soulbound": "COOP",
-    "id": "CAMPFIRE_TALISMAN_3",
-    "tier": "COMMON"
+    "id": "CAMPFIRE_TALISMAN_3"
   },
   {
     "material": "SKULL_ITEM",
@@ -99159,12 +99929,11 @@
   },
   {
     "material": "GOLD_NUGGET",
-    "name": "Yellow Rock of Love",
+    "name": "§eYellow Rock of Love",
     "glowing": true,
     "category": "ACCESSORY",
     "soulbound": "COOP",
-    "id": "WEDDING_RING_1",
-    "tier": "COMMON"
+    "id": "WEDDING_RING_1"
   },
   {
     "material": "SKULL_ITEM",
@@ -99204,12 +99973,11 @@
   },
   {
     "material": "GOLD_NUGGET",
-    "name": "Shiny Yellow Rock",
+    "name": "§eShiny Yellow Rock",
     "glowing": true,
     "category": "ACCESSORY",
     "soulbound": "COOP",
-    "id": "WEDDING_RING_0",
-    "tier": "COMMON"
+    "id": "WEDDING_RING_0"
   },
   {
     "material": "SKULL_ITEM",
@@ -99249,12 +100017,5 @@
       "bundled_amount": 9
     },
     "id": "ECCENTRIC_PAINTING_BUNDLE"
-  },
-  {
-    "name": "Crab Hat of Celebration (2022)",
-    "category": "ACCESSORY",
-    "id": "PARTY_HAT_CRAB_ANIMATED",
-    "tier": "SPECIAL",
-    "manual": true
   }
 ]
