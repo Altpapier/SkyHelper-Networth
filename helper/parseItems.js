@@ -38,7 +38,7 @@ const parseItems = async (profileData, museumData, v2Endpoint) => {
   // Parse Storage
   items.storage = [];
   const inventoryData = v2Endpoint ? profileData.inventory : profileData;
-  if (inventoryData.backpack_contents || inventoryData.backpack_icons) {
+  if (inventoryData.backpack_contents && inventoryData.backpack_icons) {
     // Parse Storage Contents
     for (const backpackContent of Object.values(inventoryData.backpack_contents)) {
       items.storage.push(await decodeData(backpackContent.data));
