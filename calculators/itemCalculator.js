@@ -194,7 +194,7 @@ const calculateItem = (item, prices, returnItemData) => {
     // MIDAS WEAPONS
     if (itemId === 'midas_staff' || itemId === 'midas_sword') {
       const maxBid = itemId === 'midas_sword' ? 50_000_000 : 100_000_000;
-      const type = itemId === 'midas_sword' ? 'MIDAS_SWORD_50M' : 'MIDAS_STAFF_100M';
+      const type = itemId === 'midas_sword' ? 'midas_sword_50m' : 'midas_staff_100m';
 
       // If max price paid
       if (ExtraAttributes.winning_bid >= maxBid) {
