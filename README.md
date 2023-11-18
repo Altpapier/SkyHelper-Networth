@@ -127,13 +127,13 @@ Calculate Networth:
 ```js
 const { getNetworth } = require('skyhelper-networth');
 
-const profile = // Retrieved from the Hypixel API with the /skyblock/profiles endpoint: profiles[index]
-const museumData = // Retrieved from the Hypixel API with the /skyblock/museum endpoint: museum.members[uuid]
+const profile = // Retrieved from the Hypixel API with the /v2/skyblock/profiles endpoint: profiles[index]
+const museumData = // Retrieved from the Hypixel API with the /v2/skyblock/museum endpoint: museum.members[uuid]
 
 const profileData = profile.members['<UUID HERE>'];
 const bankBalance = profile.banking?.balance;
 
-const networth = await getNetworth(profileData, bankBalance, { museumData });
+const networth = await getNetworth(profileData, bankBalance, { v2Endpoint: true, museumData });
 console.log(networth);
 ```
 
@@ -142,8 +142,8 @@ Calculate Networth using pre-decoded items:
 ```js
 const { getPreDecodedNetworth } = require('skyhelper-networth');
 
-const profile = // Retrieved from the Hypixel API with the /skyblock/profiles endpoint: profiles[index]
-const museumData = // Retrieved from the Hypixel API with the /skyblock/museum endpoint: museum.members[uuid]
+const profile = // Retrieved from the Hypixel API with the /v2/skyblock/profiles endpoint: profiles[index]
+const museumData = // Retrieved from the Hypixel API with the /v2/skyblock/museum endpoint: museum.members[uuid]
 
 const profileData = profile.members['<UUID HERE>'];
 const bankBalance = profile.banking?.balance;
@@ -151,7 +151,7 @@ const bankBalance = profile.banking?.balance;
 const parsedInventoryExample = NBT.simplify(await NBT.parse(Buffer.from(profileData.inventory.inv_contents, 'base64')));
 const items = { inventory: parsedInventoryExample, ... }; // Parsed inventories see ./examples/items.json for object format and required keys
 
-const networth = await getPreDecodedNetworth(profileData, items, bankBalance);
+const networth = await getPreDecodedNetworth(profileData, items, bankBalance, { v2Endpoint: true });
 console.log(networth);
 ```
 
@@ -166,12 +166,12 @@ setInterval(async () => {
 	prices = await getPrices();
 }, 1000 * 60 * 5); // Retrieve prices every 5 minutes
 
-const profile = // Retrieved from the Hypixel API with the /skyblock/profiles endpoint: profiles[index]
-const museumData = // Retrieved from the Hypixel API with the /skyblock/museum endpoint: museum.members[uuid]
+const profile = // Retrieved from the Hypixel API with the /v2/skyblock/profiles endpoint: profiles[index]
+const museumData = // Retrieved from the Hypixel API with the /v2/skyblock/museum endpoint: museum.members[uuid]
 
 const profileData = profile.members['<UUID HERE>'];
 const bankBalance = profile.banking?.balance;
 
-const networth = await getNetworth(profileData, bankBalance, { prices, museumData });
+const networth = await getNetworth(profileData, bankBalance, { v2Endpoint: true, prices, museumData });
 console.log(networth);
 ```
