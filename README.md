@@ -147,7 +147,7 @@ const museumData = // Retrieved from the Hypixel API with the /skyblock/museum e
 const profileData = profile.members['<UUID HERE>'];
 const bankBalance = profile.banking?.balance;
 
-const parsedInventoryExample = NBT.simplify(await NBT.parse(Buffer.from(profileData.inv_contents, 'base64')));
+const parsedInventoryExample = NBT.simplify(await NBT.parse(Buffer.from(profileData.inventory.inv_contents, 'base64')));
 const items = { inventory: parsedInventoryExample, ... }; // Parsed inventories see ./examples/items.json for object format and required keys
 
 const networth = await getPreDecodedNetworth(profileData, items, bankBalance);
