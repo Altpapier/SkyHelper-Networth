@@ -79,22 +79,23 @@ Returns the networth of a profile using pre-decoded items (used to save resource
 
 #### Arguments
 
-| Argument    | Description                                                                                                                                                                |
-| ----------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| profileData | The profile player data from the Hypixel API `profile.members[uuid]`                                                                                                       |
+| Argument    | Description                                                                                                                                                                                                                                                    |
+| ----------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| profileData | The profile player data from the Hypixel API `profile.members[uuid]`                                                                                                                                                                                           |
 | items       | Decoded and simplified inventories `{ armor, equipment, wardrobe, inventory, enderchest, storage, accessories, personal_vault, fishing_bag, potion_bag, candy_inventory, museum }`, museum is an array of member[uuid].items and member[uuid].special combined |
-| bankBalance | The player's bank balance from the Hypixel API `profile.banking?.balance`                                                                                                  |
-| options     | See table below                                                                                                                                                            |
+| bankBalance | The player's bank balance from the Hypixel API `profile.banking?.balance`                                                                                                                                                                                      |
+| options     | See table below                                                                                                                                                                                                                                                |
 
 ##### `options`
 
 | Option         | Description                                                                                                                               |
 | -------------- | ----------------------------------------------------------------------------------------------------------------------------------------- |
+| v2Endpoint     | By default false, must be set to true if you are using the profile data of hypixel's v2 endpoints                                         |
 | cache          | By default true (5 minute cache), if set to false it will always make a request to get the latest prices from github                      |
 | onlyNetworth   | Only return a player's networth without showing all player's items                                                                        |
 | prices         | Provide prices from the getPrices() function for the bot not to request SkyHelper's prices each time the getNetworth() function is called |
 | returnItemData | Will also return the item data that was used to calculate the item worth                                                                  |
-| museumData     | Retrieved from the Hypixel API with the /skyblock/museum endpoint: museum.members[uuid]                                                                |
+| museumData     | Retrieved from the Hypixel API with the /skyblock/museum endpoint: museum.members[uuid]                                                   |
 
 ### `getItemNetworth()`
 
