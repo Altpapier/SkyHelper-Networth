@@ -59,7 +59,7 @@ function starCosts(prices, calculation, upgrades, prestigeItem) {
     }
   }
 
-  if (prestigeItem && datas.length) {
+  if (prestigeItem && datas.length && datas?.[0]) {
     const prestige = datas[0].type === 'prestige';
     const calculationData = datas.reduce(
       (acc, val) => {
