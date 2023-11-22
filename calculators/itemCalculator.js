@@ -119,7 +119,7 @@ const calculateItem = (item, prices, returnItemData) => {
     // DCTR_SPACE_HELM (Editioned)
     if (ExtraAttributes.id === 'DCTR_SPACE_HELM' && ExtraAttributes.edition !== undefined) itemId = 'dctr_space_helm_editioned';
     // CREATIVE_MIND (Editioned/Named) Worth less than unnamed. Unnamed is not obtainable anymore.
-    if (ExtraAttributes.id === 'CREATIVE_MIND' && !ExtraAttributes.edition) itemId = 'creative_mind_editioned';
+    if (ExtraAttributes.id === 'CREATIVE_MIND' && !ExtraAttributes.edition) itemId = 'creative_mind_uneditioned';
     // SHINY
     if (ExtraAttributes.is_shiny && prices[`${itemId}_shiny`]) itemId = `${itemId}_shiny`;
 
