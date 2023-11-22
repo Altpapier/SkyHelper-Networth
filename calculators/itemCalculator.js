@@ -15,6 +15,7 @@ const {
   attributesBaseCosts,
   enrichments,
   pickonimbusDurability,
+  specialEnchantmentMatches
 } = require('../constants/misc');
 const { reforges } = require('../constants/reforges');
 const { getHypixelItemInformationFromId } = require('../constants/itemsMap');
@@ -235,7 +236,7 @@ const calculateItem = (item, prices, returnItemData) => {
         };
         price = calculationData.price;
         calculation.push(calculationData);
-        itemName = titleCase((name === 'aiming' ? 'dragon tracer' : name).replace(/_/g, ' '));
+        itemName = specialEnchantmentMatches[name] || titleCase(name.replace(/_/g, ' '));
       } else {
         // MULTI ENCHANTMENT BOOK
         let enchantmentPrice = 0;
