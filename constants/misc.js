@@ -50,6 +50,23 @@ const enrichments = [
 
 const pickonimbusDurability = 5000;
 
+const specialEnchantmentMatches = {
+  aiming: 'Dragon Tracer',
+  counter_strike: 'Counter-Strike',
+  turbo_cacti: 'Turbo-Cacti',
+  turbo_cane: 'Turbo-Cane',
+  turbo_carrot: 'Turbo-Carrot',
+  turbo_cocoa: 'Turbo-Cocoa',
+  turbo_melon: 'Turbo-Melon',
+  turbo_mushrooms: 'Turbo-Mushrooms',
+  turbo_potato: 'Turbo-Potato',
+  turbo_pumpkin: 'Turbo-Pumpkin',
+  turbo_warts: 'Turbo-Warts',
+  turbo_wheat: 'Turbo-Wheat',
+  ultimate_reiterate: 'Ultimate Duplex',
+  ultimate_bobbin_time: 'Ultimate Bobbin\' Time',
+}
+
 module.exports = {
   blockedEnchants,
   ignoredEnchants,
@@ -62,4 +79,5 @@ module.exports = {
   attributesBaseCosts,
   enrichments,
   pickonimbusDurability,
+  specialEnchantmentMatches,
 };

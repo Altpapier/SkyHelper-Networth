@@ -1,4 +1,4 @@
-declare module "skyhelper-networth" {
+declare module 'skyhelper-networth' {
   export interface NetworthOptions {
     v2Endpoint?: boolean;
     cache?: boolean;
@@ -87,11 +87,7 @@ declare module "skyhelper-networth" {
     types: Categories;
   }
 
-  export function getNetworth(
-    profileData: object,
-    bankBalance: number,
-    options?: NetworthOptions
-  ): Promise<NetworthResult>;
+  export function getNetworth(profileData: object, bankBalance: number, options?: NetworthOptions): Promise<NetworthResult>;
 
   export function getPreDecodedNetworth(
     profileData: object,
@@ -100,10 +96,7 @@ declare module "skyhelper-networth" {
     options?: PreDecodedNetworthOptions
   ): Promise<NetworthResult>;
 
-  export function getItemNetworth(
-    item: object,
-    options?: ItemNetworthOptions
-  ): Promise<Item>;
+  export function getItemNetworth(item: object, options?: ItemNetworthOptions): Promise<Item>;
 
   export function getPrices(cache?: boolean): Promise<object>;
 }
