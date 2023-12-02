@@ -1,4 +1,8 @@
 ﻿# SkyHelper-Networth
+[![discord](https://img.shields.io/discord/720018827433345138?logo=discord)](https://discord.com/invite/fd4Be4W)
+[![license](https://img.shields.io/badge/license-MIT-green)](LICENSE)
+[![npm](https://img.shields.io/npm/v/skyhelper-networth)](https://npmjs.com/package/skyhelper-networth)
+[![downloads](https://img.shields.io/npm/dm/skyhelper-networth)](https://npmjs.com/package/skyhelper-networth)
 
 ## About
 
