@@ -1,6 +1,6 @@
 {
   "name": "skyhelper-networth",
-  "version": "1.17.5",
+  "version": "1.17.6",
   "description": "SkyHelper's Networth Calculation for Hypixel SkyBlock",
   "main": "index.js",
   "types": "index.d.ts",
@@ -24,7 +24,7 @@
   "author": "Altpapier",
   "license": "MIT",
   "dependencies": {
-    "axios": "^0.27.2",
+    "axios": "^1.6.2",
     "prismarine-nbt": "^2.2.1"
   }
 }
