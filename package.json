@@ -20,6 +20,10 @@
   "bugs": {
     "url": "https://github.com/Altpapier/SkyHelper-Networth/issues"
   },
+  "funding": {
+    "type": "patreon",
+    "url": "https://patreon.com/skyhelper"
+  },
   "homepage": "https://skyhelper.altpapier.dev",
   "author": "Altpapier",
   "license": "MIT",
