@@ -123,6 +123,8 @@ const calculateItem = (item, prices, returnItemData) => {
     if (ExtraAttributes.id === 'CREATIVE_MIND' && !ExtraAttributes.edition) itemId = 'creative_mind_uneditioned';
     // SHINY
     if (ExtraAttributes.is_shiny && prices[`${itemId}_shiny`]) itemId = `${itemId}_shiny`;
+    // FRAGGED
+    if (ExtraAttributes.id.startsWith('STARRED_') && !prices[itemId] && prices[itemId.replace('starred_', '')]) itemId = itemId.replace('starred_', '');
 
     const itemData = prices[itemId];
     let price = (itemData || 0) * item.Count;
