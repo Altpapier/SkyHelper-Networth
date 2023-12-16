@@ -309,7 +309,7 @@ const calculateItem = (item, prices, returnItemData) => {
           if (kuudraPrice && (!baseAttributePrice || kuudraPrice < baseAttributePrice)) baseAttributePrice = kuudraPrice;
         }
         if (!baseAttributePrice) continue;
-        const attributePrice = baseAttributePrice * shards * applicationWorth.attributes;
+        const attributePrice = baseAttributePrice * 2 * shards * applicationWorth.attributes;
 
         price += attributePrice;
         calculation.push({
@@ -329,6 +329,18 @@ const calculateItem = (item, prices, returnItemData) => {
         type: 'wood_singularity',
         price: (prices['wood_singularity'] || 0) * ExtraAttributes.wood_singularity_count * applicationWorth.woodSingularity,
         count: ExtraAttributes.wood_singularity_count,
+      };
+      price += calculationData.price;
+      calculation.push(calculationData);
+    }
+
+    // JALAPENO BOOK
+    if (ExtraAttributes.jalapeno_count) {
+      const calculationData = {
+        id: 'JALAPENO_BOOK',
+        type: 'jalapeno_book',
+        price: (prices['jalapeno_book'] || 0) * ExtraAttributes.jalapeno_count * applicationWorth.jalapenoBook,
+        count: ExtraAttributes.jalapeno_count,
       };
       price += calculationData.price;
       calculation.push(calculationData);
