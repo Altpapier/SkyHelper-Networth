@@ -39,7 +39,7 @@ const getNetworth = async (profileData, bankBalance, options) => {
  * @param {{ v2Endpoint: boolean, cache: boolean, onlyNetworth: boolean, prices: object, returnItemData: boolean }} options - (Optional) v2Endpoint: By default false check true if you are using the new v2 endpoints from hypixel, cache: By default true (5 minute cache), if set to false it will always make a request to get the latest prices from github, onlyNetworth: If true, only the networth will be returned, prices: A prices object generated from the getPrices function. If not provided, the prices will be retrieved every time the function is called, returnItemData: If true, the item data will be returned in the object
  * @returns An object containing the player's networth calculation
  */
-const getPreDecodedNetworth = async (profileData, items, bankBalance, options) => {
+const getPreDecodedNetworth = async (profileData, items, bankBalance, options) => { // museum from playerStats?
   const purse = options?.v2Endpoint ? profileData.currencies?.coin_purse : profileData.coin_purse;
   await postParseItems(profileData, items, options?.v2Endpoint);
   const prices = await parsePrices(options?.prices, options?.cache);
