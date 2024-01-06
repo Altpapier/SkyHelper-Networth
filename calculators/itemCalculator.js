@@ -401,12 +401,14 @@ const calculateItem = (item, prices, returnItemData) => {
 
     // HOT POTATO BOOKS
     if (ExtraAttributes.hot_potato_count) {
-      if (ExtraAttributes.hot_potato_count > 10) {
+      const hotPotatoCount = Number(ExtraAttributes.hot_potato_count);
+
+      if (hotPotatoCount > 10) {
         const calculationData = {
           id: 'FUMING_POTATO_BOOK',
           type: 'fuming_potato_book',
-          price: (prices['fuming_potato_book'] || 0) * (ExtraAttributes.hot_potato_count - 10) * applicationWorth.fumingPotatoBook,
-          count: ExtraAttributes.hot_potato_count - 10,
+          price: (prices['fuming_potato_book'] || 0) * (hotPotatoCount- 10) * applicationWorth.fumingPotatoBook,
+          count: hotPotatoCount - 10,
         };
         price += calculationData.price;
         calculation.push(calculationData);
@@ -415,8 +417,8 @@ const calculateItem = (item, prices, returnItemData) => {
       const calculationData = {
         id: 'HOT_POTATO_BOOK',
         type: 'hot_potato_book',
-        price: (prices['hot_potato_book'] || 0) * Math.min(ExtraAttributes.hot_potato_count, 10) * applicationWorth.hotPotatoBook,
-        count: Math.min(ExtraAttributes.hot_potato_count, 10),
+        price: (prices['hot_potato_book'] || 0) * Math.min(hotPotatoCount, 10) * applicationWorth.hotPotatoBook,
+        count: Math.min(hotPotatoCount, 10),
       };
       price += calculationData.price;
       calculation.push(calculationData);
@@ -436,11 +438,13 @@ const calculateItem = (item, prices, returnItemData) => {
 
     // ART OF WAR
     if (ExtraAttributes.art_of_war_count) {
+      const artOfWarCount = Number(ExtraAttributes.art_of_war_count);
+
       const calculationData = {
         id: 'THE_ART_OF_WAR',
         type: 'the_art_of_war',
-        price: (prices['the_art_of_war'] || 0) * ExtraAttributes.art_of_war_count * applicationWorth.artOfWar,
-        count: ExtraAttributes.art_of_war_count,
+        price: (prices['the_art_of_war'] || 0) * artOfWarCount * applicationWorth.artOfWar,
+        count: artOfWarCount,
       };
       price += calculationData.price;
       calculation.push(calculationData);
