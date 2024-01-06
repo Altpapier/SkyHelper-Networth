@@ -15,7 +15,7 @@ const {
   attributesBaseCosts,
   enrichments,
   pickonimbusDurability,
-  specialEnchantmentMatches
+  specialEnchantmentMatches,
 } = require('../constants/misc');
 const { reforges } = require('../constants/reforges');
 const { getHypixelItemInformationFromId } = require('../constants/itemsMap');
@@ -309,7 +309,7 @@ const calculateItem = (item, prices, returnItemData) => {
           if (kuudraPrice && (!baseAttributePrice || kuudraPrice < baseAttributePrice)) baseAttributePrice = kuudraPrice;
         }
         if (!baseAttributePrice) continue;
-        const attributePrice = baseAttributePrice * 2 * shards * applicationWorth.attributes;
+        const attributePrice = baseAttributePrice * shards * applicationWorth.attributes;
 
         price += attributePrice;
         calculation.push({
