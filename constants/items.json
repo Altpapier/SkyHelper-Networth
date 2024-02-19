@@ -132,6 +132,14 @@
     "category": "REFORGE_STONE",
     "tier": "UNCOMMON",
     "npc_sell_price": 1,
+    "rarity_salvageable": true,
+    "salvages": [
+      {
+        "type": "ESSENCE",
+        "essence_type": "SPIDER",
+        "amount": 1
+      }
+    ],
     "id": "LUXURIOUS_SPOOL"
   },
   {
@@ -165,7 +173,7 @@
     "material": "DIAMOND_HELMET",
     "name": "Helmet of Live Reloading",
     "stats": {
-      "HEALTH": 200
+      "HEALTH": 2000
     },
     "id": "HELMET_OF_LIVE_RELOADING"
   },
@@ -351,7 +359,8 @@
     "tier": "COMMON",
     "category": "ACCESSORY",
     "npc_sell_price": 1000,
-    "soulbound": "COOP",
+    "soulbound": "SOLO",
+    "has_uuid": true,
     "id": "ARCHAEOLOGIST_COMPASS"
   },
   {
@@ -458,6 +467,8 @@
     "glowing": true,
     "tier": "UNCOMMON",
     "unstackable": true,
+    "can_auction": false,
+    "can_trade": false,
     "id": "INFINIDIRT_WAND"
   },
   {
@@ -493,6 +504,7 @@
     "durability": 3,
     "name": "Nether Wart Pouch",
     "tier": "RARE",
+    "can_auction": false,
     "id": "NETHER_WART_POUCH"
   },
   {
@@ -523,6 +535,7 @@
     "name": "Basket of Seeds",
     "glowing": true,
     "tier": "EPIC",
+    "can_auction": false,
     "id": "BASKET_OF_SEEDS"
   },
   {
@@ -788,6 +801,8 @@
     "name": "Prismapump",
     "glowing": true,
     "tier": "RARE",
+    "can_auction": false,
+    "can_place": false,
     "id": "PRISMAPUMP"
   },
   {
@@ -832,6 +847,7 @@
     "durability": 3,
     "name": "Medium Fishing Sack",
     "tier": "RARE",
+    "unstackable": true,
     "id": "MEDIUM_FISHING_SACK"
   },
   {
@@ -1216,10 +1232,13 @@
     "material": "FEATHER",
     "name": "Editor's Pencil",
     "glowing": true,
-    "tier": "VERY_SPECIAL",
+    "tier": "SPECIAL",
     "unstackable": true,
     "soulbound": "COOP",
     "museum": true,
+    "has_uuid": true,
+    "can_auction": false,
+    "can_trade": false,
     "id": "EDITOR_PENCIL"
   },
   {
@@ -1230,6 +1249,9 @@
     "unstackable": true,
     "soulbound": "COOP",
     "museum": true,
+    "has_uuid": true,
+    "can_auction": false,
+    "can_trade": false,
     "id": "WIKI_JOURNAL"
   },
   {
@@ -7521,7 +7543,7 @@
     "tier": "SPECIAL",
     "category": "MEMENTO",
     "item_specific": {
-      "city_project": "repair_wizard_portal"
+      "memorable_event_key": "repair_wizard_portal"
     },
     "id": "WIZARD_PORTAL_MEMENTO"
   },
@@ -7532,10 +7554,21 @@
     "tier": "SPECIAL",
     "category": "MEMENTO",
     "item_specific": {
-      "city_project": "inflation_fixer"
+      "memorable_event_key": "inflation_fixer"
     },
     "description": "\n%%dark_gray%%It's about sending a message...",
     "id": "BURNING_COINS"
+  },
+  {
+    "material": "SKULL_ITEM",
+    "durability": 3,
+    "name": "Golden Collar",
+    "tier": "SPECIAL",
+    "category": "MEMENTO",
+    "item_specific": {
+      "memorable_event_key": "pet_care_expansion"
+    },
+    "id": "GOLDEN_COLLAR"
   },
   {
     "material": "SKULL_ITEM",
@@ -7552,6 +7585,99 @@
     "category": "COSMETIC",
     "museum": true,
     "id": "WHITE_TIGER_PERSONALITY"
+  },
+  {
+    "material": "SKULL_ITEM",
+    "durability": 3,
+    "name": "Rose Dye",
+    "tier": "MYTHIC",
+    "unstackable": true,
+    "item_specific": {
+      "colors": [
+        "0xf06766",
+        "0xf06766",
+        "0xf06766",
+        "0xee6364",
+        "0xee6364",
+        "0xeb5e61",
+        "0xe8595e",
+        "0xe45359",
+        "0xe04d55",
+        "0xdb4650",
+        "0xd3404c",
+        "0xcb3947",
+        "0xc43043",
+        "0xbd2b40",
+        "0xb8293e",
+        "0xb3263d",
+        "0xae243b",
+        "0xa8223a",
+        "0xa32038",
+        "0x9c1e36",
+        "0x961c34",
+        "0x901a32",
+        "0x881731",
+        "0x81162e",
+        "0x881830",
+        "0x81162e",
+        "0x7b142d",
+        "0x74122b",
+        "0x6d1029",
+        "0x650e27",
+        "0x5e0d24",
+        "0x560b22",
+        "0x500a20",
+        "0x49081f",
+        "0x44061d",
+        "0x3e061b",
+        "0x39041a",
+        "0x39041a",
+        "0x310417",
+        "0x310417",
+        "0x310417"
+      ],
+      "cycle_back": true,
+      "piece_offset": 5
+    },
+    "id": "DYE_ROSE"
+  },
+  {
+    "material": "SKULL_ITEM",
+    "durability": 3,
+    "name": "Warden Dye",
+    "tier": "MYTHIC",
+    "unstackable": true,
+    "item_specific": {
+      "colors": [
+        "0x034150",
+        "0x034150",
+        "0x034150",
+        "0x03404f",
+        "0x03404f",
+        "0x024554",
+        "0x004a59",
+        "0x004f5e",
+        "0x005463",
+        "0x005a68",
+        "0x005f6d",
+        "0x006472",
+        "0x006a76",
+        "0x006a76",
+        "0x00757f",
+        "0x007a84",
+        "0x008088",
+        "0x00868c",
+        "0x008b90",
+        "0x009194",
+        "0x009194",
+        "0x009295",
+        "0x009295",
+        "0x009295"
+      ],
+      "cycle_back": true,
+      "piece_offset": 3
+    },
+    "id": "DYE_WARDEN"
   },
   {
     "material": "INK_SACK",
@@ -7762,7 +7888,7 @@
   {
     "material": "LEATHER_BOOTS",
     "color": "191,188,178",
-    "name": "Adaptive Boots",
+    "name": "⚚ Adaptive Boots",
     "category": "BOOTS",
     "tier": "EPIC",
     "stats": {
@@ -7828,7 +7954,7 @@
   {
     "material": "SKULL_ITEM",
     "durability": 3,
-    "name": "Adaptive Helmet",
+    "name": "⚚ Adaptive Helmet",
     "category": "HELMET",
     "tier": "EPIC",
     "stats": {
@@ -8026,7 +8152,7 @@
   {
     "material": "LEATHER_LEGGINGS",
     "color": "191,188,178",
-    "name": "Adaptive Leggings",
+    "name": "⚚ Adaptive Leggings",
     "category": "LEGGINGS",
     "tier": "EPIC",
     "stats": {
@@ -8092,7 +8218,7 @@
   {
     "material": "LEATHER_CHESTPLATE",
     "color": "191,188,178",
-    "name": "Adaptive Chestplate",
+    "name": "⚚ Adaptive Chestplate",
     "category": "CHESTPLATE",
     "tier": "EPIC",
     "stats": {
@@ -11942,7 +12068,19 @@
   {
     "material": "SKULL_ITEM",
     "durability": 3,
-    "name": "Crab Hat of Celebration",
+    "name": "Crab Hat of Celebration - 2022 Edition",
+    "category": "ACCESSORY",
+    "stats": {
+      "magic_find": 1
+    },
+    "museum": true,
+    "tier": "SPECIAL",
+    "id": "PARTY_HAT_CRAB_ANIMATED"
+  },
+  {
+    "material": "SKULL_ITEM",
+    "durability": 3,
+    "name": "Crab Hat of Celebration (2020)",
     "category": "ACCESSORY",
     "stats": {
       "magic_find": 1
@@ -12078,6 +12216,865 @@
     "id": "EPOCH_CAKE_DARK_GREEN"
   },
   {
+    "material": "FISHING_ROD",
+    "name": "Rod of Champions",
+    "category": "FISHING_ROD",
+    "tier": "RARE",
+    "stats": {
+      "damage": 90,
+      "strength": 80,
+      "sea_creature_chance": 4,
+      "fishing_speed": 90
+    },
+    "npc_sell_price": 17800,
+    "requirements": [
+      {
+        "type": "SKILL",
+        "skill": "FISHING",
+        "level": 15
+      }
+    ],
+    "id": "CHAMP_ROD"
+  },
+  {
+    "material": "FISHING_ROD",
+    "name": "Yeti Rod",
+    "category": "FISHING_ROD",
+    "tier": "EPIC",
+    "stats": {
+      "damage": 150,
+      "strength": 130,
+      "fishing_speed": 75
+    },
+    "npc_sell_price": 150000,
+    "requirements": [
+      {
+        "type": "SKILL",
+        "skill": "FISHING",
+        "level": 25
+      }
+    ],
+    "salvages": [
+      {
+        "type": "ESSENCE",
+        "essence_type": "ICE",
+        "amount": 20
+      }
+    ],
+    "id": "YETI_ROD"
+  },
+  {
+    "material": "FISHING_ROD",
+    "name": "Starter Lava Rod",
+    "category": "FISHING_ROD",
+    "tier": "UNCOMMON",
+    "stats": {
+      "damage": 50,
+      "strength": 50,
+      "fishing_speed": 8
+    },
+    "requirements": [
+      {
+        "type": "SKILL",
+        "skill": "FISHING",
+        "level": 10
+      }
+    ],
+    "soulbound": "COOP",
+    "id": "STARTER_LAVA_ROD"
+  },
+  {
+    "material": "FISHING_ROD",
+    "name": "Rod of Legends",
+    "category": "FISHING_ROD",
+    "tier": "EPIC",
+    "stats": {
+      "damage": 130,
+      "strength": 120,
+      "sea_creature_chance": 6,
+      "fishing_speed": 105
+    },
+    "npc_sell_price": 111000,
+    "requirements": [
+      {
+        "type": "SKILL",
+        "skill": "FISHING",
+        "level": 20
+      }
+    ],
+    "id": "LEGEND_ROD"
+  },
+  {
+    "material": "FISHING_ROD",
+    "name": "Hellfire Rod",
+    "category": "FISHING_ROD",
+    "tier": "LEGENDARY",
+    "stats": {
+      "damage": 180,
+      "strength": 180,
+      "sea_creature_chance": 14,
+      "fishing_speed": 75
+    },
+    "requirements": [
+      {
+        "type": "SKILL",
+        "skill": "FISHING",
+        "level": 35
+      }
+    ],
+    "npc_sell_price": 5634000,
+    "can_have_attributes": true,
+    "salvageable_from_recipe": true,
+    "upgrade_costs": [
+      [
+        {
+          "type": "ITEM",
+          "item_id": "LUMP_OF_MAGMA",
+          "amount": 20
+        },
+        {
+          "type": "ITEM",
+          "item_id": "MAGMA_FISH_SILVER",
+          "amount": 1
+        },
+        {
+          "type": "ESSENCE",
+          "essence_type": "CRIMSON",
+          "amount": 50
+        }
+      ],
+      [
+        {
+          "type": "ITEM",
+          "item_id": "MOOGMA_PELT",
+          "amount": 20
+        },
+        {
+          "type": "ITEM",
+          "item_id": "MAGMA_FISH_SILVER",
+          "amount": 2
+        },
+        {
+          "type": "ESSENCE",
+          "essence_type": "CRIMSON",
+          "amount": 80
+        }
+      ],
+      [
+        {
+          "type": "ITEM",
+          "item_id": "PYROCLASTIC_SCALE",
+          "amount": 20
+        },
+        {
+          "type": "ITEM",
+          "item_id": "MAGMA_FISH_SILVER",
+          "amount": 3
+        },
+        {
+          "type": "ESSENCE",
+          "essence_type": "CRIMSON",
+          "amount": 100
+        }
+      ],
+      [
+        {
+          "type": "ITEM",
+          "item_id": "CUP_OF_BLOOD",
+          "amount": 50
+        },
+        {
+          "type": "ITEM",
+          "item_id": "MAGMA_FISH_SILVER",
+          "amount": 40
+        },
+        {
+          "type": "ESSENCE",
+          "essence_type": "CRIMSON",
+          "amount": 160
+        }
+      ],
+      [
+        {
+          "type": "ITEM",
+          "item_id": "FLAMING_HEART",
+          "amount": 70
+        },
+        {
+          "type": "ITEM",
+          "item_id": "MAGMA_FISH_SILVER",
+          "amount": 50
+        },
+        {
+          "type": "ESSENCE",
+          "essence_type": "CRIMSON",
+          "amount": 200
+        }
+      ],
+      [
+        {
+          "type": "ITEM",
+          "item_id": "ORB_OF_ENERGY",
+          "amount": 80
+        },
+        {
+          "type": "ITEM",
+          "item_id": "MAGMA_FISH_SILVER",
+          "amount": 60
+        },
+        {
+          "type": "ESSENCE",
+          "essence_type": "CRIMSON",
+          "amount": 300
+        }
+      ],
+      [
+        {
+          "type": "ITEM",
+          "item_id": "HORN_OF_TAURUS",
+          "amount": 90
+        },
+        {
+          "type": "ITEM",
+          "item_id": "MAGMA_FISH_SILVER",
+          "amount": 70
+        },
+        {
+          "type": "ESSENCE",
+          "essence_type": "CRIMSON",
+          "amount": 400
+        }
+      ],
+      [
+        {
+          "type": "ITEM",
+          "item_id": "THUNDER_SHARDS",
+          "amount": 30
+        },
+        {
+          "type": "ITEM",
+          "item_id": "MAGMA_FISH_GOLD",
+          "amount": 30
+        },
+        {
+          "type": "ITEM",
+          "item_id": "HEAVY_PEARL",
+          "amount": 3
+        },
+        {
+          "type": "ESSENCE",
+          "essence_type": "CRIMSON",
+          "amount": 1000
+        }
+      ],
+      [
+        {
+          "type": "ITEM",
+          "item_id": "MAGMA_LORD_FRAGMENT",
+          "amount": 25
+        },
+        {
+          "type": "ITEM",
+          "item_id": "MAGMA_FISH_GOLD",
+          "amount": 40
+        },
+        {
+          "type": "ITEM",
+          "item_id": "HEAVY_PEARL",
+          "amount": 4
+        },
+        {
+          "type": "ESSENCE",
+          "essence_type": "CRIMSON",
+          "amount": 1200
+        }
+      ],
+      [
+        {
+          "type": "ITEM",
+          "item_id": "MAGMA_LORD_FRAGMENT",
+          "amount": 30
+        },
+        {
+          "type": "ITEM",
+          "item_id": "MAGMA_FISH_GOLD",
+          "amount": 50
+        },
+        {
+          "type": "ITEM",
+          "item_id": "HEAVY_PEARL",
+          "amount": 5
+        },
+        {
+          "type": "ESSENCE",
+          "essence_type": "CRIMSON",
+          "amount": 1600
+        }
+      ]
+    ],
+    "id": "HELLFIRE_ROD"
+  },
+  {
+    "material": "FISHING_ROD",
+    "name": "Ice Rod",
+    "category": "FISHING_ROD",
+    "tier": "RARE",
+    "stats": {
+      "damage": 30,
+      "fishing_speed": 15
+    },
+    "npc_sell_price": 20000,
+    "requirements": [
+      {
+        "type": "SKILL",
+        "skill": "FISHING",
+        "level": 3
+      }
+    ],
+    "museum": true,
+    "salvages": [
+      {
+        "type": "ESSENCE",
+        "essence_type": "ICE",
+        "amount": 5
+      }
+    ],
+    "rarity_salvageable": true,
+    "id": "ICE_ROD"
+  },
+  {
+    "material": "FISHING_ROD",
+    "name": "Phantom Rod",
+    "category": "FISHING_WEAPON",
+    "tier": "LEGENDARY",
+    "stats": {
+      "damage": 200,
+      "strength": 125,
+      "fishing_speed": 100
+    },
+    "npc_sell_price": 1000,
+    "dungeon_item_conversion_cost": {
+      "essence_type": "UNDEAD",
+      "amount": 500
+    },
+    "upgrade_costs": [
+      [
+        {
+          "type": "ESSENCE",
+          "essence_type": "UNDEAD",
+          "amount": 200
+        }
+      ],
+      [
+        {
+          "type": "ESSENCE",
+          "essence_type": "UNDEAD",
+          "amount": 300
+        }
+      ],
+      [
+        {
+          "type": "ESSENCE",
+          "essence_type": "UNDEAD",
+          "amount": 400
+        }
+      ],
+      [
+        {
+          "type": "ESSENCE",
+          "essence_type": "UNDEAD",
+          "amount": 500
+        }
+      ],
+      [
+        {
+          "type": "ESSENCE",
+          "essence_type": "UNDEAD",
+          "amount": 600
+        }
+      ]
+    ],
+    "requirements": [
+      {
+        "type": "SKILL",
+        "skill": "FISHING",
+        "level": 21
+      }
+    ],
+    "id": "PHANTOM_ROD"
+  },
+  {
+    "material": "FISHING_ROD",
+    "name": "Auger Rod",
+    "category": "FISHING_ROD",
+    "tier": "LEGENDARY",
+    "stats": {
+      "damage": 135,
+      "strength": 90,
+      "fishing_speed": 110
+    },
+    "requirements": [
+      {
+        "type": "SKILL",
+        "skill": "FISHING",
+        "level": 25
+      }
+    ],
+    "id": "AUGER_ROD"
+  },
+  {
+    "material": "FISHING_ROD",
+    "name": "Magma Rod",
+    "category": "FISHING_ROD",
+    "tier": "RARE",
+    "stats": {
+      "damage": 150,
+      "strength": 150,
+      "sea_creature_chance": 6,
+      "fishing_speed": 40
+    },
+    "requirements": [
+      {
+        "type": "SKILL",
+        "skill": "FISHING",
+        "level": 27
+      }
+    ],
+    "npc_sell_price": 8000,
+    "can_have_attributes": true,
+    "salvageable_from_recipe": true,
+    "upgrade_costs": [
+      [
+        {
+          "type": "ITEM",
+          "item_id": "LUMP_OF_MAGMA",
+          "amount": 20
+        },
+        {
+          "type": "ITEM",
+          "item_id": "MAGMA_FISH_SILVER",
+          "amount": 1
+        },
+        {
+          "type": "ESSENCE",
+          "essence_type": "CRIMSON",
+          "amount": 50
+        }
+      ],
+      [
+        {
+          "type": "ITEM",
+          "item_id": "MOOGMA_PELT",
+          "amount": 20
+        },
+        {
+          "type": "ITEM",
+          "item_id": "MAGMA_FISH_SILVER",
+          "amount": 2
+        },
+        {
+          "type": "ESSENCE",
+          "essence_type": "CRIMSON",
+          "amount": 80
+        }
+      ],
+      [
+        {
+          "type": "ITEM",
+          "item_id": "PYROCLASTIC_SCALE",
+          "amount": 20
+        },
+        {
+          "type": "ITEM",
+          "item_id": "MAGMA_FISH_SILVER",
+          "amount": 3
+        },
+        {
+          "type": "ESSENCE",
+          "essence_type": "CRIMSON",
+          "amount": 100
+        }
+      ]
+    ],
+    "id": "MAGMA_ROD"
+  },
+  {
+    "material": "FISHING_ROD",
+    "name": "Challenging Rod",
+    "category": "FISHING_ROD",
+    "tier": "RARE",
+    "stats": {
+      "damage": 60,
+      "strength": 60,
+      "sea_creature_chance": 2,
+      "fishing_speed": 75
+    },
+    "npc_sell_price": 5000,
+    "requirements": [
+      {
+        "type": "SKILL",
+        "skill": "FISHING",
+        "level": 10
+      }
+    ],
+    "id": "CHALLENGE_ROD"
+  },
+  {
+    "material": "SKULL_ITEM",
+    "durability": 3,
+    "name": "Hot Bait",
+    "category": "BAIT",
+    "tier": "UNCOMMON",
+    "npc_sell_price": 30,
+    "id": "HOT_BAIT"
+  },
+  {
+    "material": "SKULL_ITEM",
+    "durability": 3,
+    "name": "Frozen Bait",
+    "category": "BAIT",
+    "tier": "RARE",
+    "npc_sell_price": 10,
+    "id": "FROZEN_BAIT"
+  },
+  {
+    "material": "SKULL_ITEM",
+    "durability": 3,
+    "name": "Fish Bait",
+    "category": "BAIT",
+    "npc_sell_price": 20,
+    "id": "FISH_BAIT"
+  },
+  {
+    "material": "SKULL_ITEM",
+    "durability": 3,
+    "name": "Minnow Bait",
+    "category": "BAIT",
+    "npc_sell_price": 12,
+    "id": "MINNOW_BAIT"
+  },
+  {
+    "material": "SKULL_ITEM",
+    "durability": 3,
+    "name": "Spooky Bait",
+    "category": "BAIT",
+    "npc_sell_price": 10,
+    "id": "SPOOKY_BAIT"
+  },
+  {
+    "material": "SKULL_ITEM",
+    "durability": 3,
+    "name": "Dark Bait",
+    "category": "BAIT",
+    "npc_sell_price": 8,
+    "id": "DARK_BAIT"
+  },
+  {
+    "material": "SKULL_ITEM",
+    "durability": 3,
+    "name": "Light Bait",
+    "category": "BAIT",
+    "npc_sell_price": 16,
+    "id": "LIGHT_BAIT"
+  },
+  {
+    "material": "SKULL_ITEM",
+    "durability": 3,
+    "name": "Corrupted Bait",
+    "category": "BAIT",
+    "npc_sell_price": 1,
+    "id": "CORRUPTED_BAIT"
+  },
+  {
+    "material": "SKULL_ITEM",
+    "durability": 3,
+    "name": "Carrot Bait",
+    "category": "BAIT",
+    "npc_sell_price": 7,
+    "id": "CARROT_BAIT"
+  },
+  {
+    "material": "SKULL_ITEM",
+    "durability": 3,
+    "name": "Blessed Bait",
+    "category": "BAIT",
+    "tier": "UNCOMMON",
+    "npc_sell_price": 42,
+    "id": "BLESSED_BAIT"
+  },
+  {
+    "material": "SKULL_ITEM",
+    "durability": 3,
+    "name": "Whale Bait",
+    "category": "BAIT",
+    "tier": "RARE",
+    "npc_sell_price": 80,
+    "id": "WHALE_BAIT"
+  },
+  {
+    "material": "SKULL_ITEM",
+    "durability": 3,
+    "name": "Ice Bait",
+    "category": "BAIT",
+    "tier": "UNCOMMON",
+    "npc_sell_price": 3,
+    "id": "ICE_BAIT"
+  },
+  {
+    "material": "SKULL_ITEM",
+    "durability": 3,
+    "name": "Spiked Bait",
+    "category": "BAIT",
+    "npc_sell_price": 20,
+    "id": "SPIKED_BAIT"
+  },
+  {
+    "material": "FISHING_ROD",
+    "name": "Shredder",
+    "category": "FISHING_WEAPON",
+    "tier": "LEGENDARY",
+    "stats": {
+      "damage": 120,
+      "ferocity": 50,
+      "fishing_speed": 115
+    },
+    "npc_sell_price": 1000,
+    "requirements": [
+      {
+        "type": "SKILL",
+        "skill": "FISHING",
+        "level": 20
+      }
+    ],
+    "id": "THE_SHREDDER"
+  },
+  {
+    "material": "FISHING_ROD",
+    "name": "Speedster Rod",
+    "category": "FISHING_ROD",
+    "tier": "UNCOMMON",
+    "stats": {
+      "damage": 30,
+      "strength": 15,
+      "fishing_speed": 45
+    },
+    "npc_sell_price": 1000,
+    "requirements": [
+      {
+        "type": "SKILL",
+        "skill": "FISHING",
+        "level": 6
+      }
+    ],
+    "museum": true,
+    "id": "SPEEDSTER_ROD"
+  },
+  {
+    "material": "FISHING_ROD",
+    "name": "Farmer's Rod",
+    "category": "FISHING_ROD",
+    "tier": "UNCOMMON",
+    "stats": {
+      "damage": 50,
+      "strength": 20,
+      "fishing_speed": 60
+    },
+    "npc_sell_price": 1050,
+    "requirements": [
+      {
+        "type": "SKILL",
+        "skill": "FISHING",
+        "level": 8
+      }
+    ],
+    "museum": true,
+    "id": "FARMER_ROD"
+  },
+  {
+    "material": "FISHING_ROD",
+    "name": "Inferno Rod",
+    "category": "FISHING_ROD",
+    "tier": "EPIC",
+    "stats": {
+      "damage": 170,
+      "strength": 170,
+      "sea_creature_chance": 10,
+      "fishing_speed": 60
+    },
+    "requirements": [
+      {
+        "type": "SKILL",
+        "skill": "FISHING",
+        "level": 30
+      }
+    ],
+    "npc_sell_price": 1028000,
+    "can_have_attributes": true,
+    "salvageable_from_recipe": true,
+    "upgrade_costs": [
+      [
+        {
+          "type": "ITEM",
+          "item_id": "LUMP_OF_MAGMA",
+          "amount": 20
+        },
+        {
+          "type": "ITEM",
+          "item_id": "MAGMA_FISH_SILVER",
+          "amount": 1
+        },
+        {
+          "type": "ESSENCE",
+          "essence_type": "CRIMSON",
+          "amount": 50
+        }
+      ],
+      [
+        {
+          "type": "ITEM",
+          "item_id": "MOOGMA_PELT",
+          "amount": 20
+        },
+        {
+          "type": "ITEM",
+          "item_id": "MAGMA_FISH_SILVER",
+          "amount": 2
+        },
+        {
+          "type": "ESSENCE",
+          "essence_type": "CRIMSON",
+          "amount": 80
+        }
+      ],
+      [
+        {
+          "type": "ITEM",
+          "item_id": "PYROCLASTIC_SCALE",
+          "amount": 20
+        },
+        {
+          "type": "ITEM",
+          "item_id": "MAGMA_FISH_SILVER",
+          "amount": 3
+        },
+        {
+          "type": "ESSENCE",
+          "essence_type": "CRIMSON",
+          "amount": 100
+        }
+      ],
+      [
+        {
+          "type": "ITEM",
+          "item_id": "CUP_OF_BLOOD",
+          "amount": 50
+        },
+        {
+          "type": "ITEM",
+          "item_id": "MAGMA_FISH_SILVER",
+          "amount": 40
+        },
+        {
+          "type": "ESSENCE",
+          "essence_type": "CRIMSON",
+          "amount": 160
+        }
+      ],
+      [
+        {
+          "type": "ITEM",
+          "item_id": "FLAMING_HEART",
+          "amount": 70
+        },
+        {
+          "type": "ITEM",
+          "item_id": "MAGMA_FISH_SILVER",
+          "amount": 50
+        },
+        {
+          "type": "ESSENCE",
+          "essence_type": "CRIMSON",
+          "amount": 200
+        }
+      ],
+      [
+        {
+          "type": "ITEM",
+          "item_id": "ORB_OF_ENERGY",
+          "amount": 80
+        },
+        {
+          "type": "ITEM",
+          "item_id": "MAGMA_FISH_SILVER",
+          "amount": 60
+        },
+        {
+          "type": "ESSENCE",
+          "essence_type": "CRIMSON",
+          "amount": 300
+        }
+      ],
+      [
+        {
+          "type": "ITEM",
+          "item_id": "HORN_OF_TAURUS",
+          "amount": 90
+        },
+        {
+          "type": "ITEM",
+          "item_id": "MAGMA_FISH_SILVER",
+          "amount": 70
+        },
+        {
+          "type": "ESSENCE",
+          "essence_type": "CRIMSON",
+          "amount": 400
+        }
+      ]
+    ],
+    "id": "INFERNO_ROD"
+  },
+  {
+    "material": "FISHING_ROD",
+    "name": "Sponge Rod",
+    "category": "FISHING_ROD",
+    "stats": {
+      "damage": 20,
+      "strength": 15,
+      "fishing_speed": 30
+    },
+    "npc_sell_price": 36,
+    "requirements": [
+      {
+        "type": "SKILL",
+        "skill": "FISHING",
+        "level": 5
+      }
+    ],
+    "museum": true,
+    "id": "SPONGE_ROD"
+  },
+  {
+    "material": "FISHING_ROD",
+    "name": "Prismarine Rod",
+    "category": "FISHING_ROD",
+    "stats": {
+      "damage": 15,
+      "strength": 10,
+      "fishing_speed": 15
+    },
+    "npc_sell_price": 10,
+    "requirements": [
+      {
+        "type": "SKILL",
+        "skill": "FISHING",
+        "level": 3
+      }
+    ],
+    "museum": true,
+    "id": "PRISMARINE_ROD"
+  },
+  {
     "material": "SKULL_ITEM",
     "durability": 3,
     "name": "Talisman of the Century",
@@ -12176,6 +13173,7 @@
     "name": "Necron's Ladder",
     "tier": "RARE",
     "unstackable": true,
+    "can_place": false,
     "id": "NECRONS_LADDER"
   },
   {
@@ -12227,6 +13225,36 @@
     "tier": "MYTHIC",
     "unstackable": true,
     "id": "FULL_CENTURY_CAKE_PACK"
+  },
+  {
+    "material": "PACKED_ICE",
+    "name": "Ice Cube",
+    "tier": "RARE",
+    "id": "ICE_CUBE"
+  },
+  {
+    "material": "SKULL_ITEM",
+    "durability": 3,
+    "name": "Prismarine Necklace",
+    "tier": "UNCOMMON",
+    "category": "NECKLACE",
+    "stats": {
+      "sea_creature_chance": 0.5,
+      "health": 7
+    },
+    "id": "PRISMARINE_NECKLACE"
+  },
+  {
+    "material": "SKULL_ITEM",
+    "durability": 3,
+    "name": "Sponge Belt",
+    "tier": "UNCOMMON",
+    "category": "BELT",
+    "stats": {
+      "sea_creature_chance": 0.5,
+      "health": 5
+    },
+    "id": "SPONGE_BELT"
   },
   {
     "material": "SKULL_ITEM",
@@ -12595,6 +13623,7 @@
     "durability": 3,
     "name": "Medium Backpack",
     "tier": "RARE",
+    "double_tap_to_drop": true,
     "id": "MEDIUM_BACKPACK"
   },
   {
@@ -12623,6 +13652,7 @@
     "durability": 3,
     "name": "Small Backpack",
     "tier": "UNCOMMON",
+    "double_tap_to_drop": true,
     "id": "SMALL_BACKPACK"
   },
   {
@@ -12658,6 +13688,7 @@
     "durability": 3,
     "name": "Large Backpack",
     "tier": "EPIC",
+    "double_tap_to_drop": true,
     "id": "LARGE_BACKPACK"
   },
   {
@@ -12749,6 +13780,7 @@
     "durability": 3,
     "name": "Jumbo Backpack",
     "tier": "LEGENDARY",
+    "double_tap_to_drop": true,
     "id": "JUMBO_BACKPACK"
   },
   {
@@ -13013,6 +14045,30 @@
   {
     "material": "SKULL_ITEM",
     "durability": 3,
+    "name": "Clownfish Cloak",
+    "tier": "UNCOMMON",
+    "category": "CLOAK",
+    "stats": {
+      "sea_creature_chance": 0.5,
+      "fishing_speed": 1
+    },
+    "id": "CLOWNFISH_CLOAK"
+  },
+  {
+    "material": "SKULL_ITEM",
+    "durability": 3,
+    "name": "Clay Bracelet",
+    "tier": "UNCOMMON",
+    "category": "BRACELET",
+    "stats": {
+      "sea_creature_chance": 0.5,
+      "strength": 3
+    },
+    "id": "CLAY_BRACELET"
+  },
+  {
+    "material": "SKULL_ITEM",
+    "durability": 3,
     "name": "Great Spook Necklace",
     "category": "NECKLACE",
     "tier": "EPIC",
@@ -13248,7 +14304,17 @@
     "name": "Colossal Experience Bottle Upgrade",
     "glowing": true,
     "tier": "SPECIAL",
+    "has_uuid": true,
     "id": "COLOSSAL_EXP_BOTTLE_UPGRADE"
+  },
+  {
+    "material": "DOUBLE_PLANT",
+    "durability": 4,
+    "name": "Kat Bouquet",
+    "glowing": true,
+    "tier": "SPECIAL",
+    "npc_sell_price": 1,
+    "id": "KAT_BOUQUET"
   },
   {
     "material": "SKULL_ITEM",
@@ -13256,6 +14322,7 @@
     "name": "Ultimate Carrot Candy Upgrade",
     "glowing": true,
     "tier": "SPECIAL",
+    "has_uuid": true,
     "id": "ULTIMATE_CARROT_CANDY_UPGRADE"
   },
   {
@@ -13264,6 +14331,7 @@
     "name": "Heat Core",
     "glowing": true,
     "tier": "SPECIAL",
+    "has_uuid": true,
     "id": "HEAT_CORE"
   },
   {
@@ -13326,6 +14394,7 @@
     "name": "Jumbo Backpack Upgrade",
     "glowing": true,
     "tier": "SPECIAL",
+    "has_uuid": true,
     "id": "JUMBO_BACKPACK_UPGRADE"
   },
   {
@@ -13335,6 +14404,7 @@
     "glowing": true,
     "tier": "SPECIAL",
     "npc_sell_price": 1,
+    "has_uuid": true,
     "id": "KAT_FLOWER"
   },
   {
@@ -13358,6 +14428,7 @@
     "name": "Minion Storage X-pender",
     "glowing": true,
     "tier": "SPECIAL",
+    "has_uuid": true,
     "id": "MINION_STORAGE_EXPANDER"
   },
   {
@@ -13392,15 +14463,19 @@
     "glowing": true,
     "tier": "SPECIAL",
     "museum": true,
+    "has_uuid": true,
+    "unstackable": true,
     "id": "GOD_POTION_2"
   },
   {
     "material": "SKULL_ITEM",
     "durability": 3,
-    "name": "God Potion",
+    "name": "God Potion (Legacy)",
     "glowing": true,
     "tier": "SPECIAL",
     "museum": true,
+    "has_uuid": true,
+    "unstackable": true,
     "id": "GOD_POTION"
   },
   {
@@ -13497,6 +14572,8 @@
     "name": "Accessory Enrichment Swapper",
     "glowing": true,
     "tier": "SPECIAL",
+    "can_place": false,
+    "has_uuid": true,
     "id": "TALISMAN_ENRICHMENT_SWAPPER"
   },
   {
@@ -13514,6 +14591,7 @@
     "glowing": true,
     "tier": "SPECIAL",
     "npc_sell_price": 500,
+    "has_uuid": true,
     "id": "HYPER_CATALYST_UPGRADE"
   },
   {
@@ -13555,6 +14633,7 @@
     "glowing": true,
     "tier": "LEGENDARY",
     "npc_sell_price": 1,
+    "unstackable": false,
     "id": "ULTIMATE_CARROT_CANDY"
   },
   {
@@ -13710,7 +14789,8 @@
     "durability": 3,
     "name": "Beastmaster Crest",
     "category": "ACCESSORY",
-    "id": "BEASTMASTER_CREST_COMMON"
+    "id": "BEASTMASTER_CREST_COMMON",
+    "tier": "COMMON"
   },
   {
     "material": "WOOD_SWORD",
@@ -13799,6 +14879,7 @@
     "glowing": true,
     "tier": "LEGENDARY",
     "npc_sell_price": 250000,
+    "has_uuid": true,
     "id": "DAEDALUS_STICK"
   },
   {
@@ -14270,7 +15351,8 @@
     "stats": {
       "STRENGTH": 2
     },
-    "id": "RAGGEDY_SHARK_TOOTH_NECKLACE"
+    "id": "RAGGEDY_SHARK_TOOTH_NECKLACE",
+    "tier": "COMMON"
   },
   {
     "material": "SKULL_ITEM",
@@ -14311,6 +15393,22 @@
     "glowing": true,
     "tier": "RARE",
     "id": "BLUE_SHARK_TOOTH"
+  },
+  {
+    "material": "SKULL_ITEM",
+    "durability": 3,
+    "name": "Bear Bench",
+    "furniture": "BEAR_BENCH",
+    "tier": "EPIC",
+    "id": "BEAR_BENCH"
+  },
+  {
+    "material": "SKULL_ITEM",
+    "durability": 3,
+    "name": "Bear Chair",
+    "furniture": "BEAR_CHAIR",
+    "tier": "EPIC",
+    "id": "BEAR_CHAIR"
   },
   {
     "material": "SKULL_ITEM",
@@ -14527,12 +15625,28 @@
   {
     "material": "SKULL_ITEM",
     "durability": 3,
+    "name": "Bear Bed",
+    "furniture": "BEAR_BED",
+    "tier": "EPIC",
+    "id": "BEAR_BED"
+  },
+  {
+    "material": "SKULL_ITEM",
+    "durability": 3,
     "name": "10th Anniversary Podium",
     "furniture": "ANNI_PODIUM_MEME_FIRST",
     "tier": "EPIC",
     "soulbound": "COOP",
     "unstackable": true,
     "id": "ANNI_PODIUM_MEME_FIRST"
+  },
+  {
+    "material": "SKULL_ITEM",
+    "durability": 3,
+    "name": "Bear Side Table",
+    "furniture": "BEAR_SIDE_TABLE",
+    "tier": "EPIC",
+    "id": "BEAR_SIDE_TABLE"
   },
   {
     "material": "SKULL_ITEM",
@@ -14661,6 +15775,14 @@
   {
     "material": "SKULL_ITEM",
     "durability": 3,
+    "name": "Bear Bookshelf",
+    "furniture": "BEAR_BOOKSHELF",
+    "tier": "EPIC",
+    "id": "BEAR_BOOKSHELF"
+  },
+  {
+    "material": "SKULL_ITEM",
+    "durability": 3,
     "name": "10th Anniversary Podium",
     "furniture": "ANNI_PODIUM_MEMORY_RUNNERUP",
     "tier": "EPIC",
@@ -14734,6 +15856,7 @@
     "tier": "SPECIAL",
     "museum": true,
     "soulbound": "COOP",
+    "has_uuid": true,
     "id": "BINGO_CARD"
   },
   {
@@ -14831,6 +15954,7 @@
     "tier": "EPIC",
     "unstackable": true,
     "museum": true,
+    "can_place": true,
     "id": "DITTO_SKULL"
   },
   {
@@ -14864,11 +15988,21 @@
   },
   {
     "material": "PAPER",
+    "name": "Secret Bingo Card",
+    "tier": "SPECIAL",
+    "museum": true,
+    "glowing": true,
+    "soulbound": "COOP",
+    "id": "SECRET_BINGO_CARD"
+  },
+  {
+    "material": "PAPER",
     "name": "Extreme Bingo Card",
     "tier": "SPECIAL",
     "museum": true,
     "glowing": true,
     "soulbound": "COOP",
+    "has_uuid": true,
     "id": "EXTREME_BINGO_CARD"
   },
   {
@@ -14884,6 +16018,15 @@
     "origin": "BINGO",
     "soulbound": "SOLO",
     "id": "BINGO_BLASTER"
+  },
+  {
+    "material": "SKULL_ITEM",
+    "durability": 3,
+    "name": "Bingo's Secrets",
+    "tier": "SPECIAL",
+    "category": "MEMENTO",
+    "unstackable": true,
+    "id": "SECRET_BINGO_MEMENTO"
   },
   {
     "material": "SKULL_ITEM",
@@ -14997,7 +16140,7 @@
         "offset": "NEW",
         "skill_requirement": {
           "skill": "COMBAT",
-          "level": 12
+          "level": 25
         }
       }
     },
@@ -15684,6 +16827,7 @@
     "glowing": true,
     "tier": "RARE",
     "npc_sell_price": 30720,
+    "can_place": false,
     "id": "ENCHANTED_REDSTONE_LAMP"
   },
   {
@@ -15703,7 +16847,7 @@
   },
   {
     "material": "RABBIT_STEW",
-    "name": "§cMushroom & Warts Stew",
+    "name": "Mushroom & Warts Stew",
     "description": "%%gray%%%%italic%%Made with love, and an array of slightly more questionable ingredients.",
     "tier": "RARE",
     "soulbound": "COOP",
@@ -15712,7 +16856,7 @@
   {
     "material": "SKULL_ITEM",
     "durability": 3,
-    "name": "Neon BlueSheep",
+    "name": "Neon Blue Sheep Skin",
     "category": "COSMETIC",
     "tier": "RARE",
     "unstackable": true,
@@ -15746,6 +16890,7 @@
     "glowing": true,
     "tier": "MYTHIC",
     "npc_sell_price": 50000,
+    "has_uuid": true,
     "id": "PLASMA_BUCKET"
   },
   {
@@ -15777,6 +16922,7 @@
     "glowing": true,
     "tier": "RARE",
     "npc_sell_price": 153600,
+    "can_place": false,
     "id": "ENCHANTED_EMERALD_BLOCK"
   },
   {
@@ -15811,15 +16957,6 @@
       }
     ],
     "id": "CELESTE_LEGGINGS"
-  },
-  {
-    "material": "SKULL_ITEM",
-    "durability": 3,
-    "name": "Hot Bait",
-    "category": "BAIT",
-    "tier": "UNCOMMON",
-    "npc_sell_price": 30,
-    "id": "HOT_BAIT"
   },
   {
     "material": "SKULL_ITEM",
@@ -15920,7 +17057,7 @@
   {
     "material": "SKULL_ITEM",
     "durability": 3,
-    "name": "FortifiedSilverfish",
+    "name": "Fortified Silverfish Skin",
     "category": "COSMETIC",
     "tier": "EPIC",
     "unstackable": true,
@@ -15941,6 +17078,7 @@
     "glowing": true,
     "tier": "UNCOMMON",
     "npc_sell_price": 320,
+    "can_place": false,
     "id": "ENCHANTED_ACACIA_LOG"
   },
   {
@@ -15969,6 +17107,7 @@
     "name": "Rune",
     "category": "COSMETIC",
     "tier": "UNCOMMON",
+    "has_uuid": true,
     "id": "UNIQUE_RUNE"
   },
   {
@@ -16184,7 +17323,8 @@
     "name": "Sea Creature Talisman",
     "category": "ACCESSORY",
     "npc_sell_price": 180,
-    "id": "SEA_CREATURE_TALISMAN"
+    "id": "SEA_CREATURE_TALISMAN",
+    "tier": "COMMON"
   },
   {
     "material": "LEATHER_CHESTPLATE",
@@ -16264,6 +17404,7 @@
     "glowing": true,
     "tier": "UNCOMMON",
     "npc_sell_price": 320,
+    "can_place": false,
     "id": "ENCHANTED_BIRCH_LOG"
   },
   {
@@ -16676,7 +17817,7 @@
   {
     "material": "SKULL_ITEM",
     "durability": 3,
-    "name": "CoolRock",
+    "name": "Cool Rock Skin",
     "category": "COSMETIC",
     "tier": "RARE",
     "unstackable": true,
@@ -16904,7 +18045,7 @@
   {
     "material": "DOUBLE_PLANT",
     "durability": 4,
-    "name": "§cRose Bouquet",
+    "name": "Rose Bouquet",
     "description": "%%gray%%%%italic%%A hastily-made bouquet consisting of Marco's finest roses.",
     "soulbound": "COOP",
     "id": "ROSE_BOUQUET"
@@ -17149,7 +18290,7 @@
   },
   {
     "material": "DIAMOND_SWORD",
-    "name": "Shadow Fury",
+    "name": "⚚ Shadow Fury",
     "category": "SWORD",
     "tier": "LEGENDARY",
     "stats": {
@@ -17521,6 +18662,7 @@
     "glowing": true,
     "tier": "RARE",
     "npc_sell_price": 25600,
+    "can_place": false,
     "id": "ENCHANTED_REDSTONE_BLOCK"
   },
   {
@@ -18379,6 +19521,13 @@
     "stats": {
       "rift_Time": 11
     },
+    "salvages": [
+      {
+        "type": "ESSENCE",
+        "essence_type": "WITHER",
+        "amount": 60
+      }
+    ],
     "id": "SCARF_THESIS"
   },
   {
@@ -18395,6 +19544,7 @@
     "glowing": true,
     "tier": "UNCOMMON",
     "npc_sell_price": 30,
+    "can_burn_in_furnace": true,
     "id": "MAGICAL_LAVA_BUCKET"
   },
   {
@@ -18749,12 +19899,16 @@
     "material": "STAINED_CLAY",
     "durability": 14,
     "name": "Cancel Parkour",
+    "can_place": false,
+    "can_auction": false,
+    "can_trade": false,
+    "serializable": false,
     "id": "CANCEL_PARKOUR_ITEM"
   },
   {
     "material": "SKULL_ITEM",
     "durability": 3,
-    "name": "Neon GreenSheep",
+    "name": "Neon Green Sheep Skin",
     "category": "COSMETIC",
     "tier": "RARE",
     "unstackable": true,
@@ -18906,6 +20060,7 @@
     "glowing": true,
     "tier": "RARE",
     "npc_sell_price": 204800,
+    "can_place": false,
     "id": "ENCHANTED_DIAMOND_BLOCK"
   },
   {
@@ -19294,6 +20449,7 @@
     "glowing": true,
     "tier": "UNCOMMON",
     "npc_sell_price": 320,
+    "can_place": false,
     "id": "ENCHANTED_SAND"
   },
   {
@@ -19359,7 +20515,7 @@
   {
     "material": "SKULL_ITEM",
     "durability": 3,
-    "name": "OrangeSheep",
+    "name": "Orange Sheep Skin",
     "category": "COSMETIC",
     "tier": "UNCOMMON",
     "unstackable": true,
@@ -19495,6 +20651,8 @@
     "tier": "SPECIAL",
     "npc_sell_price": 777,
     "museum": true,
+    "can_place": false,
+    "has_uuid": true,
     "id": "GAME_BREAKER"
   },
   {
@@ -19689,7 +20847,7 @@
   {
     "material": "SKULL_ITEM",
     "durability": 3,
-    "name": "BlueElephant",
+    "name": "Blue Elephant Skin",
     "category": "COSMETIC",
     "tier": "RARE",
     "unstackable": true,
@@ -19731,6 +20889,9 @@
         "slot_type": "RUBY"
       }
     ],
+    "unstackable": true,
+    "can_auction": false,
+    "can_trade": false,
     "id": "POWER_ARTIFACT"
   },
   {
@@ -19800,7 +20961,7 @@
     "stats": {
       "WALK_SPEED": 1
     },
-    "soulbound": "COOP",
+    "soulbound": "SOLO",
     "id": "WOLF_PAW"
   },
   {
@@ -20206,7 +21367,7 @@
   {
     "material": "SKULL_ITEM",
     "durability": 3,
-    "name": "Henzo DoggoWolf",
+    "name": "Henzo Doggo Wolf Skin",
     "category": "COSMETIC",
     "tier": "SPECIAL",
     "unstackable": true,
@@ -20245,6 +21406,7 @@
     "tier": "LEGENDARY",
     "npc_sell_price": 1,
     "dungeon_item": true,
+    "serializable": false,
     "id": "REVIVE_STONE"
   },
   {
@@ -20255,6 +21417,9 @@
     "soulbound": "COOP",
     "description": "%%gray%%%%italic%%Self explanatory.",
     "npc_sell_price": 50,
+    "can_place": false,
+    "can_interact": false,
+    "can_interact_right_click": false,
     "id": "LUMP_OF_MAGMA"
   },
   {
@@ -20348,6 +21513,7 @@
     "durability": 3,
     "name": "Metaphysical Serum",
     "tier": "EPIC",
+    "has_uuid": true,
     "id": "METAPHYSICAL_SERUM"
   },
   {
@@ -20460,6 +21626,7 @@
     "tier": "UNCOMMON",
     "npc_sell_price": 1,
     "dungeon_item": true,
+    "serializable": false,
     "id": "EXPLOSIVE_SHOT_ABILITY"
   },
   {
@@ -20580,6 +21747,7 @@
     "tier": "LEGENDARY",
     "npc_sell_price": 100,
     "museum": true,
+    "double_tap_to_drop": true,
     "id": "SNOW_HOWITZER"
   },
   {
@@ -20601,7 +21769,8 @@
     "name": "Night Vision Charm",
     "category": "ACCESSORY",
     "npc_sell_price": 2500,
-    "id": "NIGHT_VISION_CHARM"
+    "id": "NIGHT_VISION_CHARM",
+    "tier": "COMMON"
   },
   {
     "material": "GOLD_RECORD",
@@ -20733,6 +21902,7 @@
     "glowing": true,
     "tier": "UNCOMMON",
     "npc_sell_price": 4346,
+    "has_uuid": true,
     "id": "MITHRIL_INFUSION"
   },
   {
@@ -20754,8 +21924,9 @@
     "durability": 3,
     "name": "Game Annihilator",
     "tier": "VERY_SPECIAL",
-    "soulbound": "COOP",
     "museum": true,
+    "has_uuid": true,
+    "soulbound": "COOP",
     "id": "GAME_ANNIHILATOR"
   },
   {
@@ -20784,6 +21955,8 @@
       "STRENGTH": 300
     },
     "npc_sell_price": 100000,
+    "can_place": false,
+    "has_uuid": true,
     "upgrade_costs": [
       [
         {
@@ -20850,7 +22023,7 @@
   {
     "material": "SKULL_ITEM",
     "durability": 3,
-    "name": "Grown-upBaby Yeti",
+    "name": "Grown-up Baby Yeti Skin",
     "category": "COSMETIC",
     "tier": "EPIC",
     "unstackable": true,
@@ -20871,7 +22044,7 @@
     "name": "Plasma",
     "tier": "RARE",
     "npc_sell_price": 20000,
-    "description": "%%gray%%%%italic%%Stable magnetic field, but to handle with caution.",
+    "description": "%%gray%%%%italic%%Stable magnetic field, but handle with caution.",
     "id": "PLASMA"
   },
   {
@@ -21109,6 +22282,7 @@
     "tier": "UNCOMMON",
     "npc_sell_price": 50,
     "museum": true,
+    "has_uuid": true,
     "id": "NAME_TAG"
   },
   {
@@ -21119,7 +22293,6 @@
     "tier": "RARE",
     "ability_damage_scaling": 0.1,
     "npc_sell_price": 10000,
-    "rarity_salvageable": true,
     "tiered_stats": {
       "DAMAGE": [
         52,
@@ -21342,6 +22515,7 @@
     "name": "Summoning Eye",
     "tier": "EPIC",
     "museum": true,
+    "has_uuid": true,
     "id": "SUMMONING_EYE"
   },
   {
@@ -21492,6 +22666,8 @@
     "category": "ACCESSORY",
     "tier": "UNCOMMON",
     "unstackable": true,
+    "can_auction": false,
+    "can_trade": false,
     "id": "PERSONAL_DELETOR_4000"
   },
   {
@@ -22331,7 +23507,8 @@
     "name": "Talisman of Coins",
     "category": "ACCESSORY",
     "npc_sell_price": 70,
-    "id": "COIN_TALISMAN"
+    "id": "COIN_TALISMAN",
+    "tier": "COMMON"
   },
   {
     "material": "BOW",
@@ -22505,7 +23682,7 @@
   {
     "material": "SKULL_ITEM",
     "durability": 3,
-    "name": "ThinkingRock",
+    "name": "Thinking Rock Skin",
     "category": "COSMETIC",
     "tier": "RARE",
     "unstackable": true,
@@ -22917,8 +24094,9 @@
   },
   {
     "material": "PAPER",
-    "name": "§dFairy Souls Pamphlet",
+    "name": "Fairy Souls Pamphlet",
     "tier": "RARE",
+    "can_auction": false,
     "id": "FAIRY_SOULS_PAMPHLET"
   },
   {
@@ -23093,6 +24271,15 @@
     "name": "Portable Builder",
     "tier": "RARE",
     "id": "PORTABLE_BUILDER"
+  },
+  {
+    "material": "SKULL_ITEM",
+    "durability": 3,
+    "name": "Worm Bait",
+    "tier": "UNCOMMON",
+    "category": "BAIT",
+    "npc_sell_price": 25,
+    "id": "WORM_BAIT"
   },
   {
     "material": "SKULL_ITEM",
@@ -23535,6 +24722,7 @@
       "WEAPON_ABILITY_DAMAGE": 3000
     },
     "ability_damage_scaling": 0.2,
+    "has_uuid": true,
     "id": "VAMPIRE_WITCH_MASK"
   },
   {
@@ -23548,6 +24736,7 @@
     "material": "RAW_FISH",
     "name": "Stew the Fish",
     "glowing": true,
+    "description": "%%gray%%The stew was expired.",
     "tier": "SPECIAL",
     "museum": true,
     "id": "STEW_THE_FISH"
@@ -23592,6 +24781,7 @@
     "name": "Cake Soul",
     "tier": "MYTHIC",
     "museum": true,
+    "has_uuid": true,
     "id": "CAKE_SOUL"
   },
   {
@@ -23620,6 +24810,7 @@
     "glowing": true,
     "tier": "RARE",
     "npc_sell_price": 80000,
+    "can_place": false,
     "id": "ENCHANTED_WET_SPONGE"
   },
   {
@@ -23805,6 +24996,7 @@
     "tier": "UNCOMMON",
     "description": "%%gray%%%%italic%%A leaf that grows on the ground. Really pushing the envelope.",
     "npc_sell_price": 20,
+    "can_place": false,
     "id": "RED_THORNLEAF"
   },
   {
@@ -23821,6 +25013,11 @@
     "material": "SKULL_ITEM",
     "durability": 3,
     "name": "Pet",
+    "has_uuid": true,
+    "unstackable": true,
+    "can_place": false,
+    "can_recombobulate": false,
+    "double_tap_to_drop": true,
     "id": "PET"
   },
   {
@@ -23914,6 +25111,7 @@
     "glowing": true,
     "tier": "UNCOMMON",
     "npc_sell_price": 576,
+    "can_place": false,
     "id": "ENCHANTED_STRING"
   },
   {
@@ -23932,7 +25130,7 @@
   {
     "material": "SKULL_ITEM",
     "durability": 3,
-    "name": "GoldenMonkey",
+    "name": "Golden Monkey Skin",
     "category": "COSMETIC",
     "tier": "LEGENDARY",
     "unstackable": true,
@@ -23959,7 +25157,7 @@
   {
     "material": "SKULL_ITEM",
     "durability": 3,
-    "name": "Green ElfJerry",
+    "name": "Green Elf Jerry Skin",
     "category": "COSMETIC",
     "tier": "UNCOMMON",
     "unstackable": true,
@@ -24037,6 +25235,7 @@
     "glowing": true,
     "tier": "UNCOMMON",
     "npc_sell_price": 160,
+    "can_place": false,
     "id": "ENCHANTED_COBBLESTONE"
   },
   {
@@ -24154,6 +25353,7 @@
     "material": "STAINED_CLAY",
     "durability": 14,
     "name": "Leave Challenge",
+    "serializable": false,
     "id": "LEAVE_CHALLENGE_BUTTON"
   },
   {
@@ -24191,7 +25391,8 @@
     "name": "Fire Talisman",
     "category": "ACCESSORY",
     "npc_sell_price": 6480,
-    "id": "FIRE_TALISMAN"
+    "id": "FIRE_TALISMAN",
+    "tier": "COMMON"
   },
   {
     "material": "SKULL_ITEM",
@@ -24571,14 +25772,6 @@
     "id": "SAPLING:2"
   },
   {
-    "material": "SKULL_ITEM",
-    "durability": 3,
-    "name": "Fish Bait",
-    "category": "BAIT",
-    "npc_sell_price": 20,
-    "id": "FISH_BAIT"
-  },
-  {
     "material": "IRON_HELMET",
     "name": "Skeleton's Helmet",
     "category": "HELMET",
@@ -24652,6 +25845,7 @@
     "tier": "EPIC",
     "npc_sell_price": 100,
     "museum": true,
+    "double_tap_to_drop": true,
     "id": "SNOW_BLASTER"
   },
   {
@@ -24816,6 +26010,7 @@
     "glowing": true,
     "tier": "UNCOMMON",
     "npc_sell_price": 320,
+    "can_place": false,
     "id": "ENCHANTED_ENDSTONE"
   },
   {
@@ -24831,6 +26026,7 @@
     "tier": "UNCOMMON",
     "npc_sell_price": 1,
     "dungeon_item": true,
+    "serializable": false,
     "id": "WARRIOR_DUNGEON_ABILITY_1"
   },
   {
@@ -24861,6 +26057,8 @@
       "DAMAGE": 1
     },
     "museum": true,
+    "can_auction": false,
+    "can_have_power_scroll": true,
     "id": "ASPECT_OF_THE_JERRY"
   },
   {
@@ -24970,7 +26168,14 @@
     "glowing": true,
     "tier": "RARE",
     "npc_sell_price": 12800,
+    "can_place": false,
     "id": "ENCHANTED_PACKED_ICE"
+  },
+  {
+    "material": "FIREWORK",
+    "name": "Firework Rocket",
+    "npc_sell_price": 2,
+    "id": "FIREWORK"
   },
   {
     "material": "BOW",
@@ -25035,6 +26240,7 @@
     "tier": "SPECIAL",
     "description": "%%gray%%%%italic%%Shines bright like a fish",
     "museum": true,
+    "can_place": false,
     "id": "DIAMOND_THE_FISH"
   },
   {
@@ -25204,7 +26410,7 @@
   {
     "material": "SKULL_ITEM",
     "durability": 3,
-    "name": "RadiantEndermite",
+    "name": "Radiant Endermite Skin",
     "category": "COSMETIC",
     "tier": "MYTHIC",
     "unstackable": true,
@@ -25371,6 +26577,7 @@
     "glowing": true,
     "tier": "UNCOMMON",
     "npc_sell_price": 7776,
+    "can_place": false,
     "id": "ENCHANTED_HAY_BLOCK"
   },
   {
@@ -25670,6 +26877,7 @@
     "tier": "UNCOMMON",
     "npc_sell_price": 1,
     "dungeon_item": true,
+    "serializable": false,
     "id": "HEALER_DUNGEON_ABILITY_3"
   },
   {
@@ -25678,7 +26886,7 @@
     "name": "Frozen Chicken",
     "category": "ACCESSORY",
     "tier": "RARE",
-    "soulbound": "COOP",
+    "soulbound": "SOLO",
     "npc_sell_price": 1,
     "stats": {
       "WALK_SPEED": 1
@@ -25904,7 +27112,7 @@
   },
   {
     "material": "PAPER",
-    "name": "§dPoem of True Love",
+    "name": "Poem of True Love",
     "description": "%%gray%%%%italic%%Filled with poor punctuation and misspellings, but its message is profound.",
     "glowing": true,
     "tier": "EPIC",
@@ -25945,7 +27153,7 @@
   },
   {
     "material": "GOLD_NUGGET",
-    "name": "§eVery Official Yellow Rock of Love!",
+    "name": "Very Official Yellow Rock of Love!",
     "description": "%%gray%%%%italic%%A majestic, one-of-a-kind mineral that glistens in the morning sun.",
     "glowing": true,
     "tier": "LEGENDARY",
@@ -25972,12 +27180,13 @@
     "glowing": true,
     "tier": "UNCOMMON",
     "npc_sell_price": 800,
+    "can_place": false,
     "id": "ENCHANTED_MYCELIUM"
   },
   {
     "material": "SKULL_ITEM",
     "durability": 3,
-    "name": "MonochromeElephant",
+    "name": "Monochrome Elephant Skin",
     "category": "COSMETIC",
     "tier": "EPIC",
     "unstackable": true,
@@ -25990,14 +27199,6 @@
     "name": "Milk and Cookies",
     "furniture": "MILK_COOKIES",
     "id": "MILK_COOKIES"
-  },
-  {
-    "material": "SKULL_ITEM",
-    "durability": 3,
-    "name": "Minnow Bait",
-    "category": "BAIT",
-    "npc_sell_price": 12,
-    "id": "MINNOW_BAIT"
   },
   {
     "material": "SKULL_ITEM",
@@ -26021,7 +27222,7 @@
   {
     "material": "SKULL_ITEM",
     "durability": 3,
-    "name": "TwilightTiger",
+    "name": "Twilight Tiger Skin",
     "category": "COSMETIC",
     "tier": "MYTHIC",
     "unstackable": true,
@@ -26037,7 +27238,7 @@
   {
     "material": "SKULL_ITEM",
     "durability": 3,
-    "name": "Red ElfJerry",
+    "name": "Red Elf Jerry Skin",
     "category": "COSMETIC",
     "tier": "UNCOMMON",
     "unstackable": true,
@@ -26267,6 +27468,9 @@
     "name": "Ancient Elevator",
     "tier": "SPECIAL",
     "museum": true,
+    "can_place": false,
+    "has_uuid": true,
+    "can_auction": false,
     "id": "ANCIENT_ELEVATOR"
   },
   {
@@ -26276,6 +27480,8 @@
     "tier": "SPECIAL",
     "npc_sell_price": 333,
     "museum": true,
+    "can_place": false,
+    "has_uuid": true,
     "id": "DEAD_BUSH_OF_LOVE"
   },
   {
@@ -26542,6 +27748,7 @@
     "name": "Grappling Hook",
     "tier": "UNCOMMON",
     "npc_sell_price": 1200,
+    "double_tap_to_drop": true,
     "id": "GRAPPLING_HOOK"
   },
   {
@@ -26549,6 +27756,14 @@
     "name": "Dandelion",
     "npc_sell_price": 1,
     "id": "YELLOW_FLOWER"
+  },
+  {
+    "material": "SKULL_ITEM",
+    "durability": 3,
+    "name": "%%green%%Swappable Preview %%gray%%(Click)",
+    "description": "Cycle between all the variations of the selected preview!",
+    "serializable": false,
+    "id": "SWAPPABLE_PREVIEW"
   },
   {
     "material": "PRISMARINE_SHARD",
@@ -26588,6 +27803,7 @@
     "glowing": true,
     "tier": "RARE",
     "npc_sell_price": 25600,
+    "can_place": false,
     "id": "ENCHANTED_LAPIS_LAZULI_BLOCK"
   },
   {
@@ -26664,6 +27880,7 @@
     "tier": "UNCOMMON",
     "npc_sell_price": 1,
     "dungeon_item": true,
+    "serializable": false,
     "id": "HAUNT_ABILITY"
   },
   {
@@ -26897,10 +28114,13 @@
   },
   {
     "material": "COOKIE",
-    "name": "Booster Cookie §8(FREE)",
+    "name": "Booster Cookie (FREE)",
     "glowing": true,
     "tier": "LEGENDARY",
     "unstackable": true,
+    "has_uuid": true,
+    "can_auction": false,
+    "can_trade": false,
     "id": "FREE_COOKIE"
   },
   {
@@ -26954,6 +28174,7 @@
         "slot_type": "SAPPHIRE"
       }
     ],
+    "can_have_power_scroll": true,
     "id": "ASPECT_OF_THE_END"
   },
   {
@@ -27088,12 +28309,19 @@
     "glowing": true,
     "tier": "UNCOMMON",
     "npc_sell_price": 480,
+    "can_place": false,
+    "can_interact": false,
+    "can_interact_entity": false,
     "id": "ENCHANTED_CARROT"
   },
   {
     "material": "STAINED_CLAY",
     "durability": 14,
     "name": "Cancel Race",
+    "can_place": false,
+    "can_auction": false,
+    "can_trade": false,
+    "serializable": false,
     "id": "CANCEL_RACE_ITEM"
   },
   {
@@ -27116,7 +28344,7 @@
   {
     "material": "SKULL_ITEM",
     "durability": 3,
-    "name": "§eYellow Belt",
+    "name": "Yellow Belt",
     "tier": "UNCOMMON",
     "stats": {
       "HEALTH": 15,
@@ -27580,7 +28808,7 @@
   {
     "material": "SKULL_ITEM",
     "durability": 3,
-    "name": "DarkWolf",
+    "name": "Dark Wolf Skin",
     "category": "COSMETIC",
     "tier": "EPIC",
     "unstackable": true,
@@ -27650,7 +28878,7 @@
   {
     "material": "SKULL_ITEM",
     "durability": 3,
-    "name": "WhiteSheep",
+    "name": "White Sheep Skin",
     "category": "COSMETIC",
     "tier": "UNCOMMON",
     "unstackable": true,
@@ -27683,7 +28911,7 @@
     "name": "Shady Ring",
     "category": "ACCESSORY",
     "tier": "UNCOMMON",
-    "soulbound": "COOP",
+    "soulbound": "SOLO",
     "id": "SHADY_RING"
   },
   {
@@ -27834,14 +29062,6 @@
       ]
     ],
     "id": "GOLD_HUNTER_CHESTPLATE"
-  },
-  {
-    "material": "RED_MUSHROOM",
-    "name": "Bonzo Fragment",
-    "glowing": true,
-    "tier": "RARE",
-    "dungeon_item": true,
-    "id": "BONZO_FRAGMENT"
   },
   {
     "material": "STAINED_GLASS",
@@ -28040,6 +29260,8 @@
     "glowing": true,
     "tier": "RARE",
     "npc_sell_price": 41000,
+    "can_interact": false,
+    "can_interact_right_click": false,
     "id": "ENCHANTED_FIREWORK_ROCKET"
   },
   {
@@ -28101,6 +29323,7 @@
     "glowing": true,
     "tier": "EPIC",
     "npc_sell_price": 0,
+    "has_uuid": true,
     "id": "INFINITE_SUPERBOOM_TNT"
   },
   {
@@ -28109,6 +29332,7 @@
     "glowing": true,
     "tier": "UNCOMMON",
     "npc_sell_price": 140,
+    "can_interact": false,
     "id": "ENCHANTED_ENDER_PEARL"
   },
   {
@@ -28117,12 +29341,13 @@
     "name": "Feather Talisman",
     "category": "ACCESSORY",
     "npc_sell_price": 160,
-    "id": "FEATHER_TALISMAN"
+    "id": "FEATHER_TALISMAN",
+    "tier": "COMMON"
   },
   {
     "material": "SKULL_ITEM",
     "durability": 3,
-    "name": "RoseRabbit",
+    "name": "Rose Rabbit Skin",
     "category": "COSMETIC",
     "tier": "RARE",
     "unstackable": true,
@@ -29051,6 +30276,7 @@
     "glowing": true,
     "tier": "UNCOMMON",
     "npc_sell_price": 480,
+    "can_place": false,
     "id": "ENCHANTED_POTATO"
   },
   {
@@ -29106,6 +30332,8 @@
     "category": "HELMET",
     "tier": "SPECIAL",
     "museum": true,
+    "can_place": false,
+    "has_uuid": true,
     "id": "DUECES_BUILDER_CLAY"
   },
   {
@@ -29314,6 +30542,8 @@
     "category": "HELMET",
     "tier": "SPECIAL",
     "museum": true,
+    "can_place": false,
+    "has_uuid": true,
     "id": "DCTR_SPACE_HELM"
   },
   {
@@ -29383,6 +30613,7 @@
       "WEAPON_ABILITY_DAMAGE": 2000,
       "INTELLIGENCE": 300
     },
+    "can_place": false,
     "ability_damage_scaling": 0.2,
     "upgrade_costs": [
       [
@@ -29483,7 +30714,7 @@
   {
     "material": "SKULL_ITEM",
     "durability": 3,
-    "name": "§cSecret Gift for Juliette",
+    "name": "Secret Gift for Juliette",
     "description": "%%gray%%%%italic%%A well-wrapped present that's hot to the touch.",
     "tier": "EPIC",
     "soulbound": "COOP",
@@ -29864,6 +31095,7 @@
     "durability": 3,
     "name": "Remnant of the Eye",
     "tier": "EPIC",
+    "has_uuid": true,
     "id": "REMNANT_OF_THE_EYE"
   },
   {
@@ -30432,8 +31664,10 @@
     "stats": {
       "WALK_SPEED": 3
     },
-    "soulbound": "COOP",
+    "soulbound": "SOLO",
     "npc_sell_price": 1000,
+    "can_auction": false,
+    "can_trade": false,
     "id": "CHEETAH_TALISMAN"
   },
   {
@@ -30666,6 +31900,7 @@
     "soulbound": "COOP",
     "description": "%%gray%%%%italic%%The bottom of the volcano is filled with it, Moogmas keep on moulting. It's a problem.",
     "npc_sell_price": 50,
+    "can_place": false,
     "id": "MOOGMA_PELT"
   },
   {
@@ -30700,7 +31935,7 @@
   {
     "material": "SKULL_ITEM",
     "durability": 3,
-    "name": "SpookyEnderman",
+    "name": "Spooky Enderman Skin",
     "category": "COSMETIC",
     "tier": "EPIC",
     "unstackable": true,
@@ -31024,7 +32259,7 @@
   {
     "material": "SKULL_ITEM",
     "durability": 3,
-    "name": "RedSheep",
+    "name": "Red Sheep Skin",
     "category": "COSMETIC",
     "tier": "UNCOMMON",
     "unstackable": true,
@@ -31455,6 +32690,7 @@
     },
     "npc_sell_price": 1,
     "dungeon_item": true,
+    "serializable": false,
     "id": "HEALING_CIRCLE_ITEM"
   },
   {
@@ -31642,6 +32878,7 @@
     "name": "Gold Magmafish",
     "tier": "LEGENDARY",
     "npc_sell_price": 128000,
+    "unstackable": false,
     "id": "MAGMA_FISH_GOLD"
   },
   {
@@ -31699,6 +32936,7 @@
     "glowing": true,
     "tier": "RARE",
     "npc_sell_price": 51000,
+    "can_place": false,
     "id": "ENCHANTED_COAL_BLOCK"
   },
   {
@@ -31710,7 +32948,8 @@
     "category": "SWORD",
     "tier": "UNOBTAINABLE",
     "stats": {
-      "DAMAGE": 9999999
+      "DAMAGE": 99999999,
+      "SWING_RANGE": 99999999
     },
     "id": "STAR_SWORD_9000"
   },
@@ -31839,6 +33078,9 @@
     "material": "IRON_HOE",
     "name": "Metal Detector",
     "tier": "SPECIAL",
+    "can_place": false,
+    "can_auction": false,
+    "can_trade": false,
     "id": "DWARVEN_METAL_DETECTOR"
   },
   {
@@ -32040,6 +33282,7 @@
     "tier": "UNCOMMON",
     "npc_sell_price": 1,
     "dungeon_item": true,
+    "serializable": false,
     "id": "ARCHER_DUNGEON_ABILITY_2"
   },
   {
@@ -32855,7 +34098,7 @@
   {
     "material": "SKULL_ITEM",
     "durability": 3,
-    "name": "GreenSheep",
+    "name": "Green Sheep Skin",
     "category": "COSMETIC",
     "tier": "UNCOMMON",
     "unstackable": true,
@@ -32968,6 +34211,7 @@
     "glowing": true,
     "tier": "UNCOMMON",
     "npc_sell_price": 320,
+    "can_place": false,
     "id": "ENCHANTED_OAK_LOG"
   },
   {
@@ -32976,6 +34220,7 @@
     "name": "Box of Booster Cookies",
     "tier": "LEGENDARY",
     "unstackable": true,
+    "has_uuid": true,
     "id": "BOOSTER_COOKIE_BOX"
   },
   {
@@ -33053,6 +34298,7 @@
     "glowing": true,
     "tier": "EPIC",
     "dungeon_item": true,
+    "has_uuid": true,
     "id": "FUMING_POTATO_BOOK"
   },
   {
@@ -33222,7 +34468,7 @@
   {
     "material": "SKULL_ITEM",
     "durability": 3,
-    "name": "DerpyRock",
+    "name": "Derpy Rock Skin",
     "category": "COSMETIC",
     "tier": "RARE",
     "unstackable": true,
@@ -33754,6 +35000,7 @@
     "tier": "SPECIAL",
     "npc_sell_price": 1,
     "museum": true,
+    "has_uuid": true,
     "id": "FRENCH_BREAD"
   },
   {
@@ -34645,6 +35892,7 @@
     "glowing": true,
     "category": "WAND",
     "tier": "EPIC",
+    "can_recombobulate": false,
     "id": "WIZARD_WAND"
   },
   {
@@ -34769,13 +36017,61 @@
   },
   {
     "material": "BOW",
-    "name": "Spider Queen's Stinger",
+    "name": "⚚ Spider Queen's Stinger",
     "category": "BOW",
     "tier": "EPIC",
     "stats": {
       "DAMAGE": 600
     },
     "npc_sell_price": 8000,
+    "dungeon_item_conversion_cost": {
+      "essence_type": "SPIDER",
+      "amount": 20
+    },
+    "upgrade_costs": [
+      [
+        {
+          "type": "ESSENCE",
+          "essence_type": "SPIDER",
+          "amount": 10
+        }
+      ],
+      [
+        {
+          "type": "ESSENCE",
+          "essence_type": "SPIDER",
+          "amount": 15
+        }
+      ],
+      [
+        {
+          "type": "ESSENCE",
+          "essence_type": "SPIDER",
+          "amount": 20
+        }
+      ],
+      [
+        {
+          "type": "ESSENCE",
+          "essence_type": "SPIDER",
+          "amount": 25
+        }
+      ],
+      [
+        {
+          "type": "ESSENCE",
+          "essence_type": "SPIDER",
+          "amount": 30
+        }
+      ]
+    ],
+    "catacombs_requirements": [
+      {
+        "type": "DUNGEON_SKILL",
+        "dungeon_type": "CATACOMBS",
+        "level": 8
+      }
+    ],
     "id": "STARRED_SPIDER_QUEENS_STINGER"
   },
   {
@@ -34962,6 +36258,7 @@
     "name": "Braided Griffin Feather",
     "glowing": true,
     "tier": "EPIC",
+    "can_place": false,
     "id": "BRAIDED_GRIFFIN_FEATHER"
   },
   {
@@ -35254,6 +36551,7 @@
     "tier": "UNCOMMON",
     "npc_sell_price": 1,
     "dungeon_item": true,
+    "serializable": false,
     "id": "TANK_DUNGEON_ABILITY_1"
   },
   {
@@ -35262,7 +36560,7 @@
     "name": "Jacobus Register",
     "category": "ACCESSORY",
     "tier": "LEGENDARY",
-    "soulbound": "COOP",
+    "soulbound": "SOLO",
     "stats": {
       "HEALTH": 10,
       "PET_LUCK": 1
@@ -35434,6 +36732,7 @@
     "tier": "SPECIAL",
     "museum": true,
     "soulbound": "COOP",
+    "has_uuid": true,
     "id": "SPOOKY_PIE"
   },
   {
@@ -35448,7 +36747,8 @@
     "name": "Master Skull - Tier 1",
     "category": "ACCESSORY",
     "dungeon_item": true,
-    "id": "MASTER_SKULL_TIER_1"
+    "id": "MASTER_SKULL_TIER_1",
+    "tier": "COMMON"
   },
   {
     "material": "GHAST_TEAR",
@@ -35460,6 +36760,7 @@
       "DAMAGE": 100,
       "RIFT_DAMAGE": 1
     },
+    "unstackable": false,
     "rift_transferrable": true,
     "npc_sell_price": 2000,
     "item_specific": {
@@ -35987,6 +37288,7 @@
     "stats": {
       "STRENGTH": 100
     },
+    "has_uuid": true,
     "id": "TRIBAL_SPEAR"
   },
   {
@@ -36026,6 +37328,8 @@
     "name": "Wizard's Crystal",
     "tier": "RARE",
     "dungeon_item": true,
+    "has_uuid": true,
+    "serializable": false,
     "id": "DUNGEON_WIZARD_CRYSTAL"
   },
   {
@@ -36134,6 +37438,7 @@
     "glowing": true,
     "tier": "UNCOMMON",
     "npc_sell_price": 80,
+    "can_place": false,
     "id": "ENCHANTED_ICE"
   },
   {
@@ -36143,6 +37448,8 @@
     "category": "ACCESSORY",
     "tier": "LEGENDARY",
     "unstackable": true,
+    "can_auction": false,
+    "can_trade": false,
     "id": "PERSONAL_DELETOR_7000"
   },
   {
@@ -36170,6 +37477,7 @@
     "name": "Enchanted Bone Block",
     "glowing": true,
     "tier": "RARE",
+    "can_place": false,
     "id": "ENCHANTED_BONE_BLOCK"
   },
   {
@@ -36429,6 +37737,7 @@
     "durability": 3,
     "name": "Green Gift",
     "tier": "UNCOMMON",
+    "double_tap_to_drop": true,
     "id": "GREEN_GIFT"
   },
   {
@@ -36663,6 +37972,7 @@
     "glowing": true,
     "tier": "UNCOMMON",
     "npc_sell_price": 2700,
+    "can_place": false,
     "id": "ENCHANTED_CAKE"
   },
   {
@@ -36877,6 +38187,7 @@
     "glowing": true,
     "tier": "UNCOMMON",
     "npc_sell_price": 160,
+    "can_place": false,
     "id": "ENCHANTED_REDSTONE"
   },
   {
@@ -37182,6 +38493,7 @@
     "tier": "UNCOMMON",
     "npc_sell_price": 1,
     "dungeon_item": true,
+    "serializable": false,
     "id": "CASTLE_OF_STONE"
   },
   {
@@ -37364,7 +38676,7 @@
   {
     "material": "SKULL_ITEM",
     "durability": 3,
-    "name": "Light GreenSheep",
+    "name": "Light Green Sheep Skin",
     "category": "COSMETIC",
     "tier": "UNCOMMON",
     "unstackable": true,
@@ -37380,7 +38692,7 @@
   {
     "material": "LEATHER_LEGGINGS",
     "color": "0,0,0",
-    "name": "Shadow Assassin Leggings",
+    "name": "⚚ Shadow Assassin Leggings",
     "category": "LEGGINGS",
     "tier": "LEGENDARY",
     "stats": {
@@ -37439,6 +38751,20 @@
     "dungeon_item": true,
     "gemstone_slots": [
       {
+        "slot_type": "JASPER",
+        "costs": [
+          {
+            "type": "COINS",
+            "coins": 50000
+          },
+          {
+            "type": "ITEM",
+            "item_id": "FINE_JASPER_GEM",
+            "amount": 20
+          }
+        ]
+      },
+      {
         "slot_type": "COMBAT",
         "costs": [
           {
@@ -37475,6 +38801,13 @@
     "stats": {
       "rift_Time": 10
     },
+    "salvages": [
+      {
+        "type": "ESSENCE",
+        "essence_type": "WITHER",
+        "amount": 15
+      }
+    ],
     "id": "SCARF_STUDIES"
   },
   {
@@ -37489,7 +38822,7 @@
   {
     "material": "SKULL_ITEM",
     "durability": 3,
-    "name": "Light GraySheep",
+    "name": "Light Gray Sheep Skin",
     "category": "COSMETIC",
     "tier": "UNCOMMON",
     "unstackable": true,
@@ -37506,7 +38839,7 @@
   {
     "material": "SKULL_ITEM",
     "durability": 3,
-    "name": "Void ConquerorEnderman",
+    "name": "Void Conqueror Enderman Skin",
     "category": "COSMETIC",
     "tier": "EPIC",
     "unstackable": true,
@@ -38782,12 +40115,13 @@
   {
     "material": "FLOWER_POT_ITEM",
     "name": "Pet Satchel",
+    "can_place": false,
     "id": "PET_SATCHEL"
   },
   {
     "material": "SKULL_ITEM",
     "durability": 3,
-    "name": "PastelEnder Dragon",
+    "name": "Pastel Ender Dragon Skin",
     "category": "COSMETIC",
     "tier": "LEGENDARY",
     "unstackable": true,
@@ -38929,7 +40263,7 @@
     "stats": {
       "WALK_SPEED": 1
     },
-    "soulbound": "COOP",
+    "soulbound": "SOLO",
     "npc_sell_price": 1000,
     "id": "PIGS_FOOT"
   },
@@ -39080,6 +40414,7 @@
     "name": "Shiny Orb",
     "tier": "LEGENDARY",
     "museum": true,
+    "unstackable": false,
     "id": "SHINY_ORB"
   },
   {
@@ -39588,6 +40923,7 @@
     "glowing": true,
     "tier": "RARE",
     "npc_sell_price": 76800,
+    "can_place": false,
     "id": "ENCHANTED_IRON_BLOCK"
   },
   {
@@ -39783,16 +41119,17 @@
   {
     "material": "INK_SACK",
     "durability": 3,
-    "name": "Enchanted Cocoa Bean",
+    "name": "Enchanted Cocoa Beans",
     "glowing": true,
     "tier": "UNCOMMON",
     "npc_sell_price": 480,
+    "can_place": false,
     "id": "ENCHANTED_COCOA"
   },
   {
     "material": "LEATHER_BOOTS",
     "color": "0,0,0",
-    "name": "Shadow Assassin Boots",
+    "name": "⚚ Shadow Assassin Boots",
     "category": "BOOTS",
     "tier": "LEGENDARY",
     "stats": {
@@ -39850,6 +41187,20 @@
     ],
     "dungeon_item": true,
     "gemstone_slots": [
+      {
+        "slot_type": "JASPER",
+        "costs": [
+          {
+            "type": "COINS",
+            "coins": 50000
+          },
+          {
+            "type": "ITEM",
+            "item_id": "FINE_JASPER_GEM",
+            "amount": 20
+          }
+        ]
+      },
       {
         "slot_type": "COMBAT",
         "costs": [
@@ -40044,7 +41395,7 @@
   {
     "material": "SKULL_ITEM",
     "durability": 3,
-    "name": "Light BlueSheep",
+    "name": "Light Blue Sheep Skin",
     "category": "COSMETIC",
     "tier": "UNCOMMON",
     "unstackable": true,
@@ -40073,7 +41424,7 @@
   {
     "material": "SKULL_ITEM",
     "durability": 3,
-    "name": "GreenElephant",
+    "name": "Green Elephant Skin",
     "category": "COSMETIC",
     "tier": "RARE",
     "unstackable": true,
@@ -40116,6 +41467,7 @@
     "tier": "UNCOMMON",
     "npc_sell_price": 1,
     "dungeon_item": true,
+    "serializable": false,
     "id": "TANK_DUNGEON_ABILITY_2"
   },
   {
@@ -40298,6 +41650,54 @@
       "DAMAGE": 450
     },
     "npc_sell_price": 1,
+    "dungeon_item_conversion_cost": {
+      "essence_type": "SPIDER",
+      "amount": 20
+    },
+    "upgrade_costs": [
+      [
+        {
+          "type": "ESSENCE",
+          "essence_type": "SPIDER",
+          "amount": 10
+        }
+      ],
+      [
+        {
+          "type": "ESSENCE",
+          "essence_type": "SPIDER",
+          "amount": 15
+        }
+      ],
+      [
+        {
+          "type": "ESSENCE",
+          "essence_type": "SPIDER",
+          "amount": 20
+        }
+      ],
+      [
+        {
+          "type": "ESSENCE",
+          "essence_type": "SPIDER",
+          "amount": 25
+        }
+      ],
+      [
+        {
+          "type": "ESSENCE",
+          "essence_type": "SPIDER",
+          "amount": 30
+        }
+      ]
+    ],
+    "catacombs_requirements": [
+      {
+        "type": "DUNGEON_SKILL",
+        "dungeon_type": "CATACOMBS",
+        "level": 8
+      }
+    ],
     "id": "SOULS_REBOUND"
   },
   {
@@ -40583,7 +41983,7 @@
     "name": "Seal of the Family",
     "category": "ACCESSORY",
     "tier": "EPIC",
-    "soulbound": "COOP",
+    "soulbound": "SOLO",
     "id": "SEAL_OF_THE_FAMILY"
   },
   {
@@ -40762,6 +42162,9 @@
     "name": "Kloonboat",
     "tier": "SPECIAL",
     "museum": true,
+    "has_uuid": true,
+    "can_auction": false,
+    "can_trade": false,
     "id": "KLOONBOAT"
   },
   {
@@ -40910,6 +42313,7 @@
     "durability": 3,
     "name": "Trick or Treat Bag",
     "tier": "UNCOMMON",
+    "double_tap_to_drop": true,
     "id": "TRICK_OR_TREAT_BAG"
   },
   {
@@ -40936,7 +42340,7 @@
   {
     "material": "SKULL_ITEM",
     "durability": 3,
-    "name": "§bSolved Rubix Prism",
+    "name": "Solved Rubix Prism",
     "description": "%%gray%%%%italic%%It took hard work and patience, but that's what love is all about!",
     "tier": "EPIC",
     "soulbound": "COOP",
@@ -40989,6 +42393,7 @@
     "glowing": true,
     "npc_sell_price": 51200,
     "tier": "RARE",
+    "can_place": false,
     "id": "ENCHANTED_HUGE_MUSHROOM_2"
   },
   {
@@ -41019,6 +42424,7 @@
     "category": "COSMETIC",
     "tier": "UNCOMMON",
     "npc_sell_price": 1,
+    "unstackable": false,
     "id": "RUNE"
   },
   {
@@ -41107,7 +42513,7 @@
   {
     "material": "SKULL_ITEM",
     "durability": 3,
-    "name": "EmbarrassedRock",
+    "name": "Embarrassed Rock Skin",
     "category": "COSMETIC",
     "tier": "RARE",
     "unstackable": true,
@@ -41852,7 +43258,7 @@
   {
     "material": "SKULL_ITEM",
     "durability": 3,
-    "name": "AquamarineRabbit",
+    "name": "Aquamarine Rabbit Skin",
     "category": "COSMETIC",
     "tier": "RARE",
     "unstackable": true,
@@ -42010,6 +43416,7 @@
     "tier": "UNCOMMON",
     "npc_sell_price": 1,
     "dungeon_item": true,
+    "serializable": false,
     "id": "MAGE_DUNGEON_ABILITY_2"
   },
   {
@@ -42018,7 +43425,8 @@
     "glowing": true,
     "category": "ACCESSORY",
     "npc_sell_price": 85,
-    "id": "COMPASS_TALISMAN"
+    "id": "COMPASS_TALISMAN",
+    "tier": "COMMON"
   },
   {
     "material": "BOW",
@@ -42288,6 +43696,7 @@
     "glowing": true,
     "tier": "UNCOMMON",
     "npc_sell_price": 1600,
+    "can_place": false,
     "id": "ENCHANTED_WATER_LILY"
   },
   {
@@ -42324,6 +43733,7 @@
     "glowing": true,
     "tier": "LEGENDARY",
     "npc_sell_price": 50000,
+    "has_uuid": true,
     "id": "MAGMA_BUCKET"
   },
   {
@@ -42349,6 +43759,7 @@
     "tier": "UNCOMMON",
     "npc_sell_price": 1,
     "dungeon_item": true,
+    "serializable": false,
     "id": "ARCHER_ULTIMATE_ABILITY"
   },
   {
@@ -42415,6 +43826,8 @@
     "name": "Potato War Silver Medal",
     "tier": "SPECIAL",
     "museum": true,
+    "can_place": false,
+    "has_uuid": true,
     "id": "POTATO_SILVER_MEDAL"
   },
   {
@@ -42431,6 +43844,7 @@
     "npc_sell_price": 1000000,
     "description": "%%gold%%Sold to shops for 1,000,000 coins!",
     "museum": true,
+    "has_uuid": true,
     "id": "BAG_OF_CASH"
   },
   {
@@ -42795,7 +44209,7 @@
   {
     "material": "SKULL_ITEM",
     "durability": 3,
-    "name": "BlueSheep",
+    "name": "Blue Sheep Skin",
     "category": "COSMETIC",
     "tier": "UNCOMMON",
     "unstackable": true,
@@ -42805,7 +44219,7 @@
   {
     "material": "SKULL_ITEM",
     "durability": 3,
-    "name": "OnyxBlack Cat",
+    "name": "Onyx Black Cat Skin",
     "category": "COSMETIC",
     "tier": "EPIC",
     "unstackable": true,
@@ -42829,6 +44243,7 @@
     "durability": 3,
     "name": "Repelling Candle",
     "tier": "UNCOMMON",
+    "has_uuid": true,
     "id": "REPELLING_CANDLE"
   },
   {
@@ -43033,6 +44448,7 @@
     "material": "SKULL_ITEM",
     "durability": 3,
     "name": "White Gift",
+    "double_tap_to_drop": true,
     "id": "WHITE_GIFT"
   },
   {
@@ -43119,6 +44535,7 @@
     "glowing": true,
     "tier": "UNCOMMON",
     "npc_sell_price": 1440,
+    "can_place": false,
     "id": "ENCHANTED_OBSIDIAN"
   },
   {
@@ -43179,7 +44596,7 @@
   {
     "material": "SKULL_ITEM",
     "durability": 3,
-    "name": "BlackSheep",
+    "name": "Black Sheep Skin",
     "category": "COSMETIC",
     "tier": "UNCOMMON",
     "unstackable": true,
@@ -43397,14 +44814,6 @@
     "id": "SCOVILLE_BELT"
   },
   {
-    "material": "SKULL_ITEM",
-    "durability": 3,
-    "name": "Spooky Bait",
-    "category": "BAIT",
-    "npc_sell_price": 10,
-    "id": "SPOOKY_BAIT"
-  },
-  {
     "material": "ARROW",
     "name": "Bouncy Arrow",
     "glowing": true,
@@ -43501,6 +44910,8 @@
   {
     "material": "ENCHANTED_BOOK",
     "name": "Enchanted Book",
+    "has_uuid": true,
+    "can_auction": false,
     "id": "ENCHANTED_BOOK"
   },
   {
@@ -43517,6 +44928,7 @@
     "npc_sell_price": 1337,
     "museum": true,
     "soulbound": "SOLO",
+    "can_place": false,
     "id": "THE_CAKE"
   },
   {
@@ -43525,7 +44937,8 @@
     "name": "Village Affinity Talisman",
     "category": "ACCESSORY",
     "npc_sell_price": 200,
-    "id": "VILLAGE_TALISMAN"
+    "id": "VILLAGE_TALISMAN",
+    "tier": "COMMON"
   },
   {
     "material": "LOG",
@@ -43534,6 +44947,7 @@
     "glowing": true,
     "tier": "UNCOMMON",
     "npc_sell_price": 320,
+    "can_place": false,
     "id": "ENCHANTED_SPRUCE_LOG"
   },
   {
@@ -44042,6 +45456,7 @@
     "glowing": true,
     "tier": "RARE",
     "npc_sell_price": 51200,
+    "can_place": false,
     "id": "ENCHANTED_MELON_BLOCK"
   },
   {
@@ -44237,6 +45652,7 @@
     "name": "Silex",
     "glowing": true,
     "tier": "EPIC",
+    "has_uuid": true,
     "id": "SIL_EX"
   },
   {
@@ -44270,6 +45686,7 @@
     "glowing": true,
     "tier": "UNCOMMON",
     "npc_sell_price": 3520,
+    "can_interact": false,
     "id": "ENCHANTED_EYE_OF_ENDER"
   },
   {
@@ -44309,6 +45726,8 @@
     "category": "ACCESSORY",
     "tier": "EPIC",
     "unstackable": true,
+    "can_auction": false,
+    "can_trade": false,
     "id": "PERSONAL_DELETOR_6000"
   },
   {
@@ -44360,7 +45779,7 @@
   {
     "material": "SKULL_ITEM",
     "durability": 3,
-    "name": "YellowSheep",
+    "name": "Yellow Sheep Skin",
     "category": "COSMETIC",
     "tier": "UNCOMMON",
     "unstackable": true,
@@ -44373,6 +45792,7 @@
     "glowing": true,
     "tier": "RARE",
     "npc_sell_price": 128000,
+    "can_place": false,
     "id": "ENCHANTED_SLIME_BLOCK"
   },
   {
@@ -44465,6 +45885,7 @@
     },
     "npc_sell_price": 1,
     "dungeon_item": true,
+    "serializable": false,
     "id": "SEISMIC_WAVE_STICK"
   },
   {
@@ -44474,6 +45895,7 @@
     "tier": "UNCOMMON",
     "npc_sell_price": 1,
     "dungeon_item": true,
+    "serializable": false,
     "id": "HEALER_DUNGEON_ABILITY_1"
   },
   {
@@ -44747,7 +46169,8 @@
     "name": "Enchanted Glowstone",
     "glowing": true,
     "tier": "UNCOMMON",
-    "npc_sell_price": 61000,
+    "npc_sell_price": 51200,
+    "can_place": false,
     "id": "ENCHANTED_GLOWSTONE"
   },
   {
@@ -44837,6 +46260,7 @@
     "material": "MONSTER_EGG",
     "name": "Training Dummy",
     "tier": "UNCOMMON",
+    "has_uuid": true,
     "id": "TRAINING_DUMMY"
   },
   {
@@ -45052,7 +46476,8 @@
     "name": "Mine Affinity Talisman",
     "category": "ACCESSORY",
     "npc_sell_price": 200,
-    "id": "MINE_TALISMAN"
+    "id": "MINE_TALISMAN",
+    "tier": "COMMON"
   },
   {
     "material": "WOOL",
@@ -45196,7 +46621,7 @@
   {
     "material": "SKULL_ITEM",
     "durability": 3,
-    "name": "IvoryBlack Cat",
+    "name": "Ivory Black Cat Skin",
     "category": "COSMETIC",
     "tier": "EPIC",
     "unstackable": true,
@@ -45213,6 +46638,8 @@
     },
     "ability_damage_scaling": 0.2,
     "museum": true,
+    "can_place": false,
+    "has_uuid": true,
     "id": "PUMPKIN_LAUNCHER"
   },
   {
@@ -45297,6 +46724,13 @@
     "tier": "EPIC",
     "npc_sell_price": 1000,
     "dungeon_item": true,
+    "salvages": [
+      {
+        "type": "ESSENCE",
+        "essence_type": "GOLD",
+        "amount": 120
+      }
+    ],
     "id": "TREASURE_RING"
   },
   {
@@ -45436,6 +46870,7 @@
     "durability": 3,
     "name": "Recall Potion",
     "tier": "EPIC",
+    "has_uuid": true,
     "id": "RECALL_POTION"
   },
   {
@@ -45505,7 +46940,8 @@
     "name": "Wolf Talisman",
     "category": "ACCESSORY",
     "npc_sell_price": 50,
-    "id": "WOLF_TALISMAN"
+    "id": "WOLF_TALISMAN",
+    "tier": "COMMON"
   },
   {
     "material": "IRON_HOE",
@@ -45522,7 +46958,8 @@
     "name": "Dante Talisman",
     "category": "ACCESSORY",
     "museum": true,
-    "id": "DANTE_TALISMAN"
+    "id": "DANTE_TALISMAN",
+    "tier": "COMMON"
   },
   {
     "material": "SKULL_ITEM",
@@ -45550,6 +46987,7 @@
     "tier": "LEGENDARY",
     "npc_sell_price": 1,
     "dungeon_item": true,
+    "serializable": false,
     "id": "WISH_ULTIMATE"
   },
   {
@@ -45910,14 +47348,6 @@
     "id": "FISHING_ROD"
   },
   {
-    "material": "SKULL_ITEM",
-    "durability": 3,
-    "name": "Dark Bait",
-    "category": "BAIT",
-    "npc_sell_price": 8,
-    "id": "DARK_BAIT"
-  },
-  {
     "material": "RED_SANDSTONE",
     "name": "Red Sandstone",
     "npc_sell_price": 3,
@@ -45929,6 +47359,7 @@
     "tier": "UNCOMMON",
     "npc_sell_price": 1,
     "dungeon_item": true,
+    "serializable": false,
     "id": "THUNDERSTORM_ABILITY"
   },
   {
@@ -45975,14 +47406,6 @@
       }
     ],
     "id": "EMBER_LEGGINGS"
-  },
-  {
-    "material": "SKULL_ITEM",
-    "durability": 3,
-    "name": "Light Bait",
-    "category": "BAIT",
-    "npc_sell_price": 16,
-    "id": "LIGHT_BAIT"
   },
   {
     "material": "DIAMOND_ORE",
@@ -46733,7 +48156,8 @@
     "category": "ACCESSORY",
     "museum": true,
     "description": "Found in a hidden warehouse. Not very useful but still pretty nice to wear.",
-    "id": "DANTE_RING"
+    "id": "DANTE_RING",
+    "tier": "COMMON"
   },
   {
     "material": "SKULL_ITEM",
@@ -46847,6 +48271,7 @@
     "glowing": true,
     "tier": "EPIC",
     "dungeon_item": true,
+    "has_uuid": true,
     "id": "NECRON_HANDLE"
   },
   {
@@ -47095,6 +48520,7 @@
     "durability": 3,
     "name": "Gemstone Chamber",
     "tier": "EPIC",
+    "has_uuid": true,
     "id": "GEMSTONE_CHAMBER"
   },
   {
@@ -47129,6 +48555,7 @@
     "tier": "RARE",
     "npc_sell_price": 0,
     "soulbound": "SOLO",
+    "has_uuid": true,
     "id": "DEAN_LETTER_OF_RECOMMENDATION"
   },
   {
@@ -47411,6 +48838,7 @@
     "glowing": true,
     "tier": "UNCOMMON",
     "npc_sell_price": 2000,
+    "can_place": false,
     "id": "ENCHANTED_SPONGE"
   },
   {
@@ -47419,6 +48847,8 @@
     "glowing": true,
     "tier": "EPIC",
     "description": "%%gray%%Used to open the entrance to the Jungle Temple.",
+    "can_place": false,
+    "can_interact": false,
     "id": "JUNGLE_KEY"
   },
   {
@@ -47950,6 +49380,7 @@
     "name": "Mithril",
     "npc_sell_price": 8,
     "description": "%%gray%%%%italic%%\"The Man called it \"true-silver\" while the Dwarves, who loved it above all things, had their own, secret name for it.\"",
+    "can_place": false,
     "id": "MITHRIL_ORE"
   },
   {
@@ -48028,6 +49459,7 @@
     "glowing": true,
     "tier": "LEGENDARY",
     "npc_sell_price": 51200,
+    "unstackable": false,
     "id": "REFINED_TITANIUM"
   },
   {
@@ -48072,6 +49504,9 @@
     "material": "ROTTEN_FLESH",
     "name": "Mysterious Meat",
     "glowing": true,
+    "can_place": false,
+    "can_auction": false,
+    "can_trade": false,
     "id": "MYSTERIOUS_MEAT"
   },
   {
@@ -48575,7 +50010,7 @@
   },
   {
     "material": "STONE_SWORD",
-    "name": "Adaptive Blade",
+    "name": "⚚ Adaptive Blade",
     "category": "SWORD",
     "tier": "EPIC",
     "stats": {
@@ -48641,6 +50076,9 @@
     "glowing": true,
     "tier": "LEGENDARY",
     "unstackable": true,
+    "has_uuid": true,
+    "can_auction": false,
+    "can_trade": false,
     "id": "BOOSTER_COOKIE"
   },
   {
@@ -48923,7 +50361,7 @@
   {
     "material": "SKULL_ITEM",
     "durability": 3,
-    "name": "GraySheep",
+    "name": "Gray Sheep Skin",
     "category": "COSMETIC",
     "tier": "UNCOMMON",
     "unstackable": true,
@@ -48932,7 +50370,7 @@
   },
   {
     "material": "BOW",
-    "name": "Venom's Touch",
+    "name": "⚚ Venom's Touch",
     "category": "BOW",
     "tier": "EPIC",
     "stats": {
@@ -48940,6 +50378,54 @@
       "STRENGTH": 180
     },
     "npc_sell_price": 8000,
+    "dungeon_item_conversion_cost": {
+      "essence_type": "SPIDER",
+      "amount": 20
+    },
+    "upgrade_costs": [
+      [
+        {
+          "type": "ESSENCE",
+          "essence_type": "SPIDER",
+          "amount": 10
+        }
+      ],
+      [
+        {
+          "type": "ESSENCE",
+          "essence_type": "SPIDER",
+          "amount": 15
+        }
+      ],
+      [
+        {
+          "type": "ESSENCE",
+          "essence_type": "SPIDER",
+          "amount": 20
+        }
+      ],
+      [
+        {
+          "type": "ESSENCE",
+          "essence_type": "SPIDER",
+          "amount": 25
+        }
+      ],
+      [
+        {
+          "type": "ESSENCE",
+          "essence_type": "SPIDER",
+          "amount": 30
+        }
+      ]
+    ],
+    "catacombs_requirements": [
+      {
+        "type": "DUNGEON_SKILL",
+        "dungeon_type": "CATACOMBS",
+        "level": 8
+      }
+    ],
     "id": "STARRED_VENOMS_TOUCH"
   },
   {
@@ -49025,6 +50511,7 @@
       "HEALTH": 66,
       "WEAPON_ABILITY_DAMAGE": 4000
     },
+    "has_uuid": true,
     "id": "WITCH_MASK"
   },
   {
@@ -49033,6 +50520,7 @@
     "name": "Crypt Skull Key",
     "tier": "UNCOMMON",
     "dungeon_item": true,
+    "has_uuid": true,
     "id": "CRYPT_SKULL_KEY"
   },
   {
@@ -49149,7 +50637,9 @@
       "WALK_SPEED": 1
     },
     "museum": true,
-    "id": "POTATO_TALISMAN"
+    "has_uuid": true,
+    "id": "POTATO_TALISMAN",
+    "tier": "COMMON"
   },
   {
     "material": "POTION",
@@ -49339,6 +50829,7 @@
         "level": 5
       }
     ],
+    "has_uuid": true,
     "id": "ISLAND_NPC"
   },
   {
@@ -49418,6 +50909,8 @@
     "category": "ACCESSORY",
     "tier": "RARE",
     "unstackable": true,
+    "can_auction": false,
+    "can_trade": false,
     "id": "PERSONAL_DELETOR_5000"
   },
   {
@@ -49635,7 +51128,7 @@
     "category": "ACCESSORY",
     "tier": "LEGENDARY",
     "unstackable": true,
-    "soulbound": "COOP",
+    "soulbound": "SOLO",
     "id": "KUUDRA_FOLLOWER_RELIC"
   },
   {
@@ -49674,6 +51167,10 @@
     "tier": "UNCOMMON",
     "glowing": true,
     "npc_sell_price": 480,
+    "can_place": false,
+    "can_interact": false,
+    "can_interact_right_click": false,
+    "can_interact_entity": false,
     "id": "ENCHANTED_SEEDS"
   },
   {
@@ -49696,6 +51193,7 @@
     "tier": "RARE",
     "npc_sell_price": 1,
     "dungeon_item": true,
+    "serializable": false,
     "id": "ARCHER_DUNGEON_ABILITY_3"
   },
   {
@@ -49751,7 +51249,7 @@
   {
     "material": "SKULL_ITEM",
     "durability": 3,
-    "name": "Baby ChickChicken",
+    "name": "Baby Chick Chicken Skin",
     "category": "COSMETIC",
     "tier": "EPIC",
     "unstackable": true,
@@ -49840,7 +51338,7 @@
   {
     "material": "SKULL_ITEM",
     "durability": 3,
-    "name": "Shadow Assassin Helmet",
+    "name": "⚚ Shadow Assassin Helmet",
     "category": "HELMET",
     "tier": "LEGENDARY",
     "stats": {
@@ -49898,6 +51396,20 @@
     ],
     "dungeon_item": true,
     "gemstone_slots": [
+      {
+        "slot_type": "JASPER",
+        "costs": [
+          {
+            "type": "COINS",
+            "coins": 50000
+          },
+          {
+            "type": "ITEM",
+            "item_id": "FINE_JASPER_GEM",
+            "amount": 20
+          }
+        ]
+      },
       {
         "slot_type": "COMBAT",
         "costs": [
@@ -50199,7 +51711,7 @@
   {
     "material": "SKULL_ITEM",
     "durability": 3,
-    "name": "RedElephant",
+    "name": "Red Elephant Skin",
     "category": "COSMETIC",
     "tier": "RARE",
     "unstackable": true,
@@ -50232,12 +51744,6 @@
       }
     ],
     "id": "DIVER_LEGGINGS"
-  },
-  {
-    "material": "POTION",
-    "name": "§cBottle of Jyrre",
-    "npc_sell_price": 100,
-    "id": "BOTTLE_OF_JYRRE"
   },
   {
     "material": "GOLD_HELMET",
@@ -50970,7 +52476,7 @@
   {
     "material": "SKULL_ITEM",
     "durability": 3,
-    "name": "PinkElephant",
+    "name": "Pink Elephant Skin",
     "category": "COSMETIC",
     "tier": "RARE",
     "unstackable": true,
@@ -51050,7 +52556,8 @@
     "stats": {
       "WALK_SPEED": 1
     },
-    "id": "SPEED_TALISMAN"
+    "id": "SPEED_TALISMAN",
+    "tier": "COMMON"
   },
   {
     "material": "SKULL_ITEM",
@@ -51282,6 +52789,7 @@
     "tier": "UNCOMMON",
     "npc_sell_price": 1,
     "dungeon_item": true,
+    "serializable": false,
     "id": "RAGNAROK_ABILITY"
   },
   {
@@ -51757,6 +53265,7 @@
     "glowing": true,
     "tier": "UNCOMMON",
     "npc_sell_price": 640,
+    "can_place": false,
     "id": "ENCHANTED_NETHER_STALK"
   },
   {
@@ -51775,6 +53284,7 @@
     "tier": "RARE",
     "npc_sell_price": 10,
     "museum": true,
+    "double_tap_to_drop": true,
     "id": "SNOW_CANNON"
   },
   {
@@ -51975,7 +53485,8 @@
     "name": "Scavenger Talisman",
     "category": "ACCESSORY",
     "npc_sell_price": 200,
-    "id": "SCAVENGER_TALISMAN"
+    "id": "SCAVENGER_TALISMAN",
+    "tier": "COMMON"
   },
   {
     "material": "FISHING_ROD",
@@ -52087,6 +53598,7 @@
     "name": "Toy",
     "tier": "COMMON",
     "soulbound": "SOLO",
+    "has_uuid": true,
     "id": "TOY"
   },
   {
@@ -52418,7 +53930,8 @@
     "stats": {
       "vitality": 5
     },
-    "id": "HEALING_TALISMAN"
+    "id": "HEALING_TALISMAN",
+    "tier": "COMMON"
   },
   {
     "material": "SKULL_ITEM",
@@ -52454,6 +53967,7 @@
     "glowing": true,
     "tier": "RARE",
     "npc_sell_price": 102000,
+    "can_place": false,
     "id": "ENCHANTED_GOLD_BLOCK"
   },
   {
@@ -52499,7 +54013,7 @@
   {
     "material": "SKULL_ITEM",
     "durability": 3,
-    "name": "PurpleSheep",
+    "name": "Purple Sheep Skin",
     "category": "COSMETIC",
     "tier": "UNCOMMON",
     "unstackable": true,
@@ -52665,6 +54179,7 @@
     "durability": 3,
     "name": "Wheel of Fate",
     "tier": "RARE",
+    "has_uuid": true,
     "id": "WHEEL_OF_FATE"
   },
   {
@@ -52713,6 +54228,7 @@
     "glowing": true,
     "npc_sell_price": 1600,
     "tier": "UNCOMMON",
+    "can_place": false,
     "id": "ENCHANTED_BROWN_MUSHROOM"
   },
   {
@@ -52894,7 +54410,7 @@
   {
     "material": "SKULL_ITEM",
     "durability": 3,
-    "name": "Neon RedSheep",
+    "name": "Neon Red Sheep Skin",
     "category": "COSMETIC",
     "tier": "RARE",
     "unstackable": true,
@@ -52972,8 +54488,9 @@
     "material": "SKULL_ITEM",
     "durability": 3,
     "name": "Prehistoric Egg",
-    "unstackable": true,
     "npc_sell_price": 1000,
+    "unstackable": true,
+    "can_interact": false,
     "id": "PREHISTORIC_EGG"
   },
   {
@@ -53442,6 +54959,7 @@
     "glowing": true,
     "tier": "RARE",
     "npc_sell_price": 432,
+    "can_interact": false,
     "id": "ENCHANTED_EGG"
   },
   {
@@ -53698,64 +55216,6 @@
     "name": "Cobblestone Slab",
     "npc_sell_price": 0.5,
     "id": "STEP:3"
-  },
-  {
-    "material": "SKULL_ITEM",
-    "durability": 3,
-    "name": "Bonzo's Mask",
-    "category": "HELMET",
-    "tier": "RARE",
-    "stats": {
-      "DEFENSE": 100,
-      "HEALTH": 125,
-      "INTELLIGENCE": 150
-    },
-    "upgrade_costs": [
-      [
-        {
-          "type": "ESSENCE",
-          "essence_type": "WITHER",
-          "amount": 5
-        }
-      ],
-      [
-        {
-          "type": "ESSENCE",
-          "essence_type": "WITHER",
-          "amount": 10
-        }
-      ],
-      [
-        {
-          "type": "ESSENCE",
-          "essence_type": "WITHER",
-          "amount": 25
-        }
-      ],
-      [
-        {
-          "type": "ESSENCE",
-          "essence_type": "WITHER",
-          "amount": 50
-        }
-      ],
-      [
-        {
-          "type": "ESSENCE",
-          "essence_type": "WITHER",
-          "amount": 100
-        }
-      ]
-    ],
-    "requirements": [
-      {
-        "type": "DUNGEON_TIER",
-        "dungeon_type": "CATACOMBS",
-        "tier": 1
-      }
-    ],
-    "dungeon_item": true,
-    "id": "STARRED_BONZO_MASK"
   },
   {
     "material": "SKULL_ITEM",
@@ -54220,70 +55680,8 @@
     "name": "Potion Affinity Talisman",
     "category": "ACCESSORY",
     "npc_sell_price": 192,
-    "id": "POTION_AFFINITY_TALISMAN"
-  },
-  {
-    "material": "BLAZE_ROD",
-    "name": "Bonzo's Staff",
-    "category": "SWORD",
-    "tier": "RARE",
-    "stats": {
-      "DAMAGE": 160,
-      "WEAPON_ABILITY_DAMAGE": 1000,
-      "INTELLIGENCE": 250
-    },
-    "ability_damage_scaling": 0.2,
-    "upgrade_costs": [
-      [
-        {
-          "type": "ESSENCE",
-          "essence_type": "WITHER",
-          "amount": 5
-        }
-      ],
-      [
-        {
-          "type": "ESSENCE",
-          "essence_type": "WITHER",
-          "amount": 10
-        }
-      ],
-      [
-        {
-          "type": "ESSENCE",
-          "essence_type": "WITHER",
-          "amount": 25
-        }
-      ],
-      [
-        {
-          "type": "ESSENCE",
-          "essence_type": "WITHER",
-          "amount": 50
-        }
-      ],
-      [
-        {
-          "type": "ESSENCE",
-          "essence_type": "WITHER",
-          "amount": 100
-        }
-      ]
-    ],
-    "requirements": [
-      {
-        "type": "DUNGEON_TIER",
-        "dungeon_type": "CATACOMBS",
-        "tier": 1
-      }
-    ],
-    "dungeon_item": true,
-    "gemstone_slots": [
-      {
-        "slot_type": "SAPPHIRE"
-      }
-    ],
-    "id": "BONZO_STAFF"
+    "id": "POTION_AFFINITY_TALISMAN",
+    "tier": "COMMON"
   },
   {
     "material": "LEATHER_HELMET",
@@ -54312,6 +55710,7 @@
     "tier": "UNCOMMON",
     "npc_sell_price": 1,
     "dungeon_item": true,
+    "serializable": false,
     "id": "MAGE_DUNGEON_ABILITY_1"
   },
   {
@@ -54490,7 +55889,7 @@
   {
     "material": "SKULL_ITEM",
     "durability": 3,
-    "name": "BullheadMegalodon",
+    "name": "Bullhead Megalodon Skin",
     "category": "COSMETIC",
     "tier": "RARE",
     "unstackable": true,
@@ -54533,6 +55932,7 @@
     "name": "Echolocator",
     "glowing": true,
     "tier": "UNCOMMON",
+    "has_uuid": true,
     "id": "ECHOLOCATOR"
   },
   {
@@ -54629,6 +56029,7 @@
     "glowing": true,
     "tier": "UNCOMMON",
     "npc_sell_price": 1600,
+    "can_place": false,
     "id": "ENCHANTED_PUMPKIN"
   },
   {
@@ -54738,12 +56139,14 @@
     "material": "NAME_TAG",
     "name": "Raffle Ticket",
     "tier": "UNCOMMON",
+    "can_auction": false,
+    "can_trade": false,
     "id": "MINING_RAFFLE_TICKET"
   },
   {
     "material": "SKULL_ITEM",
     "durability": 3,
-    "name": "GorillaMonkey",
+    "name": "Gorilla Monkey Skin",
     "category": "COSMETIC",
     "tier": "MYTHIC",
     "unstackable": true,
@@ -54762,6 +56165,13 @@
       "MINING_SPEED": 1500
     },
     "npc_sell_price": 12,
+    "salvages": [
+      {
+        "type": "ESSENCE",
+        "essence_type": "DIAMOND",
+        "amount": 5
+      }
+    ],
     "id": "PICKONIMBUS"
   },
   {
@@ -55062,7 +56472,8 @@
     "name": "Master Skull - Tier 2",
     "category": "ACCESSORY",
     "dungeon_item": true,
-    "id": "MASTER_SKULL_TIER_2"
+    "id": "MASTER_SKULL_TIER_2",
+    "tier": "COMMON"
   },
   {
     "material": "SKULL_ITEM",
@@ -55207,7 +56618,8 @@
     "name": "Intimidation Talisman",
     "category": "ACCESSORY",
     "npc_sell_price": 200,
-    "id": "INTIMIDATION_TALISMAN"
+    "id": "INTIMIDATION_TALISMAN",
+    "tier": "COMMON"
   },
   {
     "material": "JUNGLE_FENCE",
@@ -55268,6 +56680,8 @@
     "durability": 6,
     "name": "Tasty Mithril",
     "tier": "UNCOMMON",
+    "can_auction": false,
+    "can_trade": false,
     "id": "MITHRIL_GOURMAND"
   },
   {
@@ -55289,7 +56703,7 @@
   {
     "material": "SKULL_ITEM",
     "durability": 3,
-    "name": "Neon BlueEnder Dragon",
+    "name": "Neon Blue Ender Dragon Skin",
     "category": "COSMETIC",
     "tier": "LEGENDARY",
     "unstackable": true,
@@ -55583,6 +56997,8 @@
     "unstackable": true,
     "category": "ACCESSORY",
     "tier": "COMMON",
+    "has_uuid": true,
+    "can_recombobulate": false,
     "id": "PANDORAS_BOX"
   },
   {
@@ -55603,83 +57019,6 @@
     "name": "Lilac Lamp",
     "npc_sell_price": 500,
     "id": "LAMP_LILAC"
-  },
-  {
-    "material": "BLAZE_ROD",
-    "name": "Bonzo's Staff",
-    "category": "SWORD",
-    "tier": "RARE",
-    "stats": {
-      "DAMAGE": 160,
-      "WEAPON_ABILITY_DAMAGE": 1100,
-      "INTELLIGENCE": 300
-    },
-    "ability_damage_scaling": 0.2,
-    "upgrade_costs": [
-      [
-        {
-          "type": "ESSENCE",
-          "essence_type": "WITHER",
-          "amount": 5
-        }
-      ],
-      [
-        {
-          "type": "ESSENCE",
-          "essence_type": "WITHER",
-          "amount": 10
-        }
-      ],
-      [
-        {
-          "type": "ESSENCE",
-          "essence_type": "WITHER",
-          "amount": 25
-        }
-      ],
-      [
-        {
-          "type": "ESSENCE",
-          "essence_type": "WITHER",
-          "amount": 50
-        }
-      ],
-      [
-        {
-          "type": "ESSENCE",
-          "essence_type": "WITHER",
-          "amount": 100
-        }
-      ]
-    ],
-    "requirements": [
-      {
-        "type": "DUNGEON_TIER",
-        "dungeon_type": "CATACOMBS",
-        "tier": 1
-      }
-    ],
-    "dungeon_item": true,
-    "gemstone_slots": [
-      {
-        "slot_type": "SAPPHIRE"
-      },
-      {
-        "slot_type": "SAPPHIRE",
-        "costs": [
-          {
-            "type": "COINS",
-            "coins": 50000
-          },
-          {
-            "type": "ITEM",
-            "item_id": "FINE_SAPPHIRE_GEM",
-            "amount": 20
-          }
-        ]
-      }
-    ],
-    "id": "STARRED_BONZO_STAFF"
   },
   {
     "material": "INK_SACK",
@@ -55711,7 +57050,7 @@
   {
     "material": "SKULL_ITEM",
     "durability": 3,
-    "name": "BrownSheep",
+    "name": "Brown Sheep Skin",
     "category": "COSMETIC",
     "tier": "UNCOMMON",
     "unstackable": true,
@@ -55979,14 +57318,6 @@
     "id": "OLD_SHIMMER"
   },
   {
-    "material": "SKULL_ITEM",
-    "durability": 3,
-    "name": "Corrupted Bait",
-    "category": "BAIT",
-    "npc_sell_price": 1,
-    "id": "CORRUPTED_BAIT"
-  },
-  {
     "material": "SEA_LANTERN",
     "name": "Sea Lantern",
     "npc_sell_price": 45,
@@ -56162,6 +57493,13 @@
     "stats": {
       "rift_Time": 12
     },
+    "salvages": [
+      {
+        "type": "ESSENCE",
+        "essence_type": "WITHER",
+        "amount": 240
+      }
+    ],
     "id": "SCARF_GRIMOIRE"
   },
   {
@@ -56291,7 +57629,7 @@
   {
     "material": "SKULL_ITEM",
     "durability": 3,
-    "name": "PinkSheep",
+    "name": "Pink Sheep Skin",
     "category": "COSMETIC",
     "tier": "UNCOMMON",
     "unstackable": true,
@@ -56324,15 +57662,9 @@
       "WALK_SPEED": 1
     },
     "museum": true,
+    "can_place": false,
+    "has_uuid": true,
     "id": "POTATO_CROWN"
-  },
-  {
-    "material": "SKULL_ITEM",
-    "durability": 3,
-    "name": "Carrot Bait",
-    "category": "BAIT",
-    "npc_sell_price": 7,
-    "id": "CARROT_BAIT"
   },
   {
     "material": "SKULL_ITEM",
@@ -56397,6 +57729,7 @@
     "durability": 3,
     "name": "Wood Singularity",
     "tier": "LEGENDARY",
+    "has_uuid": true,
     "id": "WOOD_SINGULARITY"
   },
   {
@@ -56571,6 +57904,7 @@
     "glowing": true,
     "tier": "UNCOMMON",
     "npc_sell_price": 320,
+    "can_place": false,
     "id": "ENCHANTED_JUNGLE_LOG"
   },
   {
@@ -56819,6 +58153,7 @@
     "glowing": true,
     "tier": "EPIC",
     "npc_sell_price": 38400,
+    "has_uuid": true,
     "id": "HOT_POTATO_BOOK"
   },
   {
@@ -56864,8 +58199,10 @@
     "stats": {
       "WALK_SPEED": 2
     },
-    "soulbound": "COOP",
+    "soulbound": "SOLO",
     "npc_sell_price": 1000,
+    "can_auction": false,
+    "can_trade": false,
     "id": "LYNX_TALISMAN"
   },
   {
@@ -56887,7 +58224,8 @@
     "durability": 3,
     "name": "Bat Person Talisman",
     "category": "ACCESSORY",
-    "id": "BAT_PERSON_TALISMAN"
+    "id": "BAT_PERSON_TALISMAN",
+    "tier": "COMMON"
   },
   {
     "material": "WOOD",
@@ -56995,15 +58333,6 @@
   {
     "material": "SKULL_ITEM",
     "durability": 3,
-    "name": "Blessed Bait",
-    "category": "BAIT",
-    "tier": "UNCOMMON",
-    "npc_sell_price": 42,
-    "id": "BLESSED_BAIT"
-  },
-  {
-    "material": "SKULL_ITEM",
-    "durability": 3,
     "name": "Magmafish Hat",
     "category": "HELMET",
     "tier": "UNCOMMON",
@@ -57036,7 +58365,7 @@
   {
     "material": "SKULL_ITEM",
     "durability": 3,
-    "name": "Neon RedEnder Dragon",
+    "name": "Neon Red Ender Dragon Skin",
     "category": "COSMETIC",
     "tier": "LEGENDARY",
     "unstackable": true,
@@ -57141,6 +58470,7 @@
     "name": "Enchanted Sulphur",
     "tier": "RARE",
     "npc_sell_price": 1600,
+    "can_place": false,
     "id": "ENCHANTED_SULPHUR"
   },
   {
@@ -57178,6 +58508,7 @@
     "glowing": true,
     "tier": "UNCOMMON",
     "npc_sell_price": 320,
+    "can_place": false,
     "id": "ENCHANTED_DARK_OAK_LOG"
   },
   {
@@ -57247,6 +58578,7 @@
     "tier": "UNCOMMON",
     "npc_sell_price": 1,
     "dungeon_item": true,
+    "serializable": false,
     "id": "GHOST_THROWING_AXE"
   },
   {
@@ -57383,7 +58715,7 @@
   },
   {
     "material": "BOW",
-    "name": "Last Breath",
+    "name": "⚚ Last Breath",
     "category": "BOW",
     "tier": "LEGENDARY",
     "stats": {
@@ -57654,6 +58986,13 @@
     "tier": "RARE",
     "npc_sell_price": 1000,
     "dungeon_item": true,
+    "salvages": [
+      {
+        "type": "ESSENCE",
+        "essence_type": "GOLD",
+        "amount": 15
+      }
+    ],
     "id": "TREASURE_TALISMAN"
   },
   {
@@ -57818,6 +59157,8 @@
     "name": "Energy Crystal",
     "tier": "SPECIAL",
     "dungeon_item": true,
+    "has_uuid": true,
+    "serializable": false,
     "id": "MAXOR_ENERGY_CRYSTAL"
   },
   {
@@ -58334,6 +59675,7 @@
     "glowing": true,
     "npc_sell_price": 51200,
     "tier": "RARE",
+    "can_place": false,
     "id": "ENCHANTED_HUGE_MUSHROOM_1"
   },
   {
@@ -58682,7 +60024,7 @@
     "name": "Crooked Artifact",
     "category": "ACCESSORY",
     "tier": "RARE",
-    "soulbound": "COOP",
+    "soulbound": "SOLO",
     "id": "CROOKED_ARTIFACT"
   },
   {
@@ -58740,12 +60082,13 @@
         "level": 10
       }
     ],
+    "has_uuid": true,
     "id": "SHOWCASE_BLOCK"
   },
   {
     "material": "SKULL_ITEM",
     "durability": 3,
-    "name": "FossilizedSilverfish",
+    "name": "Fossilized Silverfish Skin",
     "category": "COSMETIC",
     "tier": "EPIC",
     "unstackable": true,
@@ -58790,7 +60133,7 @@
   {
     "material": "SKULL_ITEM",
     "durability": 3,
-    "name": "§cFlower Maelstrom",
+    "name": "Flower Maelstrom",
     "description": "%%gray%%%%italic%%A handcrafted bouquet made with love and some of the finest flowers around.",
     "tier": "EPIC",
     "soulbound": "COOP",
@@ -58968,7 +60311,7 @@
   {
     "material": "SKULL_ITEM",
     "durability": 3,
-    "name": "WatcherGuardian",
+    "name": "Watcher Guardian Skin",
     "category": "COSMETIC",
     "tier": "EPIC",
     "unstackable": true,
@@ -58981,6 +60324,7 @@
     "glowing": true,
     "tier": "UNCOMMON",
     "npc_sell_price": 160,
+    "can_place": false,
     "id": "ENCHANTED_DANDELION"
   },
   {
@@ -59110,8 +60454,9 @@
     "name": "King Talisman",
     "category": "ACCESSORY",
     "npc_sell_price": 2000,
-    "soulbound": "COOP",
-    "id": "KING_TALISMAN"
+    "soulbound": "SOLO",
+    "id": "KING_TALISMAN",
+    "tier": "COMMON"
   },
   {
     "material": "LEATHER_LEGGINGS",
@@ -59278,6 +60623,7 @@
     "glowing": true,
     "tier": "RARE",
     "npc_sell_price": 102400,
+    "can_place": false,
     "id": "ENCHANTED_QUARTZ_BLOCK"
   },
   {
@@ -59288,6 +60634,7 @@
     "npc_sell_price": 100,
     "soulbound": "COOP",
     "museum": true,
+    "can_have_power_scroll": true,
     "id": "JINGLE_BELLS"
   },
   {
@@ -59295,15 +60642,6 @@
     "name": "Blaze Powder",
     "npc_sell_price": 4,
     "id": "BLAZE_POWDER"
-  },
-  {
-    "material": "SKULL_ITEM",
-    "durability": 3,
-    "name": "Whale Bait",
-    "category": "BAIT",
-    "tier": "RARE",
-    "npc_sell_price": 80,
-    "id": "WHALE_BAIT"
   },
   {
     "material": "SKULL_ITEM",
@@ -59428,7 +60766,7 @@
   {
     "material": "SKULL_ITEM",
     "durability": 3,
-    "name": "MagentaSheep",
+    "name": "Magenta Sheep Skin",
     "category": "COSMETIC",
     "tier": "UNCOMMON",
     "unstackable": true,
@@ -59501,13 +60839,15 @@
       "DAMAGE": 1
     },
     "dungeon_item": true,
+    "serializable": false,
     "id": "BOSS_SPIRIT_BOW"
   },
   {
     "material": "SKULL_ITEM",
     "durability": 3,
-    "name": "§cRed Gift",
+    "name": "Red Gift",
     "tier": "RARE",
+    "double_tap_to_drop": true,
     "id": "RED_GIFT"
   },
   {
@@ -59717,6 +61057,54 @@
       "STRENGTH": 100
     },
     "npc_sell_price": 5000,
+    "dungeon_item_conversion_cost": {
+      "essence_type": "SPIDER",
+      "amount": 20
+    },
+    "upgrade_costs": [
+      [
+        {
+          "type": "ESSENCE",
+          "essence_type": "SPIDER",
+          "amount": 10
+        }
+      ],
+      [
+        {
+          "type": "ESSENCE",
+          "essence_type": "SPIDER",
+          "amount": 15
+        }
+      ],
+      [
+        {
+          "type": "ESSENCE",
+          "essence_type": "SPIDER",
+          "amount": 20
+        }
+      ],
+      [
+        {
+          "type": "ESSENCE",
+          "essence_type": "SPIDER",
+          "amount": 25
+        }
+      ],
+      [
+        {
+          "type": "ESSENCE",
+          "essence_type": "SPIDER",
+          "amount": 30
+        }
+      ]
+    ],
+    "catacombs_requirements": [
+      {
+        "type": "DUNGEON_SKILL",
+        "dungeon_type": "CATACOMBS",
+        "level": 8
+      }
+    ],
     "id": "VENOMS_TOUCH"
   },
   {
@@ -59930,6 +61318,7 @@
     "tier": "UNCOMMON",
     "npc_sell_price": 1,
     "dungeon_item": true,
+    "serializable": false,
     "id": "ARCHER_DUNGEON_ABILITY_1"
   },
   {
@@ -59941,7 +61330,7 @@
   },
   {
     "material": "GOLD_NUGGET",
-    "name": "§eYellow Rock",
+    "name": "Yellow Rock",
     "description": "%%gray%%%%italic%%A little rough around the edges, but beauty can be found within.",
     "glowing": true,
     "id": "YELLOW_ROCK"
@@ -60048,6 +61437,7 @@
     "glowing": true,
     "tier": "UNCOMMON",
     "npc_sell_price": 320,
+    "can_place": false,
     "id": "ENCHANTED_WOOL"
   },
   {
@@ -60068,7 +61458,8 @@
     "name": "Vaccine Talisman",
     "category": "ACCESSORY",
     "npc_sell_price": 22,
-    "id": "VACCINE_TALISMAN"
+    "id": "VACCINE_TALISMAN",
+    "tier": "COMMON"
   },
   {
     "material": "SKULL_ITEM",
@@ -60185,6 +61576,7 @@
     "name": "Tessellated Ender Pearl",
     "tier": "LEGENDARY",
     "npc_sell_price": 96000,
+    "unstackable": false,
     "id": "TESSELLATED_ENDER_PEARL"
   },
   {
@@ -60207,11 +61599,12 @@
     "tier": "SPECIAL",
     "npc_sell_price": 1337,
     "museum": true,
+    "has_uuid": true,
     "id": "QUALITY_MAP"
   },
   {
     "material": "ENDER_STONE",
-    "name": "§fChunk of the Moon",
+    "name": "Chunk of the Moon",
     "description": "%%gray%%%%italic%%Where love is rife, the preconceived laws of physics mean nothing.",
     "tier": "RARE",
     "soulbound": "COOP",
@@ -60743,6 +62136,7 @@
     "glowing": true,
     "tier": "UNCOMMON",
     "npc_sell_price": 576,
+    "can_place": false,
     "id": "ENCHANTED_POPPY"
   },
   {
@@ -60760,16 +62154,8 @@
     "glowing": true,
     "npc_sell_price": 1600,
     "tier": "UNCOMMON",
+    "can_place": false,
     "id": "ENCHANTED_RED_MUSHROOM"
-  },
-  {
-    "material": "SKULL_ITEM",
-    "durability": 3,
-    "name": "Ice Bait",
-    "category": "BAIT",
-    "tier": "UNCOMMON",
-    "npc_sell_price": 3,
-    "id": "ICE_BAIT"
   },
   {
     "material": "CHEST",
@@ -60784,7 +62170,8 @@
     "name": "Farming Talisman",
     "category": "ACCESSORY",
     "npc_sell_price": 25,
-    "id": "FARMING_TALISMAN"
+    "id": "FARMING_TALISMAN",
+    "tier": "COMMON"
   },
   {
     "material": "LEATHER_HELMET",
@@ -60904,7 +62291,7 @@
   {
     "material": "SKULL_ITEM",
     "durability": 3,
-    "name": "Neon YellowSheep",
+    "name": "Neon Yellow Sheep Skin",
     "category": "COSMETIC",
     "tier": "RARE",
     "unstackable": true,
@@ -60916,12 +62303,14 @@
     "name": "Skeleton Talisman",
     "category": "ACCESSORY",
     "npc_sell_price": 50,
-    "id": "SKELETON_TALISMAN"
+    "id": "SKELETON_TALISMAN",
+    "tier": "COMMON"
   },
   {
     "material": "MONSTER_EGG",
     "durability": 120,
     "name": "Move Jerry",
+    "can_auction": false,
     "id": "ASSISTANT"
   },
   {
@@ -61054,6 +62443,7 @@
     "soulbound": "COOP",
     "description": "%%gray%%%%italic%%Makes pretty \"drip\" necklaces, according to the local youth.",
     "npc_sell_price": 50,
+    "can_place": false,
     "id": "PYROCLASTIC_SCALE"
   },
   {
@@ -61215,7 +62605,7 @@
   {
     "material": "SKULL_ITEM",
     "durability": 3,
-    "name": "PrettyRabbit",
+    "name": "Pretty Rabbit Skin",
     "category": "COSMETIC",
     "tier": "EPIC",
     "unstackable": true,
@@ -61259,6 +62649,14 @@
     },
     "npc_sell_price": 500,
     "id": "WATER_HYDRA_HEAD"
+  },
+  {
+    "material": "COMPASS",
+    "name": "Secret Tracker 3000",
+    "glowing": false,
+    "tier": "UNCOMMON",
+    "dungeon_item": true,
+    "id": "SECRET_TRACKER"
   },
   {
     "material": "BOOK",
@@ -61317,6 +62715,8 @@
     "durability": 3,
     "name": "Sleeping Eye",
     "tier": "EPIC",
+    "has_uuid": true,
+    "can_auction": false,
     "id": "SLEEPING_EYE"
   },
   {
@@ -61701,7 +63101,7 @@
   {
     "material": "SKULL_ITEM",
     "durability": 3,
-    "name": "LaughingRock",
+    "name": "Laughing Rock Skin",
     "category": "COSMETIC",
     "tier": "RARE",
     "unstackable": true,
@@ -61719,9 +63119,6 @@
       "DAMAGE": 50,
       "MINING_SPEED": 330
     },
-    "enchantments": {
-      "efficiency": 5
-    },
     "requirements": [
       {
         "type": "HEART_OF_THE_MOUNTAIN",
@@ -61737,6 +63134,7 @@
     "name": "Basket of Hope from the Great Potato War",
     "tier": "EPIC",
     "museum": true,
+    "has_uuid": true,
     "id": "POTATO_BASKET"
   },
   {
@@ -61790,7 +63188,7 @@
   {
     "material": "SKULL_ITEM",
     "durability": 3,
-    "name": "ZombieSkeleton Horse",
+    "name": "Zombie Skeleton Horse Skin",
     "category": "COSMETIC",
     "tier": "EPIC",
     "unstackable": true,
@@ -62000,7 +63398,7 @@
   {
     "material": "SKULL_ITEM",
     "durability": 3,
-    "name": "Neon PurpleEnder Dragon",
+    "name": "Neon Purple Ender Dragon Skin",
     "category": "COSMETIC",
     "tier": "LEGENDARY",
     "unstackable": true,
@@ -62238,7 +63636,7 @@
   {
     "material": "SKULL_ITEM",
     "durability": 3,
-    "name": "OrangeElephant",
+    "name": "Orange Elephant Skin",
     "category": "COSMETIC",
     "tier": "RARE",
     "unstackable": true,
@@ -62264,6 +63662,7 @@
     "glowing": true,
     "tier": "UNCOMMON",
     "npc_sell_price": 600,
+    "can_place": false,
     "id": "ENCHANTED_SNOW_BLOCK"
   },
   {
@@ -62302,6 +63701,8 @@
     "tier": "RARE",
     "description": "%%gray%%%%italic%%The head of Matchos is a combination of Sulphur and a crystalline substance. With even the slightest frictions they will light up.",
     "npc_sell_price": 10,
+    "can_place": false,
+    "can_interact": false,
     "id": "MATCH_STICKS"
   },
   {
@@ -62332,64 +63733,6 @@
     "name": "Andesite",
     "npc_sell_price": 2,
     "id": "STONE:5"
-  },
-  {
-    "material": "SKULL_ITEM",
-    "durability": 3,
-    "name": "Bonzo's Mask",
-    "category": "HELMET",
-    "tier": "RARE",
-    "stats": {
-      "DEFENSE": 100,
-      "HEALTH": 100,
-      "INTELLIGENCE": 100
-    },
-    "upgrade_costs": [
-      [
-        {
-          "type": "ESSENCE",
-          "essence_type": "WITHER",
-          "amount": 5
-        }
-      ],
-      [
-        {
-          "type": "ESSENCE",
-          "essence_type": "WITHER",
-          "amount": 10
-        }
-      ],
-      [
-        {
-          "type": "ESSENCE",
-          "essence_type": "WITHER",
-          "amount": 25
-        }
-      ],
-      [
-        {
-          "type": "ESSENCE",
-          "essence_type": "WITHER",
-          "amount": 50
-        }
-      ],
-      [
-        {
-          "type": "ESSENCE",
-          "essence_type": "WITHER",
-          "amount": 100
-        }
-      ]
-    ],
-    "requirements": [
-      {
-        "type": "DUNGEON_TIER",
-        "dungeon_type": "CATACOMBS",
-        "tier": 1
-      }
-    ],
-    "dungeon_item": true,
-    "id": "BONZO_MASK"
   },
   {
     "material": "SKULL_ITEM",
@@ -62437,6 +63780,7 @@
     "glowing": true,
     "tier": "UNCOMMON",
     "npc_sell_price": 800,
+    "can_place": false,
     "id": "ENCHANTED_RED_SAND"
   },
   {
@@ -62586,6 +63930,7 @@
     "material": "POTION",
     "name": "Water Bottle",
     "npc_sell_price": 2,
+    "has_uuid": false,
     "id": "POTION"
   },
   {
@@ -62646,6 +63991,7 @@
     "tier": "LEGENDARY",
     "description": "%%gray%%%%italic%%It can take years for Hellwisp to create a pearl, but the Matriarch secretes so much fluid that it can make multiple of those pearls every day.",
     "soulbound": "SOLO",
+    "unstackable": false,
     "id": "HEAVY_PEARL"
   },
   {
@@ -62782,6 +64128,7 @@
     "npc_sell_price": 10000,
     "museum": true,
     "soulbound": "COOP",
+    "unstackable": false,
     "id": "CORRUPTED_NETHER_STAR"
   },
   {
@@ -62797,6 +64144,7 @@
     "glowing": true,
     "tier": "RARE",
     "npc_sell_price": 100,
+    "can_place": false,
     "id": "BEJEWELED_HANDLE"
   },
   {
@@ -63185,7 +64533,7 @@
   {
     "material": "SKULL_ITEM",
     "durability": 3,
-    "name": "DarkWither Skeleton",
+    "name": "Dark Wither Skeleton Skin",
     "category": "COSMETIC",
     "tier": "EPIC",
     "unstackable": true,
@@ -63201,8 +64549,10 @@
     "stats": {
       "WALK_SPEED": 1
     },
-    "soulbound": "COOP",
+    "soulbound": "SOLO",
     "npc_sell_price": 1000,
+    "can_auction": false,
+    "can_trade": false,
     "id": "CAT_TALISMAN"
   },
   {
@@ -63218,7 +64568,11 @@
         "slot_type": "AMBER"
       }
     ],
-    "id": "POWER_TALISMAN"
+    "unstackable": true,
+    "can_auction": false,
+    "can_trade": false,
+    "id": "POWER_TALISMAN",
+    "tier": "COMMON"
   },
   {
     "material": "FLINT_AND_STEEL",
@@ -63237,6 +64591,7 @@
     },
     "npc_sell_price": 1,
     "dungeon_item": true,
+    "serializable": false,
     "id": "THROWING_AXE"
   },
   {
@@ -63355,6 +64710,9 @@
         "slot_type": "AMBER"
       }
     ],
+    "unstackable": true,
+    "can_auction": false,
+    "can_trade": false,
     "id": "POWER_RING"
   },
   {
@@ -63433,6 +64791,7 @@
     "glowing": true,
     "tier": "RARE",
     "npc_sell_price": 102400,
+    "can_place": false,
     "id": "ENCHANTED_SUGAR_CANE"
   },
   {
@@ -64046,7 +65405,7 @@
   {
     "material": "SKULL_ITEM",
     "durability": 3,
-    "name": "AquaSheep",
+    "name": "Aqua Sheep Skin",
     "category": "COSMETIC",
     "tier": "UNCOMMON",
     "unstackable": true,
@@ -64329,6 +65688,8 @@
     "tier": "SPECIAL",
     "npc_sell_price": 123,
     "museum": true,
+    "can_place": false,
+    "has_uuid": true,
     "id": "CREATIVE_MIND"
   },
   {
@@ -64337,7 +65698,8 @@
     "name": "Zombie Talisman",
     "category": "ACCESSORY",
     "npc_sell_price": 50,
-    "id": "ZOMBIE_TALISMAN"
+    "id": "ZOMBIE_TALISMAN",
+    "tier": "COMMON"
   },
   {
     "material": "SKULL_ITEM",
@@ -64907,7 +66269,7 @@
   {
     "material": "SKULL_ITEM",
     "durability": 3,
-    "name": "OrcaBlue Whale",
+    "name": "Orca Blue Whale Skin",
     "category": "COSMETIC",
     "tier": "EPIC",
     "unstackable": true,
@@ -65256,10 +66618,13 @@
   },
   {
     "material": "COOKIE",
-    "name": "Booster Cookie §8(Untradable)",
+    "name": "Booster Cookie (Untradable)",
     "glowing": true,
     "tier": "LEGENDARY",
     "unstackable": true,
+    "has_uuid": true,
+    "can_auction": false,
+    "can_trade": false,
     "id": "REFUND_COOKIE"
   },
   {
@@ -65397,7 +66762,7 @@
   },
   {
     "material": "EMERALD_BLOCK",
-    "name": "§aFake Emerald Altar",
+    "name": "Fake Emerald Altar",
     "description": "%%gray%%%%italic%%Can't bring the girl to the altar? Bring the altar to the girl!",
     "tier": "UNCOMMON",
     "soulbound": "COOP",
@@ -65437,19 +66802,20 @@
   },
   {
     "material": "STRING",
-    "name": "§dMelody's Hair",
+    "name": "Melody's Hair",
     "glowing": true,
     "category": "ACCESSORY",
     "tier": "EPIC",
     "stats": {
       "INTELLIGENCE": 6
     },
-    "soulbound": "COOP",
+    "soulbound": "SOLO",
     "requirements": [
       {
         "type": "MELODY_HAIR"
       }
     ],
+    "can_auction": false,
     "id": "MELODY_HAIR"
   },
   {
@@ -65581,7 +66947,7 @@
   {
     "material": "SKULL_ITEM",
     "durability": 3,
-    "name": "SnubfinDolphin",
+    "name": "Snubfin Dolphin Skin",
     "category": "COSMETIC",
     "tier": "RARE",
     "unstackable": true,
@@ -65712,6 +67078,54 @@
       "DAMAGE": 360
     },
     "npc_sell_price": 5000,
+    "dungeon_item_conversion_cost": {
+      "essence_type": "SPIDER",
+      "amount": 20
+    },
+    "upgrade_costs": [
+      [
+        {
+          "type": "ESSENCE",
+          "essence_type": "SPIDER",
+          "amount": 10
+        }
+      ],
+      [
+        {
+          "type": "ESSENCE",
+          "essence_type": "SPIDER",
+          "amount": 15
+        }
+      ],
+      [
+        {
+          "type": "ESSENCE",
+          "essence_type": "SPIDER",
+          "amount": 20
+        }
+      ],
+      [
+        {
+          "type": "ESSENCE",
+          "essence_type": "SPIDER",
+          "amount": 25
+        }
+      ],
+      [
+        {
+          "type": "ESSENCE",
+          "essence_type": "SPIDER",
+          "amount": 30
+        }
+      ]
+    ],
+    "catacombs_requirements": [
+      {
+        "type": "DUNGEON_SKILL",
+        "dungeon_type": "CATACOMBS",
+        "level": 8
+      }
+    ],
     "id": "SPIDER_QUEENS_STINGER"
   },
   {
@@ -65828,6 +67242,7 @@
     "tier": "UNCOMMON",
     "npc_sell_price": 1,
     "dungeon_item": true,
+    "serializable": false,
     "id": "HEALER_DUNGEON_ABILITY_2"
   },
   {
@@ -65835,6 +67250,7 @@
     "durability": 1,
     "name": "Charcoal",
     "npc_sell_price": 2,
+    "can_burn_in_furnace": true,
     "id": "CHARCOAL"
   },
   {
@@ -65850,6 +67266,7 @@
     "glowing": true,
     "tier": "RARE",
     "npc_sell_price": 76800,
+    "can_place": false,
     "id": "ENCHANTED_CACTUS"
   },
   {
@@ -65858,6 +67275,8 @@
     "tier": "RARE",
     "npc_sell_price": 1,
     "dungeon_item": true,
+    "can_place": false,
+    "can_interact": false,
     "id": "DUNGEON_CHEST_KEY"
   },
   {
@@ -65907,6 +67326,7 @@
     "tier": "UNCOMMON",
     "npc_sell_price": 576,
     "description": "%%gray%%A refined form of heavy rock from the darkest depths.",
+    "can_place": false,
     "id": "ENCHANTED_HARD_STONE"
   },
   {
@@ -66238,7 +67658,7 @@
   {
     "material": "SKULL_ITEM",
     "durability": 3,
-    "name": "PurpleElephant",
+    "name": "Purple Elephant Skin",
     "category": "COSMETIC",
     "tier": "RARE",
     "unstackable": true,
@@ -66389,6 +67809,8 @@
     "soulbound": "COOP",
     "description": "%%gray%%%%italic%%The lead has to be exceedingly soft due to the nature of the mount. The chicken needs to be comfy.",
     "npc_sell_price": 50,
+    "can_interact": false,
+    "can_interact_entity": false,
     "id": "KADA_LEAD"
   },
   {
@@ -66542,7 +67964,7 @@
   {
     "material": "LEATHER_CHESTPLATE",
     "color": "0,0,0",
-    "name": "Shadow Assassin Chestplate",
+    "name": "⚚ Shadow Assassin Chestplate",
     "category": "CHESTPLATE",
     "tier": "LEGENDARY",
     "stats": {
@@ -66600,6 +68022,20 @@
     ],
     "dungeon_item": true,
     "gemstone_slots": [
+      {
+        "slot_type": "JASPER",
+        "costs": [
+          {
+            "type": "COINS",
+            "coins": 50000
+          },
+          {
+            "type": "ITEM",
+            "item_id": "FINE_JASPER_GEM",
+            "amount": 20
+          }
+        ]
+      },
       {
         "slot_type": "COMBAT",
         "costs": [
@@ -66756,7 +68192,7 @@
     "durability": 3,
     "name": "Wither Soul",
     "tier": "UNCOMMON",
-    "description": "You can still hear their cries from the other side",
+    "description": "You can still hear their cries from the other side.",
     "soulbound": "COOP",
     "npc_sell_price": 50,
     "id": "WITHER_SOUL"
@@ -66767,6 +68203,7 @@
     "glowing": true,
     "tier": "UNCOMMON",
     "npc_sell_price": 160,
+    "can_place": false,
     "id": "ENCHANTED_NETHERRACK"
   },
   {
@@ -66783,6 +68220,8 @@
     "tier": "SPECIAL",
     "npc_sell_price": 100,
     "museum": true,
+    "can_place": false,
+    "has_uuid": true,
     "id": "NEW_YEAR_CAKE"
   },
   {
@@ -66813,7 +68252,8 @@
     "durability": 3,
     "name": "Blood God Crest",
     "category": "ACCESSORY",
-    "id": "BLOOD_GOD_CREST"
+    "id": "BLOOD_GOD_CREST",
+    "tier": "COMMON"
   },
   {
     "material": "INK_SACK",
@@ -66868,15 +68308,8 @@
     "tier": "UNCOMMON",
     "npc_sell_price": 1,
     "dungeon_item": true,
+    "serializable": false,
     "id": "MAGE_DUNGEON_ABILITY_3"
-  },
-  {
-    "material": "SKULL_ITEM",
-    "durability": 3,
-    "name": "Spiked Bait",
-    "category": "BAIT",
-    "npc_sell_price": 20,
-    "id": "SPIKED_BAIT"
   },
   {
     "material": "LEATHER_LEGGINGS",
@@ -67098,6 +68531,13 @@
     "tier": "LEGENDARY",
     "npc_sell_price": 1000,
     "dungeon_item": true,
+    "salvages": [
+      {
+        "type": "ESSENCE",
+        "essence_type": "GOLD",
+        "amount": 1080
+      }
+    ],
     "id": "TREASURE_ARTIFACT"
   },
   {
@@ -67276,6 +68716,7 @@
   {
     "material": "PRISMARINE_SHARD",
     "name": "Attribute Shard",
+    "has_uuid": true,
     "id": "ATTRIBUTE_SHARD"
   },
   {
@@ -67456,7 +68897,7 @@
   {
     "material": "SKULL_ITEM",
     "durability": 3,
-    "name": "BabyMegalodon",
+    "name": "Baby Megalodon Skin",
     "category": "COSMETIC",
     "tier": "EPIC",
     "unstackable": true,
@@ -67567,6 +69008,7 @@
     "name": "Book of Progression",
     "category": "ACCESSORY",
     "tier": "COMMON",
+    "can_recombobulate": false,
     "id": "BOOK_OF_PROGRESSION"
   },
   {
@@ -68012,7 +69454,7 @@
   {
     "material": "SKULL_ITEM",
     "durability": 3,
-    "name": "SmilingRock",
+    "name": "Smiling Rock Skin",
     "category": "COSMETIC",
     "tier": "RARE",
     "unstackable": true,
@@ -68047,6 +69489,7 @@
     "name": "Diamond Magmafish",
     "tier": "MYTHIC",
     "unstackable": true,
+    "has_uuid": true,
     "id": "MAGMA_FISH_DIAMOND"
   },
   {
@@ -68900,7 +70343,6 @@
     "durability": 3,
     "name": "Capsaicin Eyedrops",
     "tier": "RARE",
-    "unstackable": true,
     "id": "CAPSAICIN_EYEDROPS"
   },
   {
@@ -69090,6 +70532,9 @@
     "name": "Moody Grappleshot",
     "tier": "EPIC",
     "unstackable": true,
+    "can_place": false,
+    "can_interact": false,
+    "can_interact_right_click": false,
     "id": "MOODY_GRAPPLESHOT"
   },
   {
@@ -69118,6 +70563,7 @@
         "level": 4
       }
     ],
+    "can_place": false,
     "id": "TELEPORTER_PILL"
   },
   {
@@ -69255,6 +70701,7 @@
         "level": 5
       }
     ],
+    "can_have_power_scroll": true,
     "id": "GLOOMLOCK_GRIMOIRE"
   },
   {
@@ -69329,6 +70776,7 @@
         "slot_type": "SAPPHIRE"
       }
     ],
+    "can_have_power_scroll": true,
     "id": "ASPECT_OF_THE_VOID"
   },
   {
@@ -69373,7 +70821,15 @@
         "level": 5
       }
     ],
-    "id": "HANDY_BLOOD_CHALICE"
+    "salvages": [
+      {
+        "type": "ESSENCE",
+        "essence_type": "DRAGON",
+        "amount": 15
+      }
+    ],
+    "id": "HANDY_BLOOD_CHALICE",
+    "tier": "COMMON"
   },
   {
     "material": "SKULL_ITEM",
@@ -69387,7 +70843,15 @@
         "level": 4
       }
     ],
-    "id": "POCKET_ESPRESSO_MACHINE"
+    "salvages": [
+      {
+        "type": "ESSENCE",
+        "essence_type": "DRAGON",
+        "amount": 15
+      }
+    ],
+    "id": "POCKET_ESPRESSO_MACHINE",
+    "tier": "COMMON"
   },
   {
     "material": "SKULL_ITEM",
@@ -69624,7 +71088,7 @@
   },
   {
     "material": "GOLD_HOE",
-    "name": "§4Sin§5seeker Scythe",
+    "name": "Sinseeker Scythe",
     "category": "SWORD",
     "tier": "EPIC",
     "stats": {
@@ -70254,6 +71718,7 @@
     "glowing": true,
     "tier": "EPIC",
     "npc_sell_price": 500000,
+    "has_uuid": true,
     "id": "FLY_SWATTER"
   },
   {
@@ -70276,6 +71741,13 @@
     "name": "Tarantula Talisman",
     "category": "ACCESSORY",
     "tier": "EPIC",
+    "salvages": [
+      {
+        "type": "ESSENCE",
+        "essence_type": "SPIDER",
+        "amount": 50
+      }
+    ],
     "id": "TARANTULA_TALISMAN"
   },
   {
@@ -70284,7 +71756,7 @@
     "name": "Survivor Cube",
     "category": "ACCESSORY",
     "tier": "RARE",
-    "soulbound": "COOP",
+    "soulbound": "SOLO",
     "stats": {
       "vitality": 5
     },
@@ -70860,6 +72332,7 @@
       "WEAPON_ABILITY_DAMAGE": 1500
     },
     "unstackable": true,
+    "double_tap_to_drop": true,
     "requirements": [
       {
         "type": "SLAYER",
@@ -71207,6 +72680,7 @@
       "essence_type": "UNDEAD",
       "amount": 500
     },
+    "can_have_power_scroll": true,
     "upgrade_costs": [
       [
         {
@@ -71543,6 +73017,7 @@
       }
     ],
     "rift_transferrable": true,
+    "can_place": false,
     "item_specific": {
       "stats": {
         "strength": 30,
@@ -71575,6 +73050,7 @@
       }
     ],
     "museum": true,
+    "can_place": false,
     "id": "AATROX_BADPHONE"
   },
   {
@@ -71625,6 +73101,7 @@
         "level": 2
       }
     ],
+    "double_tap_to_drop": true,
     "id": "RADIANT_POWER_ORB"
   },
   {
@@ -71641,6 +73118,7 @@
         "level": 6
       }
     ],
+    "double_tap_to_drop": true,
     "id": "MANA_FLUX_POWER_ORB"
   },
   {
@@ -71939,6 +73417,7 @@
     "name": "Overflux Capacitor",
     "glowing": true,
     "tier": "EPIC",
+    "has_uuid": true,
     "id": "OVERFLUX_CAPACITOR"
   },
   {
@@ -72135,6 +73614,7 @@
       }
     ],
     "rift_transferrable": true,
+    "can_place": false,
     "item_specific": {
       "stats": {
         "strength": 40,
@@ -72240,756 +73720,6 @@
     "category": "COSMETIC",
     "museum": true,
     "id": "TROPICAL_BIRD_1_PERSONALITY"
-  },
-  {
-    "material": "FISHING_ROD",
-    "name": "Rod of Champions",
-    "category": "FISHING_ROD",
-    "tier": "RARE",
-    "stats": {
-      "damage": 90,
-      "strength": 80,
-      "sea_creature_chance": 4,
-      "fishing_speed": 90
-    },
-    "npc_sell_price": 17800,
-    "requirements": [
-      {
-        "type": "SKILL",
-        "skill": "FISHING",
-        "level": 15
-      }
-    ],
-    "id": "CHAMP_ROD"
-  },
-  {
-    "material": "FISHING_ROD",
-    "name": "Yeti Rod",
-    "category": "FISHING_ROD",
-    "tier": "EPIC",
-    "stats": {
-      "damage": 150,
-      "strength": 130,
-      "fishing_speed": 75
-    },
-    "npc_sell_price": 150000,
-    "requirements": [
-      {
-        "type": "SKILL",
-        "skill": "FISHING",
-        "level": 25
-      }
-    ],
-    "salvages": [
-      {
-        "type": "ESSENCE",
-        "essence_type": "ICE",
-        "amount": 20
-      }
-    ],
-    "id": "YETI_ROD"
-  },
-  {
-    "material": "FISHING_ROD",
-    "name": "Starter Lava Rod",
-    "category": "FISHING_ROD",
-    "tier": "UNCOMMON",
-    "stats": {
-      "damage": 50,
-      "strength": 50,
-      "fishing_speed": 8
-    },
-    "requirements": [
-      {
-        "type": "SKILL",
-        "skill": "FISHING",
-        "level": 10
-      }
-    ],
-    "soulbound": "COOP",
-    "id": "STARTER_LAVA_ROD"
-  },
-  {
-    "material": "FISHING_ROD",
-    "name": "Rod of Legends",
-    "category": "FISHING_ROD",
-    "tier": "EPIC",
-    "stats": {
-      "damage": 130,
-      "strength": 120,
-      "sea_creature_chance": 6,
-      "fishing_speed": 105
-    },
-    "npc_sell_price": 111000,
-    "requirements": [
-      {
-        "type": "SKILL",
-        "skill": "FISHING",
-        "level": 20
-      }
-    ],
-    "id": "LEGEND_ROD"
-  },
-  {
-    "material": "FISHING_ROD",
-    "name": "Hellfire Rod",
-    "category": "FISHING_ROD",
-    "tier": "LEGENDARY",
-    "stats": {
-      "damage": 180,
-      "strength": 180,
-      "sea_creature_chance": 14,
-      "fishing_speed": 75
-    },
-    "requirements": [
-      {
-        "type": "SKILL",
-        "skill": "FISHING",
-        "level": 35
-      }
-    ],
-    "npc_sell_price": 5634000,
-    "can_have_attributes": true,
-    "salvageable_from_recipe": true,
-    "upgrade_costs": [
-      [
-        {
-          "type": "ITEM",
-          "item_id": "LUMP_OF_MAGMA",
-          "amount": 20
-        },
-        {
-          "type": "ITEM",
-          "item_id": "MAGMA_FISH_SILVER",
-          "amount": 1
-        },
-        {
-          "type": "ESSENCE",
-          "essence_type": "CRIMSON",
-          "amount": 50
-        }
-      ],
-      [
-        {
-          "type": "ITEM",
-          "item_id": "MOOGMA_PELT",
-          "amount": 20
-        },
-        {
-          "type": "ITEM",
-          "item_id": "MAGMA_FISH_SILVER",
-          "amount": 2
-        },
-        {
-          "type": "ESSENCE",
-          "essence_type": "CRIMSON",
-          "amount": 80
-        }
-      ],
-      [
-        {
-          "type": "ITEM",
-          "item_id": "PYROCLASTIC_SCALE",
-          "amount": 20
-        },
-        {
-          "type": "ITEM",
-          "item_id": "MAGMA_FISH_SILVER",
-          "amount": 3
-        },
-        {
-          "type": "ESSENCE",
-          "essence_type": "CRIMSON",
-          "amount": 100
-        }
-      ],
-      [
-        {
-          "type": "ITEM",
-          "item_id": "CUP_OF_BLOOD",
-          "amount": 50
-        },
-        {
-          "type": "ITEM",
-          "item_id": "MAGMA_FISH_SILVER",
-          "amount": 40
-        },
-        {
-          "type": "ESSENCE",
-          "essence_type": "CRIMSON",
-          "amount": 160
-        }
-      ],
-      [
-        {
-          "type": "ITEM",
-          "item_id": "FLAMING_HEART",
-          "amount": 70
-        },
-        {
-          "type": "ITEM",
-          "item_id": "MAGMA_FISH_SILVER",
-          "amount": 50
-        },
-        {
-          "type": "ESSENCE",
-          "essence_type": "CRIMSON",
-          "amount": 200
-        }
-      ],
-      [
-        {
-          "type": "ITEM",
-          "item_id": "ORB_OF_ENERGY",
-          "amount": 80
-        },
-        {
-          "type": "ITEM",
-          "item_id": "MAGMA_FISH_SILVER",
-          "amount": 60
-        },
-        {
-          "type": "ESSENCE",
-          "essence_type": "CRIMSON",
-          "amount": 300
-        }
-      ],
-      [
-        {
-          "type": "ITEM",
-          "item_id": "HORN_OF_TAURUS",
-          "amount": 90
-        },
-        {
-          "type": "ITEM",
-          "item_id": "MAGMA_FISH_SILVER",
-          "amount": 70
-        },
-        {
-          "type": "ESSENCE",
-          "essence_type": "CRIMSON",
-          "amount": 400
-        }
-      ],
-      [
-        {
-          "type": "ITEM",
-          "item_id": "THUNDER_SHARDS",
-          "amount": 30
-        },
-        {
-          "type": "ITEM",
-          "item_id": "MAGMA_FISH_GOLD",
-          "amount": 30
-        },
-        {
-          "type": "ITEM",
-          "item_id": "HEAVY_PEARL",
-          "amount": 3
-        },
-        {
-          "type": "ESSENCE",
-          "essence_type": "CRIMSON",
-          "amount": 1000
-        }
-      ],
-      [
-        {
-          "type": "ITEM",
-          "item_id": "MAGMA_LORD_FRAGMENT",
-          "amount": 25
-        },
-        {
-          "type": "ITEM",
-          "item_id": "MAGMA_FISH_GOLD",
-          "amount": 40
-        },
-        {
-          "type": "ITEM",
-          "item_id": "HEAVY_PEARL",
-          "amount": 4
-        },
-        {
-          "type": "ESSENCE",
-          "essence_type": "CRIMSON",
-          "amount": 1200
-        }
-      ],
-      [
-        {
-          "type": "ITEM",
-          "item_id": "MAGMA_LORD_FRAGMENT",
-          "amount": 30
-        },
-        {
-          "type": "ITEM",
-          "item_id": "MAGMA_FISH_GOLD",
-          "amount": 50
-        },
-        {
-          "type": "ITEM",
-          "item_id": "HEAVY_PEARL",
-          "amount": 5
-        },
-        {
-          "type": "ESSENCE",
-          "essence_type": "CRIMSON",
-          "amount": 1600
-        }
-      ]
-    ],
-    "id": "HELLFIRE_ROD"
-  },
-  {
-    "material": "FISHING_ROD",
-    "name": "Ice Rod",
-    "category": "FISHING_ROD",
-    "tier": "RARE",
-    "stats": {
-      "damage": 30,
-      "fishing_speed": 15
-    },
-    "npc_sell_price": 20000,
-    "requirements": [
-      {
-        "type": "SKILL",
-        "skill": "FISHING",
-        "level": 3
-      }
-    ],
-    "museum": true,
-    "salvages": [
-      {
-        "type": "ESSENCE",
-        "essence_type": "ICE",
-        "amount": 5
-      }
-    ],
-    "rarity_salvageable": true,
-    "id": "ICE_ROD"
-  },
-  {
-    "material": "FISHING_ROD",
-    "name": "Phantom Rod",
-    "category": "FISHING_WEAPON",
-    "tier": "LEGENDARY",
-    "stats": {
-      "damage": 200,
-      "strength": 125,
-      "fishing_speed": 100
-    },
-    "npc_sell_price": 1000,
-    "dungeon_item_conversion_cost": {
-      "essence_type": "UNDEAD",
-      "amount": 500
-    },
-    "upgrade_costs": [
-      [
-        {
-          "type": "ESSENCE",
-          "essence_type": "UNDEAD",
-          "amount": 200
-        }
-      ],
-      [
-        {
-          "type": "ESSENCE",
-          "essence_type": "UNDEAD",
-          "amount": 300
-        }
-      ],
-      [
-        {
-          "type": "ESSENCE",
-          "essence_type": "UNDEAD",
-          "amount": 400
-        }
-      ],
-      [
-        {
-          "type": "ESSENCE",
-          "essence_type": "UNDEAD",
-          "amount": 500
-        }
-      ],
-      [
-        {
-          "type": "ESSENCE",
-          "essence_type": "UNDEAD",
-          "amount": 600
-        }
-      ]
-    ],
-    "requirements": [
-      {
-        "type": "SKILL",
-        "skill": "FISHING",
-        "level": 21
-      }
-    ],
-    "id": "PHANTOM_ROD"
-  },
-  {
-    "material": "FISHING_ROD",
-    "name": "Auger Rod",
-    "category": "FISHING_ROD",
-    "tier": "LEGENDARY",
-    "stats": {
-      "damage": 135,
-      "strength": 90,
-      "fishing_speed": 110
-    },
-    "requirements": [
-      {
-        "type": "SKILL",
-        "skill": "FISHING",
-        "level": 25
-      }
-    ],
-    "id": "AUGER_ROD"
-  },
-  {
-    "material": "FISHING_ROD",
-    "name": "Magma Rod",
-    "category": "FISHING_ROD",
-    "tier": "RARE",
-    "stats": {
-      "damage": 150,
-      "strength": 150,
-      "sea_creature_chance": 6,
-      "fishing_speed": 40
-    },
-    "requirements": [
-      {
-        "type": "SKILL",
-        "skill": "FISHING",
-        "level": 27
-      }
-    ],
-    "npc_sell_price": 8000,
-    "can_have_attributes": true,
-    "salvageable_from_recipe": true,
-    "upgrade_costs": [
-      [
-        {
-          "type": "ITEM",
-          "item_id": "LUMP_OF_MAGMA",
-          "amount": 20
-        },
-        {
-          "type": "ITEM",
-          "item_id": "MAGMA_FISH_SILVER",
-          "amount": 1
-        },
-        {
-          "type": "ESSENCE",
-          "essence_type": "CRIMSON",
-          "amount": 50
-        }
-      ],
-      [
-        {
-          "type": "ITEM",
-          "item_id": "MOOGMA_PELT",
-          "amount": 20
-        },
-        {
-          "type": "ITEM",
-          "item_id": "MAGMA_FISH_SILVER",
-          "amount": 2
-        },
-        {
-          "type": "ESSENCE",
-          "essence_type": "CRIMSON",
-          "amount": 80
-        }
-      ],
-      [
-        {
-          "type": "ITEM",
-          "item_id": "PYROCLASTIC_SCALE",
-          "amount": 20
-        },
-        {
-          "type": "ITEM",
-          "item_id": "MAGMA_FISH_SILVER",
-          "amount": 3
-        },
-        {
-          "type": "ESSENCE",
-          "essence_type": "CRIMSON",
-          "amount": 100
-        }
-      ]
-    ],
-    "id": "MAGMA_ROD"
-  },
-  {
-    "material": "FISHING_ROD",
-    "name": "Challenging Rod",
-    "category": "FISHING_ROD",
-    "tier": "RARE",
-    "stats": {
-      "damage": 60,
-      "strength": 60,
-      "sea_creature_chance": 2,
-      "fishing_speed": 75
-    },
-    "npc_sell_price": 5000,
-    "requirements": [
-      {
-        "type": "SKILL",
-        "skill": "FISHING",
-        "level": 10
-      }
-    ],
-    "id": "CHALLENGE_ROD"
-  },
-  {
-    "material": "FISHING_ROD",
-    "name": "Shredder",
-    "category": "FISHING_WEAPON",
-    "tier": "LEGENDARY",
-    "stats": {
-      "damage": 120,
-      "ferocity": 50,
-      "fishing_speed": 115
-    },
-    "npc_sell_price": 1000,
-    "requirements": [
-      {
-        "type": "SKILL",
-        "skill": "FISHING",
-        "level": 20
-      }
-    ],
-    "id": "THE_SHREDDER"
-  },
-  {
-    "material": "FISHING_ROD",
-    "name": "Speedster Rod",
-    "category": "FISHING_ROD",
-    "tier": "UNCOMMON",
-    "stats": {
-      "damage": 30,
-      "strength": 15,
-      "fishing_speed": 45
-    },
-    "npc_sell_price": 1000,
-    "requirements": [
-      {
-        "type": "SKILL",
-        "skill": "FISHING",
-        "level": 6
-      }
-    ],
-    "museum": true,
-    "id": "SPEEDSTER_ROD"
-  },
-  {
-    "material": "FISHING_ROD",
-    "name": "Farmer's Rod",
-    "category": "FISHING_ROD",
-    "tier": "UNCOMMON",
-    "stats": {
-      "damage": 50,
-      "strength": 20,
-      "fishing_speed": 60
-    },
-    "npc_sell_price": 1050,
-    "requirements": [
-      {
-        "type": "SKILL",
-        "skill": "FISHING",
-        "level": 8
-      }
-    ],
-    "museum": true,
-    "id": "FARMER_ROD"
-  },
-  {
-    "material": "FISHING_ROD",
-    "name": "Inferno Rod",
-    "category": "FISHING_ROD",
-    "tier": "EPIC",
-    "stats": {
-      "damage": 170,
-      "strength": 170,
-      "sea_creature_chance": 10,
-      "fishing_speed": 60
-    },
-    "requirements": [
-      {
-        "type": "SKILL",
-        "skill": "FISHING",
-        "level": 30
-      }
-    ],
-    "npc_sell_price": 1028000,
-    "can_have_attributes": true,
-    "salvageable_from_recipe": true,
-    "upgrade_costs": [
-      [
-        {
-          "type": "ITEM",
-          "item_id": "LUMP_OF_MAGMA",
-          "amount": 20
-        },
-        {
-          "type": "ITEM",
-          "item_id": "MAGMA_FISH_SILVER",
-          "amount": 1
-        },
-        {
-          "type": "ESSENCE",
-          "essence_type": "CRIMSON",
-          "amount": 50
-        }
-      ],
-      [
-        {
-          "type": "ITEM",
-          "item_id": "MOOGMA_PELT",
-          "amount": 20
-        },
-        {
-          "type": "ITEM",
-          "item_id": "MAGMA_FISH_SILVER",
-          "amount": 2
-        },
-        {
-          "type": "ESSENCE",
-          "essence_type": "CRIMSON",
-          "amount": 80
-        }
-      ],
-      [
-        {
-          "type": "ITEM",
-          "item_id": "PYROCLASTIC_SCALE",
-          "amount": 20
-        },
-        {
-          "type": "ITEM",
-          "item_id": "MAGMA_FISH_SILVER",
-          "amount": 3
-        },
-        {
-          "type": "ESSENCE",
-          "essence_type": "CRIMSON",
-          "amount": 100
-        }
-      ],
-      [
-        {
-          "type": "ITEM",
-          "item_id": "CUP_OF_BLOOD",
-          "amount": 50
-        },
-        {
-          "type": "ITEM",
-          "item_id": "MAGMA_FISH_SILVER",
-          "amount": 40
-        },
-        {
-          "type": "ESSENCE",
-          "essence_type": "CRIMSON",
-          "amount": 160
-        }
-      ],
-      [
-        {
-          "type": "ITEM",
-          "item_id": "FLAMING_HEART",
-          "amount": 70
-        },
-        {
-          "type": "ITEM",
-          "item_id": "MAGMA_FISH_SILVER",
-          "amount": 50
-        },
-        {
-          "type": "ESSENCE",
-          "essence_type": "CRIMSON",
-          "amount": 200
-        }
-      ],
-      [
-        {
-          "type": "ITEM",
-          "item_id": "ORB_OF_ENERGY",
-          "amount": 80
-        },
-        {
-          "type": "ITEM",
-          "item_id": "MAGMA_FISH_SILVER",
-          "amount": 60
-        },
-        {
-          "type": "ESSENCE",
-          "essence_type": "CRIMSON",
-          "amount": 300
-        }
-      ],
-      [
-        {
-          "type": "ITEM",
-          "item_id": "HORN_OF_TAURUS",
-          "amount": 90
-        },
-        {
-          "type": "ITEM",
-          "item_id": "MAGMA_FISH_SILVER",
-          "amount": 70
-        },
-        {
-          "type": "ESSENCE",
-          "essence_type": "CRIMSON",
-          "amount": 400
-        }
-      ]
-    ],
-    "id": "INFERNO_ROD"
-  },
-  {
-    "material": "FISHING_ROD",
-    "name": "Sponge Rod",
-    "category": "FISHING_ROD",
-    "stats": {
-      "damage": 20,
-      "strength": 15,
-      "fishing_speed": 30
-    },
-    "npc_sell_price": 36,
-    "requirements": [
-      {
-        "type": "SKILL",
-        "skill": "FISHING",
-        "level": 5
-      }
-    ],
-    "museum": true,
-    "id": "SPONGE_ROD"
-  },
-  {
-    "material": "FISHING_ROD",
-    "name": "Prismarine Rod",
-    "category": "FISHING_ROD",
-    "stats": {
-      "damage": 15,
-      "strength": 10,
-      "fishing_speed": 15
-    },
-    "npc_sell_price": 10,
-    "requirements": [
-      {
-        "type": "SKILL",
-        "skill": "FISHING",
-        "level": 3
-      }
-    ],
-    "museum": true,
-    "id": "PRISMARINE_ROD"
   },
   {
     "material": "EMPTY_MAP",
@@ -73194,6 +73924,7 @@
     "stats": {
       "damage": 200
     },
+    "has_uuid": true,
     "requirements": [
       {
         "type": "GARDEN_LEVEL",
@@ -73210,6 +73941,7 @@
     "stats": {
       "damage": 250
     },
+    "has_uuid": true,
     "requirements": [
       {
         "type": "GARDEN_LEVEL",
@@ -73226,6 +73958,7 @@
     "stats": {
       "damage": 100
     },
+    "has_uuid": true,
     "requirements": [
       {
         "type": "GARDEN_LEVEL",
@@ -73242,6 +73975,7 @@
     "stats": {
       "damage": 150
     },
+    "has_uuid": true,
     "requirements": [
       {
         "type": "GARDEN_LEVEL",
@@ -73258,6 +73992,7 @@
     "stats": {
       "damage": 120
     },
+    "has_uuid": true,
     "requirements": [
       {
         "type": "GARDEN_LEVEL",
@@ -73980,6 +74715,7 @@
     "durability": 3,
     "name": "Wriggling Larva",
     "tier": "EPIC",
+    "has_uuid": true,
     "id": "WRIGGLING_LARVA"
   },
   {
@@ -73987,6 +74723,7 @@
     "name": "Slow and Groovy Vinyl",
     "tier": "UNCOMMON",
     "npc_sell_price": 1000,
+    "has_uuid": true,
     "id": "VINYL_SLOW_AND_GROOVY"
   },
   {
@@ -73995,6 +74732,7 @@
     "name": "Sprayonator",
     "tier": "UNCOMMON",
     "soulbound": "COOP",
+    "has_uuid": true,
     "requirements": [
       {
         "type": "GARDEN_LEVEL",
@@ -74016,6 +74754,7 @@
     "name": "Cicada Symphony Vinyl",
     "tier": "UNCOMMON",
     "npc_sell_price": 1000,
+    "has_uuid": true,
     "id": "VINYL_CICADA_SYMPHONY"
   },
   {
@@ -74023,6 +74762,7 @@
     "name": "Earthworm Ensemble Vinyl",
     "tier": "UNCOMMON",
     "npc_sell_price": 1000,
+    "has_uuid": true,
     "id": "VINYL_EARTHWORM_ENSEMBLE"
   },
   {
@@ -74030,6 +74770,7 @@
     "name": "Pretty Fly Vinyl",
     "tier": "UNCOMMON",
     "npc_sell_price": 1000,
+    "has_uuid": true,
     "id": "VINYL_PRETTY_FLY"
   },
   {
@@ -74037,6 +74778,7 @@
     "durability": 3,
     "name": "Pest Repellent MAX",
     "tier": "RARE",
+    "has_uuid": true,
     "id": "PEST_REPELLENT_MAX"
   },
   {
@@ -74054,6 +74796,7 @@
     "tier": "RARE",
     "category": "ACCESSORY",
     "npc_sell_price": 1000,
+    "has_uuid": true,
     "id": "ATMOSPHERIC_FILTER"
   },
   {
@@ -74061,6 +74804,7 @@
     "name": "DynaMITES Vinyl",
     "tier": "UNCOMMON",
     "npc_sell_price": 1000,
+    "has_uuid": true,
     "id": "VINYL_DYNAMITES"
   },
   {
@@ -74068,6 +74812,7 @@
     "durability": 3,
     "name": "Pest Repellent",
     "tier": "UNCOMMON",
+    "has_uuid": true,
     "id": "PEST_REPELLENT"
   },
   {
@@ -74075,6 +74820,7 @@
     "name": "Wings of Harmony Vinyl",
     "tier": "UNCOMMON",
     "npc_sell_price": 1000,
+    "has_uuid": true,
     "id": "VINYL_WINGS_OF_HARMONY"
   },
   {
@@ -74082,6 +74828,7 @@
     "name": "Cricket Choir Vinyl",
     "tier": "UNCOMMON",
     "npc_sell_price": 1000,
+    "has_uuid": true,
     "id": "VINYL_CRICKET_CHOIR"
   },
   {
@@ -74097,6 +74844,7 @@
     "name": "Bookworm's Favorite Book",
     "tier": "RARE",
     "npc_sell_price": 250,
+    "has_uuid": true,
     "id": "BOOKWORM_BOOK"
   },
   {
@@ -74104,6 +74852,7 @@
     "name": "Buzzin' Beats Vinyl",
     "tier": "UNCOMMON",
     "npc_sell_price": 1000,
+    "has_uuid": true,
     "id": "VINYL_BUZZIN_BEATS"
   },
   {
@@ -74111,6 +74860,7 @@
     "name": "Rodent Revolution Vinyl",
     "tier": "UNCOMMON",
     "npc_sell_price": 1000,
+    "has_uuid": true,
     "id": "VINYL_RODENT_REVOLUTION"
   },
   {
@@ -74118,6 +74868,7 @@
     "name": "Not Just a Pest Vinyl",
     "tier": "UNCOMMON",
     "npc_sell_price": 1000,
+    "has_uuid": true,
     "id": "VINYL_BEETLE"
   },
   {
@@ -74194,11 +74945,27 @@
     "id": "CASTLE_BARN_SKIN"
   },
   {
+    "material": "GOLD_BLOCK",
+    "durability": 2,
+    "name": "Town Hall Barn Skin",
+    "tier": "LEGENDARY",
+    "category": "COSMETIC",
+    "id": "TOWN_HALL_BARN_SKIN"
+  },
+  {
     "material": "WOOD",
     "name": "Pinwheel House Barn Skin",
     "tier": "LEGENDARY",
     "category": "COSMETIC",
     "id": "PINWHEEL_HOUSE_BARN_SKIN"
+  },
+  {
+    "material": "PACKED_ICE",
+    "durability": 2,
+    "name": "Winter Homestead Barn Skin",
+    "tier": "RARE",
+    "category": "COSMETIC",
+    "id": "WINTER_HOMESTEAD_BARN_SKIN"
   },
   {
     "material": "LOG",
@@ -74330,6 +75097,7 @@
     "name": "Compost Bundle",
     "tier": "RARE",
     "npc_sell_price": 10,
+    "has_uuid": true,
     "id": "ENCHANTED_COMPOST"
   },
   {
@@ -74606,6 +75374,24 @@
   {
     "material": "SKULL_ITEM",
     "durability": 3,
+    "name": "Winter Fragment",
+    "description": "A magical shard capturing the warmth and joy of winter festivities.",
+    "category": "NONE",
+    "tier": "EPIC",
+    "npc_sell_price": 500,
+    "id": "WINTER_FRAGMENT"
+  },
+  {
+    "material": "SKULL_ITEM",
+    "name": "%%red%%Volcanic Rock",
+    "durability": 3,
+    "npc_sell_price": 1000,
+    "tier": "EPIC",
+    "id": "VOLCANIC_ROCK"
+  },
+  {
+    "material": "SKULL_ITEM",
+    "durability": 3,
     "name": "Nutcracker Helmet",
     "category": "HELMET",
     "tier": "LEGENDARY",
@@ -74650,6 +75436,7 @@
         "amount": 10
       }
     ],
+    "rarity_salvageable": true,
     "id": "SNOW_SUIT_CHESTPLATE"
   },
   {
@@ -74699,6 +75486,7 @@
         "amount": 10
       }
     ],
+    "rarity_salvageable": true,
     "id": "SNOW_SUIT_LEGGINGS"
   },
   {
@@ -74719,6 +75507,7 @@
         "amount": 10
       }
     ],
+    "rarity_salvageable": true,
     "id": "SNOW_SUIT_BOOTS"
   },
   {
@@ -74739,6 +75528,7 @@
         "amount": 10
       }
     ],
+    "rarity_salvageable": true,
     "id": "SNOW_SUIT_HELMET"
   },
   {
@@ -74821,6 +75611,18 @@
   {
     "material": "SKULL_ITEM",
     "durability": 3,
+    "name": "Expensive Toy",
+    "description": "%%dark_gray%%%%italic%%This toy is said to bring extraordinary luck and prosperity to its owner. But remember, with great power comes an even greater price tag.",
+    "tier": "SPECIAL",
+    "category": "MEMENTO",
+    "item_specific": {
+      "memorable_event_key": "winter_2023"
+    },
+    "id": "EXPENSIVE_TOY"
+  },
+  {
+    "material": "SKULL_ITEM",
+    "durability": 3,
     "name": "Blue Gift Talisman",
     "category": "ACCESSORY",
     "tier": "RARE",
@@ -74864,6 +75666,13 @@
     "name": "Glacial Ring",
     "category": "ACCESSORY",
     "tier": "UNCOMMON",
+    "salvages": [
+      {
+        "type": "ESSENCE",
+        "essence_type": "ICE",
+        "amount": 15
+      }
+    ],
     "id": "GLACIAL_RING"
   },
   {
@@ -74872,6 +75681,13 @@
     "name": "Glacial Artifact",
     "category": "ACCESSORY",
     "tier": "RARE",
+    "salvages": [
+      {
+        "type": "ESSENCE",
+        "essence_type": "ICE",
+        "amount": 15
+      }
+    ],
     "id": "GLACIAL_ARTIFACT"
   },
   {
@@ -74880,7 +75696,29 @@
     "name": "Glacial Talisman",
     "category": "ACCESSORY",
     "tier": "COMMON",
+    "salvages": [
+      {
+        "type": "ESSENCE",
+        "essence_type": "ICE",
+        "amount": 15
+      }
+    ],
     "id": "GLACIAL_TALISMAN"
+  },
+  {
+    "material": "POTION",
+    "name": "Lost Bottle of Jyrre",
+    "npc_sell_price": 100,
+    "has_uuid": true,
+    "id": "BOTTLE_OF_JYRRE"
+  },
+  {
+    "material": "POTION",
+    "name": "Refined Bottle of Jyrre",
+    "npc_sell_price": 30000,
+    "tier": "LEGENDARY",
+    "glowing": true,
+    "id": "REFINED_BOTTLE_OF_JYRRE"
   },
   {
     "material": "SKULL_ITEM",
@@ -74917,6 +75755,39 @@
     "tier": "UNCOMMON",
     "npc_sell_price": 1,
     "id": "SALT_CUBE"
+  },
+  {
+    "material": "SKULL_ITEM",
+    "durability": 3,
+    "name": "Magic Top Hat",
+    "description": "%%dark_gray%%%%italic%%A hat so charming, even rabbits wish to call it home.",
+    "tier": "LEGENDARY",
+    "id": "MAGIC_TOP_HAT"
+  },
+  {
+    "material": "SKULL_ITEM",
+    "durability": 3,
+    "name": "Einary's Red Hoodie",
+    "tier": "RARE",
+    "id": "EINARY_RED_HOODIE"
+  },
+  {
+    "material": "SKULL_ITEM",
+    "name": "Gift of Learning",
+    "unstackable": true,
+    "durability": 3,
+    "npc_sell_price": 1000,
+    "tier": "RARE",
+    "soulbound": "SOLO",
+    "id": "GIFT_OF_LEARNING"
+  },
+  {
+    "material": "POTION",
+    "name": "Bottle of Jyrre",
+    "npc_sell_price": 1000,
+    "tier": "RARE",
+    "has_uuid": true,
+    "id": "NEW_BOTTLE_OF_JYRRE"
   },
   {
     "material": "IRON_HOE",
@@ -74979,6 +75850,267 @@
       }
     ],
     "id": "FROZEN_SCYTHE"
+  },
+  {
+    "material": "DIAMOND_HOE",
+    "name": "⚚ Glacial Scythe",
+    "category": "SWORD",
+    "sword_type": "SCYTHE",
+    "tier": "EPIC",
+    "stats": {
+      "DAMAGE": 130,
+      "INTELLIGENCE": 40,
+      "WEAPON_ABILITY_DAMAGE": 1700
+    },
+    "ability_damage_scaling": 0.3,
+    "gemstone_slots": [
+      {
+        "slot_type": "SAPPHIRE"
+      }
+    ],
+    "npc_sell_price": 500,
+    "dungeon_item_conversion_cost": {
+      "essence_type": "ICE",
+      "amount": 50
+    },
+    "upgrade_costs": [
+      [
+        {
+          "type": "ESSENCE",
+          "essence_type": "ICE",
+          "amount": 10
+        }
+      ],
+      [
+        {
+          "type": "ESSENCE",
+          "essence_type": "ICE",
+          "amount": 15
+        }
+      ],
+      [
+        {
+          "type": "ESSENCE",
+          "essence_type": "ICE",
+          "amount": 20
+        }
+      ],
+      [
+        {
+          "type": "ESSENCE",
+          "essence_type": "ICE",
+          "amount": 25
+        }
+      ],
+      [
+        {
+          "type": "ESSENCE",
+          "essence_type": "ICE",
+          "amount": 30
+        }
+      ]
+    ],
+    "catacombs_requirements": [
+      {
+        "type": "DUNGEON_SKILL",
+        "dungeon_type": "CATACOMBS",
+        "level": 10
+      }
+    ],
+    "id": "STARRED_GLACIAL_SCYTHE"
+  },
+  {
+    "material": "IRON_SWORD",
+    "name": "⚚ Yeti Sword",
+    "category": "SWORD",
+    "tier": "LEGENDARY",
+    "stats": {
+      "DAMAGE": 160,
+      "STRENGTH": 185,
+      "WEAPON_ABILITY_DAMAGE": 17000,
+      "INTELLIGENCE": 50
+    },
+    "ability_damage_scaling": 0.3,
+    "dungeon_item_conversion_cost": {
+      "essence_type": "ICE",
+      "amount": 100
+    },
+    "upgrade_costs": [
+      [
+        {
+          "type": "ESSENCE",
+          "essence_type": "ICE",
+          "amount": 100
+        }
+      ],
+      [
+        {
+          "type": "ESSENCE",
+          "essence_type": "ICE",
+          "amount": 150
+        }
+      ],
+      [
+        {
+          "type": "ESSENCE",
+          "essence_type": "ICE",
+          "amount": 200
+        }
+      ],
+      [
+        {
+          "type": "ESSENCE",
+          "essence_type": "ICE",
+          "amount": 250
+        }
+      ],
+      [
+        {
+          "type": "ESSENCE",
+          "essence_type": "ICE",
+          "amount": 300
+        }
+      ]
+    ],
+    "catacombs_requirements": [
+      {
+        "type": "DUNGEON_SKILL",
+        "dungeon_type": "CATACOMBS",
+        "level": 22
+      }
+    ],
+    "gemstone_slots": [
+      {
+        "slot_type": "SAPPHIRE",
+        "costs": [
+          {
+            "type": "COINS",
+            "coins": 50000
+          },
+          {
+            "type": "ITEM",
+            "item_id": "FINE_SAPPHIRE_GEM",
+            "amount": 20
+          }
+        ]
+      },
+      {
+        "slot_type": "JASPER",
+        "costs": [
+          {
+            "type": "COINS",
+            "coins": 100000
+          },
+          {
+            "type": "ITEM",
+            "item_id": "FINE_JASPER_GEM",
+            "amount": 40
+          }
+        ]
+      }
+    ],
+    "id": "STARRED_YETI_SWORD"
+  },
+  {
+    "material": "STICK",
+    "name": "⚚ Ice Spray Wand",
+    "glowing": true,
+    "category": "SWORD",
+    "tier": "RARE",
+    "ability_damage_scaling": 0.1,
+    "npc_sell_price": 10000,
+    "tiered_stats": {
+      "DAMAGE": [
+        60,
+        64,
+        69,
+        74,
+        80,
+        86,
+        92,
+        99,
+        107,
+        115
+      ],
+      "WEAPON_ABILITY_DAMAGE": [
+        19000
+      ],
+      "INTELLIGENCE": [
+        135,
+        147,
+        160,
+        175,
+        190,
+        206,
+        224,
+        244,
+        265,
+        290
+      ]
+    },
+    "upgrade_costs": [
+      [
+        {
+          "type": "ESSENCE",
+          "essence_type": "ICE",
+          "amount": 20
+        }
+      ],
+      [
+        {
+          "type": "ESSENCE",
+          "essence_type": "ICE",
+          "amount": 50
+        }
+      ],
+      [
+        {
+          "type": "ESSENCE",
+          "essence_type": "ICE",
+          "amount": 100
+        }
+      ],
+      [
+        {
+          "type": "ESSENCE",
+          "essence_type": "ICE",
+          "amount": 200
+        }
+      ],
+      [
+        {
+          "type": "ESSENCE",
+          "essence_type": "ICE",
+          "amount": 300
+        }
+      ]
+    ],
+    "gear_score": 20,
+    "requirements": [
+      {
+        "type": "DUNGEON_SKILL",
+        "dungeon_type": "CATACOMBS",
+        "level": 20
+      }
+    ],
+    "dungeon_item": true,
+    "gemstone_slots": [
+      {
+        "slot_type": "SAPPHIRE",
+        "costs": [
+          {
+            "type": "COINS",
+            "coins": 50000
+          },
+          {
+            "type": "ITEM",
+            "item_id": "FINE_SAPPHIRE_GEM",
+            "amount": 20
+          }
+        ]
+      }
+    ],
+    "id": "STARRED_ICE_SPRAY_WAND"
   },
   {
     "material": "DIAMOND_HOE",
@@ -75592,7 +76724,7 @@
       "fishing_wisdom": 1,
       "rift_time": 21
     },
-    "soulbound": "COOP",
+    "soulbound": "SOLO",
     "id": "FUTURE_CALORIES"
   },
   {
@@ -75612,6 +76744,7 @@
     "category": "ACCESSORY",
     "rift_transferrable": true,
     "origin": "RIFT",
+    "can_recombobulate": false,
     "id": "RIFT_PRISM"
   },
   {
@@ -76085,7 +77218,7 @@
     "glowing": true,
     "unstackable": true,
     "item_specific": {
-      "experience_gained": 1100000,
+      "experience_gained": 1650000,
       "charges": 2,
       "consumed_item": "ULTIMATE_CARROT_CANDY"
     },
@@ -76123,6 +77256,7 @@
     "tier": "COMMON",
     "origin": "RIFT",
     "description": "The plant equivalent of an alien zombie.",
+    "can_place": false,
     "id": "WILTED_BERBERIS"
   },
   {
@@ -76210,6 +77344,7 @@
     "origin": "RIFT",
     "glowing": true,
     "rift_transferrable": true,
+    "can_place": false,
     "id": "WILTED_BERBERIS_BUNCH"
   },
   {
@@ -76272,6 +77407,7 @@
     "tier": "RARE",
     "description": "Agarimoos have five stomachs and 3 tongues. For this specific Agarimoo, past tense is more accurate.",
     "glowing": true,
+    "npc_sell_price": 2050,
     "id": "AGARIMOO_TONGUE"
   },
   {
@@ -76362,6 +77498,7 @@
     "unstackable": true,
     "description": "Deposit on Joey's plate.",
     "soulbound": "SOLO",
+    "serializable": false,
     "id": "HOT_DOG"
   },
   {
@@ -76554,7 +77691,7 @@
     "tier": "UNCOMMON",
     "category": "ACCESSORY",
     "origin": "RIFT",
-    "soulbound": "COOP",
+    "soulbound": "SOLO",
     "rift_transferrable": true,
     "stats": {
       "CRITICAL_DAMAGE": 1
@@ -76568,7 +77705,7 @@
     "tier": "UNCOMMON",
     "category": "ACCESSORY",
     "origin": "RIFT",
-    "soulbound": "COOP",
+    "soulbound": "SOLO",
     "rift_transferrable": true,
     "description": "Was it all a test?",
     "stats": {
@@ -76661,7 +77798,7 @@
     "tier": "COMMON",
     "category": "ACCESSORY",
     "origin": "RIFT",
-    "soulbound": "COOP",
+    "soulbound": "SOLO",
     "rift_transferrable": true,
     "stats": {
       "intelligence": 1
@@ -76675,7 +77812,7 @@
     "tier": "UNCOMMON",
     "category": "ACCESSORY",
     "origin": "RIFT",
-    "soulbound": "COOP",
+    "soulbound": "SOLO",
     "rift_transferrable": true,
     "description": "Don't hate the player, hate the game. - Ice T",
     "stats": {
@@ -76749,6 +77886,7 @@
     "name": "Empty Odonata Bottle",
     "tier": "UNCOMMON",
     "origin": "RIFT",
+    "can_interact": false,
     "id": "EMPTY_ODONATA_BOTTLE"
   },
   {
@@ -76756,6 +77894,8 @@
     "name": "Bottled Odonata",
     "tier": "RARE",
     "origin": "RIFT",
+    "can_place": false,
+    "can_interact": false,
     "id": "BOTTLED_ODONATA"
   },
   {
@@ -76843,6 +77983,7 @@
     "rift_transferrable": true,
     "origin": "RIFT",
     "description": "Dropped by vampires from the multiverse coven.",
+    "can_place": false,
     "id": "HEMOVIBE"
   },
   {
@@ -76946,6 +78087,7 @@
     "npc_sell_price": 16000,
     "rift_transferrable": true,
     "origin": "RIFT",
+    "can_place": false,
     "id": "HEMOGLASS"
   },
   {
@@ -77318,7 +78460,7 @@
   },
   {
     "material": "EGG",
-    "name": "§cRed Goblin Egg",
+    "name": "Red Goblin Egg",
     "tier": "RARE",
     "description": "%%gray%%%%italic%%What came first the goblin or the egg?",
     "id": "GOBLIN_EGG_RED"
@@ -77333,24 +78475,31 @@
   },
   {
     "material": "EGG",
-    "name": "§3Blue Goblin Egg",
+    "name": "Blue Goblin Egg",
     "tier": "RARE",
     "description": "%%gray%%%%italic%%What came first the goblin or the egg?",
     "id": "GOBLIN_EGG_BLUE"
   },
   {
     "material": "EGG",
-    "name": "§eYellow Goblin Egg",
+    "name": "Yellow Goblin Egg",
     "tier": "RARE",
     "description": "%%gray%%%%italic%%What came first the goblin or the egg?",
     "id": "GOBLIN_EGG_YELLOW"
   },
   {
     "material": "EGG",
-    "name": "§aGreen Goblin Egg",
+    "name": "Green Goblin Egg",
     "tier": "UNCOMMON",
     "description": "%%gray%%%%italic%%What came first the goblin or the egg?",
     "id": "GOBLIN_EGG_GREEN"
+  },
+  {
+    "material": "DIAMOND",
+    "name": "Fallen Star Lozenge",
+    "glowing": true,
+    "tier": "EPIC",
+    "id": "FALLEN_STAR_TRACKER"
   },
   {
     "material": "SKULL_ITEM",
@@ -77425,6 +78574,7 @@
     "material": "MONSTER_EGG",
     "durability": 101,
     "name": "Move Sam",
+    "can_auction": false,
     "id": "SAM_ASSISTANT"
   },
   {
@@ -77570,6 +78720,54 @@
       "DAMAGE": 125
     },
     "soulbound": "COOP",
+    "dungeon_item_conversion_cost": {
+      "essence_type": "DRAGON",
+      "amount": 20
+    },
+    "upgrade_costs": [
+      [
+        {
+          "type": "ESSENCE",
+          "essence_type": "DRAGON",
+          "amount": 10
+        }
+      ],
+      [
+        {
+          "type": "ESSENCE",
+          "essence_type": "DRAGON",
+          "amount": 15
+        }
+      ],
+      [
+        {
+          "type": "ESSENCE",
+          "essence_type": "DRAGON",
+          "amount": 20
+        }
+      ],
+      [
+        {
+          "type": "ESSENCE",
+          "essence_type": "DRAGON",
+          "amount": 25
+        }
+      ],
+      [
+        {
+          "type": "ESSENCE",
+          "essence_type": "DRAGON",
+          "amount": 30
+        }
+      ]
+    ],
+    "catacombs_requirements": [
+      {
+        "type": "DUNGEON_SKILL",
+        "dungeon_type": "CATACOMBS",
+        "level": 8
+      }
+    ],
     "id": "VOID_SWORD"
   },
   {
@@ -77845,18 +79043,31 @@
     "tier": "EPIC",
     "npc_sell_price": 10000,
     "description": "%%dark_gray%%%%italic%%It's all that's left from a draconic sacrifice.",
+    "unstackable": false,
     "id": "RITUAL_RESIDUE"
   },
   {
     "material": "SKULL_ITEM",
     "durability": 3,
     "name": "%%green%%Ballista Fuel Cell",
+    "can_place": false,
+    "serializable": false,
     "id": "ELLE_FUEL_CELL"
   },
   {
     "material": "CHEST",
     "name": "%%green%%Elle's Supplies",
+    "can_place": false,
+    "serializable": false,
     "id": "ELLE_SUPPLIES"
+  },
+  {
+    "material": "SKULL_ITEM",
+    "durability": 3,
+    "name": "Glowing Mush Mixin",
+    "tier": "RARE",
+    "unstackable": true,
+    "id": "MUSHED_MUSHROOM_MIXIN"
   },
   {
     "material": "SKULL_ITEM",
@@ -77878,6 +79089,7 @@
     "name": "Moby's Shears",
     "tier": "RARE",
     "category": "SHEARS",
+    "can_place": false,
     "id": "MOBYS_SHEARS"
   },
   {
@@ -77956,6 +79168,7 @@
     "tier": "RARE",
     "npc_sell_price": 10,
     "unstackable": true,
+    "can_place": false,
     "id": "TALBOTS_THEODOLITE"
   },
   {
@@ -77986,6 +79199,64 @@
     "category": "ACCESSORY",
     "tier": "COMMON",
     "id": "TRAPPER_CREST"
+  },
+  {
+    "material": "SKULL_ITEM",
+    "durability": 3,
+    "name": "⚚ Bone Necklace",
+    "category": "NECKLACE",
+    "tier": "EPIC",
+    "npc_sell_price": 0,
+    "dungeon_item": true,
+    "stats": {
+      "DEFENSE": 45,
+      "CRITICAL_CHANCE": 5
+    },
+    "upgrade_costs": [
+      [
+        {
+          "type": "ESSENCE",
+          "essence_type": "WITHER",
+          "amount": 20
+        }
+      ],
+      [
+        {
+          "type": "ESSENCE",
+          "essence_type": "WITHER",
+          "amount": 40
+        }
+      ],
+      [
+        {
+          "type": "ESSENCE",
+          "essence_type": "WITHER",
+          "amount": 60
+        }
+      ],
+      [
+        {
+          "type": "ESSENCE",
+          "essence_type": "WITHER",
+          "amount": 100
+        }
+      ],
+      [
+        {
+          "type": "ESSENCE",
+          "essence_type": "WITHER",
+          "amount": 150
+        }
+      ]
+    ],
+    "requirements": [
+      {
+        "type": "DUNGEON_TIER",
+        "dungeon_type": "CATACOMBS",
+        "tier": 4
+      }
+    ],
+    "id": "STARRED_BONE_NECKLACE"
   },
   {
     "material": "ENDER_PEARL",
@@ -78114,7 +79385,7 @@
   },
   {
     "material": "BOW",
-    "name": "Spirit Shortbow",
+    "name": "⚚ Spirit Shortbow",
     "category": "BOW",
     "tier": "LEGENDARY",
     "stats": {
@@ -78230,7 +79501,7 @@
   {
     "material": "SKULL_ITEM",
     "durability": 3,
-    "name": "Shadow Assassin Cloak",
+    "name": "⚚ Shadow Assassin Cloak",
     "category": "CLOAK",
     "tier": "LEGENDARY",
     "npc_sell_price": 0,
@@ -78286,6 +79557,14 @@
     "id": "STARRED_SHADOW_ASSASSIN_CLOAK"
   },
   {
+    "material": "RED_MUSHROOM",
+    "name": "Bonzo Fragment",
+    "glowing": true,
+    "tier": "RARE",
+    "dungeon_item": true,
+    "id": "BONZO_FRAGMENT"
+  },
+  {
     "material": "DOUBLE_PLANT",
     "durability": 4,
     "name": "Bouquet of Lies",
@@ -78298,6 +79577,8 @@
       "CRITICAL_DAMAGE": 50
     },
     "npc_sell_price": 100000,
+    "can_place": false,
+    "has_uuid": true,
     "upgrade_costs": [
       [
         {
@@ -78364,7 +79645,7 @@
   {
     "material": "RED_ROSE",
     "durability": 2,
-    "name": "Spirit Sceptre",
+    "name": "⚚ Spirit Sceptre",
     "category": "SWORD",
     "tier": "LEGENDARY",
     "stats": {
@@ -78566,7 +79847,7 @@
   {
     "material": "SKULL_ITEM",
     "durability": 3,
-    "name": "Spirit Mask",
+    "name": "⚚ Spirit Mask",
     "category": "HELMET",
     "tier": "LEGENDARY",
     "stats": {
@@ -78634,7 +79915,7 @@
   },
   {
     "material": "IRON_SWORD",
-    "name": "Felthorn Reaper",
+    "name": "⚚ Felthorn Reaper",
     "category": "LONGSWORD",
     "tier": "LEGENDARY",
     "npc_sell_price": 0,
@@ -78833,7 +80114,128 @@
   {
     "material": "SKULL_ITEM",
     "durability": 3,
-    "name": "Adaptive Belt",
+    "name": "⚚ Bonzo's Mask",
+    "category": "HELMET",
+    "tier": "RARE",
+    "stats": {
+      "DEFENSE": 100,
+      "HEALTH": 125,
+      "INTELLIGENCE": 150
+    },
+    "upgrade_costs": [
+      [
+        {
+          "type": "ESSENCE",
+          "essence_type": "WITHER",
+          "amount": 5
+        }
+      ],
+      [
+        {
+          "type": "ESSENCE",
+          "essence_type": "WITHER",
+          "amount": 10
+        }
+      ],
+      [
+        {
+          "type": "ESSENCE",
+          "essence_type": "WITHER",
+          "amount": 25
+        }
+      ],
+      [
+        {
+          "type": "ESSENCE",
+          "essence_type": "WITHER",
+          "amount": 50
+        }
+      ],
+      [
+        {
+          "type": "ESSENCE",
+          "essence_type": "WITHER",
+          "amount": 100
+        }
+      ]
+    ],
+    "requirements": [
+      {
+        "type": "DUNGEON_TIER",
+        "dungeon_type": "CATACOMBS",
+        "tier": 1
+      }
+    ],
+    "dungeon_item": true,
+    "id": "STARRED_BONZO_MASK"
+  },
+  {
+    "material": "BLAZE_ROD",
+    "name": "Bonzo's Staff",
+    "category": "SWORD",
+    "tier": "RARE",
+    "stats": {
+      "DAMAGE": 160,
+      "WEAPON_ABILITY_DAMAGE": 1000,
+      "INTELLIGENCE": 250
+    },
+    "ability_damage_scaling": 0.2,
+    "upgrade_costs": [
+      [
+        {
+          "type": "ESSENCE",
+          "essence_type": "WITHER",
+          "amount": 5
+        }
+      ],
+      [
+        {
+          "type": "ESSENCE",
+          "essence_type": "WITHER",
+          "amount": 10
+        }
+      ],
+      [
+        {
+          "type": "ESSENCE",
+          "essence_type": "WITHER",
+          "amount": 25
+        }
+      ],
+      [
+        {
+          "type": "ESSENCE",
+          "essence_type": "WITHER",
+          "amount": 50
+        }
+      ],
+      [
+        {
+          "type": "ESSENCE",
+          "essence_type": "WITHER",
+          "amount": 100
+        }
+      ]
+    ],
+    "requirements": [
+      {
+        "type": "DUNGEON_TIER",
+        "dungeon_type": "CATACOMBS",
+        "tier": 1
+      }
+    ],
+    "dungeon_item": true,
+    "gemstone_slots": [
+      {
+        "slot_type": "SAPPHIRE"
+      }
+    ],
+    "id": "BONZO_STAFF"
+  },
+  {
+    "material": "SKULL_ITEM",
+    "durability": 3,
+    "name": "⚚ Adaptive Belt",
     "category": "BELT",
     "tier": "EPIC",
     "npc_sell_price": 0,
@@ -78890,9 +80292,86 @@
     "id": "STARRED_ADAPTIVE_BELT"
   },
   {
+    "material": "BLAZE_ROD",
+    "name": "⚚ Bonzo's Staff",
+    "category": "SWORD",
+    "tier": "RARE",
+    "stats": {
+      "DAMAGE": 160,
+      "WEAPON_ABILITY_DAMAGE": 1100,
+      "INTELLIGENCE": 300
+    },
+    "ability_damage_scaling": 0.2,
+    "upgrade_costs": [
+      [
+        {
+          "type": "ESSENCE",
+          "essence_type": "WITHER",
+          "amount": 5
+        }
+      ],
+      [
+        {
+          "type": "ESSENCE",
+          "essence_type": "WITHER",
+          "amount": 10
+        }
+      ],
+      [
+        {
+          "type": "ESSENCE",
+          "essence_type": "WITHER",
+          "amount": 25
+        }
+      ],
+      [
+        {
+          "type": "ESSENCE",
+          "essence_type": "WITHER",
+          "amount": 50
+        }
+      ],
+      [
+        {
+          "type": "ESSENCE",
+          "essence_type": "WITHER",
+          "amount": 100
+        }
+      ]
+    ],
+    "requirements": [
+      {
+        "type": "DUNGEON_TIER",
+        "dungeon_type": "CATACOMBS",
+        "tier": 1
+      }
+    ],
+    "dungeon_item": true,
+    "gemstone_slots": [
+      {
+        "slot_type": "SAPPHIRE"
+      },
+      {
+        "slot_type": "SAPPHIRE",
+        "costs": [
+          {
+            "type": "COINS",
+            "coins": 50000
+          },
+          {
+            "type": "ITEM",
+            "item_id": "FINE_SAPPHIRE_GEM",
+            "amount": 20
+          }
+        ]
+      }
+    ],
+    "id": "STARRED_BONZO_STAFF"
+  },
+  {
     "material": "LEATHER_BOOTS",
     "color": "191,191,191",
-    "name": "Spirit Boots",
+    "name": "⚚ Spirit Boots",
     "category": "BOOTS",
     "tier": "LEGENDARY",
     "stats": {
@@ -78954,6 +80433,64 @@
   {
     "material": "SKULL_ITEM",
     "durability": 3,
+    "name": "Bonzo's Mask",
+    "category": "HELMET",
+    "tier": "RARE",
+    "stats": {
+      "DEFENSE": 100,
+      "HEALTH": 100,
+      "INTELLIGENCE": 100
+    },
+    "upgrade_costs": [
+      [
+        {
+          "type": "ESSENCE",
+          "essence_type": "WITHER",
+          "amount": 5
+        }
+      ],
+      [
+        {
+          "type": "ESSENCE",
+          "essence_type": "WITHER",
+          "amount": 10
+        }
+      ],
+      [
+        {
+          "type": "ESSENCE",
+          "essence_type": "WITHER",
+          "amount": 25
+        }
+      ],
+      [
+        {
+          "type": "ESSENCE",
+          "essence_type": "WITHER",
+          "amount": 50
+        }
+      ],
+      [
+        {
+          "type": "ESSENCE",
+          "essence_type": "WITHER",
+          "amount": 100
+        }
+      ]
+    ],
+    "requirements": [
+      {
+        "type": "DUNGEON_TIER",
+        "dungeon_type": "CATACOMBS",
+        "tier": 1
+      }
+    ],
+    "dungeon_item": true,
+    "id": "BONZO_MASK"
+  },
+  {
+    "material": "SKULL_ITEM",
+    "durability": 3,
     "name": "General's Medallion",
     "category": "ACCESSORY",
     "tier": "COMMON",
@@ -78962,7 +80499,7 @@
   },
   {
     "material": "BONE",
-    "name": "Bonemerang",
+    "name": "⚚ Bonemerang",
     "glowing": true,
     "category": "BOW",
     "tier": "LEGENDARY",
@@ -79135,6 +80672,7 @@
       "max_contacts": 6,
       "max_musicdiscs": 2
     },
+    "double_tap_to_drop": true,
     "id": "ABIPHONE_XI_ULTRA"
   },
   {
@@ -79178,6 +80716,7 @@
     "item_specific": {
       "max_contacts": 5
     },
+    "double_tap_to_drop": true,
     "id": "ABIPHONE_X_PLUS"
   },
   {
@@ -79235,6 +80774,7 @@
       "max_musicdiscs": 4,
       "has_contact_directory": true
     },
+    "double_tap_to_drop": true,
     "id": "ABIPHONE_XII_MEGA"
   },
   {
@@ -79246,6 +80786,7 @@
     "item_specific": {
       "max_contacts": 5
     },
+    "double_tap_to_drop": true,
     "id": "ABIPHONE_X_PLUS_SPECIAL_EDITION"
   },
   {
@@ -79259,6 +80800,7 @@
       "max_musicdiscs": 2,
       "has_contact_directory": true
     },
+    "double_tap_to_drop": true,
     "id": "ABIPHONE_XI_ULTRA_STYLE"
   },
   {
@@ -79269,6 +80811,13 @@
     "tier": "COMMON",
     "soulbound": "COOP",
     "npc_sell_price": 10000,
+    "salvages": [
+      {
+        "type": "ESSENCE",
+        "essence_type": "CRIMSON",
+        "amount": 15
+      }
+    ],
     "id": "NETHERRACK_LOOKING_SUNSHADE"
   },
   {
@@ -98731,7 +100280,7 @@
     "category": "ACCESSORY",
     "tier": "EPIC",
     "unstackable": true,
-    "soulbound": "COOP",
+    "soulbound": "SOLO",
     "id": "KUUDRA_FOLLOWER_ARTIFACT"
   },
   {
@@ -98741,6 +100290,7 @@
     "category": "DEPLOYABLE",
     "tier": "SPECIAL",
     "npc_sell_price": 0,
+    "serializable": false,
     "id": "MINIATURE_NUKE"
   },
   {
@@ -98753,6 +100303,7 @@
       "strength": 50,
       "fishing_speed": 8
     },
+    "serializable": false,
     "id": "ELLES_LAVA_ROD"
   },
   {
@@ -98761,6 +100312,7 @@
     "name": "Revive Final Kill",
     "glowing": true,
     "tier": "SPECIAL",
+    "serializable": false,
     "id": "FINAL_REVIVE_PERK_ITEM"
   },
   {
@@ -98807,6 +100359,7 @@
       "MINING_SPEED": 250
     },
     "npc_sell_price": 0,
+    "serializable": false,
     "id": "ELLES_PICKAXE"
   },
   {
@@ -98815,6 +100368,7 @@
     "name": "Revive Dead",
     "glowing": true,
     "tier": "SPECIAL",
+    "serializable": false,
     "id": "REVIVE_PERK_ITEM"
   },
   {
@@ -99631,6 +101185,8 @@
     "tier": "LEGENDARY",
     "npc_sell_price": 12000,
     "description": "It smells like blood and fear.",
+    "can_interact": false,
+    "can_interact_right_click": false,
     "id": "GREAT_WHITE_TOOTH_MEAL"
   },
   {
@@ -99757,7 +101313,8 @@
     "name": "Campfire Initiate Badge",
     "category": "ACCESSORY",
     "soulbound": "COOP",
-    "id": "CAMPFIRE_TALISMAN_1"
+    "id": "CAMPFIRE_TALISMAN_1",
+    "tier": "COMMON"
   },
   {
     "material": "SKULL_ITEM",
@@ -99819,7 +101376,8 @@
     "name": "Campfire Initiate Badge",
     "category": "ACCESSORY",
     "soulbound": "COOP",
-    "id": "CAMPFIRE_TALISMAN_2"
+    "id": "CAMPFIRE_TALISMAN_2",
+    "tier": "COMMON"
   },
   {
     "material": "SKULL_ITEM",
@@ -99881,7 +101439,8 @@
     "name": "Campfire Initiate Badge",
     "category": "ACCESSORY",
     "soulbound": "COOP",
-    "id": "CAMPFIRE_TALISMAN_3"
+    "id": "CAMPFIRE_TALISMAN_3",
+    "tier": "COMMON"
   },
   {
     "material": "SKULL_ITEM",
@@ -99929,11 +101488,12 @@
   },
   {
     "material": "GOLD_NUGGET",
-    "name": "§eYellow Rock of Love",
+    "name": "Yellow Rock of Love",
     "glowing": true,
     "category": "ACCESSORY",
     "soulbound": "COOP",
-    "id": "WEDDING_RING_1"
+    "id": "WEDDING_RING_1",
+    "tier": "COMMON"
   },
   {
     "material": "SKULL_ITEM",
@@ -99973,11 +101533,12 @@
   },
   {
     "material": "GOLD_NUGGET",
-    "name": "§eShiny Yellow Rock",
+    "name": "Shiny Yellow Rock",
     "glowing": true,
     "category": "ACCESSORY",
     "soulbound": "COOP",
-    "id": "WEDDING_RING_0"
+    "id": "WEDDING_RING_0",
+    "tier": "COMMON"
   },
   {
     "material": "SKULL_ITEM",
@@ -100017,5 +101578,12 @@
       "bundled_amount": 9
     },
     "id": "ECCENTRIC_PAINTING_BUNDLE"
+  },
+  {
+    "name": "Crab Hat of Celebration (2022)",
+    "category": "ACCESSORY",
+    "id": "PARTY_HAT_CRAB_ANIMATED",
+    "tier": "SPECIAL",
+    "manual": true
   }
 ]
