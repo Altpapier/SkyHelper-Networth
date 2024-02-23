@@ -76,12 +76,14 @@ let cachedPrices;
 let isLoadingPrices = false;
 /**
  * Returns the prices used in the networth calculation, optimally this can be cached and used when calling `getNetworth`
- * @param {boolean} cache - (Optional) By default true (5 minute cache), if set to false it will always make a request to get the latest prices from github
+ * @param {boolean} [cache=true] - (Optional) By default true (5 minute cache), if set to false it will always make a request to get the latest prices from github
+ * @param {number} [retries=3] - (Optional) By default 3 retries. If set to a negative value, throws error.
  * @returns {object} - An object containing the prices for the items in the game from the SkyHelper Prices list
  */
-const getPrices = async (cache) => {
+const getPrices = async (cache = true, retries = 3) => {
+  if (retries < 0) throw new PricesError(`Failed to retrieve prices`);
   try {
-    if (cachedPrices?.lastCache > Date.now() - 1000 * 60 * 5 && cache !== false) {
+    if (cachedPrices?.lastCache > Date.now() - 1000 * 60 * 5 && cache) {
       return cachedPrices.prices; // Cache for 5 minutes
     }
 
@@ -89,7 +91,7 @@ const getPrices = async (cache) => {
       while (isLoadingPrices) {
         await new Promise((r) => setTimeout(r, 100)); //re-check if prices have loaded yet in 100ms
       }
-      return cachedPrices.prices;
+      return getPrices(cache, Math.max(retries - 1, 0)); // it's possible that the concurrent fetch fails, therefore you try refetching. Math.max to prevent 0 retries as counted for a try
     }
 
     isLoadingPrices = true;
@@ -122,7 +124,11 @@ const getPrices = async (cache) => {
     isLoadingPrices = false;
     return response.data;
   } catch (err) {
-    throw new PricesError(`Failed to retrieve prices with status code ${err?.response?.status || 'Unknown'}`);
+    if (retries === 0) throw new PricesError(`Failed to retrieve prices with status code ${err?.response?.status || 'Unknown'}`);
+    else {
+      console.warn(`[SKYHELPER-NETWORTH] Failed to retrieve prices with status code ${err?.response?.status || 'Unknown'}. Retrying (${retries} attempt(s) left)...`)
+      getPrices(cache, retries - 1);
+    }
   }
 };
 
@@ -135,7 +141,7 @@ const checkForUpdate = async () => {
     if (latestVersion !== currentVersion) {
       console.log(`[SKYHELPER-NETWORTH] An update is available! Current version: ${currentVersion}, Latest version: ${latestVersion}`);
     }
-  } catch (err) {}
+  } catch () {}
 };
 checkForUpdate();
 let interval;
