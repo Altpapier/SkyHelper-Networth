@@ -124,8 +124,8 @@ const getPrices = async (cache = true, retries = 3) => {
     isLoadingPrices = false;
     return response.data;
   } catch (err) {
+    isLoadingPrices = false;
     if (retries === 0) {
-      isLoadingPrices = false;
       throw new PricesError(`Failed to retrieve prices with status code ${err?.response?.status || 'Unknown'}`);
     }
     else {
