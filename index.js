@@ -91,7 +91,7 @@ const getPrices = async (cache = true, retries = 3) => {
       while (isLoadingPrices) {
         await new Promise((r) => setTimeout(r, 100)); //re-check if prices have loaded yet in 100ms
       }
-      return getPrices(cache, Math.max(retries - 1, 0)); // it's possible that the concurrent fetch fails, therefore you try refetching. Math.max to prevent 0 retries as counted for a try
+      return getPrices(cache, retries);
     }
 
     isLoadingPrices = true;
@@ -124,10 +124,13 @@ const getPrices = async (cache = true, retries = 3) => {
     isLoadingPrices = false;
     return response.data;
   } catch (err) {
-    if (retries === 0) throw new PricesError(`Failed to retrieve prices with status code ${err?.response?.status || 'Unknown'}`);
+    if (retries === 0) {
+      isLoadingPrices = false;
+      throw new PricesError(`Failed to retrieve prices with status code ${err?.response?.status || 'Unknown'}`);
+    }
     else {
       console.warn(`[SKYHELPER-NETWORTH] Failed to retrieve prices with status code ${err?.response?.status || 'Unknown'}. Retrying (${retries} attempt(s) left)...`)
-      getPrices(cache, retries - 1);
+      return getPrices(cache, retries - 1);
     }
   }
 };
