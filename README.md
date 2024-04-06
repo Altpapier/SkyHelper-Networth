@@ -32,13 +32,14 @@ The following list shows how much each modifier counts towards an item's worth
 - Essence: **75%**
 - Silex: **75%**
 - Art of Peace: **80%**
+- Jalapeno Book: **80%**
 - Mana Disintegrator: **80%**
 - Recombobulators: **80%**
   - Bonemerangs: **40%**
 - Thunder In A Bottle: **80%**
 - Enchantments: **85%**
   - Counter Strike: **20%**
-  - Big Brain, Inferno, Overload, and Soul Eater : **35%**
+  - Big Brain, Inferno, Overload, and Soul Eater: **35%**
   - Fatal Tempo: **65%**
 - Shen's Auction Price Paid: **85%**
 - Dyes: **90%**
@@ -48,8 +49,8 @@ The following list shows how much each modifier counts towards an item's worth
   - Lava Fishing rods and Crimson Hunter set use their base item's price instead
   - Kuudra Armor sets use the average sale value of all types with the same attribute
 - Drill Upgrades: **100%**
-- Dungeon Master Stars: **100%**
 - Etherwarp Conduit: **100%**
+- Dungeon Master Stars: **100%**
 - Gemstones: **100%**
 - Hot Potato Books: **100%**
 - Necron Blade Scrolls: **100%**
