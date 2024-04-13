@@ -145,6 +145,15 @@
   {
     "material": "SKULL_ITEM",
     "durability": 3,
+    "name": "Glacite Shard",
+    "category": "REFORGE_STONE",
+    "tier": "LEGENDARY",
+    "npc_sell_price": 1,
+    "id": "GLACITE_SHARD"
+  },
+  {
+    "material": "SKULL_ITEM",
+    "durability": 3,
     "name": "Hazmat Enderman",
     "category": "REFORGE_STONE",
     "tier": "LEGENDARY",
@@ -459,6 +468,36 @@
     "stats": {
       "cocoa_beans_fortune": 20
     },
+    "gemstone_slots": [
+      {
+        "slot_type": "PERIDOT",
+        "costs": [
+          {
+            "type": "ITEM",
+            "item_id": "FINE_PERIDOT_GEM",
+            "amount": 20
+          },
+          {
+            "type": "COINS",
+            "coins": 50000
+          }
+        ]
+      },
+      {
+        "slot_type": "PERIDOT",
+        "costs": [
+          {
+            "type": "ITEM",
+            "item_id": "FINE_PERIDOT_GEM",
+            "amount": 40
+          },
+          {
+            "type": "COINS",
+            "coins": 100000
+          }
+        ]
+      }
+    ],
     "id": "COCO_CHOPPER"
   },
   {
@@ -519,6 +558,36 @@
         "level": 10
       }
     ],
+    "gemstone_slots": [
+      {
+        "slot_type": "PERIDOT",
+        "costs": [
+          {
+            "type": "ITEM",
+            "item_id": "FINE_PERIDOT_GEM",
+            "amount": 20
+          },
+          {
+            "type": "COINS",
+            "coins": 50000
+          }
+        ]
+      },
+      {
+        "slot_type": "PERIDOT",
+        "costs": [
+          {
+            "type": "ITEM",
+            "item_id": "FINE_PERIDOT_GEM",
+            "amount": 40
+          },
+          {
+            "type": "COINS",
+            "coins": 100000
+          }
+        ]
+      }
+    ],
     "id": "CACTUS_KNIFE"
   },
   {
@@ -548,6 +617,36 @@
         "type": "SKILL",
         "skill": "FARMING",
         "level": 10
+      }
+    ],
+    "gemstone_slots": [
+      {
+        "slot_type": "PERIDOT",
+        "costs": [
+          {
+            "type": "ITEM",
+            "item_id": "FINE_PERIDOT_GEM",
+            "amount": 20
+          },
+          {
+            "type": "COINS",
+            "coins": 50000
+          }
+        ]
+      },
+      {
+        "slot_type": "PERIDOT",
+        "costs": [
+          {
+            "type": "ITEM",
+            "item_id": "FINE_PERIDOT_GEM",
+            "amount": 40
+          },
+          {
+            "type": "COINS",
+            "coins": 100000
+          }
+        ]
       }
     ],
     "id": "FUNGI_CUTTER"
@@ -602,6 +701,50 @@
         "level": 25
       }
     ],
+    "gemstone_slots": [
+      {
+        "slot_type": "PERIDOT",
+        "costs": [
+          {
+            "type": "ITEM",
+            "item_id": "FINE_PERIDOT_GEM",
+            "amount": 20
+          },
+          {
+            "type": "COINS",
+            "coins": 50000
+          }
+        ]
+      },
+      {
+        "slot_type": "PERIDOT",
+        "costs": [
+          {
+            "type": "ITEM",
+            "item_id": "FINE_PERIDOT_GEM",
+            "amount": 40
+          },
+          {
+            "type": "COINS",
+            "coins": 100000
+          }
+        ]
+      },
+      {
+        "slot_type": "PERIDOT",
+        "costs": [
+          {
+            "type": "ITEM",
+            "item_id": "FLAWLESS_PERIDOT_GEM",
+            "amount": 1
+          },
+          {
+            "type": "COINS",
+            "coins": 250000
+          }
+        ]
+      }
+    ],
     "id": "THEORETICAL_HOE_CARROT_3"
   },
   {
@@ -614,6 +757,36 @@
         "type": "SKILL",
         "skill": "FARMING",
         "level": 20
+      }
+    ],
+    "gemstone_slots": [
+      {
+        "slot_type": "PERIDOT",
+        "costs": [
+          {
+            "type": "ITEM",
+            "item_id": "FINE_PERIDOT_GEM",
+            "amount": 20
+          },
+          {
+            "type": "COINS",
+            "coins": 50000
+          }
+        ]
+      },
+      {
+        "slot_type": "PERIDOT",
+        "costs": [
+          {
+            "type": "ITEM",
+            "item_id": "FINE_PERIDOT_GEM",
+            "amount": 40
+          },
+          {
+            "type": "COINS",
+            "coins": 100000
+          }
+        ]
       }
     ],
     "id": "THEORETICAL_HOE_WHEAT_2"
@@ -629,6 +802,22 @@
         "level": 15
       }
     ],
+    "gemstone_slots": [
+      {
+        "slot_type": "PERIDOT",
+        "costs": [
+          {
+            "type": "ITEM",
+            "item_id": "FINE_PERIDOT_GEM",
+            "amount": 20
+          },
+          {
+            "type": "COINS",
+            "coins": 50000
+          }
+        ]
+      }
+    ],
     "id": "THEORETICAL_HOE_CANE_1"
   },
   {
@@ -640,6 +829,22 @@
         "type": "SKILL",
         "skill": "FARMING",
         "level": 15
+      }
+    ],
+    "gemstone_slots": [
+      {
+        "slot_type": "PERIDOT",
+        "costs": [
+          {
+            "type": "ITEM",
+            "item_id": "FINE_PERIDOT_GEM",
+            "amount": 20
+          },
+          {
+            "type": "COINS",
+            "coins": 50000
+          }
+        ]
       }
     ],
     "id": "THEORETICAL_HOE_WHEAT_1"
@@ -656,6 +861,36 @@
         "level": 20
       }
     ],
+    "gemstone_slots": [
+      {
+        "slot_type": "PERIDOT",
+        "costs": [
+          {
+            "type": "ITEM",
+            "item_id": "FINE_PERIDOT_GEM",
+            "amount": 20
+          },
+          {
+            "type": "COINS",
+            "coins": 50000
+          }
+        ]
+      },
+      {
+        "slot_type": "PERIDOT",
+        "costs": [
+          {
+            "type": "ITEM",
+            "item_id": "FINE_PERIDOT_GEM",
+            "amount": 40
+          },
+          {
+            "type": "COINS",
+            "coins": 100000
+          }
+        ]
+      }
+    ],
     "id": "THEORETICAL_HOE_CARROT_2"
   },
   {
@@ -668,6 +903,50 @@
         "type": "SKILL",
         "skill": "FARMING",
         "level": 25
+      }
+    ],
+    "gemstone_slots": [
+      {
+        "slot_type": "PERIDOT",
+        "costs": [
+          {
+            "type": "ITEM",
+            "item_id": "FINE_PERIDOT_GEM",
+            "amount": 20
+          },
+          {
+            "type": "COINS",
+            "coins": 50000
+          }
+        ]
+      },
+      {
+        "slot_type": "PERIDOT",
+        "costs": [
+          {
+            "type": "ITEM",
+            "item_id": "FINE_PERIDOT_GEM",
+            "amount": 40
+          },
+          {
+            "type": "COINS",
+            "coins": 100000
+          }
+        ]
+      },
+      {
+        "slot_type": "PERIDOT",
+        "costs": [
+          {
+            "type": "ITEM",
+            "item_id": "FLAWLESS_PERIDOT_GEM",
+            "amount": 1
+          },
+          {
+            "type": "COINS",
+            "coins": 250000
+          }
+        ]
       }
     ],
     "id": "THEORETICAL_HOE_CANE_3"
@@ -684,6 +963,36 @@
         "level": 20
       }
     ],
+    "gemstone_slots": [
+      {
+        "slot_type": "PERIDOT",
+        "costs": [
+          {
+            "type": "ITEM",
+            "item_id": "FINE_PERIDOT_GEM",
+            "amount": 20
+          },
+          {
+            "type": "COINS",
+            "coins": 50000
+          }
+        ]
+      },
+      {
+        "slot_type": "PERIDOT",
+        "costs": [
+          {
+            "type": "ITEM",
+            "item_id": "FINE_PERIDOT_GEM",
+            "amount": 40
+          },
+          {
+            "type": "COINS",
+            "coins": 100000
+          }
+        ]
+      }
+    ],
     "id": "THEORETICAL_HOE_POTATO_2"
   },
   {
@@ -696,6 +1005,50 @@
         "type": "SKILL",
         "skill": "FARMING",
         "level": 25
+      }
+    ],
+    "gemstone_slots": [
+      {
+        "slot_type": "PERIDOT",
+        "costs": [
+          {
+            "type": "ITEM",
+            "item_id": "FINE_PERIDOT_GEM",
+            "amount": 20
+          },
+          {
+            "type": "COINS",
+            "coins": 50000
+          }
+        ]
+      },
+      {
+        "slot_type": "PERIDOT",
+        "costs": [
+          {
+            "type": "ITEM",
+            "item_id": "FINE_PERIDOT_GEM",
+            "amount": 40
+          },
+          {
+            "type": "COINS",
+            "coins": 100000
+          }
+        ]
+      },
+      {
+        "slot_type": "PERIDOT",
+        "costs": [
+          {
+            "type": "ITEM",
+            "item_id": "FLAWLESS_PERIDOT_GEM",
+            "amount": 1
+          },
+          {
+            "type": "COINS",
+            "coins": 250000
+          }
+        ]
       }
     ],
     "id": "THEORETICAL_HOE_POTATO_3"
@@ -712,6 +1065,50 @@
         "level": 25
       }
     ],
+    "gemstone_slots": [
+      {
+        "slot_type": "PERIDOT",
+        "costs": [
+          {
+            "type": "ITEM",
+            "item_id": "FINE_PERIDOT_GEM",
+            "amount": 20
+          },
+          {
+            "type": "COINS",
+            "coins": 50000
+          }
+        ]
+      },
+      {
+        "slot_type": "PERIDOT",
+        "costs": [
+          {
+            "type": "ITEM",
+            "item_id": "FINE_PERIDOT_GEM",
+            "amount": 40
+          },
+          {
+            "type": "COINS",
+            "coins": 100000
+          }
+        ]
+      },
+      {
+        "slot_type": "PERIDOT",
+        "costs": [
+          {
+            "type": "ITEM",
+            "item_id": "FLAWLESS_PERIDOT_GEM",
+            "amount": 1
+          },
+          {
+            "type": "COINS",
+            "coins": 250000
+          }
+        ]
+      }
+    ],
     "id": "THEORETICAL_HOE_WHEAT_3"
   },
   {
@@ -723,6 +1120,22 @@
         "type": "SKILL",
         "skill": "FARMING",
         "level": 15
+      }
+    ],
+    "gemstone_slots": [
+      {
+        "slot_type": "PERIDOT",
+        "costs": [
+          {
+            "type": "ITEM",
+            "item_id": "FINE_PERIDOT_GEM",
+            "amount": 20
+          },
+          {
+            "type": "COINS",
+            "coins": 50000
+          }
+        ]
       }
     ],
     "id": "THEORETICAL_HOE_CARROT_1"
@@ -739,6 +1152,50 @@
         "level": 25
       }
     ],
+    "gemstone_slots": [
+      {
+        "slot_type": "PERIDOT",
+        "costs": [
+          {
+            "type": "ITEM",
+            "item_id": "FINE_PERIDOT_GEM",
+            "amount": 20
+          },
+          {
+            "type": "COINS",
+            "coins": 50000
+          }
+        ]
+      },
+      {
+        "slot_type": "PERIDOT",
+        "costs": [
+          {
+            "type": "ITEM",
+            "item_id": "FINE_PERIDOT_GEM",
+            "amount": 40
+          },
+          {
+            "type": "COINS",
+            "coins": 100000
+          }
+        ]
+      },
+      {
+        "slot_type": "PERIDOT",
+        "costs": [
+          {
+            "type": "ITEM",
+            "item_id": "FLAWLESS_PERIDOT_GEM",
+            "amount": 1
+          },
+          {
+            "type": "COINS",
+            "coins": 250000
+          }
+        ]
+      }
+    ],
     "id": "THEORETICAL_HOE_WARTS_3"
   },
   {
@@ -751,6 +1208,36 @@
         "type": "SKILL",
         "skill": "FARMING",
         "level": 20
+      }
+    ],
+    "gemstone_slots": [
+      {
+        "slot_type": "PERIDOT",
+        "costs": [
+          {
+            "type": "ITEM",
+            "item_id": "FINE_PERIDOT_GEM",
+            "amount": 20
+          },
+          {
+            "type": "COINS",
+            "coins": 50000
+          }
+        ]
+      },
+      {
+        "slot_type": "PERIDOT",
+        "costs": [
+          {
+            "type": "ITEM",
+            "item_id": "FINE_PERIDOT_GEM",
+            "amount": 40
+          },
+          {
+            "type": "COINS",
+            "coins": 100000
+          }
+        ]
       }
     ],
     "id": "THEORETICAL_HOE_CANE_2"
@@ -766,6 +1253,22 @@
         "level": 15
       }
     ],
+    "gemstone_slots": [
+      {
+        "slot_type": "PERIDOT",
+        "costs": [
+          {
+            "type": "ITEM",
+            "item_id": "FINE_PERIDOT_GEM",
+            "amount": 20
+          },
+          {
+            "type": "COINS",
+            "coins": 50000
+          }
+        ]
+      }
+    ],
     "id": "THEORETICAL_HOE_WARTS_1"
   },
   {
@@ -777,6 +1280,22 @@
         "type": "SKILL",
         "skill": "FARMING",
         "level": 15
+      }
+    ],
+    "gemstone_slots": [
+      {
+        "slot_type": "PERIDOT",
+        "costs": [
+          {
+            "type": "ITEM",
+            "item_id": "FINE_PERIDOT_GEM",
+            "amount": 20
+          },
+          {
+            "type": "COINS",
+            "coins": 50000
+          }
+        ]
       }
     ],
     "id": "THEORETICAL_HOE_POTATO_1"
@@ -791,6 +1310,36 @@
         "type": "SKILL",
         "skill": "FARMING",
         "level": 20
+      }
+    ],
+    "gemstone_slots": [
+      {
+        "slot_type": "PERIDOT",
+        "costs": [
+          {
+            "type": "ITEM",
+            "item_id": "FINE_PERIDOT_GEM",
+            "amount": 20
+          },
+          {
+            "type": "COINS",
+            "coins": 50000
+          }
+        ]
+      },
+      {
+        "slot_type": "PERIDOT",
+        "costs": [
+          {
+            "type": "ITEM",
+            "item_id": "FINE_PERIDOT_GEM",
+            "amount": 40
+          },
+          {
+            "type": "COINS",
+            "coins": 100000
+          }
+        ]
       }
     ],
     "id": "THEORETICAL_HOE_WARTS_2"
@@ -7637,7 +8186,8 @@
         "0x310417"
       ],
       "cycle_back": true,
-      "piece_offset": 5
+      "piece_offset": 5,
+      "tick_interval": 1
     },
     "id": "DYE_ROSE"
   },
@@ -12234,6 +12784,22 @@
         "level": 15
       }
     ],
+    "gemstone_slots": [
+      {
+        "slot_type": "AQUAMARINE",
+        "costs": [
+          {
+            "type": "ITEM",
+            "item_id": "FINE_AQUAMARINE_GEM",
+            "amount": 20
+          },
+          {
+            "type": "COINS",
+            "coins": 50000
+          }
+        ]
+      }
+    ],
     "id": "CHAMP_ROD"
   },
   {
@@ -12300,6 +12866,36 @@
         "type": "SKILL",
         "skill": "FISHING",
         "level": 20
+      }
+    ],
+    "gemstone_slots": [
+      {
+        "slot_type": "AQUAMARINE",
+        "costs": [
+          {
+            "type": "ITEM",
+            "item_id": "FINE_AQUAMARINE_GEM",
+            "amount": 20
+          },
+          {
+            "type": "COINS",
+            "coins": 50000
+          }
+        ]
+      },
+      {
+        "slot_type": "AQUAMARINE",
+        "costs": [
+          {
+            "type": "ITEM",
+            "item_id": "FINE_AQUAMARINE_GEM",
+            "amount": 40
+          },
+          {
+            "type": "COINS",
+            "coins": 100000
+          }
+        ]
       }
     ],
     "id": "LEGEND_ROD"
@@ -12512,6 +13108,36 @@
         }
       ]
     ],
+    "gemstone_slots": [
+      {
+        "slot_type": "AQUAMARINE",
+        "costs": [
+          {
+            "type": "ITEM",
+            "item_id": "FINE_AQUAMARINE_GEM",
+            "amount": 40
+          },
+          {
+            "type": "COINS",
+            "coins": 100000
+          }
+        ]
+      },
+      {
+        "slot_type": "AQUAMARINE",
+        "costs": [
+          {
+            "type": "ITEM",
+            "item_id": "FLAWLESS_AQUAMARINE_GEM",
+            "amount": 1
+          },
+          {
+            "type": "COINS",
+            "coins": 250000
+          }
+        ]
+      }
+    ],
     "id": "HELLFIRE_ROD"
   },
   {
@@ -12696,6 +13322,22 @@
         }
       ]
     ],
+    "gemstone_slots": [
+      {
+        "slot_type": "AQUAMARINE",
+        "costs": [
+          {
+            "type": "ITEM",
+            "item_id": "FINE_AQUAMARINE_GEM",
+            "amount": 40
+          },
+          {
+            "type": "COINS",
+            "coins": 100000
+          }
+        ]
+      }
+    ],
     "id": "MAGMA_ROD"
   },
   {
@@ -12844,6 +13486,39 @@
         "type": "SKILL",
         "skill": "FISHING",
         "level": 20
+      }
+    ],
+    "gemstone_slots": [
+      {
+        "slot_type": "COMBAT"
+      },
+      {
+        "slot_type": "COMBAT"
+      },
+      {
+        "slot_type": "COMBAT",
+        "costs": [
+          {
+            "type": "ITEM",
+            "item_id": "FINE_JASPER_GEM",
+            "amount": 5
+          },
+          {
+            "type": "ITEM",
+            "item_id": "FINE_AMETHYST_GEM",
+            "amount": 5
+          },
+          {
+            "type": "ITEM",
+            "item_id": "FINE_SAPPHIRE_GEM",
+            "amount": 5
+          },
+          {
+            "type": "ITEM",
+            "item_id": "FINE_RUBY_GEM",
+            "amount": 5
+          }
+        ]
       }
     ],
     "id": "THE_SHREDDER"
@@ -13031,6 +13706,36 @@
           "amount": 400
         }
       ]
+    ],
+    "gemstone_slots": [
+      {
+        "slot_type": "AQUAMARINE",
+        "costs": [
+          {
+            "type": "ITEM",
+            "item_id": "FINE_AQUAMARINE_GEM",
+            "amount": 40
+          },
+          {
+            "type": "COINS",
+            "coins": 100000
+          }
+        ]
+      },
+      {
+        "slot_type": "AQUAMARINE",
+        "costs": [
+          {
+            "type": "ITEM",
+            "item_id": "FLAWLESS_AQUAMARINE_GEM",
+            "amount": 1
+          },
+          {
+            "type": "COINS",
+            "coins": 250000
+          }
+        ]
+      }
     ],
     "id": "INFERNO_ROD"
   },
@@ -13267,6 +13972,84 @@
   {
     "material": "SKULL_ITEM",
     "durability": 3,
+    "name": "Fine Onyx Gemstone",
+    "tier": "RARE",
+    "npc_sell_price": 19200,
+    "id": "FINE_ONYX_GEM"
+  },
+  {
+    "material": "SKULL_ITEM",
+    "durability": 3,
+    "name": "Perfect Onyx Gemstone",
+    "tier": "LEGENDARY",
+    "unstackable": true,
+    "id": "PERFECT_ONYX_GEM"
+  },
+  {
+    "material": "SKULL_ITEM",
+    "durability": 3,
+    "name": "Rough Onyx Gemstone",
+    "npc_sell_price": 3,
+    "id": "ROUGH_ONYX_GEM"
+  },
+  {
+    "material": "SKULL_ITEM",
+    "durability": 3,
+    "name": "Flawless Onyx Gemstone",
+    "tier": "EPIC",
+    "unstackable": true,
+    "id": "FLAWLESS_ONYX_GEM"
+  },
+  {
+    "material": "SKULL_ITEM",
+    "durability": 3,
+    "name": "Flawed Onyx Gemstone",
+    "tier": "UNCOMMON",
+    "npc_sell_price": 240,
+    "id": "FLAWED_ONYX_GEM"
+  },
+  {
+    "material": "SKULL_ITEM",
+    "durability": 3,
+    "name": "Perfect Peridot Gemstone",
+    "tier": "LEGENDARY",
+    "unstackable": true,
+    "id": "PERFECT_PERIDOT_GEM"
+  },
+  {
+    "material": "SKULL_ITEM",
+    "durability": 3,
+    "name": "Fine Peridot Gemstone",
+    "tier": "RARE",
+    "npc_sell_price": 19200,
+    "id": "FINE_PERIDOT_GEM"
+  },
+  {
+    "material": "SKULL_ITEM",
+    "durability": 3,
+    "name": "Flawless Peridot Gemstone",
+    "tier": "EPIC",
+    "unstackable": true,
+    "id": "FLAWLESS_PERIDOT_GEM"
+  },
+  {
+    "material": "SKULL_ITEM",
+    "durability": 3,
+    "name": "Flawed Peridot Gemstone",
+    "tier": "UNCOMMON",
+    "npc_sell_price": 240,
+    "id": "FLAWED_PERIDOT_GEM"
+  },
+  {
+    "material": "SKULL_ITEM",
+    "durability": 3,
+    "name": "Rough Peridot Gemstone",
+    "npc_sell_price": 3,
+    "id": "ROUGH_PERIDOT_GEM"
+  },
+  {
+    "material": "SKULL_ITEM",
+    "durability": 3,
     "name": "Fine Jasper Gemstone",
     "tier": "RARE",
     "npc_sell_price": 19200,
@@ -13292,7 +14075,6 @@
     "durability": 3,
     "name": "Perfect Jasper Gemstone",
     "tier": "LEGENDARY",
-    "npc_sell_price": 10240000,
     "id": "PERFECT_JASPER_GEM"
   },
   {
@@ -13301,6 +14083,45 @@
     "name": "Flawless Jasper Gemstone",
     "tier": "EPIC",
     "id": "FLAWLESS_JASPER_GEM"
+  },
+  {
+    "material": "SKULL_ITEM",
+    "durability": 3,
+    "name": "Flawed Aquamarine Gemstone",
+    "tier": "UNCOMMON",
+    "npc_sell_price": 240,
+    "id": "FLAWED_AQUAMARINE_GEM"
+  },
+  {
+    "material": "SKULL_ITEM",
+    "durability": 3,
+    "name": "Rough Aquamarine Gemstone",
+    "npc_sell_price": 3,
+    "id": "ROUGH_AQUAMARINE_GEM"
+  },
+  {
+    "material": "SKULL_ITEM",
+    "durability": 3,
+    "name": "Fine Aquamarine Gemstone",
+    "tier": "RARE",
+    "npc_sell_price": 19200,
+    "id": "FINE_AQUAMARINE_GEM"
+  },
+  {
+    "material": "SKULL_ITEM",
+    "durability": 3,
+    "name": "Flawless Aquamarine Gemstone",
+    "tier": "EPIC",
+    "unstackable": true,
+    "id": "FLAWLESS_AQUAMARINE_GEM"
+  },
+  {
+    "material": "SKULL_ITEM",
+    "durability": 3,
+    "name": "Perfect Aquamarine Gemstone",
+    "tier": "LEGENDARY",
+    "unstackable": true,
+    "id": "PERFECT_AQUAMARINE_GEM"
   },
   {
     "material": "SKULL_ITEM",
@@ -13337,7 +14158,6 @@
     "durability": 3,
     "name": "Perfect Amethyst Gemstone",
     "tier": "LEGENDARY",
-    "npc_sell_price": 10240000,
     "id": "PERFECT_AMETHYST_GEM"
   },
   {
@@ -13361,7 +14181,6 @@
     "durability": 3,
     "name": "Perfect Ruby Gemstone",
     "tier": "LEGENDARY",
-    "npc_sell_price": 10240000,
     "id": "PERFECT_RUBY_GEM"
   },
   {
@@ -13414,7 +14233,6 @@
     "durability": 3,
     "name": "Perfect Amber Gemstone",
     "tier": "LEGENDARY",
-    "npc_sell_price": 10240000,
     "id": "PERFECT_AMBER_GEM"
   },
   {
@@ -13430,8 +14248,46 @@
     "durability": 3,
     "name": "Flawless Amber Gemstone",
     "tier": "EPIC",
-    "npc_sell_price": 1536000,
     "id": "FLAWLESS_AMBER_GEM"
+  },
+  {
+    "material": "SKULL_ITEM",
+    "durability": 3,
+    "name": "Flawless Citrine Gemstone",
+    "tier": "EPIC",
+    "unstackable": true,
+    "id": "FLAWLESS_CITRINE_GEM"
+  },
+  {
+    "material": "SKULL_ITEM",
+    "durability": 3,
+    "name": "Fine Citrine Gemstone",
+    "tier": "RARE",
+    "npc_sell_price": 19200,
+    "id": "FINE_CITRINE_GEM"
+  },
+  {
+    "material": "SKULL_ITEM",
+    "durability": 3,
+    "name": "Perfect Citrine Gemstone",
+    "tier": "LEGENDARY",
+    "unstackable": true,
+    "id": "PERFECT_CITRINE_GEM"
+  },
+  {
+    "material": "SKULL_ITEM",
+    "durability": 3,
+    "name": "Flawed Citrine Gemstone",
+    "tier": "UNCOMMON",
+    "npc_sell_price": 240,
+    "id": "FLAWED_CITRINE_GEM"
+  },
+  {
+    "material": "SKULL_ITEM",
+    "durability": 3,
+    "name": "Rough Citrine Gemstone",
+    "npc_sell_price": 3,
+    "id": "ROUGH_CITRINE_GEM"
   },
   {
     "material": "SKULL_ITEM",
@@ -13468,7 +14324,6 @@
     "durability": 3,
     "name": "Perfect Jade Gemstone",
     "tier": "LEGENDARY",
-    "npc_sell_price": 10240000,
     "id": "PERFECT_JADE_GEM"
   },
   {
@@ -13507,7 +14362,6 @@
     "durability": 3,
     "name": "Perfect Sapphire Gemstone",
     "tier": "LEGENDARY",
-    "npc_sell_price": 10240000,
     "id": "PERFECT_SAPPHIRE_GEM"
   },
   {
@@ -13552,7 +14406,6 @@
     "durability": 3,
     "name": "Perfect Topaz Gemstone",
     "tier": "LEGENDARY",
-    "npc_sell_price": 10240000,
     "id": "PERFECT_TOPAZ_GEM"
   },
   {
@@ -15191,6 +16044,36 @@
         "level": 24
       }
     ],
+    "gemstone_slots": [
+      {
+        "slot_type": "AQUAMARINE",
+        "costs": [
+          {
+            "type": "ITEM",
+            "item_id": "FINE_AQUAMARINE_GEM",
+            "amount": 40
+          },
+          {
+            "type": "COINS",
+            "coins": 100000
+          }
+        ]
+      },
+      {
+        "slot_type": "AQUAMARINE",
+        "costs": [
+          {
+            "type": "ITEM",
+            "item_id": "FLAWLESS_AQUAMARINE_GEM",
+            "amount": 1
+          },
+          {
+            "type": "COINS",
+            "coins": 250000
+          }
+        ]
+      }
+    ],
     "id": "ROD_OF_THE_SEA"
   },
   {
@@ -15227,10 +16110,38 @@
     ],
     "gemstone_slots": [
       {
-        "slot_type": "AMETHYST"
+        "slot_type": "COMBAT"
       },
       {
-        "slot_type": "AMETHYST"
+        "slot_type": "COMBAT"
+      },
+      {
+        "slot_type": "AQUAMARINE",
+        "costs": [
+          {
+            "type": "ITEM",
+            "item_id": "FINE_AQUAMARINE_GEM",
+            "amount": 40
+          },
+          {
+            "type": "COINS",
+            "coins": 100000
+          }
+        ]
+      },
+      {
+        "slot_type": "AQUAMARINE",
+        "costs": [
+          {
+            "type": "ITEM",
+            "item_id": "FLAWLESS_AQUAMARINE_GEM",
+            "amount": 1
+          },
+          {
+            "type": "COINS",
+            "coins": 250000
+          }
+        ]
       }
     ],
     "id": "SHARK_SCALE_HELMET"
@@ -15255,10 +16166,38 @@
     ],
     "gemstone_slots": [
       {
-        "slot_type": "AMETHYST"
+        "slot_type": "COMBAT"
       },
       {
-        "slot_type": "AMETHYST"
+        "slot_type": "COMBAT"
+      },
+      {
+        "slot_type": "AQUAMARINE",
+        "costs": [
+          {
+            "type": "ITEM",
+            "item_id": "FINE_AQUAMARINE_GEM",
+            "amount": 40
+          },
+          {
+            "type": "COINS",
+            "coins": 100000
+          }
+        ]
+      },
+      {
+        "slot_type": "AQUAMARINE",
+        "costs": [
+          {
+            "type": "ITEM",
+            "item_id": "FLAWLESS_AQUAMARINE_GEM",
+            "amount": 1
+          },
+          {
+            "type": "COINS",
+            "coins": 250000
+          }
+        ]
       }
     ],
     "id": "SHARK_SCALE_BOOTS"
@@ -15283,10 +16222,38 @@
     ],
     "gemstone_slots": [
       {
-        "slot_type": "AMETHYST"
+        "slot_type": "COMBAT"
       },
       {
-        "slot_type": "AMETHYST"
+        "slot_type": "COMBAT"
+      },
+      {
+        "slot_type": "AQUAMARINE",
+        "costs": [
+          {
+            "type": "ITEM",
+            "item_id": "FINE_AQUAMARINE_GEM",
+            "amount": 40
+          },
+          {
+            "type": "COINS",
+            "coins": 100000
+          }
+        ]
+      },
+      {
+        "slot_type": "AQUAMARINE",
+        "costs": [
+          {
+            "type": "ITEM",
+            "item_id": "FLAWLESS_AQUAMARINE_GEM",
+            "amount": 1
+          },
+          {
+            "type": "COINS",
+            "coins": 250000
+          }
+        ]
       }
     ],
     "id": "SHARK_SCALE_LEGGINGS"
@@ -15311,10 +16278,38 @@
     ],
     "gemstone_slots": [
       {
-        "slot_type": "AMETHYST"
+        "slot_type": "COMBAT"
       },
       {
-        "slot_type": "AMETHYST"
+        "slot_type": "COMBAT"
+      },
+      {
+        "slot_type": "AQUAMARINE",
+        "costs": [
+          {
+            "type": "ITEM",
+            "item_id": "FINE_AQUAMARINE_GEM",
+            "amount": 40
+          },
+          {
+            "type": "COINS",
+            "coins": 100000
+          }
+        ]
+      },
+      {
+        "slot_type": "AQUAMARINE",
+        "costs": [
+          {
+            "type": "ITEM",
+            "item_id": "FLAWLESS_AQUAMARINE_GEM",
+            "amount": 1
+          },
+          {
+            "type": "COINS",
+            "coins": 250000
+          }
+        ]
       }
     ],
     "id": "SHARK_SCALE_CHESTPLATE"
@@ -15427,6 +16422,14 @@
     "soulbound": "COOP",
     "unstackable": true,
     "id": "ANNI_PODIUM_NOTES_THIRD"
+  },
+  {
+    "material": "SKULL_ITEM",
+    "durability": 3,
+    "name": "Egg Painting Station",
+    "furniture": "EGG_PAINTING_STATION",
+    "tier": "EPIC",
+    "id": "EGG_PAINTING_STATION"
   },
   {
     "material": "SKULL_ITEM",
@@ -15545,6 +16548,14 @@
     "furniture": "HALLOWEEN_SCARECROW",
     "tier": "RARE",
     "id": "HALLOWEEN_SCARECROW"
+  },
+  {
+    "material": "SKULL_ITEM",
+    "durability": 3,
+    "name": "Little Chick Tea Table",
+    "furniture": "CHICK_TEA_TABLE",
+    "tier": "EPIC",
+    "id": "CHICK_TEA_TABLE"
   },
   {
     "material": "SKULL_ITEM",
@@ -15723,6 +16734,14 @@
   {
     "material": "SKULL_ITEM",
     "durability": 3,
+    "name": "Little Chick Dresser",
+    "furniture": "CHICK_DRESSER",
+    "tier": "EPIC",
+    "id": "CHICK_DRESSER"
+  },
+  {
+    "material": "SKULL_ITEM",
+    "durability": 3,
     "name": "10th Anniversary Podium",
     "furniture": "ANNI_PODIUM_MEME_THIRD",
     "tier": "EPIC",
@@ -15759,6 +16778,14 @@
   {
     "material": "SKULL_ITEM",
     "durability": 3,
+    "name": "Bunny Bench",
+    "furniture": "BUNNY_BENCH",
+    "tier": "EPIC",
+    "id": "BUNNY_BENCH"
+  },
+  {
+    "material": "SKULL_ITEM",
+    "durability": 3,
     "name": "Flamingo Float",
     "furniture": "FLAMINGO",
     "tier": "EPIC",
@@ -15779,6 +16806,14 @@
     "furniture": "BEAR_BOOKSHELF",
     "tier": "EPIC",
     "id": "BEAR_BOOKSHELF"
+  },
+  {
+    "material": "SKULL_ITEM",
+    "durability": 3,
+    "name": "Little Chick Bed",
+    "furniture": "CHICK_BED",
+    "tier": "EPIC",
+    "id": "CHICK_BED"
   },
   {
     "material": "SKULL_ITEM",
@@ -16228,6 +17263,31 @@
       }
     },
     "id": "CRYSTAL_NUCLEUS_PORTAL"
+  },
+  {
+    "material": "SKULL_ITEM",
+    "durability": 3,
+    "name": "Portal to the Dwarven Base Camp",
+    "category": "PORTAL",
+    "item_specific": {
+      "portal": {
+        "holo_name": "Dwarven Base Camp",
+        "description_name": "%%gray%%the %%aqua%%Glacite Tunnels",
+        "destination_mode": "mining_3",
+        "location_tag": "base-camp",
+        "schematic_file": "sb_portal_base_camp",
+        "offset": "NEW",
+        "skill_requirement": {
+          "skill": "MINING",
+          "level": 12
+        },
+        "objective_requirement": {
+          "objective_id": "go_to_base_camp",
+          "objective_status": "COMPLETE"
+        }
+      }
+    },
+    "id": "BASE_CAMP_PORTAL"
   },
   {
     "material": "SKULL_ITEM",
@@ -16775,6 +17835,25 @@
         "level": 10
       }
     ],
+    "gemstone_slots": [
+      {
+        "slot_type": "PERIDOT"
+      },
+      {
+        "slot_type": "PERIDOT",
+        "costs": [
+          {
+            "type": "ITEM",
+            "item_id": "FINE_PERIDOT_GEM",
+            "amount": 20
+          },
+          {
+            "type": "COINS",
+            "coins": 50000
+          }
+        ]
+      }
+    ],
     "id": "FARM_ARMOR_CHESTPLATE"
   },
   {
@@ -17298,7 +18377,35 @@
     ],
     "gemstone_slots": [
       {
-        "slot_type": "JADE"
+        "slot_type": "COMBAT"
+      },
+      {
+        "slot_type": "AQUAMARINE",
+        "costs": [
+          {
+            "type": "ITEM",
+            "item_id": "FINE_AQUAMARINE_GEM",
+            "amount": 20
+          },
+          {
+            "type": "COINS",
+            "coins": 50000
+          }
+        ]
+      },
+      {
+        "slot_type": "AQUAMARINE",
+        "costs": [
+          {
+            "type": "ITEM",
+            "item_id": "FINE_AQUAMARINE_GEM",
+            "amount": 40
+          },
+          {
+            "type": "COINS",
+            "coins": 100000
+          }
+        ]
       }
     ],
     "id": "SLUG_BOOTS"
@@ -19635,7 +20742,7 @@
     ],
     "gemstone_slots": [
       {
-        "slot_type": "OFFENSIVE",
+        "slot_type": "COMBAT",
         "costs": [
           {
             "type": "COINS",
@@ -20089,6 +21196,22 @@
         "level": 20
       }
     ],
+    "gemstone_slots": [
+      {
+        "slot_type": "AQUAMARINE",
+        "costs": [
+          {
+            "type": "ITEM",
+            "item_id": "FINE_AQUAMARINE_GEM",
+            "amount": 20
+          },
+          {
+            "type": "COINS",
+            "coins": 50000
+          }
+        ]
+      }
+    ],
     "id": "DIVER_BOOTS"
   },
   {
@@ -20510,6 +21633,22 @@
       }
     ],
     "museum": true,
+    "gemstone_slots": [
+      {
+        "slot_type": "AQUAMARINE",
+        "costs": [
+          {
+            "type": "ITEM",
+            "item_id": "FINE_AQUAMARINE_GEM",
+            "amount": 20
+          },
+          {
+            "type": "COINS",
+            "coins": 50000
+          }
+        ]
+      }
+    ],
     "id": "WINTER_ROD"
   },
   {
@@ -20600,7 +21739,7 @@
     ],
     "gemstone_slots": [
       {
-        "slot_type": "OFFENSIVE",
+        "slot_type": "COMBAT",
         "costs": [
           {
             "type": "COINS",
@@ -22534,7 +23673,7 @@
     "material": "SKULL_ITEM",
     "durability": 3,
     "name": "Amethyst Crystal",
-    "tier": "RARE",
+    "tier": "SPECIAL",
     "id": "AMETHYST_CRYSTAL"
   },
   {
@@ -23210,6 +24349,28 @@
         "level": 17
       }
     ],
+    "gemstone_slots": [
+      {
+        "slot_type": "COMBAT"
+      },
+      {
+        "slot_type": "COMBAT"
+      },
+      {
+        "slot_type": "AQUAMARINE",
+        "costs": [
+          {
+            "type": "ITEM",
+            "item_id": "FINE_AQUAMARINE_GEM",
+            "amount": 20
+          },
+          {
+            "type": "COINS",
+            "coins": 50000
+          }
+        ]
+      }
+    ],
     "id": "SPONGE_HELMET"
   },
   {
@@ -23539,6 +24700,22 @@
         "type": "SKILL",
         "skill": "FISHING",
         "level": 13
+      }
+    ],
+    "gemstone_slots": [
+      {
+        "slot_type": "AQUAMARINE",
+        "costs": [
+          {
+            "type": "ITEM",
+            "item_id": "FINE_AQUAMARINE_GEM",
+            "amount": 20
+          },
+          {
+            "type": "COINS",
+            "coins": 50000
+          }
+        ]
       }
     ],
     "id": "SALMON_HELMET_NEW"
@@ -23886,7 +25063,35 @@
     ],
     "gemstone_slots": [
       {
-        "slot_type": "RUBY"
+        "slot_type": "COMBAT"
+      },
+      {
+        "slot_type": "AQUAMARINE",
+        "costs": [
+          {
+            "type": "ITEM",
+            "item_id": "FINE_AQUAMARINE_GEM",
+            "amount": 20
+          },
+          {
+            "type": "COINS",
+            "coins": 50000
+          }
+        ]
+      },
+      {
+        "slot_type": "AQUAMARINE",
+        "costs": [
+          {
+            "type": "ITEM",
+            "item_id": "FINE_AQUAMARINE_GEM",
+            "amount": 40
+          },
+          {
+            "type": "COINS",
+            "coins": 100000
+          }
+        ]
       }
     ],
     "id": "FLAMING_CHESTPLATE"
@@ -23994,7 +25199,7 @@
     ],
     "gemstone_slots": [
       {
-        "slot_type": "OFFENSIVE",
+        "slot_type": "COMBAT",
         "costs": [
           {
             "type": "COINS",
@@ -24024,7 +25229,7 @@
   {
     "material": "SKULL_ITEM",
     "durability": 3,
-    "name": "Helix",
+    "name": "Helix Fossil",
     "glowing": true,
     "tier": "LEGENDARY",
     "museum": true,
@@ -24289,6 +25494,17 @@
     "tier": "LEGENDARY",
     "unstackable": true,
     "id": "TARANTULA_BLACK_WIDOW"
+  },
+  {
+    "material": "LEATHER_CHESTPLATE",
+    "color": "53,136,255",
+    "name": "Vanguard Chestplate",
+    "category": "CHESTPLATE",
+    "tier": "LEGENDARY",
+    "stats": {
+      "COLD_RESISTANCE": 1
+    },
+    "id": "VANGUARD_CHESTPLATE"
   },
   {
     "material": "LEATHER_HELMET",
@@ -24640,6 +25856,22 @@
         "type": "SKILL",
         "skill": "FISHING",
         "level": 20
+      }
+    ],
+    "gemstone_slots": [
+      {
+        "slot_type": "AQUAMARINE",
+        "costs": [
+          {
+            "type": "ITEM",
+            "item_id": "FINE_AQUAMARINE_GEM",
+            "amount": 20
+          },
+          {
+            "type": "COINS",
+            "coins": 50000
+          }
+        ]
       }
     ],
     "id": "DIVER_HELMET"
@@ -25760,7 +26992,7 @@
   {
     "material": "ENDER_PEARL",
     "name": "Silent Pearl",
-    "tier": "RARE",
+    "tier": "UNCOMMON",
     "npc_sell_price": 100,
     "id": "SILENT_PEARL"
   },
@@ -26852,6 +28084,22 @@
     "category": "AXE",
     "tier": "UNCOMMON",
     "npc_sell_price": 480,
+    "gemstone_slots": [
+      {
+        "slot_type": "CITRINE",
+        "costs": [
+          {
+            "type": "ITEM",
+            "item_id": "FINE_CITRINE_GEM",
+            "amount": 20
+          },
+          {
+            "type": "COINS",
+            "coins": 50000
+          }
+        ]
+      }
+    ],
     "id": "JUNGLE_AXE"
   },
   {
@@ -27758,6 +29006,17 @@
     "id": "YELLOW_FLOWER"
   },
   {
+    "name": "Fossil the Fish",
+    "material": "COOKED_FISH",
+    "durability": 1,
+    "glowing": true,
+    "description": "Older than time itself yet never changing, for he was born %%gray%%%%italic%%perfect%%gray%%.",
+    "tier": "SPECIAL",
+    "unstackable": true,
+    "museum": true,
+    "id": "FOSSIL_THE_FISH"
+  },
+  {
     "material": "SKULL_ITEM",
     "durability": 3,
     "name": "%%green%%Swappable Preview %%gray%%(Click)",
@@ -28194,6 +29453,25 @@
         "type": "SKILL",
         "skill": "FARMING",
         "level": 10
+      }
+    ],
+    "gemstone_slots": [
+      {
+        "slot_type": "PERIDOT"
+      },
+      {
+        "slot_type": "PERIDOT",
+        "costs": [
+          {
+            "type": "ITEM",
+            "item_id": "FINE_PERIDOT_GEM",
+            "amount": 20
+          },
+          {
+            "type": "COINS",
+            "coins": 50000
+          }
+        ]
       }
     ],
     "id": "FARM_ARMOR_BOOTS"
@@ -28658,6 +29936,34 @@
       },
       {
         "slot_type": "COMBAT"
+      },
+      {
+        "slot_type": "AQUAMARINE",
+        "costs": [
+          {
+            "type": "ITEM",
+            "item_id": "FINE_AQUAMARINE_GEM",
+            "amount": 40
+          },
+          {
+            "type": "COINS",
+            "coins": 100000
+          }
+        ]
+      },
+      {
+        "slot_type": "AQUAMARINE",
+        "costs": [
+          {
+            "type": "ITEM",
+            "item_id": "FLAWLESS_AQUAMARINE_GEM",
+            "amount": 1
+          },
+          {
+            "type": "COINS",
+            "coins": 250000
+          }
+        ]
       }
     ],
     "id": "MAGMA_LORD_BOOTS"
@@ -28670,8 +29976,8 @@
     "tier": "UNOBTAINABLE",
     "stats": {
       "BREAKING_POWER": 10,
-      "DAMAGE": 30,
-      "MINING_SPEED": 3000
+      "DAMAGE": 99999999,
+      "MINING_SPEED": 99999999
     },
     "npc_sell_price": 5000,
     "id": "ZOOM_PICKAXE"
@@ -31303,6 +32609,22 @@
         "level": 13
       }
     ],
+    "gemstone_slots": [
+      {
+        "slot_type": "AQUAMARINE",
+        "costs": [
+          {
+            "type": "ITEM",
+            "item_id": "FINE_AQUAMARINE_GEM",
+            "amount": 20
+          },
+          {
+            "type": "COINS",
+            "coins": 50000
+          }
+        ]
+      }
+    ],
     "id": "SALMON_LEGGINGS_NEW"
   },
   {
@@ -31414,6 +32736,22 @@
         "type": "SKILL",
         "skill": "FARMING",
         "level": 18
+      }
+    ],
+    "gemstone_slots": [
+      {
+        "slot_type": "PERIDOT",
+        "costs": [
+          {
+            "type": "ITEM",
+            "item_id": "FINE_PERIDOT_GEM",
+            "amount": 20
+          },
+          {
+            "type": "COINS",
+            "coins": 50000
+          }
+        ]
       }
     ],
     "id": "FARMER_BOOTS"
@@ -31907,7 +33245,7 @@
     "material": "SKULL_ITEM",
     "durability": 3,
     "name": "Ruby Crystal",
-    "tier": "RARE",
+    "tier": "SPECIAL",
     "museum": true,
     "id": "RUBY_CRYSTAL"
   },
@@ -32326,6 +33664,17 @@
     "npc_sell_price": 15,
     "tier": "RARE",
     "id": "MYCELIUM_DUST"
+  },
+  {
+    "material": "SKULL_ITEM",
+    "durability": 3,
+    "name": "Locked Ballot Box",
+    "tier": "SPECIAL",
+    "category": "MEMENTO",
+    "item_specific": {
+      "memorable_event_key": "community_center_refurbishment"
+    },
+    "id": "LOCKED_BALLOT_BOX"
   },
   {
     "material": "SKULL_ITEM",
@@ -32932,7 +34281,7 @@
   },
   {
     "material": "COAL_BLOCK",
-    "name": "Enchanted Block of Coal",
+    "name": "Enchanted Coal Block",
     "glowing": true,
     "tier": "RARE",
     "npc_sell_price": 51000,
@@ -33044,6 +34393,11 @@
         "type": "SKILL",
         "skill": "FARMING",
         "level": 3
+      }
+    ],
+    "gemstone_slots": [
+      {
+        "slot_type": "PERIDOT"
       }
     ],
     "id": "FARM_SUIT_BOOTS"
@@ -33271,6 +34625,34 @@
       },
       {
         "slot_type": "COMBAT"
+      },
+      {
+        "slot_type": "AQUAMARINE",
+        "costs": [
+          {
+            "type": "ITEM",
+            "item_id": "FINE_AQUAMARINE_GEM",
+            "amount": 40
+          },
+          {
+            "type": "COINS",
+            "coins": 100000
+          }
+        ]
+      },
+      {
+        "slot_type": "AQUAMARINE",
+        "costs": [
+          {
+            "type": "ITEM",
+            "item_id": "FLAWLESS_AQUAMARINE_GEM",
+            "amount": 1
+          },
+          {
+            "type": "COINS",
+            "coins": 250000
+          }
+        ]
       }
     ],
     "id": "MAGMA_LORD_HELMET"
@@ -36240,6 +37622,34 @@
       },
       {
         "slot_type": "COMBAT"
+      },
+      {
+        "slot_type": "AQUAMARINE",
+        "costs": [
+          {
+            "type": "ITEM",
+            "item_id": "FINE_AQUAMARINE_GEM",
+            "amount": 40
+          },
+          {
+            "type": "COINS",
+            "coins": 100000
+          }
+        ]
+      },
+      {
+        "slot_type": "AQUAMARINE",
+        "costs": [
+          {
+            "type": "ITEM",
+            "item_id": "FLAWLESS_AQUAMARINE_GEM",
+            "amount": 1
+          },
+          {
+            "type": "COINS",
+            "coins": 250000
+          }
+        ]
       }
     ],
     "id": "MAGMA_LORD_CHESTPLATE"
@@ -37467,6 +38877,11 @@
         "type": "SKILL",
         "skill": "FARMING",
         "level": 3
+      }
+    ],
+    "gemstone_slots": [
+      {
+        "slot_type": "PERIDOT"
       }
     ],
     "id": "FARM_SUIT_HELMET"
@@ -39635,6 +41050,25 @@
         "level": 10
       }
     ],
+    "gemstone_slots": [
+      {
+        "slot_type": "PERIDOT"
+      },
+      {
+        "slot_type": "PERIDOT",
+        "costs": [
+          {
+            "type": "ITEM",
+            "item_id": "FINE_PERIDOT_GEM",
+            "amount": 20
+          },
+          {
+            "type": "COINS",
+            "coins": 50000
+          }
+        ]
+      }
+    ],
     "id": "FARM_ARMOR_LEGGINGS"
   },
   {
@@ -40749,6 +42183,11 @@
         "level": 3
       }
     ],
+    "gemstone_slots": [
+      {
+        "slot_type": "PERIDOT"
+      }
+    ],
     "id": "FARM_SUIT_CHESTPLATE"
   },
   {
@@ -40906,6 +42345,28 @@
         "type": "SKILL",
         "skill": "FISHING",
         "level": 17
+      }
+    ],
+    "gemstone_slots": [
+      {
+        "slot_type": "COMBAT"
+      },
+      {
+        "slot_type": "COMBAT"
+      },
+      {
+        "slot_type": "AQUAMARINE",
+        "costs": [
+          {
+            "type": "ITEM",
+            "item_id": "FINE_AQUAMARINE_GEM",
+            "amount": 20
+          },
+          {
+            "type": "COINS",
+            "coins": 50000
+          }
+        ]
       }
     ],
     "id": "SPONGE_BOOTS"
@@ -41973,6 +43434,34 @@
       },
       {
         "slot_type": "COMBAT"
+      },
+      {
+        "slot_type": "AQUAMARINE",
+        "costs": [
+          {
+            "type": "ITEM",
+            "item_id": "FINE_AQUAMARINE_GEM",
+            "amount": 40
+          },
+          {
+            "type": "COINS",
+            "coins": 100000
+          }
+        ]
+      },
+      {
+        "slot_type": "AQUAMARINE",
+        "costs": [
+          {
+            "type": "ITEM",
+            "item_id": "FLAWLESS_AQUAMARINE_GEM",
+            "amount": 1
+          },
+          {
+            "type": "COINS",
+            "coins": 250000
+          }
+        ]
       }
     ],
     "id": "MAGMA_LORD_LEGGINGS"
@@ -43389,6 +44878,22 @@
         "type": "SKILL",
         "skill": "FISHING",
         "level": 13
+      }
+    ],
+    "gemstone_slots": [
+      {
+        "slot_type": "AQUAMARINE",
+        "costs": [
+          {
+            "type": "ITEM",
+            "item_id": "FINE_AQUAMARINE_GEM",
+            "amount": 20
+          },
+          {
+            "type": "COINS",
+            "coins": 50000
+          }
+        ]
       }
     ],
     "id": "SALMON_CHESTPLATE_NEW"
@@ -45336,6 +46841,28 @@
         "level": 17
       }
     ],
+    "gemstone_slots": [
+      {
+        "slot_type": "COMBAT"
+      },
+      {
+        "slot_type": "COMBAT"
+      },
+      {
+        "slot_type": "AQUAMARINE",
+        "costs": [
+          {
+            "type": "ITEM",
+            "item_id": "FINE_AQUAMARINE_GEM",
+            "amount": 20
+          },
+          {
+            "type": "COINS",
+            "coins": 50000
+          }
+        ]
+      }
+    ],
     "id": "SPONGE_LEGGINGS"
   },
   {
@@ -45774,6 +47301,22 @@
         "level": 13
       }
     ],
+    "gemstone_slots": [
+      {
+        "slot_type": "AQUAMARINE",
+        "costs": [
+          {
+            "type": "ITEM",
+            "item_id": "FINE_AQUAMARINE_GEM",
+            "amount": 20
+          },
+          {
+            "type": "COINS",
+            "coins": 50000
+          }
+        ]
+      }
+    ],
     "id": "SALMON_BOOTS_NEW"
   },
   {
@@ -46007,7 +47550,7 @@
     ],
     "gemstone_slots": [
       {
-        "slot_type": "OFFENSIVE",
+        "slot_type": "COMBAT",
         "costs": [
           {
             "type": "COINS",
@@ -46545,6 +48088,25 @@
         "type": "SKILL",
         "skill": "FARMING",
         "level": 15
+      }
+    ],
+    "gemstone_slots": [
+      {
+        "slot_type": "PERIDOT"
+      },
+      {
+        "slot_type": "PERIDOT",
+        "costs": [
+          {
+            "type": "ITEM",
+            "item_id": "FINE_PERIDOT_GEM",
+            "amount": 20
+          },
+          {
+            "type": "COINS",
+            "coins": 50000
+          }
+        ]
       }
     ],
     "id": "ENCHANTED_JACK_O_LANTERN"
@@ -49418,6 +50980,17 @@
     "id": "WATCHER_EYE"
   },
   {
+    "material": "SKULL_ITEM",
+    "durability": 3,
+    "name": "Vanguard Helmet",
+    "category": "HELMET",
+    "tier": "LEGENDARY",
+    "stats": {
+      "COLD_RESISTANCE": 1
+    },
+    "id": "VANGUARD_HELMET"
+  },
+  {
     "material": "INK_SACK",
     "durability": 14,
     "name": "Orange Dye",
@@ -51743,6 +53316,22 @@
         "level": 20
       }
     ],
+    "gemstone_slots": [
+      {
+        "slot_type": "AQUAMARINE",
+        "costs": [
+          {
+            "type": "ITEM",
+            "item_id": "FINE_AQUAMARINE_GEM",
+            "amount": 20
+          },
+          {
+            "type": "COINS",
+            "coins": 50000
+          }
+        ]
+      }
+    ],
     "id": "DIVER_LEGGINGS"
   },
   {
@@ -51801,6 +53390,22 @@
         "type": "SKILL",
         "skill": "FISHING",
         "level": 20
+      }
+    ],
+    "gemstone_slots": [
+      {
+        "slot_type": "AQUAMARINE",
+        "costs": [
+          {
+            "type": "ITEM",
+            "item_id": "FINE_AQUAMARINE_GEM",
+            "amount": 20
+          },
+          {
+            "type": "COINS",
+            "coins": 50000
+          }
+        ]
       }
     ],
     "id": "DIVER_CHESTPLATE"
@@ -53142,7 +54747,7 @@
     "material": "SKULL_ITEM",
     "durability": 3,
     "name": "Jasper Crystal",
-    "tier": "RARE",
+    "tier": "SPECIAL",
     "museum": true,
     "id": "JASPER_CRYSTAL"
   },
@@ -53378,6 +54983,11 @@
         "type": "SKILL",
         "skill": "FARMING",
         "level": 3
+      }
+    ],
+    "gemstone_slots": [
+      {
+        "slot_type": "PERIDOT"
       }
     ],
     "id": "FARM_SUIT_LEGGINGS"
@@ -53992,6 +55602,36 @@
         "type": "SKILL",
         "skill": "FARMING",
         "level": 21
+      }
+    ],
+    "gemstone_slots": [
+      {
+        "slot_type": "PERIDOT",
+        "costs": [
+          {
+            "type": "ITEM",
+            "item_id": "FINE_PERIDOT_GEM",
+            "amount": 20
+          },
+          {
+            "type": "COINS",
+            "coins": 50000
+          }
+        ]
+      },
+      {
+        "slot_type": "PERIDOT",
+        "costs": [
+          {
+            "type": "ITEM",
+            "item_id": "FINE_PERIDOT_GEM",
+            "amount": 40
+          },
+          {
+            "type": "COINS",
+            "coins": 100000
+          }
+        ]
       }
     ],
     "id": "RANCHERS_BOOTS"
@@ -55881,7 +57521,35 @@
     ],
     "gemstone_slots": [
       {
-        "slot_type": "JASPER"
+        "slot_type": "COMBAT"
+      },
+      {
+        "slot_type": "AQUAMARINE",
+        "costs": [
+          {
+            "type": "ITEM",
+            "item_id": "FINE_AQUAMARINE_GEM",
+            "amount": 20
+          },
+          {
+            "type": "COINS",
+            "coins": 50000
+          }
+        ]
+      },
+      {
+        "slot_type": "AQUAMARINE",
+        "costs": [
+          {
+            "type": "ITEM",
+            "item_id": "FINE_AQUAMARINE_GEM",
+            "amount": 40
+          },
+          {
+            "type": "COINS",
+            "coins": 100000
+          }
+        ]
       }
     ],
     "id": "TAURUS_HELMET"
@@ -57623,7 +59291,7 @@
     "material": "SKULL_ITEM",
     "durability": 3,
     "name": "Amber Crystal",
-    "tier": "RARE",
+    "tier": "SPECIAL",
     "id": "AMBER_CRYSTAL"
   },
   {
@@ -58258,6 +59926,28 @@
         "level": 17
       }
     ],
+    "gemstone_slots": [
+      {
+        "slot_type": "COMBAT"
+      },
+      {
+        "slot_type": "COMBAT"
+      },
+      {
+        "slot_type": "AQUAMARINE",
+        "costs": [
+          {
+            "type": "ITEM",
+            "item_id": "FINE_AQUAMARINE_GEM",
+            "amount": 20
+          },
+          {
+            "type": "COINS",
+            "coins": 50000
+          }
+        ]
+      }
+    ],
     "id": "SPONGE_CHESTPLATE"
   },
   {
@@ -58845,6 +60535,17 @@
     "glowing": true,
     "tier": "RARE",
     "id": "GEMSTONE_MIXTURE"
+  },
+  {
+    "material": "LEATHER_LEGGINGS",
+    "color": "53,136,255",
+    "name": "Vanguard Leggings",
+    "category": "LEGGINGS",
+    "tier": "LEGENDARY",
+    "stats": {
+      "COLD_RESISTANCE": 1
+    },
+    "id": "VANGUARD_LEGGINGS"
   },
   {
     "material": "IRON_DOOR",
@@ -60647,7 +62348,7 @@
     "material": "SKULL_ITEM",
     "durability": 3,
     "name": "Saphhire Crystal",
-    "tier": "RARE",
+    "tier": "SPECIAL",
     "id": "SAPPHIRE_CRYSTAL"
   },
   {
@@ -61407,6 +63108,14 @@
       "HEALTH": 100
     },
     "npc_sell_price": 15,
+    "gemstone_slots": [
+      {
+        "slot_type": "AMETHYST"
+      },
+      {
+        "slot_type": "AQUAMARINE"
+      }
+    ],
     "id": "SQUID_BOOTS"
   },
   {
@@ -61881,6 +63590,36 @@
     "category": "AXE",
     "tier": "EPIC",
     "npc_sell_price": 10000,
+    "gemstone_slots": [
+      {
+        "slot_type": "CITRINE",
+        "costs": [
+          {
+            "type": "ITEM",
+            "item_id": "FINE_CITRINE_GEM",
+            "amount": 20
+          },
+          {
+            "type": "COINS",
+            "coins": 50000
+          }
+        ]
+      },
+      {
+        "slot_type": "CITRINE",
+        "costs": [
+          {
+            "type": "ITEM",
+            "item_id": "FINE_CITRINE_GEM",
+            "amount": 40
+          },
+          {
+            "type": "COINS",
+            "coins": 100000
+          }
+        ]
+      }
+    ],
     "id": "TREECAPITATOR_AXE"
   },
   {
@@ -62120,7 +63859,7 @@
     "material": "SKULL_ITEM",
     "durability": 3,
     "name": "Jade Crystal",
-    "tier": "RARE",
+    "tier": "SPECIAL",
     "id": "JADE_CRYSTAL"
   },
   {
@@ -62190,6 +63929,25 @@
         "type": "SKILL",
         "skill": "FARMING",
         "level": 10
+      }
+    ],
+    "gemstone_slots": [
+      {
+        "slot_type": "PERIDOT"
+      },
+      {
+        "slot_type": "PERIDOT",
+        "costs": [
+          {
+            "type": "ITEM",
+            "item_id": "FINE_PERIDOT_GEM",
+            "amount": 20
+          },
+          {
+            "type": "COINS",
+            "coins": 50000
+          }
+        ]
       }
     ],
     "id": "FARM_ARMOR_HELMET"
@@ -62648,6 +64406,25 @@
       "HEALTH": 100
     },
     "npc_sell_price": 500,
+    "gemstone_slots": [
+      {
+        "slot_type": "JADE"
+      },
+      {
+        "slot_type": "AQUAMARINE",
+        "costs": [
+          {
+            "type": "ITEM",
+            "item_id": "FINE_AQUAMARINE_GEM",
+            "amount": 20
+          },
+          {
+            "type": "COINS",
+            "coins": 50000
+          }
+        ]
+      }
+    ],
     "id": "WATER_HYDRA_HEAD"
   },
   {
@@ -64817,7 +66594,8 @@
     "category": "SWORD",
     "tier": "UNOBTAINABLE",
     "stats": {
-      "DAMAGE": 99999999
+      "DAMAGE": 99999999,
+      "SWING_RANGE": 99999999
     },
     "id": "NOVA_SWORD"
   },
@@ -65691,6 +67469,17 @@
     "can_place": false,
     "has_uuid": true,
     "id": "CREATIVE_MIND"
+  },
+  {
+    "material": "LEATHER_BOOTS",
+    "color": "53,136,255",
+    "name": "Vanguard Boots",
+    "category": "BOOTS",
+    "tier": "LEGENDARY",
+    "stats": {
+      "COLD_RESISTANCE": 1
+    },
+    "id": "VANGUARD_BOOTS"
   },
   {
     "material": "SKULL_ITEM",
@@ -67523,7 +69312,7 @@
   {
     "material": "SKULL_ITEM",
     "durability": 3,
-    "name": "Onyx",
+    "name": "Black Diamond",
     "category": "REFORGE_STONE",
     "tier": "RARE",
     "npc_sell_price": 1,
@@ -68708,7 +70497,35 @@
     ],
     "gemstone_slots": [
       {
-        "slot_type": "AMETHYST"
+        "slot_type": "COMBAT"
+      },
+      {
+        "slot_type": "AQUAMARINE",
+        "costs": [
+          {
+            "type": "ITEM",
+            "item_id": "FINE_AQUAMARINE_GEM",
+            "amount": 20
+          },
+          {
+            "type": "COINS",
+            "coins": 50000
+          }
+        ]
+      },
+      {
+        "slot_type": "AQUAMARINE",
+        "costs": [
+          {
+            "type": "ITEM",
+            "item_id": "FINE_AQUAMARINE_GEM",
+            "amount": 40
+          },
+          {
+            "type": "COINS",
+            "coins": 100000
+          }
+        ]
       }
     ],
     "id": "MOOGMA_LEGGINGS"
@@ -69676,7 +71493,6 @@
     "durability": 3,
     "name": "Perfect Opal Gemstone",
     "tier": "LEGENDARY",
-    "npc_sell_price": 10240000,
     "unstackable": true,
     "id": "PERFECT_OPAL_GEM"
   },
@@ -69693,7 +71509,6 @@
     "durability": 3,
     "name": "Flawless Opal Gemstone",
     "tier": "EPIC",
-    "npc_sell_price": 1536000,
     "unstackable": true,
     "id": "FLAWLESS_OPAL_GEM"
   },
@@ -73722,6 +75537,493 @@
     "id": "TROPICAL_BIRD_1_PERSONALITY"
   },
   {
+    "material": "LEVER",
+    "name": "Tungsten Key",
+    "glowing": true,
+    "tier": "EPIC",
+    "can_place": false,
+    "id": "TUNGSTEN_KEY"
+  },
+  {
+    "material": "SKULL_ITEM",
+    "durability": 3,
+    "name": "Refined Tungsten",
+    "tier": "EPIC",
+    "npc_sell_price": 256000,
+    "id": "REFINED_TUNGSTEN"
+  },
+  {
+    "material": "SKULL_ITEM",
+    "durability": 3,
+    "name": "Tungsten",
+    "description": "%%italic%%Considered for a long time to be unbreakable prior to the discovery of the Crystal Hollows.",
+    "npc_sell_price": 10,
+    "id": "TUNGSTEN"
+  },
+  {
+    "material": "SKULL_ITEM",
+    "durability": 3,
+    "name": "Tungsten Plate",
+    "tier": "RARE",
+    "can_place": false,
+    "id": "TUNGSTEN_PLATE"
+  },
+  {
+    "material": "SKULL_ITEM",
+    "durability": 3,
+    "name": "Enchanted Tungsten",
+    "tier": "RARE",
+    "npc_sell_price": 1600,
+    "id": "ENCHANTED_TUNGSTEN"
+  },
+  {
+    "material": "SKULL_ITEM",
+    "durability": 3,
+    "name": "Suspicious Scrap",
+    "tier": "RARE",
+    "id": "SUSPICIOUS_SCRAP"
+  },
+  {
+    "material": "SKULL_ITEM",
+    "durability": 3,
+    "name": "Refined Umber",
+    "tier": "EPIC",
+    "npc_sell_price": 256000,
+    "id": "REFINED_UMBER"
+  },
+  {
+    "material": "SKULL_ITEM",
+    "durability": 3,
+    "name": "Umber",
+    "description": "%%italic%%Hardy enough to flourish even in the harshest of conditions.",
+    "npc_sell_price": 10,
+    "id": "UMBER"
+  },
+  {
+    "material": "SKULL_ITEM",
+    "durability": 3,
+    "name": "Enchanted Umber",
+    "tier": "RARE",
+    "npc_sell_price": 1600,
+    "id": "ENCHANTED_UMBER"
+  },
+  {
+    "material": "SKULL_ITEM",
+    "durability": 3,
+    "name": "Umber Plate",
+    "tier": "RARE",
+    "can_place": false,
+    "id": "UMBER_PLATE"
+  },
+  {
+    "material": "DEAD_BUSH",
+    "name": "Umber Key",
+    "glowing": true,
+    "tier": "EPIC",
+    "can_place": false,
+    "id": "UMBER_KEY"
+  },
+  {
+    "material": "SKULL_ITEM",
+    "durability": 3,
+    "name": "Citrine Crystal",
+    "tier": "SPECIAL",
+    "museum": true,
+    "id": "CITRINE_CRYSTAL"
+  },
+  {
+    "material": "SKULL_ITEM",
+    "durability": 3,
+    "name": "Aquamarine Crystal",
+    "tier": "SPECIAL",
+    "museum": true,
+    "id": "AQUAMARINE_CRYSTAL"
+  },
+  {
+    "material": "SKULL_ITEM",
+    "durability": 3,
+    "name": "Opal Crystal",
+    "tier": "SPECIAL",
+    "museum": true,
+    "id": "OPAL_CRYSTAL"
+  },
+  {
+    "material": "SKULL_ITEM",
+    "durability": 3,
+    "name": "Peridot Crystal",
+    "tier": "SPECIAL",
+    "museum": true,
+    "id": "PERIDOT_CRYSTAL"
+  },
+  {
+    "material": "SKULL_ITEM",
+    "durability": 3,
+    "name": "Onyx Crystal",
+    "tier": "SPECIAL",
+    "museum": true,
+    "id": "ONYX_CRYSTAL"
+  },
+  {
+    "material": "SKULL_ITEM",
+    "durability": 3,
+    "name": "Ugly Fossil",
+    "description": "The ugliest fossil to ever exist. It has a face only a mother could love.",
+    "tier": "LEGENDARY",
+    "id": "UGLY_FOSSIL"
+  },
+  {
+    "material": "SKULL_ITEM",
+    "durability": 3,
+    "name": "Spine Fossil",
+    "description": "A well-preserved set of neural spines. Whatever possessed these was an adept swimmer.",
+    "tier": "LEGENDARY",
+    "id": "SPINE_FOSSIL"
+  },
+  {
+    "material": "SKULL_ITEM",
+    "durability": 3,
+    "name": "Clubbed Fossil",
+    "description": "A tail ending in a thick club that was used to fend off predators.",
+    "tier": "LEGENDARY",
+    "id": "CLUBBED_FOSSIL"
+  },
+  {
+    "material": "SKULL_ITEM",
+    "durability": 3,
+    "name": "Tusk Fossil",
+    "description": "A great and powerful tusk belonging to a now-extinct creature.",
+    "tier": "LEGENDARY",
+    "id": "TUSK_FOSSIL"
+  },
+  {
+    "material": "SKULL_ITEM",
+    "durability": 3,
+    "name": "Footprint Fossil",
+    "description": "The daunting footprint of what was once a colossal and bloodthirsty predator.",
+    "tier": "LEGENDARY",
+    "id": "FOOTPRINT_FOSSIL"
+  },
+  {
+    "material": "SKULL_ITEM",
+    "durability": 3,
+    "name": "Claw Fossil",
+    "description": "A small but sharp claw once used for digging tunnels.",
+    "tier": "LEGENDARY",
+    "id": "CLAW_FOSSIL"
+  },
+  {
+    "material": "SKULL_ITEM",
+    "durability": 3,
+    "name": "Webbed Fossil",
+    "description": "The webbed foot of a small, agile creature which was a strong swimmer.",
+    "tier": "LEGENDARY",
+    "id": "WEBBED_FOSSIL"
+  },
+  {
+    "material": "PAPER",
+    "name": "Secret Railroad Pass",
+    "glowing": true,
+    "tier": "SPECIAL",
+    "soulbound": "SOLO",
+    "unstackable": true,
+    "description": "%%dark_gray%%Quest Item\n\n%%gray%%Show this pass to the %%aqua%%Ticket Master%%gray%%.",
+    "id": "SECRET_RAILROAD_PASS"
+  },
+  {
+    "material": "SKULL_ITEM",
+    "durability": 3,
+    "name": "Dwarven Metal Talisman",
+    "category": "ACCESSORY",
+    "tier": "UNCOMMON",
+    "requirements": [
+      {
+        "type": "HEART_OF_THE_MOUNTAIN",
+        "tier": 8
+      }
+    ],
+    "id": "DWARVEN_METAL"
+  },
+  {
+    "material": "TRIPWIRE_HOOK",
+    "name": "Skeleton Key",
+    "tier": "LEGENDARY",
+    "npc_sell_price": 10000,
+    "description": "Can be used to open any backpack held by %%aqua%%Frozen Corpses %%gray%%in the %%aqua%%Glacite Mineshafts%%gray%%.\n\n%%dark_gray%%Forged by the finest Dwarven Blacksmith around. The name would come to be quite ironic.",
+    "can_place": false,
+    "id": "SKELETON_KEY"
+  },
+  {
+    "material": "SKULL_ITEM",
+    "durability": 3,
+    "name": "Shattered Locket",
+    "description": "A dainty piece of jewelry covered in a thick coat of %%aqua%%Glacite%%gray%%. The frosty layer obscures the details of the photograph nestled within.",
+    "tier": "LEGENDARY",
+    "id": "SHATTERED_PENDANT"
+  },
+  {
+    "material": "SKULL_ITEM",
+    "durability": 3,
+    "name": "Tungsten Keychain",
+    "tier": "RARE",
+    "requirements": [
+      {
+        "type": "HEART_OF_THE_MOUNTAIN",
+        "tier": 8
+      }
+    ],
+    "id": "TUNGSTEN_KEYCHAIN"
+  },
+  {
+    "material": "SKULL_ITEM",
+    "durability": 3,
+    "name": "Pendant of Divan",
+    "category": "NECKLACE",
+    "tier": "LEGENDARY",
+    "description": "%%dark_gray%%%%italic%%An item treasured by the greatest Dwarf who ever lived. Why would he leave it behind?",
+    "stats": {
+      "MINING_SPEED": 100,
+      "MINING_FORTUNE": 25,
+      "COLD_RESISTANCE": 10
+    },
+    "requirements": [
+      {
+        "type": "HEART_OF_THE_MOUNTAIN",
+        "tier": 10
+      }
+    ],
+    "gemstone_slots": [
+      {
+        "slot_type": "JADE",
+        "costs": [
+          {
+            "type": "ITEM",
+            "item_id": "GEMSTONE_CHAMBER",
+            "amount": 1
+          }
+        ]
+      },
+      {
+        "slot_type": "AMBER",
+        "costs": [
+          {
+            "type": "ITEM",
+            "item_id": "GEMSTONE_CHAMBER",
+            "amount": 1
+          }
+        ]
+      }
+    ],
+    "id": "DIVAN_PENDANT"
+  },
+  {
+    "material": "SKULL_ITEM",
+    "durability": 3,
+    "name": "Relic of Power",
+    "category": "ACCESSORY",
+    "tier": "EPIC",
+    "gemstone_slots": [
+      {
+        "slot_type": "JADE"
+      },
+      {
+        "slot_type": "AMBER"
+      },
+      {
+        "slot_type": "TOPAZ"
+      },
+      {
+        "slot_type": "SAPPHIRE"
+      },
+      {
+        "slot_type": "AMETHYST"
+      },
+      {
+        "slot_type": "JASPER"
+      },
+      {
+        "slot_type": "RUBY"
+      },
+      {
+        "slot_type": "OPAL"
+      },
+      {
+        "slot_type": "ONYX"
+      },
+      {
+        "slot_type": "PERIDOT"
+      },
+      {
+        "slot_type": "CITRINE"
+      },
+      {
+        "slot_type": "AQUAMARINE"
+      }
+    ],
+    "unstackable": true,
+    "can_auction": false,
+    "can_trade": false,
+    "id": "POWER_RELIC"
+  },
+  {
+    "material": "FURNACE",
+    "name": "Portable Campfire",
+    "tier": "RARE",
+    "npc_sell_price": 200,
+    "can_place": false,
+    "id": "PORTABLE_CAMPFIRE"
+  },
+  {
+    "material": "SKULL_ITEM",
+    "durability": 3,
+    "name": "Perfect Plate",
+    "tier": "LEGENDARY",
+    "description": "%%italic%%A plate forged from an assortment of the most durable materials found in this world.",
+    "id": "PERFECT_PLATE"
+  },
+  {
+    "material": "SKULL_ITEM",
+    "durability": 3,
+    "name": "Dwarven Handwarmers",
+    "category": "GLOVES",
+    "tier": "EPIC",
+    "npc_sell_price": 2500,
+    "stats": {
+      "MINING_SPEED": 15,
+      "MINING_FORTUNE": 6,
+      "COLD_RESISTANCE": 5
+    },
+    "requirements": [
+      {
+        "type": "HEART_OF_THE_MOUNTAIN",
+        "tier": 8
+      }
+    ],
+    "id": "DWARVEN_HANDWARMERS"
+  },
+  {
+    "material": "SKULL_ITEM",
+    "durability": 3,
+    "name": "Frigid Husk",
+    "category": "REFORGE_STONE",
+    "tier": "LEGENDARY",
+    "id": "FRIGID_HUSK"
+  },
+  {
+    "material": "PACKED_ICE",
+    "name": "Glacite",
+    "description": "%%italic%%An unnatural, nigh-unbreakable material. Of those unlucky few who have discovered where it originates, none have lived to tell the tale.",
+    "npc_sell_price": 12,
+    "can_place": false,
+    "id": "GLACITE"
+  },
+  {
+    "material": "SKULL_ITEM",
+    "durability": 3,
+    "name": "Glacite Amalgamation",
+    "description": "%%italic%%Glacite resists even the heat of the great Dwarven Forge. The key is to combine rather than to try to reduce.",
+    "tier": "EPIC",
+    "id": "GLACITE_AMALGAMATION"
+  },
+  {
+    "material": "PACKED_ICE",
+    "glowing": true,
+    "name": "Enchanted Glacite",
+    "tier": "RARE",
+    "npc_sell_price": 1920,
+    "can_place": false,
+    "id": "ENCHANTED_GLACITE"
+  },
+  {
+    "material": "ARMOR_STAND",
+    "name": "Reinforced Chisel",
+    "tier": "RARE",
+    "category": "CHISEL",
+    "unstackable": true,
+    "npc_sell_price": 1000,
+    "item_specific": {
+      "chisel_charges": 18
+    },
+    "gemstone_slots": [
+      {
+        "slot_type": "CHISEL"
+      }
+    ],
+    "requirements": [
+      {
+        "type": "HEART_OF_THE_MOUNTAIN",
+        "tier": 8
+      }
+    ],
+    "id": "REINFORCED_CHISEL"
+  },
+  {
+    "material": "ARMOR_STAND",
+    "name": "Perfect Chisel",
+    "tier": "LEGENDARY",
+    "category": "CHISEL",
+    "glowing": true,
+    "unstackable": true,
+    "npc_sell_price": 1000,
+    "item_specific": {
+      "chisel_charges": 22
+    },
+    "gemstone_slots": [
+      {
+        "slot_type": "CHISEL"
+      },
+      {
+        "slot_type": "CHISEL"
+      },
+      {
+        "slot_type": "CHISEL"
+      }
+    ],
+    "requirements": [
+      {
+        "type": "HEART_OF_THE_MOUNTAIN",
+        "tier": 10
+      }
+    ],
+    "id": "PERFECT_CHISEL"
+  },
+  {
+    "material": "ARMOR_STAND",
+    "name": "Glacite Chisel",
+    "tier": "EPIC",
+    "category": "CHISEL",
+    "unstackable": true,
+    "npc_sell_price": 1000,
+    "item_specific": {
+      "chisel_charges": 20
+    },
+    "gemstone_slots": [
+      {
+        "slot_type": "CHISEL"
+      },
+      {
+        "slot_type": "CHISEL"
+      }
+    ],
+    "requirements": [
+      {
+        "type": "HEART_OF_THE_MOUNTAIN",
+        "tier": 9
+      }
+    ],
+    "id": "GLACITE_CHISEL"
+  },
+  {
+    "material": "ARMOR_STAND",
+    "name": "Chisel",
+    "category": "CHISEL",
+    "unstackable": true,
+    "npc_sell_price": 1000,
+    "item_specific": {
+      "chisel_charges": 16
+    },
+    "id": "CHISEL"
+  },
+  {
     "material": "EMPTY_MAP",
     "name": "Travel Scroll to Dragontail",
     "category": "TRAVEL_SCROLL",
@@ -73741,6 +76043,13 @@
     "category": "TRAVEL_SCROLL",
     "tier": "EPIC",
     "id": "MUSEUM_TRAVEL_SCROLL"
+  },
+  {
+    "material": "EMPTY_MAP",
+    "name": "Travel Scroll to the Dwarven Base Camp",
+    "category": "TRAVEL_SCROLL",
+    "tier": "RARE",
+    "id": "BASE_CAMP_TRAVEL_SCROLL"
   },
   {
     "material": "EMPTY_MAP",
@@ -73931,6 +76240,11 @@
         "level": 5
       }
     ],
+    "gemstone_slots": [
+      {
+        "slot_type": "PERIDOT"
+      }
+    ],
     "id": "INFINI_VACUUM"
   },
   {
@@ -73946,6 +76260,25 @@
       {
         "type": "GARDEN_LEVEL",
         "level": 5
+      }
+    ],
+    "gemstone_slots": [
+      {
+        "slot_type": "PERIDOT"
+      },
+      {
+        "slot_type": "PERIDOT",
+        "costs": [
+          {
+            "type": "ITEM",
+            "item_id": "FINE_PERIDOT_GEM",
+            "amount": 20
+          },
+          {
+            "type": "COINS",
+            "coins": 50000
+          }
+        ]
       }
     ],
     "id": "INFINI_VACUUM_HOOVERIUS"
@@ -74070,6 +76403,22 @@
     "description": "%%italic%%Someone once said, 2 is always better than 1!",
     "category": "AXE",
     "tier": "EPIC",
+    "gemstone_slots": [
+      {
+        "slot_type": "PERIDOT",
+        "costs": [
+          {
+            "type": "ITEM",
+            "item_id": "FINE_PERIDOT_GEM",
+            "amount": 20
+          },
+          {
+            "type": "COINS",
+            "coins": 50000
+          }
+        ]
+      }
+    ],
     "id": "PUMPKIN_DICER_2"
   },
   {
@@ -74215,6 +76564,36 @@
     "description": "%%italic%%Almost identical to the Melon Dicer 2.0, but it has 3.0 in the name!",
     "category": "AXE",
     "tier": "LEGENDARY",
+    "gemstone_slots": [
+      {
+        "slot_type": "PERIDOT",
+        "costs": [
+          {
+            "type": "ITEM",
+            "item_id": "FINE_PERIDOT_GEM",
+            "amount": 20
+          },
+          {
+            "type": "COINS",
+            "coins": 50000
+          }
+        ]
+      },
+      {
+        "slot_type": "PERIDOT",
+        "costs": [
+          {
+            "type": "ITEM",
+            "item_id": "FINE_PERIDOT_GEM",
+            "amount": 40
+          },
+          {
+            "type": "COINS",
+            "coins": 100000
+          }
+        ]
+      }
+    ],
     "id": "MELON_DICER_3"
   },
   {
@@ -74234,6 +76613,36 @@
         "type": "SKILL",
         "skill": "FARMING",
         "level": 40
+      }
+    ],
+    "gemstone_slots": [
+      {
+        "slot_type": "PERIDOT",
+        "costs": [
+          {
+            "type": "ITEM",
+            "item_id": "FINE_PERIDOT_GEM",
+            "amount": 20
+          },
+          {
+            "type": "COINS",
+            "coins": 50000
+          }
+        ]
+      },
+      {
+        "slot_type": "PERIDOT",
+        "costs": [
+          {
+            "type": "ITEM",
+            "item_id": "FINE_PERIDOT_GEM",
+            "amount": 40
+          },
+          {
+            "type": "COINS",
+            "coins": 100000
+          }
+        ]
       }
     ],
     "id": "FERMENTO_HELMET"
@@ -74257,6 +76666,36 @@
         "level": 40
       }
     ],
+    "gemstone_slots": [
+      {
+        "slot_type": "PERIDOT",
+        "costs": [
+          {
+            "type": "ITEM",
+            "item_id": "FINE_PERIDOT_GEM",
+            "amount": 20
+          },
+          {
+            "type": "COINS",
+            "coins": 50000
+          }
+        ]
+      },
+      {
+        "slot_type": "PERIDOT",
+        "costs": [
+          {
+            "type": "ITEM",
+            "item_id": "FINE_PERIDOT_GEM",
+            "amount": 40
+          },
+          {
+            "type": "COINS",
+            "coins": 100000
+          }
+        ]
+      }
+    ],
     "id": "FERMENTO_CHESTPLATE"
   },
   {
@@ -74276,6 +76715,36 @@
         "type": "SKILL",
         "skill": "FARMING",
         "level": 40
+      }
+    ],
+    "gemstone_slots": [
+      {
+        "slot_type": "PERIDOT",
+        "costs": [
+          {
+            "type": "ITEM",
+            "item_id": "FINE_PERIDOT_GEM",
+            "amount": 20
+          },
+          {
+            "type": "COINS",
+            "coins": 50000
+          }
+        ]
+      },
+      {
+        "slot_type": "PERIDOT",
+        "costs": [
+          {
+            "type": "ITEM",
+            "item_id": "FINE_PERIDOT_GEM",
+            "amount": 40
+          },
+          {
+            "type": "COINS",
+            "coins": 100000
+          }
+        ]
       }
     ],
     "id": "FERMENTO_BOOTS"
@@ -74299,6 +76768,36 @@
         "level": 40
       }
     ],
+    "gemstone_slots": [
+      {
+        "slot_type": "PERIDOT",
+        "costs": [
+          {
+            "type": "ITEM",
+            "item_id": "FINE_PERIDOT_GEM",
+            "amount": 20
+          },
+          {
+            "type": "COINS",
+            "coins": 50000
+          }
+        ]
+      },
+      {
+        "slot_type": "PERIDOT",
+        "costs": [
+          {
+            "type": "ITEM",
+            "item_id": "FINE_PERIDOT_GEM",
+            "amount": 40
+          },
+          {
+            "type": "COINS",
+            "coins": 100000
+          }
+        ]
+      }
+    ],
     "id": "FERMENTO_LEGGINGS"
   },
   {
@@ -74318,6 +76817,22 @@
         "type": "SKILL",
         "skill": "FARMING",
         "level": 30
+      }
+    ],
+    "gemstone_slots": [
+      {
+        "slot_type": "PERIDOT",
+        "costs": [
+          {
+            "type": "ITEM",
+            "item_id": "FINE_PERIDOT_GEM",
+            "amount": 20
+          },
+          {
+            "type": "COINS",
+            "coins": 50000
+          }
+        ]
       }
     ],
     "id": "CROPIE_LEGGINGS"
@@ -74341,6 +76856,22 @@
         "level": 30
       }
     ],
+    "gemstone_slots": [
+      {
+        "slot_type": "PERIDOT",
+        "costs": [
+          {
+            "type": "ITEM",
+            "item_id": "FINE_PERIDOT_GEM",
+            "amount": 20
+          },
+          {
+            "type": "COINS",
+            "coins": 50000
+          }
+        ]
+      }
+    ],
     "id": "CROPIE_HELMET"
   },
   {
@@ -74362,6 +76893,22 @@
         "level": 30
       }
     ],
+    "gemstone_slots": [
+      {
+        "slot_type": "PERIDOT",
+        "costs": [
+          {
+            "type": "ITEM",
+            "item_id": "FINE_PERIDOT_GEM",
+            "amount": 20
+          },
+          {
+            "type": "COINS",
+            "coins": 50000
+          }
+        ]
+      }
+    ],
     "id": "CROPIE_BOOTS"
   },
   {
@@ -74381,6 +76928,22 @@
         "type": "SKILL",
         "skill": "FARMING",
         "level": 30
+      }
+    ],
+    "gemstone_slots": [
+      {
+        "slot_type": "PERIDOT",
+        "costs": [
+          {
+            "type": "ITEM",
+            "item_id": "FINE_PERIDOT_GEM",
+            "amount": 20
+          },
+          {
+            "type": "COINS",
+            "coins": 50000
+          }
+        ]
       }
     ],
     "id": "CROPIE_CHESTPLATE"
@@ -74444,6 +77007,11 @@
         "level": 15
       }
     ],
+    "gemstone_slots": [
+      {
+        "slot_type": "PERIDOT"
+      }
+    ],
     "id": "RABBIT_CHESTPLATE"
   },
   {
@@ -74459,6 +77027,11 @@
         "type": "SKILL",
         "skill": "FARMING",
         "level": 15
+      }
+    ],
+    "gemstone_slots": [
+      {
+        "slot_type": "PERIDOT"
       }
     ],
     "id": "RABBIT_LEGGINGS"
@@ -74478,6 +77051,11 @@
         "level": 15
       }
     ],
+    "gemstone_slots": [
+      {
+        "slot_type": "PERIDOT"
+      }
+    ],
     "id": "RABBIT_HELMET"
   },
   {
@@ -74493,6 +77071,11 @@
         "type": "SKILL",
         "skill": "FARMING",
         "level": 15
+      }
+    ],
+    "gemstone_slots": [
+      {
+        "slot_type": "PERIDOT"
       }
     ],
     "id": "RABBIT_BOOTS"
@@ -74516,6 +77099,22 @@
         "level": 35
       }
     ],
+    "gemstone_slots": [
+      {
+        "slot_type": "PERIDOT",
+        "costs": [
+          {
+            "type": "ITEM",
+            "item_id": "FINE_PERIDOT_GEM",
+            "amount": 20
+          },
+          {
+            "type": "COINS",
+            "coins": 50000
+          }
+        ]
+      }
+    ],
     "id": "SQUASH_LEGGINGS"
   },
   {
@@ -74535,6 +77134,22 @@
         "type": "SKILL",
         "skill": "FARMING",
         "level": 35
+      }
+    ],
+    "gemstone_slots": [
+      {
+        "slot_type": "PERIDOT",
+        "costs": [
+          {
+            "type": "ITEM",
+            "item_id": "FINE_PERIDOT_GEM",
+            "amount": 20
+          },
+          {
+            "type": "COINS",
+            "coins": 50000
+          }
+        ]
       }
     ],
     "id": "SQUASH_HELMET"
@@ -74558,6 +77173,22 @@
         "level": 35
       }
     ],
+    "gemstone_slots": [
+      {
+        "slot_type": "PERIDOT",
+        "costs": [
+          {
+            "type": "ITEM",
+            "item_id": "FINE_PERIDOT_GEM",
+            "amount": 20
+          },
+          {
+            "type": "COINS",
+            "coins": 50000
+          }
+        ]
+      }
+    ],
     "id": "SQUASH_CHESTPLATE"
   },
   {
@@ -74577,6 +77208,22 @@
         "type": "SKILL",
         "skill": "FARMING",
         "level": 35
+      }
+    ],
+    "gemstone_slots": [
+      {
+        "slot_type": "PERIDOT",
+        "costs": [
+          {
+            "type": "ITEM",
+            "item_id": "FINE_PERIDOT_GEM",
+            "amount": 20
+          },
+          {
+            "type": "COINS",
+            "coins": 50000
+          }
+        ]
       }
     ],
     "id": "SQUASH_BOOTS"
@@ -74832,6 +77479,13 @@
     "id": "VINYL_CRICKET_CHOIR"
   },
   {
+    "material": "WATER_BUCKET",
+    "name": "Portable Washer",
+    "tier": "RARE",
+    "glowing": true,
+    "id": "PORTABLE_WASHER"
+  },
+  {
     "material": "LEAVES",
     "durability": 3,
     "name": "Plant Matter",
@@ -74905,6 +77559,36 @@
     "description": "%%italic%%\"3.0 is better than the 2.0 version\" - CEO of PumpkinDicer LLC.",
     "category": "AXE",
     "tier": "LEGENDARY",
+    "gemstone_slots": [
+      {
+        "slot_type": "PERIDOT",
+        "costs": [
+          {
+            "type": "ITEM",
+            "item_id": "FINE_PERIDOT_GEM",
+            "amount": 20
+          },
+          {
+            "type": "COINS",
+            "coins": 50000
+          }
+        ]
+      },
+      {
+        "slot_type": "PERIDOT",
+        "costs": [
+          {
+            "type": "ITEM",
+            "item_id": "FINE_PERIDOT_GEM",
+            "amount": 40
+          },
+          {
+            "type": "COINS",
+            "coins": 100000
+          }
+        ]
+      }
+    ],
     "id": "PUMPKIN_DICER_3"
   },
   {
@@ -74913,6 +77597,22 @@
     "description": "%%italic%%Same as the Melon Dicer 1.0, just better!",
     "category": "AXE",
     "tier": "EPIC",
+    "gemstone_slots": [
+      {
+        "slot_type": "PERIDOT",
+        "costs": [
+          {
+            "type": "ITEM",
+            "item_id": "FINE_PERIDOT_GEM",
+            "amount": 20
+          },
+          {
+            "type": "COINS",
+            "coins": 50000
+          }
+        ]
+      }
+    ],
     "id": "MELON_DICER_2"
   },
   {
@@ -75231,6 +77931,11 @@
         "level": 7
       }
     ],
+    "gemstone_slots": [
+      {
+        "slot_type": "PERIDOT"
+      }
+    ],
     "id": "ADVANCED_GARDENING_HOE"
   },
   {
@@ -75249,6 +77954,11 @@
       {
         "type": "GARDEN_LEVEL",
         "level": 6
+      }
+    ],
+    "gemstone_slots": [
+      {
+        "slot_type": "PERIDOT"
       }
     ],
     "id": "ADVANCED_GARDENING_AXE"
@@ -75416,6 +78126,39 @@
         "amount": 15
       }
     ],
+    "gemstone_slots": [
+      {
+        "slot_type": "COMBAT"
+      },
+      {
+        "slot_type": "AQUAMARINE",
+        "costs": [
+          {
+            "type": "ITEM",
+            "item_id": "FINE_AQUAMARINE_GEM",
+            "amount": 20
+          },
+          {
+            "type": "COINS",
+            "coins": 50000
+          }
+        ]
+      },
+      {
+        "slot_type": "AQUAMARINE",
+        "costs": [
+          {
+            "type": "ITEM",
+            "item_id": "FINE_AQUAMARINE_GEM",
+            "amount": 40
+          },
+          {
+            "type": "COINS",
+            "coins": 1000000
+          }
+        ]
+      }
+    ],
     "id": "NUTCRACKER_HELMET"
   },
   {
@@ -75464,6 +78207,39 @@
         "type": "ESSENCE",
         "essence_type": "ICE",
         "amount": 15
+      }
+    ],
+    "gemstone_slots": [
+      {
+        "slot_type": "COMBAT"
+      },
+      {
+        "slot_type": "AQUAMARINE",
+        "costs": [
+          {
+            "type": "ITEM",
+            "item_id": "FINE_AQUAMARINE_GEM",
+            "amount": 20
+          },
+          {
+            "type": "COINS",
+            "coins": 50000
+          }
+        ]
+      },
+      {
+        "slot_type": "AQUAMARINE",
+        "costs": [
+          {
+            "type": "ITEM",
+            "item_id": "FINE_AQUAMARINE_GEM",
+            "amount": 40
+          },
+          {
+            "type": "COINS",
+            "coins": 1000000
+          }
+        ]
       }
     ],
     "id": "NUTCRACKER_BOOTS"
@@ -75558,6 +78334,39 @@
         "amount": 15
       }
     ],
+    "gemstone_slots": [
+      {
+        "slot_type": "COMBAT"
+      },
+      {
+        "slot_type": "AQUAMARINE",
+        "costs": [
+          {
+            "type": "ITEM",
+            "item_id": "FINE_AQUAMARINE_GEM",
+            "amount": 20
+          },
+          {
+            "type": "COINS",
+            "coins": 50000
+          }
+        ]
+      },
+      {
+        "slot_type": "AQUAMARINE",
+        "costs": [
+          {
+            "type": "ITEM",
+            "item_id": "FINE_AQUAMARINE_GEM",
+            "amount": 40
+          },
+          {
+            "type": "COINS",
+            "coins": 1000000
+          }
+        ]
+      }
+    ],
     "id": "NUTCRACKER_CHESTPLATE"
   },
   {
@@ -75585,6 +78394,39 @@
         "type": "ESSENCE",
         "essence_type": "ICE",
         "amount": 15
+      }
+    ],
+    "gemstone_slots": [
+      {
+        "slot_type": "COMBAT"
+      },
+      {
+        "slot_type": "AQUAMARINE",
+        "costs": [
+          {
+            "type": "ITEM",
+            "item_id": "FINE_AQUAMARINE_GEM",
+            "amount": 20
+          },
+          {
+            "type": "COINS",
+            "coins": 50000
+          }
+        ]
+      },
+      {
+        "slot_type": "AQUAMARINE",
+        "costs": [
+          {
+            "type": "ITEM",
+            "item_id": "FINE_AQUAMARINE_GEM",
+            "amount": 40
+          },
+          {
+            "type": "COINS",
+            "coins": 1000000
+          }
+        ]
       }
     ],
     "id": "NUTCRACKER_LEGGINGS"
@@ -79190,6 +82032,25 @@
         "level": 5
       }
     ],
+    "gemstone_slots": [
+      {
+        "slot_type": "COMBAT"
+      },
+      {
+        "slot_type": "AQUAMARINE",
+        "costs": [
+          {
+            "type": "ITEM",
+            "item_id": "FINE_AQUAMARINE_GEM",
+            "amount": 20
+          },
+          {
+            "type": "COINS",
+            "coins": 50000
+          }
+        ]
+      }
+    ],
     "id": "CHUM_ROD"
   },
   {
@@ -79555,6 +82416,13 @@
       }
     ],
     "id": "STARRED_SHADOW_ASSASSIN_CLOAK"
+  },
+  {
+    "material": "PAPER",
+    "name": "Architect's First Draft",
+    "tier": "EPIC",
+    "dungeon_item": true,
+    "id": "ARCHITECT_FIRST_DRAFT"
   },
   {
     "material": "RED_MUSHROOM",
@@ -80492,8 +83360,9 @@
     "material": "SKULL_ITEM",
     "durability": 3,
     "name": "General's Medallion",
+    "description": "%%dark_gray%%%%italic%%Once worn proudly, now covered in filth and soot.",
     "category": "ACCESSORY",
-    "tier": "COMMON",
+    "tier": "RARE",
     "dungeon_item": true,
     "id": "GENERAL_MEDALLION"
   },
@@ -100548,7 +103417,61 @@
     ],
     "gemstone_slots": [
       {
-        "slot_type": "COMBAT"
+        "slot_type": "COMBAT",
+        "costs": [
+          {
+            "type": "ITEM",
+            "item_id": "FINE_JASPER_GEM",
+            "amount": 5
+          },
+          {
+            "type": "ITEM",
+            "item_id": "FINE_SAPPHIRE_GEM",
+            "amount": 5
+          },
+          {
+            "type": "ITEM",
+            "item_id": "FINE_RUBY_GEM",
+            "amount": 5
+          },
+          {
+            "type": "ITEM",
+            "item_id": "FINE_AMETHYST_GEM",
+            "amount": 5
+          },
+          {
+            "type": "COINS",
+            "coins": 50000
+          }
+        ]
+      },
+      {
+        "slot_type": "AQUAMARINE",
+        "costs": [
+          {
+            "type": "ITEM",
+            "item_id": "FINE_AQUAMARINE_GEM",
+            "amount": 40
+          },
+          {
+            "type": "COINS",
+            "coins": 50000
+          }
+        ]
+      },
+      {
+        "slot_type": "AQUAMARINE",
+        "costs": [
+          {
+            "type": "ITEM",
+            "item_id": "FINE_AQUAMARINE_GEM",
+            "amount": 40
+          },
+          {
+            "type": "COINS",
+            "coins": 50000
+          }
+        ]
       }
     ],
     "id": "THUNDER_CHESTPLATE"
@@ -100714,7 +103637,61 @@
     ],
     "gemstone_slots": [
       {
-        "slot_type": "COMBAT"
+        "slot_type": "COMBAT",
+        "costs": [
+          {
+            "type": "ITEM",
+            "item_id": "FINE_JASPER_GEM",
+            "amount": 5
+          },
+          {
+            "type": "ITEM",
+            "item_id": "FINE_SAPPHIRE_GEM",
+            "amount": 5
+          },
+          {
+            "type": "ITEM",
+            "item_id": "FINE_RUBY_GEM",
+            "amount": 5
+          },
+          {
+            "type": "ITEM",
+            "item_id": "FINE_AMETHYST_GEM",
+            "amount": 5
+          },
+          {
+            "type": "COINS",
+            "coins": 50000
+          }
+        ]
+      },
+      {
+        "slot_type": "AQUAMARINE",
+        "costs": [
+          {
+            "type": "ITEM",
+            "item_id": "FINE_AQUAMARINE_GEM",
+            "amount": 40
+          },
+          {
+            "type": "COINS",
+            "coins": 50000
+          }
+        ]
+      },
+      {
+        "slot_type": "AQUAMARINE",
+        "costs": [
+          {
+            "type": "ITEM",
+            "item_id": "FINE_AQUAMARINE_GEM",
+            "amount": 40
+          },
+          {
+            "type": "COINS",
+            "coins": 50000
+          }
+        ]
       }
     ],
     "id": "THUNDER_HELMET"
@@ -100880,7 +103857,61 @@
     ],
     "gemstone_slots": [
       {
-        "slot_type": "COMBAT"
+        "slot_type": "COMBAT",
+        "costs": [
+          {
+            "type": "ITEM",
+            "item_id": "FINE_JASPER_GEM",
+            "amount": 5
+          },
+          {
+            "type": "ITEM",
+            "item_id": "FINE_SAPPHIRE_GEM",
+            "amount": 5
+          },
+          {
+            "type": "ITEM",
+            "item_id": "FINE_RUBY_GEM",
+            "amount": 5
+          },
+          {
+            "type": "ITEM",
+            "item_id": "FINE_AMETHYST_GEM",
+            "amount": 5
+          },
+          {
+            "type": "COINS",
+            "coins": 50000
+          }
+        ]
+      },
+      {
+        "slot_type": "AQUAMARINE",
+        "costs": [
+          {
+            "type": "ITEM",
+            "item_id": "FINE_AQUAMARINE_GEM",
+            "amount": 40
+          },
+          {
+            "type": "COINS",
+            "coins": 50000
+          }
+        ]
+      },
+      {
+        "slot_type": "AQUAMARINE",
+        "costs": [
+          {
+            "type": "ITEM",
+            "item_id": "FINE_AQUAMARINE_GEM",
+            "amount": 40
+          },
+          {
+            "type": "COINS",
+            "coins": 50000
+          }
+        ]
       }
     ],
     "id": "THUNDER_LEGGINGS"
@@ -101046,7 +104077,61 @@
     ],
     "gemstone_slots": [
       {
-        "slot_type": "COMBAT"
+        "slot_type": "COMBAT",
+        "costs": [
+          {
+            "type": "ITEM",
+            "item_id": "FINE_JASPER_GEM",
+            "amount": 5
+          },
+          {
+            "type": "ITEM",
+            "item_id": "FINE_SAPPHIRE_GEM",
+            "amount": 5
+          },
+          {
+            "type": "ITEM",
+            "item_id": "FINE_RUBY_GEM",
+            "amount": 5
+          },
+          {
+            "type": "ITEM",
+            "item_id": "FINE_AMETHYST_GEM",
+            "amount": 5
+          },
+          {
+            "type": "COINS",
+            "coins": 50000
+          }
+        ]
+      },
+      {
+        "slot_type": "AQUAMARINE",
+        "costs": [
+          {
+            "type": "ITEM",
+            "item_id": "FINE_AQUAMARINE_GEM",
+            "amount": 40
+          },
+          {
+            "type": "COINS",
+            "coins": 50000
+          }
+        ]
+      },
+      {
+        "slot_type": "AQUAMARINE",
+        "costs": [
+          {
+            "type": "ITEM",
+            "item_id": "FINE_AQUAMARINE_GEM",
+            "amount": 40
+          },
+          {
+            "type": "COINS",
+            "coins": 50000
+          }
+        ]
       }
     ],
     "id": "THUNDER_BOOTS"
