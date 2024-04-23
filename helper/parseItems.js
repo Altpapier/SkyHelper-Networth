@@ -56,8 +56,7 @@ const parseItems = async (profileData, museumData, v2Endpoint) => {
   items.museum = [];
   if (museumData?.items) {
     for (const data of Object.values(museumData.items)) {
-      if (data.borrowing) continue;
-      if (data.items?.data === undefined) continue;
+      if (data?.items?.data === undefined || data?.borrowing) continue;
 
       const decodedItem = await decodeData(data.items.data);
 
@@ -65,7 +64,7 @@ const parseItems = async (profileData, museumData, v2Endpoint) => {
     }
 
     for (const data of museumData.special || []) {
-      if (data.items?.data === undefined) continue;
+      if (data?.items?.data === undefined) continue;
 
       const decodedItem = await decodeData(data.items.data);
 
