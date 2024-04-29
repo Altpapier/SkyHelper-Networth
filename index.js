@@ -81,7 +81,7 @@ let isLoadingPrices = false;
  * @returns {object} - An object containing the prices for the items in the game from the SkyHelper Prices list
  */
 const getPrices = async (cache = true, retries = 3) => {
-  if (retries < 0) throw new PricesError(`Failed to retrieve prices`);
+  if (retries <= 0) throw new PricesError(`Failed to retrieve prices`);
   try {
     if (cachedPrices?.lastCache > Date.now() - 1000 * 60 * 5 && cache) {
       return cachedPrices.prices; // Cache for 5 minutes
@@ -125,7 +125,7 @@ const getPrices = async (cache = true, retries = 3) => {
     return response.data;
   } catch (err) {
     isLoadingPrices = false;
-    if (retries === 0) {
+    if (retries <= 0) {
       throw new PricesError(`Failed to retrieve prices with status code ${err?.response?.status || 'Unknown'}`);
     }
     else {
