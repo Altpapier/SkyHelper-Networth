@@ -7,6 +7,7 @@ const applicationWorth = {
   gemstoneSlots: 0.6,
   runes: 0.6,
   tunedTransmission: 0.7,
+  pocketSackInASack: 0.7,
   essence: 0.75,
   silex: 0.75,
   artOfPeace: 0.8,

@@ -322,6 +322,18 @@ const calculateItem = (item, prices, returnItemData) => {
       }
     }
 
+    // POCKET SACK-IN-A-SACK
+    if (ExtraAttributes.sack_pss) {
+      const calculationData = {
+        id: 'POCKET_SACK_IN_A_SACK',
+        type: 'pocket_sack_in_a_sack',
+        price: (prices['pocket_sack_in_a_sack'] || 0) * ExtraAttributes.sack_pss * applicationWorth.pocketSackInASack,
+        count: ExtraAttributes.sack_pss,
+      };
+      price += calculationData.price;
+      calculation.push(calculationData);
+    }
+
     // WOOD SINGULARITY
     if (ExtraAttributes.wood_singularity_count) {
       const calculationData = {
@@ -407,7 +419,7 @@ const calculateItem = (item, prices, returnItemData) => {
         const calculationData = {
           id: 'FUMING_POTATO_BOOK',
           type: 'fuming_potato_book',
-          price: (prices['fuming_potato_book'] || 0) * (hotPotatoCount- 10) * applicationWorth.fumingPotatoBook,
+          price: (prices['fuming_potato_book'] || 0) * (hotPotatoCount - 10) * applicationWorth.fumingPotatoBook,
           count: hotPotatoCount - 10,
         };
         price += calculationData.price;

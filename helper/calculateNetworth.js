@@ -4,7 +4,7 @@ const { calculateEssence } = require('../calculators/essenceCalculator');
 const { calculateItem } = require('../calculators/itemCalculator');
 const { getPetLevel } = require('../constants/pets');
 
-const calculateNetworth = (items, purseBalance, bankBalance, prices, onlyNetworth, returnItemData) => {
+const calculateNetworth = (items, purseBalance, bankBalance, personalBankBalance, prices, onlyNetworth, returnItemData) => {
   const categories = {};
 
   for (const [category, categoryItems] of Object.entries(items)) {
@@ -49,8 +49,8 @@ const calculateNetworth = (items, purseBalance, bankBalance, prices, onlyNetwort
   }
 
   // Calculate total networth
-  const total = Object.values(categories).reduce((acc, category) => acc + category.total, 0) + (bankBalance || 0) + (purseBalance || 0);
-  const unsoulboundTotal = Object.values(categories).reduce((acc, category) => acc + category.unsoulboundTotal, 0) + (bankBalance || 0) + (purseBalance || 0);
+  const total = Object.values(categories).reduce((acc, category) => acc + category.total, 0) + (bankBalance || 0) + (purseBalance || 0) + (personalBankBalance || 0);
+  const unsoulboundTotal = Object.values(categories).reduce((acc, category) => acc + category.unsoulboundTotal, 0) + (bankBalance || 0) + (purseBalance || 0) + (personalBankBalance || 0);
 
   return {
     noInventory: !items.inventory?.length,
@@ -58,6 +58,7 @@ const calculateNetworth = (items, purseBalance, bankBalance, prices, onlyNetwort
     unsoulboundNetworth: unsoulboundTotal,
     purse: purseBalance || 0,
     bank: bankBalance || 0,
+    personalBank: personalBankBalance || 0,
     types: categories,
   };
 };
@@ -66,7 +67,7 @@ const calculateItemNetworth = (item, prices, returnItemNetworth) => {
   const isPet = item.tag?.ExtraAttributes?.petInfo || item.exp;
   if (isPet !== undefined) {
     const petInfoData = item.tag?.ExtraAttributes?.petInfo;
-    const petInfo = petInfoData ? (typeof petInfoData === "string" ? JSON.parse(petInfoData) : petInfoData) : item;
+    const petInfo = petInfoData ? (typeof petInfoData === 'string' ? JSON.parse(petInfoData) : petInfoData) : item;
     const level = getPetLevel(petInfo);
     petInfo.level = level.level;
     petInfo.xpMax = level.xpMax;

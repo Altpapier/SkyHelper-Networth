@@ -13,9 +13,10 @@ const axios = require('axios');
 const getNetworth = async (profileData, bankBalance, options) => {
   if (!profileData) throw new NetworthError('Invalid profile data provided');
   const purse = options?.v2Endpoint ? profileData.currencies?.coin_purse : profileData.coin_purse;
+  const personalBankBalance = options?.v2Endpoint ? profileData.profile?.bank_account : 0;
   const prices = await parsePrices(options?.prices, options?.cache);
   const items = await parseItems(profileData, options?.museumData, options?.v2Endpoint);
-  return calculateNetworth(items, purse, bankBalance, prices, options?.onlyNetworth, options?.returnItemData);
+  return calculateNetworth(items, purse, bankBalance, personalBankBalance, prices, options?.onlyNetworth, options?.returnItemData);
 };
 
 /**
@@ -32,6 +33,7 @@ const getNetworth = async (profileData, bankBalance, options) => {
  *          storage: [],
  *          fishing_bag: [],
  *          potion_bag: [],
+ *          sacks_bag: [],
  *          candy_inventory: [],
  *          museum: [],
  *        }} items - Pre-parsed inventories, most inventories are just decoded except for sacks, essence, and pets which are parsed specifically as listed above, museum is an array of member[uuid].items and member[uuid].special combined and decoded (see parseItems.js)
