@@ -43,9 +43,10 @@ const getNetworth = async (profileData, bankBalance, options) => {
  */
 const getPreDecodedNetworth = async (profileData, items, bankBalance, options) => {
   const purse = options?.v2Endpoint ? profileData.currencies?.coin_purse : profileData.coin_purse;
+  const personalBankBalance = options?.v2Endpoint ? profileData.profile?.bank_account : 0;
   await postParseItems(profileData, items, options?.v2Endpoint);
   const prices = await parsePrices(options?.prices, options?.cache);
-  return calculateNetworth(items, purse, bankBalance, prices, options?.onlyNetworth, options?.returnItemData);
+  return calculateNetworth(items, purse, bankBalance, personalBankBalance, prices, options?.onlyNetworth, options?.returnItemData);
 };
 
 /**
