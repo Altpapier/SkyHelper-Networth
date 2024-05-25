@@ -1,6 +1,4 @@
 const { parse, simplify } = require('prismarine-nbt');
-const { promisify } = require('util');
-const parseNbt = promisify(parse);
 
 function titleCase(str) {
   let splitStr = str.toLowerCase().replace(/_/g, ' ').split(' ');
@@ -13,8 +11,8 @@ function titleCase(str) {
 }
 
 const decodeData = async (data) => {
-  const parsedNbt = await parseNbt(Buffer.from(data, 'base64'));
-  const simplifiedNbt = simplify(parsedNbt);
+  const parsedNbt = await parse(Buffer.from(data, 'base64'));
+  const simplifiedNbt = simplify(parsedNbt.parsed);
   return simplifiedNbt.i;
 };
 
