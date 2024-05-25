@@ -55,6 +55,19 @@ const calculatePet = (pet, prices) => {
   }
 
   let base = price;
+  const soulbound = soulboundPets.includes(pet.type);
+
+  // SOULBOUND PET SKIN
+  if (pet.skin && soulbound) {
+    const calculationData = {
+      id: pet.skin,
+      type: 'soulbound_pet_skin',
+      price: (prices[`pet_skin_${pet.skin.toLowerCase()}`] || 0) * applicationWorth.soulboundPetSkins,
+      count: 1,
+    };
+    price += calculationData.price;
+    calculation.push(calculationData);
+  }
 
   // PET ITEM
   if (pet.heldItem) {
@@ -87,7 +100,7 @@ const calculatePet = (pet, prices) => {
   pet.price = price;
   pet.base = base;
   pet.calculation = calculation;
-  pet.soulbound = soulboundPets.includes(pet.type);
+  pet.soulbound = soulbound;
 
   return pet;
 };
