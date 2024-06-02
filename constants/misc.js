@@ -11,16 +11,43 @@ const ignoredEnchants = {
   scavenger: 5,
 };
 
-const stackingEnchants = ['expertise', 'compact', 'cultivating', 'champion', 'hecatomb'];
+const stackingEnchants = ['expertise', 'compact', 'cultivating', 'champion', 'hecatomb', 'toxophilite'];
 
 const ignoreSilex = ['promising_spade'];
 
 const masterStars = ['first_master_star', 'second_master_star', 'third_master_star', 'fourth_master_star', 'fifth_master_star'];
 
-const validRunes = ['MUSIC_1', 'MUSIC_2', 'MUSIC_3', 'MEOW_MUSIC_3', 'ENCHANT_1', 'ENCHANT_2', 'ENCHANT_3', 'GRAND_SEARING_3', 'SPELLBOUND_3', 'GRAND_FREEZING_3', 'PRIMAL_FEAR_3', 'GOLDEN_CARPET_3', 'ICE_SKATES_3', 'BARK_TUNES_3', 'SMITTEN_3'];
+const validRunes = [
+  'MUSIC_1',
+  'MUSIC_2',
+  'MUSIC_3',
+  'MEOW_MUSIC_3',
+  'ENCHANT_1',
+  'ENCHANT_2',
+  'ENCHANT_3',
+  'GRAND_SEARING_3',
+  'SPELLBOUND_3',
+  'GRAND_FREEZING_3',
+  'PRIMAL_FEAR_3',
+  'GOLDEN_CARPET_3',
+  'ICE_SKATES_3',
+  'BARK_TUNES_3',
+  'SMITTEN_3',
+];
 
 const allowedRecombTypes = ['ACCESSORY', 'NECKLACE', 'GLOVES', 'BRACELET', 'BELT', 'CLOAK'];
-const allowedRecombIds = ['divan_helmet', 'divan_chestplate', 'divan_leggings', 'divan_boots', 'fermento_helmet', 'fermento_chestplate', 'fermento_leggings', 'fermento_boots', 'shadow_assassin_cloak', 'starred_shadow_assassin_cloak'];
+const allowedRecombIds = [
+  'divan_helmet',
+  'divan_chestplate',
+  'divan_leggings',
+  'divan_boots',
+  'fermento_helmet',
+  'fermento_chestplate',
+  'fermento_leggings',
+  'fermento_boots',
+  'shadow_assassin_cloak',
+  'starred_shadow_assassin_cloak',
+];
 
 const attributesBaseCosts = {
   glowstone_gauntlet: 'glowstone_gauntlet',
@@ -64,8 +91,8 @@ const specialEnchantmentMatches = {
   turbo_warts: 'Turbo-Warts',
   turbo_wheat: 'Turbo-Wheat',
   ultimate_reiterate: 'Ultimate Duplex',
-  ultimate_bobbin_time: 'Ultimate Bobbin\' Time',
-}
+  ultimate_bobbin_time: "Ultimate Bobbin' Time",
+};
 
 module.exports = {
   blockedEnchants,
