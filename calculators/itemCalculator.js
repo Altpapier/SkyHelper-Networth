@@ -116,7 +116,9 @@ const calculateItem = (item, prices, returnItemData) => {
     // CAKES (Item)
     if (ExtraAttributes.id === 'NEW_YEAR_CAKE') itemId = `new_year_cake_${ExtraAttributes.new_years_cake}`;
     // PARTY_HAT_CRAB (Item)
-    if (ExtraAttributes.id.startsWith('PARTY_HAT_CRAB') && ExtraAttributes.party_hat_color) itemId = `${ExtraAttributes.id.toLowerCase()}_${ExtraAttributes.party_hat_color}`;
+    if (ExtraAttributes.id.startsWith('PARTY_HAT_CRAB') && ExtraAttributes.party_hat_color) {
+      itemId = `${ExtraAttributes.id.toLowerCase()}_${ExtraAttributes.party_hat_color}`;
+    }
     // DCTR_SPACE_HELM (Editioned)
     if (ExtraAttributes.id === 'DCTR_SPACE_HELM' && ExtraAttributes.edition !== undefined) itemId = 'dctr_space_helm_editioned';
     // CREATIVE_MIND (Editioned/Named) Worth less than unnamed. Unnamed is not obtainable anymore.
@@ -301,7 +303,10 @@ const calculateItem = (item, prices, returnItemData) => {
         let baseAttributePrice = prices[`attribute_shard_${attribute}`];
         if (attributesBaseCosts[itemId] && prices[attributesBaseCosts[itemId]] < baseAttributePrice) {
           baseAttributePrice = prices[attributesBaseCosts[itemId]];
-        } else if (/^(|hot_|fiery_|burning_|infernal_)(aurora|crimson|terror|hollow|fervor)_helmet$/.test(itemId) && prices[`kuudra_helmet_${attribute}`] < baseAttributePrice) {
+        } else if (
+          /^(|hot_|fiery_|burning_|infernal_)(aurora|crimson|terror|hollow|fervor)_helmet$/.test(itemId) &&
+          prices[`kuudra_helmet_${attribute}`] < baseAttributePrice
+        ) {
           baseAttributePrice = prices[`kuudra_helmet_${attribute}`];
         } else if (/^(|hot_|fiery_|burning_|infernal_)(aurora|crimson|terror|hollow|fervor)(_chestplate|_leggings|_boots)$/.test(itemId)) {
           const kuudraPrices = [prices[`kuudra_chestplate_${attribute}`], prices[`kuudra_leggings_${attribute}`], prices[`kuudra_boots_${attribute}`]].filter((v) => v);
@@ -504,7 +509,13 @@ const calculateItem = (item, prices, returnItemData) => {
     // RECOMBS
     if (ExtraAttributes.rarity_upgrades > 0 && !ExtraAttributes.item_tier) {
       const lastLoreLine = item.tag.display?.Lore?.at(-1);
-      if (ExtraAttributes.enchantments || allowedRecombTypes.includes(skyblockItem?.category) || allowedRecombIds.includes(itemId) || lastLoreLine?.includes('ACCESSORY') || lastLoreLine?.includes('HATCESSORY')) {
+      if (
+        ExtraAttributes.enchantments ||
+        allowedRecombTypes.includes(skyblockItem?.category) ||
+        allowedRecombIds.includes(itemId) ||
+        lastLoreLine?.includes('ACCESSORY') ||
+        lastLoreLine?.includes('HATCESSORY')
+      ) {
         const recombApplicationWorth = itemId === 'bone_boomerang' ? applicationWorth.recomb * 0.5 : applicationWorth.recomb;
         const calculationData = {
           id: 'RECOMBOBULATOR_3000',
@@ -541,7 +552,11 @@ const calculateItem = (item, prices, returnItemData) => {
             const key = Object.keys(ExtraAttributesGems).find((k) => k.startsWith(slot.slot_type) && !k.endsWith('_gem'));
             if (key) {
               const type = ['COMBAT', 'OFFENSIVE', 'DEFENSIVE', 'MINING', 'UNIVERSAL'].includes(slot.slot_type) ? ExtraAttributesGems[`${key}_gem`] : slot.slot_type;
-              gems.push({ type, tier: ExtraAttributesGems[key] instanceof Object ? ExtraAttributesGems[key].quality : ExtraAttributesGems[key], slotType: slot.slot_type });
+              gems.push({
+                type,
+                tier: ExtraAttributesGems[key] instanceof Object ? ExtraAttributesGems[key].quality : ExtraAttributesGems[key],
+                slotType: slot.slot_type,
+              });
 
               delete ExtraAttributesGems[key];
               if (slot.costs && !ExtraAttributesGems.unlocked_slots) unlockedSlots.push(slot.slot_type);
@@ -591,6 +606,18 @@ const calculateItem = (item, prices, returnItemData) => {
           calculation.push(calculationData);
         }
       }
+    }
+
+    // GEMSTONE POWER SCROLLS
+    if (ExtraAttributes.power_ability_scroll) {
+      const calculationData = {
+        id: ExtraAttributes.power_ability_scroll,
+        type: 'gemstone_power_scroll',
+        price: (prices[ExtraAttributes.power_ability_scroll] || 0) * applicationWorth.gemstonePowerScroll,
+        count: 1,
+      };
+      price += calculationData.price;
+      calculation.push(calculationData);
     }
 
     // REFORGES
@@ -696,7 +723,11 @@ const calculateItem = (item, prices, returnItemData) => {
       calculation.push(calculationData);
     }
 
-    const isSoulbound = !!(ExtraAttributes.donated_museum || item.tag.display?.Lore?.includes('§8§l* §8Co-op Soulbound §8§l*') || item.tag.display?.Lore?.includes('§8§l* §8Soulbound §8§l*'));
+    const isSoulbound = !!(
+      ExtraAttributes.donated_museum ||
+      item.tag.display?.Lore?.includes('§8§l* §8Co-op Soulbound §8§l*') ||
+      item.tag.display?.Lore?.includes('§8§l* §8Soulbound §8§l*')
+    );
     const data = { name: itemName, loreName: item.tag.display.Name, id: itemId, price, base, calculation, count: item.Count || 1, soulbound: isSoulbound };
     if (returnItemData) data.item = item;
     return data;
