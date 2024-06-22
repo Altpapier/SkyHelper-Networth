@@ -23,6 +23,7 @@ The following list shows how much each modifier counts towards an item's worth
 
 - Enrichments: **50%**
 - Farming for Dummies: **50%**
+- Gemstone Power Scrolls: **50%**
 - Wood Singularity: **50%**
 - Art of War: **60%**
 - Fuming Potato Books: **60%**

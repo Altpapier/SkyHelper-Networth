@@ -1,6 +1,7 @@
 const applicationWorth = {
   enrichment: 0.5,
   farmingForDummies: 0.5,
+  gemstonePowerScroll: 0.5,
   woodSingularity: 0.5,
   artOfWar: 0.6,
   fumingPotatoBook: 0.6,
