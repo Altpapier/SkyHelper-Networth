@@ -8429,6 +8429,14 @@
   },
   {
     "material": "INK_SACK",
+    "durability": 3,
+    "name": "Chocolate Dye",
+    "tier": "EPIC",
+    "unstackable": true,
+    "id": "DYE_CHOCOLATE"
+  },
+  {
+    "material": "INK_SACK",
     "durability": 15,
     "name": "Bone Dye",
     "tier": "EPIC",
@@ -14031,6 +14039,14 @@
   {
     "material": "SKULL_ITEM",
     "durability": 3,
+    "name": "Rabbit the Fish",
+    "tier": "SPECIAL",
+    "museum": true,
+    "id": "RABBIT_THE_FISH"
+  },
+  {
+    "material": "SKULL_ITEM",
+    "durability": 3,
     "name": "Refined Dark Cacao Truffle",
     "tier": "LEGENDARY",
     "id": "REFINED_DARK_CACAO_TRUFFLE"
@@ -14042,6 +14058,15 @@
     "tier": "COMMON",
     "unstackable": true,
     "id": "EGGLOCATOR"
+  },
+  {
+    "material": "SKULL_ITEM",
+    "durability": 3,
+    "name": "Fish Chocolat à la Vapeur",
+    "tier": "EPIC",
+    "description": "%%dark_gray%%%%italic%%Savory fish with a chocolate twist. Mwah! C'est magnifique, no?",
+    "has_uuid": true,
+    "id": "STEAMED_CHOCOLATE_FISH"
   },
   {
     "material": "SKULL_ITEM",
@@ -16512,6 +16537,14 @@
   {
     "material": "SKULL_ITEM",
     "durability": 3,
+    "name": "Jungle Cabin",
+    "furniture": "JUNGLE_CABIN",
+    "tier": "EPIC",
+    "id": "JUNGLE_CABIN"
+  },
+  {
+    "material": "SKULL_ITEM",
+    "durability": 3,
     "name": "Bear Bench",
     "furniture": "BEAR_BENCH",
     "tier": "EPIC",
@@ -16748,10 +16781,26 @@
   {
     "material": "SKULL_ITEM",
     "durability": 3,
+    "name": "Totem",
+    "furniture": "TOTEM",
+    "tier": "EPIC",
+    "id": "TOTEM"
+  },
+  {
+    "material": "SKULL_ITEM",
+    "durability": 3,
     "name": "Crab",
     "furniture": "CRAB",
     "tier": "RARE",
     "id": "CRAB"
+  },
+  {
+    "material": "SKULL_ITEM",
+    "durability": 3,
+    "name": "Jungle Table",
+    "furniture": "JUNGLE_TABLE",
+    "tier": "EPIC",
+    "id": "JUNGLE_TABLE"
   },
   {
     "material": "SKULL_ITEM",
@@ -16890,6 +16939,14 @@
   {
     "material": "SKULL_ITEM",
     "durability": 3,
+    "name": "Jungle Dresser",
+    "furniture": "JUNGLE_DRESSER",
+    "tier": "EPIC",
+    "id": "JUNGLE_DRESSER"
+  },
+  {
+    "material": "SKULL_ITEM",
+    "durability": 3,
     "name": "Small Pool",
     "furniture": "SMALL_POOL",
     "tier": "RARE",
@@ -16902,6 +16959,14 @@
     "furniture": "BUNNY_BENCH",
     "tier": "EPIC",
     "id": "BUNNY_BENCH"
+  },
+  {
+    "material": "SKULL_ITEM",
+    "durability": 3,
+    "name": "Jungle Chair",
+    "furniture": "JUNGLE_CHAIR",
+    "tier": "EPIC",
+    "id": "JUNGLE_CHAIR"
   },
   {
     "material": "SKULL_ITEM",
@@ -16930,10 +16995,26 @@
   {
     "material": "SKULL_ITEM",
     "durability": 3,
+    "name": "Coconut Drink",
+    "furniture": "COCONUT_DRINK",
+    "tier": "EPIC",
+    "id": "COCONUT_DRINK"
+  },
+  {
+    "material": "SKULL_ITEM",
+    "durability": 3,
     "name": "Little Chick Bed",
     "furniture": "CHICK_BED",
     "tier": "EPIC",
     "id": "CHICK_BED"
+  },
+  {
+    "material": "SKULL_ITEM",
+    "durability": 3,
+    "name": "Jungle Bed",
+    "furniture": "JUNGLE_BED",
+    "tier": "EPIC",
+    "id": "JUNGLE_BED"
   },
   {
     "material": "SKULL_ITEM",
@@ -32522,6 +32603,7 @@
     "durability": 3,
     "name": "Remnant of the Eye",
     "tier": "EPIC",
+    "npc_sell_price": 1,
     "has_uuid": true,
     "id": "REMNANT_OF_THE_EYE"
   },
@@ -39014,6 +39096,7 @@
     "glowing": true,
     "tier": "RARE",
     "can_place": false,
+    "npc_sell_price": 51200,
     "id": "ENCHANTED_BONE_BLOCK"
   },
   {
@@ -77781,6 +77864,14 @@
     "id": "MUSHROOM_BARN_SKIN"
   },
   {
+    "material": "SKULL_ITEM",
+    "durability": 3,
+    "name": "Chocolate Factory Barn Skin",
+    "tier": "LEGENDARY",
+    "category": "COSMETIC",
+    "id": "CHOCOLATE_FACTORY_BARN_SKIN"
+  },
+  {
     "material": "COBBLESTONE",
     "name": "Castle Barn Skin",
     "tier": "LEGENDARY",
@@ -77826,6 +77917,14 @@
     "id": "AUTUMN_HUT_BARN_SKIN"
   },
   {
+    "material": "SKULL_ITEM",
+    "durability": 3,
+    "name": "Sand Castle Barn Skin",
+    "tier": "LEGENDARY",
+    "category": "COSMETIC",
+    "id": "SAND_CASTLE_BARN_SKIN"
+  },
+  {
     "material": "WOOL",
     "durability": 14,
     "name": "Cube Barn Skin",
@@ -77869,6 +77968,14 @@
     "tier": "LEGENDARY",
     "category": "COSMETIC",
     "id": "HIVE_BARN_SKIN"
+  },
+  {
+    "material": "SKULL_ITEM",
+    "durability": 3,
+    "name": "Beach Ball Barn Skin",
+    "tier": "LEGENDARY",
+    "category": "COSMETIC",
+    "id": "BEACH_BALL_BARN_SKIN"
   },
   {
     "material": "MOSSY_COBBLESTONE",
@@ -104825,6 +104932,13 @@
     "name": "Crab Hat of Celebration (2022)",
     "category": "ACCESSORY",
     "id": "PARTY_HAT_CRAB_ANIMATED",
+    "tier": "SPECIAL",
+    "manual": true
+  },
+  {
+    "name": "5th Anniversary Balloon Hat",
+    "category": "ACCESSORY",
+    "id": "BALLOON_HAT_2024",
     "tier": "SPECIAL",
     "manual": true
   }
