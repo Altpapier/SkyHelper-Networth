@@ -28,7 +28,7 @@ The following list shows how much each modifier counts towards an item's worth
 - Fuming Potato Books: **60%**
 - Gemstone Slot Unlocks (only crimson armor): **60%**
 - Popular Runes: **60%**
-  - Music, Enchanting, and Grand Searing Runes only
+  - Music, Enchanting, Grand Searing, etc.
 - Transmission Tuners: **70%**
 - Essence: **75%**
 - Silex: **75%**
