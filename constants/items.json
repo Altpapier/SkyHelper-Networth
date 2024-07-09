@@ -15410,7 +15410,6 @@
     "glowing": true,
     "tier": "SPECIAL",
     "npc_sell_price": 1,
-    "has_uuid": true,
     "id": "KAT_FLOWER"
   },
   {
@@ -72236,11 +72235,6 @@
         }
       ]
     ],
-    "gemstone_slots": [
-      {
-        "slot_type": "SAPPHIRE"
-      }
-    ],
     "id": "HELLSTORM_STAFF"
   },
   {
@@ -76739,7 +76733,7 @@
   {
     "material": "SKULL_ITEM",
     "durability": 3,
-    "name": "Tropical Bird 1 Minion Skin",
+    "name": "Hyacinth Tropical Bird Minion Skin",
     "category": "COSMETIC",
     "museum": true,
     "id": "TROPICAL_BIRD_1_PERSONALITY"
@@ -77434,7 +77428,7 @@
   {
     "material": "SKULL_ITEM",
     "durability": 3,
-    "name": "Tropical Bird 2 Minion Skin",
+    "name": "Blue Gold Tropical Bird Minion Skin",
     "category": "COSMETIC",
     "museum": true,
     "id": "TROPICAL_BIRD_2_PERSONALITY"
