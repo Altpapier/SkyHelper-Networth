@@ -31,6 +31,7 @@ The following list shows how much each modifier counts towards an item's worth
   - Music, Enchanting, Grand Searing, etc.
 - Transmission Tuners: **70%**
 - Essence: **75%**
+- Golden Bounty: **75%**
 - Silex: **75%**
 - Art of Peace: **80%**
 - Jalapeno Book: **80%**

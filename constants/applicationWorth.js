@@ -9,6 +9,7 @@ const applicationWorth = {
   tunedTransmission: 0.7,
   pocketSackInASack: 0.7,
   essence: 0.75,
+  goldenBounty: 0.75,
   silex: 0.75,
   artOfPeace: 0.8,
   jalapenoBook: 0.8,

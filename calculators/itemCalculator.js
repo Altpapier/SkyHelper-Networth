@@ -282,6 +282,18 @@ const calculateItem = (item, prices, returnItemData) => {
           }
         }
 
+        // Golden Bounty
+        if (name === 'scavenger' && value == 6) {
+          const calculationData = {
+            id: 'GOLDEN_BOUNTY',
+            type: 'golden_bounty',
+            price: (prices['GOLDEN_BOUNTY'] || 0) * applicationWorth.goldenBounty,
+            count: 1,
+          };
+          price += calculationData.price;
+          calculation.push(calculationData);
+        }
+
         const calculationData = {
           id: `${name}_${value}`.toUpperCase(),
           type: 'enchant',
