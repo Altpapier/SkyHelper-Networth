@@ -116,7 +116,7 @@ const calculateItem = (item, prices, returnItemData) => {
     // CAKES (Item)
     if (ExtraAttributes.id === 'NEW_YEAR_CAKE') itemId = `new_year_cake_${ExtraAttributes.new_years_cake}`;
     // PARTY_HAT_CRAB (Item)
-    if (ExtraAttributes.id.startsWith('PARTY_HAT_CRAB') && ExtraAttributes.party_hat_color) {
+    if (['PARTY_HAT_CRAB', 'PARTY_HAT_CRAB_ANIMATED', 'BALLOON_HAT_2024'].includes(ExtraAttributes.id) && ExtraAttributes.party_hat_color) {
       itemId = `${ExtraAttributes.id.toLowerCase()}_${ExtraAttributes.party_hat_color}`;
     }
     // DCTR_SPACE_HELM (Editioned)

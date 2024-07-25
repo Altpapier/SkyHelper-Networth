@@ -33,6 +33,7 @@ const validRunes = [
   'ICE_SKATES_3',
   'BARK_TUNES_3',
   'SMITTEN_3',
+  'RAINY_DAY_3',
 ];
 
 const allowedRecombTypes = ['ACCESSORY', 'NECKLACE', 'GLOVES', 'BRACELET', 'BELT', 'CLOAK'];
