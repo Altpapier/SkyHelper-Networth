@@ -608,6 +608,18 @@ const calculateItem = (item, prices, returnItemData) => {
       }
     }
 
+    // GEMSTONE POWER SCROLLS
+    if (ExtraAttributes.power_ability_scroll) {
+      const calculationData = {
+        id: ExtraAttributes.power_ability_scroll,
+        type: 'gemstone_power_scroll',
+        price: (prices[ExtraAttributes.power_ability_scroll] || 0) * applicationWorth.gemstonePowerScroll,
+        count: 1,
+      };
+      price += calculationData.price;
+      calculation.push(calculationData);
+    }
+
     // REFORGES
     if (ExtraAttributes.modifier && skyblockItem?.category !== 'ACCESSORY') {
       const reforge = ExtraAttributes.modifier;
