@@ -31,6 +31,8 @@ const applicationWorth = {
   prestigeItem: 1,
   reforge: 1,
   winningBid: 1,
+  polarvoid: 1,
+  divanPowderCoating: 1,
 
   petCandy: 0.65,
   soulboundPetSkins: 0.8,

@@ -503,6 +503,30 @@ const calculateItem = (item, prices, returnItemData) => {
       calculation.push(calculationData);
     }
 
+    // POLARVOID BOOKS
+    if (ExtraAttributes.polarvoid) {
+      const calculationData = {
+        id: 'POLARVOID_BOOK',
+        type: 'polarvoid_book',
+        price: (prices['polarvoid_book'] || 0) * ExtraAttributes.polarvoid * applicationWorth.polarvoid,
+        count: ExtraAttributes.polarvoid,
+      };
+      price += calculationData.price;
+      calculation.push(calculationData);
+    }
+
+    // DIVAN'S POWDER COATING
+    if (ExtraAttributes.divan_powder_coating) {
+      const calculationData = {
+        id: 'divan_powder_coating',
+        type: 'divan_powder_coating',
+        price: (prices['divan_powder_coating'] || 0) * applicationWorth.divanPowderCoating,
+        count: ExtraAttributes.divan_powder_coating
+      };
+      price += calculationData.price;
+      calculation.push(calculationData);
+    }
+
     // ENRICHMENTS
     if (ExtraAttributes.talisman_enrichment) {
       const enrichmentPrice = enrichments.reduce((acc, val) => Math.min(acc, prices[val.toLowerCase()] || 0), Infinity);
