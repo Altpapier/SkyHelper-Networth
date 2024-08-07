@@ -71,6 +71,7 @@ declare module 'skyhelper-networth' {
     fishing_bag: Category;
     potion_bag: Category;
     candy_inventory: Category;
+    carvinal_mask_inventory: Category;
     storage: Category;
     museum: Category;
     sacks: Category;
@@ -89,12 +90,7 @@ declare module 'skyhelper-networth' {
 
   export function getNetworth(profileData: object, bankBalance: number, options?: NetworthOptions): Promise<NetworthResult>;
 
-  export function getPreDecodedNetworth(
-    profileData: object,
-    items: object,
-    bankBalance: number,
-    options?: PreDecodedNetworthOptions
-  ): Promise<NetworthResult>;
+  export function getPreDecodedNetworth(profileData: object, items: object, bankBalance: number, options?: PreDecodedNetworthOptions): Promise<NetworthResult>;
 
   export function getItemNetworth(item: object, options?: ItemNetworthOptions): Promise<Item>;
 

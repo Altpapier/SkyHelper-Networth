@@ -13,10 +13,11 @@ const singleContainers = {
   potion_bag: 'potion_bag',
   sacks_bag: 'sacks_bag',
   candy_inventory: 'candy_inventory_contents',
+  carnival_mask_inventory: 'carnival_mask_inventory_contents',
 };
 
 const bagContainers = ['fishing_bag', 'potion_bag', 'talisman_bag', 'sacks_bag']; // In the v2 endpoint: profileData.inventory.bag_contents
-const sharedContainers = ['candy_inventory_contents']; // In the v2 endpoint: profileData.shared_inventory
+const sharedContainers = ['candy_inventory_contents', 'carnival_mask_inventory_contents']; // In the v2 endpoint: profileData.shared_inventory
 
 const parseItems = async (profileData, museumData, v2Endpoint) => {
   const items = {};

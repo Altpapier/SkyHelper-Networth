@@ -35,6 +35,7 @@ const getNetworth = async (profileData, bankBalance, options) => {
  *          potion_bag: [],
  *          sacks_bag: [],
  *          candy_inventory: [],
+ *          carnival_mask_inventory: [],
  *          museum: [],
  *        }} items - Pre-parsed inventories, most inventories are just decoded except for sacks, essence, and pets which are parsed specifically as listed above, museum is an array of member[uuid].items and member[uuid].special combined and decoded (see parseItems.js)
  * @param {number} bankBalance - The player's bank balance from the Hypixel API (profile.banking?.balance)
@@ -130,9 +131,8 @@ const getPrices = async (cache = true, retries = 3) => {
     isLoadingPrices = false;
     if (retries <= 0) {
       throw new PricesError(`Failed to retrieve prices with status code ${err?.response?.status || 'Unknown'}`);
-    }
-    else {
-      console.warn(`[SKYHELPER-NETWORTH] Failed to retrieve prices with status code ${err?.response?.status || 'Unknown'}. Retrying (${retries} attempt(s) left)...`)
+    } else {
+      console.warn(`[SKYHELPER-NETWORTH] Failed to retrieve prices with status code ${err?.response?.status || 'Unknown'}. Retrying (${retries} attempt(s) left)...`);
       return getPrices(cache, retries - 1);
     }
   }
