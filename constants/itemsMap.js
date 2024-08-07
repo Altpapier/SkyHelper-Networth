@@ -1,9 +1,10 @@
-let items = require("./items.json")
-
 let itemsMap = new Map();
 
-for (let item of items) {
-    itemsMap.set(item.id, item);
+function setItems(items) {
+    itemsMap = new Map();
+    for (let item of items) {
+        itemsMap.set(item.id, item);
+    }
 }
 
 function getHypixelItemInformationFromId(id) {
@@ -11,5 +12,6 @@ function getHypixelItemInformationFromId(id) {
 }
 
 module.exports = {
-    getHypixelItemInformationFromId
+    getHypixelItemInformationFromId,
+    setItems,
 };
