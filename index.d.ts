@@ -1,98 +1,68 @@
+const { NetworthTypes } = require('./NetworthTypes');
+
 declare module 'skyhelper-networth' {
-  export interface NetworthOptions {
-    v2Endpoint?: boolean;
-    cache?: boolean;
-    onlyNetworth?: boolean;
-    prices?: object;
-    returnItemData?: boolean;
-    museumData?: object;
-  }
+    export class NetworthManager {
+        constructor(options: {
+            networthType?: NetworthTypes;
+            cachePrices?: boolean;
+            pricesRetries?: number;
+            itemsRetries?: number;
+            itemsInterval?: number;
+            onlyNetworth?: boolean;
+            stackItems?: boolean;
+            includeItemData?: boolean;
+        });
 
-  export interface PreDecodedNetworthOptions {
-    v2Endpoint?: boolean;
-    cache?: boolean;
-    onlyNetworth?: boolean;
-    prices?: object;
-    returnItemData?: boolean;
-  }
+        setNetworthType(networthType: NetworthTypes): this;
 
-  export interface ItemNetworthOptions {
-    cache?: boolean;
-    prices?: object;
-    returnItemData?: boolean;
-  }
+        getNetworth(params: { profileData: object; museumData?: object; bankBalance: number; prices?: object }): Promise<object>;
 
-  export interface ItemCalculation {
-    id: string;
-    type: string;
-    price: number;
-    count: number;
-    star?: number;
-    shards?: number;
-  }
+        getPreDecodedNetworth(params: {
+            profileData: object;
+            items: {
+                armor: any[];
+                equipment: any[];
+                wardrobe: any[];
+                inventory: any[];
+                enderchest: any[];
+                accessories: any[];
+                personal_vault: any[];
+                storage: any[];
+                fishing_bag: any[];
+                potion_bag: any[];
+                sacks_bag: any[];
+                candy_inventory: any[];
+                carnival_mask_inventory: any[];
+                museum: any[];
+            };
+            bankBalance: number;
+            prices?: object;
+        }): Promise<object>;
 
-  export interface Item {
-    uuid?: string | null;
-    uniqueId?: string;
-    type?: string;
-    exp?: number;
-    active?: boolean;
-    tier?: string;
-    heldItem?: string | null;
-    candyUsed?: number;
-    skin?: string | null;
-    level?: number;
-    xpMax?: number;
-    name: string;
-    loreName?: string;
-    id: string;
-    price: number;
-    base: number;
-    calculation: ItemCalculation[];
-    count: number;
-    soulbound: boolean;
-    item?: object;
-  }
+        getItemNetworth(params: { item: object; prices?: object }): Promise<object>;
+    }
 
-  export interface Category {
-    total: number;
-    unsoulboundTotal: number;
-    items?: Item[];
-  }
+    export const NetworthTypes: {
+        Normal: 'normal';
+        NonCosmetic: 'nonCosmetic';
+    };
 
-  export interface Categories {
-    armor: Category;
-    equipment: Category;
-    wardrobe: Category;
-    inventory: Category;
-    enderchest: Category;
-    accessories: Category;
-    personal_vault: Category;
-    fishing_bag: Category;
-    potion_bag: Category;
-    candy_inventory: Category;
-    carvinal_mask_inventory: Category;
-    storage: Category;
-    museum: Category;
-    sacks: Category;
-    essence: Category;
-    pets: Category;
-  }
+    export class UpdateManager {
+        constructor(options: { interval?: number });
+        start(): void;
+        stop(): void;
+        checkForUpdate(): Promise<void>;
+    }
 
-  export interface NetworthResult {
-    noInventory: boolean;
-    networth: number;
-    unsoulboundNetworth: number;
-    purse: number;
-    bank: number;
-    types: Categories;
-  }
+    export class NetworthError extends Error {
+        constructor(message: string);
+    }
 
-  export function getNetworth(profileData: object, bankBalance: number, options?: NetworthOptions): Promise<NetworthResult>;
+    export class PricesError extends Error {
+        constructor(message: string);
+    }
 
-  export function getPreDecodedNetworth(profileData: object, items: object, bankBalance: number, options?: PreDecodedNetworthOptions): Promise<NetworthResult>;
-
-  export function getItemNetworth(item: object, options?: ItemNetworthOptions): Promise<Item>;
-
-  export function getPrices(cache?: boolean): Promise<object>;
+    export class ItemsError extends Error {
+        constructor(message: string);
+    }
 }
