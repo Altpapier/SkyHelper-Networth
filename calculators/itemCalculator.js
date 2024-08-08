@@ -518,7 +518,7 @@ const calculateItem = (item, prices, returnItemData) => {
     // DIVAN'S POWDER COATING
     if (ExtraAttributes.divan_powder_coating) {
       const calculationData = {
-        id: 'divan_powder_coating',
+        id: 'DIVAN_POWDER_COATING',
         type: 'divan_powder_coating',
         price: (prices['divan_powder_coating'] || 0) * applicationWorth.divanPowderCoating,
         count: ExtraAttributes.divan_powder_coating
@@ -719,7 +719,7 @@ const calculateItem = (item, prices, returnItemData) => {
       for (const type of drillPartTypes) {
         if (ExtraAttributes[type]) {
           const calculationData = {
-            id: ExtraAttributes[type],
+            id: ExtraAttributes[type].toUpperCase(),
             type: 'drill_part',
             price: (prices[ExtraAttributes[type]] || 0) * applicationWorth.drillPart,
             count: 1,

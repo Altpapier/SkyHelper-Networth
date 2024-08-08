@@ -51,12 +51,14 @@ The following list shows how much each modifier counts towards an item's worth
   - Based off the corresponding attribute shard's price
   - Lava Fishing rods and Crimson Hunter set use their base item's price instead
   - Kuudra Armor sets use the average sale value of all types with the same attribute
+- Divan's Powder Coating: **8 0%**
 - Drill Upgrades: **100%**
 - Etherwarp Conduit: **100%**
 - Dungeon Master Stars: **100%**
 - Gemstones: **100%**
 - Hot Potato Books: **100%**
 - Necron Blade Scrolls: **100%**
+- Polarvoid Books: **100%**
 - Prestige Item: **100%**
 - Reforges: **100%**
 - Winning Bid: **100%**
