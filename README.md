@@ -35,6 +35,7 @@ The following list shows how much each modifier counts towards an item's worth
 - Golden Bounty: **75%**
 - Silex: **75%**
 - Art of Peace: **80%**
+- Divan's Powder Coating: **80%**
 - Jalapeno Book: **80%**
 - Mana Disintegrator: **80%**
 - Recombobulators: **80%**
@@ -51,7 +52,6 @@ The following list shows how much each modifier counts towards an item's worth
   - Based off the corresponding attribute shard's price
   - Lava Fishing rods and Crimson Hunter set use their base item's price instead
   - Kuudra Armor sets use the average sale value of all types with the same attribute
-- Divan's Powder Coating: **80%**
 - Drill Upgrades: **100%**
 - Etherwarp Conduit: **100%**
 - Dungeon Master Stars: **100%**
