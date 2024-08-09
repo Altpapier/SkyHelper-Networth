@@ -35,6 +35,7 @@ The following list shows how much each modifier counts towards an item's worth
 - Golden Bounty: **75%**
 - Silex: **75%**
 - Art of Peace: **80%**
+- Divan's Powder Coating: **80%**
 - Jalapeno Book: **80%**
 - Mana Disintegrator: **80%**
 - Recombobulators: **80%**
@@ -57,6 +58,7 @@ The following list shows how much each modifier counts towards an item's worth
 - Gemstones: **100%**
 - Hot Potato Books: **100%**
 - Necron Blade Scrolls: **100%**
+- Polarvoid Books: **100%**
 - Prestige Item: **100%**
 - Reforges: **100%**
 - Winning Bid: **100%**
