@@ -1,5 +1,5 @@
-const UpdateManager = require('./UpdateManager');
+const updateManager = require('./UpdateManager');
 const NetworthManager = require('./NetworthManager');
 const NetworthTypes = require('./NetworthTypes');
 
-module.exports = { UpdateManager, NetworthManager, NetworthTypes };
+module.exports = { updateManager, NetworthManager, NetworthTypes };

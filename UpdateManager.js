@@ -1,17 +1,34 @@
 const axios = require('axios');
 
 class UpdateManager {
-    constructor({ interval }) {
-        this.interval = interval || 1000 * 60 * 60;
+    constructor() {
+        if (UpdateManager.instance) {
+            return UpdateManager.instance;
+        }
+
+        UpdateManager.instance = this;
+
+        this.interval = 1000 * 60; // 1 minute
+        this.intervalInstance = setInterval(this.checkForUpdate, this.interval);
     }
 
-    start() {
-        this.checkForUpdate();
-        this.interval = setInterval(this.checkForUpdate, this.interval);
+    disable() {
+        clearInterval(this.intervalInstance);
+        this.intervalInstance = null;
     }
 
-    stop() {
-        clearInterval(this.interval);
+    enable() {
+        if (this.intervalInstance) {
+            return;
+        }
+
+        this.intervalInstance = setInterval(this.checkForUpdate, this.interval);
+    }
+
+    setInterval(interval) {
+        this.interval = interval;
+        clearInterval(this.intervalInstance);
+        this.intervalInstance = setInterval(this.checkForUpdate, this.interval);
     }
 
     async checkForUpdate() {
@@ -23,8 +40,12 @@ class UpdateManager {
             if (latestVersion !== currentVersion) {
                 console.warn(`[SKYHELPER-NETWORTH] An update is available! Current version: ${currentVersion}, Latest version: ${latestVersion}`);
             }
-        } catch {}
+        } catch (err) {
+            console.error(`[SKYHELPER-NETWORTH] An error occurred while checking for updates: ${err}`);
+        }
     }
 }
 
-module.exports = UpdateManager;
+const updateManager = new UpdateManager();
+
+module.exports = updateManager;
