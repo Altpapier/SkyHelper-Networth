@@ -63,6 +63,9 @@ class UpdateManager {
     }
 }
 
+/**
+ * The instance of UpdateManager. Checking for updates is enabled by default (interval: 1 minute).
+ */
 const updateManager = new UpdateManager();
 
 module.exports = updateManager;
