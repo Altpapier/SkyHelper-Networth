@@ -204,7 +204,7 @@ const calculateItem = (item, prices, returnItemData) => {
       const type = itemId === 'midas_sword' ? 'midas_sword_50m' : 'midas_staff_100m';
 
       // If max price paid
-      if (ExtraAttributes.winning_bid >= maxBid) {
+      if (ExtraAttributes.winning_bid + (ExtraAttributes.additional_coins ?? 0) >= maxBid) {
         const calculationData = {
           id: itemId,
           type: type,
@@ -223,6 +223,17 @@ const calculateItem = (item, prices, returnItemData) => {
         };
         price = calculationData.price;
         calculation.push(calculationData);
+
+        if (ExtraAttributes.additional_coins) {
+          const calculationData = {
+            id: itemId,
+            type: 'additional_coins',
+            price: ExtraAttributes.additional_coins * applicationWorth.winningBid,
+            count: 1,
+          };
+          price += calculationData.price;
+          calculation.push(calculationData);
+        }
       }
     }
 
@@ -521,7 +532,7 @@ const calculateItem = (item, prices, returnItemData) => {
         id: 'DIVAN_POWDER_COATING',
         type: 'divan_powder_coating',
         price: (prices['divan_powder_coating'] || 0) * applicationWorth.divanPowderCoating,
-        count: ExtraAttributes.divan_powder_coating
+        count: ExtraAttributes.divan_powder_coating,
       };
       price += calculationData.price;
       calculation.push(calculationData);
