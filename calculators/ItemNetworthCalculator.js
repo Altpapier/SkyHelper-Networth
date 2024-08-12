@@ -10,10 +10,10 @@ class ItemNetworthCalculator {
      */
     constructor(itemData) {
         this.itemData = itemData;
-        this.validate();
+        this.#validate();
     }
 
-    validateItem() {
+    #validate() {
         if (!this.itemData || typeof this.itemData !== 'object') {
             throw new ValidationError('Item must be an object');
         }

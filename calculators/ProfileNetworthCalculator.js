@@ -31,7 +31,7 @@ class ProfileNetworthCalculator {
         this.items = items || {};
         this.bankBalance = bankBalance || 0;
 
-        this.validate();
+        this.#validate();
 
         this.purse = profileData.currencies?.coin_purse;
         this.personalBankBalance = profileData.profile?.bank_account;
@@ -48,7 +48,7 @@ class ProfileNetworthCalculator {
         return new ProfileNetworthCalculator(profileData, items, bankBalance);
     }
 
-    validate() {
+    #validate() {
         if (!this.profileData) {
             throw new ValidationError('Profile data must be provided');
         }
