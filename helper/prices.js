@@ -26,7 +26,12 @@ let isLoadingPrices = null;
 async function getPrices(cache = true, retries = 3) {
     if (retries <= 0) throw new PricesError(`Failed to retrieve prices`);
 
-    if (cachedPrices?.lastCache > Date.now() - 1000 * 60 * 5 && cache) return cachedPrices.prices;
+    let cacheTime = 1000 * 60 * 5;
+    if (typeof cache === 'number') {
+        cacheTime = cache;
+    }
+
+    if (cachedPrices?.lastCache > Date.now() - cacheTime && cache) return cachedPrices.prices;
 
     if (isLoadingPrices) return isLoadingPrices;
 
