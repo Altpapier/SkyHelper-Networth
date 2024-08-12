@@ -52,7 +52,7 @@ class UpdateManager {
         try {
             const packageInfo = await axios.get('https://registry.npmjs.org/skyhelper-networth');
             const latestVersion = packageInfo.data['dist-tags'].latest;
-            const currentVersion = require('./package.json').version;
+            const currentVersion = require('../package.json').version;
 
             if (latestVersion !== currentVersion) {
                 console.warn(`[SKYHELPER-NETWORTH] An update is available! Current version: ${currentVersion}, Latest version: ${latestVersion}`);

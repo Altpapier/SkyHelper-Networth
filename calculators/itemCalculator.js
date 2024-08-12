@@ -324,10 +324,15 @@ const calculateItem = (item, prices, nonCosmetic, returnItemData) => {
                 let baseAttributePrice = prices[`attribute_shard_${attribute}`];
                 if (attributesBaseCosts[itemId] && prices[attributesBaseCosts[itemId]] < baseAttributePrice) {
                     baseAttributePrice = prices[attributesBaseCosts[itemId]];
-                } else if (/^(|hot_|fiery_|burning_|infernal_)(aurora|crimson|terror|hollow|fervor)_helmet$/.test(itemId) && prices[`kuudra_helmet_${attribute}`] < baseAttributePrice) {
+                } else if (
+                    /^(|hot_|fiery_|burning_|infernal_)(aurora|crimson|terror|hollow|fervor)_helmet$/.test(itemId) &&
+                    prices[`kuudra_helmet_${attribute}`] < baseAttributePrice
+                ) {
                     baseAttributePrice = prices[`kuudra_helmet_${attribute}`];
                 } else if (/^(|hot_|fiery_|burning_|infernal_)(aurora|crimson|terror|hollow|fervor)(_chestplate|_leggings|_boots)$/.test(itemId)) {
-                    const kuudraPrices = [prices[`kuudra_chestplate_${attribute}`], prices[`kuudra_leggings_${attribute}`], prices[`kuudra_boots_${attribute}`]].filter((v) => v);
+                    const kuudraPrices = [prices[`kuudra_chestplate_${attribute}`], prices[`kuudra_leggings_${attribute}`], prices[`kuudra_boots_${attribute}`]].filter(
+                        (v) => v
+                    );
                     const kuudraPrice = kuudraPrices.reduce((a, b) => a + b, 0) / kuudraPrices.length;
                     if (kuudraPrice && (!baseAttributePrice || kuudraPrice < baseAttributePrice)) baseAttributePrice = kuudraPrice;
                 }
@@ -569,7 +574,9 @@ const calculateItem = (item, prices, nonCosmetic, returnItemData) => {
                         if (!slot.costs) unlockedSlots.push(slot.slot_type);
                         const key = Object.keys(ExtraAttributesGems).find((k) => k.startsWith(slot.slot_type) && !k.endsWith('_gem'));
                         if (key) {
-                            const type = ['COMBAT', 'OFFENSIVE', 'DEFENSIVE', 'MINING', 'UNIVERSAL'].includes(slot.slot_type) ? ExtraAttributesGems[`${key}_gem`] : slot.slot_type;
+                            const type = ['COMBAT', 'OFFENSIVE', 'DEFENSIVE', 'MINING', 'UNIVERSAL'].includes(slot.slot_type)
+                                ? ExtraAttributesGems[`${key}_gem`]
+                                : slot.slot_type;
                             gems.push({
                                 type,
                                 tier: ExtraAttributesGems[key] instanceof Object ? ExtraAttributesGems[key].quality : ExtraAttributesGems[key],
@@ -743,7 +750,11 @@ const calculateItem = (item, prices, nonCosmetic, returnItemData) => {
             calculation.push(calculationData);
         }
 
-        const isSoulbound = !!(ExtraAttributes.donated_museum || item.tag.display?.Lore?.includes('§8§l* §8Co-op Soulbound §8§l*') || item.tag.display?.Lore?.includes('§8§l* §8Soulbound §8§l*'));
+        const isSoulbound = !!(
+            ExtraAttributes.donated_museum ||
+            item.tag.display?.Lore?.includes('§8§l* §8Co-op Soulbound §8§l*') ||
+            item.tag.display?.Lore?.includes('§8§l* §8Soulbound §8§l*')
+        );
         const data = { name: itemName, loreName: item.tag.display.Name, id: itemId, price, base, calculation, count: item.Count || 1, soulbound: isSoulbound };
         if (returnItemData) data.item = item;
         return data;
