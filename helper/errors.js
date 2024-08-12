@@ -19,7 +19,7 @@ class ItemsError extends Error {
     }
 }
 
-class NetworthTypeError extends Error {
+class ValidationError extends Error {
     constructor(message) {
         super();
         this.message = message;
@@ -30,5 +30,5 @@ module.exports = {
     NetworthError,
     PricesError,
     ItemsError,
-    NetworthTypeError,
+    ValidationError,
 };

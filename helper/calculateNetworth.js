@@ -3,15 +3,10 @@ const { calculateSackItem } = require('../calculators/sacksCalculator');
 const { calculateEssence } = require('../calculators/essenceCalculator');
 const { calculateItem } = require('../calculators/itemCalculator');
 const { getPetLevel } = require('../constants/pets');
-const { NetworthTypeError } = require('./errors');
-const NetworthTypes = require('../NetworthTypes');
 
-const calculateNetworth = (items, purseBalance, bankBalance, personalBankBalance, prices, options) => {
-    const { networthType, onlyNetworth, includeItemData, stackItems } = options;
-    validateTypes(networthType);
+function calculateNetworth(items, purseBalance, bankBalance, personalBankBalance, prices, options, nonCosmetic) {
+    const { onlyNetworth, includeItemData, stackItems } = options;
     const categories = {};
-
-    const nonCosmetic = networthType === NetworthTypes.NonCosmetic;
 
     for (const [category, categoryItems] of Object.entries(items)) {
         // Calculate networth for each category
@@ -69,22 +64,18 @@ const calculateNetworth = (items, purseBalance, bankBalance, personalBankBalance
     const unsoulboundTotal = Object.values(categories).reduce((acc, category) => acc + category.unsoulboundTotal, 0) + (bankBalance || 0) + (purseBalance || 0) + (personalBankBalance || 0);
 
     return {
-        noInventory: !items.inventory?.length,
         networth: total,
         unsoulboundNetworth: unsoulboundTotal,
+        noInventory: !items.inventory?.length,
+        isNonCosmetic: !!nonCosmetic,
         purse: purseBalance || 0,
         bank: bankBalance || 0,
         personalBank: personalBankBalance || 0,
         types: categories,
     };
-};
+}
 
-const calculateItemNetworth = (item, prices, options) => {
-    const { networthType, includeItemData } = options;
-    validateTypes(networthType);
-
-    const nonCosmetic = networthType === NetworthTypes.NonCosmetic;
-
+function calculateItemNetworth(item, prices, includeItemData, nonCosmetic) {
     const isPet = item.tag?.ExtraAttributes?.petInfo || item.exp;
     if (isPet !== undefined) {
         const petInfoData = item.tag?.ExtraAttributes?.petInfo;
@@ -95,12 +86,6 @@ const calculateItemNetworth = (item, prices, options) => {
         return calculatePet(petInfo, prices);
     }
     return calculateItem(item, prices, nonCosmetic, includeItemData);
-};
-
-function validateTypes(networthType) {
-    if (!Object.values(NetworthTypes).includes(networthType)) {
-        throw new NetworthTypeError(`Invalid networth type: ${type}`);
-    }
 }
 
 module.exports = {

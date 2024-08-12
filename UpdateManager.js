@@ -68,4 +68,4 @@ class UpdateManager {
  */
 const updateManager = new UpdateManager();
 
-module.exports = updateManager;
+module.exports = { updateManager };

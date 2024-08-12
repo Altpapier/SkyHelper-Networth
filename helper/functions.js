@@ -10,13 +10,18 @@ function titleCase(str) {
     return str;
 }
 
-const decodeData = async (data) => {
+async function decodeData(data) {
     const parsedNbt = await parse(Buffer.from(data, 'base64'));
     const simplifiedNbt = simplify(parsedNbt.parsed);
     return simplifiedNbt.i;
-};
+}
+
+async function sleep(ms) {
+    return new Promise((resolve) => setTimeout(resolve, ms));
+}
 
 module.exports = {
     titleCase,
     decodeData,
+    sleep,
 };
