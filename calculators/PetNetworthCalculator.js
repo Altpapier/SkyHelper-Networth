@@ -4,7 +4,6 @@ const { applicationWorth } = require('../constants/applicationWorth');
 const { titleCase } = require('../helper/functions');
 const { blockedCandyReducePets, soulboundPets, tiers } = require('../constants/pets');
 const { applicationWorth } = require('../constants/applicationWorth');
-const { getHypixelItemInformationFromId } = require('../constants/itemsMap');
 
 const networthManager = require('./NetworthManager');
 
@@ -170,4 +169,4 @@ class PetNetworthCalculator {
     }
 }
 
-module.exports = { ItemNetworthCalculator };
+module.exports = { PetNetworthCalculator };
