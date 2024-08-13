@@ -34,7 +34,7 @@ class PetNetworthCalculator {
     async getNetworth(prices, { cachePrices, pricesRetries, includeItemData }) {
         const parsedPrices = await parsePrices(prices, cachePrices ?? networthManager.cachePrices, pricesRetries ?? networthManager.pricesRetries);
         await networthManager.itemsPromise;
-        return this.#calculate(parsedPrices, false, includeItemData ?? networthManager.includeItemData);
+        return this.#calculate(parsedPrices, false);
     }
 
     /**
@@ -45,7 +45,7 @@ class PetNetworthCalculator {
     async getNonCosmeticNetworth(prices, { cachePrices, pricesRetries, includeItemData }) {
         const parsedPrices = await parsePrices(prices, cachePrices ?? networthManager.cachePrices, pricesRetries ?? networthManager.pricesRetries);
         await networthManager.itemsPromise;
-        return this.#calculate(parsedPrices, true, includeItemData ?? networthManager.includeItemData);
+        return this.#calculate(parsedPrices, true);
     }
 
     isSoulbound() {
