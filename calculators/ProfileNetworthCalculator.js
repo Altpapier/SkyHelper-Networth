@@ -6,6 +6,24 @@ const networthManager = require('./NetworthManager');
 
 class ProfileNetworthCalculator {
     /**
+     * Creates a new ProfileNetworthCalculator
+     * @param {object} profileData The profile data from the Hypixel API (profile.members[uuid])
+     * @param {object} [museumData] The museum data from the Hypixel API (museum.members[uuid]). If not provided, the museum data will not be included in the networth calculation
+     * @param {number} bankBalance The bank balance of the player from the Hypixel API (profile.banking.balance)
+     */
+    constructor(profileData, museumData, bankBalance) {
+        this.profileData = profileData;
+        this.museumData = museumData;
+        this.bankBalance = bankBalance || 0;
+        this.items = {};
+
+        this.#validate();
+
+        this.purse = profileData.currencies?.coin_purse;
+        this.personalBankBalance = profileData.profile?.bank_account;
+    }
+
+    /**
      * Creates a new PreDecodedNetworthCalculator
      * @param {object} profileData The profile data from the Hypixel API (profile.members[uuid])
      * @param {{
@@ -26,26 +44,10 @@ class ProfileNetworthCalculator {
      *        }} items Pre-parsed inventories, most inventories are just decoded except for sacks, essence, and pets which are parsed specifically as listed above, museum is an array of member[uuid].items and member[uuid].special combined and decoded (see {@link parseItems})
      * @param {number} bankBalance The bank balance of the player from the Hypixel API (profile.banking.balance)
      */
-    constructor(profileData, items, bankBalance) {
-        this.profileData = profileData;
-        this.items = items || {};
-        this.bankBalance = bankBalance || 0;
-
-        this.#validate();
-
-        this.purse = profileData.currencies?.coin_purse;
-        this.personalBankBalance = profileData.profile?.bank_account;
-    }
-
-    /**
-     * Creates a new ProfileNetworthCalculator
-     * @param {object} profileData The profile data from the Hypixel API (profile.members[uuid])
-     * @param {object} [museumData] The museum data from the Hypixel API (museum.members[uuid]). If not provided, the museum data will not be included in the networth calculation
-     * @param {number} bankBalance The bank balance of the player from the Hypixel API (profile.banking.balance)
-     */
-    static async fromProfile(profileData, museumData, bankBalance) {
-        const items = await parseItems(this.profileData, museumData);
-        return new ProfileNetworthCalculator(profileData, items, bankBalance);
+    static fromPreParsed(profileData, items, bankBalance) {
+        const calculator = new ProfileNetworthCalculator(profileData, {}, bankBalance);
+        calculator.items = items;
+        return calculator;
     }
 
     #validate() {
@@ -81,6 +83,10 @@ class ProfileNetworthCalculator {
     }
 
     async #calculate(prices, { cachePrices, pricesRetries, onlyNetworth, includeItemData, stackItems }, nonCosmetic) {
+        if (!this.items) {
+            this.items = await parseItems(this.profileData, this.museumData);
+        }
+
         await postParseItems(this.profileData, this.items);
         const parsedPrices = await parsePrices(prices, cachePrices ?? networthManager.cachePrices, pricesRetries ?? networthManager.pricesRetries);
         await networthManager.itemsPromise;
