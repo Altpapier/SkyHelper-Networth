@@ -1,27 +1,8 @@
-const { calculateItemNetworth } = require('../helper/calculateNetworth');
 const { parsePrices } = require('../helper/prices');
-const { calculatePet } = require('./petCalculator');
 const { titleCase } = require('../helper/functions');
-const { getPetLevel } = require('../constants/pets');
-const { prestiges } = require('../constants/prestiges');
-const { applicationWorth, enchantsWorth } = require('../constants/applicationWorth');
-const {
-    blockedEnchants,
-    ignoredEnchants,
-    stackingEnchants,
-    ignoreSilex,
-    masterStars,
-    validRunes,
-    allowedRecombTypes,
-    allowedRecombIds,
-    attributesBaseCosts,
-    enrichments,
-    pickonimbusDurability,
-    specialEnchantmentMatches,
-} = require('../constants/misc');
-const { reforges } = require('../constants/reforges');
 const { getHypixelItemInformationFromId } = require('../constants/itemsMap');
-
+const { ItemChecker } = require('./ItemChecker');
+const { ItemManipulator } = require('./ItemManipulator');
 const networthManager = require('./NetworthManager');
 
 class ItemNetworthCalculator {
@@ -80,7 +61,9 @@ class ItemNetworthCalculator {
     isCosmetic() {
         const check = (this.itemId + this.itemName).toLowerCase();
         const itemLore = item.tag.display?.Lore || [];
-        return skyblockItem?.category === 'COSMETIC' || check.includes('dye') || check.includes('skin') || itemLore.at(-1)?.includes('COSMETIC') || this.#isRune();
+        return (
+            skyblockItem?.category === 'COSMETIC' || check.includes('dye') || check.includes('skin') || itemLore.at(-1)?.includes('COSMETIC') || ItemChecker.isRune(this)
+        );
     }
 
     isSoulbound() {
@@ -106,7 +89,7 @@ class ItemNetworthCalculator {
         }
 
         // RUNES (Item)
-        if (this.#isRune()) {
+        if (ItemChecker.isRune(this)) {
             const [runeType, runeTier] = Object.entries(this.extraAttributes.runes)[0];
             this.itemId = `RUNE_${runeType}_${runeTier}`.toLowerCase();
         }
@@ -149,96 +132,16 @@ class ItemNetworthCalculator {
         this.#getBasePrice(prices, nonCosmetic);
         this.calculation = [];
 
-        if (this.#isPickonimbus()) this.#calculatePickonimbus();
-        if (this.#hasHotPotatoBook()) this.#calculateHotPotatoBook(prices);
-        if (this.#hasRecomb()) this.#calculateRecomb(prices);
-        if (this.#isNewYearCakeBag()) this.#calculateNewYearCakeBag(prices);
+        if (ItemChecker.isPickonimbus(this)) ItemManipulator.calculatePickonimbus(item);
+        if (ItemChecker.hasGodRollAttributes(this)) ItemManipulator.calculateGodRollAttributes(item, prices);
+        if (ItemChecker.isPrestiged(this)) ItemManipulator.calculatePrestige(item, prices);
+        if (ItemChecker.hasHotPotatoBook(this)) ItemManipulator.calculateHotPotatoBook(item, prices);
+        if (ItemChecker.hasRecomb(this)) ItemManipulator.calculateRecomb(item, prices);
+        if (ItemChecker.isNewYearCakeBag(this)) ItemManipulator.calculateNewYearCakeBag(item, prices);
 
         const data = { name: itemName, loreName: item.tag.display.Name, id: itemId, price, base, calculation, count: item.Count || 1, soulbound: this.isSoulbound() };
         if (returnItemData) data.item = item;
         return data;
-    }
-
-    #isRune() {
-        return (this.itemId === 'RUNE' || this.itemId === 'UNIQUE_RUNE') && this.extraAttributes.runes && Object.keys(this.extraAttributes.runes).length > 0;
-    }
-
-    #isPickonimbus() {
-        return this.itemId === 'PICKONIMBUS' && this.extraAttributes.pickonimbus_durability;
-    }
-
-    #calculatePickonimbus() {
-        const reduction = this.extraAttributes.pickonimbus_durability / pickonimbusDurability;
-        this.price += this.price * (reduction - 1);
-        this.base += this.price * (reduction - 1);
-    }
-
-    #hasHotPotatoBook() {
-        return !!this.extraAttributes.hot_potato_count;
-    }
-
-    #calculateHotPotatoBook(prices) {
-        const hotPotatoCount = Number(this.extraAttributes.hot_potato_count);
-        if (hotPotatoCount > 10) {
-            const calculationData = {
-                id: 'FUMING_POTATO_BOOK',
-                type: 'fuming_potato_book',
-                price: (prices['fuming_potato_book'] || 0) * (hotPotatoCount - 10) * applicationWorth.fumingPotatoBook,
-                count: hotPotatoCount - 10,
-            };
-            this.price += calculationData.price;
-            this.calculation.push(calculationData);
-        }
-        const calculationData = {
-            id: 'HOT_POTATO_BOOK',
-            type: 'hot_potato_book',
-            price: (prices['hot_potato_book'] || 0) * Math.min(hotPotatoCount, 10) * applicationWorth.hotPotatoBook,
-            count: Math.min(hotPotatoCount, 10),
-        };
-        this.price += calculationData.price;
-        this.calculation.push(calculationData);
-    }
-
-    #hasRecomb() {
-        return this.extraAttributes.rarity_upgrades > 0 && !this.extraAttributes.item_tier;
-    }
-
-    #calculateRecomb(prices) {
-        const lastLoreLine = item.tag.display?.Lore?.at(-1);
-        if (
-            ExtraAttributes.enchantments ||
-            allowedRecombTypes.includes(skyblockItem?.category) ||
-            allowedRecombIds.includes(itemId) ||
-            lastLoreLine?.includes('ACCESSORY') ||
-            lastLoreLine?.includes('HATCESSORY')
-        ) {
-            const recombApplicationWorth = itemId === 'bone_boomerang' ? applicationWorth.recomb * 0.5 : applicationWorth.recomb;
-            const calculationData = {
-                id: 'RECOMBOBULATOR_3000',
-                type: 'recombobulator_3000',
-                price: (prices['recombobulator_3000'] || 0) * recombApplicationWorth,
-                count: 1,
-            };
-            this.price += calculationData.price;
-            this.calculation.push(calculationData);
-        }
-    }
-
-    #isNewYearCakeBag() {
-        return !!this.extraAttributes.new_year_cake_bag_years;
-    }
-
-    #calculateNewYearCakeBag(prices) {
-        let cakesPrice = 0;
-        for (const year of this.extraAttributes.new_year_cake_bag_years) cakesPrice += prices[`new_year_cake_${year}`] || 0;
-        const calculationData = {
-            id: `NEW_YEAR_CAKES`,
-            type: 'new_year_cakes',
-            price: cakesPrice,
-            count: 1,
-        };
-        this.price += calculationData.price;
-        this.calculation.push(calculationData);
     }
 }
 
