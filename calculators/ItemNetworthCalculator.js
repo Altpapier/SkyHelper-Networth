@@ -63,7 +63,7 @@ class ItemNetworthCalculator {
     async getNetworth(prices, { cachePrices, pricesRetries, includeItemData }) {
         const parsedPrices = await parsePrices(prices, cachePrices ?? networthManager.cachePrices, pricesRetries ?? networthManager.pricesRetries);
         await networthManager.itemsPromise;
-        return this.#calculateItem(parsedPrices, false, includeItemData ?? networthManager.includeItemData);
+        return this.#calculate(parsedPrices, false, includeItemData ?? networthManager.includeItemData);
     }
 
     /**
@@ -74,7 +74,7 @@ class ItemNetworthCalculator {
     async getNonCosmeticNetworth(prices, { cachePrices, pricesRetries, includeItemData }) {
         const parsedPrices = await parsePrices(prices, cachePrices ?? networthManager.cachePrices, pricesRetries ?? networthManager.pricesRetries);
         await networthManager.itemsPromise;
-        return this.#calculateItem(parsedPrices, true, includeItemData ?? networthManager.includeItemData);
+        return this.#calculate(parsedPrices, true, includeItemData ?? networthManager.includeItemData);
     }
 
     isCosmetic() {
@@ -141,7 +141,7 @@ class ItemNetworthCalculator {
         }
     }
 
-    #calculateItem(prices, nonCosmetic, returnItemData) {
+    #calculate(prices, nonCosmetic, returnItemData) {
         if (this.itemId === 'PET' && this.extraAttributes.petInfo); // use pet calculator
         if (!this.itemId) return null;
         if (this.isCosmetic()) return null;
