@@ -199,9 +199,9 @@ const calculateItem = (item, prices, returnItemData) => {
     }
 
     // MIDAS WEAPONS
-    if (itemId === 'midas_staff' || itemId === 'midas_sword') {
-      const maxBid = itemId === 'midas_sword' ? 50_000_000 : 100_000_000;
-      const type = itemId === 'midas_sword' ? 'midas_sword_50m' : 'midas_staff_100m';
+    if (['midas_sword', 'starred_midas_sword', 'midas_staff', 'starred_midas_staff'].includes(itemId)) {
+      const maxBid = itemId.includes('midas_sword') ? 50_000_000 : 100_000_000;
+      const type = itemId.includes('midas_sword') ? `${itemId}_50m` : `${itemId}_100m`;
 
       // If max price paid
       if (ExtraAttributes.winning_bid >= maxBid) {
