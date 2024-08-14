@@ -1,7 +1,6 @@
 const { parsePrices } = require('../helper/prices');
 const { titleCase } = require('../helper/functions');
 const { getHypixelItemInformationFromId } = require('../constants/itemsMap');
-const { ItemChecker } = require('./ItemChecker');
 const { ItemManipulator } = require('./ItemManipulator');
 const networthManager = require('./NetworthManager');
 
@@ -74,6 +73,10 @@ class ItemNetworthCalculator {
         );
     }
 
+    #isRune() {
+        return (this.itemId === 'RUNE' || this.itemId === 'UNIQUE_RUNE') && this.extraAttributes.runes && Object.keys(this.extraAttributes.runes).length > 0;
+    }
+
     #getBasePrice(prices, nonCosmetic) {
         if (this.extraAttributes.skin && !nonCosmetic) {
             if (prices[`${this.itemId}_SKINNED_${this.extraAttributes.skin.toLowerCase()}`]) this.itemId += `_SKINNED_${this.extraAttributes.skin.toLowerCase()}`;
@@ -132,12 +135,10 @@ class ItemNetworthCalculator {
         this.#getBasePrice(prices, nonCosmetic);
         this.calculation = [];
 
-        if (ItemChecker.isPickonimbus(this)) ItemManipulator.calculatePickonimbus(item);
-        if (ItemChecker.hasGodRollAttributes(this)) ItemManipulator.calculateGodRollAttributes(item, prices);
-        if (ItemChecker.isPrestiged(this)) ItemManipulator.calculatePrestige(item, prices);
-        if (ItemChecker.hasHotPotatoBook(this)) ItemManipulator.calculateHotPotatoBook(item, prices);
-        if (ItemChecker.hasRecomb(this)) ItemManipulator.calculateRecomb(item, prices);
-        if (ItemChecker.isNewYearCakeBag(this)) ItemManipulator.calculateNewYearCakeBag(item, prices);
+        ItemManipulator.calculatePickonimbus(this);
+        ItemManipulator.calculateHotPotatoBook(this, prices);
+        ItemManipulator.calculateRecomb(this, prices);
+        ItemManipulator.calculateNewYearCakeBag(this, prices);
 
         const data = { name: itemName, loreName: item.tag.display.Name, id: itemId, price, base, calculation, count: item.Count || 1, soulbound: this.isSoulbound() };
         if (returnItemData) data.item = item;
