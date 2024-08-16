@@ -1,4 +1,4 @@
-const applicationWorth = {
+const APPLICATION_WORTH = {
     enrichment: 0.5,
     farmingForDummies: 0.5,
     gemstonePowerScroll: 0.5,
@@ -15,7 +15,7 @@ const applicationWorth = {
     artOfPeace: 0.8,
     jalapenoBook: 0.8,
     manaDisintegrator: 0.8,
-    recomb: 0.8,
+    recombobulator: 0.8,
     thunderInABottle: 0.8,
     enchants: 0.85,
     shensAuctionPrice: 0.85,
@@ -47,6 +47,6 @@ const enchantsWorth = {
 };
 
 module.exports = {
-    applicationWorth,
+    APPLICATION_WORTH,
     enchantsWorth,
 };

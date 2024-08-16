@@ -36,8 +36,8 @@ const validRunes = [
     'RAINY_DAY_3',
 ];
 
-const allowedRecombTypes = ['ACCESSORY', 'NECKLACE', 'GLOVES', 'BRACELET', 'BELT', 'CLOAK'];
-const allowedRecombIds = [
+const ALLOWED_RECOMBOBULATED_CATEGORIES = ['ACCESSORY', 'NECKLACE', 'GLOVES', 'BRACELET', 'BELT', 'CLOAK'];
+const ALLOWED_RECOMBOBULATED_IDS = [
     'divan_helmet',
     'divan_chestplate',
     'divan_leggings',
@@ -76,7 +76,7 @@ const enrichments = [
     'TALISMAN_ENRICHMENT_SEA_CREATURE_CHANCE',
 ];
 
-const pickonimbusDurability = 5000;
+const PICKONIMBUS_DURABILITY = 5000;
 
 const specialEnchantmentMatches = {
     aiming: 'Dragon Tracer',
@@ -102,10 +102,10 @@ module.exports = {
     ignoreSilex,
     masterStars,
     validRunes,
-    allowedRecombTypes,
-    allowedRecombIds,
+    ALLOWED_RECOMBOBULATED_CATEGORIES,
+    ALLOWED_RECOMBOBULATED_IDS,
     attributesBaseCosts,
     enrichments,
-    pickonimbusDurability,
+    PICKONIMBUS_DURABILITY,
     specialEnchantmentMatches,
 };
