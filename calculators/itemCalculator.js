@@ -294,7 +294,7 @@ const calculateItem = (item, prices, returnItemData) => {
         }
 
         // Golden Bounty
-        if (name === 'scavenger' && value == 6) {
+        if (name === 'scavenger' && value >= 6) {
           const calculationData = {
             id: 'GOLDEN_BOUNTY',
             type: 'golden_bounty',
