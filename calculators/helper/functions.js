@@ -77,11 +77,9 @@ class Helper {
     }
 
     isCosmetic() {
-        const skyblockItem = getHypixelItemInformationFromId(this.itemId) || {};
         const testId = (this.itemId + this.itemName).toLowerCase();
-
-        const isCosmetic = skyblockItem.category === 'COSMETIC' || this.itemLore.at(-1)?.includes('COSMETIC');
         const isSkinOrDye = testId.includes('dye') || testId.includes('skin');
+        const isCosmetic = this.skyblockItem.category === 'COSMETIC' || this.itemLore.at(-1)?.includes('COSMETIC');
 
         return isCosmetic || isSkinOrDye || this.isRune();
     }
