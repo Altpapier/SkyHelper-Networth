@@ -1,5 +1,3 @@
-const { getHypixelItemInformationFromId } = require('../../constants/itemsMap');
-
 class Helper {
     constructor(itemData, itemId, itemName, itemLore, skyblockItem) {
         this.skyblockItem = skyblockItem;
