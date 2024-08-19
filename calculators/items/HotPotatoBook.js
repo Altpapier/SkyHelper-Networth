@@ -1,12 +1,8 @@
 const { APPLICATION_WORTH } = require('../../constants/applicationWorth');
 
-class HotPotatoBookCalculation {
-    constructor({ calculation, itemData, prices, price }) {
-        this.calculation = calculation;
-        this.itemData = itemData;
-        this.prices = prices;
-        this.price = price;
-        // this.calculate();
+class HotPotatoBookCalculation extends ItemHandler {
+    constructor() {
+        super();
     }
 
     isValid() {

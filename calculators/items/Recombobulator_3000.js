@@ -1,17 +1,10 @@
-const { APPLICATION_WORTH } = require('../../constants/applicationWorth');
 const { ALLOWED_RECOMBOBULATED_CATEGORIES, ALLOWED_RECOMBOBULATED_IDS } = require('../../constants/misc');
+const { APPLICATION_WORTH } = require('../../constants/applicationWorth');
+const { ItemHandler } = require('../handlers/ItemHandler');
 
-class Recombobulator3000Calculation {
-    constructor({ calculation, itemData, prices, itemId, price, itemLore, isRecombobulated, skyblockItem }) {
-        this.isRecombobulated = isRecombobulated;
-        this.skyblockItem = skyblockItem;
-        this.calculation = calculation;
-        this.itemLore = itemLore;
-        this.itemData = itemData;
-        this.prices = prices;
-        this.itemId = itemId;
-        this.price = price;
-        // this.calculate();
+class Recombobulator3000Calculation extends ItemHandler {
+    constructor() {
+        super();
     }
 
     isValid() {

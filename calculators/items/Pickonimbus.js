@@ -1,13 +1,11 @@
 const { PICKONIMBUS_DURABILITY } = require('../../constants/misc');
+const { ItemHandler } = require('../handlers/ItemHandler');
 
-class PickonimbusCalculation {
-    constructor({ calculation, itemData, prices, itemId, price }) {
-        this.calculation = calculation;
-        this.itemData = itemData;
-        this.prices = prices;
-        this.itemId = itemId;
-        this.price = price;
-        // this.calculate();
+class PickonimbusCalculation extends ItemHandler {
+    constructor({ somethingAdditionalIdk }) {
+        super();
+
+        this.test = somethingAdditionalIdk;
     }
 
     isValid() {
