@@ -1,7 +1,6 @@
 const { parsePrices } = require('../helper/prices');
 const { titleCase } = require('../helper/functions');
-const { titleCase } = require('../helper/functions');
-const networthManager = require('./NetworthManager');
+const networthManager = require('../managers/NetworthManager');
 
 class EssenceNetworthCalculator {
     /**
@@ -13,7 +12,7 @@ class EssenceNetworthCalculator {
 
         this.#validate();
 
-        this.this.price = 0;
+        this.price = 0;
         this.base = 0;
         this.calculation = [];
     }
@@ -26,20 +25,19 @@ class EssenceNetworthCalculator {
      * @returns {object} An object containing the item's networth calculation
      */
     async getNetworth(prices, { cachePrices, pricesRetries }) {
-        const parsedPrices = await parsePrices(prices, cachePrices ?? networthManager.cachePrices, pricesRetries ?? networthManager.pricesRetries);
         await networthManager.itemsPromise;
-        return this.#calculate(parsedPrices);
+        return this.#calculate(prices);
     }
 
     #calculate(prices) {
-        const itemPrice = prices[item.id.toLowerCase()] || 0;
+        const itemPrice = prices[this.itemData.id.toLowerCase()] || 0;
         if (!itemPrice) return null;
         return {
-            name: `${titleCase(item.id.split('_')[1])} Essence`,
-            id: item.id,
-            price: itemPrice * item.amount,
+            name: `${titleCase(this.itemData.id.split('_')[1])} Essence`,
+            id: this.itemData.id,
+            price: itemPrice * this.itemData.amount,
             calculation: [],
-            count: item.amount,
+            count: this.itemData.amount,
             soulbound: false,
         };
     }

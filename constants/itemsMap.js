@@ -2,7 +2,7 @@ let itemsMap = new Map();
 
 function setItems(items) {
     itemsMap = new Map();
-    for (let item of items) {
+    for (const item of items) {
         itemsMap.set(item.id, item);
     }
 }

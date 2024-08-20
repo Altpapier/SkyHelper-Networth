@@ -2,7 +2,7 @@ const { calculatePet } = require('./petCalculator');
 const { titleCase } = require('../helper/functions');
 const { getPetLevel } = require('../constants/pets');
 const { prestiges } = require('../constants/prestiges');
-const { applicationWorth, enchantsWorth } = require('../constants/applicationWorth');
+const { APPLICATION_WORTH, enchantsWorth } = require('../constants/applicationWorth');
 const {
     blockedEnchants,
     ignoredEnchants,
@@ -27,7 +27,7 @@ function starCost(prices, upgrade, star) {
     const calculationData = {
         id: upgrade.essence_type ? `${upgrade.essence_type}_ESSENCE` : upgrade.item_id,
         type: star ? 'star' : 'prestige',
-        price: (upgrade.amount || 0) * (upgradePrice || 0) * (upgrade.essence_type ? applicationWorth.essence : 1),
+        price: (upgrade.amount || 0) * (upgradePrice || 0) * (upgrade.essence_type ? APPLICATION_WORTH.essence : 1),
         count: upgrade.amount || 0,
     };
     if (star) calculationData.star = star;
@@ -67,7 +67,7 @@ function starCosts(prices, calculation, upgrades, prestigeItem) {
                 acc.price += val?.price || 0;
                 return acc;
             },
-            { id: prestigeItem, type: prestige ? 'prestige' : 'stars', price: 0, count: prestige ? 1 : star },
+            { id: prestigeItem, type: prestige ? 'prestige' : 'stars', price: 0, count: prestige ? 1 : star }
         );
 
         if (prestige && prices[prestigeItem.toLowerCase()]) calculationData.price += prices[prestigeItem.toLowerCase()];
@@ -178,7 +178,6 @@ const calculateItem = (item, prices, nonCosmetic, returnItemData) => {
                 });
             }
         }
-
         // UPGRADABLE ARMOR PRICE CALCULATION (eg. crimson)
         if (!itemData) {
             // if armor piece does not have base value
@@ -195,7 +194,7 @@ const calculateItem = (item, prices, nonCosmetic, returnItemData) => {
 
         // SHENS AUCTIONS PRICE PAID
         if (ExtraAttributes.price && ExtraAttributes.auction !== undefined && ExtraAttributes.bid !== undefined) {
-            const pricePaid = Number(ExtraAttributes.price) * applicationWorth.shensAuctionPrice;
+            const pricePaid = Number(ExtraAttributes.price) * APPLICATION_WORTH.shensAuctionPrice;
             if (pricePaid > price) {
                 price = pricePaid;
                 calculation.push({
@@ -227,7 +226,7 @@ const calculateItem = (item, prices, nonCosmetic, returnItemData) => {
                 const calculationData = {
                     id: itemId,
                     type: 'winning_bid',
-                    price: ExtraAttributes.winning_bid * applicationWorth.winningBid,
+                    price: ExtraAttributes.winning_bid * APPLICATION_WORTH.winningBid,
                     count: 1,
                 };
                 price = calculationData.price;
@@ -257,7 +256,7 @@ const calculateItem = (item, prices, nonCosmetic, returnItemData) => {
                     const calculationData = {
                         id: `${name}_${value}`.toUpperCase(),
                         type: 'enchant',
-                        price: (prices[`enchantment_${name.toLowerCase()}_${value}`] || 0) * applicationWorth.enchants,
+                        price: (prices[`enchantment_${name.toLowerCase()}_${value}`] || 0) * APPLICATION_WORTH.enchants,
                         count: 1,
                     };
                     enchantmentPrice += calculationData.price;
@@ -283,7 +282,7 @@ const calculateItem = (item, prices, nonCosmetic, returnItemData) => {
                         const calculationData = {
                             id: 'SIL_EX',
                             type: 'silex',
-                            price: (prices['sil_ex'] || 0) * efficiencyLevel * applicationWorth.silex,
+                            price: (prices['sil_ex'] || 0) * efficiencyLevel * APPLICATION_WORTH.silex,
                             count: efficiencyLevel,
                         };
                         price += calculationData.price;
@@ -296,7 +295,7 @@ const calculateItem = (item, prices, nonCosmetic, returnItemData) => {
                     const calculationData = {
                         id: 'GOLDEN_BOUNTY',
                         type: 'golden_bounty',
-                        price: (prices['GOLDEN_BOUNTY'] || 0) * applicationWorth.goldenBounty,
+                        price: (prices['GOLDEN_BOUNTY'] || 0) * APPLICATION_WORTH.goldenBounty,
                         count: 1,
                     };
                     price += calculationData.price;
@@ -306,7 +305,7 @@ const calculateItem = (item, prices, nonCosmetic, returnItemData) => {
                 const calculationData = {
                     id: `${name}_${value}`.toUpperCase(),
                     type: 'enchant',
-                    price: (prices[`enchantment_${name}_${value}`] || 0) * (enchantsWorth[name] || applicationWorth.enchants),
+                    price: (prices[`enchantment_${name}_${value}`] || 0) * (enchantsWorth[name] || APPLICATION_WORTH.enchants),
                     count: 1,
                 };
                 if (calculationData.price) {
@@ -331,13 +330,13 @@ const calculateItem = (item, prices, nonCosmetic, returnItemData) => {
                     baseAttributePrice = prices[`kuudra_helmet_${attribute}`];
                 } else if (/^(|hot_|fiery_|burning_|infernal_)(aurora|crimson|terror|hollow|fervor)(_chestplate|_leggings|_boots)$/.test(itemId)) {
                     const kuudraPrices = [prices[`kuudra_chestplate_${attribute}`], prices[`kuudra_leggings_${attribute}`], prices[`kuudra_boots_${attribute}`]].filter(
-                        (v) => v,
+                        (v) => v
                     );
                     const kuudraPrice = kuudraPrices.reduce((a, b) => a + b, 0) / kuudraPrices.length;
                     if (kuudraPrice && (!baseAttributePrice || kuudraPrice < baseAttributePrice)) baseAttributePrice = kuudraPrice;
                 }
                 if (!baseAttributePrice) continue;
-                const attributePrice = baseAttributePrice * shards * applicationWorth.attributes;
+                const attributePrice = baseAttributePrice * shards * APPLICATION_WORTH.attributes;
 
                 price += attributePrice;
                 calculation.push({
@@ -355,7 +354,7 @@ const calculateItem = (item, prices, nonCosmetic, returnItemData) => {
             const calculationData = {
                 id: 'POCKET_SACK_IN_A_SACK',
                 type: 'pocket_sack_in_a_sack',
-                price: (prices['pocket_sack_in_a_sack'] || 0) * ExtraAttributes.sack_pss * applicationWorth.pocketSackInASack,
+                price: (prices['pocket_sack_in_a_sack'] || 0) * ExtraAttributes.sack_pss * APPLICATION_WORTH.pocketSackInASack,
                 count: ExtraAttributes.sack_pss,
             };
             price += calculationData.price;
@@ -367,7 +366,7 @@ const calculateItem = (item, prices, nonCosmetic, returnItemData) => {
             const calculationData = {
                 id: 'WOOD_SINGULARITY',
                 type: 'wood_singularity',
-                price: (prices['wood_singularity'] || 0) * ExtraAttributes.wood_singularity_count * applicationWorth.woodSingularity,
+                price: (prices['wood_singularity'] || 0) * ExtraAttributes.wood_singularity_count * APPLICATION_WORTH.woodSingularity,
                 count: ExtraAttributes.wood_singularity_count,
             };
             price += calculationData.price;
@@ -379,7 +378,7 @@ const calculateItem = (item, prices, nonCosmetic, returnItemData) => {
             const calculationData = {
                 id: 'JALAPENO_BOOK',
                 type: 'jalapeno_book',
-                price: (prices['jalapeno_book'] || 0) * ExtraAttributes.jalapeno_count * applicationWorth.jalapenoBook,
+                price: (prices['jalapeno_book'] || 0) * ExtraAttributes.jalapeno_count * APPLICATION_WORTH.jalapenoBook,
                 count: ExtraAttributes.jalapeno_count,
             };
             price += calculationData.price;
@@ -391,7 +390,7 @@ const calculateItem = (item, prices, nonCosmetic, returnItemData) => {
             const calculationData = {
                 id: 'TRANSMISSION_TUNER',
                 type: 'tuned_transmission',
-                price: (prices['transmission_tuner'] || 0) * ExtraAttributes.tuned_transmission * applicationWorth.tunedTransmission,
+                price: (prices['transmission_tuner'] || 0) * ExtraAttributes.tuned_transmission * APPLICATION_WORTH.tunedTransmission,
                 count: ExtraAttributes.tuned_transmission,
             };
             price += calculationData.price;
@@ -403,7 +402,7 @@ const calculateItem = (item, prices, nonCosmetic, returnItemData) => {
             const calculationData = {
                 id: 'MANA_DISINTEGRATOR',
                 type: 'mana_disintegrator',
-                price: (prices['mana_disintegrator'] || 0) * ExtraAttributes.mana_disintegrator_count * applicationWorth.manaDisintegrator,
+                price: (prices['mana_disintegrator'] || 0) * ExtraAttributes.mana_disintegrator_count * APPLICATION_WORTH.manaDisintegrator,
                 count: ExtraAttributes.mana_disintegrator_count,
             };
             price += calculationData.price;
@@ -416,7 +415,7 @@ const calculateItem = (item, prices, nonCosmetic, returnItemData) => {
             const calculationData = {
                 id: 'THUNDER_IN_A_BOTTLE',
                 type: 'thunder_charge',
-                price: (prices['thunder_in_a_bottle'] || 0) * thunderUpgrades * applicationWorth.thunderInABottle,
+                price: (prices['thunder_in_a_bottle'] || 0) * thunderUpgrades * APPLICATION_WORTH.thunderInABottle,
                 count: thunderUpgrades,
             };
             price += calculationData.price;
@@ -431,7 +430,7 @@ const calculateItem = (item, prices, nonCosmetic, returnItemData) => {
                 const calculationData = {
                     id: `RUNE_${runeId.toUpperCase()}`,
                     type: 'rune',
-                    price: (prices[`rune_${runeId}`.toLowerCase()] || 0) * applicationWorth.runes,
+                    price: (prices[`rune_${runeId}`.toLowerCase()] || 0) * APPLICATION_WORTH.runes,
                     count: 1,
                 };
                 price += calculationData.price;
@@ -447,7 +446,7 @@ const calculateItem = (item, prices, nonCosmetic, returnItemData) => {
                 const calculationData = {
                     id: 'FUMING_POTATO_BOOK',
                     type: 'fuming_potato_book',
-                    price: (prices['fuming_potato_book'] || 0) * (hotPotatoCount - 10) * applicationWorth.fumingPotatoBook,
+                    price: (prices['fuming_potato_book'] || 0) * (hotPotatoCount - 10) * APPLICATION_WORTH.fumingPotatoBook,
                     count: hotPotatoCount - 10,
                 };
                 price += calculationData.price;
@@ -457,7 +456,7 @@ const calculateItem = (item, prices, nonCosmetic, returnItemData) => {
             const calculationData = {
                 id: 'HOT_POTATO_BOOK',
                 type: 'hot_potato_book',
-                price: (prices['hot_potato_book'] || 0) * Math.min(hotPotatoCount, 10) * applicationWorth.hotPotatoBook,
+                price: (prices['hot_potato_book'] || 0) * Math.min(hotPotatoCount, 10) * APPLICATION_WORTH.hotPotatoBook,
                 count: Math.min(hotPotatoCount, 10),
             };
             price += calculationData.price;
@@ -469,7 +468,7 @@ const calculateItem = (item, prices, nonCosmetic, returnItemData) => {
             const calculationData = {
                 id: ExtraAttributes.dye_item,
                 type: 'dye',
-                price: (prices[ExtraAttributes.dye_item.toLowerCase()] || 0) * applicationWorth.dye,
+                price: (prices[ExtraAttributes.dye_item.toLowerCase()] || 0) * APPLICATION_WORTH.dye,
                 count: 1,
             };
             price += calculationData.price;
@@ -483,7 +482,7 @@ const calculateItem = (item, prices, nonCosmetic, returnItemData) => {
             const calculationData = {
                 id: 'THE_ART_OF_WAR',
                 type: 'the_art_of_war',
-                price: (prices['the_art_of_war'] || 0) * artOfWarCount * applicationWorth.artOfWar,
+                price: (prices['the_art_of_war'] || 0) * artOfWarCount * APPLICATION_WORTH.artOfWar,
                 count: artOfWarCount,
             };
             price += calculationData.price;
@@ -495,7 +494,7 @@ const calculateItem = (item, prices, nonCosmetic, returnItemData) => {
             const calculationData = {
                 id: 'THE_ART_OF_PEACE',
                 type: 'the_art_of_peace',
-                price: (prices['the_art_of_peace'] || 0) * ExtraAttributes.artOfPeaceApplied * applicationWorth.artOfPeace,
+                price: (prices['the_art_of_peace'] || 0) * ExtraAttributes.artOfPeaceApplied * APPLICATION_WORTH.artOfPeace,
                 count: ExtraAttributes.artOfPeaceApplied,
             };
             price += calculationData.price;
@@ -507,7 +506,7 @@ const calculateItem = (item, prices, nonCosmetic, returnItemData) => {
             const calculationData = {
                 id: 'FARMING_FOR_DUMMIES',
                 type: 'farming_for_dummies',
-                price: (prices['farming_for_dummies'] || 0) * ExtraAttributes.farming_for_dummies_count * applicationWorth.farmingForDummies,
+                price: (prices['farming_for_dummies'] || 0) * ExtraAttributes.farming_for_dummies_count * APPLICATION_WORTH.farmingForDummies,
                 count: ExtraAttributes.farming_for_dummies_count,
             };
             price += calculationData.price;
@@ -521,7 +520,7 @@ const calculateItem = (item, prices, nonCosmetic, returnItemData) => {
                 const calculationData = {
                     id: ExtraAttributes.talisman_enrichment.toUpperCase(),
                     type: 'talisman_enrichment',
-                    price: enrichmentPrice * applicationWorth.enrichment,
+                    price: enrichmentPrice * APPLICATION_WORTH.enrichment,
                     count: 1,
                 };
                 price += calculationData.price;
@@ -539,11 +538,11 @@ const calculateItem = (item, prices, nonCosmetic, returnItemData) => {
                 lastLoreLine?.includes('ACCESSORY') ||
                 lastLoreLine?.includes('HATCESSORY')
             ) {
-                const recombApplicationWorth = itemId === 'bone_boomerang' ? applicationWorth.recomb * 0.5 : applicationWorth.recomb;
+                const recombAPPLICATION_WORTH = itemId === 'bone_boomerang' ? APPLICATION_WORTH.recomb * 0.5 : APPLICATION_WORTH.recomb;
                 const calculationData = {
                     id: 'RECOMBOBULATOR_3000',
                     type: 'recombobulator_3000',
-                    price: (prices['recombobulator_3000'] || 0) * recombApplicationWorth,
+                    price: (prices['recombobulator_3000'] || 0) * recombAPPLICATION_WORTH,
                     count: 1,
                 };
                 price += calculationData.price;
@@ -593,7 +592,7 @@ const calculateItem = (item, prices, nonCosmetic, returnItemData) => {
                 // Currently just gemstone chambers
                 const isDivansArmor = ['divan_helmet', 'divan_chestplate', 'divan_leggings', 'divan_boots'].includes(itemId);
                 if (isDivansArmor || /^(|hot_|fiery_|burning_|infernal_)(aurora|crimson|terror|hollow|fervor)(_helmet|_chestplate|_leggings|_boots)$/.test(itemId)) {
-                    const application = isDivansArmor ? applicationWorth.gemstoneChambers : applicationWorth.gemstoneSlots;
+                    const application = isDivansArmor ? APPLICATION_WORTH.gemstoneChambers : APPLICATION_WORTH.gemstoneSlots;
                     if (skyblockItem) {
                         const gemstoneSlots = JSON.parse(JSON.stringify(skyblockItem.gemstone_slots));
                         for (const unlockedSlot of unlockedSlots) {
@@ -626,7 +625,7 @@ const calculateItem = (item, prices, nonCosmetic, returnItemData) => {
                     const calculationData = {
                         id: `${gemstone.tier}_${gemstone.type}_GEM`,
                         type: 'gemstone',
-                        price: (prices[`${gemstone.tier}_${gemstone.type}_gem`.toLowerCase()] || 0) * applicationWorth.gemstone,
+                        price: (prices[`${gemstone.tier}_${gemstone.type}_gem`.toLowerCase()] || 0) * APPLICATION_WORTH.gemstone,
                         count: 1,
                     };
                     price += calculationData.price;
@@ -640,7 +639,7 @@ const calculateItem = (item, prices, nonCosmetic, returnItemData) => {
             const calculationData = {
                 id: ExtraAttributes.power_ability_scroll,
                 type: 'gemstone_power_scroll',
-                price: (prices[ExtraAttributes.power_ability_scroll] || 0) * applicationWorth.gemstonePowerScroll,
+                price: (prices[ExtraAttributes.power_ability_scroll] || 0) * APPLICATION_WORTH.gemstonePowerScroll,
                 count: 1,
             };
             price += calculationData.price;
@@ -655,7 +654,7 @@ const calculateItem = (item, prices, nonCosmetic, returnItemData) => {
                 const calculationData = {
                     id: reforges[reforge],
                     type: 'reforge',
-                    price: (prices[reforges[reforge]] || 0) * applicationWorth.reforge,
+                    price: (prices[reforges[reforge]] || 0) * APPLICATION_WORTH.reforge,
                     count: 1,
                 };
                 price += calculationData.price;
@@ -676,7 +675,7 @@ const calculateItem = (item, prices, nonCosmetic, returnItemData) => {
                     const calculationData = {
                         id: masterStars[star],
                         type: 'master_star',
-                        price: (prices[masterStars[star]] || 0) * applicationWorth.masterStar,
+                        price: (prices[masterStars[star]] || 0) * APPLICATION_WORTH.masterStar,
                         count: 1,
                     };
                     price += calculationData.price;
@@ -696,7 +695,7 @@ const calculateItem = (item, prices, nonCosmetic, returnItemData) => {
                 const calculationData = {
                     id,
                     type: 'necron_scroll',
-                    price: (prices[id.toLowerCase()] || 0) * applicationWorth.necronBladeScroll,
+                    price: (prices[id.toLowerCase()] || 0) * APPLICATION_WORTH.necronBladeScroll,
                     count: 1,
                 };
                 price += calculationData.price;
@@ -712,7 +711,7 @@ const calculateItem = (item, prices, nonCosmetic, returnItemData) => {
                     const calculationData = {
                         id: ExtraAttributes[type],
                         type: 'drill_part',
-                        price: (prices[ExtraAttributes[type]] || 0) * applicationWorth.drillPart,
+                        price: (prices[ExtraAttributes[type]] || 0) * APPLICATION_WORTH.drillPart,
                         count: 1,
                     };
                     price += calculationData.price;
@@ -726,7 +725,7 @@ const calculateItem = (item, prices, nonCosmetic, returnItemData) => {
             const calculationData = {
                 id: 'ETHERWARP_CONDUIT',
                 type: 'etherwarp_conduit',
-                price: (prices['etherwarp_conduit'] || 0) * applicationWorth.etherwarp,
+                price: (prices['etherwarp_conduit'] || 0) * APPLICATION_WORTH.etherwarp,
                 count: 1,
             };
 

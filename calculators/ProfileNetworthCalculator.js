@@ -1,10 +1,11 @@
-const { parsePrices } = require('../helper/prices');
+const { parsePrices, getPrices } = require('../helper/prices');
 const { parseItems } = require('../helper/parseItems');
-const networthManager = require('./NetworthManager');
+const networthManager = require('../managers/NetworthManager');
 const ItemNetworthCalculator = require('./ItemNetworthCalculator');
 const EssenceNetworthCalculator = require('./EssenceNetworthCalculator');
 const SackItemNetworthCalculator = require('./SackItemNetworthCalculator');
 const PetNetworthCalculator = require('./PetNetworthCalculator');
+const { ValidationError } = require('../helper/errors');
 
 const categoryCalculatorMap = {
     pets: PetNetworthCalculator,
@@ -78,7 +79,11 @@ class ProfileNetworthCalculator {
      * @param {object} [prices] - A prices object generated from the getPrices function. If not provided, the prices will be retrieved every time the function is called
      * @returns An object containing the player's networth calculation
      */
-    async getNetworth(prices, { cachePrices, pricesRetries, onlyNetworth, includeItemData, stackItems }) {
+    async getNetworth(prices, { cachePrices, pricesRetries, onlyNetworth, includeItemData, stackItems } = {}) {
+        if (!prices) {
+            prices = await getPrices(cachePrices, pricesRetries);
+        }
+
         return this.#calculate(prices, { cachePrices, pricesRetries, onlyNetworth, includeItemData, stackItems }, false);
     }
 
@@ -92,18 +97,21 @@ class ProfileNetworthCalculator {
     }
 
     async #calculate(prices, { cachePrices, pricesRetries, onlyNetworth, includeItemData, stackItems }, nonCosmetic) {
-        if (!this.items) {
+        if (!this.items || !Object.keys(this.items).length) {
             this.items = await parseItems(this.profileData, this.museumData);
         }
 
-        const cachePrices = cachePrices ?? networthManager.cachePrices;
-        const pricesRetries = pricesRetries ?? networthManager.pricesRetries;
-        const onlyNetworth = onlyNetworth ?? networthManager.onlyNetworth;
-        const includeItemData = includeItemData ?? networthManager.includeItemData;
-        const stackItems = stackItems ?? networthManager.stackItems;
+        // const cachePrices = cachePrices ?? networthManager.cachePrices;
+        cachePrices ??= networthManager.cachePrices;
+        // const pricesRetries = pricesRetries ?? networthManager.pricesRetries;
+        pricesRetries ??= networthManager.pricesRetries;
+        //const onlyNetworth = onlyNetworth ?? networthManager.onlyNetworth;
+        onlyNetworth ??= networthManager.onlyNetworth;
+        // const includeItemData = includeItemData ?? networthManager.includeItemData;
+        includeItemData ??= networthManager.includeItemData;
+        // const stackItems = stackItems ?? networthManager.stackItems;
+        stackItems ??= networthManager.stackItems;
 
-        await postParseItems(this.profileData, this.items);
-        const parsedPrices = await parsePrices(prices, cachePrices, pricesRetries);
         await networthManager.itemsPromise;
 
         const categories = {};
@@ -112,12 +120,14 @@ class ProfileNetworthCalculator {
             categories[category] = { total: 0, unsoulboundTotal: 0, items: [] };
 
             for (const item of categoryItems) {
-                const calculatorClass = categoryCalculatorMap[category];
+                if (!item || Object.keys(item).length === 0) continue;
+
+                const calculatorClass = categoryCalculatorMap[category] ?? ItemNetworthCalculator;
                 /**
                  * @type {PetNetworthCalculator | SacksNetworthCalculator | EssenceNetworthCalculator | ItemNetworthCalculator}
                  */
-                const calculator = new calculatorClass(item);
-                const result = calculator.getNetworth(parsedPrices, { includeItemData });
+                const calculator = new calculatorClass(item, prices);
+                const result = await calculator.getNetworth(prices, { includeItemData });
 
                 categories[category].total += result?.price || 0;
                 if (!result?.soulbound) categories[category].unsoulboundTotal += result?.price || 0;

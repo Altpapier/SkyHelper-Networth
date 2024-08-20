@@ -5,8 +5,8 @@ async function parsePrices(prices, cache, retries = 3) {
     try {
         if (prices) {
             const firstKey = Object.keys(prices)[0];
-            if (!prices?.length || (!prices) instanceof Object || prices[firstKey] instanceof Object) throw new NetworthError('Invalid prices data provided');
-            if (firstKey !== firstKey.toLowerCase()) for (id of Object.keys(prices)) prices[id.toLowerCase()] = prices[id];
+            if (!prices?.length || !(prices instanceof Object) || prices[firstKey] instanceof Object) throw new NetworthError('Invalid prices data provided');
+            if (firstKey !== firstKey.toLowerCase()) for (const id of Object.keys(prices)) prices[id.toLowerCase()] = prices[id];
         }
     } catch (err) {
         throw new NetworthError('Unable to parse prices');
@@ -24,7 +24,7 @@ let isLoadingPrices = null;
  * @returns {object} - An object containing the prices for the items in the game from the SkyHelper Prices list
  */
 async function getPrices(cache = true, retries = 3) {
-    if (retries <= 0) throw new PricesError(`Failed to retrieve prices`);
+    if (retries <= 0) throw new PricesError('Failed to retrieve prices');
 
     let cacheTime = 1000 * 60 * 5;
     if (typeof cache === 'number') {
@@ -39,26 +39,6 @@ async function getPrices(cache = true, retries = 3) {
         try {
             const response = await axios.get('https://raw.githubusercontent.com/SkyHelperBot/Prices/main/prices.json');
 
-            // Remove this later when prices.json file is updated
-            const firstKey = Object.keys(response.data)[0];
-            if (response.data[firstKey] instanceof Object) {
-                const prices = {};
-                for (const [item, priceObject] of Object.entries(response.data)) {
-                    prices[item.toLowerCase()] = priceObject.price;
-                }
-                cachedPrices = { prices, lastCache: Date.now() };
-                return prices;
-            }
-
-            if (firstKey !== firstKey.toLowerCase()) {
-                const prices = {};
-                for (const [item, price] of Object.entries(response.data)) {
-                    prices[item.toLowerCase()] = price;
-                }
-                cachedPrices = { prices, lastCache: Date.now() };
-                return prices;
-            }
-
             cachedPrices = { prices: response.data, lastCache: Date.now() };
             return response.data;
         } catch (e) {
@@ -66,7 +46,7 @@ async function getPrices(cache = true, retries = 3) {
                 throw new PricesError(`Failed to retrieve prices with status code ${e?.response?.status || 'Unknown'}`);
             } else {
                 console.warn(
-                    `[SKYHELPER-NETWORTH] Failed to retrieve prices with status code ${e?.response?.status || 'Unknown'}. Retrying (${retries} attempt(s) left)...`,
+                    `[SKYHELPER-NETWORTH] Failed to retrieve prices with status code ${e?.response?.status || 'Unknown'}. Retrying (${retries} attempt(s) left)...`
                 );
                 return getPrices(cache, retries - 1);
             }

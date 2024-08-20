@@ -1,12 +1,12 @@
 const { APPLICATION_WORTH } = require('../../constants/applicationWorth');
 
 class HotPotatoBookHandler {
-    applies(item) {
-        return !!item.itemData.ExtraAttributes.hot_potato_count;
+    static applies({ itemData }) {
+        return !!itemData.tag.ExtraAttributes.hot_potato_count;
     }
 
-    calculate(item, prices) {
-        const hotPotatoCount = Number(item.itemData.ExtraAttributes.hot_potato_count);
+    static calculate({ itemData, price, calculation }, prices) {
+        const hotPotatoCount = Number(itemData.tag.ExtraAttributes.hot_potato_count);
         if (hotPotatoCount > 10) {
             const fumingPotatoBookCount = hotPotatoCount - 10;
 
@@ -17,8 +17,8 @@ class HotPotatoBookHandler {
                 count: fumingPotatoBookCount,
             };
 
-            item.price += calculationData.price;
-            item.calculation.push(calculationData);
+            price += calculationData.price;
+            calculation.push(calculationData);
         }
 
         const hotPotatoBookCount = Math.min(hotPotatoCount, 10);
@@ -29,8 +29,8 @@ class HotPotatoBookHandler {
             count: hotPotatoBookCount,
         };
 
-        item.price += calculationData.price;
-        item.calculation.push(calculationData);
+        price += calculationData.price;
+        calculation.push(calculationData);
     }
 }
 

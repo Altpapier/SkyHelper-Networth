@@ -1,10 +1,8 @@
 const { parsePrices } = require('../helper/prices');
 const { titleCase } = require('../helper/functions');
-const { applicationWorth } = require('../constants/applicationWorth');
-const { titleCase } = require('../helper/functions');
+const { APPLICATION_WORTH } = require('../constants/applicationWorth');
 const { blockedCandyReducePets, soulboundPets, tiers } = require('../constants/pets');
-const { applicationWorth } = require('../constants/applicationWorth');
-const networthManager = require('./NetworthManager');
+const networthManager = require('../managers/NetworthManager');
 
 class PetNetworthCalculator {
     /**
@@ -15,10 +13,10 @@ class PetNetworthCalculator {
         this.petData = petData;
 
         this.#validate();
-
+        
         this.petId = this.petData.type;
 
-        this.this.price = 0;
+        this.price = 0;
         this.base = 0;
         this.calculation = [];
     }
@@ -31,9 +29,8 @@ class PetNetworthCalculator {
      * @returns {object} An object containing the item's networth calculation
      */
     async getNetworth(prices, { cachePrices, pricesRetries, includeItemData }) {
-        const parsedPrices = await parsePrices(prices, cachePrices ?? networthManager.cachePrices, pricesRetries ?? networthManager.pricesRetries);
         await networthManager.itemsPromise;
-        return this.#calculate(parsedPrices, false);
+        return this.#calculate(prices, false);
     }
 
     /**
@@ -42,9 +39,8 @@ class PetNetworthCalculator {
      * @returns {object} An object containing the item's non cosmetic networth calculation
      */
     async getNonCosmeticNetworth(prices, { cachePrices, pricesRetries, includeItemData }) {
-        const parsedPrices = await parsePrices(prices, cachePrices ?? networthManager.cachePrices, pricesRetries ?? networthManager.pricesRetries);
         await networthManager.itemsPromise;
-        return this.#calculate(parsedPrices, true);
+        return this.#calculate(prices, true);
     }
 
     isSoulbound() {
@@ -127,7 +123,7 @@ class PetNetworthCalculator {
         const calculationData = {
             id: this.petData.skin,
             type: 'soulbound_pet_skin',
-            price: (prices[`PET_SKIN_${this.petData.skin}`] || 0) * applicationWorth.soulboundPetSkins,
+            price: (prices[`PET_SKIN_${this.petData.skin}`] || 0) * APPLICATION_WORTH.soulboundPetSkins,
             count: 1,
         };
         this.price += calculationData.price;
@@ -142,7 +138,7 @@ class PetNetworthCalculator {
         const calculationData = {
             id: this.petData.heldItem,
             type: 'pet_item',
-            price: (prices[this.petData.heldItem] || 0) * applicationWorth.petItem,
+            price: (prices[this.petData.heldItem] || 0) * APPLICATION_WORTH.petItem,
             count: 1,
         };
         this.price += calculationData.price;
@@ -156,7 +152,7 @@ class PetNetworthCalculator {
     }
 
     #calculatePetCandy() {
-        const reducedValue = price * applicationWorth.petCandy;
+        const reducedValue = price * APPLICATION_WORTH.petCandy;
 
         if (!isNaN(price)) {
             if (this.petData.level == 100) {
