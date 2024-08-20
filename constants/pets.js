@@ -40,7 +40,11 @@ const getPetLevel = (pet) => {
         level++;
     }
 
-    return { level: Math.min(level, maxPetLevel), xpMax: petLevels.reduce((a, b) => a + b, 0) };
+    return {
+        level: Math.min(level, maxPetLevel),
+        xpMax: petLevels.reduce((a, b) => a + b, 0),
+        xp: pet.exp,
+    };
 };
 
 module.exports = {

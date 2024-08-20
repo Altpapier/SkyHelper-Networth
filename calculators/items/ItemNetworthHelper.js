@@ -1,20 +1,23 @@
-const { getHypixelItemInformationFromId } = require('../constants/itemsMap');
-const { titleCase } = require('../helper/functions');
+const { getHypixelItemInformationFromId } = require('../../constants/itemsMap');
+const { titleCase } = require('../../helper/functions');
 
 class ItemNetworthHelper {
     constructor(itemData, prices) {
         this.itemData = itemData;
         this.itemName = this.itemData.tag.display.Name.replace(/§[0-9a-fk-or]/gi, '');
         this.skyblockItem = getHypixelItemInformationFromId(this.itemId) ?? {};
+        this.itemId = this.itemData.tag.ExtraAttributes.id.toLowerCase();
         this.extraAttributes = this.itemData.tag.ExtraAttributes ?? {};
         this.itemLore = this.itemData.tag.display.Lore ?? [];
-        this.itemId = this.itemData.tag.ExtraAttributes.id.toLowerCase();
+        this.petId = this.itemData.type;
         this.baseItemId = this.itemId;
 
         this.prices = prices;
         this.calculation = [];
         this.price = 0;
         this.base = 0;
+
+        this.getBasePrice(prices);
     }
 
     getItemId() {
@@ -93,7 +96,6 @@ class ItemNetworthHelper {
     }
 
     isRecombobulated() {
-        console.log(this);
         return this.itemData.tag.ExtraAttributes.rarity_upgrades > 0 && !this.itemData.tag.ExtraAttributes.item_tier;
     }
 
@@ -103,6 +105,29 @@ class ItemNetworthHelper {
             this.itemLore.includes('§8§l* §8Co-op Soulbound §8§l*') ||
             this.itemLore.includes('§8§l* §8Soulbound §8§l*')
         );
+    }
+
+    getBasePrice(prices, nonCosmetic) {
+        this.itemName = this.getItemName();
+        this.itemId = this.getItemId();
+
+        const itemPrice = prices[this.itemId] ?? 0;
+        this.price = itemPrice * this.itemData.Count;
+        this.base = itemPrice * this.itemData.Count;
+        if (this.extraAttributes.skin && !nonCosmetic) {
+            const newPrice = prices[this.itemData.tag.this.itemId.toLowerCase()];
+            if (newPrice && newPrice > this.price) {
+                this.price = newPrice * this.itemData.Count;
+                this.base = newPrice * this.itemData.Count;
+            }
+        }
+
+        if (!this.price && this.extraAttributes.price) {
+            this.price = parseInt(this.extraAttributes.price) * 0.85;
+            this.base = parseInt(this.extraAttributes.price) * 0.85;
+        }
+
+        this.prices = null;
     }
 }
 

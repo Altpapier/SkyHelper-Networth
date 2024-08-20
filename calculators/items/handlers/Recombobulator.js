@@ -1,5 +1,5 @@
-const { ALLOWED_RECOMBOBULATED_CATEGORIES, ALLOWED_RECOMBOBULATED_IDS } = require('../../constants/misc');
-const { APPLICATION_WORTH } = require('../../constants/applicationWorth');
+const { ALLOWED_RECOMBOBULATED_CATEGORIES, ALLOWED_RECOMBOBULATED_IDS } = require('../../../constants/misc');
+const { APPLICATION_WORTH } = require('../../../constants/applicationWorth');
 
 class RecombobulatorHandler {
     static applies({ itemLore, skyblockItem, itemData, itemId }) {

@@ -1,11 +1,9 @@
-const { parsePrices } = require('../helper/prices');
-const { getHypixelItemInformationFromId } = require('../constants/itemsMap');
-const networthManager = require('../managers/NetworthManager');
+const networthManager = require('../../managers/NetworthManager');
 const ItemNetworthHelper = require('./ItemNetworthHelper');
 const HotPotatoBookHandler = require('./handlers/HotPotatoBook');
 const RecombobulatorHandler = require('./handlers/Recombobulator');
 const PickonimbusHandler = require('./handlers/Pickonimbus');
-const { ValidationError } = require('../helper/errors');
+const { ValidationError } = require('../../helper/errors');
 
 class ItemNetworthCalculator extends ItemNetworthHelper {
     /**
@@ -48,39 +46,14 @@ class ItemNetworthCalculator extends ItemNetworthHelper {
         return this.#calculate(prices, true, includeItemData ?? networthManager.includeItemData);
     }
 
-    #getBasePrice(prices, nonCosmetic) {
-        this.itemName = this.getItemName();
-        this.itemId = this.getItemId();
-
-        const itemPrice = prices[this.itemId] ?? 0;
-        this.price = itemPrice * this.itemData.Count;
-        this.base = itemPrice * this.itemData.Count;
-        if (this.extraAttributes.skin && !nonCosmetic) {
-            const newPrice = prices[this.itemData.tag.this.itemId.toLowerCase()];
-            if (newPrice && newPrice > this.price) {
-                this.price = newPrice * this.itemData.Count;
-                this.base = newPrice * this.itemData.Count;
-            }
-        }
-
-        if (!this.price && this.extraAttributes.price) {
-            this.price = parseInt(this.extraAttributes.price) * 0.85;
-            this.base = parseInt(this.extraAttributes.price) * 0.85;
-        }
-
-        this.prices = null;
-    }
-
     #calculate(prices, nonCosmetic, returnItemData) {
-        if (this.isCosmetic() && nonCosmetic) {
-            return null;
-        }
-
-        this.#getBasePrice(prices, nonCosmetic);
-
         const handlers = [PickonimbusHandler, HotPotatoBookHandler, RecombobulatorHandler];
         for (const Handler of handlers) {
-            if (Handler.applies(this)) Handler.calculate(this, prices);
+            if (Handler.applies(this) === false) {
+                continue;
+            }
+
+            Handler.calculate(this, prices);
         }
 
         const data = {
@@ -93,8 +66,6 @@ class ItemNetworthCalculator extends ItemNetworthHelper {
             count: this.itemData.Count || 1,
             soulbound: this.isSoulbound(),
         };
-
-        console.log(data);
 
         return returnItemData ? { ...data, item: this.itemData } : data;
     }
