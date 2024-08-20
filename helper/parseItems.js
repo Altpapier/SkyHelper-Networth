@@ -28,8 +28,8 @@ const parseItems = async (profileData, museumData) => {
         const containerData = bagContainers.includes(key)
             ? profileData.inventory?.bag_contents?.[key]
             : sharedContainers.includes(key)
-              ? profileData.shared_inventory?.[key]
-              : profileData.inventory?.[key];
+            ? profileData.shared_inventory?.[key]
+            : profileData.inventory?.[key];
         if (containerData) {
             items[container] = await decodeData(containerData.data);
         }
@@ -103,7 +103,7 @@ const postParseItems = async (profileData, items) => {
     items.essence = [];
     if (profileData.currencies?.essence) {
         for (const id of Object.keys(profileData.currencies?.essence)) {
-            items.essence.push({ id: `essence_${id}`, amount: profileData.currencies.essence[id]?.current });
+            items.essence.push({ id: `ESSENCE_${id}`, amount: profileData.currencies.essence[id]?.current });
         }
     }
 
@@ -113,8 +113,7 @@ const postParseItems = async (profileData, items) => {
         for (const pet of profileData.pets || profileData.pets_data.pets) {
             const newPet = { ...pet };
             const level = getPetLevel(newPet);
-            newPet.level = level.level;
-            newPet.xpMax = level.xpMax;
+            newPet.level = level;
             items.pets.push(newPet);
         }
     }

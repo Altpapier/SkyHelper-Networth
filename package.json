@@ -30,5 +30,9 @@
     "dependencies": {
         "axios": "^1.6.2",
         "prismarine-nbt": "^2.2.1"
+    },
+    "devDependencies": {
+        "eslint": "^8.57.0",
+        "prettier": "^2.8.8"
     }
 }
