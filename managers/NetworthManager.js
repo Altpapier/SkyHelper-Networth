@@ -30,9 +30,9 @@ class NetworthManager {
         this.stackItems = stackItems || true;
         this.includeItemData = includeItemData || false;
 
-        this.itemsPromise = updateItems(this.itemsRetries);
+        this.itemsPromise = this.updateItems(this.itemsRetries);
         this.itemsIntervalInstance = setInterval(() => {
-            updateItems(this.itemsRetries);
+            this.updateItems(this.itemsRetries);
         }, this.itemsInterval);
     }
 
@@ -76,7 +76,7 @@ class NetworthManager {
 
         clearInterval(this.itemsIntervalInstance);
         this.itemsIntervalInstance = setInterval(() => {
-            updateItems(this.itemsRetries);
+            this.updateItems(this.itemsRetries);
         }, this.itemsInterval);
         return this;
     }
@@ -122,10 +122,10 @@ class NetworthManager {
             const response = await axios.get('https://api.hypixel.net/v2/resources/skyblock/items');
             const items = response.data.items;
             if (!items) {
-                if (currentRetry >= retries) throw new ItemsError(`Failed to retrieve items`);
+                if (currentRetry >= retries) throw new ItemsError('Failed to retrieve items');
                 console.warn(`[SKYHELPER-NETWORTH] Failed to retrieve items. Retrying (${retries - currentRetry} attempt(s) left)...`);
                 await sleep(retryInterval);
-                return await updateItems(retries, retryInterval, currentRetry + 1);
+                return await this.updateItems(retries, retryInterval, currentRetry + 1);
             }
             setItems(items);
             return;
@@ -137,7 +137,7 @@ class NetworthManager {
                 } attempt(s) left)...`
             );
             await sleep(retryInterval);
-            return await updateItems(retries, retryInterval, currentRetry + 1);
+            return await this.updateItems(retries, retryInterval, currentRetry + 1);
         }
     }
 }

@@ -1,23 +1,36 @@
+const { getHypixelItemInformationFromId } = require('../../constants/itemsMap');
+const { titleCase } = require('../../helper/functions');
+
 class ItemNetworthHelper {
-    constructor(itemData, itemId, itemName, itemLore, skyblockItem) {
-        this.skyblockItem = skyblockItem;
-        this.itemName = itemName;
+    constructor(itemData, prices) {
         this.itemData = itemData;
-        this.itemLore = itemLore;
-        this.itemId = itemId;
+        this.itemName = this.itemData.tag.display.Name.replace(/§[0-9a-fk-or]/gi, '');
+        this.skyblockItem = getHypixelItemInformationFromId(this.itemId) ?? {};
+        this.itemId = this.itemData.tag.ExtraAttributes.id.toLowerCase();
+        this.extraAttributes = this.itemData.tag.ExtraAttributes ?? {};
+        this.itemLore = this.itemData.tag.display.Lore ?? [];
+        this.petId = this.itemData.type;
+        this.baseItemId = this.itemId;
+
+        this.prices = prices;
+        this.calculation = [];
+        this.price = 0;
+        this.base = 0;
+
+        this.getBasePrice();
     }
 
     getItemId() {
-        if (this.extraAttributes.skin && !nonCosmetic) {
+        if (this.extraAttributes.skin && !this.nonCosmetic) {
             const itemId = `${this.itemId}_SKINNED_${this.extraAttributes.skin.toLowerCase()}`;
-            if (prices[itemId]) {
+            if (this.prices[itemId]) {
                 return itemId;
             }
         }
 
         if (this.itemId === 'PARTY_HAT_SLOTH' && this.extraAttributes.party_hat_emoji) {
             const itemId = `${this.itemId}_${this.extraAttributes.party_hat_emoji.toLowerCase()}`;
-            if (prices[itemId]) {
+            if (this.prices[itemId]) {
                 return itemId;
             }
         }
@@ -42,11 +55,11 @@ class ItemNetworthHelper {
         if (this.itemId === 'CREATIVE_MIND' && !this.extraAttributes.edition) {
             ('CREATIVE_MIND_UNEDITIONED');
         }
-        if (this.extraAttributes.is_shiny && prices[`${this.itemId}_SHINY`]) {
+        if (this.extraAttributes.is_shiny && this.prices[`${this.itemId}_SHINY`]) {
             return `${this.itemId}_shiny`;
         }
 
-        if (this.itemId.startsWith('STARRED_') && !prices[this.itemId] && prices[this.itemId.replace('STARRED_', '')]) {
+        if (this.itemId.startsWith('STARRED_') && !this.prices[this.itemId] && this.prices[this.itemId.replace('STARRED_', '')]) {
             return this.itemId.replace('STARRED_', '');
         }
 
@@ -55,12 +68,12 @@ class ItemNetworthHelper {
 
     getItemName() {
         if (['Beastmaster Crest', 'Griffin Upgrade Stone', 'Wisp Upgrade Stone'].includes(this.itemName)) {
-            const tier = skyblockItem.tier ? titleCase(skyblockItem.tier.replaceAll('_', ' ')) : 'Unknown';
+            const tier = this.skyblockItem.tier ? titleCase(this.skyblockItem.tier.replaceAll('_', ' ')) : 'Unknown';
             return `${this.itemName} (${tier})`;
         }
 
         if (this.itemName.endsWith(' Exp Boost')) {
-            const itemId = skyblockItem.id ? titleCase(skyblockItem.id.split('_').at(-1)) : 'Unknown';
+            const itemId = this.skyblockItem.id ? titleCase(this.skyblockItem.id.split('_').at(-1)) : 'Unknown';
             return `${this.itemName} (${itemId})`;
         }
 
@@ -83,15 +96,36 @@ class ItemNetworthHelper {
     }
 
     isRecombobulated() {
-        return this.extraAttributes.rarity_upgrades > 0 && !this.extraAttributes.item_tier;
+        return this.itemData.tag.ExtraAttributes.rarity_upgrades > 0 && !this.itemData.tag.ExtraAttributes.item_tier;
     }
 
     isSoulbound() {
         return !!(
-            this.itemData.extraAttributes.donated_museum ||
+            this.itemData.tag.ExtraAttributes.donated_museum ||
             this.itemLore.includes('§8§l* §8Co-op Soulbound §8§l*') ||
             this.itemLore.includes('§8§l* §8Soulbound §8§l*')
         );
+    }
+
+    getBasePrice() {
+        this.itemName = this.getItemName();
+        this.itemId = this.getItemId();
+
+        const itemPrice = this.prices[this.itemId] ?? 0;
+        this.price = itemPrice * this.itemData.Count;
+        this.base = itemPrice * this.itemData.Count;
+        if (this.extraAttributes.skin && !this.nonCosmetic) {
+            const newPrice = this.prices[this.itemData.tag.this.itemId.toLowerCase()];
+            if (newPrice && newPrice > this.price) {
+                this.price = newPrice * this.itemData.Count;
+                this.base = newPrice * this.itemData.Count;
+            }
+        }
+
+        if (!this.price && this.extraAttributes.price) {
+            this.price = parseInt(this.extraAttributes.price) * 0.85;
+            this.base = parseInt(this.extraAttributes.price) * 0.85;
+        }
     }
 }
 
