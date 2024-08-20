@@ -4,7 +4,7 @@ const { titleCase } = require('../helper/functions');
 const { validRunes } = require('../constants/misc');
 const networthManager = require('./NetworthManager');
 
-class SacksNetworthCalculator {
+class SackItemNetworthCalculator {
     /**
      * Creates a new ItemNetworthCalculator
      * @param {object} itemData The sack item the networth should be calculated for
@@ -59,4 +59,4 @@ class SacksNetworthCalculator {
     }
 }
 
-module.exports = SacksNetworthCalculator;
+module.exports = SackItemNetworthCalculator;

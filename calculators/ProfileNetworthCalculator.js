@@ -3,12 +3,12 @@ const { parseItems } = require('../helper/parseItems');
 const networthManager = require('./NetworthManager');
 const ItemNetworthCalculator = require('./ItemNetworthCalculator');
 const EssenceNetworthCalculator = require('./EssenceNetworthCalculator');
-const SacksNetworthCalculator = require('./SacksNetworthCalculator');
+const SackItemNetworthCalculator = require('./SackItemNetworthCalculator');
 const PetNetworthCalculator = require('./PetNetworthCalculator');
 
 const categoryCalculatorMap = {
     pets: PetNetworthCalculator,
-    sacks: SacksNetworthCalculator,
+    sacks: SackItemNetworthCalculator,
     essence: EssenceNetworthCalculator,
     item: ItemNetworthCalculator,
 };
