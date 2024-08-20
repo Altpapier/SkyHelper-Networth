@@ -1,9 +1,9 @@
-const networthManager = require('../../managers/NetworthManager');
-const ItemNetworthHelper = require('./ItemNetworthHelper');
+const networthManager = require('../managers/NetworthManager');
+const ItemNetworthHelper = require('./helpers/ItemNetworthHelper');
 const HotPotatoBookHandler = require('./handlers/HotPotatoBook');
 const RecombobulatorHandler = require('./handlers/Recombobulator');
 const PickonimbusHandler = require('./handlers/Pickonimbus');
-const { ValidationError } = require('../../helper/errors');
+const { ValidationError } = require('../helper/errors');
 
 class ItemNetworthCalculator extends ItemNetworthHelper {
     /**

@@ -1,4 +1,4 @@
-const { PICKONIMBUS_DURABILITY } = require('../../../constants/misc');
+const { PICKONIMBUS_DURABILITY } = require('../../constants/misc');
 
 class PickonimbusHandler {
     applies(item) {

@@ -1,7 +1,7 @@
 const PetCandyHandler = require('./handlers/PetCandy');
 const PetItemHandler = require('./handlers/PetItem');
 const SoulboundPetSkinHandler = require('./handlers/SoulboundPetSkin');
-const PetNetworthHelper = require('./PetNetworthHelper');
+const PetNetworthHelper = require('./helpers/PetNetworthHelper');
 
 class PetNetworthCalculator extends PetNetworthHelper {
     /**

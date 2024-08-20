@@ -1,5 +1,5 @@
-const { getHypixelItemInformationFromId } = require('../../constants/itemsMap');
-const { titleCase } = require('../../helper/functions');
+const { getHypixelItemInformationFromId } = require('../constants/itemsMap');
+const { titleCase } = require('../helper/functions');
 
 class SackItemNetworthCalculator {
     /**

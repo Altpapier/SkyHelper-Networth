@@ -1,4 +1,4 @@
-const { APPLICATION_WORTH } = require('../../../constants/applicationWorth');
+const { APPLICATION_WORTH } = require('../../constants/applicationWorth');
 
 class HotPotatoBookHandler {
     applies(item) {

@@ -147,4 +147,4 @@ class NetworthManager {
  */
 const networthManager = new NetworthManager();
 
-module.exports = { networthManager };
+module.exports = networthManager;
