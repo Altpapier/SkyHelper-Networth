@@ -3,18 +3,19 @@ const { tiers, soulboundPets, getPetLevel } = require('../../constants/pets');
 const { titleCase } = require('../../helper/functions');
 
 class PetNetworthHelper {
-    constructor(petData, prices) {
-        this.prices = prices;
+    constructor(petData, prices, nonCosmetic) {
         this.petData = petData;
+        this.nonCosmetic = nonCosmetic;
         this.tier = this.getTier();
         this.skin = this.petData.skin;
         this.basePetId = this.petData.type;
         this.baseTierName = `${this.tier}_${this.basePetId}`;
-        this.petId = this.getPetId().toLowerCase();
+        this.petId = this.getPetId();
         this.tierName = this.getTierName();
         this.level = this.getPetLevel();
         this.petName = `[Lvl ${this.level.level}] ${titleCase(`${this.tier} ${titleCase(this.basePetId)}`)}${this.petData.skin ? ' ✦' : ''}`;
 
+        this.prices = prices;
         this.calculation = [];
         this.price = 0;
         this.base = 0;
@@ -42,8 +43,8 @@ class PetNetworthHelper {
     }
 
     isCosmetic() {
-        const testId = (this.itemId + this.itemName).toLowerCase();
-        const isSkinOrDye = testId.includes('dye') || testId.includes('skin');
+        const testId = (this.itemId + this.itemName).toUpperCase();
+        const isSkinOrDye = testId.includes('DYE') || testId.includes('SKIN');
         const isCosmetic = this.skyblockItem.category === 'COSMETIC' || this.itemLore.at(-1)?.includes('COSMETIC');
 
         return isCosmetic || isSkinOrDye || this.isRune();
@@ -55,16 +56,16 @@ class PetNetworthHelper {
 
     getPetLevelPrices() {
         const basePrices = {
-            LVL_1: this.prices[`LVL_1_${this.baseTierName}`.toLowerCase()] || 0,
-            LVL_100: this.prices[`LVL_100_${this.baseTierName}`.toLowerCase()] || 0,
-            LVL_200: this.prices[`LVL_200_${this.baseTierName}`.toLowerCase()] || 0,
+            LVL_1: this.prices[`LVL_1_${this.baseTierName}`.toUpperCase()] || 0,
+            LVL_100: this.prices[`LVL_100_${this.baseTierName}`.toUpperCase()] || 0,
+            LVL_200: this.prices[`LVL_200_${this.baseTierName}`.toUpperCase()] || 0,
         };
 
         if (this.skin && !this.nonCosmetic) {
             return {
-                LVL_1: Math.max(this.prices[`LVL_1_${this.tierName}`.toLowerCase()] || 0, basePrices.LVL_1),
-                LVL_100: Math.max(this.prices[`LVL_100_${this.tierName}`.toLowerCase()] || 0, basePrices.LVL_100),
-                LVL_200: Math.max(this.prices[`LVL_200_${this.tierName}`.toLowerCase()] || 0, basePrices.LVL_200),
+                LVL_1: Math.max(this.prices[`LVL_1_${this.tierName}`.toUpperCase()] || 0, basePrices.LVL_1),
+                LVL_100: Math.max(this.prices[`LVL_100_${this.tierName}`.toUpperCase()] || 0, basePrices.LVL_100),
+                LVL_200: Math.max(this.prices[`LVL_200_${this.tierName}`.toUpperCase()] || 0, basePrices.LVL_200),
             };
         }
 

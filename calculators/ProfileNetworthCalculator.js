@@ -1,4 +1,4 @@
-const { parsePrices, getPrices } = require('../helper/prices');
+const { getPrices } = require('../helper/prices');
 const { parseItems } = require('../helper/parseItems');
 const networthManager = require('../managers/NetworthManager');
 const ItemNetworthCalculator = require('./items/ItemNetworthCalculator');
@@ -29,8 +29,8 @@ class ProfileNetworthCalculator {
 
         this.#validate();
 
-        this.purse = profileData.currencies?.coin_purse;
-        this.personalBankBalance = profileData.profile?.bank_account;
+        this.purse = profileData.currencies?.coin_purse || 0;
+        this.personalBankBalance = profileData.profile?.bank_account || 0;
     }
 
     /**
@@ -124,9 +124,9 @@ class ProfileNetworthCalculator {
 
                 const calculatorClass = categoryCalculatorMap[category] ?? ItemNetworthCalculator;
                 /**
-                 * @type {PetNetworthCalculator | SacksNetworthCalculator | EssenceNetworthCalculator | ItemNetworthCalculator}
+                 * @type {PetNetworthCalculator | SackItemNetworthCalculator | EssenceNetworthCalculator | ItemNetworthCalculator}
                  */
-                const calculator = new calculatorClass(item, prices);
+                const calculator = new calculatorClass(item, prices, nonCosmetic);
                 const result = await calculator.getNetworth(prices, { includeItemData });
 
                 categories[category].total += result?.price || 0;

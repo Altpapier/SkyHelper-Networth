@@ -10,8 +10,8 @@ class ItemNetworthCalculator extends ItemNetworthHelper {
      * Creates a new ItemNetworthCalculator
      * @param {object} itemData The item the networth should be calculated for
      */
-    constructor(itemData, prices) {
-        super(itemData, prices);
+    constructor(itemData, prices, nonCosmetic) {
+        super(itemData, prices, nonCosmetic);
 
         this.#validateItem();
     }

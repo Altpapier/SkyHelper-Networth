@@ -30,8 +30,9 @@ class EssenceNetworthCalculator {
     }
 
     #calculate(prices) {
-        const itemPrice = prices[this.itemData.id.toLowerCase()] || 0;
+        const itemPrice = prices[this.itemData.id] || 0;
         if (!itemPrice) return null;
+        
         return {
             name: `${titleCase(this.itemData.id.split('_')[1])} Essence`,
             id: this.itemData.id,

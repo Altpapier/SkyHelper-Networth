@@ -2,13 +2,15 @@ const { getHypixelItemInformationFromId } = require('../../constants/itemsMap');
 const { titleCase } = require('../../helper/functions');
 
 class ItemNetworthHelper {
-    constructor(itemData, prices) {
+    constructor(itemData, prices, nonCosmetic) {
         this.itemData = itemData;
+        this.nonCosmetic = nonCosmetic;
         this.itemName = this.itemData.tag.display.Name.replace(/§[0-9a-fk-or]/gi, '');
         this.skyblockItem = getHypixelItemInformationFromId(this.itemId) ?? {};
-        this.itemId = this.itemData.tag.ExtraAttributes.id.toLowerCase();
+        this.itemId = this.itemData.tag.ExtraAttributes.id;
         this.extraAttributes = this.itemData.tag.ExtraAttributes ?? {};
         this.itemLore = this.itemData.tag.display.Lore ?? [];
+        this.count = this.itemData.Count ?? 1;
         this.petId = this.itemData.type;
         this.baseItemId = this.itemId;
 
@@ -17,27 +19,28 @@ class ItemNetworthHelper {
         this.price = 0;
         this.base = 0;
 
+
         this.getBasePrice();
     }
 
     getItemId() {
         if (this.extraAttributes.skin && !this.nonCosmetic) {
-            const itemId = `${this.itemId}_SKINNED_${this.extraAttributes.skin.toLowerCase()}`;
+            const itemId = `${this.itemId}_SKINNED_${this.extraAttributes.skin}`;
             if (this.prices[itemId]) {
                 return itemId;
             }
         }
 
         if (this.itemId === 'PARTY_HAT_SLOTH' && this.extraAttributes.party_hat_emoji) {
-            const itemId = `${this.itemId}_${this.extraAttributes.party_hat_emoji.toLowerCase()}`;
+            const itemId = `${this.itemId}_${this.extraAttributes.party_hat_emoji.toUpperCase()}`;
             if (this.prices[itemId]) {
                 return itemId;
             }
         }
 
-        if (this.isRune()) {
+        if (this.isRune() && !this.nonCosmetic) {
             const [runeType, runeTier] = Object.entries(this.extraAttributes.runes)[0];
-            return `RUNE_${runeType}_${runeTier}`.toLowerCase();
+            return `RUNE_${runeType}_${runeTier}`.toUpperCase();
         }
 
         if (this.itemId === 'NEW_YEAR_CAKE') {
@@ -45,7 +48,7 @@ class ItemNetworthHelper {
         }
 
         if (['PARTY_HAT_CRAB', 'PARTY_HAT_CRAB_ANIMATED', 'BALLOON_HAT_2024'].includes(this.itemId) && this.extraAttributes.party_hat_color) {
-            return `${this.itemId.toLowerCase()}_${this.extraAttributes.party_hat_color}`;
+            return `${this.itemId}_${this.extraAttributes.party_hat_color.toUpperCase()}`;
         }
 
         if (this.itemId === 'DCTR_SPACE_HELM' && this.extraAttributes.edition !== undefined) {
@@ -53,10 +56,10 @@ class ItemNetworthHelper {
         }
 
         if (this.itemId === 'CREATIVE_MIND' && !this.extraAttributes.edition) {
-            ('CREATIVE_MIND_UNEDITIONED');
+            return 'CREATIVE_MIND_UNEDITIONED';
         }
         if (this.extraAttributes.is_shiny && this.prices[`${this.itemId}_SHINY`]) {
-            return `${this.itemId}_shiny`;
+            return `${this.itemId}_SHINY`;
         }
 
         if (this.itemId.startsWith('STARRED_') && !this.prices[this.itemId] && this.prices[this.itemId.replace('STARRED_', '')]) {
@@ -88,8 +91,8 @@ class ItemNetworthHelper {
     }
 
     isCosmetic() {
-        const testId = (this.itemId + this.itemName).toLowerCase();
-        const isSkinOrDye = testId.includes('dye') || testId.includes('skin');
+        const testId = (this.itemId + this.itemName).toUpperCase();
+        const isSkinOrDye = testId.includes('DYE') || testId.includes('SKIN');
         const isCosmetic = this.skyblockItem.category === 'COSMETIC' || this.itemLore.at(-1)?.includes('COSMETIC');
 
         return isCosmetic || isSkinOrDye || this.isRune();
@@ -115,7 +118,7 @@ class ItemNetworthHelper {
         this.price = itemPrice * this.itemData.Count;
         this.base = itemPrice * this.itemData.Count;
         if (this.extraAttributes.skin && !this.nonCosmetic) {
-            const newPrice = this.prices[this.itemData.tag.this.itemId.toLowerCase()];
+            const newPrice = this.prices[`${this.baseItemId}_SKINNED_${this.extraAttributes.skin}`];
             if (newPrice && newPrice > this.price) {
                 this.price = newPrice * this.itemData.Count;
                 this.base = newPrice * this.itemData.Count;

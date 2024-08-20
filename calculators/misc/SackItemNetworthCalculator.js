@@ -1,4 +1,3 @@
-const { parsePrices } = require('../../helper/prices');
 const { titleCase } = require('../../helper/functions');
 const { validRunes } = require('../../constants/misc');
 const networthManager = require('../../managers/NetworthManager');
@@ -42,7 +41,7 @@ class SackItemNetworthCalculator {
     }
 
     #calculate(prices, nonCosmetic) {
-        const itemPrice = prices[this.itemData.id.toLowerCase()] || 0;
+        const itemPrice = prices[this.itemData.id] || 0;
         if (!itemPrice) return null;
         if (this.itemData.id.startsWith('RUNE_') && !validRunes.includes(this.itemData.id) && !nonCosmetic) return null;
         const name = this.itemData.name || getHypixelItemInformationFromId(this.itemData.id)?.name || titleCase(item.id);

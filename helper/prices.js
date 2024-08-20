@@ -37,7 +37,7 @@ async function getPrices(cache = true, retries = 3) {
 
     isLoadingPrices = (async () => {
         try {
-            const response = await axios.get('https://raw.githubusercontent.com/SkyHelperBot/Prices/main/prices.json');
+            const response = await axios.get('https://raw.githubusercontent.com/SkyHelperBot/Prices/main/pricesV2.json');
 
             cachedPrices = { prices: response.data, lastCache: Date.now() };
             return response.data;
