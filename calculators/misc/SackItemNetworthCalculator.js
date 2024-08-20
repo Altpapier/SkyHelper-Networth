@@ -1,8 +1,8 @@
-const { parsePrices } = require('../helper/prices');
-const { titleCase } = require('../helper/functions');
-const { validRunes } = require('../constants/misc');
-const networthManager = require('../managers/NetworthManager');
-const { getHypixelItemInformationFromId } = require('../constants/itemsMap');
+const { parsePrices } = require('../../helper/prices');
+const { titleCase } = require('../../helper/functions');
+const { validRunes } = require('../../constants/misc');
+const networthManager = require('../../managers/NetworthManager');
+const { getHypixelItemInformationFromId } = require('../../constants/itemsMap');
 
 class SackItemNetworthCalculator {
     /**

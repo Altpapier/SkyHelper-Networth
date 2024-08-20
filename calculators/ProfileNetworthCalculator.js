@@ -2,8 +2,8 @@ const { parsePrices, getPrices } = require('../helper/prices');
 const { parseItems } = require('../helper/parseItems');
 const networthManager = require('../managers/NetworthManager');
 const ItemNetworthCalculator = require('./items/ItemNetworthCalculator');
-const EssenceNetworthCalculator = require('./EssenceNetworthCalculator');
-const SackItemNetworthCalculator = require('./SackItemNetworthCalculator');
+const EssenceNetworthCalculator = require('./misc/EssenceNetworthCalculator');
+const SackItemNetworthCalculator = require('./misc/SackItemNetworthCalculator');
 const PetNetworthCalculator = require('./pets/PetNetworthCalculator');
 const { ValidationError } = require('../helper/errors');
 

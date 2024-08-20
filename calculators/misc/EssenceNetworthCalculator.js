@@ -1,6 +1,6 @@
-const { parsePrices } = require('../helper/prices');
-const { titleCase } = require('../helper/functions');
-const networthManager = require('../managers/NetworthManager');
+const { parsePrices } = require('../../helper/prices');
+const { titleCase } = require('../../helper/functions');
+const networthManager = require('../../managers/NetworthManager');
 
 class EssenceNetworthCalculator {
     /**
