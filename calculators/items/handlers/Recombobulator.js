@@ -1,10 +1,12 @@
 const { ALLOWED_RECOMBOBULATED_CATEGORIES, ALLOWED_RECOMBOBULATED_IDS } = require('../../../constants/misc');
 const { APPLICATION_WORTH } = require('../../../constants/applicationWorth');
-const ItemNetworthHelper = require('../ItemNetworthHelper');
+const ItemCalculationHandler = require('../ItemCalculationHandler');
 
-class RecombobulatorHandler extends ItemNetworthHelper {
-    constructor(itemData, prices) {
-        super(itemData, prices);
+class RecombobulatorHandler extends ItemCalculationHandler {
+    constructor(data) {
+        super(data);
+
+        this.extra = data;
     }
 
     applies() {
@@ -12,7 +14,7 @@ class RecombobulatorHandler extends ItemNetworthHelper {
         const lastLoreLine = this.itemLore.length ? this.itemLore.at(-1) : null;
         const isAccessory = lastLoreLine?.includes('ACCESSORY') || lastLoreLine?.includes('HATCESSORY');
 
-        return this.isRecombobulated() || this.itemData.tag.ExtraAttributes.enchantments || isAccessory || allowsRecomb;
+        return this.extra.isRecombobulated() || this.itemData.tag.ExtraAttributes.enchantments || isAccessory || allowsRecomb;
     }
 
     calculate() {

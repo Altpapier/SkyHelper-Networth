@@ -28,9 +28,9 @@ class PetNetworthCalculator extends PetNetworthHelper {
     }
 
     #calculate() {
-        const handlers = [SoulboundPetSkinHandler, PetItemHandler, PetCandyHandler];
+        const handlers = [PetItemHandler];
         for (const Handler of handlers) {
-            const handler = new Handler(this.petData, this.prices);
+            const handler = new Handler(this);
             if (handler.applies() === false) {
                 continue;
             }
@@ -41,7 +41,7 @@ class PetNetworthCalculator extends PetNetworthHelper {
         return {
             ...this.petData,
             id: this.petId,
-            price: this.price,
+            price: this.price + this.calculation.reduce((acc, curr) => acc + curr.price, 0),
             base: this.base,
             calculation: this.calculation,
             soulbound: this.isSoulbound(),

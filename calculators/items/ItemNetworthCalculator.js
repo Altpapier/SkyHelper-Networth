@@ -39,7 +39,7 @@ class ItemNetworthCalculator extends ItemNetworthHelper {
     #calculate(prices, nonCosmetic, returnItemData) {
         const handlers = [RecombobulatorHandler, PickonimbusHandler, HotPotatoBookHandler];
         for (const Handler of handlers) {
-            const handler = new Handler(this.itemData, prices);
+            const handler = new Handler(this);
             if (handler.applies() === false) {
                 continue;
             }

@@ -1,10 +1,10 @@
 const { APPLICATION_WORTH } = require('../../../constants/applicationWorth');
 const { blockedCandyReducePets } = require('../../../constants/pets');
-const PetNetworthHelper = require('../PetNetworthHelper');
+const PetCalculationHandler = require('../PetCalculationHandler');
 
-class PetCandyHandler extends PetNetworthHelper {
-    constructor(petData, prices) {
-        super(petData, prices);
+class PetCandyHandler extends PetCalculationHandler {
+    constructor(data) {
+        super(data);
     }
 
     applies() {

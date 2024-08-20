@@ -1,9 +1,9 @@
 const { APPLICATION_WORTH } = require('../../../constants/applicationWorth');
-const ItemNetworthHelper = require('../ItemNetworthHelper');
+const ItemCalculationHandler = require('../ItemCalculationHandler');
 
-class HotPotatoBookHandler extends ItemNetworthHelper {
-    constructor(itemData, prices) {
-        super(itemData, prices);
+class HotPotatoBookHandler extends ItemCalculationHandler {
+    constructor(data) {
+        super(data);
     }
 
     applies() {

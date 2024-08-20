@@ -1,9 +1,9 @@
 const { PICKONIMBUS_DURABILITY } = require('../../../constants/misc');
-const ItemNetworthHelper = require('../ItemNetworthHelper');
+const ItemCalculationHandler = require('../ItemCalculationHandler');
 
-class PickonimbusHandler extends ItemNetworthHelper {
-    constructor(itemData, prices) {
-        super(itemData, prices);
+class PickonimbusHandler extends ItemCalculationHandler {
+    constructor(data) {
+        super(data);
     }
 
     applies() {
@@ -13,8 +13,15 @@ class PickonimbusHandler extends ItemNetworthHelper {
     calculate() {
         const reduction = this.itemData.tag.ExtraAttributes.pickonimbus_durability / PICKONIMBUS_DURABILITY;
 
-        this.price += this.price * (reduction - 1);
-        this.base += this.price * (reduction - 1);
+        const calculationData = {
+            id: 'PICKONIMBUS_DURABLITY',
+            type: 'pickonimbus',
+            price: -(this.price * (reduction - 1)),
+            count: PICKONIMBUS_DURABILITY - this.itemData.tag.ExtraAttributes.pickonimbus_durability,
+        };
+
+        this.price += calculationData.price;
+        this.calculation.push(calculationData);
     }
 }
 

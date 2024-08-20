@@ -1,9 +1,9 @@
 const { APPLICATION_WORTH } = require('../../../constants/applicationWorth');
-const PetNetworthHelper = require('../PetNetworthHelper');
+const PetCalculationHandler = require('../PetCalculationHandler');
 
-class PetItemHandler extends PetNetworthHelper {
-    constructor(petData, prices) {
-        super(petData, prices);
+class PetItemHandler extends PetCalculationHandler {
+    constructor(data) {
+        super(data);
     }
 
     applies() {
