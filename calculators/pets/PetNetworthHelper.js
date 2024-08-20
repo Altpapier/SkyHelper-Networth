@@ -13,8 +13,7 @@ class PetNetworthHelper {
         this.petId = this.getPetId().toLowerCase();
         this.tierName = this.getTierName();
         this.level = this.getPetLevel();
-        // TODO: fix petName (this.petData.level is undefined)
-        this.petName = `[Lvl ${this.petData.level}] ${titleCase(`${this.petData.tier} ${this.petData.type}`)}${this.petData.skin ? ' ✦' : ''}`;
+        this.petName = `[Lvl ${this.level.level}] ${titleCase(`${this.tier} ${titleCase(this.basePetId)}`)}${this.petData.skin ? ' ✦' : ''}`;
 
         this.calculation = [];
         this.price = 0;

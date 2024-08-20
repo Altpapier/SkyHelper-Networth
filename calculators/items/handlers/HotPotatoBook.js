@@ -1,36 +1,41 @@
 const { APPLICATION_WORTH } = require('../../../constants/applicationWorth');
+const ItemNetworthHelper = require('../ItemNetworthHelper');
 
-class HotPotatoBookHandler {
-    static applies({ itemData }) {
-        return !!itemData.tag.ExtraAttributes.hot_potato_count;
+class HotPotatoBookHandler extends ItemNetworthHelper {
+    constructor(itemData, prices) {
+        super(itemData, prices);
     }
 
-    static calculate({ itemData, price, calculation }, prices) {
-        const hotPotatoCount = Number(itemData.tag.ExtraAttributes.hot_potato_count);
+    static applies() {
+        return !!this.itemData.tag.ExtraAttributes.hot_potato_count;
+    }
+
+    static calculate() {
+        const hotPotatoCount = Number(this.itemData.tag.ExtraAttributes.hot_potato_count);
         if (hotPotatoCount > 10) {
             const fumingPotatoBookCount = hotPotatoCount - 10;
 
             const calculationData = {
                 id: 'FUMING_POTATO_BOOK',
                 type: 'fuming_potato_book',
-                price: (prices['fuming_potato_book'] || 0) * fumingPotatoBookCount * APPLICATION_WORTH.fumingPotatoBook,
+                price: (this.prices['fuming_potato_book'] || 0) * fumingPotatoBookCount * APPLICATION_WORTH.fumingPotatoBook,
                 count: fumingPotatoBookCount,
             };
 
-            price += calculationData.price;
-            calculation.push(calculationData);
+            this.price += calculationData.price;
+            this.calculation.push(calculationData);
         }
 
         const hotPotatoBookCount = Math.min(hotPotatoCount, 10);
         const calculationData = {
             id: 'HOT_POTATO_BOOK',
             type: 'hot_potato_book',
-            price: (prices['hot_potato_book'] || 0) * hotPotatoBookCount * APPLICATION_WORTH.hotPotatoBook,
+            price: (this.prices['hot_potato_book'] || 0) * hotPotatoBookCount * APPLICATION_WORTH.hotPotatoBook,
             count: hotPotatoBookCount,
         };
 
-        price += calculationData.price;
-        calculation.push(calculationData);
+        this.price += calculationData.price;
+        this.calculation.push(calculationData);
     }
 }
 

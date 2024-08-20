@@ -1,20 +1,25 @@
 const { APPLICATION_WORTH } = require('../../../constants/applicationWorth');
+const PetNetworthHelper = require('../PetNetworthHelper');
 
-class PetItemHandler {
-    static applies({ petData }) {
-        return !!petData.heldItem;
+class PetItemHandler extends PetNetworthHelper {
+    constructor(petData, prices) {
+        super(petData, prices);
     }
 
-    static calculate({ petData, price, calculation }, prices) {
+    applies() {
+        return !!this.petData.heldItem;
+    }
+
+    calculate() {
         const calculationData = {
-            id: petData.heldItem,
+            id: this.petData.heldItem,
             type: 'pet_item',
-            price: (prices[petData.heldItem] || 0) * APPLICATION_WORTH.petItem,
+            price: (this.prices[this.petData.heldItem] || 0) * APPLICATION_WORTH.petItem,
             count: 1,
         };
 
-        calculation.push(calculationData);
-        price += calculationData.price;
+        this.calculation.push(calculationData);
+        this.price += calculationData.price;
     }
 }
 

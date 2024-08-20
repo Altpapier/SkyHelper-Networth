@@ -17,7 +17,7 @@ class ItemNetworthHelper {
         this.price = 0;
         this.base = 0;
 
-        this.getBasePrice(prices);
+        this.getBasePrice();
     }
 
     getItemId() {
@@ -107,15 +107,15 @@ class ItemNetworthHelper {
         );
     }
 
-    getBasePrice(prices, nonCosmetic) {
+    getBasePrice() {
         this.itemName = this.getItemName();
         this.itemId = this.getItemId();
 
-        const itemPrice = prices[this.itemId] ?? 0;
+        const itemPrice = this.prices[this.itemId] ?? 0;
         this.price = itemPrice * this.itemData.Count;
         this.base = itemPrice * this.itemData.Count;
-        if (this.extraAttributes.skin && !nonCosmetic) {
-            const newPrice = prices[this.itemData.tag.this.itemId.toLowerCase()];
+        if (this.extraAttributes.skin && !this.nonCosmetic) {
+            const newPrice = this.prices[this.itemData.tag.this.itemId.toLowerCase()];
             if (newPrice && newPrice > this.price) {
                 this.price = newPrice * this.itemData.Count;
                 this.base = newPrice * this.itemData.Count;
@@ -126,8 +126,6 @@ class ItemNetworthHelper {
             this.price = parseInt(this.extraAttributes.price) * 0.85;
             this.base = parseInt(this.extraAttributes.price) * 0.85;
         }
-
-        this.prices = null;
     }
 }
 

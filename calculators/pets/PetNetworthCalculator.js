@@ -1,5 +1,3 @@
-const { APPLICATION_WORTH } = require('../../constants/applicationWorth');
-const { blockedCandyReducePets } = require('../../constants/pets');
 const networthManager = require('../../managers/NetworthManager');
 const PetCandyHandler = require('./handlers/PetCandy');
 const PetItemHandler = require('./handlers/PetItem');
@@ -42,11 +40,12 @@ class PetNetworthCalculator extends PetNetworthHelper {
     #calculate(prices, nonCosmetic) {
         const handlers = [SoulboundPetSkinHandler, PetItemHandler, PetCandyHandler];
         for (const Handler of handlers) {
-            if (Handler.applies(this) === false) {
+            const handler = new Handler(this.petData, prices);
+            if (handler.applies(this) === false) {
                 continue;
             }
 
-            Handler.calculate(this, prices);
+            handler.calculate(this, prices);
         }
 
         return {

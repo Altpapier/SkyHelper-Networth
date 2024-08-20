@@ -47,13 +47,14 @@ class ItemNetworthCalculator extends ItemNetworthHelper {
     }
 
     #calculate(prices, nonCosmetic, returnItemData) {
-        const handlers = [PickonimbusHandler, HotPotatoBookHandler, RecombobulatorHandler];
+        const handlers = [RecombobulatorHandler /*PickonimbusHandler, HotPotatoBookHandler, */];
         for (const Handler of handlers) {
-            if (Handler.applies(this) === false) {
+            const handler = new Handler(this.itemData, prices);
+            if (handler.applies() === false) {
                 continue;
             }
 
-            Handler.calculate(this, prices);
+            handler.calculate();
         }
 
         const data = {
