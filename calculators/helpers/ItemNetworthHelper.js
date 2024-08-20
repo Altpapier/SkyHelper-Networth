@@ -2,9 +2,8 @@ const { getHypixelItemInformationFromId } = require('../../constants/itemsMap');
 const { titleCase } = require('../../helper/functions');
 
 class ItemNetworthHelper {
-    constructor(itemData, prices, nonCosmetic) {
+    constructor(itemData, prices) {
         this.itemData = itemData;
-        this.nonCosmetic = nonCosmetic;
         this.itemName = this.itemData.tag.display.Name.replace(/§[0-9a-fk-or]/gi, '');
         this.skyblockItem = getHypixelItemInformationFromId(this.itemId) ?? {};
         this.itemId = this.itemData.tag.ExtraAttributes.id;
@@ -13,6 +12,7 @@ class ItemNetworthHelper {
         this.count = this.itemData.Count ?? 1;
         this.baseItemId = this.itemId;
 
+        this.nonCosmetic = false;
         this.prices = prices;
         this.calculation = [];
         this.price = 0;

@@ -80,11 +80,7 @@ class ProfileNetworthCalculator {
      * @returns An object containing the player's networth calculation
      */
     async getNetworth(prices, { cachePrices, pricesRetries, onlyNetworth, includeItemData, stackItems } = {}) {
-        if (!prices) {
-            prices = await getPrices(cachePrices, pricesRetries);
-        }
-
-        return this.#calculate(prices, { cachePrices, pricesRetries, onlyNetworth, includeItemData, stackItems }, false);
+        return this.#calculate(prices, false, { cachePrices, pricesRetries, onlyNetworth, includeItemData, stackItems });
     }
 
     /**
@@ -93,26 +89,23 @@ class ProfileNetworthCalculator {
      * @returns An object containing the player's non cosmetic networth calculation
      */
     async getNonCosmeticNetworth(prices, { cachePrices, pricesRetries, onlyNetworth, includeItemData, stackItems }) {
-        return this.#calculate(prices, { cachePrices, pricesRetries, onlyNetworth, includeItemData, stackItems }, true);
+        return this.#calculate(prices, true, { cachePrices, pricesRetries, onlyNetworth, includeItemData, stackItems });
     }
 
-    async #calculate(prices, { cachePrices, pricesRetries, onlyNetworth, includeItemData, stackItems }, nonCosmetic) {
-        if (!this.items || !Object.keys(this.items).length) {
-            this.items = await parseItems(this.profileData, this.museumData);
-        }
-
-        // const cachePrices = cachePrices ?? networthManager.cachePrices;
+    async #calculate(prices, nonCosmetic, { cachePrices, pricesRetries, onlyNetworth, includeItemData, stackItems }) {
         cachePrices ??= networthManager.cachePrices;
-        // const pricesRetries = pricesRetries ?? networthManager.pricesRetries;
         pricesRetries ??= networthManager.pricesRetries;
-        //const onlyNetworth = onlyNetworth ?? networthManager.onlyNetworth;
         onlyNetworth ??= networthManager.onlyNetworth;
-        // const includeItemData = includeItemData ?? networthManager.includeItemData;
         includeItemData ??= networthManager.includeItemData;
-        // const stackItems = stackItems ?? networthManager.stackItems;
         stackItems ??= networthManager.stackItems;
 
         await networthManager.itemsPromise;
+        if (!prices) {
+            prices = await getPrices(cachePrices, pricesRetries);
+        }
+        if (!this.items || !Object.keys(this.items).length) {
+            this.items = await parseItems(this.profileData, this.museumData);
+        }
 
         const categories = {};
         for (const [category, categoryItems] of Object.entries(this.items)) {
@@ -126,8 +119,10 @@ class ProfileNetworthCalculator {
                 /**
                  * @type {PetNetworthCalculator | SackItemNetworthCalculator | EssenceNetworthCalculator | ItemNetworthCalculator}
                  */
-                const calculator = new calculatorClass(item, prices, nonCosmetic);
-                const result = await calculator.getNetworth(prices, { includeItemData });
+                const calculator = new calculatorClass(item);
+                const result = nonCosmetic
+                    ? await calculator.getNonCosmeticNetworth(prices, { includeItemData })
+                    : await calculator.getNetworth(prices, { includeItemData });
 
                 categories[category].total += result?.price || 0;
                 if (!result?.soulbound) categories[category].unsoulboundTotal += result?.price || 0;
