@@ -7,15 +7,15 @@ class RecombobulatorHandler {
         const lastLoreLine = item.itemLore.length ? item.itemLore.at(-1) : null;
         const isAccessory = lastLoreLine?.includes('ACCESSORY') || lastLoreLine?.includes('HATCESSORY');
 
-        return item.extra.isRecombobulated() || item.itemData.tag.ExtraAttributes.enchantments || isAccessory || allowsRecomb;
+        return item.isRecombobulated() || item.itemData.tag.ExtraAttributes.enchantments || isAccessory || allowsRecomb;
     }
 
-    calculate(item) {
+    calculate(item, prices) {
         const recombobulatorApplicationWorth = item.itemId === 'bone_boomerang' ? APPLICATION_WORTH.recombobulator * 0.5 : APPLICATION_WORTH.recombobulator;
         const calculationData = {
             id: 'RECOMBOBULATOR_3000',
             type: 'recombobulator_3000',
-            price: (item.prices['recombobulator_3000'] || 0) * recombobulatorApplicationWorth,
+            price: (prices['recombobulator_3000'] || 0) * recombobulatorApplicationWorth,
             count: 1,
         };
 

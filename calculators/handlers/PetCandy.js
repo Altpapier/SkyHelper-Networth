@@ -1,5 +1,5 @@
-const { APPLICATION_WORTH } = require('../../../constants/applicationWorth');
-const { blockedCandyReducePets } = require('../../../constants/pets');
+const { APPLICATION_WORTH } = require('../../constants/applicationWorth');
+const { blockedCandyReducePets } = require('../../constants/pets');
 
 class PetCandyHandler {
     applies(pet) {
@@ -8,7 +8,7 @@ class PetCandyHandler {
         return pet.petData.candyUsed > 0 && !blockedCandyReducePets.includes(pet.petData.type) && xpLessPetCandy >= pet.petData.xpMax;
     }
 
-    calculate(pet) {
+    calculate(pet, prices) {
         const reducedValue = pet.price * APPLICATION_WORTH.petCandy;
 
         if (!isNaN(pet.price)) {

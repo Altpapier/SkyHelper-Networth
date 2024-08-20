@@ -5,7 +5,7 @@ class HotPotatoBookHandler {
         return !!item.itemData.tag.ExtraAttributes.hot_potato_count;
     }
 
-    calculate(item) {
+    calculate(item, prices) {
         const hotPotatoCount = Number(item.itemData.tag.ExtraAttributes.hot_potato_count);
         if (hotPotatoCount > 10) {
             const fumingPotatoBookCount = hotPotatoCount - 10;
@@ -13,7 +13,7 @@ class HotPotatoBookHandler {
             const calculationData = {
                 id: 'FUMING_POTATO_BOOK',
                 type: 'fuming_potato_book',
-                price: (item.prices['fuming_potato_book'] || 0) * fumingPotatoBookCount * APPLICATION_WORTH.fumingPotatoBook,
+                price: (prices['fuming_potato_book'] || 0) * fumingPotatoBookCount * APPLICATION_WORTH.fumingPotatoBook,
                 count: fumingPotatoBookCount,
             };
 
@@ -25,7 +25,7 @@ class HotPotatoBookHandler {
         const calculationData = {
             id: 'HOT_POTATO_BOOK',
             type: 'hot_potato_book',
-            price: (item.prices['hot_potato_book'] || 0) * hotPotatoBookCount * APPLICATION_WORTH.hotPotatoBook,
+            price: (prices['hot_potato_book'] || 0) * hotPotatoBookCount * APPLICATION_WORTH.hotPotatoBook,
             count: hotPotatoBookCount,
         };
 

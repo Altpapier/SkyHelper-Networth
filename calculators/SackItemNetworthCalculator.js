@@ -1,18 +1,19 @@
 const { getHypixelItemInformationFromId } = require('../constants/itemsMap');
 const { titleCase } = require('../helper/functions');
+const { getPrices } = require('../helper/prices');
+const networthManager = require('../managers/NetworthManager');
 
 class SackItemNetworthCalculator {
     /**
      * Creates a new SackItemNetworthCalculator
      * @param {object} itemData The sack item the networth should be calculated for
      */
-    constructor(itemData, prices) {
+    constructor(itemData) {
         this.itemData = itemData;
         this.itemId = itemData.id;
         this.itemName = titleCase(this.itemId);
         this.skyblockItem = getHypixelItemInformationFromId(this.itemId) ?? {};
-        this.prices = prices;
-        
+
         //this.#validate();
     }
 
@@ -25,12 +26,24 @@ class SackItemNetworthCalculator {
      * @param {object} [prices] A prices object generated from the getPrices function. If not provided, the prices will be retrieved every time the function is called
      * @returns {object} An object containing the item's networth calculation
      */
-    async getNetworth() {
-        return this.#calculate();
+    async getNetworth(prices, { cachePrices, pricesRetries }) {
+        return await this.#calculate(prices, false, { cachePrices, pricesRetries });
     }
 
-    #calculate() {
-        const itemPrice = this.prices[this.itemData.id] || 0;
+    async getNonCosmeticNetworth(prices, { cachePrices, pricesRetries }) {
+        return await this.#calculate(prices, true, { cachePrices, pricesRetries });
+    }
+
+    async #calculate(prices, nonCosmetic, { cachePrices, pricesRetries }) {
+        cachePrices ??= networthManager.cachePrices;
+        pricesRetries ??= networthManager.pricesRetries;
+
+        await networthManager.itemsPromise;
+        if (!prices) {
+            prices = await getPrices(cachePrices, pricesRetries);
+        }
+
+        const itemPrice = prices[this.itemData.id] || 0;
         if (!itemPrice) {
             return null;
         }

@@ -5,7 +5,7 @@ class PickonimbusHandler {
         return item.itemId === 'PICKONIMBUS' && item.itemData.tag.ExtraAttributes.pickonimbus_durability;
     }
 
-    calculate(item) {
+    calculate(item, prices) {
         const reduction = item.itemData.tag.ExtraAttributes.pickonimbus_durability / PICKONIMBUS_DURABILITY;
 
         const calculationData = {

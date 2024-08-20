@@ -3,30 +3,9 @@ const ItemNetworthHelper = require('./helpers/ItemNetworthHelper');
 const HotPotatoBookHandler = require('./handlers/HotPotatoBook');
 const RecombobulatorHandler = require('./handlers/Recombobulator');
 const PickonimbusHandler = require('./handlers/Pickonimbus');
-const { ValidationError } = require('../helper/errors');
 const { getPrices } = require('../helper/prices');
 
 class ItemNetworthCalculator extends ItemNetworthHelper {
-    /**
-     * Creates a new ItemNetworthCalculator
-     * @param {object} itemData The item the networth should be calculated for
-     */
-    constructor(itemData) {
-        super(itemData);
-
-        this.#validateItem();
-    }
-
-    #validateItem() {
-        if (!this.itemData || typeof this.itemData !== 'object') {
-            throw new ValidationError('Item must be an object');
-        }
-
-        if (this.itemData?.tag === undefined && this.itemData?.exp === undefined) {
-            throw new ValidationError('Invalid item provided');
-        }
-    }
-
     /**
      * Returns the networth of an item
      * @param {object} [prices] A prices object generated from the getPrices function. If not provided, the prices will be retrieved every time the function is called
@@ -56,14 +35,16 @@ class ItemNetworthCalculator extends ItemNetworthHelper {
             prices = await getPrices(cachePrices, pricesRetries);
         }
 
+        this.getBasePrice(prices);
+
         const handlers = [RecombobulatorHandler, PickonimbusHandler, HotPotatoBookHandler];
         for (const Handler of handlers) {
-            const handler = new Handler(this);
-            if (handler.applies() === false) {
+            const handler = new Handler();
+            if (handler.applies(this) === false) {
                 continue;
             }
 
-            handler.calculate();
+            handler.calculate(this, prices);
         }
 
         const data = {
