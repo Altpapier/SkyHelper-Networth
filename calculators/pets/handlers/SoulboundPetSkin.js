@@ -1,29 +1,25 @@
 const { APPLICATION_WORTH } = require('../../../constants/applicationWorth');
-const PetCalculationHandler = require('../PetCalculationHandler');
 
-class SoulboundPetSkinHandler extends PetCalculationHandler {
-    constructor(data) {
-        super(data);
+class SoulboundPetSkinHandler {
+
+    applies(pet) {
+        return pet.petData.skin && pet.isSoulbound() && !pet.nonCosmetic;
     }
 
-    applies() {
-        return this.petData.skin && this.isSoulbound() && !this.nonCosmetic;
-    }
-
-    calculate() {
-        if (!this.prices[`PET_SKIN_${this.skin}`]) {
+    calculate(pet) {
+        if (!pet.prices[`PET_SKIN_${pet.skin}`]) {
             return;
         }
 
         const calculationData = {
-            id: this.skin,
+            id: pet.skin,
             type: 'SOULBOUND_PET_SKIN',
-            price: (this.prices[`PET_SKIN_${this.skin}`] || 0) * APPLICATION_WORTH.soulboundPetSkins,
+            price: (pet.prices[`PET_SKIN_${pet.skin}`] || 0) * APPLICATION_WORTH.soulboundPetSkins,
             count: 1,
         };
 
-        this.price += calculationData.price;
-        this.calculation.push(calculationData);
+        pet.price += calculationData.price;
+        pet.calculation.push(calculationData);
     }
 }
 

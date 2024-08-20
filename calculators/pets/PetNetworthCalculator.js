@@ -28,7 +28,7 @@ class PetNetworthCalculator extends PetNetworthHelper {
     }
 
     #calculate() {
-        const handlers = [PetItemHandler];
+        const handlers = [PetCandyHandler, PetItemHandler, SoulboundPetSkinHandler];
         for (const Handler of handlers) {
             const handler = new Handler(this);
             if (handler.applies() === false) {

@@ -1,13 +1,18 @@
-const MiscNetworthHelper = require('./MiscNetworthHelper');
+const { getHypixelItemInformationFromId } = require('../../constants/itemsMap');
+const { titleCase } = require('../../helper/functions');
 
-class SackItemNetworthCalculator extends MiscNetworthHelper {
+class SackItemNetworthCalculator {
     /**
-     * Creates a new ItemNetworthCalculator
+     * Creates a new SackItemNetworthCalculator
      * @param {object} itemData The sack item the networth should be calculated for
      */
-    constructor(itemData, prices,) {
-        super(itemData, prices);
-
+    constructor(itemData, prices) {
+        this.itemData = itemData;
+        this.itemId = itemData.id;
+        this.itemName = titleCase(this.itemId);
+        this.skyblockItem = getHypixelItemInformationFromId(this.itemId) ?? {};
+        this.prices = prices;
+        
         //this.#validate();
     }
 

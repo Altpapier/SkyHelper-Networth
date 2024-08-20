@@ -1,26 +1,21 @@
 const { APPLICATION_WORTH } = require('../../../constants/applicationWorth');
 const { blockedCandyReducePets } = require('../../../constants/pets');
-const PetCalculationHandler = require('../PetCalculationHandler');
 
-class PetCandyHandler extends PetCalculationHandler {
-    constructor(data) {
-        super(data);
+class PetCandyHandler {
+    applies(pet) {
+        const maxPetCandyXp = pet.petData.candyUsed * 1000000;
+        const xpLessPetCandy = pet.petData.exp - maxPetCandyXp;
+        return pet.petData.candyUsed > 0 && !blockedCandyReducePets.includes(pet.petData.type) && xpLessPetCandy >= pet.petData.xpMax;
     }
 
-    applies() {
-        const maxPetCandyXp = this.petData.candyUsed * 1000000;
-        const xpLessPetCandy = this.petData.exp - maxPetCandyXp;
-        return this.petData.candyUsed > 0 && !blockedCandyReducePets.includes(this.petData.type) && xpLessPetCandy >= this.petData.xpMax;
-    }
+    calculate(pet) {
+        const reducedValue = pet.price * APPLICATION_WORTH.petCandy;
 
-    calculate() {
-        const reducedValue = this.price * APPLICATION_WORTH.petCandy;
-
-        if (!isNaN(this.price)) {
-            if (this.petData.level === 100) {
-                this.price = Math.max(reducedValue, this.price - 5000000);
+        if (!isNaN(pet.price)) {
+            if (pet.petData.level === 100) {
+                pet.price = Math.max(reducedValue, pet.price - 5000000);
             } else {
-                this.price = Math.max(reducedValue, this.price - 2500000);
+                pet.price = Math.max(reducedValue, pet.price - 2500000);
             }
         }
     }

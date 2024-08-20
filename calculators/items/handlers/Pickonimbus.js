@@ -1,27 +1,22 @@
 const { PICKONIMBUS_DURABILITY } = require('../../../constants/misc');
-const ItemCalculationHandler = require('../ItemCalculationHandler');
 
-class PickonimbusHandler extends ItemCalculationHandler {
-    constructor(data) {
-        super(data);
+class PickonimbusHandler {
+    applies(item) {
+        return item.itemId === 'PICKONIMBUS' && item.itemData.tag.ExtraAttributes.pickonimbus_durability;
     }
 
-    applies() {
-        return this.itemId === 'PICKONIMBUS' && this.itemData.tag.ExtraAttributes.pickonimbus_durability;
-    }
-
-    calculate() {
-        const reduction = this.itemData.tag.ExtraAttributes.pickonimbus_durability / PICKONIMBUS_DURABILITY;
+    calculate(item) {
+        const reduction = item.itemData.tag.ExtraAttributes.pickonimbus_durability / PICKONIMBUS_DURABILITY;
 
         const calculationData = {
             id: 'PICKONIMBUS_DURABLITY',
             type: 'pickonimbus',
-            price: -(this.price * (reduction - 1)),
-            count: PICKONIMBUS_DURABILITY - this.itemData.tag.ExtraAttributes.pickonimbus_durability,
+            price: -(item.price * (reduction - 1)),
+            count: PICKONIMBUS_DURABILITY - item.itemData.tag.ExtraAttributes.pickonimbus_durability,
         };
 
-        this.price += calculationData.price;
-        this.calculation.push(calculationData);
+        item.price += calculationData.price;
+        item.calculation.push(calculationData);
     }
 }
 
