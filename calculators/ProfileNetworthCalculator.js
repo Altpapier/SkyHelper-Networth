@@ -2,16 +2,15 @@ const { getPrices } = require('../helper/prices');
 const { parseItems } = require('../helper/parseItems');
 const networthManager = require('../managers/NetworthManager');
 const ItemNetworthCalculator = require('./ItemNetworthCalculator');
-const EssenceNetworthCalculator = require('./EssenceNetworthCalculator');
-const SackItemNetworthCalculator = require('./SackItemNetworthCalculator');
 const PetNetworthCalculator = require('./PetNetworthCalculator');
+const BasicItemNetworthCalculator = require('./BasicItemNetworthCalculator');
 const { ValidationError } = require('../helper/errors');
 
 const categoryCalculatorMap = {
     pets: PetNetworthCalculator,
-    sacks: SackItemNetworthCalculator,
-    essence: EssenceNetworthCalculator,
-    item: ItemNetworthCalculator,
+    sacks: BasicItemNetworthCalculator,
+    essence: BasicItemNetworthCalculator,
+    default: ItemNetworthCalculator,
 };
 
 class ProfileNetworthCalculator {
@@ -115,9 +114,9 @@ class ProfileNetworthCalculator {
             for (const item of categoryItems) {
                 if (!item || Object.keys(item).length === 0) continue;
 
-                const calculatorClass = categoryCalculatorMap[category] ?? ItemNetworthCalculator;
+                const calculatorClass = categoryCalculatorMap[category] ?? categoryCalculatorMap.default;
                 /**
-                 * @type {PetNetworthCalculator | SackItemNetworthCalculator | EssenceNetworthCalculator | ItemNetworthCalculator}
+                 * @type {ItemNetworthCalculator | PetNetworthCalculator | BasicItemNetworthCalculator}
                  */
                 const calculator = new calculatorClass(item);
                 const result = nonCosmetic

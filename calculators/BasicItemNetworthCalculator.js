@@ -3,16 +3,16 @@ const { titleCase } = require('../helper/functions');
 const { getPrices } = require('../helper/prices');
 const networthManager = require('../managers/NetworthManager');
 
-class EssenceNetworthCalculator {
+class BasicItemNetworthCalculator {
     /**
-     * Creates a new ItemNetworthCalculator
-     * @param {object} itemData The sack item the networth should be calculated for
+     * Creates a new BasicItemNetworthCalculator
+     * @param {object} itemData The item the networth should be calculated for
      */
-    constructor(itemData) {
-        this.itemData = itemData;
-        this.itemId = itemData.id;
-        this.itemName = titleCase(this.itemId);
-        this.skyblockItem = getHypixelItemInformationFromId(this.itemId) ?? {};
+    constructor({ id, amount }) {
+        this.id = id;
+        this.amount = amount;
+        this.itemName = titleCase(this.id);
+        this.skyblockItem = getHypixelItemInformationFromId(this.id) ?? {};
 
         //this.#validate();
     }
@@ -27,14 +27,14 @@ class EssenceNetworthCalculator {
      * @returns {object} An object containing the item's networth calculation
      */
     async getNetworth(prices, { cachePrices, pricesRetries }) {
-        return await this.#calculate(prices, { cachePrices, pricesRetries });
+        return await this.#calculate(prices, false, { cachePrices, pricesRetries });
     }
 
     async getNonCosmeticNetworth(prices, { cachePrices, pricesRetries }) {
-        return await this.getNetworth(prices, { cachePrices, pricesRetries });
+        return await this.calculate(prices, true, { cachePrices, pricesRetries });
     }
 
-    async #calculate(prices, { cachePrices, pricesRetries }) {
+    async #calculate(prices, nonCosmetic, { cachePrices, pricesRetries }) {
         cachePrices ??= networthManager.cachePrices;
         pricesRetries ??= networthManager.pricesRetries;
 
@@ -43,20 +43,20 @@ class EssenceNetworthCalculator {
             prices = await getPrices(cachePrices, pricesRetries);
         }
 
-        const itemPrice = prices[this.itemId] || 0;
+        const itemPrice = prices[this.id] || 0;
         if (!itemPrice) {
             return null;
         }
 
         return {
             name: this.itemName.split(' ').reverse().join(' '),
-            id: this.itemId,
-            price: itemPrice * this.itemData.amount,
+            id: this.id,
+            price: itemPrice * this.amount,
             calculation: [],
-            count: this.itemData.amount,
+            count: this.amount,
             soulbound: false,
         };
     }
 }
 
-module.exports = EssenceNetworthCalculator;
+module.exports = BasicItemNetworthCalculator;
