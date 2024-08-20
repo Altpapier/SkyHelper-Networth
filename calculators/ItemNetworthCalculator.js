@@ -108,4 +108,4 @@ class ItemNetworthCalculator extends ItemNetworthHelper {
     }
 }
 
-module.exports = { ItemNetworthCalculator };
+module.exports = ItemNetworthCalculator;

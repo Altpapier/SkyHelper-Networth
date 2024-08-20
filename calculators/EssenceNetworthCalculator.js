@@ -1,7 +1,6 @@
 const { parsePrices } = require('../helper/prices');
 const { titleCase } = require('../helper/functions');
 const { titleCase } = require('../helper/functions');
-
 const networthManager = require('./NetworthManager');
 
 class EssenceNetworthCalculator {
@@ -46,4 +45,4 @@ class EssenceNetworthCalculator {
     }
 }
 
-module.exports = { EssenceNetworthCalculator };
+module.exports = EssenceNetworthCalculator;

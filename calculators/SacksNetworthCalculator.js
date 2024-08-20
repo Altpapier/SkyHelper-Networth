@@ -1,9 +1,7 @@
 const { parsePrices } = require('../helper/prices');
 const { titleCase } = require('../helper/functions');
 const { titleCase } = require('../helper/functions');
-const { applicationWorth } = require('../constants/applicationWorth');
 const { validRunes } = require('../constants/misc');
-
 const networthManager = require('./NetworthManager');
 
 class SacksNetworthCalculator {
@@ -61,4 +59,4 @@ class SacksNetworthCalculator {
     }
 }
 
-module.exports = { SacksNetworthCalculator };
+module.exports = SacksNetworthCalculator;

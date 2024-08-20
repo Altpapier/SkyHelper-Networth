@@ -4,7 +4,6 @@ const { applicationWorth } = require('../constants/applicationWorth');
 const { titleCase } = require('../helper/functions');
 const { blockedCandyReducePets, soulboundPets, tiers } = require('../constants/pets');
 const { applicationWorth } = require('../constants/applicationWorth');
-
 const networthManager = require('./NetworthManager');
 
 class PetNetworthCalculator {
@@ -169,4 +168,4 @@ class PetNetworthCalculator {
     }
 }
 
-module.exports = { PetNetworthCalculator };
+module.exports = PetNetworthCalculator;

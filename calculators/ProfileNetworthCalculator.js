@@ -1,7 +1,6 @@
 const { parsePrices } = require('../helper/prices');
 const { calculateNetworth } = require('../helper/calculateNetworth');
 const { parseItems } = require('../helper/parseItems');
-
 const networthManager = require('./NetworthManager');
 
 class ProfileNetworthCalculator {
@@ -106,4 +105,4 @@ class ProfileNetworthCalculator {
     }
 }
 
-module.exports = { ProfileNetworthCalculator };
+module.exports = ProfileNetworthCalculator;
