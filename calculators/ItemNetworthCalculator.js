@@ -1,34 +1,12 @@
-const { calculateItemNetworth } = require('../helper/calculateNetworth');
 const { parsePrices } = require('../helper/prices');
-const { calculatePet } = require('./petCalculator');
-const { titleCase } = require('../helper/functions');
-const { getPetLevel } = require('../constants/pets');
-const { prestiges } = require('../constants/prestiges');
-const { applicationWorth, enchantsWorth } = require('../constants/applicationWorth');
-const {
-    blockedEnchants,
-    ignoredEnchants,
-    stackingEnchants,
-    ignoreSilex,
-    masterStars,
-    validRunes,
-    allowedRecombTypes,
-    allowedRecombIds,
-    attributesBaseCosts,
-    enrichments,
-    pickonimbusDurability,
-    specialEnchantmentMatches,
-} = require('../constants/misc');
-const { reforges } = require('../constants/reforges');
 const { getHypixelItemInformationFromId } = require('../constants/itemsMap');
-
 const networthManager = require('./NetworthManager');
-const { Helper } = require('./helper/functions');
-const { HotPotatoBookCalculation } = require('./items/HotPotatoBook');
-const { Recombobulator3000Calculation } = require('./items/Recombobulator_3000');
-const { PickonimbusCalculation } = require('./items/Pickonimbus');
+const ItemNetworthHelper = require('./ItemNetworthHelper');
+const HotPotatoBookHandler = require('./handlers/HotPotatoBook');
+const RecombobulatorHandler = require('./handlers/Recombobulator');
+const PickonimbusHandler = require('./handlers/Pickonimbus');
 
-class ItemNetworthCalculator extends Helper {
+class ItemNetworthCalculator extends ItemNetworthHelper {
     /**
      * Creates a new ItemNetworthCalculator
      * @param {object} itemData The item the networth should be calculated for
@@ -110,9 +88,9 @@ class ItemNetworthCalculator extends Helper {
 
         this.#getBasePrice(prices, nonCosmetic);
 
-        const calculations = [HotPotatoBookCalculation, PickonimbusCalculation, Recombobulator3000Calculation];
-        for (const Calculation of calculations) {
-            Calculation.calculate(this);
+        const handlers = [PickonimbusHandler, HotPotatoBookHandler, RecombobulatorHandler];
+        for (const Handler of handlers) {
+            if (Handler.applies(this)) Handler.calculate(this, prices);
         }
 
         const data = {

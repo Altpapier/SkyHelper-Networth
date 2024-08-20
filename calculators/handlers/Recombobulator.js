@@ -1,25 +1,16 @@
 const { ALLOWED_RECOMBOBULATED_CATEGORIES, ALLOWED_RECOMBOBULATED_IDS } = require('../../constants/misc');
 const { APPLICATION_WORTH } = require('../../constants/applicationWorth');
-const { ItemHandler } = require('../handlers/ItemHandler');
 
-class Recombobulator3000Calculation extends ItemHandler {
-    constructor() {
-        super();
-    }
-
-    isValid() {
-        const allowsRecomb = ALLOWED_RECOMBOBULATED_CATEGORIES.includes(this.skyblockItem.category) || ALLOWED_RECOMBOBULATED_IDS.includes(itemId);
+class RecombobulatorHandler {
+    isValid(item) {
+        const allowsRecomb = ALLOWED_RECOMBOBULATED_CATEGORIES.includes(item.skyblockItem.category) || ALLOWED_RECOMBOBULATED_IDS.includes(itemId);
         const isAccessory = lastLoreLine?.includes('ACCESSORY') || lastLoreLine?.includes('HATCESSORY');
         const lastLoreLine = itemLore.length ? itemLore.at(-1) : null;
 
-        return this.isRecombobulated() || ExtraAttributes.enchantments || isAccessory || allowsRecomb;
+        return item.isRecombobulated() || ExtraAttributes.enchantments || isAccessory || allowsRecomb;
     }
 
-    calculate() {
-        if (this.isValid === false) {
-            return null;
-        }
-
+    calculate(item, prices) {
         const recombApplicationWorth = itemId === 'bone_boomerang' ? APPLICATION_WORTH.recombobulator * 0.5 : APPLICATION_WORTH.recombobulator;
         const calculationData = {
             id: 'RECOMBOBULATOR_3000',
@@ -28,9 +19,9 @@ class Recombobulator3000Calculation extends ItemHandler {
             count: 1,
         };
 
-        this.price += calculationData.price;
-        this.calculation.push(calculationData);
+        item.price += calculationData.price;
+        item.calculation.push(calculationData);
     }
 }
 
-module.exports = { Recombobulator3000Calculation };
+module.exports = RecombobulatorHandler;

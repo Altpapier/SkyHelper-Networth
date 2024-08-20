@@ -1,4 +1,4 @@
-class Helper {
+class ItemNetworthHelper {
     constructor(itemData, itemId, itemName, itemLore, skyblockItem) {
         this.skyblockItem = skyblockItem;
         this.itemName = itemName;
@@ -95,4 +95,4 @@ class Helper {
     }
 }
 
-module.exports = { Helper };
+module.exports = ItemNetworthHelper;
