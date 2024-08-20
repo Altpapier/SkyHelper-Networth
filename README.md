@@ -21,52 +21,52 @@ The following list shows how much each modifier counts towards an item's worth
 
 **Items**:
 
-- Enrichments: **50%**
-- Farming for Dummies: **50%**
-- Gemstone Power Scrolls: **50%**
-- Wood Singularity: **50%**
-- Art of War: **60%**
-- Fuming Potato Books: **60%**
-- Gemstone Slot Unlocks (only crimson armor): **60%**
-- Popular Runes: **60%**
-  - Music, Enchanting, Grand Searing, etc.
-- Transmission Tuners: **70%**
-- Essence: **75%**
-- Golden Bounty: **75%**
-- Silex: **75%**
-- Art of Peace: **80%**
-- Jalapeno Book: **80%**
-- Mana Disintegrator: **80%**
-- Recombobulators: **80%**
-  - Bonemerangs: **40%**
-- Thunder In A Bottle: **80%**
-- Enchantments: **85%**
-  - Counter Strike: **20%**
-  - Big Brain, Inferno, Overload, and Soul Eater: **35%**
-  - Fatal Tempo: **65%**
-- Shen's Auction Price Paid: **85%**
-- Dyes: **90%**
-- Gemstone Chambers: **90%**
-- Attributes: **100%**
-  - Based off the corresponding attribute shard's price
-  - Lava Fishing rods and Crimson Hunter set use their base item's price instead
-  - Kuudra Armor sets use the average sale value of all types with the same attribute
-- Drill Upgrades: **100%**
-- Etherwarp Conduit: **100%**
-- Dungeon Master Stars: **100%**
-- Gemstones: **100%**
-- Hot Potato Books: **100%**
-- Necron Blade Scrolls: **100%**
-- Prestige Item: **100%**
-- Reforges: **100%**
-- Winning Bid: **100%**
+-   Enrichments: **50%**
+-   Farming for Dummies: **50%**
+-   Gemstone Power Scrolls: **50%**
+-   Wood Singularity: **50%**
+-   Art of War: **60%**
+-   Fuming Potato Books: **60%**
+-   Gemstone Slot Unlocks (only crimson armor): **60%**
+-   Popular Runes: **60%**
+    -   Music, Enchanting, Grand Searing, etc.
+-   Transmission Tuners: **70%**
+-   Essence: **75%**
+-   Golden Bounty: **75%**
+-   Silex: **75%**
+-   Art of Peace: **80%**
+-   Jalapeno Book: **80%**
+-   Mana Disintegrator: **80%**
+-   Recombobulators: **80%**
+    -   Bonemerangs: **40%**
+-   Thunder In A Bottle: **80%**
+-   Enchantments: **85%**
+    -   Counter Strike: **20%**
+    -   Big Brain, Inferno, Overload, and Soul Eater: **35%**
+    -   Fatal Tempo: **65%**
+-   Shen's Auction Price Paid: **85%**
+-   Dyes: **90%**
+-   Gemstone Chambers: **90%**
+-   Attributes: **100%**
+    -   Based off the corresponding attribute shard's price
+    -   Lava Fishing rods and Crimson Hunter set use their base item's price instead
+    -   Kuudra Armor sets use the average sale value of all types with the same attribute
+-   Drill Upgrades: **100%**
+-   Etherwarp Conduit: **100%**
+-   Dungeon Master Stars: **100%**
+-   Gemstones: **100%**
+-   Hot Potato Books: **100%**
+-   Necron Blade Scrolls: **100%**
+-   Prestige Item: **100%**
+-   Reforges: **100%**
+-   Winning Bid: **100%**
 
 **Pets**:
 
-- Pet Item: **100%**
-- Soulbound Pet Skins: **80%**
-- Pet Candied: **-35%**
-  - Except Ender Dragon, Golden Dragon, and Scatha
+-   Pet Item: **100%**
+-   Soulbound Pet Skins: **80%**
+-   Pet Candied: **-35%**
+    -   Except Ender Dragon, Golden Dragon, and Scatha
 
 ## Functions
 

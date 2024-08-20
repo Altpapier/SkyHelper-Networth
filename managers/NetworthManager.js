@@ -134,7 +134,7 @@ class NetworthManager {
             console.warn(
                 `[SKYHELPER-NETWORTH] Failed to retrieve items with status code ${err?.response?.status || 'Unknown'}. Retrying (${
                     retries - currentRetry
-                } attempt(s) left)...`
+                } attempt(s) left)...`,
             );
             await sleep(retryInterval);
             return await updateItems(retries, retryInterval, currentRetry + 1);

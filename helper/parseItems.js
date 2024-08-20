@@ -25,7 +25,11 @@ const parseItems = async (profileData, museumData) => {
     // Parse Single Containers (Armor, Equipment, Wardrobe, Inventory, Enderchest, Personal Vault)
     for (const [container, key] of Object.entries(singleContainers)) {
         items[container] = [];
-        const containerData = bagContainers.includes(key) ? profileData.inventory?.bag_contents?.[key] : sharedContainers.includes(key) ? profileData.shared_inventory?.[key] : profileData.inventory?.[key];
+        const containerData = bagContainers.includes(key)
+            ? profileData.inventory?.bag_contents?.[key]
+            : sharedContainers.includes(key)
+              ? profileData.shared_inventory?.[key]
+              : profileData.inventory?.[key];
         if (containerData) {
             items[container] = await decodeData(containerData.data);
         }
@@ -80,7 +84,9 @@ const postParseItems = async (profileData, items) => {
             if (!item?.tag?.ExtraAttributes?.new_year_cake_bag_data) continue;
             const cakes = await decodeData(item.tag?.ExtraAttributes?.new_year_cake_bag_data);
             if (item?.tag?.ExtraAttributes) {
-                item.tag.ExtraAttributes.new_year_cake_bag_years = cakes.filter((cake) => cake.id && cake.tag?.ExtraAttributes?.new_years_cake).map((cake) => cake.tag.ExtraAttributes.new_years_cake);
+                item.tag.ExtraAttributes.new_year_cake_bag_years = cakes
+                    .filter((cake) => cake.id && cake.tag?.ExtraAttributes?.new_years_cake)
+                    .map((cake) => cake.tag.ExtraAttributes.new_years_cake);
             }
         }
     }

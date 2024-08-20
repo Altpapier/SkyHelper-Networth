@@ -67,7 +67,7 @@ function starCosts(prices, calculation, upgrades, prestigeItem) {
                 acc.price += val?.price || 0;
                 return acc;
             },
-            { id: prestigeItem, type: prestige ? 'prestige' : 'stars', price: 0, count: prestige ? 1 : star }
+            { id: prestigeItem, type: prestige ? 'prestige' : 'stars', price: 0, count: prestige ? 1 : star },
         );
 
         if (prestige && prices[prestigeItem.toLowerCase()]) calculationData.price += prices[prestigeItem.toLowerCase()];
@@ -331,7 +331,7 @@ const calculateItem = (item, prices, nonCosmetic, returnItemData) => {
                     baseAttributePrice = prices[`kuudra_helmet_${attribute}`];
                 } else if (/^(|hot_|fiery_|burning_|infernal_)(aurora|crimson|terror|hollow|fervor)(_chestplate|_leggings|_boots)$/.test(itemId)) {
                     const kuudraPrices = [prices[`kuudra_chestplate_${attribute}`], prices[`kuudra_leggings_${attribute}`], prices[`kuudra_boots_${attribute}`]].filter(
-                        (v) => v
+                        (v) => v,
                     );
                     const kuudraPrice = kuudraPrices.reduce((a, b) => a + b, 0) / kuudraPrices.length;
                     if (kuudraPrice && (!baseAttributePrice || kuudraPrice < baseAttributePrice)) baseAttributePrice = kuudraPrice;

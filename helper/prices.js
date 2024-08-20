@@ -5,7 +5,7 @@ async function parsePrices(prices, cache, retries = 3) {
     try {
         if (prices) {
             const firstKey = Object.keys(prices)[0];
-            if (!prices?.length || !prices instanceof Object || prices[firstKey] instanceof Object) throw new NetworthError('Invalid prices data provided');
+            if (!prices?.length || (!prices) instanceof Object || prices[firstKey] instanceof Object) throw new NetworthError('Invalid prices data provided');
             if (firstKey !== firstKey.toLowerCase()) for (id of Object.keys(prices)) prices[id.toLowerCase()] = prices[id];
         }
     } catch (err) {
@@ -65,7 +65,9 @@ async function getPrices(cache = true, retries = 3) {
             if (retries <= 0) {
                 throw new PricesError(`Failed to retrieve prices with status code ${e?.response?.status || 'Unknown'}`);
             } else {
-                console.warn(`[SKYHELPER-NETWORTH] Failed to retrieve prices with status code ${e?.response?.status || 'Unknown'}. Retrying (${retries} attempt(s) left)...`);
+                console.warn(
+                    `[SKYHELPER-NETWORTH] Failed to retrieve prices with status code ${e?.response?.status || 'Unknown'}. Retrying (${retries} attempt(s) left)...`,
+                );
                 return getPrices(cache, retries - 1);
             }
         } finally {
