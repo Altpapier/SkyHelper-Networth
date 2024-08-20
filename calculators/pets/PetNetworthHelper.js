@@ -1,18 +1,16 @@
-const { getHypixelItemInformationFromId } = require('../../constants/itemsMap');
 const { tiers, soulboundPets, getPetLevel } = require('../../constants/pets');
 const { titleCase } = require('../../helper/functions');
 
 class PetNetworthHelper {
     constructor(petData, prices, nonCosmetic) {
         this.prices = prices;
-        this.petData = petData;
         this.nonCosmetic = nonCosmetic;
+
+        this.petData = petData;
         this.tier = this.getTier();
         this.skin = this.petData.skin;
         this.basePetId = this.petData.type;
-        this.baseTierName = `${this.tier}_${this.basePetId}`;
         this.petId = this.getPetId();
-        this.tierName = this.getTierName();
         this.level = this.getPetLevel();
         this.petName = `[Lvl ${this.level.level}] ${titleCase(`${this.tier} ${titleCase(this.basePetId)}`)}${this.petData.skin ? ' ✦' : ''}`;
 
@@ -21,6 +19,10 @@ class PetNetworthHelper {
         this.base = 0;
 
         this.getBasePrice();
+    }
+
+    getTier() {
+        return this.petData.heldItem === 'PET_ITEM_TIER_BOOST' ? tiers[tiers.indexOf(this.petData.tier) - 1] : this.petData.tier;
     }
 
     getPetId() {
@@ -34,38 +36,22 @@ class PetNetworthHelper {
         return `${this.tier}_${this.basePetId}`;
     }
 
-    getTierName() {
-        return `${this.tier}_${this.petId}`;
-    }
-
-    getTier() {
-        return this.petData.heldItem === 'PET_ITEM_TIER_BOOST' ? tiers[tiers.indexOf(this.petData.tier) - 1] : this.petData.tier;
-    }
-
-    isCosmetic() {
-        const testId = (this.itemId + this.itemName).toUpperCase();
-        const isSkinOrDye = testId.includes('DYE') || testId.includes('SKIN');
-        const isCosmetic = this.skyblockItem.category === 'COSMETIC' || this.itemLore.at(-1)?.includes('COSMETIC');
-
-        return isCosmetic || isSkinOrDye || this.isRune();
-    }
-
     isSoulbound() {
-        return soulboundPets.includes(this.petData.type);
+        return soulboundPets.includes(this.basePetId);
     }
 
     getPetLevelPrices() {
         const basePrices = {
-            LVL_1: this.prices[`LVL_1_${this.baseTierName}`.toUpperCase()] || 0,
-            LVL_100: this.prices[`LVL_100_${this.baseTierName}`.toUpperCase()] || 0,
-            LVL_200: this.prices[`LVL_200_${this.baseTierName}`.toUpperCase()] || 0,
+            LVL_1: this.prices[`LVL_1_${this.petId}`] || 0,
+            LVL_100: this.prices[`LVL_100_${this.petId}`] || 0,
+            LVL_200: this.prices[`LVL_200_${this.petId}`] || 0,
         };
 
         if (this.skin && !this.nonCosmetic) {
             return {
-                LVL_1: Math.max(this.prices[`LVL_1_${this.tierName}`.toUpperCase()] || 0, basePrices.LVL_1),
-                LVL_100: Math.max(this.prices[`LVL_100_${this.tierName}`.toUpperCase()] || 0, basePrices.LVL_100),
-                LVL_200: Math.max(this.prices[`LVL_200_${this.tierName}`.toUpperCase()] || 0, basePrices.LVL_200),
+                LVL_1: Math.max(this.prices[`LVL_1_${this.petId}`] || 0, basePrices.LVL_1),
+                LVL_100: Math.max(this.prices[`LVL_100_${this.petId}`] || 0, basePrices.LVL_100),
+                LVL_200: Math.max(this.prices[`LVL_200_${this.petId}`] || 0, basePrices.LVL_200),
             };
         }
 
@@ -79,22 +65,17 @@ class PetNetworthHelper {
         }
 
         this.price = LVL_200 || LVL_100;
-
-        // BASE
         if (this.level.level < 100 && this.level.xpMax) {
             const baseFormula = (LVL_100 - LVL_1) / this.level.xpMax;
-
             if (baseFormula) {
-                this.price = baseFormula * this.level.xp + LVL_100;
+                this.price = baseFormula * this.level.xp + LVL_1;
             }
         }
 
         if (this.level.level > 100 && this.level.level < 200) {
             const level = this.level.level.toString().slice(1);
-
             if (level !== 1) {
                 const baseFormula = (LVL_200 - LVL_100) / 100;
-
                 if (baseFormula) {
                     this.price = baseFormula * level + LVL_100;
                 }

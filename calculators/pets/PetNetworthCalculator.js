@@ -1,4 +1,3 @@
-const networthManager = require('../../managers/NetworthManager');
 const PetCandyHandler = require('./handlers/PetCandy');
 const PetItemHandler = require('./handlers/PetItem');
 const SoulboundPetSkinHandler = require('./handlers/SoulboundPetSkin');
@@ -9,43 +8,34 @@ class PetNetworthCalculator extends PetNetworthHelper {
      * Creates a new ItemNetworthCalculator
      * @param {object} petData The pet the networth should be calculated for
      */
-    constructor(petData, prices) {
-        super(petData, prices);
+    constructor(petData, prices, nonCosmetic) {
+        super(petData, prices, nonCosmetic);
 
-        this.#validate();
+        // this.#validate();
     }
 
-    #validate() {}
+    // #validate() {
+    //
+    // }
 
     /**
      * Returns the networth of an item
      * @param {object} [prices] A prices object generated from the getPrices function. If not provided, the prices will be retrieved every time the function is called
      * @returns {object} An object containing the item's networth calculation
      */
-    async getNetworth(prices) {
-        await networthManager.itemsPromise;
-        return this.#calculate(prices, false);
+    async getNetworth() {
+        return this.#calculate();
     }
 
-    /**
-     * Returns the non cosmetic networth of an item
-     * @param {object} [prices] A prices object generated from the getPrices function. If not provided, the prices will be retrieved every time the function is called
-     * @returns {object} An object containing the item's non cosmetic networth calculation
-     */
-    async getNonCosmeticNetworth(prices) {
-        await networthManager.itemsPromise;
-        return this.#calculate(prices, true);
-    }
-
-    #calculate(prices, nonCosmetic) {
+    #calculate() {
         const handlers = [SoulboundPetSkinHandler, PetItemHandler, PetCandyHandler];
         for (const Handler of handlers) {
-            const handler = new Handler(this.petData, prices);
-            if (handler.applies(this) === false) {
+            const handler = new Handler(this.petData, this.prices);
+            if (handler.applies() === false) {
                 continue;
             }
 
-            handler.calculate(this, prices);
+            handler.calculate();
         }
 
         return {
@@ -55,6 +45,7 @@ class PetNetworthCalculator extends PetNetworthHelper {
             base: this.base,
             calculation: this.calculation,
             soulbound: this.isSoulbound(),
+            cosmetic: !!this.skin,
         };
     }
 }

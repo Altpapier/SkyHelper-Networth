@@ -6,11 +6,11 @@ class HotPotatoBookHandler extends ItemNetworthHelper {
         super(itemData, prices);
     }
 
-    static applies() {
+    applies() {
         return !!this.itemData.tag.ExtraAttributes.hot_potato_count;
     }
 
-    static calculate() {
+    calculate() {
         const hotPotatoCount = Number(this.itemData.tag.ExtraAttributes.hot_potato_count);
         if (hotPotatoCount > 10) {
             const fumingPotatoBookCount = hotPotatoCount - 10;

@@ -11,9 +11,13 @@ class SoulboundPetSkinHandler extends PetNetworthHelper {
     }
 
     calculate() {
+        if (!this.prices[`PET_SKIN_${this.skin}`]) {
+            return;
+        }
+
         const calculationData = {
             id: this.skin,
-            type: 'soulbound_pet_skin',
+            type: 'SOULBOUND_PET_SKIN',
             price: (this.prices[`PET_SKIN_${this.skin}`] || 0) * APPLICATION_WORTH.soulboundPetSkins,
             count: 1,
         };

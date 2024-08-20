@@ -6,11 +6,11 @@ class PickonimbusHandler extends ItemNetworthHelper {
         super(itemData, prices);
     }
 
-    static applies() {
+    applies() {
         return this.itemId === 'PICKONIMBUS' && this.itemData.tag.ExtraAttributes.pickonimbus_durability;
     }
 
-    static calculate() {
+    calculate() {
         const reduction = this.itemData.tag.ExtraAttributes.pickonimbus_durability / PICKONIMBUS_DURABILITY;
 
         this.price += this.price * (reduction - 1);

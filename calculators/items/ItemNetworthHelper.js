@@ -11,14 +11,12 @@ class ItemNetworthHelper {
         this.extraAttributes = this.itemData.tag.ExtraAttributes ?? {};
         this.itemLore = this.itemData.tag.display.Lore ?? [];
         this.count = this.itemData.Count ?? 1;
-        this.petId = this.itemData.type;
         this.baseItemId = this.itemId;
 
         this.prices = prices;
         this.calculation = [];
         this.price = 0;
         this.base = 0;
-
 
         this.getBasePrice();
     }

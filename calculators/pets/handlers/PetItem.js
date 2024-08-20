@@ -13,7 +13,7 @@ class PetItemHandler extends PetNetworthHelper {
     calculate() {
         const calculationData = {
             id: this.petData.heldItem,
-            type: 'pet_item',
+            type: 'PET_ITEM',
             price: (this.prices[this.petData.heldItem] || 0) * APPLICATION_WORTH.petItem,
             count: 1,
         };

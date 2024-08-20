@@ -36,18 +36,8 @@ class ItemNetworthCalculator extends ItemNetworthHelper {
         return this.#calculate(prices, false, includeItemData ?? networthManager.includeItemData);
     }
 
-    /**
-     * Returns the non cosmetic networth of an item
-     * @param {object} [prices] A prices object generated from the getPrices function. If not provided, the prices will be retrieved every time the function is called
-     * @returns {object} An object containing the item's non cosmetic networth calculation
-     */
-    async getNonCosmeticNetworth(prices, { includeItemData }) {
-        await networthManager.itemsPromise;
-        return this.#calculate(prices, true, includeItemData ?? networthManager.includeItemData);
-    }
-
     #calculate(prices, nonCosmetic, returnItemData) {
-        const handlers = [RecombobulatorHandler /*PickonimbusHandler, HotPotatoBookHandler, */];
+        const handlers = [RecombobulatorHandler, PickonimbusHandler, HotPotatoBookHandler];
         for (const Handler of handlers) {
             const handler = new Handler(this.itemData, prices);
             if (handler.applies() === false) {
