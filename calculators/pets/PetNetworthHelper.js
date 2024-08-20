@@ -4,6 +4,7 @@ const { titleCase } = require('../../helper/functions');
 
 class PetNetworthHelper {
     constructor(petData, prices, nonCosmetic) {
+        this.prices = prices;
         this.petData = petData;
         this.nonCosmetic = nonCosmetic;
         this.tier = this.getTier();
@@ -15,7 +16,6 @@ class PetNetworthHelper {
         this.level = this.getPetLevel();
         this.petName = `[Lvl ${this.level.level}] ${titleCase(`${this.tier} ${titleCase(this.basePetId)}`)}${this.petData.skin ? ' ✦' : ''}`;
 
-        this.prices = prices;
         this.calculation = [];
         this.price = 0;
         this.base = 0;
