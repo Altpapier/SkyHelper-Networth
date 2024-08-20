@@ -79,7 +79,7 @@ class ProfileNetworthCalculator {
      * @returns An object containing the player's networth calculation
      */
     async getNetworth(prices, { cachePrices, pricesRetries, onlyNetworth, includeItemData, stackItems } = {}) {
-        return this.#calculate(prices, false, { cachePrices, pricesRetries, onlyNetworth, includeItemData, stackItems });
+        return this.#calculate(prices, { nonCosmetic: false, cachePrices, pricesRetries, onlyNetworth, includeItemData, stackItems });
     }
 
     /**
@@ -88,10 +88,10 @@ class ProfileNetworthCalculator {
      * @returns An object containing the player's non cosmetic networth calculation
      */
     async getNonCosmeticNetworth(prices, { cachePrices, pricesRetries, onlyNetworth, includeItemData, stackItems }) {
-        return this.#calculate(prices, true, { cachePrices, pricesRetries, onlyNetworth, includeItemData, stackItems });
+        return this.#calculate(prices, { nonCosmetic: true, cachePrices, pricesRetries, onlyNetworth, includeItemData, stackItems });
     }
 
-    async #calculate(prices, nonCosmetic, { cachePrices, pricesRetries, onlyNetworth, includeItemData, stackItems }) {
+    async #calculate(prices, { nonCosmetic, cachePrices, pricesRetries, onlyNetworth, includeItemData, stackItems }) {
         cachePrices ??= networthManager.cachePrices;
         pricesRetries ??= networthManager.pricesRetries;
         onlyNetworth ??= networthManager.onlyNetworth;

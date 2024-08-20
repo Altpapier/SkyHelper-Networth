@@ -27,14 +27,14 @@ class BasicItemNetworthCalculator {
      * @returns {object} An object containing the item's networth calculation
      */
     async getNetworth(prices, { cachePrices, pricesRetries }) {
-        return await this.#calculate(prices, false, { cachePrices, pricesRetries });
+        return await this.#calculate(prices, { nonCosmetic: false, cachePrices, pricesRetries });
     }
 
     async getNonCosmeticNetworth(prices, { cachePrices, pricesRetries }) {
-        return await this.calculate(prices, true, { cachePrices, pricesRetries });
+        return await this.calculate(prices, { nonCosmetic: true, cachePrices, pricesRetries });
     }
 
-    async #calculate(prices, nonCosmetic, { cachePrices, pricesRetries }) {
+    async #calculate(prices, { nonCosmetic, cachePrices, pricesRetries }) {
         cachePrices ??= networthManager.cachePrices;
         pricesRetries ??= networthManager.pricesRetries;
 

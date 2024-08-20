@@ -12,7 +12,7 @@ class ItemNetworthCalculator extends ItemNetworthHelper {
      * @returns {object} An object containing the item's networth calculation
      */
     async getNetworth(prices, { cachePrices, pricesRetries, includeItemData }) {
-        return await this.#calculate(prices, false, { cachePrices, pricesRetries, includeItemData });
+        return await this.#calculate(prices, { nonCosmetic: false, cachePrices, pricesRetries, includeItemData });
     }
 
     /**
@@ -21,10 +21,10 @@ class ItemNetworthCalculator extends ItemNetworthHelper {
      * @returns {object} An object containing the item's networth calculation
      */
     async getNonCosmeticNetworth(prices, { cachePrices, pricesRetries, includeItemData }) {
-        return await this.#calculate(prices, true, { cachePrices, pricesRetries, includeItemData });
+        return await this.#calculate(prices, { nonCosmetic: true, cachePrices, pricesRetries, includeItemData });
     }
 
-    async #calculate(prices, nonCosmetic, { cachePrices, pricesRetries, includeItemData }) {
+    async #calculate(prices, { nonCosmetic, cachePrices, pricesRetries, includeItemData }) {
         this.nonCosmetic = nonCosmetic;
         cachePrices ??= networthManager.cachePrices;
         pricesRetries ??= networthManager.pricesRetries;
