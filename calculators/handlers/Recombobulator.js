@@ -11,11 +11,11 @@ class RecombobulatorHandler {
     }
 
     calculate(item, prices) {
-        const recombobulatorApplicationWorth = item.itemId === 'bone_boomerang' ? APPLICATION_WORTH.recombobulator * 0.5 : APPLICATION_WORTH.recombobulator;
+        const recombobulatorApplicationWorth = item.itemId === 'BONE_BOOMERANG' ? APPLICATION_WORTH.recombobulator * 0.5 : APPLICATION_WORTH.recombobulator;
         const calculationData = {
             id: 'RECOMBOBULATOR_3000',
-            type: 'recombobulator_3000',
-            price: (prices['recombobulator_3000'] || 0) * recombobulatorApplicationWorth,
+            type: 'RECOMBOBULATOR_3000',
+            price: (prices['RECOMBOBULATOR_3000'] || 0) * recombobulatorApplicationWorth,
             count: 1,
         };
 

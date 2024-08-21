@@ -10,7 +10,7 @@ class PickonimbusHandler {
 
         const calculationData = {
             id: 'PICKONIMBUS_DURABLITY',
-            type: 'pickonimbus',
+            type: 'PICKONIMBUS',
             price: -(item.price * (reduction - 1)),
             count: PICKONIMBUS_DURABILITY - item.itemData.tag.ExtraAttributes.pickonimbus_durability,
         };
