@@ -1,8 +1,17 @@
 const { tiers, soulboundPets, getPetLevel } = require('../../constants/pets');
+const { ValidationError } = require('../../helper/errors');
 const { titleCase } = require('../../helper/functions');
 
+/**
+ * Base class for calculating the networth of a pet
+ */
 class PetNetworthHelper {
+    /**
+     * Creates a new PetNetworthHelper
+     * @param {object} petData The pet data containing properties like `type`, `tier`, `exp`, `heldItem`, and `skin`.
+     */
     constructor(petData) {
+        // Extract pet properties
         this.nonCosmetic = false;
         this.petData = petData;
         this.tier = this.getTier();
@@ -11,16 +20,43 @@ class PetNetworthHelper {
         this.level = this.getPetLevel();
         this.petName = `[Lvl ${this.level.level}] ${titleCase(`${this.tier} ${titleCase(this.basePetId)}`)}${this.petData.skin ? ' ✦' : ''}`;
 
+        // Initialize calculation properties
         this.calculation = [];
         this.price = 0;
         this.base = 0;
+
+        // Validate the pet
+        this.#validateItem();
     }
 
+    /**
+     * Validates that the pet data is correct
+     */
+    #validateItem() {
+        if (!this.petData || typeof this.petData !== 'object') {
+            throw new ValidationError('Pet must be an object');
+        }
+
+        if (this.petData?.type === undefined || this.petData?.tier === undefined || this.petData?.exp === undefined) {
+            throw new ValidationError('Invalid pet provided');
+        }
+    }
+
+    /**
+     * Gets the pet's tier
+     * @returns {string} The pet's tier
+     */
     getTier() {
         return this.petData.heldItem === 'PET_ITEM_TIER_BOOST' ? tiers[tiers.indexOf(this.petData.tier) - 1] : this.petData.tier;
     }
 
+    /**
+     * Gets the pet id based on the pet's properties
+     * @param {object} prices A prices object generated from the getPrices function
+     * @returns {string} The pet id
+     */
     getPetId(prices) {
+        // If the pet has a skin
         if (this.skin && !this.nonCosmetic) {
             const itemId = `${this.tier}_${this.basePetId}${this.skin ? `_SKINNED_${this.skin}` : ''}`;
             if (prices[itemId]) {
@@ -31,17 +67,29 @@ class PetNetworthHelper {
         return `${this.tier}_${this.basePetId}`;
     }
 
+    /**
+     * Checks if the pet is soulbound
+     * @returns {boolean} Whether the pet is soulbound
+     */
     isSoulbound() {
         return soulboundPets.includes(this.basePetId);
     }
 
+    /**
+     * Gets the pet prices at levels 1, 100, and 200 (if applicable)
+     * @param {object} prices A prices object generated from the getPrices function
+     * @returns {object} The pet prices at levels 1, 100, and 200 (if applicable)
+     */
     getPetLevelPrices(prices) {
+        // Get the base prices for the pet
         const basePrices = {
+            // TODO: this.petId was set to _SKINNED_ already
             LVL_1: prices[`LVL_1_${this.petId}`] || 0,
             LVL_100: prices[`LVL_100_${this.petId}`] || 0,
             LVL_200: prices[`LVL_200_${this.petId}`] || 0,
         };
 
+        // If the pet has a skin, use the skinned prices
         if (this.skin && !this.nonCosmetic) {
             return {
                 LVL_1: Math.max(prices[`LVL_1_${this.petId}`] || 0, basePrices.LVL_1),
@@ -53,12 +101,19 @@ class PetNetworthHelper {
         return basePrices;
     }
 
+    /**
+     * Sets the pet's base price
+     * @param {object} prices A prices object generated from the getPrices function
+     * @param {boolean} nonCosmetic Whether to calculate the non-cosmetic networth
+     */
     getBasePrice(prices, nonCosmetic) {
+        // Get the pet prices at levels 1, 100, and 200 (if applicable)
         const { LVL_1, LVL_100, LVL_200 } = this.getPetLevelPrices(prices, nonCosmetic);
-        if (LVL_1 === undefined || LVL_100 === undefined) {
+        if (LVL_1 === undefined || (LVL_100 === undefined && LVL_200 === undefined)) {
             return null;
         }
 
+        // Calculate the pet's price based on the percentage of the level from 1 to its max level
         this.price = LVL_200 || LVL_100;
         if (this.level.level < 100 && this.level.xpMax) {
             const baseFormula = (LVL_100 - LVL_1) / this.level.xpMax;
@@ -67,6 +122,7 @@ class PetNetworthHelper {
             }
         }
 
+        // Calculate the pet's price based on the percentage of the level from 100 to 200
         if (this.level.level > 100 && this.level.level < 200) {
             const level = this.level.level.toString().slice(1);
             if (level !== 1) {
@@ -80,6 +136,10 @@ class PetNetworthHelper {
         this.base = this.price;
     }
 
+    /**
+     * Gets the pet level
+     * @returns {object} The pet level
+     */
     getPetLevel() {
         // TODO: Move from constants to helper
         return getPetLevel(this.petData);

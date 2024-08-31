@@ -1,10 +1,23 @@
 const { APPLICATION_WORTH } = require('../../constants/applicationWorth');
 
+/**
+ * A handler for the Hot Potato Book modifier on an item
+ */
 class HotPotatoBookHandler {
+    /**
+     * Checks if the handler applies to the item
+     * @param {object} item The item data
+     * @returns {boolean} Whether the handler applies to the item
+     */
     applies(item) {
         return !!item.itemData.tag.ExtraAttributes.hot_potato_count;
     }
 
+    /**
+     * Calculates and adds the price of the modifier to the item
+     * @param {object} item The item data
+     * @param {object} prices A prices object generated from the getPrices function
+     */
     calculate(item, prices) {
         const hotPotatoCount = Number(item.itemData.tag.ExtraAttributes.hot_potato_count);
         if (hotPotatoCount > 10) {
