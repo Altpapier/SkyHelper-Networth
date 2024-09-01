@@ -14,9 +14,9 @@ class ItemNetworthHelper {
         // Extract item properties
         this.itemData = itemData;
         this.itemName = this.itemData.tag.display.Name.replace(/§[0-9a-fk-or]/gi, '');
-        this.skyblockItem = getHypixelItemInformationFromId(this.itemId) ?? {};
-        this.itemId = this.itemData.tag.ExtraAttributes.id;
         this.extraAttributes = this.itemData.tag.ExtraAttributes ?? {};
+        this.itemId = this.extraAttributes.id;
+        this.skyblockItem = getHypixelItemInformationFromId(this.itemId) ?? {};
         this.itemLore = this.itemData.tag.display.Lore ?? [];
         this.count = this.itemData.Count ?? 1;
         this.baseItemId = this.itemId;
@@ -98,7 +98,7 @@ class ItemNetworthHelper {
         }
 
         // If the item is fragged
-        if (this.itemId.startsWith('STARRED_') && !prices[this.itemId] && prices[this.itemId.replace('STARRED_', '')]) {
+        if (this.itemId?.startsWith('STARRED_') && !prices[this.itemId] && prices[this.itemId.replace('STARRED_', '')]) {
             return this.itemId.replace('STARRED_', '');
         }
 
@@ -152,7 +152,7 @@ class ItemNetworthHelper {
      * @returns {boolean} Whether the item is recombobulated
      */
     isRecombobulated() {
-        return this.itemData.tag.ExtraAttributes.rarity_upgrades > 0 && !this.itemData.tag.ExtraAttributes.item_tier;
+        return this.extraAttributes.rarity_upgrades > 0 && !this.extraAttributes.item_tier;
     }
 
     /**
@@ -160,11 +160,7 @@ class ItemNetworthHelper {
      * @returns {boolean} Whether the item is soulbound
      */
     isSoulbound() {
-        return !!(
-            this.itemData.tag.ExtraAttributes.donated_museum ||
-            this.itemLore.includes('§8§l* §8Co-op Soulbound §8§l*') ||
-            this.itemLore.includes('§8§l* §8Soulbound §8§l*')
-        );
+        return !!(this.extraAttributes.donated_museum || this.itemLore.includes('§8§l* §8Co-op Soulbound §8§l*') || this.itemLore.includes('§8§l* §8Soulbound §8§l*'));
     }
 
     /**

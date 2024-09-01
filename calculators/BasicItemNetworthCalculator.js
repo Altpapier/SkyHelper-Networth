@@ -1,4 +1,5 @@
 const { getHypixelItemInformationFromId } = require('../constants/itemsMap');
+const { validRunes } = require('../constants/misc');
 const { ValidationError } = require('../helper/errors');
 const { titleCase } = require('../helper/functions');
 const { getPrices } = require('../helper/prices');
@@ -54,14 +55,13 @@ class BasicItemNetworthCalculator {
      * @returns {object} An object containing the item's networth calculation
      */
     async getNonCosmeticNetworth(prices, { cachePrices, pricesRetries }) {
-        return await this.calculate(prices, { nonCosmetic: true, cachePrices, pricesRetries });
+        return await this.#calculate(prices, { nonCosmetic: true, cachePrices, pricesRetries });
     }
 
     /**
      * Calculates the networth of an item
      * @param {object} prices A prices object generated from the getPrices function. If not provided, the prices will be retrieved every time the function is called
      * @param {object} options Options for the calculation
-     * @param {boolean} [options.nonCosmetic] Whether to calculate the non-cosmetic networth
      * @param {boolean} [options.cachePrices] Whether to cache the prices
      * @param {number} [options.pricesRetries] The number of times to retry fetching prices
      * @returns An object containing the item's networth calculation
@@ -77,8 +77,10 @@ class BasicItemNetworthCalculator {
             prices = await getPrices(cachePrices, pricesRetries);
         }
 
+        if (this.id.startsWith('RUNE_') && (!validRunes.includes(this.id) || nonCosmetic)) return null;
+
         // Get the base price for the item
-        const itemPrice = prices[this.id] || 0;
+        const itemPrice = prices[this.id];
         if (!itemPrice) {
             return null;
         }

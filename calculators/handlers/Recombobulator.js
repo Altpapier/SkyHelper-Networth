@@ -15,7 +15,7 @@ class RecombobulatorHandler {
         const lastLoreLine = item.itemLore.length ? item.itemLore.at(-1) : null;
         const isAccessory = lastLoreLine?.includes('ACCESSORY') || lastLoreLine?.includes('HATCESSORY');
 
-        return item.isRecombobulated() || item.itemData.tag.ExtraAttributes.enchantments || isAccessory || allowsRecomb;
+        return item.extraAttributes.rarity_upgrades > 0 && !item.extraAttributes.item_tier && item.extraAttributes.enchantments && (item.isRecombobulated() || isAccessory || allowsRecomb);
     }
 
     /**

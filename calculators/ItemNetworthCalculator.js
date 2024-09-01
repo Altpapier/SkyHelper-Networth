@@ -1,8 +1,6 @@
 const networthManager = require('../managers/NetworthManager');
 const ItemNetworthHelper = require('./helpers/ItemNetworthHelper');
-const HotPotatoBookHandler = require('./handlers/HotPotatoBook');
-const RecombobulatorHandler = require('./handlers/Recombobulator');
-const PickonimbusHandler = require('./handlers/Pickonimbus');
+const handlers = require('./handlers');
 const { getPrices } = require('../helper/prices');
 
 /**
@@ -18,7 +16,7 @@ class ItemNetworthCalculator extends ItemNetworthHelper {
      * @param {boolean} [options.includeItemData] Whether to include item data in the result
      * @returns {object} An object containing the item's networth calculation
      */
-    async getNetworth(prices, { cachePrices, pricesRetries, includeItemData }) {
+    async getNetworth(prices, { cachePrices, pricesRetries, includeItemData } = {}) {
         return await this.#calculate(prices, { nonCosmetic: false, cachePrices, pricesRetries, includeItemData });
     }
 
@@ -31,7 +29,7 @@ class ItemNetworthCalculator extends ItemNetworthHelper {
      * @param {boolean} [options.includeItemData] Whether to include item data in the result
      * @returns {object} An object containing the item's networth calculation
      */
-    async getNonCosmeticNetworth(prices, { cachePrices, pricesRetries, includeItemData }) {
+    async getNonCosmeticNetworth(prices, { cachePrices, pricesRetries, includeItemData } = {}) {
         return await this.#calculate(prices, { nonCosmetic: true, cachePrices, pricesRetries, includeItemData });
     }
 
@@ -47,7 +45,7 @@ class ItemNetworthCalculator extends ItemNetworthHelper {
      */
     async #calculate(prices, { nonCosmetic, cachePrices, pricesRetries, includeItemData }) {
         // Set default values
-        this.nonCosmetic = nonCosmetic;
+        this.nonCosmetic = nonCosmetic; // Can be a bit confusing I thought the item was non cosmetic not the calculation. Suggestions?
         cachePrices ??= networthManager.cachePrices;
         pricesRetries ??= networthManager.pricesRetries;
         includeItemData ??= networthManager.includeItemData;
@@ -61,13 +59,11 @@ class ItemNetworthCalculator extends ItemNetworthHelper {
         // Get the base price for the item
         this.getBasePrice(prices);
 
-        // For each handler, check if it applies and add the calculation to the total price
-        const handlers = [RecombobulatorHandler, PickonimbusHandler, HotPotatoBookHandler];
         for (const Handler of handlers) {
             // Create a new instance of the handler
             const handler = new Handler();
             // Check if the handler applies to the item
-            if (handler.applies(this) === false) {
+            if (!handler.applies(this)) {
                 continue;
             }
 

@@ -18,7 +18,7 @@ class PickonimbusHandler {
      * @param {object} item The item data
      * @param {object} prices A prices object generated from the getPrices function
      */
-    calculate(item, prices) {
+    calculate(item) {
         const reduction = item.itemData.tag.ExtraAttributes.pickonimbus_durability / PICKONIMBUS_DURABILITY;
 
         const calculationData = {

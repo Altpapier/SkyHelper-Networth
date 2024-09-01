@@ -1,21 +1,21 @@
 const blockedEnchants = {
-    bone_boomerang: ['overload', 'power', 'ultimate_soul_eater'],
-    death_bow: ['overload', 'power', 'ultimate_soul_eater'],
-    gardening_axe: ['replenish'],
-    gardening_hoe: ['replenish'],
-    advanced_gardening_axe: ['replenish'],
-    advanced_gardening_hoe: ['replenish'],
+    BONE_BOOMERANG: ['OVERLOAD', 'POWER', 'ULTIMATE_SOAL_EATER'],
+    DEATH_BOW: ['OVERLOAD', 'POWER', 'ULTIMATE_SOAL_EATER'],
+    GARDENING_AXE: ['REPLENISH'],
+    GARDENING_HOE: ['REPLENISH'],
+    ADVANCED_GARDENING_AXE: ['REPLENISH'],
+    ADVANCED_GARDENING_HOE: ['REPLENISH'],
 };
 
 const ignoredEnchants = {
-    scavenger: 5,
+    SCAVENGER: 5,
 };
 
-const stackingEnchants = ['expertise', 'compact', 'cultivating', 'champion', 'hecatomb', 'toxophilite'];
+const stackingEnchants = ['EXPERTISE', 'COMPACT', 'CULTIVATING', 'CHAMPION', 'HECATOMB', 'TOXOPHILITE'];
 
-const ignoreSilex = ['promising_spade'];
+const ignoreSilex = ['PROMISING_SPADE'];
 
-const masterStars = ['first_master_star', 'second_master_star', 'third_master_star', 'fourth_master_star', 'fifth_master_star'];
+const masterStars = ['FIRST_MASTER_STAR', 'SECOND_MASTER_STAR', 'THIRD_MASTER_STAR', 'FOURTH_MASTER_STAR', 'FIFTH_MASTER_STAR'];
 
 const validRunes = [
     'MUSIC_1',

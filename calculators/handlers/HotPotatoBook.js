@@ -10,7 +10,7 @@ class HotPotatoBookHandler {
      * @returns {boolean} Whether the handler applies to the item
      */
     applies(item) {
-        return !!item.itemData.tag.ExtraAttributes.hot_potato_count;
+        return item.extraAttributes.hot_potato_count;
     }
 
     /**

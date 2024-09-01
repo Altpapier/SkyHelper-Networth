@@ -105,7 +105,7 @@ class ProfileNetworthCalculator {
      * @param {boolean} [options.stackItems] Whether to stack items with the same name and price
      * @returns An object containing the player's non-cosmetic networth calculation
      */
-    async getNonCosmeticNetworth(prices, { cachePrices, pricesRetries, onlyNetworth, includeItemData, stackItems }) {
+    async getNonCosmeticNetworth(prices, { cachePrices, pricesRetries, onlyNetworth, includeItemData, stackItems } = {}) {
         return this.#calculate(prices, { nonCosmetic: true, cachePrices, pricesRetries, onlyNetworth, includeItemData, stackItems });
     }
 

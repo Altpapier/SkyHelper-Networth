@@ -17,7 +17,7 @@ class PetNetworthCalculator extends PetNetworthHelper {
      * @param {number} [options.pricesRetries] The number of times to retry fetching prices
      * @returns {object} An object containing the pets's networth calculation
      */
-    async getNetworth(prices, { cachePrices, pricesRetries }) {
+    async getNetworth(prices, { cachePrices, pricesRetries } = {}) {
         return await this.#calculate(prices, { nonCosmetic: false, cachePrices, pricesRetries });
     }
 
@@ -29,7 +29,7 @@ class PetNetworthCalculator extends PetNetworthHelper {
      * @param {number} [options.pricesRetries] The number of times to retry fetching prices
      * @returns {object} An object containing the pet's networth calculation
      */
-    async getNonCosmeticNetworth(prices, { cachePrices, pricesRetries }) {
+    async getNonCosmeticNetworth(prices, { cachePrices, pricesRetries } = {}) {
         return await this.#calculate(prices, { nonCosmetic: true, cachePrices, pricesRetries });
     }
 
