@@ -16,7 +16,8 @@ class PetNetworthHelper {
         this.petData = petData;
         this.tier = this.getTier();
         this.skin = this.petData.skin;
-        this.basePetId = this.petData.type;
+        this.basePetId = `${this.tier}_${this.petData.type}`;
+        this.petId = `${this.basePetId}${this.skin ? `_SKINNED_${this.skin}` : ''}`;
         this.level = this.getPetLevel();
         this.petName = `[Lvl ${this.level.level}] ${titleCase(`${this.tier} ${titleCase(this.basePetId)}`)}${this.petData.skin ? ' ✦' : ''}`;
 
@@ -51,23 +52,6 @@ class PetNetworthHelper {
     }
 
     /**
-     * Gets the pet id based on the pet's properties
-     * @param {object} prices A prices object generated from the getPrices function
-     * @returns {string} The pet id
-     */
-    getPetId(prices) {
-        // If the pet has a skin
-        if (this.skin && !this.nonCosmetic) {
-            const itemId = `${this.tier}_${this.basePetId}${this.skin ? `_SKINNED_${this.skin}` : ''}`;
-            if (prices[itemId]) {
-                return itemId;
-            }
-        }
-
-        return `${this.tier}_${this.basePetId}`;
-    }
-
-    /**
      * Checks if the pet is soulbound
      * @returns {boolean} Whether the pet is soulbound
      */
@@ -83,10 +67,9 @@ class PetNetworthHelper {
     getPetLevelPrices(prices) {
         // Get the base prices for the pet
         const basePrices = {
-            // TODO: this.petId was set to _SKINNED_ already
-            LVL_1: prices[`LVL_1_${this.petId}`] || 0,
-            LVL_100: prices[`LVL_100_${this.petId}`] || 0,
-            LVL_200: prices[`LVL_200_${this.petId}`] || 0,
+            LVL_1: prices[`LVL_1_${this.basePetId}`] || 0,
+            LVL_100: prices[`LVL_100_${this.basePetId}`] || 0,
+            LVL_200: prices[`LVL_200_${this.basePetId}`] || 0,
         };
 
         // If the pet has a skin, use the skinned prices

@@ -19,9 +19,8 @@ class PetCandyHandler {
     /**
      * Calculates and adds the price of the modifier to the pet
      * @param {object} pet The pet data
-     * @param {object} prices A prices object generated from the getPrices function
      */
-    calculate(pet, prices) {
+    calculate(pet) {
         const reducedValue = pet.price * APPLICATION_WORTH.petCandy;
 
         if (!isNaN(pet.price)) {

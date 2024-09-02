@@ -54,8 +54,7 @@ class PetNetworthCalculator extends PetNetworthHelper {
             prices = await getPrices(cachePrices, pricesRetries);
         }
 
-        // Get the pet id and base price
-        this.petId = this.getPetId(prices);
+        // Get the base price
         this.getBasePrice(prices);
 
         // For each handler, check if it applies and add the calculation to the total price
@@ -72,14 +71,17 @@ class PetNetworthCalculator extends PetNetworthHelper {
             handler.calculate(this, prices);
         }
 
+        if (this.basePetId === 'BLACK_CAT') {
+            console.log(this.calculation);
+        }
         return {
-            ...this.petData,
             id: this.petId,
-            price: this.price + this.calculation.reduce((acc, curr) => acc + curr.price, 0),
+            price: this.price,
             base: this.base,
             calculation: this.calculation,
             soulbound: this.isSoulbound(),
             cosmetic: !!this.skin,
+            petData: this.petData,
         };
     }
 }
