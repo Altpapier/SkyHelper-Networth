@@ -1,6 +1,6 @@
 const networthManager = require('../managers/NetworthManager');
 const ItemNetworthHelper = require('./helpers/ItemNetworthHelper');
-const handlers = require('./handlers');
+const handlers = require('./helpers/handlers');
 const { getPrices } = require('../helper/prices');
 
 /**
