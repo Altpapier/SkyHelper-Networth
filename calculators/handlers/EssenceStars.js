@@ -81,7 +81,7 @@ function starCosts(prices, calculation, upgrades, prestigeItem) {
             { id: prestigeItem, type: prestige ? 'prestige' : 'stars', price: 0, count: prestige ? 1 : star }
         );
 
-        if (prestige && prices[prestigeItem.toLowerCase()]) calculationData.price += prices[prestigeItem.toLowerCase()];
+        if (prestige && prices[prestigeItem.toUpperCase()]) calculationData.price += prices[prestigeItem.toUpperCase()];
         price += calculationData.price;
         calculation.push(calculationData);
     }
