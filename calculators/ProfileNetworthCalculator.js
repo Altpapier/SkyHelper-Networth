@@ -173,6 +173,7 @@ class ProfileNetworthCalculator {
 
                 // Stack items with the same name and price
                 if (stackItems) {
+                    // TODO: broken for 56ms fishing_bag (not broken before classes update)
                     categories[category].items = categories[category].items
                         .reduce((r, a) => {
                             const last = r[r.length - 1];
