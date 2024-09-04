@@ -1,6 +1,7 @@
 const HotPotatoBookHandler = require('../handlers/HotPotatoBook');
 const RecombobulatorHandler = require('../handlers/Recombobulator');
 const PickonimbusHandler = require('../handlers/Pickonimbus');
+const PrestigeHandler = require('../handlers/Prestige');
 const GodRollAttributesHandler = require('../handlers/GodRollAttributes');
 const ShensAuctionHandler = require('../handlers/ShensAuction');
 const MidasWeaponsHandler = require('../handlers/MidasWeapon');
@@ -33,6 +34,7 @@ const NewYearCakeBagHandler = require('../handlers/NewYearCakeBag');
 const handlers = [
     PickonimbusHandler,
     GodRollAttributesHandler,
+    PrestigeHandler,
     ShensAuctionHandler,
     MidasWeaponsHandler,
     EnchantedBookHandler,

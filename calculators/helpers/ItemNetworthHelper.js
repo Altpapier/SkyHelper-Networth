@@ -1,8 +1,6 @@
 const { getHypixelItemInformationFromId } = require('../../constants/itemsMap');
 const { ValidationError } = require('../../helper/errors');
 const { titleCase } = require('../../helper/functions');
-const { prestiges } = require('../../constants/prestiges');
-const { starCosts } = require('../../helper/essenceStars');
 
 /**
  * Base class for calculating the networth of an item
@@ -192,19 +190,6 @@ class ItemNetworthHelper {
         if (!this.price && this.extraAttributes.price) {
             this.price = parseInt(this.extraAttributes.price) * 0.85;
             this.base = parseInt(this.extraAttributes.price) * 0.85;
-        }
-
-        // UPGRADABLE ARMOR PRICE CALCULATION (e.g. crimson)
-        if (!this.price) {
-            // if armor piece does not have base value
-            const prestige = prestiges[this.itemId.toUpperCase()];
-            if (prestige) {
-                for (const prestigeItem of prestige) {
-                    if (isNaN(this.price)) this.price = 0;
-                    if (this.skyblockItem?.upgrade_costs) this.price += starCosts(prices, this.calculation, this.skyblockItem.upgrade_costs, prestigeItem);
-                    if (this.skyblockItem?.prestige?.costs) this.price += starCosts(prices, this.calculation, this.skyblockItem.prestige.costs, prestigeItem);
-                }
-            }
         }
     }
 }
