@@ -1,3 +1,4 @@
+const { getHypixelItemInformationFromId } = require('../../constants/itemsMap');
 const { prestiges } = require('../../constants/prestiges');
 const { starCosts } = require('../../helper/essenceStars');
 
@@ -11,7 +12,7 @@ class PrestigeHandler {
      * @returns {boolean} Whether the handler applies to the item
      */
     applies(item) {
-        return !item.price && prestiges[item.itemId];
+        return prestiges[item.itemId];
     }
 
     /**
@@ -20,11 +21,13 @@ class PrestigeHandler {
      * @param {object} prices A prices object generated from the getPrices function
      */
     calculate(item, prices) {
+        if (prices[item.itemId]) return;
         const prestige = prestiges[item.itemId];
         for (const prestigeItem of prestige) {
+            const foundItem = getHypixelItemInformationFromId(prestigeItem);
             if (isNaN(item.price)) item.price = 0;
-            if (item.skyblockItem?.upgrade_costs) item.price += starCosts(prices, item.calculation, item.skyblockItem.upgrade_costs, prestigeItem);
-            if (item.skyblockItem?.prestige?.costs) item.price += starCosts(prices, item.calculation, item.skyblockItem.prestige.costs, prestigeItem);
+            if (foundItem?.upgrade_costs) item.price += starCosts(prices, item.calculation, foundItem?.upgrade_costs, prestigeItem);
+            if (foundItem?.prestige?.costs) item.price += starCosts(prices, item.calculation, foundItem?.prestige.costs, prestigeItem);
         }
     }
 }
