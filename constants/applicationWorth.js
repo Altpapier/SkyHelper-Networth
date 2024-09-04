@@ -38,12 +38,12 @@ const APPLICATION_WORTH = {
 };
 
 const enchantsWorth = {
-    counter_strike: 0.2,
-    big_brain: 0.35,
-    ultimate_inferno: 0.35,
-    overload: 0.35,
-    ultimate_soul_eater: 0.35,
-    ultimate_fatal_tempo: 0.65,
+    COUNTER_STRIKE: 0.2,
+    BIG_BRAIN: 0.35,
+    ULTIMATE_INFERNO: 0.35,
+    OVERLOAD: 0.35,
+    ULTIMATE_SOUL_EATER: 0.35,
+    ULTIMATE_FATAL_TEMPO: 0.65,
 };
 
 module.exports = {
