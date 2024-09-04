@@ -58,7 +58,8 @@ class PetNetworthCalculator extends PetNetworthHelper {
         this.getBasePrice(prices);
 
         // For each handler, check if it applies and add the calculation to the total price
-        const handlers = [PetCandyHandler, PetItemHandler, SoulboundPetSkinHandler];
+        const handlers = [PetItemHandler, SoulboundPetSkinHandler];
+        handlers.push(PetCandyHandler); // Must be last
         for (const Handler of handlers) {
             // Create a new instance of the handler
             const handler = new Handler();
@@ -71,9 +72,6 @@ class PetNetworthCalculator extends PetNetworthHelper {
             handler.calculate(this, prices);
         }
 
-        if (this.basePetId === 'BLACK_CAT') {
-            console.log(this.calculation);
-        }
         return {
             id: this.petId,
             price: this.price,

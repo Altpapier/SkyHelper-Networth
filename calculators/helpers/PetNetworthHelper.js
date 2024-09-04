@@ -56,7 +56,7 @@ class PetNetworthHelper {
      * @returns {boolean} Whether the pet is soulbound
      */
     isSoulbound() {
-        return soulboundPets.includes(this.basePetId);
+        return soulboundPets.includes(this.petData.type);
     }
 
     /**
