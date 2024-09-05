@@ -53,7 +53,7 @@ class ItemNetworthHelper {
         // If the item has a skin
         if (this.extraAttributes.skin && !this.nonCosmetic) {
             const itemId = `${this.itemId}_SKINNED_${this.extraAttributes.skin}`;
-            if (prices[itemId]) {
+            if (prices[itemId] && prices[itemId] > prices[this.itemId]) {
                 return itemId;
             }
         }
@@ -176,15 +176,6 @@ class ItemNetworthHelper {
         const itemPrice = prices[this.itemId] ?? 0;
         this.price = itemPrice * this.itemData.Count;
         this.base = itemPrice * this.itemData.Count;
-
-        // Check if the item has a skin - TODO: does the first if block in `getItemId` already do this?
-        if (this.extraAttributes.skin && !this.nonCosmetic) {
-            const newPrice = prices[`${this.baseItemId}_SKINNED_${this.extraAttributes.skin}`];
-            if (newPrice && newPrice > this.price) {
-                this.price = newPrice * this.itemData.Count;
-                this.base = newPrice * this.itemData.Count;
-            }
-        }
 
         // Check if the item has a price paid attribute - TODO: might want to move to a handler?
         if (!this.price && this.extraAttributes.price) {
