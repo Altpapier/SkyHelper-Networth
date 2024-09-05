@@ -1,4 +1,5 @@
 const { APPLICATION_WORTH } = require('../../constants/applicationWorth');
+const { GEMSTONE_SLOTS } = require('../../constants/misc');
 
 /**
  * A handler for Gemstones on an item.
@@ -40,9 +41,7 @@ class GemstonesHandler {
                 if (!slot.costs) unlockedSlots.push(slot.slot_type);
                 const key = Object.keys(ExtraAttributesGems).find((k) => k.startsWith(slot.slot_type) && !k.endsWith('_gem'));
                 if (key) {
-                    const type = ['COMBAT', 'OFFENSIVE', 'DEFENSIVE', 'MINING', 'UNIVERSAL', 'CHISEL'].includes(slot.slot_type)
-                        ? ExtraAttributesGems[`${key}_gem`]
-                        : slot.slot_type;
+                    const type = GEMSTONE_SLOTS.includes(slot.slot_type) ? ExtraAttributesGems[`${key}_gem`] : slot.slot_type;
                     gems.push({
                         type,
                         tier: ExtraAttributesGems[key] instanceof Object ? ExtraAttributesGems[key].quality : ExtraAttributesGems[key],
@@ -90,6 +89,15 @@ class GemstonesHandler {
 
         // GEMSTONES
         for (const gemstone of gems) {
+            // TODO: Remove This
+            // ? NOTE: USE THIS IF YOU'RE COMPARING OLD AND NEW
+            // ? const calculationData = {
+            // ?     id: `${gemstone.tier}_${gemstone.type}_GEM`,
+            // ?     type: 'GEMSTONE',
+            // ?     price: gemstone.slotType === 'CHISEL' ? 0 : (prices[`${gemstone.tier}_${gemstone.type}_GEM`.toUpperCase()] || 0) * APPLICATION_WORTH.gemstone,
+            // ?     count: 1,
+            // ? };
+
             const calculationData = {
                 id: `${gemstone.tier}_${gemstone.type}_GEM`,
                 type: 'GEMSTONE',

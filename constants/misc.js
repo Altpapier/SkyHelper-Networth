@@ -50,16 +50,16 @@ const ALLOWED_RECOMBOBULATED_IDS = [
     'starred_shadow_assassin_cloak',
 ];
 
-const attributesBaseCosts = {
-    glowstone_gauntlet: 'glowstone_gauntlet',
-    vanquished_glowstone_gauntlet: 'glowstone_gauntlet',
-    blaze_belt: 'blaze_belt',
-    vanquished_blaze_belt: 'blaze_belt',
-    magma_necklace: 'magma_necklace',
-    vanquished_magma_necklace: 'magma_necklace',
-    magma_rod: 'magma_rod',
-    inferno_rod: 'magma_rod',
-    hellfire_rod: 'magma_rod',
+const ATTRIBUTE_BASE_COSTS = {
+    GLOWSTONE_GAUNTLET: 'GLOWSTONE_GAUNTLET',
+    VANQUISHED_GLOWSTONE_GAUNTLET: 'GLOWSTONE_GAUNTLET',
+    BLAZE_BELT: 'BLAZE_BELT',
+    VANQUISHED_BLAZE_BELT: 'BLAZE_BELT',
+    MAGMA_NECKLACE: 'MAGMA_NECKLACE',
+    VANQUISHED_MAGMA_NECKLACE: 'MAGMA_NECKLACE',
+    MAGMA_ROD: 'MAGMA_ROD',
+    INFERNO_ROD: 'MAGMA_ROD',
+    HELLFIRE_ROD: 'MAGMA_ROD',
 };
 
 const enrichments = [
@@ -95,6 +95,8 @@ const specialEnchantmentMatches = {
     ultimate_bobbin_time: "Ultimate Bobbin' Time",
 };
 
+const GEMSTONE_SLOTS = ['COMBAT', 'OFFENSIVE', 'DEFENSIVE', 'MINING', 'UNIVERSAL', 'CHISEL'];
+
 module.exports = {
     blockedEnchants,
     ignoredEnchants,
@@ -104,8 +106,9 @@ module.exports = {
     validRunes,
     ALLOWED_RECOMBOBULATED_CATEGORIES,
     ALLOWED_RECOMBOBULATED_IDS,
-    attributesBaseCosts,
+    ATTRIBUTE_BASE_COSTS,
     enrichments,
     PICKONIMBUS_DURABILITY,
     specialEnchantmentMatches,
+    GEMSTONE_SLOTS,
 };

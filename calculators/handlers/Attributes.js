@@ -1,5 +1,5 @@
 const { APPLICATION_WORTH } = require('../../constants/applicationWorth');
-const { attributesBaseCosts } = require('../../constants/misc');
+const { ATTRIBUTE_BASE_COSTS } = require('../../constants/misc');
 
 /**
  * A handler for the attributes modifier on an item.
@@ -26,8 +26,8 @@ class AttributesHandler {
             // Base price times the amount needed to get that tier which is 2^tier - 1 because of the base item
             const shards = 2 ** (tier - 1) - 1;
             let baseAttributePrice = prices[`ATTRIBUTE_SHARD_${attributeName}`];
-            if (attributesBaseCosts[item.itemId] && prices[attributesBaseCosts[item.itemId]] < baseAttributePrice) {
-                baseAttributePrice = prices[attributesBaseCosts[item.itemId]];
+            if (ATTRIBUTE_BASE_COSTS[item.itemId] && prices[ATTRIBUTE_BASE_COSTS[item.itemId]] < baseAttributePrice) {
+                baseAttributePrice = prices[ATTRIBUTE_BASE_COSTS[item.itemId]];
             } else if (/^(|HOT_|FIERY_|BURNING_|INFERNAL_)(AURORA|CRIMSON|TERROR|HOLLOW|FERVOR)_HELMET$/.test(item.itemId) && prices[`KUUDRA_HELMET_${attributeName}`] < baseAttributePrice) {
                 baseAttributePrice = prices[`KUUDRA_HELMET_${attributeName}`];
             } else if (/^(|HOT_|FIERY_|BURNING_|INFERNAL_)(AURORA|CRIMSON|TERROR|HOLLOW|FERVOR)(_CHESTPLATE|_LEGGINGS|_BOOTS)$/.test(item.itemId)) {

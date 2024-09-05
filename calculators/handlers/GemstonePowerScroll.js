@@ -19,14 +19,18 @@ class GemstonePowerScrollHandler {
      * @param {object} prices A prices object generated from the getPrices function
      */
     calculate(item, prices) {
-        const calculationData = {
+        
+
+
+
+        /*const calculationData = {
             id: item.extraAttributes.power_ability_scroll,
             type: 'GEMSTONE_POWER_SCROLL',
             price: (prices[item.extraAttributes.power_ability_scroll] || 0) * APPLICATION_WORTH.gemstonePowerScroll,
             count: 1,
         };
         item.price += calculationData.price;
-        item.calculation.push(calculationData);
+        item.calculation.push(calculationData);*/
     }
 }
 
