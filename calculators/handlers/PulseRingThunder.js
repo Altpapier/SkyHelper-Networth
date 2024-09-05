@@ -10,7 +10,7 @@ class PulseRingThunderHandler {
      * @returns {boolean} Whether the handler applies to the item
      */
     applies(item) {
-        return (item.itemId === 'PULSE_RING') & item.extraAttributes.thunder_charge;
+        return item.itemId === 'PULSE_RING' && item.extraAttributes.thunder_charge;
     }
 
     /**
