@@ -28,6 +28,7 @@ const APPLICATION_WORTH = {
     gemstone: 1,
     hotPotatoBook: 1,
     necronBladeScroll: 1,
+    polarvoid: 1,
     prestigeItem: 1,
     reforge: 1,
     winningBid: 1,

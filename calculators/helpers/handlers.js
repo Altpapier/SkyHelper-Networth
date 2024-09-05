@@ -19,6 +19,7 @@ const DyeHandler = require('../handlers/Dye');
 const ArtOfWarHandler = require('../handlers/ArtOfWar');
 const ArtOfPeaceHandler = require('../handlers/ArtOfPeace');
 const FarmingForDummiesHandler = require('../handlers/FarmingForDummies');
+const PolarvoidBookHandler = require('../handlers/PolarvoidBook');
 const EnrichmentHandler = require('../handlers/Enrichment');
 const GemstonesHandler = require('../handlers/Gemstones');
 const GemstonePowerScrollHandler = require('../handlers/GemstonePowerScroll');
@@ -52,6 +53,7 @@ const handlers = [
     ArtOfWarHandler,
     ArtOfPeaceHandler,
     FarmingForDummiesHandler,
+    PolarvoidBookHandler,
     EnrichmentHandler,
     RecombobulatorHandler,
     GemstonesHandler,
