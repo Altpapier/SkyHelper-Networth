@@ -10,7 +10,7 @@ class MidasWeaponHandler {
      * @returns {boolean} Whether the handler applies to the item
      */
     applies(item) {
-        return item.itemId === 'MIDAS_STAFF' || item.itemId === 'MIDAS_SWORD';
+        return ['MIDAS_SWORD', 'STARRED_MIDAS_SWORD', 'MIDAS_STAFF', 'STARRED_MIDAS_STAFF'].includes(item.itemId);
     }
 
     /**
@@ -19,11 +19,11 @@ class MidasWeaponHandler {
      * @param {object} prices A prices object generated from the getPrices function
      */
     calculate(item, prices) {
-        const maxBid = item.itemId === 'MIDAS_SWORD' ? 50_000_000 : 100_000_000;
-        const type = item.itemId === 'MIDAS_SWORD' ? 'MIDAS_SWORD_50M' : 'MIDAS_STAFF_100M';
+        const maxBid = item.itemId.includes('MIDAS_SWORD') ? 50_000_000 : 100_000_000;
+        const type = item.itemId.includes('MIDAS_SWORD') ? `${item.itemId}_50M` : `${item.itemId}_100M`;
 
         // If max price paid
-        if (item.extraAttributes.winning_bid >= maxBid) {
+        if (item.extraAttributes.winning_bid + (item.extraAttributes.additional_coins ?? 0) >= maxBid) {
             const calculationData = {
                 id: item.itemId,
                 type: type,
@@ -42,6 +42,17 @@ class MidasWeaponHandler {
             };
             item.price = calculationData.price;
             item.calculation.push(calculationData);
+
+            if (item.extraAttributes.additional_coins) {
+                const calculationData = {
+                    id: item.itemId,
+                    type: 'ADDITIONAL_COINS',
+                    price: item.extraAttributes.additional_coins * item.extraAttributes.winningBid,
+                    count: 1,
+                };
+                item.price += calculationData.price;
+                item.calculation.push(calculationData);
+            }
         }
     }
 }

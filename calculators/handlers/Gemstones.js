@@ -10,7 +10,7 @@ class GemstonesHandler {
      * @returns {boolean} Whether the handler applies to the item
      */
     applies(item) {
-        return item.extraAttributes.gems;
+        return item.extraAttributes.gems && item.skyblockItem?.gemstone_slots;
     }
 
     /**
@@ -22,39 +22,37 @@ class GemstonesHandler {
         let unlockedSlots = [];
         let gems = [];
 
-        if (item.skyblockItem?.gemstone_slots) {
-            if (item.extraAttributes.gems.formatted) {
-                unlockedSlots = item.extraAttributes.gems.unlockedSlots;
-                gems = item.extraAttributes.gems.gems;
-            } else {
-                const ExtraAttributesGems = JSON.parse(JSON.stringify(item.extraAttributes.gems));
-                item?.skyblockItem?.gemstone_slots.forEach((slot) => {
-                    if (slot.costs && ExtraAttributesGems.unlocked_slots) {
-                        for (const [index, type] of ExtraAttributesGems.unlocked_slots.entries()) {
-                            if (type.startsWith(slot.slot_type)) {
-                                unlockedSlots.push(slot.slot_type);
-                                ExtraAttributesGems.unlocked_slots.splice(Number(index), 1);
-                                break;
-                            }
+        if (item.extraAttributes.gems.formatted) {
+            unlockedSlots = item.extraAttributes.gems.unlockedSlots;
+            gems = item.extraAttributes.gems.gems;
+        } else {
+            const ExtraAttributesGems = JSON.parse(JSON.stringify(item.extraAttributes.gems));
+            item.skyblockItem?.gemstone_slots.forEach((slot) => {
+                if (slot.costs && ExtraAttributesGems.unlocked_slots) {
+                    for (const [index, type] of ExtraAttributesGems.unlocked_slots.entries()) {
+                        if (type.startsWith(slot.slot_type)) {
+                            unlockedSlots.push(slot.slot_type);
+                            ExtraAttributesGems.unlocked_slots.splice(Number(index), 1);
+                            break;
                         }
                     }
-                    if (!slot.costs) unlockedSlots.push(slot.slot_type);
-                    const key = Object.keys(ExtraAttributesGems).find((k) => k.startsWith(slot.slot_type) && !k.endsWith('_gem'));
-                    if (key) {
-                        const type = ['COMBAT', 'OFFENSIVE', 'DEFENSIVE', 'MINING', 'UNIVERSAL'].includes(slot.slot_type)
-                            ? ExtraAttributesGems[`${key}_gem`]
-                            : slot.slot_type;
-                        gems.push({
-                            type,
-                            tier: ExtraAttributesGems[key] instanceof Object ? ExtraAttributesGems[key].quality : ExtraAttributesGems[key],
-                            slotType: slot.slot_type,
-                        });
+                }
+                if (!slot.costs) unlockedSlots.push(slot.slot_type);
+                const key = Object.keys(ExtraAttributesGems).find((k) => k.startsWith(slot.slot_type) && !k.endsWith('_gem'));
+                if (key) {
+                    const type = ['COMBAT', 'OFFENSIVE', 'DEFENSIVE', 'MINING', 'UNIVERSAL', 'CHISEL'].includes(slot.slot_type)
+                        ? ExtraAttributesGems[`${key}_gem`]
+                        : slot.slot_type;
+                    gems.push({
+                        type,
+                        tier: ExtraAttributesGems[key] instanceof Object ? ExtraAttributesGems[key].quality : ExtraAttributesGems[key],
+                        slotType: slot.slot_type,
+                    });
 
-                        delete ExtraAttributesGems[key];
-                        if (slot.costs && !ExtraAttributesGems.unlocked_slots) unlockedSlots.push(slot.slot_type);
-                    }
-                });
-            }
+                    delete ExtraAttributesGems[key];
+                    if (slot.costs && !ExtraAttributesGems.unlocked_slots) unlockedSlots.push(slot.slot_type);
+                }
+            });
         }
 
         // UNLOCKED GEMSTONE SLOTS

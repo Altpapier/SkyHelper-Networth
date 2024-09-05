@@ -24,7 +24,7 @@ class DrillPartsHandler {
         for (const type of drillPartTypes) {
             if (item.extraAttributes[type]) {
                 const calculationData = {
-                    id: item.extraAttributes[type],
+                    id: item.extraAttributes[type].toUpperCase(),
                     type: 'DRILL_PART',
                     price: (prices[item.extraAttributes[type].toUpperCase()] || 0) * APPLICATION_WORTH.drillPart,
                     count: 1,
