@@ -13,7 +13,7 @@ class PetCandyHandler {
     applies(pet) {
         const maxPetCandyXp = pet.petData.candyUsed * 1000000;
         const xpLessPetCandy = pet.petData.exp - maxPetCandyXp;
-        return pet.petData.candyUsed > 0 && !blockedCandyReducePets.includes(pet.petData.type) && xpLessPetCandy < pet.petData.level.xpMax;
+        return pet.petData.candyUsed > 0 && !blockedCandyReducePets.includes(pet.petData.type) && xpLessPetCandy < pet.level.xpMax;
     }
 
     /**
@@ -24,7 +24,7 @@ class PetCandyHandler {
         const reducedValue = pet.price * APPLICATION_WORTH.petCandy;
         if (!isNaN(pet.price)) {
             const oldPrice = pet.price;
-            const petPriceReduction = pet.petData.level.level === 100 ? 5000000 : 2500000;
+            const petPriceReduction = pet.level.level === 100 ? 5000000 : 2500000;
             const petPrice = Math.max(reducedValue, pet.price - petPriceReduction);
 
             const calculationData = {
