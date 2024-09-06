@@ -146,14 +146,20 @@ class ProfileNetworthCalculator {
             categories[category] = { total: 0, unsoulboundTotal: 0, items: [] };
 
             // Calculate networth for each item in the category
-            for (const item of categoryItems) {
+            for (let item of categoryItems) {
                 if (!item || Object.keys(item).length === 0) continue;
 
                 // Get the calculator for the item
-                const calculatorClass = categoryCalculatorMap[category] ?? categoryCalculatorMap.default;
+                let calculatorClass = categoryCalculatorMap[category] ?? categoryCalculatorMap.default;
                 /**
                  * @type {ItemNetworthCalculator | PetNetworthCalculator | BasicItemNetworthCalculator}
                  */
+
+                if (item.tag?.ExtraAttributes?.petInfo) {
+                    item = { ...item, ...JSON.parse(item.tag.ExtraAttributes.petInfo) };
+                    calculatorClass = PetNetworthCalculator;
+                }
+
                 // Instantiate the calculator
                 const calculator = new calculatorClass(item);
                 // Calculate the networth of the item

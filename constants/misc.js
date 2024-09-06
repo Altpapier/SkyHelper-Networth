@@ -38,16 +38,16 @@ const validRunes = [
 
 const ALLOWED_RECOMBOBULATED_CATEGORIES = ['ACCESSORY', 'NECKLACE', 'GLOVES', 'BRACELET', 'BELT', 'CLOAK'];
 const ALLOWED_RECOMBOBULATED_IDS = [
-    'divan_helmet',
-    'divan_chestplate',
-    'divan_leggings',
-    'divan_boots',
-    'fermento_helmet',
-    'fermento_chestplate',
-    'fermento_leggings',
-    'fermento_boots',
-    'shadow_assassin_cloak',
-    'starred_shadow_assassin_cloak',
+    'DIVAN_HELMET',
+    'DIVAN_CHESTPLATE',
+    'DIVAN_LEGGINGS',
+    'DIVAN_BOOTS',
+    'FERMENTO_HELMET',
+    'FERMENTO_CHESTPLATE',
+    'FERMENTO_LEGGINGS',
+    'FERMENTO_BOOTS',
+    'SHADOW_ASSASSIN_CLOAK',
+    'STARRED_SHADOW_ASSASSIN_CLOAK',
 ];
 
 const ATTRIBUTE_BASE_COSTS = {
