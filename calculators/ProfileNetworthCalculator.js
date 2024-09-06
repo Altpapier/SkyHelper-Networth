@@ -156,8 +156,12 @@ class ProfileNetworthCalculator {
                  */
 
                 if (item.tag?.ExtraAttributes?.petInfo) {
-                    item = { ...item, ...JSON.parse(item.tag.ExtraAttributes.petInfo) };
-                    calculatorClass = PetNetworthCalculator;
+                    try {
+                        item = JSON.parse(item.tag.ExtraAttributes.petInfo);
+                        calculatorClass = PetNetworthCalculator;
+                    } catch {
+                        continue;
+                    }
                 }
 
                 // Instantiate the calculator
