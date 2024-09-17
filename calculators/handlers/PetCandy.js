@@ -25,12 +25,12 @@ class PetCandyHandler {
         if (!isNaN(pet.price)) {
             const oldPrice = pet.price;
             const petPriceReduction = pet.level.level === 100 ? 5000000 : 2500000;
-            const petPrice = Math.max(reducedValue, pet.price - petPriceReduction);
+            pet.price = Math.max(reducedValue, pet.price - petPriceReduction);
 
             const calculationData = {
                 id: 'CANDY',
                 type: 'PET_CANDY',
-                price: petPrice - oldPrice,
+                price: pet.price - oldPrice,
                 count: pet.petData.candyUsed,
             };
             pet.calculation.push(calculationData);
