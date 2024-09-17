@@ -63,12 +63,6 @@ class ItemEnchantmentHandler {
                 item.calculation.push(calculationData);
             }
 
-            // TODO: Remove This
-            // ? NOTE: USE THIS IF YOU'RE COMPARING OLD AND NEW
-            // ? if (`${name}_${value}`.startsWith('ULTIMATE_SOUL_EATER') && item.extraAttributes.id === 'BONE_BOOMERANG') {
-            // ?    continue;
-            // ? }
-
             const calculationData = {
                 id: `${name}_${value}`,
                 type: 'ENCHANT',
