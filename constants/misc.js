@@ -81,6 +81,7 @@ const PICKONIMBUS_DURABILITY = 5000;
 const specialEnchantmentMatches = {
     aiming: 'Dragon Tracer',
     counter_strike: 'Counter-Strike',
+    pristine: 'Prismatic',
     turbo_cacti: 'Turbo-Cacti',
     turbo_cane: 'Turbo-Cane',
     turbo_carrot: 'Turbo-Carrot',
