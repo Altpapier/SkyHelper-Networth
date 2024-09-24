@@ -1,5 +1,5 @@
 const { APPLICATION_WORTH } = require('../../constants/applicationWorth');
-const { reforges } = require('../../constants/reforges');
+const reforges = require('../../constants/reforges');
 
 /**
  * A handler for the Reforge modifier on an item.

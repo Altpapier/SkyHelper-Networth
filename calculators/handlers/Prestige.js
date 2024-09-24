@@ -1,5 +1,5 @@
 const { getHypixelItemInformationFromId } = require('../../constants/itemsMap');
-const { prestiges } = require('../../constants/prestiges');
+const prestiges = require('../../constants/prestiges');
 const { starCosts } = require('../../helper/essenceStars');
 
 /**

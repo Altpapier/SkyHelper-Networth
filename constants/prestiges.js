@@ -81,6 +81,4 @@ const prestiges = {
     INFERNAL_AURORA_BOOTS: ['FIERY_AURORA_BOOTS', 'BURNING_AURORA_BOOTS', 'HOT_AURORA_BOOTS', 'AURORA_BOOTS'],
 };
 
-module.exports = {
-    prestiges,
-};
+module.exports = prestiges;

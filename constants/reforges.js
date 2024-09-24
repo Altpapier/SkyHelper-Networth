@@ -72,6 +72,4 @@ const reforges = {
     greater_spook: 'BOO_STONE',
 };
 
-module.exports = {
-    reforges,
-};
+module.exports = reforges;
