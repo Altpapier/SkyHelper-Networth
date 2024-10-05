@@ -19,12 +19,6 @@ class GemstonePowerScrollHandler {
      * @param {object} prices A prices object generated from the getPrices function
      */
     calculate(item, prices) {
-        // TODO: Remove This
-        // ? NOTE: USE THIS IF YOU'RE COMPARING OLD AND NEW
-        // ?
-        // ? (COMMENT OUT THIS PART, IT WAS FULLY BROKEN IN THE OLD CALCULATION, IT WOULD ALWAYS RETURN 0)
-        // ?
-
         const calculationData = {
             id: item.extraAttributes.power_ability_scroll,
             type: 'GEMSTONE_POWER_SCROLL',

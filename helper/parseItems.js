@@ -1,4 +1,3 @@
-const { getPetLevel } = require('../constants/pets');
 const { decodeData } = require('../helper/functions');
 
 const singleContainers = {
@@ -110,11 +109,8 @@ const postParseItems = async (profileData, items) => {
     // Parse Pets
     items.pets = [];
     if (profileData.pets || profileData.pets_data?.pets) {
-        for (const pet of profileData.pets || profileData.pets_data.pets) {
-            const newPet = { ...pet };
-            const level = getPetLevel(newPet);
-            newPet.level = level;
-            items.pets.push(newPet);
+        for (const pet of profileData.pets_data.pets) {
+            items.pets.push({ ...pet });
         }
     }
 };

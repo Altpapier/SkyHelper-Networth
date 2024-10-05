@@ -44,14 +44,7 @@ class ItemEnchantmentHandler {
                 }
             }
 
-            // GOLDEN BOUNTY (scavenger 6+: https://hypixel.net/threads/scavenger-7-now-obtainable.5741331/, NEED MORE INFO! before: value === 6)
-
-            // TODO: Remove This
-            // ? NOTE: USE THIS IF YOU'RE COMPARING OLD AND NEW
-            // ?
-            // ? if (name === 'scavenger' && value === 6) {if (name === 'scavenger' && value === 6) {
-            // ?
-
+            // GOLDEN BOUNTY
             if (name === 'SCAVENGER' && value >= 6) {
                 const calculationData = {
                     id: 'GOLDEN_BOUNTY',

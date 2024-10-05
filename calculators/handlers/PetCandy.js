@@ -1,5 +1,5 @@
 const { APPLICATION_WORTH } = require('../../constants/applicationWorth');
-const { blockedCandyReducePets } = require('../../constants/pets');
+const { BLOCKED_CANDY_REDUCE_PETS } = require('../../constants/pets');
 
 /**
  * A handler for the Pet Candy modifier on a pet
@@ -13,7 +13,7 @@ class PetCandyHandler {
     applies(pet) {
         const maxPetCandyXp = pet.petData.candyUsed * 1000000;
         const xpLessPetCandy = pet.petData.exp - maxPetCandyXp;
-        return pet.petData.candyUsed > 0 && !blockedCandyReducePets.includes(pet.petData.type) && xpLessPetCandy < pet.level.xpMax;
+        return pet.petData.candyUsed > 0 && !BLOCKED_CANDY_REDUCE_PETS.includes(pet.petData.type) && xpLessPetCandy < pet.level.xpMax;
     }
 
     /**

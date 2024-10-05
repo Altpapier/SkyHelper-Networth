@@ -89,15 +89,6 @@ class GemstonesHandler {
 
         // GEMSTONES
         for (const gemstone of gems) {
-            // TODO: Remove This
-            // ? NOTE: USE THIS IF YOU'RE COMPARING OLD AND NEW
-            // ? const calculationData = {
-            // ?     id: `${gemstone.tier}_${gemstone.type}_GEM`,
-            // ?     type: 'GEMSTONE',
-            // ?     price: gemstone.slotType === 'CHISEL' ? 0 : (prices[`${gemstone.tier}_${gemstone.type}_GEM`.toUpperCase()] || 0) * APPLICATION_WORTH.gemstone,
-            // ?     count: 1,
-            // ? };
-
             const calculationData = {
                 id: `${gemstone.tier}_${gemstone.type}_GEM`,
                 type: 'GEMSTONE',

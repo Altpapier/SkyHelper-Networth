@@ -167,12 +167,16 @@ class ProfileNetworthCalculator {
                 // Instantiate the calculator
                 const calculator = new calculatorClass(item);
                 // Calculate the networth of the item
-                const result = nonCosmetic ? await calculator.getNonCosmeticNetworth({ prices, includeItemData }) : await calculator.getNetworth({ prices, includeItemData });
+                const result = nonCosmetic
+                    ? await calculator.getNonCosmeticNetworth({ prices, includeItemData })
+                    : await calculator.getNetworth({ prices, includeItemData });
 
                 // Add the item to the category
                 categories[category].total += result?.price || 0;
                 if (!result?.soulbound) categories[category].unsoulboundTotal += result?.price || 0;
-                if (!onlyNetworth && result && result?.price) categories[category].items.push(result);
+                if (!onlyNetworth && result && result?.price) {
+                    categories[category].items.push(result);
+                }
             }
 
             // Sort items by price

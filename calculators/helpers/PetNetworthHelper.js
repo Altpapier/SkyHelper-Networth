@@ -1,4 +1,4 @@
-const { tiers, soulboundPets, getPetLevel } = require('../../constants/pets');
+const { TIERS, SOULBOUND_PETS, RECOMB_PET_ITEMS, SPECIAL_LEVELS, RARITY_OFFSET, LEVELS } = require('../../constants/pets');
 const { ValidationError } = require('../../helper/errors');
 const { titleCase } = require('../../helper/functions');
 
@@ -48,7 +48,7 @@ class PetNetworthHelper {
      * @returns {string} The pet's tier
      */
     getTier() {
-        return this.petData.heldItem === 'PET_ITEM_TIER_BOOST' ? tiers[tiers.indexOf(this.petData.tier) - 1] : this.petData.tier;
+        return this.petData.heldItem === 'PET_ITEM_TIER_BOOST' ? TIERS[TIERS.indexOf(this.petData.tier) - 1] : this.petData.tier;
     }
 
     /**
@@ -56,7 +56,7 @@ class PetNetworthHelper {
      * @returns {boolean} Whether the pet is soulbound
      */
     isSoulbound() {
-        return soulboundPets.includes(this.petData.type);
+        return SOULBOUND_PETS.includes(this.petData.type);
     }
 
     /**
@@ -124,8 +124,28 @@ class PetNetworthHelper {
      * @returns {object} The pet level
      */
     getPetLevel() {
-        // TODO: Move from constants to helper
-        return getPetLevel(this.petData);
+        if (RECOMB_PET_ITEMS.includes(this.petData.heldItem)) this.petData.tier = TIERS[TIERS.indexOf(this.petData.tier) + 1];
+        const maxPetLevel = SPECIAL_LEVELS[this.petData.type] ? SPECIAL_LEVELS[this.petData.type] : 100;
+        const petOffset = RARITY_OFFSET[this.petData.type === 'BINGO' ? 'COMMON' : this.petData.tier];
+        const petLEVELS = LEVELS.slice(petOffset, petOffset + maxPetLevel - 1);
+
+        let level = 1,
+            totalExp = 0;
+        for (let i = 0; i < maxPetLevel; i++) {
+            totalExp += petLEVELS[i];
+            if (totalExp > this.petData.exp) {
+                totalExp -= petLEVELS[i];
+                break;
+            }
+
+            level++;
+        }
+
+        return {
+            level: Math.min(level, maxPetLevel),
+            xpMax: petLEVELS.reduce((a, b) => a + b, 0),
+            xp: this.petData.exp,
+        };
     }
 }
 
