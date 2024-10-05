@@ -1,3 +1,4 @@
 /node_modules
 /testing
 .prettierrc.json
+.itemsBackup.json

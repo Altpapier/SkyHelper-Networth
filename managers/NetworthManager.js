@@ -1,4 +1,4 @@
-const { setItems } = require('../constants/itemsMap');
+const { setItems, itemsBackupLoaded } = require('../constants/itemsMap');
 const { ItemsError } = require('../helper/errors');
 const { sleep } = require('../helper/functions');
 const axios = require('axios');
@@ -130,8 +130,12 @@ class NetworthManager {
             setItems(items);
             return;
         } catch (err) {
-            if (currentRetry >= retries) throw new ItemsError(`Failed to retrieve items with status code ${err?.response?.status || 'Unknown'}`);
-            console.warn(`[SKYHELPER-NETWORTH] Failed to retrieve items with status code ${err?.response?.status || 'Unknown'}. Retrying (${retries - currentRetry} attempt(s) left)...`);
+            const error = `[SKYHELPER-NETWORTH] ${axios.isAxiosError(err) ? `Failed to retrieve items with status code ${err?.response?.status || 'Unknown'}.` : `Failed to retrieve items: ${err}.`}`;
+            if (currentRetry >= retries) {
+                if (itemsBackupLoaded) return console.warn(`${error} Using backup items...`);
+                else throw new ItemsError(error);
+            }
+            console.warn(`${error} Retrying (${retries - currentRetry} attempt(s) left)...`);
             await sleep(retryInterval);
             return await this.updateItems(retries, retryInterval, currentRetry + 1);
         }
