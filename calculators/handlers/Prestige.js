@@ -1,4 +1,3 @@
-const { getHypixelItemInformationFromId } = require('../../constants/itemsMap');
 const prestiges = require('../../constants/prestiges');
 const { starCosts } = require('../../helper/essenceStars');
 
@@ -24,7 +23,7 @@ class PrestigeHandler {
         if (prices[item.itemId]) return;
         const prestige = prestiges[item.itemId];
         for (const prestigeItem of prestige) {
-            const foundItem = getHypixelItemInformationFromId(prestigeItem);
+            const foundItem = item?.skyblockItem;
             if (isNaN(item.price)) item.price = 0;
             if (foundItem?.upgrade_costs) item.price += starCosts(prices, item.calculation, foundItem?.upgrade_costs, prestigeItem);
             if (foundItem?.prestige?.costs) item.price += starCosts(prices, item.calculation, foundItem?.prestige.costs, prestigeItem);
