@@ -11,38 +11,38 @@ const PetNetworthHelper = require('./helpers/PetNetworthHelper');
 class PetNetworthCalculator extends PetNetworthHelper {
     /**
      * Returns the networth of a pet
-     * @param {object} [prices] A prices object generated from the getPrices function. If not provided, the prices will be retrieved every time the function is called
      * @param {object} options Options for the calculation
+     * @param {object} [options.prices] A prices object generated from the getPrices function. If not provided, the prices will be retrieved every time the function is called
      * @param {boolean} [options.cachePrices] Whether to cache the prices
      * @param {number} [options.pricesRetries] The number of times to retry fetching prices
      * @returns {object} An object containing the pets's networth calculation
      */
-    async getNetworth(prices, { cachePrices, pricesRetries } = {}) {
-        return await this.#calculate(prices, { nonCosmetic: false, cachePrices, pricesRetries });
+    async getNetworth({ prices, cachePrices, pricesRetries } = {}) {
+        return await this.#calculate({ prices, nonCosmetic: false, cachePrices, pricesRetries });
     }
 
     /**
      * Returns the non-cosmetic networth of a pet
-     * @param {object} [prices] A prices object generated from the getPrices function. If not provided, the prices will be retrieved every time the function is called
      * @param {object} options Options for the calculation
+     * @param {object} [options.prices] A prices object generated from the getPrices function. If not provided, the prices will be retrieved every time the function is called
      * @param {boolean} [options.cachePrices] Whether to cache the prices
      * @param {number} [options.pricesRetries] The number of times to retry fetching prices
      * @returns {object} An object containing the pet's networth calculation
      */
-    async getNonCosmeticNetworth(prices, { cachePrices, pricesRetries } = {}) {
-        return await this.#calculate(prices, { nonCosmetic: true, cachePrices, pricesRetries });
+    async getNonCosmeticNetworth({ prices, cachePrices, pricesRetries } = {}) {
+        return await this.#calculate({ prices, nonCosmetic: true, cachePrices, pricesRetries });
     }
 
     /**
      * Calculates the networth of a pet
-     * @param {object} prices A prices object generated from the getPrices function. If not provided, the prices will be retrieved every time the function is called
      * @param {object} options Options for the calculation
+     * @param {object} [options.prices] A prices object generated from the getPrices function. If not provided, the prices will be retrieved every time the function is called
      * @param {boolean} [options.nonCosmetic] Whether to calculate the non-cosmetic networth
      * @param {boolean} [options.cachePrices] Whether to cache the prices
      * @param {number} [options.pricesRetries] The number of times to retry fetching prices
      * @returns An object containing the pet's networth calculation
      */
-    async #calculate(prices, { nonCosmetic, cachePrices, pricesRetries }) {
+    async #calculate({ prices, nonCosmetic, cachePrices, pricesRetries }) {
         // Set default values
         this.nonCosmetic = nonCosmetic;
         cachePrices ??= networthManager.cachePrices;

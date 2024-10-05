@@ -81,8 +81,8 @@ class ProfileNetworthCalculator {
 
     /**
      * Returns the networth of a profile
-     * @param {object} [prices] - A prices object generated from the getPrices function. If not provided, the prices will be retrieved every time the function is called
      * @param {object} options Options for the calculation
+     * @param {object} [options.prices] - A prices object generated from the getPrices function. If not provided, the prices will be retrieved every time the function is called
      * @param {boolean} [options.cachePrices] Whether to cache the prices
      * @param {number} [options.pricesRetries] The number of times to retry fetching prices
      * @param {boolean} [options.onlyNetworth] Whether to only return the networth values and not the item calculations
@@ -90,14 +90,14 @@ class ProfileNetworthCalculator {
      * @param {boolean} [options.stackItems] Whether to stack items with the same name and price
      * @returns An object containing the player's networth calculation
      */
-    async getNetworth(prices, { cachePrices, pricesRetries, onlyNetworth, includeItemData, stackItems } = {}) {
-        return this.#calculate(prices, { nonCosmetic: false, cachePrices, pricesRetries, onlyNetworth, includeItemData, stackItems });
+    async getNetworth({ prices, cachePrices, pricesRetries, onlyNetworth, includeItemData, stackItems } = {}) {
+        return this.#calculate({ prices, nonCosmetic: false, cachePrices, pricesRetries, onlyNetworth, includeItemData, stackItems });
     }
 
     /**
      * Returns the non-cosmetic networth of a profile
-     * @param {object} [prices] - A prices object generated from the getPrices function. If not provided, the prices will be retrieved every time the function is called
      * @param {object} options Options for the calculation
+     * @param {object} [options.prices] - A prices object generated from the getPrices function. If not provided, the prices will be retrieved every time the function is called
      * @param {boolean} [options.cachePrices] Whether to cache the prices
      * @param {number} [options.pricesRetries] The number of times to retry fetching prices
      * @param {boolean} [options.onlyNetworth] Whether to only return the networth values and not the item calculations
@@ -105,14 +105,14 @@ class ProfileNetworthCalculator {
      * @param {boolean} [options.stackItems] Whether to stack items with the same name and price
      * @returns An object containing the player's non-cosmetic networth calculation
      */
-    async getNonCosmeticNetworth(prices, { cachePrices, pricesRetries, onlyNetworth, includeItemData, stackItems } = {}) {
-        return this.#calculate(prices, { nonCosmetic: true, cachePrices, pricesRetries, onlyNetworth, includeItemData, stackItems });
+    async getNonCosmeticNetworth({ prices, cachePrices, pricesRetries, onlyNetworth, includeItemData, stackItems } = {}) {
+        return this.#calculate({ prices, nonCosmetic: true, cachePrices, pricesRetries, onlyNetworth, includeItemData, stackItems });
     }
 
     /**
      * Calculates the networth of a profile
-     * @param {object} prices A prices object generated from the getPrices function. If not provided, the prices will be retrieved every time the function is called
      * @param {object} options Options for the calculation
+     * @param {object} [options.prices] A prices object generated from the getPrices function. If not provided, the prices will be retrieved every time the function is called
      * @param {boolean} [options.nonCosmetic] Whether to calculate the non-cosmetic networth
      * @param {boolean} [options.cachePrices] Whether to cache the prices
      * @param {number} [options.pricesRetries] The number of times to retry fetching prices
@@ -121,7 +121,7 @@ class ProfileNetworthCalculator {
      * @param {boolean} [options.stackItems] Whether to stack items with the same name and price
      * @returns An object containing the player's networth calculation
      */
-    async #calculate(prices, { nonCosmetic, cachePrices, pricesRetries, onlyNetworth, includeItemData, stackItems }) {
+    async #calculate({ prices, nonCosmetic, cachePrices, pricesRetries, onlyNetworth, includeItemData, stackItems }) {
         // Set default options
         cachePrices ??= networthManager.cachePrices;
         pricesRetries ??= networthManager.pricesRetries;
@@ -167,9 +167,7 @@ class ProfileNetworthCalculator {
                 // Instantiate the calculator
                 const calculator = new calculatorClass(item);
                 // Calculate the networth of the item
-                const result = nonCosmetic
-                    ? await calculator.getNonCosmeticNetworth(prices, { includeItemData })
-                    : await calculator.getNetworth(prices, { includeItemData });
+                const result = nonCosmetic ? await calculator.getNonCosmeticNetworth({ prices, includeItemData }) : await calculator.getNetworth({ prices, includeItemData });
 
                 // Add the item to the category
                 categories[category].total += result?.price || 0;

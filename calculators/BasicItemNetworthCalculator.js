@@ -19,7 +19,7 @@ class BasicItemNetworthCalculator {
         this.id = id;
         this.amount = amount;
         this.skyblockItem = getHypixelItemInformationFromId(this.id) ?? {};
-        this.itemName = this.skyblockItem.name || titleCase(this.id).split(' ').reverse().join(' '); //TODO: i think this was only needed for essence?
+        this.itemName = this.skyblockItem?.name || titleCase(this.id).split(' ').reverse().join(' '); //TODO: i think this was only needed for essence?
 
         this.#validate();
     }
@@ -36,37 +36,37 @@ class BasicItemNetworthCalculator {
 
     /**
      * Returns the networth of an item
-     * @param {object} [prices] A prices object generated from the getPrices function. If not provided, the prices will be retrieved every time the function is called
      * @param {object} options Options for the calculation
+     * @param {object} [options.prices] A prices object generated from the getPrices function. If not provided, the prices will be retrieved every time the function is called
      * @param {boolean} [options.cachePrices] Whether to cache the prices
      * @param {number} [options.pricesRetries] The number of times to retry fetching prices
      * @returns {object} An object containing the item's networth calculation
      */
-    async getNetworth(prices, { cachePrices, pricesRetries }) {
-        return await this.#calculate(prices, { nonCosmetic: false, cachePrices, pricesRetries });
+    async getNetworth({ prices, cachePrices, pricesRetries }) {
+        return await this.#calculate({ prices, nonCosmetic: false, cachePrices, pricesRetries });
     }
 
     /**
      * Returns the non-cosmetic networth of an item
-     * @param {object} [prices] A prices object generated from the getPrices function. If not provided, the prices will be retrieved every time the function is called
      * @param {object} options Options for the calculation
+     * @param {object} [options.prices] A prices object generated from the getPrices function. If not provided, the prices will be retrieved every time the function is called
      * @param {boolean} [options.cachePrices] Whether to cache the prices
      * @param {number} [options.pricesRetries] The number of times to retry fetching prices
      * @returns {object} An object containing the item's networth calculation
      */
-    async getNonCosmeticNetworth(prices, { cachePrices, pricesRetries }) {
-        return await this.#calculate(prices, { nonCosmetic: true, cachePrices, pricesRetries });
+    async getNonCosmeticNetworth({ prices, cachePrices, pricesRetries }) {
+        return await this.#calculate({ prices, nonCosmetic: true, cachePrices, pricesRetries });
     }
 
     /**
      * Calculates the networth of an item
-     * @param {object} prices A prices object generated from the getPrices function. If not provided, the prices will be retrieved every time the function is called
      * @param {object} options Options for the calculation
+     * @param {object} [options.prices] A prices object generated from the getPrices function. If not provided, the prices will be retrieved every time the function is called
      * @param {boolean} [options.cachePrices] Whether to cache the prices
      * @param {number} [options.pricesRetries] The number of times to retry fetching prices
      * @returns An object containing the item's networth calculation
      */
-    async #calculate(prices, { nonCosmetic, cachePrices, pricesRetries }) {
+    async #calculate({ prices, nonCosmetic, cachePrices, pricesRetries }) {
         // Set default values
         cachePrices ??= networthManager.cachePrices;
         pricesRetries ??= networthManager.pricesRetries;
