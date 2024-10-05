@@ -1,6 +1,4 @@
-const items = require('../itemsData.json');
-
-let itemsMap = new Map().set(items);
+let itemsMap = new Map();
 
 function setItems(items) {
     itemsMap = new Map();
