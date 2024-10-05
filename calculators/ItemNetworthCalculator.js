@@ -45,7 +45,7 @@ class ItemNetworthCalculator extends ItemNetworthHelper {
      */
     async #calculate({ prices, nonCosmetic, cachePrices, pricesRetries, includeItemData }) {
         // Set default values
-        this.nonCosmetic = nonCosmetic; // Can be a bit confusing I thought the item was non cosmetic not the calculation. Suggestions?
+        this.nonCosmetic = nonCosmetic;
         cachePrices ??= networthManager.cachePrices;
         pricesRetries ??= networthManager.pricesRetries;
         includeItemData ??= networthManager.includeItemData;
