@@ -1,15 +1,21 @@
 const axios = require('axios');
 
+// @ts-check
+
 /**
- * @typedef {import('../types/UpdateManager').UpdateManager} UpdateManagerClass
+ * @typedef {import('../types/UpdateManager').UpdateManager} UpdateManager
  */
 
 /**
  * UpdateManager class.
  * Manages checking for updates at regular intervals.
- * @implements {UpdateManagerClass}
+ * @implements {UpdateManager}
  */
 class UpdateManager {
+    /**
+     * Creates an instance of UpdateManager and starts the interval for checking for updates (default: 1 minute).
+     * @returns {UpdateManager}
+     */
     constructor() {
         if (UpdateManager.instance) {
             return UpdateManager.instance;
@@ -21,11 +27,17 @@ class UpdateManager {
         this.intervalInstance = setInterval(this.checkForUpdate, this.interval);
     }
 
+    /**
+     * Disables the interval for checking for updates.
+     */
     disable() {
         clearInterval(this.intervalInstance);
         this.intervalInstance = null;
     }
 
+    /**
+     * Enables the interval for checking for updates. Only useful if the interval is disabled.
+     */
     enable() {
         if (this.intervalInstance) {
             return;
@@ -34,12 +46,19 @@ class UpdateManager {
         this.intervalInstance = setInterval(this.checkForUpdate, this.interval);
     }
 
+    /**
+     * Changes the interval for checking for updates.
+     * @param {Number} interval The interval in milliseconds to check for updates.
+     */
     setInterval(interval) {
         this.interval = interval;
         clearInterval(this.intervalInstance);
         this.intervalInstance = setInterval(this.checkForUpdate, this.interval);
     }
 
+    /**
+     * Checks for updates of the package on npm.
+     */
     async checkForUpdate() {
         try {
             const packageInfo = await axios.get('https://registry.npmjs.org/skyhelper-networth');
@@ -55,10 +74,6 @@ class UpdateManager {
     }
 }
 
-/**
- * The instance of UpdateManager. Checking for updates is enabled by default (interval: 1 minute).
- * @type {UpdateManagerClass}
- */
 const updateManager = new UpdateManager();
 
 module.exports = { updateManager };

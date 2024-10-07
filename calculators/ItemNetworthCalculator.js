@@ -19,7 +19,7 @@ const { getPrices } = require('../helper/prices');
 class ItemNetworthCalculator extends ItemNetworthHelper {
     /**
      * Gets the networth of the player.
-     * @param {NetworthOptions} [options] - The options for calculating networth.
+     * @param {NetworthOptions} [options] The options for calculating networth.
      * @returns {Promise<NetworthResult>} The networth result.
      */
     async getNetworth(options) {
@@ -28,7 +28,7 @@ class ItemNetworthCalculator extends ItemNetworthHelper {
 
     /**
      * Gets the networth of the player without the cosmetic items.
-     * @param {NetworthOptions} [options] - The options for calculating networth.
+     * @param {NetworthOptions} [options] The options for calculating networth.
      * @returns {Promise<NetworthResult>} The networth result.
      */
     async getNonCosmeticNetworth(options) {

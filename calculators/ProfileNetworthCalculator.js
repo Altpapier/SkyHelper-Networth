@@ -85,7 +85,7 @@ class ProfileNetworthCalculator {
 
     /**
      * Gets the networth of the player.
-     * @param {NetworthOptions} [options] - The options for calculating networth.
+     * @param {NetworthOptions} [options]   The options for calculating networth.
      * @returns {Promise<NetworthResult>} The networth result.
      */
     async getNetworth(options) {
@@ -94,7 +94,7 @@ class ProfileNetworthCalculator {
 
     /**
      * Gets the networth of the player without the cosmetic items.
-     * @param {NetworthOptions} [options] - The options for calculating networth.
+     * @param {NetworthOptions} [options] The options for calculating networth.
      * @returns {Promise<NetworthResult>} The networth result.
      */
     async getNonCosmeticNetworth(options) {
@@ -103,7 +103,7 @@ class ProfileNetworthCalculator {
 
     /**
      * Calculates the networth of a profile
-     * @param {NetworthOptions} [options] - The options for calculating networth.
+     * @param {NetworthOptions} [options] The options for calculating networth.
      * @param {object} [options.prices] A prices object generated from the getPrices function. If not provided, the prices will be retrieved every time the function is called
      * @param {boolean} [options.nonCosmetic] Whether to calculate the non-cosmetic networth
      * @param {boolean} [options.cachePrices] Whether to cache the prices
