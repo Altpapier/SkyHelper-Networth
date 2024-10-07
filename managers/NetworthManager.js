@@ -3,17 +3,6 @@ const { ItemsError } = require('../helper/errors');
 const { sleep } = require('../helper/functions');
 const axios = require('axios');
 
-// @ts-check
-
-/**
- * @typedef {import('../types/NetworthManager')} NetworthManager
- */
-
-/**
- * NetworthManager class.
- * Manages the networth of a player's inventory.
- * @implements {NetworthManager}
- */
 class NetworthManager {
     /**
      * Create a new NetworthManager instance. This class is a singleton and should be accessed through the networthManager instance
@@ -155,6 +144,9 @@ class NetworthManager {
     }
 }
 
+/**
+ * The NetworthManager instance. This class is a singleton and should be accessed through this instance
+ */
 const networthManager = new NetworthManager();
 
 module.exports = networthManager;

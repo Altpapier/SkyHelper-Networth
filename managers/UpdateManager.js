@@ -1,16 +1,5 @@
 const axios = require('axios');
 
-// @ts-check
-
-/**
- * @typedef {import('../types/UpdateManager').UpdateManager} UpdateManager
- */
-
-/**
- * UpdateManager class.
- * Manages checking for updates at regular intervals.
- * @implements {UpdateManager}
- */
 class UpdateManager {
     /**
      * Creates an instance of UpdateManager and starts the interval for checking for updates (default: 1 minute).
@@ -74,6 +63,9 @@ class UpdateManager {
     }
 }
 
+/**
+ * The instance of UpdateManager. Checking for updates is enabled by default (interval: 1 minute).
+ */
 const updateManager = new UpdateManager();
 
 module.exports = { updateManager };
