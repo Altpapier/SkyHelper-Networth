@@ -60,6 +60,14 @@ class PetNetworthHelper {
     }
 
     /**
+     * Checks if the pet is cosmetic
+     * @returns {boolean} Whether the pet is cosmetic
+     */
+    isCosmetic() {
+        return !!this.skin;
+    }
+
+    /**
      * Gets the pet prices at levels 1, 100, and 200 (if applicable)
      * @param {object} prices A prices object generated from the getPrices function
      * @returns {object} The pet prices at levels 1, 100, and 200 (if applicable)

@@ -72,6 +72,10 @@ class PetNetworthCalculator extends PetNetworthHelper {
             handler.calculate(this, prices);
         }
 
+        if (this.skin && this.nonCosmetic) {
+            return;
+        }
+
         return {
             id: this.getPetId(prices, this.nonCosmetic),
             name: this.petName,
@@ -79,7 +83,7 @@ class PetNetworthCalculator extends PetNetworthHelper {
             base: this.base,
             calculation: this.calculation,
             soulbound: this.isSoulbound(),
-            cosmetic: !!this.skin,
+            cosmetic: this.isCosmetic(),
             petData: this.petData,
         };
     }
