@@ -119,6 +119,11 @@ class PetNetworthHelper {
         this.base = this.price;
     }
 
+    getPetId(prices, nonCosmetic) {
+        const { LVL_100, LVL_200 } = this.getPetLevelPrices(prices, nonCosmetic);
+        return LVL_200 ? `LVL_200_${this.petId}` : LVL_100 ? `LVL_100_${this.petId}` : `LVL_1_${this.petId}`;
+    }
+
     /**
      * Gets the pet level
      * @returns {object} The pet level
