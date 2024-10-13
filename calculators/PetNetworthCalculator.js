@@ -74,6 +74,7 @@ class PetNetworthCalculator extends PetNetworthHelper {
 
         return {
             id: this.petId,
+            name: this.petName,
             price: this.price,
             base: this.base,
             calculation: this.calculation,
