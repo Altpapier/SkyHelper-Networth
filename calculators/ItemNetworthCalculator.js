@@ -78,7 +78,8 @@ class ItemNetworthCalculator extends ItemNetworthHelper {
         const data = {
             name: this.itemName,
             loreName: this.itemData.tag.display.Name,
-            id: this.itemId,
+            id: this.extraAttributes.id,
+            customId: this.itemId,
             price: this.price,
             base: this.base,
             calculation: this.calculation,
