@@ -19,8 +19,20 @@ class MidasWeaponHandler {
      * @param {object} prices A prices object generated from the getPrices function
      */
     calculate(item, prices) {
-        const maxBid = item.itemId.includes('MIDAS_SWORD') ? 50_000_000 : 100_000_000;
-        const type = item.itemId.includes('MIDAS_SWORD') ? `${item.itemId}_50M` : `${item.itemId}_100M`;
+        let maxBid, type;
+        if (item.itemId === 'midas_sword') {
+            maxBid = 50_000_000;
+            type = 'midas_sword_50m';
+        } else if (item.itemId === 'starred_midas_sword') {
+            maxBid = 250_000_000;
+            type = 'starred_midas_sword_250m';
+        } else if (item.itemId === 'midas_staff') {
+            maxBid = 100_000_000;
+            type = 'midas_staff_100m';
+        } else if (item.itemId === 'starred_midas_staff') {
+            maxBid = 500_000_000;
+            type = 'starred_midas_staff_500m';
+        }
 
         // If max price paid
         if (item.extraAttributes.winning_bid + (item.extraAttributes.additional_coins ?? 0) >= maxBid) {
