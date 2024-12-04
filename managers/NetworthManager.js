@@ -130,7 +130,9 @@ class NetworthManager {
             setItems(items);
             return;
         } catch (err) {
-            const error = `[SKYHELPER-NETWORTH] ${axios.isAxiosError(err) ? `Failed to retrieve items with status code ${err?.response?.status || 'Unknown'}.` : `Failed to retrieve items: ${err}.`}`;
+            const error = `[SKYHELPER-NETWORTH] ${
+                axios.isAxiosError(err) ? `Failed to retrieve items with status code ${err?.response?.status || 'Unknown'}.` : `Failed to retrieve items: ${err}.`
+            }`;
             if (currentRetry >= retries) {
                 if (itemsBackupLoaded) return console.warn(`${error} Using backup items...`);
                 else throw new ItemsError(error);
