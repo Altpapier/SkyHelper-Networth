@@ -317,6 +317,18 @@ const calculateItem = (item, prices, returnItemData) => {
           calculation.push(calculationData);
         }
 
+        // A Beginner's Guide To Pesthunting 
+        if (name === 'pesterminator' && value >= 6) {
+          const calculationData = {
+            id: 'PESTHUNTING_GUIDE',
+            type: 'pesthunting_guide',
+            price: (prices['pesthunting_guide'] || 0) * applicationWorth.pesthuntingGuide,
+            count: 1,
+          }
+          price += calculationData.price;
+          calculation.push(calculationData);
+        }
+
         const calculationData = {
           id: `${name}_${value}`.toUpperCase(),
           type: 'enchant',
