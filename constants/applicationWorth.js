@@ -14,6 +14,7 @@ const APPLICATION_WORTH = {
     silex: 0.75,
     artOfPeace: 0.8,
     divanPowderCoating: 0.8,
+    pesthuntingGuide: 0.8,
     jalapenoBook: 0.8,
     manaDisintegrator: 0.8,
     recombobulator: 0.8,
