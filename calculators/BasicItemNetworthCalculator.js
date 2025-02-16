@@ -19,7 +19,7 @@ class BasicItemNetworthCalculator {
         this.id = id;
         this.amount = amount;
         this.skyblockItem = getHypixelItemInformationFromId(this.id) ?? {};
-        this.itemName = this.skyblockItem?.name || titleCase(this.id).split(' ').reverse().join(' '); //TODO: i think this was only needed for essence?
+        this.itemName = this.#getItemName();
 
         this.#validate();
     }
@@ -32,6 +32,14 @@ class BasicItemNetworthCalculator {
         if (this.amount === undefined) {
             throw new ValidationError('Item amount is required');
         }
+    }
+
+    #getItemName() {
+        if (this.id.includes('ESSENCE')) {
+            return titleCase(this.id).split(' ').reverse().join(' ');
+        }
+
+        return this.skyblockItem?.name || titleCase(this.id);
     }
 
     /**
