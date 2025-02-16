@@ -85,5 +85,5 @@ export interface ProfileNetworthCalculator {
     /**
      * Gets the networth of the player without the cosmetic items.
      */
-    getNonCosmeticNetworth(options?: NetworthOptions): <NetworthResult>;
+    getNonCosmeticNetworth(options?: NetworthOptions): Promise<NetworthResult>;
 }
