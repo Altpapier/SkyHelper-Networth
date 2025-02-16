@@ -3,6 +3,8 @@ const ItemNetworthHelper = require('./helpers/ItemNetworthHelper');
 const handlers = require('./helpers/handlers');
 const { getPrices } = require('../helper/prices');
 
+// @ts-check
+
 /**
  * @typedef {import('../types/ItemNetworthCalculator').ItemNetworthCalculator} ItemNetworthCalculator
  * @typedef {import('../types/ProfileNetworthCalculator').NetworthResult} NetworthResult
