@@ -1,68 +1,33 @@
-const { NetworthTypes } = require('./NetworthTypes');
+import { ItemNetworthCalculator } from './types/ItemNetworthCalculator';
+import { NetworthManager } from './types/NetworthManager';
+import { ProfileNetworthCalculator } from './types/ProfileNetworthCalculator';
+import { UpdateManager } from './types/UpdateManager';
 
-declare module 'skyhelper-networth' {
-    export class NetworthManager {
-        constructor(options: {
-            networthType?: NetworthTypes;
-            cachePrices?: boolean;
-            pricesRetries?: number;
-            itemsRetries?: number;
-            itemsInterval?: number;
-            onlyNetworth?: boolean;
-            stackItems?: boolean;
-            includeItemData?: boolean;
-        });
+declare module 'networthManager' {
+    /**
+     * The singleton instance of NetworthManager.
+     */
+    const networthManager: NetworthManager;
 
-        setNetworthType(networthType: NetworthTypes): this;
+    /**
+     * The instance of UpdateManager. Checking for updates is enabled by default (interval: 1 minute).
+     */
+    const updateManager: UpdateManager;
 
-        getNetworth(params: { profileData: object; museumData?: object; bankBalance: number; prices?: object }): Promise<object>;
+    /**
+     * The ProfileNetworthCalculator class.
+     */
+    const ProfileNetworthCalculator: ProfileNetworthCalculator;
 
-        getPreDecodedNetworth(params: {
-            profileData: object;
-            items: {
-                armor: any[];
-                equipment: any[];
-                wardrobe: any[];
-                inventory: any[];
-                enderchest: any[];
-                accessories: any[];
-                personal_vault: any[];
-                storage: any[];
-                fishing_bag: any[];
-                potion_bag: any[];
-                sacks_bag: any[];
-                candy_inventory: any[];
-                carnival_mask_inventory: any[];
-                museum: any[];
-            };
-            bankBalance: number;
-            prices?: object;
-        }): Promise<object>;
+    /**
+     * The ItemNetworthCalculator class.
+     */
+    const ItemNetworthCalculator: ItemNetworthCalculator;
 
-        getItemNetworth(params: { item: object; prices?: object }): Promise<object>;
-    }
+    /**
+     * Returns the prices used in the networth calculation, optimally this can be cached and used when calling `getNetworth`
+     */
+    export function getPrices(cache?: boolean, retries?: number): Promise<object>;
 
-    export const NetworthTypes: {
-        Normal: 'normal';
-        NonCosmetic: 'nonCosmetic';
-    };
-
-    export class UpdateManager {
-        constructor(options: { interval?: number });
-        start(): void;
-        stop(): void;
-        checkForUpdate(): Promise<void>;
-    }
-
-    export class NetworthError extends Error {
-        constructor(message: string);
-    }
-
-    export class PricesError extends Error {
-        constructor(message: string);
-    }
-
-    export class ItemsError extends Error {
-        constructor(message: string);
-    }
+    export { updateManager, networthManager, ProfileNetworthCalculator, ItemNetworthCalculator };
 }
