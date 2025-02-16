@@ -5,7 +5,10 @@
     "main": "index.js",
     "types": "index.d.ts",
     "scripts": {
-        "test": "npx jest --detectOpenHandles"
+        "test": "npx jest --detectOpenHandles",
+        "lint": "npx eslint .",
+        "prettier": "npx prettier --check .",
+        "prettier:fix": "npx prettier --write ."
     },
     "keywords": [
         "hypixel",
