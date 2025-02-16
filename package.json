@@ -28,7 +28,7 @@
     "author": "Altpapier",
     "license": "MIT",
     "dependencies": {
-        "axios": "^1.6.2",
+        "axios": "^1.7.9",
         "prismarine-nbt": "^2.2.1"
     }
 }
