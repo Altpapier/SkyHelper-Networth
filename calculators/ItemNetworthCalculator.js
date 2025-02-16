@@ -7,7 +7,7 @@ const { getPrices } = require('../helper/prices');
 
 /**
  * @typedef {import('../types/ItemNetworthCalculator').ItemNetworthCalculator} ItemNetworthCalculator
- * @typedef {import('../types/ProfileNetworthCalculator').NetworthResult} NetworthResult
+ * @typedef {import('../types/ItemNetworthCalculator').Item} NetworthResult
  * @typedef {import('../types/global').NetworthOptions} NetworthOptions
  */
 
