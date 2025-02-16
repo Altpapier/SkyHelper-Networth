@@ -1,19 +1,5 @@
-const { NetworthError, PricesError } = require('./errors');
+const { PricesError } = require('./errors');
 const axios = require('axios');
-
-async function parsePrices(prices, cache, retries = 3) {
-    try {
-        if (prices) {
-            const firstKey = Object.keys(prices)[0];
-            if (!prices?.length || !(prices instanceof Object) || prices[firstKey] instanceof Object) throw new NetworthError('Invalid prices data provided');
-            if (firstKey !== firstKey.toLowerCase()) for (const id of Object.keys(prices)) prices[id.toLowerCase()] = prices[id];
-        }
-    } catch (err) {
-        throw new NetworthError('Unable to parse prices');
-    }
-
-    return prices || (await getPrices(cache, retries));
-}
 
 let cachedPrices;
 let isLoadingPrices = null;
@@ -23,13 +9,8 @@ let isLoadingPrices = null;
  * @param {number} [retries=3] - (Optional) By default 3 retries. If set to a negative value, throws error.
  * @returns {object} - An object containing the prices for the items in the game from the SkyHelper Prices list
  */
-async function getPrices(cache = true, retries = 3) {
+async function getPrices(cache = true, cacheTime = 1000 * 60 * 5, retries = 3) {
     if (retries <= 0) throw new PricesError('Failed to retrieve prices');
-
-    let cacheTime = 1000 * 60 * 5;
-    if (typeof cache === 'number') {
-        cacheTime = cache;
-    }
 
     if (cachedPrices?.lastCache > Date.now() - cacheTime && cache) return cachedPrices.prices;
 
@@ -48,7 +29,7 @@ async function getPrices(cache = true, retries = 3) {
                 console.warn(
                     `[SKYHELPER-NETWORTH] Failed to retrieve prices with status code ${e?.response?.status || 'Unknown'}. Retrying (${retries} attempt(s) left)...`
                 );
-                return getPrices(cache, retries - 1);
+                return getPrices(cache, cacheTime, retries - 1);
             }
         } finally {
             isLoadingPrices = null;
@@ -58,4 +39,4 @@ async function getPrices(cache = true, retries = 3) {
     return isLoadingPrices;
 }
 
-module.exports = { parsePrices, getPrices };
+module.exports = { getPrices };

@@ -42,16 +42,17 @@ class PetNetworthCalculator extends PetNetworthHelper {
      * @param {number} [options.pricesRetries] The number of times to retry fetching prices
      * @returns An object containing the pet's networth calculation
      */
-    async #calculate({ prices, nonCosmetic, cachePrices, pricesRetries }) {
+    async #calculate({ prices, nonCosmetic, cachePrices, pricesRetries, cachePricesTime }) {
         // Set default values
         this.nonCosmetic = nonCosmetic;
-        cachePrices ??= networthManager.cachePrices;
-        pricesRetries ??= networthManager.pricesRetries;
+        cachePrices ??= networthManager.getCachePrices();
+        pricesRetries ??= networthManager.getPricesRetries();
+        cachePricesTime ??= networthManager.getCachePricesTime();
 
         // Get prices
         await networthManager.itemsPromise;
         if (!prices) {
-            prices = await getPrices(cachePrices, pricesRetries);
+            prices = await getPrices(cachePrices, pricesRetries, cachePricesTime);
         }
 
         // Get the base price
