@@ -29,7 +29,7 @@ const categoryCalculatorMap = {
 class ProfileNetworthCalculator {
     constructor(profileData, museumData, bankBalance) {
         this.profileData = profileData;
-        this.museumData = museumData;
+        this.museumData = museumData || {};
         this.bankBalance = bankBalance || 0;
         this.items = {};
 
@@ -113,18 +113,19 @@ class ProfileNetworthCalculator {
      * @param {boolean} [options.stackItems] Whether to stack items with the same name and price
      * @returns An object containing the player's networth calculation
      */
-    async #calculate({ prices, nonCosmetic, cachePrices, pricesRetries, onlyNetworth, includeItemData, stackItems }) {
+    async #calculate({ prices, nonCosmetic, cachePrices, pricesRetries, cachePricesTime, onlyNetworth, includeItemData, stackItems }) {
         // Set default options
-        cachePrices ??= networthManager.cachePrices;
-        pricesRetries ??= networthManager.pricesRetries;
-        onlyNetworth ??= networthManager.onlyNetworth;
-        includeItemData ??= networthManager.includeItemData;
-        stackItems ??= networthManager.stackItems;
+        cachePrices ??= networthManager.getCachePrices();
+        pricesRetries ??= networthManager.getPricesRetries();
+        cachePricesTime ??= networthManager.getCachePricesTime();
+        onlyNetworth ??= networthManager.getOnlyNetworth();
+        includeItemData ??= networthManager.getIncludeItemData();
+        stackItems ??= networthManager.getStackItems();
 
         // Get prices and items
         await networthManager.itemsPromise;
         if (!prices) {
-            prices = await getPrices(cachePrices, pricesRetries);
+            prices = await getPrices(cachePrices, pricesRetries, cachePricesTime);
         }
 
         // Parse inventories if not already parsed
@@ -177,7 +178,6 @@ class ProfileNetworthCalculator {
 
                 // Stack items with the same name and price
                 if (stackItems) {
-                    // TODO: broken for 56ms fishing_bag (not broken before classes update)
                     categories[category].items = categories[category].items
                         .reduce((r, a) => {
                             const last = r[r.length - 1];

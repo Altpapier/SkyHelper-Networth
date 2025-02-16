@@ -28,10 +28,17 @@ class AttributesHandler {
             let baseAttributePrice = prices[`ATTRIBUTE_SHARD_${attributeName}`];
             if (ATTRIBUTE_BASE_COSTS[item.itemId] && prices[ATTRIBUTE_BASE_COSTS[item.itemId]] < baseAttributePrice) {
                 baseAttributePrice = prices[ATTRIBUTE_BASE_COSTS[item.itemId]];
-            } else if (/^(|HOT_|FIERY_|BURNING_|INFERNAL_)(AURORA|CRIMSON|TERROR|HOLLOW|FERVOR)_HELMET$/.test(item.itemId) && prices[`KUUDRA_HELMET_${attributeName}`] < baseAttributePrice) {
+            } else if (
+                /^(|HOT_|FIERY_|BURNING_|INFERNAL_)(AURORA|CRIMSON|TERROR|HOLLOW|FERVOR)_HELMET$/.test(item.itemId) &&
+                prices[`KUUDRA_HELMET_${attributeName}`] < baseAttributePrice
+            ) {
                 baseAttributePrice = prices[`KUUDRA_HELMET_${attributeName}`];
             } else if (/^(|HOT_|FIERY_|BURNING_|INFERNAL_)(AURORA|CRIMSON|TERROR|HOLLOW|FERVOR)(_CHESTPLATE|_LEGGINGS|_BOOTS)$/.test(item.itemId)) {
-                const kuudraPrices = [prices[`KUUDRA_CHESTPLATE_${attributeName}`], prices[`KUUDRA_LEGGINGS_${attributeName}`], prices[`KUUDRA_BOOTS_${attributeName}`]].filter((v) => v);
+                const kuudraPrices = [
+                    prices[`KUUDRA_CHESTPLATE_${attributeName}`],
+                    prices[`KUUDRA_LEGGINGS_${attributeName}`],
+                    prices[`KUUDRA_BOOTS_${attributeName}`],
+                ].filter((v) => v);
                 const kuudraPrice = kuudraPrices.reduce((a, b) => a + b, 0) / kuudraPrices.length;
                 if (kuudraPrice && (!baseAttributePrice || kuudraPrice < baseAttributePrice)) baseAttributePrice = kuudraPrice;
             }

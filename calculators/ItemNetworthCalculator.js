@@ -45,17 +45,18 @@ class ItemNetworthCalculator extends ItemNetworthHelper {
      * @param {boolean} [options.includeItemData] Whether to include item data in the result
      * @returns An object containing the item's networth calculation
      */
-    async #calculate({ prices, nonCosmetic, cachePrices, pricesRetries, includeItemData }) {
+    async #calculate({ prices, nonCosmetic, cachePrices, pricesRetries, cachePricesTime, includeItemData }) {
         // Set default values
         this.nonCosmetic = nonCosmetic;
-        cachePrices ??= networthManager.cachePrices;
-        pricesRetries ??= networthManager.pricesRetries;
-        includeItemData ??= networthManager.includeItemData;
+        cachePrices ??= networthManager.getCachePrices();
+        pricesRetries ??= networthManager.getPricesRetries();
+        cachePricesTime ??= networthManager.getCachePricesTime();
+        includeItemData ??= networthManager.getIncludeItemData();
 
         // Get prices
         await networthManager.itemsPromise;
         if (!prices) {
-            prices = await getPrices(cachePrices, pricesRetries);
+            prices = await getPrices(cachePrices, pricesRetries, cachePricesTime);
         }
 
         // Get the base price for the item

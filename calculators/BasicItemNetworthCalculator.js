@@ -66,15 +66,16 @@ class BasicItemNetworthCalculator {
      * @param {number} [options.pricesRetries] The number of times to retry fetching prices
      * @returns An object containing the item's networth calculation
      */
-    async #calculate({ prices, nonCosmetic, cachePrices, pricesRetries }) {
+    async #calculate({ prices, nonCosmetic, cachePrices, pricesRetries, cachePricesTime }) {
         // Set default values
-        cachePrices ??= networthManager.cachePrices;
-        pricesRetries ??= networthManager.pricesRetries;
+        cachePrices ??= networthManager.getCachePrices();
+        pricesRetries ??= networthManager.getPricesRetries();
+        cachePricesTime ??= networthManager.getCachePrices;
 
         // Get prices
         await networthManager.itemsPromise;
         if (!prices) {
-            prices = await getPrices(cachePrices, pricesRetries);
+            prices = await getPrices(cachePrices, pricesRetries, cachePricesTime);
         }
 
         if (this.id.startsWith('RUNE_') && (!validRunes.includes(this.id) || nonCosmetic)) return null;

@@ -27,7 +27,7 @@ declare module 'networthManager' {
     /**
      * Returns the prices used in the networth calculation, optimally this can be cached and used when calling `getNetworth`
      */
-    export function getPrices(cache?: boolean, retries?: number): Promise<object>;
+    export function getPrices(cache?: boolean, cacheTime?: number, retries?: number): Promise<object>;
 
     export { updateManager, networthManager, ProfileNetworthCalculator, ItemNetworthCalculator };
 }

@@ -1,6 +1,8 @@
 const axios = require('axios');
 
 class UpdateManager {
+    #interval;
+    #intervalInstance;
     /**
      * Creates an instance of UpdateManager and starts the interval for checking for updates (default: 1 minute).
      * @returns {UpdateManager}
@@ -11,28 +13,28 @@ class UpdateManager {
         }
 
         UpdateManager.instance = this;
-
-        this.interval = 1000 * 60; // 1 minute
-        this.intervalInstance = setInterval(this.checkForUpdate, this.interval);
+        this.checkForUpdate = this.checkForUpdate.bind(this);
+        this.#interval = 1000 * 60; // 1 minute
+        this.#intervalInstance = setInterval(this.checkForUpdate, this.#interval);
     }
 
     /**
      * Disables the interval for checking for updates.
      */
     disable() {
-        clearInterval(this.intervalInstance);
-        this.intervalInstance = null;
+        clearInterval(this.#intervalInstance);
+        this.#intervalInstance = null;
     }
 
     /**
      * Enables the interval for checking for updates. Only useful if the interval is disabled.
      */
     enable() {
-        if (this.intervalInstance) {
+        if (this.#intervalInstance) {
             return;
         }
 
-        this.intervalInstance = setInterval(this.checkForUpdate, this.interval);
+        this.#intervalInstance = setInterval(this.checkForUpdate, this.#interval);
     }
 
     /**
@@ -40,9 +42,9 @@ class UpdateManager {
      * @param {Number} interval The interval in milliseconds to check for updates.
      */
     setInterval(interval) {
-        this.interval = interval;
-        clearInterval(this.intervalInstance);
-        this.intervalInstance = setInterval(this.checkForUpdate, this.interval);
+        this.#interval = interval;
+        clearInterval(this.#intervalInstance);
+        this.#intervalInstance = setInterval(this.checkForUpdate, this.#interval);
     }
 
     /**
@@ -68,4 +70,4 @@ class UpdateManager {
  */
 const updateManager = new UpdateManager();
 
-module.exports = { updateManager };
+module.exports = updateManager;
