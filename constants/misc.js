@@ -36,6 +36,7 @@ const validRunes = [
   'RAINY_DAY_3',
   'SUPER_PUMPKIN_3',
   'ORNAMENTAL_3',
+  'HEARTSPLOSION_3',
 ];
 
 const allowedRecombTypes = ['ACCESSORY', 'NECKLACE', 'GLOVES', 'BRACELET', 'BELT', 'CLOAK', 'VACUUM'];
