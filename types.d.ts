@@ -3,16 +3,16 @@ import { NetworthManager } from './types/NetworthManager';
 import { ProfileNetworthCalculator } from './types/ProfileNetworthCalculator';
 import { UpdateManager } from './types/UpdateManager';
 
-declare module 'networthManager' {
+declare module 'skyhelper-networth' {
     /**
      * The singleton instance of NetworthManager.
      */
-    const networthManager: NetworthManager;
+    const NetworthManager: NetworthManager;
 
     /**
      * The instance of UpdateManager. Checking for updates is enabled by default (interval: 1 minute).
      */
-    const updateManager: UpdateManager;
+    const UpdateManager: UpdateManager;
 
     /**
      * The ProfileNetworthCalculator class.
@@ -29,5 +29,5 @@ declare module 'networthManager' {
      */
     export function getPrices(cache?: boolean, cacheTime?: number, retries?: number): Promise<object>;
 
-    export { updateManager, networthManager, ProfileNetworthCalculator, ItemNetworthCalculator };
+    export { UpdateManager, NetworthManager, ProfileNetworthCalculator, ItemNetworthCalculator };
 }

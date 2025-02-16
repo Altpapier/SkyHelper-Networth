@@ -1,12 +1,18 @@
 {
     "compilerOptions": {
         "target": "es5",
-        "lib": ["es2017", "dom"],
         "module": "commonjs",
+        "declaration": true,
+        "declarationMap": true,
+        "sourceMap": true,
+        "outDir": "./dist",
+        "rootDir": "./",
         "strict": true,
         "esModuleInterop": true,
         "skipLibCheck": true,
-        "forceConsistentCasingInFileNames": true
+        "forceConsistentCasingInFileNames": true,
+        "types": ["node", "jest"]
     },
-    "include": ["**/*.js", "**/*.d.ts"]
+    "include": ["**/*.ts", "**/*.d.ts", "**/*.js"],
+    "exclude": ["node_modules", "dist"]
 }
