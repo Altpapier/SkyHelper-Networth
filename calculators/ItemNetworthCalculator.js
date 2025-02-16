@@ -73,15 +73,21 @@ class ItemNetworthCalculator extends ItemNetworthHelper {
             handler.calculate(this, prices);
         }
 
+        if (this.isCosmetic() && this.nonCosmetic) {
+            return;
+        }
+
         const data = {
             name: this.itemName,
             loreName: this.itemData.tag.display.Name,
-            id: this.itemId,
+            id: this.extraAttributes.id,
+            customId: this.itemId,
             price: this.price,
             base: this.base,
             calculation: this.calculation,
             count: this.itemData.Count || 1,
             soulbound: this.isSoulbound(),
+            cosmetic: this.isCosmetic(),
         };
         return includeItemData ? { ...data, item: this.itemData } : data;
     }

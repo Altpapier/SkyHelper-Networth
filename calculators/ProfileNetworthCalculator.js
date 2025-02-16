@@ -181,7 +181,7 @@ class ProfileNetworthCalculator {
                     categories[category].items = categories[category].items
                         .reduce((r, a) => {
                             const last = r[r.length - 1];
-                            if (last && last.name === a.name && last.price / last.count === a.price / a.count && !a?.isPet && last.soulbound === a.soulbound) {
+                            if (last && last.id === a.id && last.price / last.count === a.price / a.count && !a?.isPet && last.soulbound === a.soulbound) {
                                 last.price += a.price;
                                 last.count += a.count;
                                 last.base = last.base || a.base;

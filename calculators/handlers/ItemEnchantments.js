@@ -56,6 +56,18 @@ class ItemEnchantmentHandler {
                 item.calculation.push(calculationData);
             }
 
+            // A Beginner's Guide To Pesthunting
+            if (name === 'pesterminator' && value >= 6) {
+                const calculationData = {
+                    id: 'PESTHUNTING_GUIDE',
+                    type: 'PESTHUNTING_GUIDE',
+                    price: (prices['PESTHUNTING_GUIDE'] || 0) * APPLICATION_WORTH.pesthuntingGuide,
+                    count: 1,
+                };
+                item.price += calculationData.price;
+                item.calculation.push(calculationData);
+            }
+
             const calculationData = {
                 id: `${name}_${value}`,
                 type: 'ENCHANT',

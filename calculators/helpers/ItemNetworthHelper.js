@@ -92,6 +92,11 @@ class ItemNetworthHelper {
             return 'CREATIVE_MIND_UNEDITIONED';
         }
 
+        // If the item is an ancient elevator
+        if (this.itemId === 'ANCIENT_ELEVATOR' && this.extraAttributes.edition !== undefined) {
+            return 'ANCIENT_ELEVATOR_EDITIONED';
+        }
+
         // If the item is the shiny variant
         if (this.extraAttributes.is_shiny && prices[`${this.itemId}_SHINY`]) {
             return `${this.itemId}_SHINY`;
