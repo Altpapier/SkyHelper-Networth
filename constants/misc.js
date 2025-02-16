@@ -38,7 +38,7 @@ const validRunes = [
   'ORNAMENTAL_3',
 ];
 
-const allowedRecombTypes = ['ACCESSORY', 'NECKLACE', 'GLOVES', 'BRACELET', 'BELT', 'CLOAK'];
+const allowedRecombTypes = ['ACCESSORY', 'NECKLACE', 'GLOVES', 'BRACELET', 'BELT', 'CLOAK', 'VACUUM'];
 const allowedRecombIds = [
   'divan_helmet',
   'divan_chestplate',
