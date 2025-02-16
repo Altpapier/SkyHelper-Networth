@@ -29,7 +29,7 @@ const categoryCalculatorMap = {
 class ProfileNetworthCalculator {
     constructor(profileData, museumData, bankBalance) {
         this.profileData = profileData;
-        this.museumData = museumData;
+        this.museumData = museumData || {};
         this.bankBalance = bankBalance || 0;
         this.items = {};
 

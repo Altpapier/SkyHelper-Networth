@@ -141,8 +141,10 @@ class NetworthManager {
      */
     async updateItems(retries = 3, retryInterval = 1000, currentRetry = 0) {
         try {
-            const response = await axios.get('https://api.hypixel.net/v2/resources/skyblock/items');
-            const items = response.data.items;
+            const response = await axios.get('https://api.hypixel.net/v2/resources/skyblock/items', {
+                timeout: 5000,
+            });
+            const items = response?.data?.items;
             if (!items) {
                 if (currentRetry >= retries) throw new ItemsError('Failed to retrieve items');
                 console.warn(`[SKYHELPER-NETWORTH] Failed to retrieve items. Retrying (${retries - currentRetry} attempt(s) left)...`);
