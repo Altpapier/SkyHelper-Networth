@@ -1,4 +1,5 @@
 const { getHypixelItemInformationFromId } = require('../../constants/itemsMap');
+const { NON_COSMETIC_ITEMS } = require('../../constants/misc');
 const { ValidationError } = require('../../helper/errors');
 const { titleCase } = require('../../helper/functions');
 
@@ -146,10 +147,11 @@ class ItemNetworthHelper {
      */
     isCosmetic() {
         const testId = (this.itemId + this.itemName).toUpperCase();
-        const isSkinOrDye = testId.includes('DYE') || testId.includes('SKIN');
+        const isSkinOrDye = testId.includes('DYE') || testId.includes('SKIN') || testId.includes('DYE');
         const isCosmetic = this.skyblockItem.category === 'COSMETIC' || this.itemLore.at(-1)?.includes('COSMETIC');
+        const isOnCosmeticBlacklist = NON_COSMETIC_ITEMS.has(this.itemId);
 
-        return isCosmetic || isSkinOrDye || this.isRune();
+        return isCosmetic || isSkinOrDye || isOnCosmeticBlacklist || this.isRune();
     }
 
     /**
