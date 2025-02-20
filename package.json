@@ -3,7 +3,7 @@
     "version": "2.0.0",
     "description": "SkyHelper's Networth Calculation for Hypixel SkyBlock",
     "main": "index.js",
-    "types": "types.d.ts",
+    "types": "index.d.ts",
     "scripts": {
         "test": "npx jest --detectOpenHandles",
         "lint": "npx eslint .",

@@ -137,9 +137,9 @@ class PetNetworthHelper {
      * @returns {object} The pet level
      */
     getPetLevel() {
-        if (RECOMB_PET_ITEMS.includes(this.petData.heldItem)) this.petData.tier = TIERS[TIERS.indexOf(this.petData.tier) + 1];
+        const levelingTier = RECOMB_PET_ITEMS.includes(this.petData.heldItem) ? TIERS[TIERS.indexOf(this.petData.tier) + 1] : this.petData.tier;
         const maxPetLevel = SPECIAL_LEVELS[this.petData.type] ? SPECIAL_LEVELS[this.petData.type] : 100;
-        const petOffset = RARITY_OFFSET[this.petData.type === 'BINGO' ? 'COMMON' : this.petData.tier];
+        const petOffset = RARITY_OFFSET[this.petData.type === 'BINGO' ? 'COMMON' : levelingTier];
         const petLEVELS = LEVELS.slice(petOffset, petOffset + maxPetLevel - 1);
 
         let level = 1,
