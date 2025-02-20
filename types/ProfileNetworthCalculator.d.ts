@@ -70,20 +70,3 @@ type Inventory = {
      */
     items?: Array<Item>;
 };
-
-export interface ProfileNetworthCalculator {
-    /**
-     * Creates a new instance of ProfileNetworthCalculator.
-     */
-    constructor(profileData: object, museumData?: object, bankBalance?: number);
-
-    /**
-     * Gets the networth of the player.
-     */
-    getNetworth(options?: NetworthOptions): Promise<NetworthResult>;
-
-    /**
-     * Gets the networth of the player without the cosmetic items.
-     */
-    getNonCosmeticNetworth(options?: NetworthOptions): Promise<NetworthResult>;
-}

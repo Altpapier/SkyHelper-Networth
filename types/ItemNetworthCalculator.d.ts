@@ -66,15 +66,3 @@ type Calculation = {
      */
     star?: number;
 };
-
-export interface ItemNetworthCalculator {
-    /**
-     * Returns the networth of an item.
-     */
-    getNetworth(options?: NetworthOptions): Promise<Item>;
-
-    /**
-     * Returns the non-cosmetic networth of an item.
-     */
-    getNonCosmeticNetworth(options?: NetworthOptions): Promise<Item>;
-}
