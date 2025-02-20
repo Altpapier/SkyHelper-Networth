@@ -1,10 +1,8 @@
-// index.d.ts
 import { NetworthResult } from './types/ProfileNetworthCalculator';
 import { NetworthManagerOptions } from './types/NetworthManager';
 import { Item } from './types/ItemNetworthCalculator';
 import { NetworthOptions } from './types/global';
 
-// Declare the classes and their properties/methods
 declare class NetworthManager {
     /**
      * Creates a new instance of NetworthManager. This class is a singleton and should be accessed through the networthManager instance.
@@ -112,11 +110,9 @@ declare class ItemNetworthCalculator {
     getNonCosmeticNetworth(options?: NetworthOptions): Promise<Item>;
 }
 
-// Declare the getPrices function
 declare function getPrices(cache?: boolean, cacheTime?: number, retries?: number): Promise<Record<string, number>>;
 
-// Export all members as a CommonJS module
-export = {
+aexport = {
     NetworthManager,
     UpdateManager,
     ProfileNetworthCalculator,
