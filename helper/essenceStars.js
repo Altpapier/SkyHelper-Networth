@@ -7,8 +7,8 @@ function starCost(prices, upgrade, star) {
     const calculationData = {
         id: upgrade.essence_type ? `${upgrade.essence_type}_ESSENCE` : upgrade.item_id,
         type: star ? 'STAR' : 'PRESTIGE',
-        price: (upgrade.amount || 0) * (upgradePrice || 0) * (upgrade.essence_type ? APPLICATION_WORTH.essence : 1),
-        count: upgrade.amount || 0,
+        price: (upgrade.amount ?? 0) * (upgradePrice ?? 0) * (upgrade.essence_type ? APPLICATION_WORTH.essence : 1),
+        count: upgrade.amount ?? 0,
     };
     if (star) calculationData.star = star;
     return calculationData;
@@ -44,7 +44,7 @@ function starCosts(prices, calculation, upgrades, prestigeItem) {
         const prestige = datas[0].type === 'PRESTIGE';
         const calculationData = datas.reduce(
             (acc, val) => {
-                acc.price += val?.price || 0;
+                acc.price += val?.price ?? 0;
                 return acc;
             },
             { id: prestigeItem, type: prestige ? 'PRESTIGE' : 'STARS', price: 0, count: prestige ? 1 : star }

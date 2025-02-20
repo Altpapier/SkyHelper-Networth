@@ -22,7 +22,7 @@ class ManaDisintegratorHandler {
         const calculationData = {
             id: 'MANA_DISINTEGRATOR',
             type: 'MANA_DISINTEGRATOR',
-            price: (prices['MANA_DISINTEGRATOR'] || 0) * item.extraAttributes.mana_disintegrator_count * APPLICATION_WORTH.manaDisintegrator,
+            price: (prices['MANA_DISINTEGRATOR'] ?? 0) * item.extraAttributes.mana_disintegrator_count * APPLICATION_WORTH.manaDisintegrator,
             count: item.extraAttributes.mana_disintegrator_count,
         };
         item.price += calculationData.price;

@@ -22,7 +22,7 @@ class GemstonePowerScrollHandler {
         const calculationData = {
             id: item.extraAttributes.power_ability_scroll,
             type: 'GEMSTONE_POWER_SCROLL',
-            price: (prices[item.extraAttributes.power_ability_scroll] || 0) * APPLICATION_WORTH.gemstonePowerScroll,
+            price: (prices[item.extraAttributes.power_ability_scroll] ?? 0) * APPLICATION_WORTH.gemstonePowerScroll,
             count: 1,
         };
         item.price += calculationData.price;

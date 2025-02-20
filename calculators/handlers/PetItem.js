@@ -22,7 +22,7 @@ class PetItemHandler {
         const calculationData = {
             id: pet.petData.heldItem,
             type: 'PET_ITEM',
-            price: (prices[pet.petData.heldItem] || 0) * APPLICATION_WORTH.petItem,
+            price: (prices[pet.petData.heldItem] ?? 0) * APPLICATION_WORTH.petItem,
             count: 1,
         };
 

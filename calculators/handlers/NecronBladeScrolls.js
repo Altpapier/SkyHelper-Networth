@@ -23,7 +23,7 @@ class NecronBladeScrollsHandler {
             const calculationData = {
                 id,
                 type: 'NECRON_SCROLL',
-                price: (prices[id.toUpperCase()] || 0) * APPLICATION_WORTH.necronBladeScroll,
+                price: (prices[id.toUpperCase()] ?? 0) * APPLICATION_WORTH.necronBladeScroll,
                 count: 1,
             };
             item.price += calculationData.price;

@@ -34,13 +34,12 @@ const APPLICATION_WORTH = {
     prestigeItem: 1,
     reforge: 1,
     winningBid: 1,
-
     petCandy: 0.65,
     soulboundPetSkins: 0.8,
     petItem: 1,
 };
 
-const enchantsWorth = {
+const ENCHANTMENTS_WORTH = {
     COUNTER_STRIKE: 0.2,
     BIG_BRAIN: 0.35,
     ULTIMATE_INFERNO: 0.35,
@@ -51,5 +50,5 @@ const enchantsWorth = {
 
 module.exports = {
     APPLICATION_WORTH,
-    enchantsWorth,
+    ENCHANTMENTS_WORTH,
 };

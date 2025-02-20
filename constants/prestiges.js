@@ -1,4 +1,4 @@
-const prestiges = {
+const PRESTIGES = {
     HOT_CRIMSON_CHESTPLATE: ['CRIMSON_CHESTPLATE'],
     HOT_CRIMSON_HELMET: ['CRIMSON_HELMET'],
     HOT_CRIMSON_LEGGINGS: ['CRIMSON_LEGGINGS'],
@@ -81,4 +81,4 @@ const prestiges = {
     INFERNAL_AURORA_BOOTS: ['FIERY_AURORA_BOOTS', 'BURNING_AURORA_BOOTS', 'HOT_AURORA_BOOTS', 'AURORA_BOOTS'],
 };
 
-module.exports = prestiges;
+module.exports = { PRESTIGES };

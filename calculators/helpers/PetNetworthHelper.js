@@ -75,17 +75,17 @@ class PetNetworthHelper {
     getPetLevelPrices(prices) {
         // Get the base prices for the pet
         const basePrices = {
-            LVL_1: prices[`LVL_1_${this.basePetId}`] || 0,
-            LVL_100: prices[`LVL_100_${this.basePetId}`] || 0,
-            LVL_200: prices[`LVL_200_${this.basePetId}`] || 0,
+            LVL_1: prices[`LVL_1_${this.basePetId}`] ?? 0,
+            LVL_100: prices[`LVL_100_${this.basePetId}`] ?? 0,
+            LVL_200: prices[`LVL_200_${this.basePetId}`] ?? 0,
         };
 
         // If the pet has a skin, use the skinned prices
         if (this.skin && !this.nonCosmetic) {
             return {
-                LVL_1: Math.max(prices[`LVL_1_${this.petId}`] || 0, basePrices.LVL_1),
-                LVL_100: Math.max(prices[`LVL_100_${this.petId}`] || 0, basePrices.LVL_100),
-                LVL_200: Math.max(prices[`LVL_200_${this.petId}`] || 0, basePrices.LVL_200),
+                LVL_1: Math.max(prices[`LVL_1_${this.petId}`] ?? 0, basePrices.LVL_1),
+                LVL_100: Math.max(prices[`LVL_100_${this.petId}`] ?? 0, basePrices.LVL_100),
+                LVL_200: Math.max(prices[`LVL_200_${this.petId}`] ?? 0, basePrices.LVL_200),
             };
         }
 

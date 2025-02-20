@@ -24,7 +24,7 @@ class ArtOfWarHandler {
         const calculationData = {
             id: 'THE_ART_OF_WAR',
             type: 'THE_ART_OF_WAR',
-            price: (prices['THE_ART_OF_WAR'] || 0) * artOfWarCount * APPLICATION_WORTH.artOfWar,
+            price: (prices['THE_ART_OF_WAR'] ?? 0) * artOfWarCount * APPLICATION_WORTH.artOfWar,
             count: artOfWarCount,
         };
         item.price += calculationData.price;

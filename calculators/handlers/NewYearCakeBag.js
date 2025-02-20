@@ -18,7 +18,7 @@ class NewYearCakeBagHandler {
      */
     calculate(item, prices) {
         let cakesPrice = 0;
-        for (const year of item.extraAttributes.new_year_cake_bag_years) cakesPrice += prices[`NEW_YEAR_CAKE_${year}`] || 0;
+        for (const year of item.extraAttributes.new_year_cake_bag_years) cakesPrice += prices[`NEW_YEAR_CAKE_${year}`] ?? 0;
 
         const calculationData = {
             id: 'NEW_YEAR_CAKES',

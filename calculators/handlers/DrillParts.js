@@ -26,7 +26,7 @@ class DrillPartsHandler {
                 const calculationData = {
                     id: item.extraAttributes[type].toUpperCase(),
                     type: 'DRILL_PART',
-                    price: (prices[item.extraAttributes[type].toUpperCase()] || 0) * APPLICATION_WORTH.drillPart,
+                    price: (prices[item.extraAttributes[type].toUpperCase()] ?? 0) * APPLICATION_WORTH.drillPart,
                     count: 1,
                 };
                 item.price += calculationData.price;

@@ -1,5 +1,5 @@
 const { getHypixelItemInformationFromId } = require('../constants/itemsMap');
-const { validRunes } = require('../constants/misc');
+const { VALID_RUNES } = require('../constants/misc');
 const { ValidationError } = require('../helper/errors');
 const { titleCase } = require('../helper/functions');
 const { getPrices } = require('../helper/prices');
@@ -86,7 +86,7 @@ class BasicItemNetworthCalculator {
             prices = await getPrices(cachePrices, pricesRetries, cachePricesTime);
         }
 
-        if (this.id.startsWith('RUNE_') && (!validRunes.includes(this.id) || nonCosmetic)) return null;
+        if (this.id.startsWith('RUNE_') && (!VALID_RUNES.includes(this.id) || nonCosmetic)) return null;
 
         // Get the base price for the item
         const itemPrice = prices[this.id];

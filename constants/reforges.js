@@ -1,4 +1,4 @@
-const reforges = {
+const REFORGES = {
     stiff: 'HARDENED_WOOD',
     salty: 'SALT_CUBE',
     aote_stone: 'AOTE_STONE',
@@ -64,7 +64,6 @@ const reforges = {
     withered: 'WITHER_BLOOD',
     glacial: 'FRIGID_HUSK',
     heated: 'HOT_STUFF',
-
     // Non-bazaar
     dirty: 'DIRT_BOTTLE',
     moil: 'MOIL_LOG',
@@ -72,4 +71,6 @@ const reforges = {
     greater_spook: 'BOO_STONE',
 };
 
-module.exports = reforges;
+module.exports = {
+    REFORGES,
+};

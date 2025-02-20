@@ -1,5 +1,5 @@
 const { getHypixelItemInformationFromId } = require('../../constants/itemsMap');
-const prestiges = require('../../constants/prestiges');
+const { PRESTIGES } = require('../../constants/prestiges');
 const { starCosts } = require('../../helper/essenceStars');
 
 /**
@@ -12,7 +12,7 @@ class PrestigeHandler {
      * @returns {boolean} Whether the handler applies to the item
      */
     applies(item) {
-        return prestiges[item.itemId];
+        return PRESTIGES[item.itemId];
     }
 
     /**
@@ -22,7 +22,7 @@ class PrestigeHandler {
      */
     calculate(item, prices) {
         if (prices[item.itemId]) return;
-        const prestige = prestiges[item.itemId];
+        const prestige = PRESTIGES[item.itemId];
         for (const prestigeItem of prestige) {
             const foundItem = getHypixelItemInformationFromId(prestigeItem);
             if (isNaN(item.price)) item.price = 0;

@@ -1,4 +1,4 @@
-const blockedEnchants = {
+const BLOCKED_ENCHANTMENTS = {
     BONE_BOOMERANG: ['OVERLOAD', 'POWER', 'ULTIMATE_SOUL_EATER'],
     DEATH_BOW: ['OVERLOAD', 'POWER', 'ULTIMATE_SOUL_EATER'],
     GARDENING_AXE: ['REPLENISH'],
@@ -7,17 +7,17 @@ const blockedEnchants = {
     ADVANCED_GARDENING_HOE: ['REPLENISH'],
 };
 
-const ignoredEnchants = {
+const IGNORED_ENCHANTMENTS = {
     SCAVENGER: 5,
 };
 
-const stackingEnchants = ['EXPERTISE', 'COMPACT', 'CULTIVATING', 'CHAMPION', 'HECATOMB', 'TOXOPHILITE'];
+const STACKING_ENCHANTMENTS = ['EXPERTISE', 'COMPACT', 'CULTIVATING', 'CHAMPION', 'HECATOMB', 'TOXOPHILITE'];
 
-const ignoreSilex = ['PROMISING_SPADE'];
+const IGNORE_SILEX = ['PROMISING_SPADE'];
 
-const masterStars = ['FIRST_MASTER_STAR', 'SECOND_MASTER_STAR', 'THIRD_MASTER_STAR', 'FOURTH_MASTER_STAR', 'FIFTH_MASTER_STAR'];
+const MASTER_STARS = ['FIRST_MASTER_STAR', 'SECOND_MASTER_STAR', 'THIRD_MASTER_STAR', 'FOURTH_MASTER_STAR', 'FIFTH_MASTER_STAR'];
 
-const validRunes = [
+const VALID_RUNES = [
     'MUSIC_1',
     'MUSIC_2',
     'MUSIC_3',
@@ -65,7 +65,7 @@ const ATTRIBUTE_BASE_COSTS = {
     HELLFIRE_ROD: 'MAGMA_ROD',
 };
 
-const enrichments = [
+const ENRICHMENTS = [
     'TALISMAN_ENRICHMENT_CRITICAL_CHANCE',
     'TALISMAN_ENRICHMENT_CRITICAL_DAMAGE',
     'TALISMAN_ENRICHMENT_DEFENSE',
@@ -81,7 +81,7 @@ const enrichments = [
 
 const PICKONIMBUS_DURABILITY = 5000;
 
-const specialEnchantmentMatches = {
+const SPECIAL_ENCHANTMENT_NAMES = {
     aiming: 'Dragon Tracer',
     counter_strike: 'Counter-Strike',
     pristine: 'Prismatic',
@@ -102,17 +102,17 @@ const specialEnchantmentMatches = {
 const GEMSTONE_SLOTS = ['COMBAT', 'OFFENSIVE', 'DEFENSIVE', 'MINING', 'UNIVERSAL', 'CHISEL'];
 
 module.exports = {
-    blockedEnchants,
-    ignoredEnchants,
-    stackingEnchants,
-    ignoreSilex,
-    masterStars,
-    validRunes,
+    BLOCKED_ENCHANTMENTS,
+    IGNORED_ENCHANTMENTS,
+    STACKING_ENCHANTMENTS,
+    IGNORE_SILEX,
+    MASTER_STARS,
+    VALID_RUNES,
     ALLOWED_RECOMBOBULATED_CATEGORIES,
     ALLOWED_RECOMBOBULATED_IDS,
     ATTRIBUTE_BASE_COSTS,
-    enrichments,
+    ENRICHMENTS,
     PICKONIMBUS_DURABILITY,
-    specialEnchantmentMatches,
+    SPECIAL_ENCHANTMENT_NAMES,
     GEMSTONE_SLOTS,
 };

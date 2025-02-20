@@ -1,5 +1,5 @@
 const { APPLICATION_WORTH } = require('../../constants/applicationWorth');
-const { validRunes } = require('../../constants/misc');
+const { VALID_RUNES } = require('../../constants/misc');
 
 /**
  * A handler for a Rune on an item.
@@ -22,11 +22,11 @@ class RuneHandler {
     calculate(item, prices) {
         const [runeType, runeTier] = Object.entries(item.extraAttributes.runes)[0];
         const runeId = `${runeType}_${runeTier}`;
-        if (validRunes.includes(runeId)) {
+        if (VALID_RUNES.includes(runeId)) {
             const calculationData = {
                 id: `RUNE_${runeId}`,
                 type: 'RUNE',
-                price: (prices[`RUNE_${runeId}`] || 0) * APPLICATION_WORTH.runes,
+                price: (prices[`RUNE_${runeId}`] ?? 0) * APPLICATION_WORTH.runes,
                 count: 1,
             };
             item.price += calculationData.price;

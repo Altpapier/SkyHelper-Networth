@@ -26,7 +26,7 @@ class SoulboundPetSkinHandler {
         const calculationData = {
             id: pet.skin,
             type: 'SOULBOUND_PET_SKIN',
-            price: (prices[`PET_SKIN_${pet.skin}`] || 0) * APPLICATION_WORTH.soulboundPetSkins,
+            price: (prices[`PET_SKIN_${pet.skin}`] ?? 0) * APPLICATION_WORTH.soulboundPetSkins,
             count: 1,
         };
 

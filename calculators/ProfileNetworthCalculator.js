@@ -30,13 +30,13 @@ class ProfileNetworthCalculator {
     constructor(profileData, museumData, bankBalance) {
         this.profileData = profileData;
         this.museumData = museumData || {};
-        this.bankBalance = bankBalance || 0;
+        this.bankBalance = bankBalance ?? 0;
         this.items = {};
 
         this.#validate();
 
-        this.purse = profileData.currencies?.coin_purse || 0;
-        this.personalBankBalance = profileData.profile?.bank_account || 0;
+        this.purse = profileData.currencies?.coin_purse ?? 0;
+        this.personalBankBalance = profileData.profile?.bank_account ?? 0;
     }
 
     /**
@@ -165,8 +165,8 @@ class ProfileNetworthCalculator {
                     : await calculator.getNetworth({ prices, includeItemData });
 
                 // Add the item to the category
-                categories[category].total += result?.price || 0;
-                if (!result?.soulbound) categories[category].unsoulboundTotal += result?.price || 0;
+                categories[category].total += result?.price ?? 0;
+                if (!result?.soulbound) categories[category].unsoulboundTotal += result?.price ?? 0;
                 if (!onlyNetworth && result && result?.price) {
                     categories[category].items.push(result);
                 }
@@ -200,7 +200,7 @@ class ProfileNetworthCalculator {
         }
 
         // Calculate total networth
-        const rawCoinsBalance = (this.bankBalance || 0) + (this.purse || 0) + (this.personalBankBalance || 0);
+        const rawCoinsBalance = (this.bankBalance ?? 0) + (this.purse ?? 0) + (this.personalBankBalance ?? 0);
         const total = Object.values(categories).reduce((acc, category) => acc + category.total, 0) + rawCoinsBalance;
         const unsoulboundTotal = Object.values(categories).reduce((acc, category) => acc + category.unsoulboundTotal, 0) + rawCoinsBalance;
 
@@ -209,9 +209,9 @@ class ProfileNetworthCalculator {
             unsoulboundNetworth: unsoulboundTotal,
             noInventory: !this.items.inventory?.length,
             isNonCosmetic: !!nonCosmetic,
-            purse: this.purse || 0,
-            bank: this.bankBalance || 0,
-            personalBank: this.personalBankBalance || 0,
+            purse: this.purse ?? 0,
+            bank: this.bankBalance ?? 0,
+            personalBank: this.personalBankBalance ?? 0,
             types: categories,
         };
     }

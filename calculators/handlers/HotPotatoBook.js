@@ -26,7 +26,7 @@ class HotPotatoBookHandler {
             const calculationData = {
                 id: 'FUMING_POTATO_BOOK',
                 type: 'FUMING_POTATO_BOOK',
-                price: (prices['FUMING_POTATO_BOOK'] || 0) * fumingPotatoBookCount * APPLICATION_WORTH.fumingPotatoBook,
+                price: (prices['FUMING_POTATO_BOOK'] ?? 0) * fumingPotatoBookCount * APPLICATION_WORTH.fumingPotatoBook,
                 count: fumingPotatoBookCount,
             };
 
@@ -38,7 +38,7 @@ class HotPotatoBookHandler {
         const calculationData = {
             id: 'HOT_POTATO_BOOK',
             type: 'HOT_POTATO_BOOK',
-            price: (prices['HOT_POTATO_BOOK'] || 0) * hotPotatoBookCount * APPLICATION_WORTH.hotPotatoBook,
+            price: (prices['HOT_POTATO_BOOK'] ?? 0) * hotPotatoBookCount * APPLICATION_WORTH.hotPotatoBook,
             count: hotPotatoBookCount,
         };
 

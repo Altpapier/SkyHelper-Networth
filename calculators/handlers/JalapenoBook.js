@@ -22,7 +22,7 @@ class JalapenoBookHandler {
         const calculationData = {
             id: 'JALAPENO_BOOK',
             type: 'JALAPENO_BOOK',
-            price: (prices['JALAPENO_BOOK'] || 0) * item.extraAttributes.jalapeno_count * APPLICATION_WORTH.jalapenoBook,
+            price: (prices['JALAPENO_BOOK'] ?? 0) * item.extraAttributes.jalapeno_count * APPLICATION_WORTH.jalapenoBook,
             count: item.extraAttributes.jalapeno_count,
         };
         item.price += calculationData.price;

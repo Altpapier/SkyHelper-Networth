@@ -22,7 +22,7 @@ class PolarvoidBookHandler {
         const calculationData = {
             id: 'POLARVOID_BOOK',
             type: 'POLARVOID_BOOK',
-            price: (prices['POLARVOID_BOOK'] || 0) * item.extraAttributes.polarvoid * APPLICATION_WORTH.polarvoid,
+            price: (prices['POLARVOID_BOOK'] ?? 0) * item.extraAttributes.polarvoid * APPLICATION_WORTH.polarvoid,
             count: item.extraAttributes.polarvoid,
         };
         item.price += calculationData.price;

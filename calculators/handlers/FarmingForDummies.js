@@ -22,7 +22,7 @@ class FarmingForDummiesHandler {
         const calculationData = {
             id: 'FARMING_FOR_DUMMIES',
             type: 'FARMING_FOR_DUMMIES',
-            price: (prices['FARMING_FOR_DUMMIES'] || 0) * item.extraAttributes.farming_for_dummies_count * APPLICATION_WORTH.farmingForDummies,
+            price: (prices['FARMING_FOR_DUMMIES'] ?? 0) * item.extraAttributes.farming_for_dummies_count * APPLICATION_WORTH.farmingForDummies,
             count: item.extraAttributes.farming_for_dummies_count,
         };
         item.price += calculationData.price;

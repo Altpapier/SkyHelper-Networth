@@ -22,7 +22,7 @@ class WoodSingularityHandler {
         const calculationData = {
             id: 'WOOD_SINGULARITY',
             type: 'WOOD_SINGULARITY',
-            price: (prices['WOOD_SINGULARITY'] || 0) * item.extraAttributes.wood_singularity_count * APPLICATION_WORTH.woodSingularity,
+            price: (prices['WOOD_SINGULARITY'] ?? 0) * item.extraAttributes.wood_singularity_count * APPLICATION_WORTH.woodSingularity,
             count: item.extraAttributes.wood_singularity_count,
         };
         item.price += calculationData.price;

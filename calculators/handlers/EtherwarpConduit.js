@@ -22,7 +22,7 @@ class EtherwarpConduitHandler {
         const calculationData = {
             id: 'ETHERWARP_CONDUIT',
             type: 'ETHERWARP_CONDUIT',
-            price: (prices['ETHERWARP_CONDUIT'] || 0) * APPLICATION_WORTH.etherwarp,
+            price: (prices['ETHERWARP_CONDUIT'] ?? 0) * APPLICATION_WORTH.etherwarp,
             count: 1,
         };
 

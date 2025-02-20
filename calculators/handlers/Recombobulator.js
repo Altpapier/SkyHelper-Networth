@@ -27,7 +27,7 @@ class RecombobulatorHandler {
         const calculationData = {
             id: 'RECOMBOBULATOR_3000',
             type: 'RECOMBOBULATOR_3000',
-            price: (prices['RECOMBOBULATOR_3000'] || 0) * recombobulatorApplicationWorth,
+            price: (prices['RECOMBOBULATOR_3000'] ?? 0) * recombobulatorApplicationWorth,
             count: 1,
         };
 

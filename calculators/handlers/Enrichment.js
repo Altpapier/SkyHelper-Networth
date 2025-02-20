@@ -1,5 +1,5 @@
 const { APPLICATION_WORTH } = require('../../constants/applicationWorth');
-const { enrichments } = require('../../constants/misc');
+const { ENRICHMENTS } = require('../../constants/misc');
 
 /**
  * A handler for an Enrichment modifier on an item.
@@ -20,7 +20,7 @@ class EnrichmentHandler {
      * @param {object} prices A prices object generated from the getPrices function
      */
     calculate(item, prices) {
-        const enrichmentPrice = enrichments.reduce((acc, val) => Math.min(acc, prices[val] || 0), Infinity);
+        const enrichmentPrice = ENRICHMENTS.reduce((acc, val) => Math.min(acc, prices[val] ?? 0), Infinity);
         if (enrichmentPrice !== Infinity) {
             const calculationData = {
                 id: item.extraAttributes.talisman_enrichment.toUpperCase(),

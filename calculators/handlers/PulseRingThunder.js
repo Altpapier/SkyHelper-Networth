@@ -23,7 +23,7 @@ class PulseRingThunderHandler {
         const calculationData = {
             id: 'THUNDER_IN_A_BOTTLE',
             type: 'THUNDER_CHARGE',
-            price: (prices['THUNDER_IN_A_BOTTLE'] || 0) * thunderUpgrades * APPLICATION_WORTH.thunderInABottle,
+            price: (prices['THUNDER_IN_A_BOTTLE'] ?? 0) * thunderUpgrades * APPLICATION_WORTH.thunderInABottle,
             count: thunderUpgrades,
         };
         item.price += calculationData.price;

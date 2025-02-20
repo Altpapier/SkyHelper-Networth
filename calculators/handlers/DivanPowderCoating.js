@@ -22,7 +22,7 @@ class DivanPowderCoatingHandler {
         const calculationData = {
             id: 'DIVAN_POWDER_COATING',
             type: 'DIVAN_POWDER_COATING',
-            price: (prices['DIVAN_POWDER_COATING'] || 0) * APPLICATION_WORTH.divanPowderCoating,
+            price: (prices['DIVAN_POWDER_COATING'] ?? 0) * APPLICATION_WORTH.divanPowderCoating,
             count: item.extraAttributes.divan_powder_coating,
         };
         item.price += calculationData.price;

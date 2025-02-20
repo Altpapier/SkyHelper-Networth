@@ -1,5 +1,5 @@
 const { APPLICATION_WORTH } = require('../../constants/applicationWorth');
-const reforges = require('../../constants/reforges');
+const { REFORGES } = require('../../constants/reforges');
 
 /**
  * A handler for the Reforge modifier on an item.
@@ -22,11 +22,11 @@ class ReforgeHandler {
     calculate(item, prices) {
         const reforge = item.extraAttributes.modifier;
 
-        if (reforges[reforge]) {
+        if (REFORGES[reforge]) {
             const calculationData = {
-                id: reforges[reforge],
+                id: REFORGES[reforge],
                 type: 'REFORGE',
-                price: (prices[reforges[reforge]] || 0) * APPLICATION_WORTH.reforge,
+                price: (prices[REFORGES[reforge]] ?? 0) * APPLICATION_WORTH.reforge,
                 count: 1,
             };
             item.price += calculationData.price;

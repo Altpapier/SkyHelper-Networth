@@ -22,7 +22,7 @@ class DyeHandler {
         const calculationData = {
             id: item.extraAttributes.dye_item,
             type: 'DYE',
-            price: (prices[item.extraAttributes.dye_item.toUpperCase()] || 0) * APPLICATION_WORTH.dye,
+            price: (prices[item.extraAttributes.dye_item.toUpperCase()] ?? 0) * APPLICATION_WORTH.dye,
             count: 1,
         };
         item.price += calculationData.price;

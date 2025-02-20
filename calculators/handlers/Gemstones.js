@@ -69,7 +69,7 @@ class GemstonesHandler {
                         let total = 0;
                         for (const cost of slot.costs || []) {
                             if (cost.type === 'COINS') total += cost.coins;
-                            else if (cost.type === 'ITEM') total += (prices[cost.item_id.toUpperCase()] || 0) * cost.amount;
+                            else if (cost.type === 'ITEM') total += (prices[cost.item_id.toUpperCase()] ?? 0) * cost.amount;
                         }
 
                         const calculationData = {
@@ -92,7 +92,7 @@ class GemstonesHandler {
             const calculationData = {
                 id: `${gemstone.tier}_${gemstone.type}_GEM`,
                 type: 'GEMSTONE',
-                price: (prices[`${gemstone.tier}_${gemstone.type}_GEM`.toUpperCase()] || 0) * APPLICATION_WORTH.gemstone,
+                price: (prices[`${gemstone.tier}_${gemstone.type}_GEM`.toUpperCase()] ?? 0) * APPLICATION_WORTH.gemstone,
                 count: 1,
             };
             item.price += calculationData.price;
