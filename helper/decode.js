@@ -58,7 +58,7 @@ async function decodeItem(encodedItem) {
         return simplified.i;
     } catch (error) {
         console.error(`[SKYHELPER-NETWORTH] decodeItem() | Failed to decode item: ${error}`);
-        return null;
+        return {};
     }
 }
 
