@@ -11,12 +11,12 @@ const axios = require('axios');
  * @returns An object containing the player's networth calculation
  */
 const getNetworth = async (profileData, bankBalance, options) => {
-  if (!profileData) throw new NetworthError('Invalid profile data provided');
-  const purse = options?.v2Endpoint ? profileData.currencies?.coin_purse : profileData.coin_purse;
-  const personalBankBalance = options?.v2Endpoint ? profileData.profile?.bank_account : 0;
-  const prices = await parsePrices(options?.prices, options?.cache);
-  const items = await parseItems(profileData, options?.museumData, options?.v2Endpoint);
-  return calculateNetworth(items, purse, bankBalance, personalBankBalance, prices, options?.onlyNetworth, options?.returnItemData);
+    if (!profileData) throw new NetworthError('Invalid profile data provided');
+    const purse = options?.v2Endpoint ? profileData.currencies?.coin_purse : profileData.coin_purse;
+    const personalBankBalance = options?.v2Endpoint ? profileData.profile?.bank_account : 0;
+    const prices = await parsePrices(options?.prices, options?.cache);
+    const items = await parseItems(profileData, options?.museumData, options?.v2Endpoint);
+    return calculateNetworth(items, purse, bankBalance, personalBankBalance, prices, options?.onlyNetworth, options?.returnItemData);
 };
 
 /**
@@ -43,11 +43,11 @@ const getNetworth = async (profileData, bankBalance, options) => {
  * @returns An object containing the player's networth calculation
  */
 const getPreDecodedNetworth = async (profileData, items, bankBalance, options) => {
-  const purse = options?.v2Endpoint ? profileData.currencies?.coin_purse : profileData.coin_purse;
-  const personalBankBalance = options?.v2Endpoint ? profileData.profile?.bank_account : 0;
-  await postParseItems(profileData, items, options?.v2Endpoint);
-  const prices = await parsePrices(options?.prices, options?.cache);
-  return calculateNetworth(items, purse, bankBalance, personalBankBalance, prices, options?.onlyNetworth, options?.returnItemData);
+    const purse = options?.v2Endpoint ? profileData.currencies?.coin_purse : profileData.coin_purse;
+    const personalBankBalance = options?.v2Endpoint ? profileData.profile?.bank_account : 0;
+    await postParseItems(profileData, items, options?.v2Endpoint);
+    const prices = await parsePrices(options?.prices, options?.cache);
+    return calculateNetworth(items, purse, bankBalance, personalBankBalance, prices, options?.onlyNetworth, options?.returnItemData);
 };
 
 /**
@@ -57,23 +57,23 @@ const getPreDecodedNetworth = async (profileData, items, bankBalance, options) =
  * @returns {object} - An object containing the item's networth calculation
  */
 const getItemNetworth = async (item, options) => {
-  if (item?.tag === undefined && item?.exp === undefined) throw new NetworthError('Invalid item provided');
-  const prices = await parsePrices(options?.prices, options?.cache);
-  return calculateItemNetworth(item, prices, options?.returnItemData);
+    if (item?.tag === undefined && item?.exp === undefined) throw new NetworthError('Invalid item provided');
+    const prices = await parsePrices(options?.prices, options?.cache);
+    return calculateItemNetworth(item, prices, options?.returnItemData);
 };
 
 async function parsePrices(prices, cache) {
-  try {
-    if (prices) {
-      const firstKey = Object.keys(prices)[0];
-      if (!prices instanceof Object || prices[firstKey] instanceof Object) throw new NetworthError('Invalid prices data provided');
-      if (firstKey !== firstKey.toLowerCase()) for (id of Object.keys(prices)) prices[id.toLowerCase()] = prices[id];
+    try {
+        if (prices) {
+            const firstKey = Object.keys(prices)[0];
+            if (!prices instanceof Object || prices[firstKey] instanceof Object) throw new NetworthError('Invalid prices data provided');
+            if (firstKey !== firstKey.toLowerCase()) for (id of Object.keys(prices)) prices[id.toLowerCase()] = prices[id];
+        }
+    } catch (err) {
+        throw new NetworthError('Unable to parse prices');
     }
-  } catch (err) {
-    throw new NetworthError('Unable to parse prices');
-  }
 
-  return prices || (await getPrices(cache));
+    return prices || (await getPrices(cache));
 }
 
 let cachedPrices;
@@ -85,77 +85,91 @@ let isLoadingPrices = false;
  * @returns {object} - An object containing the prices for the items in the game from the SkyHelper Prices list
  */
 const getPrices = async (cache = true, retries = 3) => {
-  if (retries <= 0) throw new PricesError(`Failed to retrieve prices`);
-  try {
-    if (cachedPrices?.lastCache > Date.now() - 1000 * 60 * 5 && cache) {
-      return cachedPrices.prices; // Cache for 5 minutes
-    }
+    if (retries <= 0) throw new PricesError(`Failed to retrieve prices`);
+    try {
+        if (cachedPrices?.lastCache > Date.now() - 1000 * 60 * 5 && cache) {
+            return cachedPrices.prices; // Cache for 5 minutes
+        }
 
-    if (isLoadingPrices) {
-      while (isLoadingPrices) {
-        await new Promise((r) => setTimeout(r, 100)); //re-check if prices have loaded yet in 100ms
-      }
-      return getPrices(cache, retries);
-    }
+        if (isLoadingPrices) {
+            while (isLoadingPrices) {
+                await new Promise((r) => setTimeout(r, 100)); //re-check if prices have loaded yet in 100ms
+            }
+            return getPrices(cache, retries);
+        }
 
-    isLoadingPrices = true;
-    const response = await axios.get('https://raw.githubusercontent.com/SkyHelperBot/Prices/main/prices.json');
+        isLoadingPrices = true;
+        const response = await axios.get('https://raw.githubusercontent.com/SkyHelperBot/Prices/main/prices.json');
 
-    // Remove this later when prices.json file is updated
-    const firstKey = Object.keys(response.data)[0];
-    if (response.data[firstKey] instanceof Object) {
-      const prices = {};
-      for (const [item, priceObject] of Object.entries(response.data)) {
-        prices[item.toLowerCase()] = priceObject.price;
-      }
-      cachedPrices = { prices, lastCache: Date.now() };
-      isLoadingPrices = false;
-      return prices;
-    }
+        // Remove this later when prices.json file is updated
+        const firstKey = Object.keys(response.data)[0];
+        if (response.data[firstKey] instanceof Object) {
+            const prices = {};
+            for (const [item, priceObject] of Object.entries(response.data)) {
+                prices[item.toLowerCase()] = priceObject.price;
+            }
+            cachedPrices = { prices, lastCache: Date.now() };
+            isLoadingPrices = false;
+            return prices;
+        }
 
-    if (firstKey !== firstKey.toLowerCase()) {
-      const prices = {};
-      for (const [item, price] of Object.entries(response.data)) {
-        prices[item.toLowerCase()] = price;
-      }
-      cachedPrices = { prices, lastCache: Date.now() };
-      isLoadingPrices = false;
-      return prices;
-    }
-    // -----------------------------
+        if (firstKey !== firstKey.toLowerCase()) {
+            const prices = {};
+            for (const [item, price] of Object.entries(response.data)) {
+                prices[item.toLowerCase()] = price;
+            }
+            cachedPrices = { prices, lastCache: Date.now() };
+            isLoadingPrices = false;
+            return prices;
+        }
+        // -----------------------------
 
-    cachedPrices = { prices: response.data, lastCache: Date.now() };
-    isLoadingPrices = false;
-    return response.data;
-  } catch (err) {
-    isLoadingPrices = false;
-    if (retries <= 0) {
-      throw new PricesError(`Failed to retrieve prices with status code ${err?.response?.status || 'Unknown'}`);
-    } else {
-      console.warn(`[SKYHELPER-NETWORTH] Failed to retrieve prices with status code ${err?.response?.status || 'Unknown'}. Retrying (${retries} attempt(s) left)...`);
-      return getPrices(cache, retries - 1);
+        cachedPrices = { prices: response.data, lastCache: Date.now() };
+        isLoadingPrices = false;
+        return response.data;
+    } catch (err) {
+        isLoadingPrices = false;
+        if (retries <= 0) {
+            throw new PricesError(`Failed to retrieve prices with status code ${err?.response?.status || 'Unknown'}`);
+        } else {
+            console.warn(
+                `[SKYHELPER-NETWORTH] Failed to retrieve prices with status code ${err?.response?.status || 'Unknown'}. Retrying (${retries} attempt(s) left)...`
+            );
+            return getPrices(cache, retries - 1);
+        }
     }
-  }
 };
 
 const checkForUpdate = async () => {
-  try {
-    const packageInfo = await axios.get('https://registry.npmjs.org/skyhelper-networth');
-    const latestVersion = packageInfo.data['dist-tags'].latest;
-    const currentVersion = require('./package.json').version;
+    try {
+        const packageInfo = await axios.get('https://registry.npmjs.org/skyhelper-networth');
+        const latestVersion = packageInfo.data['dist-tags'].latest;
+        const currentVersion = require('./package.json').version;
+        const [latestMajor, latestMinor, latestPatch] = latestVersion.split('.').map((v) => parseInt(v));
+        const [currentMajor, currentMinor, currentPatch] = currentVersion.split('.').map((v) => parseInt(v));
 
-    if (latestVersion !== currentVersion) {
-      console.log(`[SKYHELPER-NETWORTH] An update is available! Current version: ${currentVersion}, Latest version: ${latestVersion}`);
-    }
-  } catch {}
+        if (
+            latestMajor > currentMajor ||
+            (latestMajor === currentMajor && latestMinor > currentMinor) ||
+            (latestMajor === currentMajor && latestMinor === currentMinor && latestPatch > currentPatch)
+        ) {
+            if (latestMajor > currentMajor) {
+                console.log(
+                    `[SKYHELPER-NETWORTH] A MAJOR update is available! Current version: ${currentVersion}, Latest version: ${latestVersion}. NOTE: This update may contain BREAKING changes.`
+                );
+            } else {
+                console.log(`[SKYHELPER-NETWORTH] An update is available! Current version: ${currentVersion}, Latest version: ${latestVersion}`);
+            }
+        }
+    } catch {}
 };
 checkForUpdate();
 let interval;
 if (!interval) interval = setInterval(checkForUpdate, 1000 * 60 * 60);
 
 module.exports = {
-  getNetworth,
-  getPreDecodedNetworth,
-  getItemNetworth,
-  getPrices,
+    getNetworth,
+    getPreDecodedNetworth,
+    getItemNetworth,
+    getPrices,
 };
