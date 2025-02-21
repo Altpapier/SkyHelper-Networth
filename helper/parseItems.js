@@ -20,6 +20,7 @@ const sharedContainers = ['candy_inventory_contents', 'carnival_mask_inventory_c
 
 const parseItems = async (profileData, museumData) => {
     const INVENTORY = profileData.inventory;
+    const SHARED_INVENTORY = profileData.shared_inventory;
     const outputPromises = {
         armor: INVENTORY?.inv_armor?.data ?? '',
         equipment: INVENTORY?.equipment_contents?.data ?? '',
@@ -31,8 +32,8 @@ const parseItems = async (profileData, museumData) => {
         fishing_bag: INVENTORY?.bag_contents?.fishing_bag?.data ?? '',
         potion_bag: INVENTORY?.bag_contents?.potion_bag?.data ?? '',
         sacks_bag: INVENTORY?.bag_contents?.sacks_bag?.data ?? '',
-        candy_inventory: INVENTORY?.candy_inventory_contents?.data ?? '',
-        carnival_mask_inventory: INVENTORY?.carnival_mask_inventory_contents?.data ?? '',
+        candy_inventory: SHARED_INVENTORY?.candy_inventory_contents?.data ?? '',
+        carnival_mask_inventory: SHARED_INVENTORY?.carnival_mask_inventory_contents?.data ?? '',
         quiver: INVENTORY?.bag_contents?.quiver?.data ?? '',
 
         ...Object.entries(INVENTORY?.backpack_contents ?? {}).reduce((acc, [key, value]) => {
@@ -54,10 +55,6 @@ const parseItems = async (profileData, museumData) => {
                 return [key, []];
             }
 
-            if (key.includes('storage')) {
-                return;
-            }
-
             return [key, decodedItems[idx].filter((item) => item && Object.keys(item).length)];
         }),
     );
@@ -71,6 +68,8 @@ const parseItems = async (profileData, museumData) => {
             items[key] = value;
         }
     }
+
+    items.storage = items.storage?.flat() ?? [];
 
     const specialItems = museumData.special ? museumData.special.map((special) => special.items.data) : [];
     const museumItems = museumData.items ? Object.fromEntries(Object.entries(museumData.items).map(([key, value]) => [key, value.items.data])) : {};

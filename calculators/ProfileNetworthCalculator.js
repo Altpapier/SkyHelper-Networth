@@ -158,6 +158,7 @@ class ProfileNetworthCalculator {
                 }
 
                 // Instantiate the calculator
+                console.log(item);
                 const calculator = new calculatorClass(item);
                 // Calculate the networth of the item
                 const result = nonCosmetic
