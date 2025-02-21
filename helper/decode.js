@@ -21,7 +21,7 @@ async function decodeItems(base64Strings) {
                     const simplified = nbt.simplify(parsed.data);
                     return simplified.i;
                 } catch (error) {
-                    console.error(`decodeItems | Failed to decode item: ${error}`);
+                    console.error(`[SKYHELPER-NETWORTH] decodeItems() | Failed to decode item: ${error}`);
                     return null;
                 }
             }),
@@ -29,7 +29,7 @@ async function decodeItems(base64Strings) {
 
         return decodedItems.filter((item) => item !== null);
     } catch (error) {
-        console.error(`decodeItems | Failed to decode items: ${error}`);
+        console.error(`[SKYHELPER-NETWORTH] decodeItems() | Failed to decode items: ${error}`);
         return [];
     }
 }
@@ -39,7 +39,7 @@ async function decodeItemsObject(base64Strings) {
         const decodedItemsArray = await decodeItems(Object.values(base64Strings));
         return Object.fromEntries(Object.keys(base64Strings).map((key, idx) => [key, decodedItemsArray[idx]]));
     } catch (error) {
-        console.error(`decodeItemsObject | Failed to decode items object: ${error}`);
+        console.error(`[SKYHELPER-NETWORTH] decodeItemsObject() | Failed to decode items object: ${error}`);
         return {};
     }
 }
@@ -57,7 +57,7 @@ async function decodeItem(encodedItem) {
         const simplified = nbt.simplify(parsed.data);
         return simplified.i;
     } catch (error) {
-        console.error(`decodeItem | Failed to decode item: ${error}`);
+        console.error(`[SKYHELPER-NETWORTH] decodeItem() | Failed to decode item: ${error}`);
         return null;
     }
 }

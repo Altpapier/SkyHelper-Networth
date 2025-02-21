@@ -1,5 +1,3 @@
-const { parse, simplify } = require('prismarine-nbt');
-
 function titleCase(str) {
     const splitStr = str.toLowerCase().replace(/_/g, ' ').split(' ');
     for (let i = 0; i < splitStr.length; i++) {
@@ -10,18 +8,11 @@ function titleCase(str) {
     return str;
 }
 
-async function decodeData(data) {
-    const parsedNbt = await parse(Buffer.from(data, 'base64'));
-    const simplifiedNbt = simplify(parsedNbt.parsed);
-    return simplifiedNbt.i;
-}
-
 async function sleep(ms) {
     return new Promise((resolve) => setTimeout(resolve, ms));
 }
 
 module.exports = {
     titleCase,
-    decodeData,
     sleep,
 };
