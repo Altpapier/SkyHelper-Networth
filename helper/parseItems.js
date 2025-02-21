@@ -1,23 +1,5 @@
 const { decodeItems, decodeItemsObject, decodeItem } = require('./decode');
 
-const singleContainers = {
-    armor: 'inv_armor',
-    equipment: 'equipment_contents',
-    wardrobe: 'wardrobe_contents',
-    inventory: 'inv_contents',
-    enderchest: 'ender_chest_contents',
-    accessories: 'talisman_bag',
-    personal_vault: 'personal_vault_contents',
-    fishing_bag: 'fishing_bag',
-    potion_bag: 'potion_bag',
-    sacks_bag: 'sacks_bag',
-    candy_inventory: 'candy_inventory_contents',
-    carnival_mask_inventory: 'carnival_mask_inventory_contents',
-};
-
-const bagContainers = ['fishing_bag', 'potion_bag', 'talisman_bag', 'sacks_bag']; // In the v2 endpoint: profileData.inventory.bag_contents
-const sharedContainers = ['candy_inventory_contents', 'carnival_mask_inventory_contents']; // In the v2 endpoint: profileData.shared_inventory
-
 const parseItems = async (profileData, museumData) => {
     const INVENTORY = profileData.inventory;
     const SHARED_INVENTORY = profileData.shared_inventory;
@@ -36,97 +18,83 @@ const parseItems = async (profileData, museumData) => {
         carnival_mask_inventory: SHARED_INVENTORY?.carnival_mask_inventory_contents?.data ?? '',
         quiver: INVENTORY?.bag_contents?.quiver?.data ?? '',
 
-        ...Object.entries(INVENTORY?.backpack_contents ?? {}).reduce((acc, [key, value]) => {
-            acc[`storage_${key}`] = value.data ?? '';
-            return acc;
-        }, {}),
-        ...Object.entries(INVENTORY?.backpack_icons ?? {}).reduce((acc, [key, value]) => {
-            acc[`storage_icon_${key}`] = value.data ?? '';
-            return acc;
-        }, {}),
+        ...Object.fromEntries([
+            ...Object.entries(INVENTORY?.backpack_contents ?? {}).map(([key, value]) => [`storage_${key}`, value.data ?? '']),
+            ...Object.entries(INVENTORY?.backpack_icons ?? {}).map(([key, value]) => [`storage_icon_${key}`, value.data ?? '']),
+        ]),
     };
 
     const entries = Object.entries(outputPromises);
-    const values = entries.map(([_, value]) => value);
-    const decodedItems = await decodeItems(values);
-    const newItems = await Promise.all(
-        entries.map(async ([key, _], idx) => {
-            if (!decodedItems[idx]) {
-                return [key, []];
-            }
+    const decodedItems = await decodeItems(entries.map(([_, value]) => value));
 
-            return [key, decodedItems[idx].filter((item) => item && Object.keys(item).length)];
-        }),
-    );
+    const items = entries.reduce((acc, [key, _], idx) => {
+        if (!decodedItems[idx]) return acc;
 
-    const items = {};
-    for (const [key, value] of newItems.filter((x) => x)) {
+        const filteredItems = decodedItems[idx].filter((item) => item && Object.keys(item).length);
+
         if (key.includes('storage')) {
-            items.storage ??= [];
-            items.storage.push(value);
+            acc.storage = (acc.storage || []).concat(filteredItems);
         } else {
-            items[key] = value;
+            acc[key] = filteredItems;
         }
-    }
 
-    items.storage = items.storage?.flat() ?? [];
+        return acc;
+    }, {});
 
-    const specialItems = museumData.special ? museumData.special.map((special) => special.items.data) : [];
-    const museumItems = museumData.items ? Object.fromEntries(Object.entries(museumData.items).map(([key, value]) => [key, value.items.data])) : {};
+    const specialItems = museumData.special?.map((special) => special.items.data) ?? [];
+    const [decodedMuseumItems, decodedSpecialItems] = await Promise.all([
+        decodeItemsObject(Object.fromEntries(Object.entries(museumData.items || {}).map(([key, value]) => [key, value.items.data]))),
+        decodeItems(specialItems),
+    ]);
 
-    const [decodedmuseumItems, decodedSpecialItems] = await Promise.all([decodeItemsObject(museumItems), decodeItems(specialItems)]);
-
-    items.museum = [];
-    for (const value of Object.values(decodedmuseumItems)) {
-        items.museum.push(...value);
-    }
-
-    for (const value of decodedSpecialItems) {
-        items.museum.push(...value);
-    }
+    items.museum = [...Object.values(decodedMuseumItems).flat(), ...decodedSpecialItems.flat()];
 
     await postParseItems(profileData, items);
-
     return items;
 };
 
 const postParseItems = async (profileData, items) => {
-    // Parse Cake Bags
-    for (const categoryItems of Object.values(items)) {
-        for (const item of categoryItems) {
-            if (!item?.tag?.ExtraAttributes?.new_year_cake_bag_data) continue;
-            const cakes = await decodeItem(item.tag?.ExtraAttributes?.new_year_cake_bag_data);
-            if (item?.tag?.ExtraAttributes) {
-                item.tag.ExtraAttributes.new_year_cake_bag_years = cakes
-                    .filter((cake) => cake.id && cake.tag?.ExtraAttributes?.new_years_cake)
-                    .map((cake) => cake.tag.ExtraAttributes.new_years_cake);
+    // Parse Cake Bags - Process all items in a single loop
+    const processCakeBags = async (items) => {
+        const promises = [];
+        for (const categoryItems of Object.values(items)) {
+            for (const item of categoryItems) {
+                if (item?.tag?.ExtraAttributes?.new_year_cake_bag_data) {
+                    promises.push(
+                        decodeItem(item.tag.ExtraAttributes.new_year_cake_bag_data).then((cakes) => {
+                            item.tag.ExtraAttributes.new_year_cake_bag_years = cakes
+                                .filter((cake) => cake.id && cake.tag?.ExtraAttributes?.new_years_cake)
+                                .map((cake) => cake.tag.ExtraAttributes.new_years_cake);
+                        }),
+                    );
+                }
             }
         }
-    }
+        await Promise.all(promises);
+    };
 
-    // Parse Sacks
-    items.sacks = [];
-    if (profileData.sacks_counts || profileData.inventory?.sacks_counts) {
-        for (const [id, amount] of Object.entries(profileData.sacks_counts || profileData.inventory.sacks_counts)) {
-            if (amount) items.sacks.push({ id, amount });
-        }
-    }
-
-    // Parse Essence
-    items.essence = [];
-    if (profileData.currencies?.essence) {
-        for (const id of Object.keys(profileData.currencies?.essence)) {
-            items.essence.push({ id: `ESSENCE_${id}`, amount: profileData.currencies.essence[id]?.current });
-        }
-    }
-
-    // Parse Pets
-    items.pets = [];
-    if (profileData.pets || profileData.pets_data?.pets) {
-        for (const pet of profileData.pets_data.pets) {
-            items.pets.push({ ...pet });
-        }
-    }
+    await Promise.all([
+        processCakeBags(items),
+        (() => {
+            const sacksData = profileData.sacks_counts || profileData.inventory?.sacks_counts;
+            items.sacks = sacksData
+                ? Object.entries(sacksData)
+                      .filter(([_, amount]) => amount)
+                      .map(([id, amount]) => ({ id, amount }))
+                : [];
+        })(),
+        (() => {
+            items.essence = profileData.currencies?.essence
+                ? Object.entries(profileData.currencies.essence).map(([id, data]) => ({
+                      id: `ESSENCE_${id}`,
+                      amount: data.current,
+                  }))
+                : [];
+        })(),
+        (() => {
+            items.pets = profileData.pets_data?.pets?.map((pet) => ({ ...pet })) ?? [];
+        })(),
+    ]);
 };
 
 module.exports = {
