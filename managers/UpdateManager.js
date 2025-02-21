@@ -59,14 +59,14 @@ class UpdateManager {
             const [currentMajor, currentMinor, currentPatch] = currentVersion.split('.').map(Number);
 
             if (latestMajor > currentMajor) {
-                console.log(
+                console.warn(
                     `[SKYHELPER-NETWORTH] A MAJOR update is available! Current version: ${currentVersion}, Latest version: ${latestVersion}. NOTE: This update may contain BREAKING changes.`,
                 );
             } else if (
                 (latestMajor === currentMajor && latestMinor > currentMinor) ||
                 (latestMajor === currentMajor && latestMinor === currentMinor && latestPatch > currentPatch)
             ) {
-                console.log(`[SKYHELPER-NETWORTH] An update is available! Current version: ${currentVersion}, Latest version: ${latestVersion}`);
+                console.warn(`[SKYHELPER-NETWORTH] An update is available! Current version: ${currentVersion}, Latest version: ${latestVersion}`);
             }
         } catch (err) {
             console.error(`[SKYHELPER-NETWORTH] An error occurred while checking for updates: ${err}`);

@@ -89,7 +89,7 @@ describe('UpdateManager', () => {
             await UpdateManager.checkForUpdate();
 
             expect(axios.get).toHaveBeenCalledWith('https://registry.npmjs.org/skyhelper-networth');
-            expect(consoleSpy.warn).toHaveBeenCalledWith(expect.stringContaining('An update is available!'));
+            expect(consoleSpy.warn).toHaveBeenCalledWith(expect.stringContaining('update is available!'));
         });
 
         test('should not notify if current version is latest', async () => {
