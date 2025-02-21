@@ -1,4 +1,4 @@
-const { TIERS, SOULBOUND_PETS, RECOMB_PET_ITEMS, SPECIAL_LEVELS, RARITY_OFFSET, LEVELS } = require('../../constants/pets');
+const { TIERS, SOULBOUND_PETS, RECOMB_PET_ITEMS, SPECIAL_LEVELS, RARITY_OFFSET, LEVELS, CUSTOM_PET_NAMES } = require('../../constants/pets');
 const { ValidationError } = require('../../helper/errors');
 const { titleCase } = require('../../helper/functions');
 
@@ -19,7 +19,9 @@ class PetNetworthHelper {
         this.basePetId = `${this.tier}_${this.petData.type}`;
         this.petId = `${this.basePetId}${this.skin ? `_SKINNED_${this.skin}` : ''}`;
         this.level = this.getPetLevel();
-        this.petName = `[Lvl ${this.level.level}] ${titleCase(`${this.tier} ${titleCase(this.basePetId)}`)}${this.petData.skin ? ' ✦' : ''}`;
+        this.petName = `[Lvl ${this.level.level}] ${titleCase(`${this.tier} ${CUSTOM_PET_NAMES[this.petData.type] ?? titleCase(this.petData.type)}`)}${
+            this.petData.skin ? ' ✦' : ''
+        }`;
 
         // Initialize calculation properties
         this.calculation = [];

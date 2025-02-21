@@ -24,6 +24,11 @@ const LEVELS = [
     1886700, 1886700, 1886700, 1886700, 1886700, 1886700, 1886700, 1886700,
 ];
 
+const CUSTOM_PET_NAMES = {
+    TYRANNOSAURUS: 'T-Rex',
+    FRACTURED_MONTEZUMA_SOUL: 'Montezuma',
+};
+
 module.exports = {
     SPECIAL_LEVELS,
     RARITY_OFFSET,
@@ -32,4 +37,5 @@ module.exports = {
     RECOMB_PET_ITEMS,
     SOULBOUND_PETS,
     TIERS,
+    CUSTOM_PET_NAMES,
 };
