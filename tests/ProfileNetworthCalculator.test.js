@@ -184,7 +184,7 @@ describe('ProfileNetworthCalculator', () => {
                 {
                     inventory: [undefined, null, {}],
                 },
-                1000
+                1000,
             );
             const result = await calculator.getNetworth();
             expect(result.networth).toBeDefined();

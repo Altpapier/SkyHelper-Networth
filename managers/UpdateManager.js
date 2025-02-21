@@ -60,7 +60,7 @@ class UpdateManager {
 
             if (latestMajor > currentMajor) {
                 console.log(
-                    `[SKYHELPER-NETWORTH] A MAJOR update is available! Current version: ${currentVersion}, Latest version: ${latestVersion}. NOTE: This update may contain BREAKING changes.`
+                    `[SKYHELPER-NETWORTH] A MAJOR update is available! Current version: ${currentVersion}, Latest version: ${latestVersion}. NOTE: This update may contain BREAKING changes.`,
                 );
             } else if (
                 (latestMajor === currentMajor && latestMinor > currentMinor) ||

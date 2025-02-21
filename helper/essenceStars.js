@@ -47,7 +47,7 @@ function starCosts(prices, calculation, upgrades, prestigeItem) {
                 acc.price += val?.price ?? 0;
                 return acc;
             },
-            { id: prestigeItem, type: prestige ? 'PRESTIGE' : 'STARS', price: 0, count: prestige ? 1 : star }
+            { id: prestigeItem, type: prestige ? 'PRESTIGE' : 'STARS', price: 0, count: prestige ? 1 : star },
         );
 
         if (prestige && prices[prestigeItem.toUpperCase()]) calculationData.price += prices[prestigeItem.toUpperCase()];

@@ -27,8 +27,8 @@ const parseItems = async (profileData, museumData) => {
         const containerData = bagContainers.includes(key)
             ? profileData.inventory?.bag_contents?.[key]
             : sharedContainers.includes(key)
-            ? profileData.shared_inventory?.[key]
-            : profileData.inventory?.[key];
+              ? profileData.shared_inventory?.[key]
+              : profileData.inventory?.[key];
         if (containerData) {
             items[container] = await decodeData(containerData.data);
         }

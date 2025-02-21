@@ -27,7 +27,7 @@ async function getPrices(cache = true, cacheTime = 1000 * 60 * 5, retries = 3) {
                 throw new PricesError(`Failed to retrieve prices with status code ${e?.response?.status || 'Unknown'}`);
             } else {
                 console.warn(
-                    `[SKYHELPER-NETWORTH] Failed to retrieve prices with status code ${e?.response?.status || 'Unknown'}. Retrying (${retries} attempt(s) left)...`
+                    `[SKYHELPER-NETWORTH] Failed to retrieve prices with status code ${e?.response?.status || 'Unknown'}. Retrying (${retries} attempt(s) left)...`,
                 );
                 return getPrices(cache, cacheTime, retries - 1);
             }
