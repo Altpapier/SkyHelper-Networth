@@ -111,11 +111,3 @@ declare class ItemNetworthCalculator {
 }
 
 declare function getPrices(cache?: boolean, cacheTime?: number, retries?: number): Promise<Record<string, number>>;
-
-aexport = {
-    NetworthManager,
-    UpdateManager,
-    ProfileNetworthCalculator,
-    ItemNetworthCalculator,
-    getPrices,
-};
