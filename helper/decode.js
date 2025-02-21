@@ -46,10 +46,10 @@ async function decodeItemsObject(base64Strings) {
 
 async function decodeItem(encodedItem) {
     try {
-        const [, unzippedData] = await new Promise((resolve, reject) =>
+        const unzippedData = await new Promise((resolve, reject) =>
             gunzip(Buffer.from(encodedItem, 'base64'), (error, unzippedData) => {
                 if (error) reject(error);
-                else resolve([encodedItem, unzippedData]);
+                else resolve(unzippedData);
             }),
         );
 
