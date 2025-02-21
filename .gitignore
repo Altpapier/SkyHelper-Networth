@@ -2,3 +2,4 @@
 /testing
 .prettierrc.json
 .itemsBackup.json
+pnpm-lock.yaml

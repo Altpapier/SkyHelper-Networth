@@ -77,28 +77,42 @@ describe('UpdateManager', () => {
     });
 
     describe('Update Checking', () => {
-        test('should check for updates and notify if newer version available', async () => {
+        test('should warn about major version update', async () => {
             axios.get.mockResolvedValueOnce({
-                data: {
-                    'dist-tags': {
-                        latest: '2.0.0',
-                    },
-                },
+                data: { 'dist-tags': { latest: '2.0.0' } },
             });
 
             await UpdateManager.checkForUpdate();
 
-            expect(axios.get).toHaveBeenCalledWith('https://registry.npmjs.org/skyhelper-networth');
-            expect(consoleSpy.warn).toHaveBeenCalledWith(expect.stringContaining('update is available!'));
+            expect(consoleSpy.warn).toHaveBeenCalledWith(expect.stringContaining('A MAJOR update is available'));
+            expect(consoleSpy.warn).toHaveBeenCalledWith(expect.stringContaining('Current version: 1.0.0, Latest version: 2.0.0'));
         });
 
-        test('should not notify if current version is latest', async () => {
+        test('should warn about minor version update', async () => {
             axios.get.mockResolvedValueOnce({
-                data: {
-                    'dist-tags': {
-                        latest: '1.0.0',
-                    },
-                },
+                data: { 'dist-tags': { latest: '1.1.0' } },
+            });
+
+            await UpdateManager.checkForUpdate();
+
+            expect(consoleSpy.warn).toHaveBeenCalledWith(expect.stringContaining('An update is available'));
+            expect(consoleSpy.warn).toHaveBeenCalledWith(expect.stringContaining('Current version: 1.0.0, Latest version: 1.1.0'));
+        });
+
+        test('should warn about patch version update', async () => {
+            axios.get.mockResolvedValueOnce({
+                data: { 'dist-tags': { latest: '1.0.1' } },
+            });
+
+            await UpdateManager.checkForUpdate();
+
+            expect(consoleSpy.warn).toHaveBeenCalledWith(expect.stringContaining('An update is available'));
+            expect(consoleSpy.warn).toHaveBeenCalledWith(expect.stringContaining('Current version: 1.0.0, Latest version: 1.0.1'));
+        });
+
+        test('should not warn when on latest version', async () => {
+            axios.get.mockResolvedValueOnce({
+                data: { 'dist-tags': { latest: '1.0.0' } },
             });
 
             await UpdateManager.checkForUpdate();
