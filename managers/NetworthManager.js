@@ -12,7 +12,6 @@ class NetworthManager {
     #onlyNetworth;
     #stackItems;
     #includeItemData;
-    #itemsPromise;
     #itemsIntervalInstance;
     /**
      * Create a new NetworthManager instance. This class is a singleton and should be accessed through the networthManager instance
@@ -42,7 +41,7 @@ class NetworthManager {
         this.#stackItems = stackItems || true;
         this.#includeItemData = includeItemData || false;
 
-        this.#itemsPromise = this.updateItems(this.#itemsRetries);
+        this.itemsPromise = this.updateItems(this.#itemsRetries);
         this.#itemsIntervalInstance = setInterval(() => {
             this.updateItems(this.#itemsRetries);
         }, this.#itemsInterval);
