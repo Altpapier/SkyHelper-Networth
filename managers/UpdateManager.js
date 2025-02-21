@@ -55,9 +55,18 @@ class UpdateManager {
             const packageInfo = await axios.get('https://registry.npmjs.org/skyhelper-networth');
             const latestVersion = packageInfo.data['dist-tags'].latest;
             const currentVersion = require('../package.json').version;
+            const [latestMajor, latestMinor, latestPatch] = latestVersion.split('.').map(Number);
+            const [currentMajor, currentMinor, currentPatch] = currentVersion.split('.').map(Number);
 
-            if (latestVersion !== currentVersion) {
-                console.warn(`[SKYHELPER-NETWORTH] An update is available! Current version: ${currentVersion}, Latest version: ${latestVersion}`);
+            if (latestMajor > currentMajor) {
+                console.log(
+                    `[SKYHELPER-NETWORTH] A MAJOR update is available! Current version: ${currentVersion}, Latest version: ${latestVersion}. NOTE: This update may contain BREAKING changes.`
+                );
+            } else if (
+                (latestMajor === currentMajor && latestMinor > currentMinor) ||
+                (latestMajor === currentMajor && latestMinor === currentMinor && latestPatch > currentPatch)
+            ) {
+                console.log(`[SKYHELPER-NETWORTH] An update is available! Current version: ${currentVersion}, Latest version: ${latestVersion}`);
             }
         } catch (err) {
             console.error(`[SKYHELPER-NETWORTH] An error occurred while checking for updates: ${err}`);
