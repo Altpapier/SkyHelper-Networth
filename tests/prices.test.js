@@ -31,12 +31,10 @@ describe('getPrices', () => {
     it('should use cached prices when available and within cache time', async () => {
         axios.get.mockResolvedValueOnce({ data: mockPricesData });
 
-        // First call to cache the prices
-        await getPrices(true, 5000);
+        await getPrices(true, 2500);
         axios.get.mockClear();
 
-        // Second call should use cached prices
-        const prices = await getPrices(true, 5000);
+        const prices = await getPrices(true, 2500);
 
         expect(prices).toEqual(mockPricesData);
         expect(axios.get).not.toHaveBeenCalled();
@@ -44,17 +42,17 @@ describe('getPrices', () => {
 
     it('should bypass cache when cache is set to false', async () => {
         axios.get.mockResolvedValueOnce({ data: mockPricesData });
-        await getPrices(true, 5000);
+        await getPrices(true, 2500);
         axios.get.mockClear();
 
         axios.get.mockResolvedValueOnce({ data: mockPricesData });
-        await getPrices(false, 5000);
+        await getPrices(false, 2500);
 
         expect(axios.get).toHaveBeenCalled();
     });
 
     it('should throw PricesError immediately when retries is 0', async () => {
-        await expect(getPrices(true, 5000, 0)).rejects.toThrow(PricesError);
+        await expect(getPrices(true, 2500, 0)).rejects.toThrow(PricesError);
         expect(axios.get).not.toHaveBeenCalled();
     });
 
@@ -67,7 +65,6 @@ describe('getPrices', () => {
         const promise1 = getPrices(false);
         const promise2 = getPrices(false);
 
-        // Instead of comparing promises directly, wait for both to resolve
         const [result1, result2] = await Promise.all([promise1, promise2]);
 
         expect(result1).toEqual(mockPricesData);
