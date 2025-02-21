@@ -5,6 +5,14 @@ const { APPLICATION_WORTH } = require('../../constants/applicationWorth');
  */
 class DyeHandler {
     /**
+     * Checks if the handler is cosmetic
+     * @returns {boolean} Whether the handler is cosmetic
+     */
+    isCosmetic() {
+        return true;
+    }
+
+    /**
      * Checks if the handler applies to the item
      * @param {object} item The item data
      * @returns {boolean} Whether the handler applies to the item

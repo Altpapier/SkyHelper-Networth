@@ -70,6 +70,11 @@ class ItemNetworthCalculator extends ItemNetworthHelper {
                 continue;
             }
 
+            // Check if the handler is cosmetic, if it is and we are calculating non-cosmetic networth, skip it
+            if (typeof handler.isCosmetic === 'function' && handler.isCosmetic() && this.nonCosmetic) {
+                continue;
+            }
+
             // Calculate the price of this modifier
             handler.calculate(this, prices);
         }
