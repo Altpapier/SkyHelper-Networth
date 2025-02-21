@@ -43,7 +43,13 @@ const parseItems = async (profileData, museumData) => {
 
     const specialItems = museumData.special?.map((special) => special.items.data) ?? [];
     const [decodedMuseumItems, decodedSpecialItems] = await Promise.all([
-        decodeItemsObject(Object.fromEntries(Object.entries(museumData.items || {}).map(([key, value]) => [key, value.items.data]))),
+        decodeItemsObject(
+            Object.fromEntries(
+                Object.entries(museumData.items || {})
+                    .filter(([_, value]) => !value.borrowing)
+                    .map(([key, value]) => [key, value.items.data]),
+            ),
+        ),
         decodeItems(specialItems),
     ]);
 
