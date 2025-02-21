@@ -86,7 +86,7 @@ class BasicItemNetworthCalculator {
             prices = await getPrices(cachePrices, pricesRetries, cachePricesTime);
         }
 
-        if (this.id.startsWith('RUNE_') && (!VALID_RUNES.includes(this.id) || nonCosmetic)) return null;
+        if (this.id.startsWith('RUNE_') && nonCosmetic) return null;
 
         // Get the base price for the item
         const itemPrice = prices[this.id];
