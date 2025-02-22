@@ -77,7 +77,11 @@ class GenericItemNetworthCalculator {
         }
 
         const calculator = new calculatorClass(this.item);
-        return await calculator.getNetworth({ prices, nonCosmetic, includeItemData });
+        if (nonCosmetic) {
+            return await calculator.getNonCosmeticNetworth({ prices, includeItemData });
+        }
+
+        return await calculator.getNetworth({ prices, includeItemData });
     }
 }
 
