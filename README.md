@@ -52,6 +52,8 @@ const networth = await networthManager.getNetworth();
 console.log(networth);
 ```
 
+The data structure of the output from getNetworth can be found at [Type Definitions](#type-definitions) section.
+
 ---
 
 ## Class Documentation
