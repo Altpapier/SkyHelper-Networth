@@ -156,6 +156,8 @@ class ProfileNetworthCalculator {
                     } catch {
                         continue;
                     }
+                } else if (!item.tag?.ExtraAttributes && item.exp === undefined && typeof item.id !== 'string') {
+                    continue;
                 }
 
                 // Instantiate the calculator
