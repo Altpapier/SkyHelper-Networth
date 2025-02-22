@@ -10,7 +10,7 @@ class ArtOfWarHandler {
      * @returns {boolean} Whether the handler applies to the item
      */
     applies(item) {
-        return item.extraAttributes.art_of_war_count;
+        return item.extraAttributes.art_of_war_count > 0;
     }
 
     /**
