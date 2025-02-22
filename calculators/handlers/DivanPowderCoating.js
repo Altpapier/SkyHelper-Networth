@@ -10,7 +10,7 @@ class DivanPowderCoatingHandler {
      * @returns {boolean} Whether the handler applies to the item
      */
     applies(item) {
-        return item.extraAttributes.divan_powder_coating;
+        return item.extraAttributes.divan_powder_coating > 0;
     }
 
     /**
