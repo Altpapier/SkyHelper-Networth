@@ -62,10 +62,11 @@ The data structure of the output from getNetworth can be found at [Type Definiti
 
 **Handles player profile calculations**
 
-#### Constructor
+#### Creation
 
 ```typescript
 new ProfileNetworthCalculator(profileData: object, museumData?: object, bankBalance?: number)
+fromPreParsed(profileData: object, items: Items, bankBalance: number): ProfileNetworthCalculator;
 ```
 
 #### Calculation Methods
@@ -73,7 +74,6 @@ new ProfileNetworthCalculator(profileData: object, museumData?: object, bankBala
 ```typescript
 getNetworth(options?: NetworthOptions): Promise<NetworthResult>
 getNonCosmeticNetworth(options?: NetworthOptions): Promise<NetworthResult>
-fromPreParsed(profileData: object, items: Items, bankBalance: number): ProfileNetworthCalculator;
 ```
 
 #### Example Usage
