@@ -10,7 +10,7 @@ class ArtOfPeaceHandler {
      * @returns {boolean} Whether the handler applies to the item
      */
     applies(item) {
-        return item.extraAttributes.artOfPeaceApplied;
+        return item.extraAttributes.artOfPeaceApplied > 0;
     }
 
     /**
