@@ -1,4 +1,4 @@
-import { NetworthResult } from './types/ProfileNetworthCalculator';
+import { Items, NetworthResult } from './types/ProfileNetworthCalculator';
 import { NetworthManagerOptions } from './types/NetworthManager';
 import { Item } from './types/ItemNetworthCalculator';
 import { NetworthOptions } from './types/global';
@@ -96,9 +96,19 @@ declare class ProfileNetworthCalculator {
      * Gets the networth of the player without the cosmetic items.
      */
     getNonCosmeticNetworth(options?: NetworthOptions): Promise<NetworthResult>;
+
+    /**
+     * Returns the instance of the ProfileNetworthCalculator.
+     */
+    fromPreParsed(profileData: object, items: Items, bankBalance: number): ProfileNetworthCalculator;
 }
 
 declare class ItemNetworthCalculator {
+    /**
+     * Creates a new instance of ItemNetworthCalculator.
+     */
+    constructor(itemData: object);
+
     /**
      * Returns the networth of an item.
      */

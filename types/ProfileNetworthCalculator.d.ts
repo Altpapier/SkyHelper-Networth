@@ -71,3 +71,5 @@ type Inventory = {
      */
     items?: Array<Item>;
 };
+
+type Items = Record<Inventories, object[]>;
