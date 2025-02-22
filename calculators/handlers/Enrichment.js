@@ -11,7 +11,7 @@ class EnrichmentHandler {
      * @returns {boolean} Whether the handler applies to the item
      */
     applies(item) {
-        return item.extraAttributes.talisman_enrichment;
+        return Boolean(item.extraAttributes.talisman_enrichment);
     }
 
     /**
@@ -20,7 +20,7 @@ class EnrichmentHandler {
      * @param {object} prices A prices object generated from the getPrices function
      */
     calculate(item, prices) {
-        const enrichmentPrice = ENRICHMENTS.reduce((acc, val) => Math.min(acc, prices[val] ?? 0), Infinity);
+        const enrichmentPrice = Math.min(...ENRICHMENTS.map((val) => prices[val] ?? Infinity));
         if (enrichmentPrice !== Infinity) {
             const calculationData = {
                 id: item.extraAttributes.talisman_enrichment.toUpperCase(),
