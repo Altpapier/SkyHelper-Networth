@@ -1,27 +1,22 @@
-const ItemNetworthCalculator = require('./ItemNetworthCalculator');
-const PetNetworthCalculator = require('./PetNetworthCalculator');
 const networthManager = require('../managers/NetworthManager');
-const { ValidationError } = require('../helper/errors');
+const SkyBlockItemNetworthHelper = require('./helpers/SkyBlockItemNetworthHelper');
+const handlers = require('./helpers/handlers');
 const { getPrices } = require('../helper/prices');
 
 // @ts-check
 
 /**
- * @typedef {import('../types/ItemNetworthCalculator').ItemNetworthCalculator} ItemNetworthCalculator
- * @typedef {import('../types/ItemNetworthCalculator').Item} NetworthResult
+ * @typedef {import('../types/SkyBlockItemNetworthCalculator').SkyBlockItemNetworthCalculator} SkyBlockItemNetworthCalculator
+ * @typedef {import('../types/SkyBlockItemNetworthCalculator').Item} NetworthResult
  * @typedef {import('../types/global').NetworthOptions} NetworthOptions
  */
 
 /**
- * ItemNetworthCalculator class.
+ * SkyBlockItemNetworthCalculator class.
  * Calculates the networth of an item.
- * @implements {ItemNetworthCalculator}
+ * @implements {SkyBlockItemNetworthCalculator}
  */
-class GenericItemNetworthCalculator {
-    constructor(item) {
-        this.item = item;
-    }
-
+class SkyBlockItemNetworthCalculator extends SkyBlockItemNetworthHelper {
     /**
      * Gets the networth of the player.
      * @param {NetworthOptions} [options] The options for calculating networth.
@@ -51,38 +46,57 @@ class GenericItemNetworthCalculator {
      * @returns An object containing the item's networth calculation
      */
     async #calculate({ prices, nonCosmetic, cachePrices, pricesRetries, cachePricesTime, includeItemData }) {
-        // Set default options
+        // Set default values
+        this.nonCosmetic = nonCosmetic;
         cachePrices ??= networthManager.getCachePrices();
         pricesRetries ??= networthManager.getPricesRetries();
         cachePricesTime ??= networthManager.getCachePricesTime();
         includeItemData ??= networthManager.getIncludeItemData();
 
+        // Get prices
+        await networthManager.itemsPromise;
         if (!prices) {
             prices = await getPrices(cachePrices, pricesRetries, cachePricesTime);
         }
 
-        // Get the calculator for the item
-        let calculatorClass = ItemNetworthCalculator;
-        /**
-         * @type {ItemNetworthCalculator | PetNetworthCalculator | BasicItemNetworthCalculator}
-         */
+        // Get the base price for the item
+        this.getBasePrice(prices);
 
-        if (this.item.tag?.ExtraAttributes?.petInfo || this.item.exp !== undefined) {
-            try {
-                this.item = this.item.tag?.ExtraAttributes?.petInfo ? JSON.parse(this.item.tag.ExtraAttributes.petInfo) : this.item;
-                calculatorClass = PetNetworthCalculator;
-            } catch {}
-        } else if (!this.item.tag?.ExtraAttributes && this.item.exp === undefined && typeof this.item.id !== 'string') {
-            throw new ValidationError('Invalid item data.');
+        for (const Handler of handlers) {
+            // Create a new instance of the handler
+            const handler = new Handler();
+            // Check if the handler applies to the item
+            if (!handler.applies(this)) {
+                continue;
+            }
+
+            // Check if the handler is cosmetic, if it is and we are calculating non-cosmetic networth, skip it
+            if (typeof handler.isCosmetic === 'function' && handler.isCosmetic() && this.nonCosmetic) {
+                continue;
+            }
+
+            // Calculate the price of this modifier
+            handler.calculate(this, prices);
         }
 
-        const calculator = new calculatorClass(this.item);
-        if (nonCosmetic) {
-            return await calculator.getNonCosmeticNetworth({ prices, includeItemData });
+        if (this.isCosmetic() && this.nonCosmetic) {
+            return;
         }
 
-        return await calculator.getNetworth({ prices, includeItemData });
+        const data = {
+            name: this.itemName,
+            loreName: this.itemData.tag.display.Name,
+            id: this.extraAttributes.id,
+            customId: this.itemId,
+            price: this.price,
+            base: this.base,
+            calculation: this.calculation,
+            count: this.itemData.Count || 1,
+            soulbound: this.isSoulbound(),
+            cosmetic: this.isCosmetic(),
+        };
+        return includeItemData ? { ...data, item: this.itemData } : data;
     }
 }
 
-module.exports = GenericItemNetworthCalculator;
+module.exports = SkyBlockItemNetworthCalculator;

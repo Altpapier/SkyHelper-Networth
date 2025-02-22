@@ -1,7 +1,6 @@
-import { Item } from './types/ItemNetworthCalculator';
 import { NetworthManagerOptions } from './types/NetworthManager';
 import { Items, NetworthResult } from './types/ProfileNetworthCalculator';
-import { NetworthOptions } from './types/global';
+import { NetworthOptions, Item } from './types/global';
 
 declare class NetworthManager {
     /**
@@ -103,7 +102,7 @@ declare class ProfileNetworthCalculator {
     fromPreParsed(profileData: object, items: Items, bankBalance: number): ProfileNetworthCalculator;
 }
 
-declare class GenericItemNetworthCalculator {
+declare class ItemNetworthCalculator {
     /**
      * Creates a new instance of ItemNetworthCalculator.
      */
