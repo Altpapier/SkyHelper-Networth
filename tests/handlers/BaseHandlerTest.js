@@ -21,12 +21,12 @@ class BaseHandlerTest {
                     if (shouldApply) {
                         handler.calculate(item, prices);
                     }
+                    assert.deepStrictEqual(item.calculation, expectedCalculation, 'Calculation does not match expected');
                     assert.strictEqual(
                         item.price - priceBefore,
                         expectedPriceChange,
                         `Expected price to increase by ${expectedPriceChange} but got ${item.price - priceBefore}`,
                     );
-                    assert.deepStrictEqual(item.calculation, expectedCalculation, 'Calculation does not match expected');
                 });
             });
         });
