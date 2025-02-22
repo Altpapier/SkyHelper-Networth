@@ -53,7 +53,8 @@ type Inventories =
     | 'museum'
     | 'sacks'
     | 'essence'
-    | 'pets';
+    | 'pets'
+    | 'quiver';
 
 type Inventory = {
     /**

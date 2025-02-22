@@ -56,6 +56,7 @@ class ProfileNetworthCalculator {
      *          sacks_bag: [],
      *          candy_inventory: [],
      *          carnival_mask_inventory: [],
+     *          quiver: [],
      *          museum: [],
      *        }} items Pre-parsed inventories, most inventories are just decoded except for sacks, essence, and pets which are parsed specifically as listed above, museum is an array of member[uuid].items and member[uuid].special combined and decoded (see {@link parseItems})
      * @param {number} bankBalance The bank balance of the player from the Hypixel API (profile.banking.balance)
