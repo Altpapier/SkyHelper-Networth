@@ -59,7 +59,7 @@ class MidasWeaponHandler {
                 const calculationData = {
                     id: item.itemId,
                     type: 'ADDITIONAL_COINS',
-                    price: item.extraAttributes.additional_coins * item.extraAttributes.winningBid,
+                    price: item.extraAttributes.additional_coins * APPLICATION_WORTH.winningBid,
                     count: 1,
                 };
                 item.price += calculationData.price;
