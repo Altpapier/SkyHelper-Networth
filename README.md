@@ -19,10 +19,10 @@ npm install skyhelper-networth
 
 ### 📦 Key Classes
 
-- **`ProfileNetworthCalculator`**: Handles networth calculation for player's profile
-- **`ItemNetworthCalculator`**: Calculates networth for individual items
-- **`NetworthManager`**: Central class for managing networth calculations (singleton pattern)
-- **`UpdateManager`**: Manages periodic updates for items, prices and calculation itself
+- **`ProfileNetworthCalculator`**: Handles networth calculation for player's profile.
+- **`GenericItemNetworthCalculator`**: Calculates networth for individual items.
+- **`NetworthManager`**: Central class for managing networth calculations ([singleton](https://en.wikipedia.org/wiki/Singleton_pattern)).
+- **`UpdateManager`**: Manages periodic updates for items, prices and the networth package itself ([singleton](https://en.wikipedia.org/wiki/Singleton_pattern)).
 
 ### 📄 Core Interfaces
 
@@ -70,6 +70,7 @@ new ProfileNetworthCalculator(profileData: object, museumData?: object, bankBala
 ```typescript
 getNetworth(options?: NetworthOptions): Promise<NetworthResult>
 getNonCosmeticNetworth(options?: NetworthOptions): Promise<NetworthResult>
+fromPreParsed(profileData: object, items: Items, bankBalance: number): ProfileNetworthCalculator;
 ```
 
 #### Example Usage
