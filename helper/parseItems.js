@@ -43,19 +43,29 @@ const parseItems = async (profileData, museumData) => {
 
     items.storage ??= [];
 
-    const specialItems = museumData.special?.map((special) => special.items.data) ?? [];
-    const [decodedMuseumItems, decodedSpecialItems] = await Promise.all([
-        decodeItemsObject(
-            Object.fromEntries(
-                Object.entries(museumData.items || {})
-                    .filter(([_, value]) => !value.borrowing)
-                    .map(([key, value]) => [key, value.items.data]),
+    if (Object.values(museumData.items).at(0).items.length && museumData.special.length) {
+        items.museum = [
+            ...Object.values(museumData.items)
+                .filter((item) => !item.borrowing)
+                .map((item) => item.items)
+                .flat(),
+            ...museumData.special.map((special) => special.items).flat(),
+        ];
+    } else {
+        const specialItems = museumData.special?.map((special) => special.items.data) ?? [];
+        const [decodedMuseumItems, decodedSpecialItems] = await Promise.all([
+            decodeItemsObject(
+                Object.fromEntries(
+                    Object.entries(museumData.items || {})
+                        .filter(([_, value]) => !value.borrowing)
+                        .map(([key, value]) => [key, value.items.data]),
+                ),
             ),
-        ),
-        decodeItems(specialItems),
-    ]);
+            decodeItems(specialItems),
+        ]);
 
-    items.museum = [...Object.values(decodedMuseumItems).flat(), ...decodedSpecialItems.flat()];
+        items.museum = [...Object.values(decodedMuseumItems).flat(), ...decodedSpecialItems.flat()];
+    }
 
     await postParseItems(profileData, items);
     return items;
