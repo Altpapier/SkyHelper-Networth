@@ -3,6 +3,7 @@ const NetworthManager = require('./managers/NetworthManager');
 const ItemNetworthCalculator = require('./calculators/ItemNetworthCalculator');
 const ProfileNetworthCalculator = require('./calculators/ProfileNetworthCalculator');
 const { getPrices } = require('./helper/prices');
+const { parseItems } = require('./helper/parseItems');
 
 module.exports = {
     ItemNetworthCalculator,
@@ -10,4 +11,5 @@ module.exports = {
     NetworthManager,
     UpdateManager,
     getPrices,
+    parseItems,
 };

@@ -1,6 +1,6 @@
-import { Items, NetworthResult } from './types/ProfileNetworthCalculator';
-import { NetworthManagerOptions } from './types/NetworthManager';
 import { Item } from './types/ItemNetworthCalculator';
+import { NetworthManagerOptions } from './types/NetworthManager';
+import { Items, NetworthResult } from './types/ProfileNetworthCalculator';
 import { NetworthOptions } from './types/global';
 
 declare class NetworthManager {
@@ -121,3 +121,5 @@ declare class ItemNetworthCalculator {
 }
 
 declare function getPrices(cache?: boolean, cacheTime?: number, retries?: number): Promise<Record<string, number>>;
+
+declare async function parseItems(profileData: object, museumData: object): Promise<object>;
