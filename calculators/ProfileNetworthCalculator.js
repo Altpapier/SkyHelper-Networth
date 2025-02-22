@@ -197,10 +197,6 @@ class ProfileNetworthCalculator {
                 }
             }
 
-            if (category === 'enderchest') {
-                console.log(categories[category].total);
-            }
-
             // Remove items if only networth is requested
             if (onlyNetworth) delete categories[category].items;
         }
