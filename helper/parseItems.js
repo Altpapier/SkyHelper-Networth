@@ -59,8 +59,8 @@ const parseItems = async (profileData, museumData) => {
                     Object.fromEntries(
                         Object.entries(museumData.items || {})
                             .filter(([_, value]) => !value.borrowing)
-                            .map(([key, value]) => [key, value.items.data])
-                    )
+                            .map(([key, value]) => [key, value.items.data]),
+                    ),
                 ),
                 decodeItems(specialItems),
             ]);
@@ -87,7 +87,7 @@ const postParseItems = async (profileData, items) => {
                             item.tag.ExtraAttributes.new_year_cake_bag_years = cakes
                                 .filter((cake) => cake.id && cake.tag?.ExtraAttributes?.new_years_cake)
                                 .map((cake) => cake.tag.ExtraAttributes.new_years_cake);
-                        })
+                        }),
                     );
                 }
             }
