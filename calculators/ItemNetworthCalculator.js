@@ -6,7 +6,8 @@ const { getPrices } = require('../helper/prices');
 // @ts-check
 
 /**
- * @typedef {import('../types/ItemNetworthCalculator').ItemNetworthCalculator} ItemNetworthCalculator
+ * @typedef {import('../index').ItemNetworthCalculator} ItemNetworthCalculator
+ * @typedef {import('../index').ItemNetworthHelper} ItemNetworthHelper
  * @typedef {import('../types/ItemNetworthCalculator').Item} NetworthResult
  * @typedef {import('../types/global').NetworthOptions} NetworthOptions
  */
@@ -14,7 +15,7 @@ const { getPrices } = require('../helper/prices');
 /**
  * ItemNetworthCalculator class.
  * Calculates the networth of an item.
- * @implements {ItemNetworthCalculator}
+ * @implements {ItemNetworthHelper}
  */
 class ItemNetworthCalculator extends ItemNetworthHelper {
     /**

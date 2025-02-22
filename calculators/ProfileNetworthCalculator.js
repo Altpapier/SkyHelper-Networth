@@ -16,8 +16,8 @@ const categoryCalculatorMap = {
 // @ts-check
 
 /**
- * @typedef {import('../types/ProfileNetworthCalculator').ProfileNetworthCalculator} ProfileNetworthCalculator
- * @typedef {import('../types/ProfileNetworthCalculator').NetworthResult} NetworthResult
+ * @typedef {import('../index').ProfileNetworthCalculator} ProfileNetworthCalculator
+ * @typedef {import('../types/ItemNetworthCalculator').Item} NetworthResult
  * @typedef {import('../types/global').NetworthOptions} NetworthOptions
  */
 

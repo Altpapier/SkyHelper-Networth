@@ -129,6 +129,11 @@ class PetNetworthHelper {
         this.base = this.price;
     }
 
+    /**
+     * Gets the pet id based on the pet's properties
+     * @param {object} prices A prices object generated from the getPrices function
+     * @param {boolean} nonCosmetic Whether to calculate the non-cosmetic networth
+     */
     getPetId(prices, nonCosmetic) {
         const { LVL_100, LVL_200 } = this.getPetLevelPrices(prices, nonCosmetic);
         return LVL_200 ? `LVL_200_${this.petId}` : LVL_100 ? `LVL_100_${this.petId}` : `LVL_1_${this.petId}`;

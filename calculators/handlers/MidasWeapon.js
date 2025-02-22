@@ -20,18 +20,18 @@ class MidasWeaponHandler {
      */
     calculate(item, prices) {
         let maxBid, type;
-        if (item.itemId === 'midas_sword') {
+        if (item.itemId === 'MIDAS_SWORD') {
             maxBid = 50_000_000;
-            type = 'midas_sword_50m';
-        } else if (item.itemId === 'starred_midas_sword') {
+            type = 'MIDAS_SWORD_50M';
+        } else if (item.itemId === 'STARRED_MIDAS_SWORD') {
             maxBid = 250_000_000;
-            type = 'starred_midas_sword_250m';
-        } else if (item.itemId === 'midas_staff') {
+            type = 'STARRED_MIDAS_SWORD_250M';
+        } else if (item.itemId === 'MIDAS_STAFF') {
             maxBid = 100_000_000;
-            type = 'midas_staff_100m';
-        } else if (item.itemId === 'starred_midas_staff') {
+            type = 'MIDAS_STAFF_100MS';
+        } else if (item.itemId === 'STARRED_MIDAS_STAFF') {
             maxBid = 500_000_000;
-            type = 'starred_midas_staff_500m';
+            type = 'STARRED_MIDAS_STAFF_500M';
         }
 
         // If max price paid

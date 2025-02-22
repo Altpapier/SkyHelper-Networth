@@ -68,7 +68,7 @@ class ItemNetworthHelper {
         }
 
         // If the item is a rune
-        if (this.isRune(true) && !this.nonCosmetic) {
+        if ((this.isUniqueRune() || this.isRune()) && !this.nonCosmetic) {
             const [runeType, runeTier] = Object.entries(this.extraAttributes.runes)[0];
             return `RUNE_${runeType}_${runeTier}`.toUpperCase();
         }
@@ -132,11 +132,21 @@ class ItemNetworthHelper {
 
     /**
      * Checks if the item is a rune
-     * @param {boolean} [allRunes=false] Whether to include all runes or just unique runes
      * @returns {boolean} Whether the item is a rune
      */
-    isRune(allRunes = false) {
-        const isRuneId = allRunes ? this.itemId === 'RUNE' || this.itemId === 'UNIQUE_RUNE' : this.itemId === 'UNIQUE_RUNE';
+    isRune() {
+        const isRuneId = this.itemId === 'RUNE';
+        const hasRuneType = this.extraAttributes.runes && Object.keys(this.extraAttributes.runes).length > 0;
+
+        return isRuneId && hasRuneType;
+    }
+
+    /**
+     * Checks if the item is an unique rune
+     * @returns {boolean} Whether the item is an unqiue rune
+     */
+    isUniqueRune() {
+        const isRuneId = this.itemId === 'UNIQUE_RUNE';
         const hasRuneType = this.extraAttributes.runes && Object.keys(this.extraAttributes.runes).length > 0;
 
         return isRuneId && hasRuneType;
@@ -152,7 +162,7 @@ class ItemNetworthHelper {
         const isCosmetic = this.skyblockItem.category === 'COSMETIC' || this.itemLore.at(-1)?.includes('COSMETIC');
         const isOnCosmeticBlacklist = NON_COSMETIC_ITEMS.has(this.itemId);
 
-        return isCosmetic || isSkinOrDye || isOnCosmeticBlacklist || this.isRune();
+        return isCosmetic || isSkinOrDye || isOnCosmeticBlacklist || this.isRune() || this.isUniqueRune();
     }
 
     /**
