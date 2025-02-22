@@ -12,7 +12,7 @@ class EnchantedBookHandler {
      * @returns {boolean} Whether the handler applies to the item
      */
     applies(item) {
-        return item.itemId === 'ENCHANTED_BOOK' && item.extraAttributes.enchantments;
+        return item.itemId === 'ENCHANTED_BOOK' && Object.keys(item.extraAttributes.enchantments || {}).length > 0;
     }
 
     /**
@@ -21,34 +21,27 @@ class EnchantedBookHandler {
      * @param {object} prices A prices object generated from the getPrices function
      */
     calculate(item, prices) {
-        // ENCHANTMENT BOOK
-        if (Object.keys(item.extraAttributes.enchantments).length === 1) {
-            const [name, value] = Object.entries(item.extraAttributes.enchantments)[0];
-
+        const isSingleEnchantBook = Object.keys(item.extraAttributes.enchantments).length === 1;
+        let enchantmentPrice = 0;
+        for (const [name, value] of Object.entries(item.extraAttributes.enchantments)) {
+            const price = prices[`ENCHANTMENT_${name.toUpperCase()}_${value}`];
+            if (!price) {
+                continue;
+            }
             const calculationData = {
                 id: `${name}_${value}`.toUpperCase(),
                 type: 'ENCHANT',
-                price: prices[`ENCHANTMENT_${name.toUpperCase()}_${value}`] ?? 0,
+                price: price * (isSingleEnchantBook ? 1 : APPLICATION_WORTH.enchants),
                 count: 1,
             };
-            item.price = calculationData.price;
+            enchantmentPrice += calculationData.price;
             item.calculation.push(calculationData);
-            item.itemName = SPECIAL_ENCHANTMENT_NAMES[name] || titleCase(name.replace(/_/g, ' '));
-        } else {
-            // MULTI ENCHANTMENT BOOK
-            let enchantmentPrice = 0;
-            for (const [name, value] of Object.entries(item.extraAttributes.enchantments)) {
-                const calculationData = {
-                    id: `${name}_${value}`.toUpperCase(),
-                    type: 'ENCHANT',
-                    price: (prices[`ENCHANTMENT_${name.toUpperCase()}_${value}`] ?? 0) * APPLICATION_WORTH.enchants,
-                    count: 1,
-                };
-                enchantmentPrice += calculationData.price;
-                item.calculation.push(calculationData);
+
+            if (isSingleEnchantBook) {
+                item.itemName = SPECIAL_ENCHANTMENT_NAMES[name] || titleCase(name.replace(/_/g, ' '));
             }
-            item.price = enchantmentPrice;
         }
+        item.price = enchantmentPrice;
     }
 }
 
