@@ -67,6 +67,8 @@ const parseItems = async (profileData, museumData) => {
 
             items.museum = [...Object.values(decodedMuseumItems).flat(), ...decodedSpecialItems.flat()];
         }
+    } else {
+        items.museum ??= [];
     }
 
     await postParseItems(profileData, items);
