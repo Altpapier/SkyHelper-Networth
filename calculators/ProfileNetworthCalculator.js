@@ -166,9 +166,10 @@ class ProfileNetworthCalculator {
                     : await calculator.getNetworth({ prices, includeItemData });
 
                 // Add the item to the category
-                categories[category].total += result?.price ?? 0;
-                if (!result?.soulbound) categories[category].unsoulboundTotal += result?.price ?? 0;
-                if (!onlyNetworth && result && result?.price) {
+                const price = isNaN(result?.price) ? 0 : result?.price;
+                categories[category].total += price;
+                if (!result?.soulbound) categories[category].unsoulboundTotal += price;
+                if (!onlyNetworth && result && price) {
                     categories[category].items.push(result);
                 }
             }
@@ -194,6 +195,10 @@ class ProfileNetworthCalculator {
                         }, [])
                         .filter((e) => e);
                 }
+            }
+
+            if (category === 'enderchest') {
+                console.log(categories[category].total);
             }
 
             // Remove items if only networth is requested
