@@ -1,7 +1,7 @@
 const { getPrices } = require('../helper/prices');
 const { parseItems } = require('../helper/parseItems');
 const networthManager = require('../managers/NetworthManager');
-const ItemNetworthCalculator = require('./ItemNetworthCalculator');
+const SkyBlockItemNetworthCalculator = require('./SkyBlockItemNetworthCalculator');
 const PetNetworthCalculator = require('./PetNetworthCalculator');
 const BasicItemNetworthCalculator = require('./BasicItemNetworthCalculator');
 const { ValidationError } = require('../helper/errors');
@@ -10,14 +10,14 @@ const categoryCalculatorMap = {
     pets: PetNetworthCalculator,
     sacks: BasicItemNetworthCalculator,
     essence: BasicItemNetworthCalculator,
-    default: ItemNetworthCalculator,
+    default: SkyBlockItemNetworthCalculator,
 };
 
 // @ts-check
 
 /**
  * @typedef {import('../index').ProfileNetworthCalculator} ProfileNetworthCalculator
- * @typedef {import('../types/ItemNetworthCalculator').Item} NetworthResult
+ * @typedef {import('../types/ProfileNetworthCalculator').NetworthResult} NetworthResult
  * @typedef {import('../types/global').NetworthOptions} NetworthOptions
  */
 
@@ -139,7 +139,7 @@ class ProfileNetworthCalculator {
                 // Get the calculator for the item
                 let calculatorClass = categoryCalculatorMap[category] ?? categoryCalculatorMap.default;
                 /**
-                 * @type {ItemNetworthCalculator | PetNetworthCalculator | BasicItemNetworthCalculator}
+                 * @type {SkyBlockItemNetworthCalculator | PetNetworthCalculator | BasicItemNetworthCalculator}
                  */
 
                 if (item.tag?.ExtraAttributes?.petInfo) {

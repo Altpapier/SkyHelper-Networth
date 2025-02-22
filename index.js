@@ -1,12 +1,12 @@
 const UpdateManager = require('./managers/UpdateManager');
 const NetworthManager = require('./managers/NetworthManager');
 const ProfileNetworthCalculator = require('./calculators/ProfileNetworthCalculator');
-const GenericItemNetworthCalculator = require('./calculators/GenericItemNetworthCalculator');
+const ItemNetworthCalculator = require('./calculators/ItemNetworthCalculator');
 const { getPrices } = require('./helper/prices');
 const { parseItems } = require('./helper/parseItems');
 
 module.exports = {
-    GenericItemNetworthCalculator,
+    ItemNetworthCalculator,
     ProfileNetworthCalculator,
     NetworthManager,
     UpdateManager,

@@ -48,7 +48,7 @@ class NetworthManager {
     }
 
     /**
-     * Whether to cache the prices for 5 minutes after fetching them or fetch them every time. Can also be a number to cache the prices for a specific amount of time in milliseconds. Default: true
+     * Whether to cache the prices for time after fetching them or fetch them every time. Default: true
      * @param {boolean | number} cachePrices
      * @returns {NetworthManager} The NetworthManager instance
      */

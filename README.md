@@ -1,188 +1,229 @@
-﻿# SkyHelper-Networth
+﻿# SkyHelper-Networth (TypeScript)
 
 [![discord](https://img.shields.io/discord/720018827433345138?logo=discord)](https://discord.com/invite/fd4Be4W)
 [![license](https://img.shields.io/badge/license-MIT-green)](LICENSE)
 [![npm](https://img.shields.io/npm/v/skyhelper-networth)](https://npmjs.com/package/skyhelper-networth)
 [![downloads](https://img.shields.io/npm/dm/skyhelper-networth)](https://npmjs.com/package/skyhelper-networth)
 
-## About
-
 [SkyHelper](https://skyhelper.altpapier.dev/)'s Networth Calculation as a Node.js module to calculate a player's SkyBlock networth by using their profile data provided by the [Hypixel API](https://api.hypixel.net/).
 
 ## Installation
 
-```
+```bash
 npm install skyhelper-networth
 ```
 
-## Networth Calculation
+---
 
-The following list shows how much each modifier counts towards an item's worth
+## Core Concepts
 
-**Items**:
+### 📦 Key Classes
 
-- Enrichments: **50%**
-- Farming for Dummies: **50%**
-- Gemstone Power Scrolls: **50%**
-- Wood Singularity: **50%**
-- Art of War: **60%**
-- Fuming Potato Books: **60%**
-- Gemstone Slot Unlocks (only crimson armor): **60%**
-- Popular Runes: **60%**
-    - Music, Enchanting, Grand Searing, etc.
-- Transmission Tuners: **70%**
-- Essence: **75%**
-- Golden Bounty: **75%**
-- Silex: **75%**
-- Art of Peace: **80%**
-- Divan's Powder Coating: **80%**
-- Jalapeno Book: **80%**
-- Mana Disintegrator: **80%**
-- Recombobulators: **80%**
-    - Bonemerangs: **40%**
-- Thunder In A Bottle: **80%**
-- Enchantments: **85%**
-    - Counter Strike: **20%**
-    - Big Brain, Inferno, Overload, and Soul Eater: **35%**
-    - Fatal Tempo: **65%**
-- Shen's Auction Price Paid: **85%**
-- Dyes: **90%**
-- Gemstone Chambers: **90%**
-- Attributes: **100%**
-    - Based off the corresponding attribute shard's price
-    - Lava Fishing rods and Crimson Hunter set use their base item's price instead
-    - Kuudra Armor sets use the average sale value of all types with the same attribute
-- Drill Upgrades: **100%**
-- Etherwarp Conduit: **100%**
-- Dungeon Master Stars: **100%**
-- Gemstones: **100%**
-- Hot Potato Books: **100%**
-- Necron Blade Scrolls: **100%**
-- Polarvoid Books: **100%**
-- Prestige Item: **100%**
-- Reforges: **100%**
-- Winning Bid: **100%**
+- **`ProfileNetworthCalculator`**: Handles networth calculation for player's profile.
+- **`GenericItemNetworthCalculator`**: Calculates networth for individual items.
+- **`NetworthManager`**: Central class for managing networth calculations ([singleton](https://en.wikipedia.org/wiki/Singleton_pattern)).
+- **`UpdateManager`**: Manages periodic updates for items, prices and the networth package itself ([singleton](https://en.wikipedia.org/wiki/Singleton_pattern)).
 
-**Pets**:
+### 📄 Core Interfaces
 
-- Pet Item: **100%**
-- Soulbound Pet Skins: **80%**
-- Pet Candied: **-35%**
-    - Except Ender Dragon, Golden Dragon, and Scatha
+- **`NetworthOptions`**: Configuration for networth calculations
+- **`NetworthResult`**: Result structure for networth calculations
+- **`Item`**: Detailed representation of an in-game item
 
-## Functions
+---
 
-### `getNetworth()`
+## Quick Start
 
-Returns the networth of a profile
+```typescript
+import { ProfileNetworthCalculator } from 'skyhelper-networth';
 
-#### Arguments
+// Prepare input data
+const profile = // https://api.hypixel.net/#tag/SkyBlock/paths/~1v2~1skyblock~1profile/get - profile.members[uuid]
+const museumData = // https://api.hypixel.net/v2/skyblock/museum - museum.members[uuid]
+const bankBalance = profile.banking.balance;
+const profileData = profile.members[uid];
 
-| Argument    | Description                                                               |
-| ----------- | ------------------------------------------------------------------------- |
-| profileData | The profile player data from the Hypixel API `profile.members[uuid]`      |
-| bankBalance | The player's bank balance from the Hypixel API `profile.banking?.balance` |
-| options     | See table below                                                           |
+// Initialize the NetworthManager
+const networthManager = new ProfileNetworthCalculator(profileData, museumData, bankBalance);
 
-### `getPreDecodedNetworth()`
+// Calculate profile networth
+const networth = await networthManager.getNetworth();
 
-Returns the networth of a profile using pre-decoded items (used to save resources if you already have decoded the profile's inventories)
-
-#### Arguments
-
-| Argument    | Description                                                                                                                                                                                                                                                                                     |
-| ----------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| profileData | The profile player data from the Hypixel API `profile.members[uuid]`                                                                                                                                                                                                                            |
-| items       | Decoded and simplified inventories `{ armor, equipment, wardrobe, inventory, enderchest, storage, accessories, personal_vault, fishing_bag, potion_bag, candy_inventory, carnival_mask_inventory, quiver, museum }`, museum is an array of member[uuid].items and member[uuid].special combined |
-| bankBalance | The player's bank balance from the Hypixel API `profile.banking?.balance`                                                                                                                                                                                                                       |
-| options     | See table below                                                                                                                                                                                                                                                                                 |
-
-##### `options`
-
-| Option         | Description                                                                                                                               |
-| -------------- | ----------------------------------------------------------------------------------------------------------------------------------------- |
-| v2Endpoint     | By default false, must be set to true if you are using the profile data of hypixel's v2 endpoints                                         |
-| cache          | By default true (5 minute cache), if set to false it will always make a request to get the latest prices from github                      |
-| onlyNetworth   | Only return a player's networth without showing all player's items                                                                        |
-| prices         | Provide prices from the getPrices() function for the bot not to request SkyHelper's prices each time the getNetworth() function is called |
-| returnItemData | Will also return the item data that was used to calculate the item worth                                                                  |
-| museumData     | Retrieved from the Hypixel API with the /skyblock/museum endpoint: museum.members[uuid]                                                   |
-
-### `getItemNetworth()`
-
-Returns the networth of an item
-
-#### Arguments
-
-| Argument | Description                              |
-| -------- | ---------------------------------------- |
-| item     | The data of an item (either pet or item) |
-| options  | See table below                          |
-
-##### `options`
-
-| Option         | Description                                                                                                                             |
-| -------------- | --------------------------------------------------------------------------------------------------------------------------------------- |
-| cache          | By default true (5 minute cache), if set to false it will always make a request to get the latest prices from github                    |
-| prices         | Provide prices from the getPrices() function for the bot not to request SkyHelper's prices each time the getNetworth() function is call |
-| returnItemData | Will also return the item data that was used to calculate the item worth                                                                |
-
-### `getPrices()`
-
-Returns the prices used in the networth calculation, optimally this can be cached and used when calling `getNetworth`
-
-## Example Usage
-
-Calculate Networth:
-
-```js
-const { getNetworth } = require('skyhelper-networth');
-
-const profile = // Retrieved from the Hypixel API with the /v2/skyblock/profiles endpoint: profiles[index]
-const museumData = // Retrieved from the Hypixel API with the /v2/skyblock/museum endpoint: museum.members[uuid]
-
-const profileData = profile.members['<UUID HERE>'];
-const bankBalance = profile.banking?.balance;
-
-const networth = await getNetworth(profileData, bankBalance, { v2Endpoint: true, museumData });
 console.log(networth);
 ```
 
-Calculate Networth using pre-decoded items:
+The data structure of the output from `getNetworth` can be found at [Type Definitions](#type-definitions) section.
 
-```js
-const { getPreDecodedNetworth } = require('skyhelper-networth');
+---
 
-const profile = // Retrieved from the Hypixel API with the /v2/skyblock/profiles endpoint: profiles[index]
-const museumData = // Retrieved from the Hypixel API with the /v2/skyblock/museum endpoint: museum.members[uuid]
+## Class Documentation
 
-const profileData = profile.members['<UUID HERE>'];
-const bankBalance = profile.banking?.balance;
+### 📊 ProfileNetworthCalculator
 
-const parsedInventoryExample = NBT.simplify(await NBT.parse(Buffer.from(profileData.inventory.inv_contents, 'base64')));
-const items = { inventory: parsedInventoryExample, ... }; // Parsed inventories see ./examples/items.json for object format and required keys
+**Handles player profile calculations**
 
-const networth = await getPreDecodedNetworth(profileData, items, bankBalance, { v2Endpoint: true });
-console.log(networth);
+#### Creation
+
+```typescript
+new ProfileNetworthCalculator(profileData: object, museumData?: object, bankBalance?: number)
+fromPreParsed(profileData: object, items: Items, bankBalance: number): ProfileNetworthCalculator;
 ```
 
-Retrieve prices and calculate Networth:
-Note: Prices are cached for 5 minutes by default. Retrieving prices before is not needed for most users
+#### Calculation Methods
 
-```js
-const { getNetworth, getPrices } = require('skyhelper-networth');
+```typescript
+getNetworth(options?: NetworthOptions): Promise<NetworthResult>
+getNonCosmeticNetworth(options?: NetworthOptions): Promise<NetworthResult>
+```
 
-let prices = await getPrices();
-setInterval(async () => {
-	prices = await getPrices();
-}, 1000 * 60 * 5); // Retrieve prices every 5 minutes
+#### Example Usage
 
-const profile = // Retrieved from the Hypixel API with the /v2/skyblock/profiles endpoint: profiles[index]
-const museumData = // Retrieved from the Hypixel API with the /v2/skyblock/museum endpoint: museum.members[uuid]
+```typescript
+const networthManager = new ProfileNetworthCalculator(profileData, museumData, bankBalance);
+const networth = await networthManager.getNonCosmeticNetworth({ prices: customPrices });
+console.log(networth.types.inventory.total); // Total value of player's inventory
 
-const profileData = profile.members['<UUID HERE>'];
-const bankBalance = profile.banking?.balance;
+const nonCosmeticNetworth = await networthManager.getNonCosmeticNetworth();
+console.log(nonCosmeticNetworth.networth); // Total value of player's non-cosmetic items
+```
 
-const networth = await getNetworth(profileData, bankBalance, { v2Endpoint: true, prices, museumData });
-console.log(networth);
+---
+
+### 🔍 ItemNetworthCalculator
+
+**Item-specific calculation**
+
+#### Constructor
+
+```typescript
+new ItemNetworthCalculator(item: object)
+```
+
+#### Methods
+
+```typescript
+getNetworth(options?: NetworthOptions): Promise<Item>
+getNonCosmeticNetworth(options?: NetworthOptions): Promise<Item>
+```
+
+#### Example
+
+```typescript
+const itemCalculator = new ItemNetworthCalculator(item);
+const itemValue = await itemCalculator.getNetworth({ prices: newPrices });
+console.log(itemValue.price); // Item's calculated value
+```
+
+---
+
+### 🧰 NetworthManager
+
+**Manages global configuration and item caching**
+
+#### Constructor
+
+```typescript
+new NetworthManager(options?: NetworthManagerOptions)
+```
+
+#### Configuration Options
+
+##### Each option can be set and obtained using the corresponding `set` and `get` methods.
+
+| Method                 | Property          | Type      | Default          | Description                                                                        |
+| ---------------------- | ----------------- | --------- | ---------------- | ---------------------------------------------------------------------------------- |
+| `setCachePrices()`     | `cachePrices`     | `boolean` | `true`           | Whether to cache the prices for time after fetching them or fetch them every time. |
+| `setPricesRetries()`   | `cachePricesTime` | `number`  | `300000` (5m)    | The amount of time to cache the prices in milliseconds.                            |
+| `setCachePricesTime()` | `pricesRetries`   | `number`  | `3`              | The amount of retries to fetch the prices when failing to fetch them.              |
+| `setItemsRetries()`    | `itemsRetries`    | `number`  | `3`              | The amount of retries to fetch the items when failing to fetch them.               |
+| `setItemsInterval()`   | `itemsInterval`   | `number`  | `43200000` (12h) | The interval to fetch the items from the Hypixel API in milliseconds.              |
+| `setOnlyNetworth()`    | `onlyNetworth`    | `boolean` | `false`          | Whether to only return the total networth or the items as well.                    |
+| `setStackItems()`      | `stackItems`      | `boolean` | `true`           | Whether to stack items with the same name and price.                               |
+| `setIncludeItemData()` | `includeItemData` | `boolean` | `false`          | hether to include the item data as a property in the item object.                  |
+
+---
+
+## Additional Features
+
+### Price Management
+
+```typescript
+import { getPrices } from 'skyhelper-networth';
+
+// Get latest prices with caching
+const prices = await getPrices(true);
+
+// Manual cache refresh
+networthManager.setCachePrices(false);
+```
+
+### Update Management
+
+```typescript
+const updateManager = new UpdateManager();
+updateManager.setInterval(300000); // Check updates every 5m
+updateManager.disable(); // Stop automatic checks
+```
+
+---
+
+## Type Definitions
+
+### 📜 NetworthOptions
+
+| Property          | Type      | Default  | Description                                                                        |
+| ----------------- | --------- | -------- | ---------------------------------------------------------------------------------- |
+| `prices`          | `object`  | `Prices` | A prices object that includes item prices.                                         |
+| `cachePrices`     | `boolean` | `true`   | Whether to cache the prices for time after fetching them or fetch them every time. |
+| `pricesRetries`   | `number`  | `3`      | The amount of retries to fetch the prices when failing to fetch them.              |
+| `onlyNetworth`    | `boolean` | `false`  | Whether to only return the total networth or the items as well.                    |
+| `includeItemData` | `boolean` | `false`  | Whether to include the item data as a property in the item object.                 |
+| `stackItems`      | `boolean` | `true`   | Whether to stack items with the same name and price.                               |
+
+### 📜 NetworthResult
+
+```typescript
+interface NetworthResult {
+  networth: number;
+  unsoulboundNetworth: number;
+  noInventory: boolean;
+  isNonCosmetic: boolean;
+  personalBank: number;
+  purse: number;
+  bank: number;
+  types: Record<InventoryType, Inventory>;
+}
+
+type InventoryType = 'armor' | 'equipment' | 'wardrobe' | ...;
+
+type Inventory = {
+    total: number;
+    unsoulboundTotal: number;
+    items: Array<Item>;
+};
+```
+
+### 📦 Item Structure
+
+```typescript
+interface Item {
+    name: string;
+    price: number;
+    soulbound: boolean;
+    cosmetic: boolean;
+    calculation: Calculation[];
+    // ... additional properties
+}
+```
+
+---
+
+## Contribution
+
+Contributions welcome! Please follow the project's code style and add tests for new features.
+
+```bash
+git clone https://github.com/Altpapier/SkyHelper-Networth.git
+npm install
+npm test
 ```

@@ -1,9 +1,15 @@
 export interface NetworthManagerOptions {
     /**
-     * Whether to cache the prices for 5 minutes after fetching them or fetch them every time. Can also be a number to cache the prices for a specific amount of time in milliseconds.
+     * Whether to cache the prices for time after fetching them or fetch them every time.
      * Default: true
      */
-    cachePrices?: boolean | number;
+    cachePrices?: boolean;
+
+    /**
+     * The amount of time to cache the prices in milliseconds.
+     * Default: 1000 * 60 * 5 (5 minutes)
+     */
+    cachePricesTime?: number;
 
     /**
      * The amount of retries to fetch the prices when failing to fetch them.

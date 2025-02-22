@@ -6,9 +6,9 @@ const { titleCase } = require('../../helper/functions');
 /**
  * Base class for calculating the networth of an item
  */
-class ItemNetworthHelper {
+class SkyBlockItemNetworthHelper {
     /**
-     * Creates a new ItemNetworthHelper
+     * Creates a new SkyBlockItemNetworthHelper
      * @param {object} itemData The item data containing properties like `tag` and `Count`.
      */
     constructor(itemData) {
@@ -203,4 +203,4 @@ class ItemNetworthHelper {
     }
 }
 
-module.exports = ItemNetworthHelper;
+module.exports = SkyBlockItemNetworthHelper;

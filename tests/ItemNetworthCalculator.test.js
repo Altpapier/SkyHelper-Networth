@@ -1,5 +1,5 @@
 const { describe, expect, beforeEach, afterEach, afterAll } = require('@jest/globals');
-const ItemNetworthCalculator = require('../calculators/ItemNetworthCalculator');
+const SkyBlockItemNetworthCalculator = require('../calculators/SkyBlockItemNetworthCalculator');
 const networthManager = require('../managers/NetworthManager');
 const { getPrices } = require('../helper/prices');
 
@@ -23,8 +23,8 @@ jest.mock('../calculators/helpers/handlers', () => [
     },
 ]);
 
-jest.mock('../calculators/helpers/ItemNetworthHelper', () => {
-    return class MockItemNetworthHelper {
+jest.mock('../calculators/helpers/SkyBlockItemNetworthHelper', () => {
+    return class MockSkyBlockItemNetworthHelper {
         constructor() {
             this.itemName = '';
             this.itemId = '';
@@ -35,14 +35,14 @@ jest.mock('../calculators/helpers/ItemNetworthHelper', () => {
     };
 });
 
-describe('ItemNetworthCalculator', () => {
+describe('SkyBlockItemNetworthCalculator', () => {
     let calculator;
     let mockPrices;
 
     beforeEach(() => {
         jest.clearAllMocks();
 
-        calculator = new ItemNetworthCalculator();
+        calculator = new SkyBlockItemNetworthCalculator();
         mockPrices = {
             DIAMOND_SWORD: 1000,
         };
