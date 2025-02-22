@@ -12,8 +12,12 @@ class SkyBlockItemNetworthHelper {
      * @param {object} itemData The item data containing properties like `tag` and `Count`.
      */
     constructor(itemData) {
-        // Extract item properties
         this.itemData = itemData;
+
+        // Validate the item
+        this.#validateItem();
+
+        // Extract item properties
         this.itemName = this.itemData.tag.display.Name.replace(/§[0-9a-fk-or]/gi, '').replace(/%%[^%]+%%/g, '');
         this.extraAttributes = this.itemData.tag.ExtraAttributes ?? {};
         this.itemId = this.extraAttributes.id;
@@ -27,9 +31,6 @@ class SkyBlockItemNetworthHelper {
         this.calculation = [];
         this.price = 0;
         this.base = 0;
-
-        // Validate the item
-        this.#validateItem();
     }
 
     /**

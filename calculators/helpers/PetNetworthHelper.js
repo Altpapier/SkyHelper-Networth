@@ -11,9 +11,13 @@ class PetNetworthHelper {
      * @param {object} petData The pet data containing properties like `type`, `tier`, `exp`, `heldItem`, and `skin`.
      */
     constructor(petData) {
+        this.petData = petData;
+
+        // Validate the pet
+        this.#validateItem();
+
         // Extract pet properties
         this.nonCosmetic = false;
-        this.petData = petData;
         this.tier = this.getTier();
         this.skin = this.petData.skin;
         this.basePetId = `${this.tier}_${this.petData.type}`;
@@ -27,9 +31,6 @@ class PetNetworthHelper {
         this.calculation = [];
         this.price = 0;
         this.base = 0;
-
-        // Validate the pet
-        this.#validateItem();
     }
 
     /**
