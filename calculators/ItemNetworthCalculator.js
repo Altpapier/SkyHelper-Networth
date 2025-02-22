@@ -64,7 +64,7 @@ class ItemNetworthCalculator {
         // Get the calculator for the item
         let calculatorClass = SkyBlockItemNetworthCalculator;
         /**
-         * @type {SkyBlockItemNetworthCalculator | PetNetworthCalculator | BasicItemNetworthCalculator}
+         * @type {SkyBlockItemNetworthCalculator | PetNetworthCalculator}
          */
 
         if (this.item.tag?.ExtraAttributes?.petInfo || this.item.exp !== undefined) {
