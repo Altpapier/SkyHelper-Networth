@@ -1,7 +1,9 @@
 ﻿# SkyHelper-Networth (TypeScript)
 
+[![discord](https://img.shields.io/discord/720018827433345138?logo=discord)](https://discord.com/invite/fd4Be4W)
 [![license](https://img.shields.io/badge/license-MIT-green)](LICENSE)
 [![npm](https://img.shields.io/npm/v/skyhelper-networth)](https://npmjs.com/package/skyhelper-networth)
+[![downloads](https://img.shields.io/npm/dm/skyhelper-networth)](https://npmjs.com/package/skyhelper-networth)
 
 [SkyHelper](https://skyhelper.altpapier.dev/)'s Networth Calculation as a Node.js module to calculate a player's SkyBlock networth by using their profile data provided by the [Hypixel API](https://api.hypixel.net/).
 
