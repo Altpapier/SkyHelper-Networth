@@ -11,7 +11,7 @@ class AttributesHandler {
      * @returns {boolean} Whether the handler applies to the item
      */
     applies(item) {
-        return item.extraAttributes.attributes;
+        return Object.keys(item.extraAttributes.attributes ?? {}).length > 0;
     }
 
     /**
@@ -30,7 +30,7 @@ class AttributesHandler {
                 baseAttributePrice = prices[ATTRIBUTE_BASE_COSTS[item.itemId]];
             } else if (
                 /^(|HOT_|FIERY_|BURNING_|INFERNAL_)(AURORA|CRIMSON|TERROR|HOLLOW|FERVOR)_HELMET$/.test(item.itemId) &&
-                prices[`KUUDRA_HELMET_${attributeName}`] < baseAttributePrice
+                (!baseAttributePrice || prices[`KUUDRA_HELMET_${attributeName}`] < baseAttributePrice)
             ) {
                 baseAttributePrice = prices[`KUUDRA_HELMET_${attributeName}`];
             } else if (/^(|HOT_|FIERY_|BURNING_|INFERNAL_)(AURORA|CRIMSON|TERROR|HOLLOW|FERVOR)(_CHESTPLATE|_LEGGINGS|_BOOTS)$/.test(item.itemId)) {
