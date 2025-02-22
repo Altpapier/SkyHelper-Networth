@@ -17,16 +17,16 @@ npm install skyhelper-networth
 
 ### 📦 Key Classes
 
-- **`NetworthManager`**: Central class for managing networth calculations (singleton pattern)
 - **`ProfileNetworthCalculator`**: Handles networth calculation for player's profile
 - **`GenericItemNetworthCalculator`**: Calculates networth for individual items
+- **`NetworthManager`**: Central class for managing networth calculations (singleton pattern)
 - **`UpdateManager`**: Manages periodic updates for items, prices and calculation itself
 
 ### 📄 Core Interfaces
 
+- **`NetworthOptions`**: Configuration for networth calculations
 - **`NetworthResult`**: Result structure for networth calculations
 - **`Item`**: Detailed representation of an in-game item
-- **`NetworthOptions`**: Configuration for networth calculations
 
 ---
 
@@ -53,36 +53,6 @@ console.log(networth);
 
 ## Class Documentation
 
-### 🧰 NetworthManager
-
-**Manages global configuration and item caching**
-
-#### Constructor
-
-```typescript
-new NetworthManager(options?: NetworthManagerOptions)
-```
-
-| Option            | Type      | Default          | Description                                                                        |
-| ----------------- | --------- | ---------------- | ---------------------------------------------------------------------------------- |
-| `cachePrices`     | `boolean` | `true`           | Whether to cache the prices for time after fetching them or fetch them every time. |
-| `cachePricesTime` | `number`  | `300000` (5m)    | The amount of time to cache the prices in milliseconds.                            |
-| `pricesRetries`   | `number`  | `3`              | The amount of retries to fetch the prices when failing to fetch them.              |
-| `itemsRetries`    | `number`  | `3`              | The amount of retries to fetch the items when failing to fetch them.               |
-| `itemsInterval`   | `number`  | `43200000` (12h) | The interval to fetch the items from the Hypixel API in milliseconds.              |
-| `onlyNetworth`    | `boolean` | `false`          | Whether to only return the total networth or the items as well.                    |
-| `stackItems`      | `boolean` | `true`           | Whether to stack items with the same name and price.                               |
-| `includeItemData` | `boolean` | `false`          | hether to include the item data as a property in the item object.                  |
-
-#### Key Methods
-
-```typescript
-setCachePrices(cache: boolean): void
-setCachePricesTime(time: number): void
-setOnlyNetworth(onlyNetworth: boolean): void
-setIncludeItemData(includeItemData: boolean): void
-```
-
 ---
 
 ### 📊 ProfileNetworthCalculator
@@ -92,11 +62,7 @@ setIncludeItemData(includeItemData: boolean): void
 #### Constructor
 
 ```typescript
-new ProfileNetworthCalculator(
-  profileData: object,
-  museumData?: object,
-  bankBalance?: number
-)
+new ProfileNetworthCalculator(profileData: object, museumData?: object, bankBalance?: number)
 ```
 
 #### Calculation Methods
@@ -111,15 +77,17 @@ getNonCosmeticNetworth(options?: NetworthOptions): Promise<NetworthResult>
 ```typescript
 const networthManager = new ProfileNetworthCalculator(profileData, museumData, bankBalance);
 const networth = await networthManager.getNonCosmeticNetworth({ prices: customPrices });
-
 console.log(networth.types.inventory.total); // Total value of player's inventory
+
+const nonCosmeticNetworth = await networthManager.getNonCosmeticNetworth();
+console.log(nonCosmeticNetworth.networth); // Total value of player's non-cosmetic items
 ```
 
 ---
 
 ### 🔍 GenericItemNetworthCalculator
 
-**Item-specific valuation**
+**Item-specific calculation**
 
 #### Constructor
 
@@ -137,14 +105,41 @@ getNonCosmeticNetworth(options?: NetworthOptions): Promise<Item>
 #### Example
 
 ```typescript
-const itemCalculator = new GenericItemNetworthCalculator(hyperionItem);
-const itemValue = await itemCalculator.getNetworth();
+const itemCalculator = new GenericItemNetworthCalculator(item);
+const itemValue = await itemCalculator.getNetworth({ prices: newPrices });
 console.log(itemValue.price); // Item's calculated value
 ```
 
 ---
 
-## Advanced Features
+### 🧰 NetworthManager
+
+**Manages global configuration and item caching**
+
+#### Constructor
+
+```typescript
+new NetworthManager(options?: NetworthManagerOptions)
+```
+
+#### Configuration Options
+
+##### Each option can be set and obtained using the corresponding `set` and `get` methods.
+
+| Method                 | Property          | Type      | Default          | Description                                                                        |
+| ---------------------- | ----------------- | --------- | ---------------- | ---------------------------------------------------------------------------------- |
+| `setCachePrices()`     | `cachePrices`     | `boolean` | `true`           | Whether to cache the prices for time after fetching them or fetch them every time. |
+| `setPricesRetries()`   | `cachePricesTime` | `number`  | `300000` (5m)    | The amount of time to cache the prices in milliseconds.                            |
+| `setCachePricesTime()` | `pricesRetries`   | `number`  | `3`              | The amount of retries to fetch the prices when failing to fetch them.              |
+| `setItemsRetries()`    | `itemsRetries`    | `number`  | `3`              | The amount of retries to fetch the items when failing to fetch them.               |
+| `setItemsInterval()`   | `itemsInterval`   | `number`  | `43200000` (12h) | The interval to fetch the items from the Hypixel API in milliseconds.              |
+| `setOnlyNetworth()`    | `onlyNetworth`    | `boolean` | `false`          | Whether to only return the total networth or the items as well.                    |
+| `setStackItems()`      | `stackItems`      | `boolean` | `true`           | Whether to stack items with the same name and price.                               |
+| `setIncludeItemData()` | `includeItemData` | `boolean` | `false`          | hether to include the item data as a property in the item object.                  |
+
+---
+
+## Additional Features
 
 ### Price Management
 
@@ -152,7 +147,7 @@ console.log(itemValue.price); // Item's calculated value
 import { getPrices } from 'skyhelper-networth';
 
 // Get latest prices with caching
-const prices = await getPrices(true, 300000); // Cache for 5 minutes
+const prices = await getPrices(true);
 
 // Manual cache refresh
 networthManager.setCachePrices(false);
@@ -170,18 +165,38 @@ updateManager.disable(); // Stop automatic checks
 
 ## Type Definitions
 
+### 📜 NetworthOptions
+
+| Property          | Type      | Default  | Description                                                                        |
+| ----------------- | --------- | -------- | ---------------------------------------------------------------------------------- |
+| `prices`          | `object`  | `Prices` | A prices object that includes item prices.                                         |
+| `cachePrices`     | `boolean` | `true`   | Whether to cache the prices for time after fetching them or fetch them every time. |
+| `pricesRetries`   | `number`  | `3`      | The amount of retries to fetch the prices when failing to fetch them.              |
+| `onlyNetworth`    | `boolean` | `false`  | Whether to only return the total networth or the items as well.                    |
+| `includeItemData` | `boolean` | `false`  | Whether to include the item data as a property in the item object.                 |
+| `stackItems`      | `boolean` | `true`   | Whether to stack items with the same name and price.                               |
+
 ### 📜 NetworthResult
 
 ```typescript
 interface NetworthResult {
   networth: number;
   unsoulboundNetworth: number;
+  noInventory: boolean;
+  isNonCosmetic: boolean;
+  personalBank: number;
   purse: number;
   bank: number;
   types: Record<InventoryType, Inventory>;
 }
 
 type InventoryType = 'armor' | 'equipment' | 'wardrobe' | ...;
+
+type Inventory = {
+    total: number;
+    unsoulboundTotal: number;
+    items: Array<Item>;
+};
 ```
 
 ### 📦 Item Structure
