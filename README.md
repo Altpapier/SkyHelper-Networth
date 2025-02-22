@@ -53,8 +53,6 @@ console.log(networth);
 
 ## Class Documentation
 
----
-
 ### 📊 ProfileNetworthCalculator
 
 **Handles player profile calculations**
