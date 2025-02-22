@@ -104,14 +104,7 @@ class ProfileNetworthCalculator {
     /**
      * Calculates the networth of a profile
      * @param {NetworthOptions} [options] The options for calculating networth.
-     * @param {object} [options.prices] A prices object generated from the getPrices function. If not provided, the prices will be retrieved every time the function is called
-     * @param {boolean} [options.nonCosmetic] Whether to calculate the non-cosmetic networth
-     * @param {boolean} [options.cachePrices] Whether to cache the prices
-     * @param {number} [options.pricesRetries] The number of times to retry fetching prices
-     * @param {boolean} [options.onlyNetworth] Whether to only return the networth values and not the item calculations
-     * @param {boolean} [options.includeItemData] Whether to include item data in the result
-     * @param {boolean} [options.stackItems] Whether to stack items with the same name and price
-     * @returns An object containing the player's networth calculation
+     * @returns {Promise<NetworthResult>} The networth result.
      */
     async #calculate({ prices, nonCosmetic, cachePrices, pricesRetries, cachePricesTime, onlyNetworth, includeItemData, stackItems }) {
         // Set default options
