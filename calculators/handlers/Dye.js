@@ -18,7 +18,7 @@ class DyeHandler {
      * @returns {boolean} Whether the handler applies to the item
      */
     applies(item) {
-        return item.extraAttributes.dye_item;
+        return Boolean(item.extraAttributes.dye_item);
     }
 
     /**
