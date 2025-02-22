@@ -173,22 +173,29 @@ class ProfileNetworthCalculator {
             if (!onlyNetworth && categories[category].items.length > 0) {
                 categories[category].items = categories[category].items.sort((a, b) => b.price - a.price);
 
-                // Stack items with the same name and price
+                // Stack items with the same id and price
                 if (stackItems) {
-                    categories[category].items = categories[category].items
-                        .reduce((r, a) => {
-                            const last = r[r.length - 1];
-                            if (last && last.id === a.id && last.price / last.count === a.price / a.count && !a?.isPet && last.soulbound === a.soulbound) {
-                                last.price += a.price;
-                                last.count += a.count;
-                                last.base = last.base || a.base;
-                                last.calculation = last.calculation || a.calculation;
+                    categories[category].items = categories[category].items.reduce((acc, item) => {
+                        if (!item?.isPet) {
+                            const existing = acc.find(
+                                (existingItem) =>
+                                    existingItem.id === item.id &&
+                                    existingItem.price / existingItem.count === item.price / item.count &&
+                                    existingItem.soulbound === item.soulbound,
+                            );
+                            if (existing) {
+                                existing.price += item.price;
+                                existing.count += item.count;
+                                existing.base = existing.base || item.base;
+                                existing.calculation = existing.calculation || item.calculation;
                             } else {
-                                r.push(a);
+                                acc.push(item);
                             }
-                            return r;
-                        }, [])
-                        .filter((e) => e);
+                        } else {
+                            acc.push(item);
+                        }
+                        return acc;
+                    }, []);
                 }
             }
 
