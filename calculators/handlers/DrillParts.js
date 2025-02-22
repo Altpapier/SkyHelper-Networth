@@ -1,6 +1,6 @@
 const { APPLICATION_WORTH } = require('../../constants/applicationWorth');
 
-const drillPartTypes = ['drill_part_upgrade_module', 'drill_part_fuel_tank', 'drill_part_engine'];
+const DRILL_PART_TYPES = ['drill_part_upgrade_module', 'drill_part_fuel_tank', 'drill_part_engine'];
 
 /**
  * A handler for Drill parts on a drill.
@@ -12,7 +12,7 @@ class DrillPartsHandler {
      * @returns {boolean} Whether the handler applies to the item
      */
     applies(item) {
-        return drillPartTypes.some((type) => Object.keys(item.extraAttributes).includes(type));
+        return DRILL_PART_TYPES.some((type) => Object.keys(item.extraAttributes).includes(type));
     }
 
     /**
@@ -21,7 +21,7 @@ class DrillPartsHandler {
      * @param {object} prices A prices object generated from the getPrices function
      */
     calculate(item, prices) {
-        for (const type of drillPartTypes) {
+        for (const type of DRILL_PART_TYPES) {
             if (item.extraAttributes[type]) {
                 const calculationData = {
                     id: item.extraAttributes[type].toUpperCase(),
