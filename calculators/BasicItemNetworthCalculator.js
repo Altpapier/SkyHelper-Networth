@@ -28,7 +28,6 @@ class BasicItemNetworthCalculator {
             throw new ValidationError('Item id is required');
         }
 
-        console.log(this);
         if (this.amount === undefined) {
             throw new ValidationError('Item amount is required');
         }
