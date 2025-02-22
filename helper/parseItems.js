@@ -43,7 +43,7 @@ const parseItems = async (profileData, museumData) => {
 
     items.storage ??= [];
 
-    if (museumData && museumData.items) {
+    if (museumData && Object.keys(museumData).length > 0 && museumData.items && Object.keys(museumData.items).length > 0) {
         if (Object.values(museumData.items).at(0).items.length && museumData.special.length) {
             items.museum = [
                 ...Object.values(museumData.items)

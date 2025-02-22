@@ -16,7 +16,7 @@ class NetworthManager {
     /**
      * Create a new NetworthManager instance. This class is a singleton and should be accessed through the networthManager instance
      * @param {Object} options - Options for the NetworthManager
-     * @param {boolean | number} [options.cachePrices=true] - Whether to cache the prices for 5 minutes after fetching them or fetch them every time.
+     * @param {boolean | number} [options.cachePrices=true] - Whether to cache the prices for a time after fetching them or fetch them every time.
      * @param {number} [options.cachePricesTime=1000 * 60 * 5] - The amount of time to cache the prices in milliseconds
      * @param {number} [options.pricesRetries=3] - The amount of retries to fetch the prices when failing to fetch them
      * @param {number} [options.itemsRetries=3] - The amount of retries to fetch the items when failing to fetch them
