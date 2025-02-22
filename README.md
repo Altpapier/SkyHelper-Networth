@@ -37,8 +37,9 @@ npm install skyhelper-networth
 ```typescript
 import { ProfileNetworthCalculator } from 'skyhelper-networth';
 
-const profile = // /v2/skyblock/profile: profile.members[uuid]
-const museumData = // /v2/skyblock/museum: museum.members[uuid]
+// Prepare input data
+const profile = // https://api.hypixel.net/#tag/SkyBlock/paths/~1v2~1skyblock~1profile/get - profile.members[uuid]
+const museumData = // https://api.hypixel.net/v2/skyblock/museum - museum.members[uuid]
 const bankBalance = profile.banking.balance;
 const profileData = profile.members[uid];
 
