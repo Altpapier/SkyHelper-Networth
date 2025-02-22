@@ -41,6 +41,8 @@ const parseItems = async (profileData, museumData) => {
         return acc;
     }, {});
 
+    items.storage ??= [];
+
     const specialItems = museumData.special?.map((special) => special.items.data) ?? [];
     const [decodedMuseumItems, decodedSpecialItems] = await Promise.all([
         decodeItemsObject(
