@@ -122,4 +122,4 @@ declare class GenericItemNetworthCalculator {
 
 declare function getPrices(cache?: boolean, cacheTime?: number, retries?: number): Promise<Record<string, number>>;
 
-declare async function parseItems(profileData: object, museumData: object): Promise<object>;
+declare function parseItems(profileData: object, museumData: object): Promise<object>;
