@@ -1,4 +1,4 @@
-const ArtOfPeaceHandler = require('../../calculators/handlers/ArtOfPeace');
+const ArtOfWarHandler = require('../../calculators/handlers/ArtOfWar');
 const { APPLICATION_WORTH } = require('../../constants/applicationWorth');
 const BaseHandlerTest = require('./BaseHandlerTest');
 
@@ -6,19 +6,19 @@ const testCases = [
     {
         description: 'Applies correctly',
         item: {
-            itemId: 'LEATHER_CHESTPLATE',
-            extraAttributes: { artOfPeaceApplied: 1 },
+            itemId: 'IRON_SWORD',
+            extraAttributes: { art_of_war_count: 1 },
             price: 100,
             calculation: [],
         },
-        prices: { THE_ART_OF_PEACE: 50000000 },
+        prices: { THE_ART_OF_WAR: 20000000 },
         shouldApply: true,
-        expectedPriceChange: 50000000 * APPLICATION_WORTH.artOfPeace,
+        expectedPriceChange: 20000000 * APPLICATION_WORTH.artOfWar,
         expectedCalculation: [
             {
-                id: 'THE_ART_OF_PEACE',
-                type: 'THE_ART_OF_PEACE',
-                price: 50000000 * APPLICATION_WORTH.artOfPeace,
+                id: 'THE_ART_OF_WAR',
+                type: 'THE_ART_OF_WAR',
+                price: 20000000 * APPLICATION_WORTH.artOfWar,
                 count: 1,
             },
         ],
@@ -26,7 +26,7 @@ const testCases = [
     {
         description: 'Does not apply',
         item: {
-            itemId: 'LEATHER_CHESTPLATE',
+            itemId: 'IRON_SWORD',
             extraAttributes: {},
             price: 100,
             calculation: [],
@@ -36,4 +36,4 @@ const testCases = [
     },
 ];
 
-new BaseHandlerTest(ArtOfPeaceHandler, testCases).runTests();
+new BaseHandlerTest(ArtOfWarHandler, testCases).runTests();
