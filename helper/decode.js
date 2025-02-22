@@ -7,7 +7,7 @@ async function decodeItems(base64Strings) {
             base64Strings.flat().map(async (item) => {
                 try {
                     if (!item || !item.length) {
-                        return [];
+                        return null;
                     }
 
                     const unzippedData = await new Promise((resolve, reject) =>
@@ -20,16 +20,14 @@ async function decodeItems(base64Strings) {
                     const parsed = nbt.protos.big.parsePacketBuffer('nbt', unzippedData, 0);
                     const simplified = nbt.simplify(parsed.data);
                     return simplified.i;
-                } catch (error) {
-                    console.error(`[SKYHELPER-NETWORTH] decodeItems() | Failed to decode item: ${error}`);
+                } catch {
                     return null;
                 }
             }),
         );
 
         return decodedItems.filter((item) => item !== null);
-    } catch (error) {
-        console.error(`[SKYHELPER-NETWORTH] decodeItems() | Failed to decode items: ${error}`);
+    } catch {
         return [];
     }
 }
@@ -37,9 +35,8 @@ async function decodeItems(base64Strings) {
 async function decodeItemsObject(base64Strings) {
     try {
         const decodedItemsArray = await decodeItems(Object.values(base64Strings));
-        return Object.fromEntries(Object.keys(base64Strings).map((key, idx) => [key, decodedItemsArray[idx]]));
-    } catch (error) {
-        console.error(`[SKYHELPER-NETWORTH] decodeItemsObject() | Failed to decode items object: ${error}`);
+        return Object.fromEntries(Object.keys(base64Strings).map((key, idx) => [key, decodedItemsArray[idx] ?? {}]));
+    } catch {
         return {};
     }
 }
@@ -56,8 +53,7 @@ async function decodeItem(encodedItem) {
         const parsed = nbt.protos.big.parsePacketBuffer('nbt', unzippedData, 0);
         const simplified = nbt.simplify(parsed.data);
         return simplified.i;
-    } catch (error) {
-        console.error(`[SKYHELPER-NETWORTH] decodeItem() | Failed to decode item: ${error}`);
+    } catch {
         return {};
     }
 }

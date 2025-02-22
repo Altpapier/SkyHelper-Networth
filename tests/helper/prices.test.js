@@ -1,7 +1,7 @@
 const { describe, expect, beforeEach, afterEach } = require('@jest/globals');
 const axios = require('axios');
-const { getPrices } = require('../helper/prices');
-const { PricesError } = require('../helper/errors');
+const { getPrices } = require('../../helper/prices');
+const { PricesError } = require('../../helper/errors');
 
 jest.mock('axios');
 
@@ -70,5 +70,21 @@ describe('getPrices', () => {
         expect(result1).toEqual(mockPricesData);
         expect(result2).toEqual(mockPricesData);
         expect(axios.get).toHaveBeenCalledTimes(1);
+    });
+
+    it('should handle error with unknown status code', async () => {
+        const error = new Error('Unknown error');
+        error.response = { status: undefined };
+        axios.get.mockRejectedValueOnce(error);
+
+        await expect(getPrices(false, 2500, 1)).rejects.toThrow('Failed to retrieve prices');
+    });
+
+    it('should throw an error when retries is negative', async () => {
+        const error = new Error('Unknown error');
+        error.response = { status: undefined };
+        axios.get.mockRejectedValueOnce(error);
+
+        await expect(getPrices(true, 2500, -1)).rejects.toThrow(PricesError);
     });
 });

@@ -1,11 +1,16 @@
 function titleCase(str) {
-    const splitStr = str.toLowerCase().replace(/_/g, ' ').split(' ');
-    for (let i = 0; i < splitStr.length; i++) {
-        if (!splitStr[i][0]) continue;
-        splitStr[i] = splitStr[i][0].toUpperCase() + splitStr[i].substr(1);
+    if (!str) return '';
+
+    if (typeof str !== 'string') {
+        return '';
     }
-    str = splitStr.join(' ');
-    return str;
+
+    return str
+        .toLowerCase()
+        .replaceAll('_', ' ')
+        .split(' ')
+        .map((word) => word.charAt(0).toUpperCase() + word.slice(1))
+        .join(' ');
 }
 
 async function sleep(ms) {
