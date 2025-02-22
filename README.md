@@ -90,12 +90,12 @@ Returns the networth of a profile using pre-decoded items (used to save resource
 
 #### Arguments
 
-| Argument    | Description                                                                                                                                                                                                                                                                             |
-| ----------- | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| profileData | The profile player data from the Hypixel API `profile.members[uuid]`                                                                                                                                                                                                                    |
-| items       | Decoded and simplified inventories `{ armor, equipment, wardrobe, inventory, enderchest, storage, accessories, personal_vault, fishing_bag, potion_bag, candy_inventory, carnival_mask_inventory, museum }`, museum is an array of member[uuid].items and member[uuid].special combined |
-| bankBalance | The player's bank balance from the Hypixel API `profile.banking?.balance`                                                                                                                                                                                                               |
-| options     | See table below                                                                                                                                                                                                                                                                         |
+| Argument    | Description                                                                                                                                                                                                                                                                                     |
+| ----------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| profileData | The profile player data from the Hypixel API `profile.members[uuid]`                                                                                                                                                                                                                            |
+| items       | Decoded and simplified inventories `{ armor, equipment, wardrobe, inventory, enderchest, storage, accessories, personal_vault, fishing_bag, potion_bag, candy_inventory, carnival_mask_inventory, quiver, museum }`, museum is an array of member[uuid].items and member[uuid].special combined |
+| bankBalance | The player's bank balance from the Hypixel API `profile.banking?.balance`                                                                                                                                                                                                                       |
+| options     | See table below                                                                                                                                                                                                                                                                                 |
 
 ##### `options`
 

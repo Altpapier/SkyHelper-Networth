@@ -16,7 +16,7 @@ class BasicItemNetworthCalculator {
      */
     constructor({ id, amount }) {
         this.id = id;
-        this.amount = amount;
+        this.amount = amount ?? 0;
         this.skyblockItem = getHypixelItemInformationFromId(this.id) ?? {};
         this.itemName = this.#getItemName();
 

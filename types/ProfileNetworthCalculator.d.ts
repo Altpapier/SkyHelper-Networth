@@ -53,7 +53,8 @@ type Inventories =
     | 'museum'
     | 'sacks'
     | 'essence'
-    | 'pets';
+    | 'pets'
+    | 'quiver';
 
 type Inventory = {
     /**
@@ -70,3 +71,5 @@ type Inventory = {
      */
     items?: Array<Item>;
 };
+
+type Items = Record<Inventories, object[]>;

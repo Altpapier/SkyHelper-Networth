@@ -56,6 +56,7 @@ class ProfileNetworthCalculator {
      *          sacks_bag: [],
      *          candy_inventory: [],
      *          carnival_mask_inventory: [],
+     *          quiver: [],
      *          museum: [],
      *        }} items Pre-parsed inventories, most inventories are just decoded except for sacks, essence, and pets which are parsed specifically as listed above, museum is an array of member[uuid].items and member[uuid].special combined and decoded (see {@link parseItems})
      * @param {number} bankBalance The bank balance of the player from the Hypixel API (profile.banking.balance)
@@ -148,6 +149,8 @@ class ProfileNetworthCalculator {
                     } catch {
                         continue;
                     }
+                } else if (!item.tag?.ExtraAttributes && item.exp === undefined && typeof item.id !== 'string') {
+                    continue;
                 }
 
                 // Instantiate the calculator
@@ -158,9 +161,10 @@ class ProfileNetworthCalculator {
                     : await calculator.getNetworth({ prices, includeItemData });
 
                 // Add the item to the category
-                categories[category].total += result?.price ?? 0;
-                if (!result?.soulbound) categories[category].unsoulboundTotal += result?.price ?? 0;
-                if (!onlyNetworth && result && result?.price) {
+                const price = isNaN(result?.price) ? 0 : result?.price;
+                categories[category].total += price;
+                if (!result?.soulbound) categories[category].unsoulboundTotal += price;
+                if (!onlyNetworth && result && price) {
                     categories[category].items.push(result);
                 }
             }

@@ -14,7 +14,7 @@ class ItemNetworthHelper {
     constructor(itemData) {
         // Extract item properties
         this.itemData = itemData;
-        this.itemName = this.itemData.tag.display.Name.replace(/§[0-9a-fk-or]/gi, '');
+        this.itemName = this.itemData.tag.display.Name.replace(/§[0-9a-fk-or]/gi, '').replace(/%%[^%]+%%/g, '');
         this.extraAttributes = this.itemData.tag.ExtraAttributes ?? {};
         this.itemId = this.extraAttributes.id;
         this.skyblockItem = getHypixelItemInformationFromId(this.itemId) ?? {};
