@@ -103,11 +103,11 @@ declare class ProfileNetworthCalculator {
     fromPreParsed(profileData: object, items: Items, bankBalance: number): ProfileNetworthCalculator;
 }
 
-declare class ItemNetworthCalculator {
+declare class GenericItemNetworthCalculator {
     /**
      * Creates a new instance of ItemNetworthCalculator.
      */
-    constructor(itemData: object);
+    constructor(item: object);
 
     /**
      * Returns the networth of an item.

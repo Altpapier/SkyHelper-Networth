@@ -34,10 +34,19 @@ export type Item = {
      */
     soulbound: boolean;
     /**
+     * Whether the item is cosmetic or not.
+     */
+    cosmetic: boolean;
+    /**
      * The item data of the item.
      * Only included if the includeItemData option is true.
      */
-    item: object;
+    item?: object;
+    /**
+     * The pet data of the item.
+     * Only included if the includeItemData option is true.
+     */
+    petData?: object;
 };
 
 type Calculation = {
