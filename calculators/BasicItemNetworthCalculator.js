@@ -16,7 +16,7 @@ class BasicItemNetworthCalculator {
      */
     constructor({ id, amount }) {
         this.id = id;
-        this.amount = amount;
+        this.amount = amount ?? 0;
         this.skyblockItem = getHypixelItemInformationFromId(this.id) ?? {};
         this.itemName = this.#getItemName();
 
@@ -28,6 +28,7 @@ class BasicItemNetworthCalculator {
             throw new ValidationError('Item id is required');
         }
 
+        console.log(this);
         if (this.amount === undefined) {
             throw new ValidationError('Item amount is required');
         }
