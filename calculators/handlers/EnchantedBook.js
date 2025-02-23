@@ -41,7 +41,9 @@ class EnchantedBookHandler {
                 item.itemName = SPECIAL_ENCHANTMENT_NAMES[name] || titleCase(name.replace(/_/g, ' '));
             }
         }
-        item.price = enchantmentPrice;
+        if (enchantmentPrice) {
+            item.price = enchantmentPrice;
+        }
     }
 }
 

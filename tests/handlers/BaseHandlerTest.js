@@ -8,7 +8,7 @@ class BaseHandlerTest {
 
     runTests() {
         describe(`${this.HandlerClass.name} Tests`, () => {
-            this.testCases.forEach(({ description, item, prices, shouldApply, expectedPriceChange = 0, expectedCalculation = [] }) => {
+            this.testCases.forEach(({ description, item, prices, shouldApply, expectedNewPrice = undefined, expectedPriceChange = 0, expectedCalculation = [] }) => {
                 it(description, () => {
                     const handler = new this.HandlerClass();
 
@@ -22,11 +22,15 @@ class BaseHandlerTest {
                         handler.calculate(item, prices);
                     }
                     assert.deepStrictEqual(item.calculation, expectedCalculation, 'Calculation does not match expected');
-                    assert.strictEqual(
-                        item.price - priceBefore,
-                        expectedPriceChange,
-                        `Expected price to increase by ${expectedPriceChange} but got ${item.price - priceBefore}`,
-                    );
+                    if (expectedNewPrice !== undefined) {
+                        assert.strictEqual(item.price, expectedNewPrice, `Expected price to be set to ${expectedNewPrice} but got ${item.price}`);
+                    } else {
+                        assert.strictEqual(
+                            item.price - priceBefore,
+                            expectedPriceChange,
+                            `Expected price to increase by ${expectedPriceChange} but got ${item.price - priceBefore}`,
+                        );
+                    }
                 });
             });
         });
