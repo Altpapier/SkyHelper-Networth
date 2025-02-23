@@ -10,7 +10,7 @@ class EtherwarpConduitHandler {
      * @returns {boolean} Whether the handler applies to the item
      */
     applies(item) {
-        return item.extraAttributes.ethermerge;
+        return Boolean(item.extraAttributes.ethermerge);
     }
 
     /**
