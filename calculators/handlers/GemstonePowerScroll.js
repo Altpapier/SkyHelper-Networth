@@ -10,7 +10,7 @@ class GemstonePowerScrollHandler {
      * @returns {boolean} Whether the handler applies to the item
      */
     applies(item) {
-        return item.extraAttributes.power_ability_scroll;
+        return Boolean(item.extraAttributes.power_ability_scroll);
     }
 
     /**
