@@ -28,10 +28,12 @@ const parseItems = async (profileData, museumData) => {
     const decodedItems = await decodeItems(entries.map(([_, value]) => value));
 
     const items = entries.reduce((acc, [key, _], idx) => {
-        if (!decodedItems[idx]) return acc;
+        if (!decodedItems[idx]) {
+            acc[key] = [];
+            return acc;
+        }
 
         const filteredItems = decodedItems[idx].filter((item) => item && Object.keys(item).length);
-
         if (key.includes('storage')) {
             acc.storage = (acc.storage || []).concat(filteredItems);
         } else {

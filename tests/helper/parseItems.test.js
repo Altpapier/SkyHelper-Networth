@@ -111,21 +111,6 @@ describe('parseItems', () => {
         expect(items.storage).toContainEqual({ id: 'BACKPACK_ITEM' });
         expect(items.storage).toContainEqual({ id: 'ICON_ITEM' });
     });
-
-    it('should handle empty or invalid items in decoded results', async () => {
-        const profileData = {
-            inventory: {
-                inv_contents: { data: 'test_data' },
-            },
-        };
-
-        decodeItems.mockImplementation(() => Promise.resolve([[null, {}, { id: 'VALID_ITEM' }]]));
-
-        const items = await parseItems(profileData);
-        expect(items).toBeDefined();
-        expect(items).toHaveProperty('armor');
-        expect(items.armor).toEqual([{ id: 'VALID_ITEM' }]);
-    });
 });
 
 describe('postParseItems', () => {

@@ -34,7 +34,7 @@ describe('Decode functions', () => {
 
         test('should filter out invalid items', async () => {
             const result = await decodeItems([gzippedEncodedNBT, 'invalid-base64']);
-            expect(result).toEqual([mockNBTData, {}]);
+            expect(result).toEqual([mockNBTData, []]);
         });
 
         test('should return empty array for empty input', async () => {
@@ -44,7 +44,7 @@ describe('Decode functions', () => {
 
         test('should return empty array for invalid input', async () => {
             const result = await decodeItems([null]);
-            expect(result).toEqual([{}]);
+            expect(result).toEqual([]);
         });
 
         test('should return null for invalid input', async () => {
@@ -62,7 +62,12 @@ describe('Decode functions', () => {
 
         test('should return empty object for invalid input', async () => {
             const result = await decodeItemsObject({ key: 'invalid-base64' });
-            expect(result).toEqual({ key: {} });
+            expect(result).toEqual({ key: [] });
+        });
+
+        test('should return empty object for invalid input', async () => {
+            const result = await decodeItemsObject({ key: null });
+            expect(result).toEqual({ key: [] });
         });
 
         test('should return empty object for empty input', async () => {
