@@ -12,74 +12,29 @@ describe('parseItems', () => {
     });
 
     it('should parse empty profile data', async () => {
-        const profileData = { inventory: {} };
+        const profileData = {};
         const items = await parseItems(profileData);
 
-        expect(items).toHaveProperty('storage', []);
-        expect(items).toHaveProperty('museum', []);
-    });
-
-    it('should parse museum data', async () => {
-        const mockMuseumItem = { id: 'MUSEUM_ITEM' };
-        decodeItemsObject.mockResolvedValue({ test: [mockMuseumItem] });
-
-        const museumData = {
-            items: {
-                test: {
-                    items: { data: 'test' },
-                    borrowing: false,
-                },
-            },
-            special: [],
-        };
-
-        const items = await parseItems({}, museumData);
-        expect(items.museum).toEqual([mockMuseumItem]);
-    });
-
-    it('should merge multiple museum sources correctly', async () => {
-        const mockRegularItem = { id: 'REGULAR_MUSEUM_ITEM' };
-        const mockSpecialItem = { id: 'SPECIAL_MUSEUM_ITEM' };
-
-        decodeItemsObject.mockResolvedValue({ test: [mockRegularItem] });
-        decodeItems.mockResolvedValue([[mockSpecialItem]]);
-
-        const museumData = {
-            items: {
-                test: {
-                    items: { data: 'regular_item_data' },
-                    borrowing: false,
-                },
-            },
-            special: [
-                {
-                    items: { data: 'special_item_data' },
-                },
-            ],
-        };
-
-        const items = await parseItems({}, museumData);
-        expect(items.museum).toContain(mockRegularItem);
-        expect(items.museum).toContain(mockSpecialItem);
-    });
-
-    it('should handle museum data with existing items array', async () => {
-        const museumData = {
-            items: {
-                test: {
-                    items: [{ id: 'DIRECT_ITEM' }],
-                    borrowing: false,
-                },
-            },
-            special: [
-                {
-                    items: [{ id: 'DIRECT_SPECIAL_ITEM' }],
-                },
-            ],
-        };
-
-        const items = await parseItems({}, museumData);
-        expect(items.museum).toEqual([{ id: 'DIRECT_ITEM' }, { id: 'DIRECT_SPECIAL_ITEM' }]);
+        expect(items).toEqual({
+            armor: [],
+            equipment: [],
+            wardrobe: [],
+            inventory: [],
+            enderchest: [],
+            accessories: [],
+            personal_vault: [],
+            fishing_bag: [],
+            potion_bag: [],
+            sacks_bag: [],
+            candy_inventory: [],
+            carnival_mask_inventory: [],
+            quiver: [],
+            storage: [],
+            museum: [],
+            sacks: [],
+            essence: [],
+            pets: [],
+        });
     });
 
     it('should handle backpack contents and icons', async () => {
@@ -174,7 +129,7 @@ describe('postParseItems', () => {
     });
 
     it('should process pets data', async () => {
-        const pet = { name: 'Test Pet', type: 'DOG' };
+        const pet = { name: 'Wolf', type: 'WOLF' };
         const profileData = {
             pets_data: {
                 pets: [pet],

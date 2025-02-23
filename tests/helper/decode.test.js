@@ -20,8 +20,13 @@ describe('Decode functions', () => {
             expect(result).toEqual(mockNBTData);
         });
 
-        test('should return empty object for invalid input', async () => {
+        test('should return empty object for invalid input (invalid base64)', async () => {
             const result = await decodeItem('invalid-base64');
+            expect(result).toEqual({});
+        });
+
+        test('should return empty object for invalid input (null)', async () => {
+            const result = await decodeItem(null);
             expect(result).toEqual({});
         });
     });
@@ -47,8 +52,18 @@ describe('Decode functions', () => {
             expect(result).toEqual([]);
         });
 
-        test('should return null for invalid input', async () => {
+        test('should return null for invalid input (null', async () => {
             const result = await decodeItems(null);
+            expect(result).toEqual([]);
+        });
+
+        test('should return null for invalid input (empty string)', async () => {
+            const result = await decodeItems('');
+            expect(result).toEqual([]);
+        });
+
+        test('should return null for invalid input (nothing)', async () => {
+            const result = await decodeItems();
             expect(result).toEqual([]);
         });
     });
@@ -60,12 +75,12 @@ describe('Decode functions', () => {
             expect(result).toEqual({ key: mockNBTData });
         });
 
-        test('should return empty object for invalid input', async () => {
+        test('should return empty object for invalid input (invalid base54)', async () => {
             const result = await decodeItemsObject({ key: 'invalid-base64' });
             expect(result).toEqual({ key: [] });
         });
 
-        test('should return empty object for invalid input', async () => {
+        test('should return empty object for invalid input (null)', async () => {
             const result = await decodeItemsObject({ key: null });
             expect(result).toEqual({ key: [] });
         });
