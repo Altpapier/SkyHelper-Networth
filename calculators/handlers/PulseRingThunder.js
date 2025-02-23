@@ -1,5 +1,7 @@
 const { APPLICATION_WORTH } = require('../../constants/applicationWorth');
 
+const MAX_THUNDER_CHARGE = 5000000;
+
 /**
  * A handler for Thunder In A Bottle modifier on a Pulse Ring.
  */
@@ -10,7 +12,7 @@ class PulseRingThunderHandler {
      * @returns {boolean} Whether the handler applies to the item
      */
     applies(item) {
-        return item.itemId === 'PULSE_RING' && item.extraAttributes.thunder_charge;
+        return item.itemId === 'PULSE_RING' && item.extraAttributes.thunder_charge > 0;
     }
 
     /**
@@ -19,7 +21,7 @@ class PulseRingThunderHandler {
      * @param {object} prices A prices object generated from the getPrices function
      */
     calculate(item, prices) {
-        const thunderUpgrades = Math.floor(item.extraAttributes.thunder_charge / 50_000);
+        const thunderUpgrades = Math.floor(Math.min(item.extraAttributes.thunder_charge, MAX_THUNDER_CHARGE) / 50_000);
         const calculationData = {
             id: 'THUNDER_IN_A_BOTTLE',
             type: 'THUNDER_CHARGE',
