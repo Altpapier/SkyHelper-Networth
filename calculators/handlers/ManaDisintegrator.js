@@ -10,7 +10,7 @@ class ManaDisintegratorHandler {
      * @returns {boolean} Whether the handler applies to the item
      */
     applies(item) {
-        return item.extraAttributes.mana_disintegrator_count;
+        return item.extraAttributes.mana_disintegrator_count > 0;
     }
 
     /**
