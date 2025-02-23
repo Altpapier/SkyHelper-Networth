@@ -6,14 +6,23 @@ const { MASTER_STARS } = require('../../constants/misc');
  */
 class MasterStarsHandler {
     /**
+     * Get the item's upgrade level
+     * @param {object} item The item data
+     * @returns {number} The upgrade level of the item
+     */
+    #getUpgradeLevel(item) {
+        const dungeonItemLevel = parseInt((item.extraAttributes.dungeon_item_level ?? 0).toString().replace(/\D/g, ''));
+        const upgradeLevel = parseInt((item.extraAttributes.upgrade_level ?? 0).toString().replace(/\D/g, ''));
+        return Math.max(dungeonItemLevel, upgradeLevel);
+    }
+
+    /**
      * Checks if the handler applies to the item
      * @param {object} item The item data
      * @returns {boolean} Whether the handler applies to the item
      */
     applies(item) {
-        const dungeonItemLevel = parseInt((item.extraAttributes.dungeon_item_level ?? 0).toString().replace(/\D/g, ''));
-        const upgradeLevel = parseInt((item.extraAttributes.upgrade_level ?? 0).toString().replace(/\D/g, ''));
-        return item.skyblockItem?.upgrade_costs && (dungeonItemLevel > 5 || upgradeLevel > 5);
+        return item.skyblockItem?.upgrade_costs && this.#getUpgradeLevel(item) > 5;
     }
 
     /**
@@ -22,11 +31,7 @@ class MasterStarsHandler {
      * @param {object} prices A prices object generated from the getPrices function
      */
     calculate(item, prices) {
-        const dungeonItemLevel = parseInt((item.extraAttributes.dungeon_item_level ?? 0).toString().replace(/\D/g, ''));
-        const upgradeLevel = parseInt((item.extraAttributes.upgrade_level ?? 0).toString().replace(/\D/g, ''));
-        const starsUsedDungeons = dungeonItemLevel - 5;
-        const starsUsedUpgrade = (upgradeLevel ?? 0) - 5;
-        const starsUsed = Math.max(starsUsedDungeons, starsUsedUpgrade);
+        const starsUsed = Math.min(this.#getUpgradeLevel(item) - 5, 5);
 
         if (item.skyblockItem.upgrade_costs.length <= 5) {
             for (const star of Array(starsUsed).keys()) {
