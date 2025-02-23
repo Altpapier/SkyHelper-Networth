@@ -1,5 +1,5 @@
 /**
- * A handler for god roll attributes on an item.
+ * A handler for the attribute roll on an item.
  */
 class AttributeRollHandler {
     /**
@@ -8,7 +8,7 @@ class AttributeRollHandler {
      * @returns {boolean} Whether the handler applies to the item
      */
     applies(item) {
-        return item.itemId !== 'ATTRIBUTE_SHARD' && item.extraAttributes.attributes;
+        return item.itemId !== 'ATTRIBUTE_SHARD' && Object.keys(item.extraAttributes.attributes ?? {}).length > 0;
     }
 
     /**
@@ -19,15 +19,15 @@ class AttributeRollHandler {
     calculate(item, prices) {
         const sortedAttributes = Object.keys(item.extraAttributes.attributes).sort((a, b) => a.toUpperCase().localeCompare(b.toUpperCase()));
         const formattedId = item.itemId.replace(/(HOT_|FIERY_|BURNING_|INFERNAL_)/g, '');
-        const godRollId = `${formattedId}${sortedAttributes.map((attribute) => `_ROLL_${attribute.toUpperCase()}`).join('')}`;
-        const godRollPrice = prices[godRollId];
-        if (godRollPrice > item.price) {
-            item.price = godRollPrice;
-            item.base = godRollPrice;
+        const attributeRollId = `${formattedId}${sortedAttributes.map((attribute) => `_ROLL_${attribute.toUpperCase()}`).join('')}`;
+        const attributeRollPrice = prices[attributeRollId];
+        if (attributeRollPrice > item.price) {
+            item.price = attributeRollPrice;
+            item.base = attributeRollPrice;
             item.calculation.push({
-                id: godRollId.slice(formattedId.length + 1),
+                id: attributeRollId.slice(formattedId.length + 1),
                 type: 'GOD_ROLL',
-                price: godRollPrice,
+                price: attributeRollPrice,
                 count: 1,
             });
         }
