@@ -10,7 +10,7 @@ class FarmingForDummiesHandler {
      * @returns {boolean} Whether the handler applies to the item
      */
     applies(item) {
-        return item.extraAttributes.farming_for_dummies_count;
+        return item.extraAttributes.farming_for_dummies_count > 0;
     }
 
     /**
