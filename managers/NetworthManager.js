@@ -138,7 +138,7 @@ class NetworthManager {
      * @param {number} [retryInterval = 1000] The interval in milliseconds to fetch the items from the Hypixel API when failing to fetch them
      * @param {number} [currentRetry = 0] The current retry count
      */
-    async wupdateItems(retries = 3, retryInterval = 1000, currentRetry = 0) {
+    async updateItems(retries = 3, retryInterval = 1000, currentRetry = 0) {
         try {
             const response = await axios.get('https://api.hypixel.net/v2/resources/skyblock/items', {
                 timeout: 5000,
