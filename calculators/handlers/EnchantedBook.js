@@ -31,7 +31,7 @@ class EnchantedBookHandler {
             const calculationData = {
                 id: `${name}_${value}`.toUpperCase(),
                 type: 'ENCHANT',
-                price: price * (isSingleEnchantBook ? 1 : APPLICATION_WORTH.enchants),
+                price: price * (isSingleEnchantBook ? 1 : APPLICATION_WORTH.enchantments),
                 count: 1,
             };
             enchantmentPrice += calculationData.price;

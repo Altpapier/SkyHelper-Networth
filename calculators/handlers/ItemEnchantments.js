@@ -67,11 +67,10 @@ class ItemEnchantmentsHandler {
                 item.price += calculationData.price;
                 item.calculation.push(calculationData);
             }
-
             const calculationData = {
                 id: `${name}_${value}`,
                 type: 'ENCHANTMENT',
-                price: (prices[`ENCHANTMENT_${name}_${value}`] ?? 0) * (ENCHANTMENTS_WORTH[name] || APPLICATION_WORTH.enchants),
+                price: (prices[`ENCHANTMENT_${name}_${value}`] ?? 0) * (ENCHANTMENTS_WORTH[name] || APPLICATION_WORTH.enchantments),
                 count: 1,
             };
             if (calculationData.price) {

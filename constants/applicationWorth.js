@@ -19,7 +19,7 @@ const APPLICATION_WORTH = {
     manaDisintegrator: 0.8,
     recombobulator: 0.8,
     thunderInABottle: 0.8,
-    enchants: 0.85,
+    enchantments: 0.85,
     shensAuctionPrice: 0.85,
     dye: 0.9,
     gemstoneChambers: 0.9,

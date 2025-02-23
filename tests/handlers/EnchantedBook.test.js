@@ -33,18 +33,18 @@ const testCases = [
         },
         prices: { ENCHANTMENT_ULTIMATE_LEGION_7: 50000000, ENCHANTMENT_SMITE_7: 4000000 },
         shouldApply: true,
-        expectedNewPrice: 50000000 * APPLICATION_WORTH.enchants + 4000000 * APPLICATION_WORTH.enchants,
+        expectedNewPrice: 50000000 * APPLICATION_WORTH.enchantments + 4000000 * APPLICATION_WORTH.enchantments,
         expectedCalculation: [
             {
                 id: 'ULTIMATE_LEGION_7',
                 type: 'ENCHANT',
-                price: 50000000 * APPLICATION_WORTH.enchants,
+                price: 50000000 * APPLICATION_WORTH.enchantments,
                 count: 1,
             },
             {
                 id: 'SMITE_7',
                 type: 'ENCHANT',
-                price: 4000000 * APPLICATION_WORTH.enchants,
+                price: 4000000 * APPLICATION_WORTH.enchantments,
                 count: 1,
             },
         ],
