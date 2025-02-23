@@ -2,7 +2,7 @@ const HotPotatoBookHandler = require('../handlers/HotPotatoBook');
 const RecombobulatorHandler = require('../handlers/Recombobulator');
 const PickonimbusHandler = require('../handlers/Pickonimbus');
 const PrestigeHandler = require('../handlers/Prestige');
-const GodRollAttributesHandler = require('../handlers/GodRollAttributes');
+const AttributeRollHandler = require('../handlers/AttributeRoll');
 const ShensAuctionHandler = require('../handlers/ShensAuction');
 const MidasWeaponsHandler = require('../handlers/MidasWeapon');
 const EnchantedBookHandler = require('../handlers/EnchantedBook');
@@ -35,7 +35,7 @@ const NewYearCakeBagHandler = require('../handlers/NewYearCakeBag');
 // For each handler, check if it applies and add the calculation to the total price
 const handlers = [
     PickonimbusHandler,
-    GodRollAttributesHandler,
+    AttributeRollHandler,
     PrestigeHandler,
     ShensAuctionHandler,
     MidasWeaponsHandler,

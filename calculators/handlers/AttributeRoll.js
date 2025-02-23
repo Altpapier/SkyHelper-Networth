@@ -1,7 +1,7 @@
 /**
  * A handler for god roll attributes on an item.
  */
-class GodRollAttributesHandler {
+class AttributeRollHandler {
     /**
      * Checks if the handler applies to the item
      * @param {object} item The item data
@@ -34,4 +34,4 @@ class GodRollAttributesHandler {
     }
 }
 
-module.exports = GodRollAttributesHandler;
+module.exports = AttributeRollHandler;
