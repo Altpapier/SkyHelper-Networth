@@ -201,11 +201,11 @@ describe('SkyBlockItemNetworthHelper', () => {
                     display: { Name: 'Unique Rune' },
                     ExtraAttributes: {
                         id: 'UNIQUE_RUNE',
-                        runes: { MUSIC: 4 },
+                        runes: { MUSIC: 3 },
                     },
                 },
             });
-            expect(helper.getItemId({})).toBe('RUNE_MUSIC_4');
+            expect(helper.getItemId({})).toBe('RUNE_MUSIC_3');
         });
 
         test('should handle new year cake', () => {
