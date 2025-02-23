@@ -4,7 +4,7 @@ const { BLOCKED_ENCHANTMENTS, IGNORED_ENCHANTMENTS, STACKING_ENCHANTMENTS, IGNOR
 /**
  * A handler for the enchantments on an item.
  */
-class ItemEnchantmentHandler {
+class ItemEnchantmentsHandler {
     /**
      * Checks if the handler applies to the item
      * @param {object} item The item data
@@ -70,7 +70,7 @@ class ItemEnchantmentHandler {
 
             const calculationData = {
                 id: `${name}_${value}`,
-                type: 'ENCHANT',
+                type: 'ENCHANTMENT',
                 price: (prices[`ENCHANTMENT_${name}_${value}`] ?? 0) * (ENCHANTMENTS_WORTH[name] || APPLICATION_WORTH.enchants),
                 count: 1,
             };
@@ -82,4 +82,4 @@ class ItemEnchantmentHandler {
     }
 }
 
-module.exports = ItemEnchantmentHandler;
+module.exports = ItemEnchantmentsHandler;

@@ -6,7 +6,7 @@ const AttributeRollHandler = require('../handlers/AttributeRoll');
 const ShensAuctionHandler = require('../handlers/ShensAuction');
 const MidasWeaponsHandler = require('../handlers/MidasWeapon');
 const EnchantedBookHandler = require('../handlers/EnchantedBook');
-const ItemEnchantmentHandler = require('../handlers/ItemEnchantments');
+const ItemEnchantmentsHandler = require('../handlers/ItemEnchantments');
 const AttributesHandler = require('../handlers/Attributes');
 const PocketSackInASackHandler = require('../handlers/PocketSackInASack');
 const WoodSingularityHandler = require('../handlers/WoodSingularity');
@@ -40,7 +40,7 @@ const handlers = [
     ShensAuctionHandler,
     MidasWeaponsHandler,
     EnchantedBookHandler,
-    ItemEnchantmentHandler,
+    ItemEnchantmentsHandler,
     AttributesHandler,
     PocketSackInASackHandler,
     WoodSingularityHandler,
