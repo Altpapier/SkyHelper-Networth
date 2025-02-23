@@ -27,6 +27,7 @@ class GemstonesHandler {
             unlockedSlots = item.extraAttributes.gems.unlockedSlots;
             gems = item.extraAttributes.gems.gems;
         } else {
+            // https://github.com/HypixelDev/PublicAPI/discussions/549
             const extraAttributesGems = JSON.parse(JSON.stringify(item.extraAttributes.gems));
             item.skyblockItem.gemstone_slots.forEach((slot) => {
                 if (slot.costs && extraAttributesGems.unlocked_slots) {
