@@ -1,4 +1,4 @@
-const FarmingForDummiesHandler = require('../../calculators/handlers/FarmingForDummies');
+const PotatoBooksHandler = require('../../calculators/handlers/PotatoBooks');
 const { APPLICATION_WORTH } = require('../../constants/applicationWorth');
 const BaseHandlerTest = require('./BaseHandlerTest');
 
@@ -36,16 +36,16 @@ const testCases = [
         expectedPriceChange: 10 * 80000 * APPLICATION_WORTH.hotPotatoBook + 5 * 1400000 * APPLICATION_WORTH.fumingPotatoBook,
         expectedCalculation: [
             {
-                id: 'HOT_POTATO_BOOK',
-                type: 'HOT_POTATO_BOOK',
-                price: 10 * 80000 * APPLICATION_WORTH.hotPotatoBook,
-                count: 10,
-            },
-            {
                 id: 'FUMING_POTATO_BOOK',
                 type: 'FUMING_POTATO_BOOK',
                 price: 5 * 1400000 * APPLICATION_WORTH.fumingPotatoBook,
                 count: 5,
+            },
+            {
+                id: 'HOT_POTATO_BOOK',
+                type: 'HOT_POTATO_BOOK',
+                price: 10 * 80000 * APPLICATION_WORTH.hotPotatoBook,
+                count: 10,
             },
         ],
     },
@@ -62,4 +62,4 @@ const testCases = [
     },
 ];
 
-new BaseHandlerTest(FarmingForDummiesHandler, testCases).runTests();
+new BaseHandlerTest(PotatoBooksHandler, testCases).runTests();

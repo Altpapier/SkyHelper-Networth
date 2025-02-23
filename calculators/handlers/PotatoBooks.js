@@ -19,7 +19,7 @@ class HotPotatoBookHandler {
      * @param {object} prices A prices object generated from the getPrices function
      */
     calculate(item, prices) {
-        const potatoBookCount = Number(item.itemData.tag.ExtraAttributes.hot_potato_count);
+        const potatoBookCount = Number(item.extraAttributes.hot_potato_count);
         const hotPotatoBookCount = Math.min(potatoBookCount, 10);
 
         const calculationData = {

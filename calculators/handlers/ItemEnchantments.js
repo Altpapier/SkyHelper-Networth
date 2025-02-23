@@ -11,7 +11,7 @@ class ItemEnchantmentHandler {
      * @returns {boolean} Whether the handler applies to the item
      */
     applies(item) {
-        return item.itemId !== 'ENCHANTED_BOOK' && item.extraAttributes.enchantments;
+        return item.itemId !== 'ENCHANTED_BOOK' && Object.keys(item.extraAttributes.enchantments);
     }
 
     /**
