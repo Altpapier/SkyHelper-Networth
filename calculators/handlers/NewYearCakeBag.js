@@ -8,7 +8,7 @@ class NewYearCakeBagHandler {
      * @returns {boolean} Whether the handler applies to the item
      */
     applies(item) {
-        return item.extraAttributes.new_year_cake_bag_years;
+        return item.extraAttributes.new_year_cake_bag_years?.length > 0;
     }
 
     /**
