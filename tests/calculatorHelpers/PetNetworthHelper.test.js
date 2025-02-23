@@ -30,11 +30,11 @@ describe('PetNetworthHelper', () => {
             expect(helper.getTier()).toBe('LEGENDARY');
         });
 
-        test('should return lower tier if tier boost present', () => {
+        test('should return higher tier if tier boost present', () => {
             const petWithBoost = { ...mockPetData, heldItem: 'PET_ITEM_TIER_BOOST' };
             const helper = new PetNetworthHelper(petWithBoost);
             expect(helper.getTier()).not.toBe('LEGENDARY');
-            expect(helper.getTier()).toBe('EPIC');
+            expect(helper.getTier()).toBe('MYTHIC');
         });
     });
 

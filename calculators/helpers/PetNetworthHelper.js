@@ -1,4 +1,4 @@
-const { TIERS, SOULBOUND_PETS, RECOMB_PET_ITEMS, SPECIAL_LEVELS, RARITY_OFFSET, LEVELS, CUSTOM_PET_NAMES } = require('../../constants/pets');
+const { TIERS, SOULBOUND_PETS, SPECIAL_LEVELS, RARITY_OFFSET, LEVELS, CUSTOM_PET_NAMES } = require('../../constants/pets');
 const { ValidationError } = require('../../helper/errors');
 const { titleCase } = require('../../helper/functions');
 
@@ -51,7 +51,7 @@ class PetNetworthHelper {
      * @returns {string} The pet's tier
      */
     getTier() {
-        return this.petData.heldItem === 'PET_ITEM_TIER_BOOST' ? TIERS[TIERS.indexOf(this.petData.tier) - 1] : this.petData.tier;
+        return this.petData.heldItem === 'PET_ITEM_TIER_BOOST' ? TIERS[TIERS.indexOf(this.petData.tier) + 1] : this.petData.tier;
     }
 
     /**
@@ -145,9 +145,8 @@ class PetNetworthHelper {
      * @returns {object} The pet level
      */
     getPetLevel() {
-        const levelingTier = RECOMB_PET_ITEMS.includes(this.petData.heldItem) ? TIERS[TIERS.indexOf(this.petData.tier) + 1] : this.petData.tier;
         const maxPetLevel = SPECIAL_LEVELS[this.petData.type] ? SPECIAL_LEVELS[this.petData.type] : 100;
-        const petOffset = RARITY_OFFSET[this.petData.type === 'BINGO' ? 'COMMON' : levelingTier];
+        const petOffset = RARITY_OFFSET[this.petData.type === 'BINGO' ? 'COMMON' : this.tier];
         const petLEVELS = LEVELS.slice(petOffset, petOffset + maxPetLevel - 1);
 
         let level = 1,
