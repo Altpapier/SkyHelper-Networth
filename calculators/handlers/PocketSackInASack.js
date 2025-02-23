@@ -10,7 +10,7 @@ class PocketSackInASackHandler {
      * @returns {boolean} Whether the handler applies to the item
      */
     applies(item) {
-        return item.extraAttributes.sack_pss;
+        return item.extraAttributes.sack_pss > 0;
     }
 
     /**
