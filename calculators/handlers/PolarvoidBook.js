@@ -10,7 +10,7 @@ class PolarvoidBookHandler {
      * @returns {boolean} Whether the handler applies to the item
      */
     applies(item) {
-        return item.extraAttributes.polarvoid;
+        return item.extraAttributes.polarvoid > 0;
     }
 
     /**
@@ -22,7 +22,7 @@ class PolarvoidBookHandler {
         const calculationData = {
             id: 'POLARVOID_BOOK',
             type: 'POLARVOID_BOOK',
-            price: (prices['POLARVOID_BOOK'] ?? 0) * item.extraAttributes.polarvoid * APPLICATION_WORTH.polarvoid,
+            price: (prices['POLARVOID_BOOK'] ?? 0) * item.extraAttributes.polarvoid * APPLICATION_WORTH.polarvoidBook,
             count: item.extraAttributes.polarvoid,
         };
         item.price += calculationData.price;
