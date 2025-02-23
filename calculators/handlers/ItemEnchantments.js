@@ -29,7 +29,7 @@ class ItemEnchantmentsHandler {
             if (STACKING_ENCHANTMENTS.includes(name)) value = 1;
 
             // SILEX
-            if (name === 'EFFICIENCY' && value > 5 && !IGNORE_SILEX.includes(item.itemId)) {
+            if (name === 'EFFICIENCY' && value >= 6 && !IGNORE_SILEX.includes(item.itemId)) {
                 const efficiencyLevel = value - (item.itemId === 'STONK_PICKAXE' ? 6 : 5);
 
                 if (efficiencyLevel > 0) {
@@ -57,7 +57,7 @@ class ItemEnchantmentsHandler {
             }
 
             // A Beginner's Guide To Pesthunting
-            if (name === 'pesterminator' && value >= 6) {
+            if (name === 'PESTERMINATOR' && value >= 6) {
                 const calculationData = {
                     id: 'PESTHUNTING_GUIDE',
                     type: 'PESTHUNTING_GUIDE',
@@ -67,6 +67,7 @@ class ItemEnchantmentsHandler {
                 item.price += calculationData.price;
                 item.calculation.push(calculationData);
             }
+
             const calculationData = {
                 id: `${name}_${value}`,
                 type: 'ENCHANTMENT',
