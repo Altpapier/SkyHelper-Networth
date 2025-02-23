@@ -1,4 +1,4 @@
-const HotPotatoBookHandler = require('../handlers/HotPotatoBook');
+const PotatoBooksHandler = require('../handlers/PotatoBooks');
 const RecombobulatorHandler = require('../handlers/Recombobulator');
 const PickonimbusHandler = require('../handlers/Pickonimbus');
 const PrestigeHandler = require('../handlers/Prestige');
@@ -49,7 +49,7 @@ const handlers = [
     ManaDisintegratorHandler,
     PulseRingThunderHandler,
     RuneHandler,
-    HotPotatoBookHandler,
+    PotatoBooksHandler,
     DyeHandler,
     ArtOfWarHandler,
     ArtOfPeaceHandler,

@@ -1,7 +1,7 @@
 const { APPLICATION_WORTH } = require('../../constants/applicationWorth');
 
 /**
- * A handler for the Hot Potato Book modifier on an item
+ * A handler for the Potato Books modifier on an item
  */
 class HotPotatoBookHandler {
     /**
@@ -10,7 +10,7 @@ class HotPotatoBookHandler {
      * @returns {boolean} Whether the handler applies to the item
      */
     applies(item) {
-        return item.extraAttributes.hot_potato_count;
+        return item.extraAttributes.hot_potato_count > 0;
     }
 
     /**
