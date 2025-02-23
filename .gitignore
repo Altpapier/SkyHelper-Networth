@@ -1,5 +1,6 @@
 /node_modules
 /testing
+/coverage
 .prettierrc.json
 .itemsBackup.json
 pnpm-lock.yaml

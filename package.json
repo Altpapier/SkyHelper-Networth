@@ -6,6 +6,7 @@
     "types": "index.d.ts",
     "scripts": {
         "test": "npx jest --detectOpenHandles",
+        "coverage": "npx jest --coverage",
         "lint": "npx eslint .",
         "prettier": "npx prettier --check .",
         "prettier:fix": "npx prettier --write ."
