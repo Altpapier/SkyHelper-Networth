@@ -18,14 +18,13 @@ class AttributeRollHandler {
      */
     calculate(item, prices) {
         const sortedAttributes = Object.keys(item.extraAttributes.attributes).sort((a, b) => a.toUpperCase().localeCompare(b.toUpperCase()));
-        const formattedId = item.itemId.replace(/(HOT_|FIERY_|BURNING_|INFERNAL_)/g, '');
-        const attributeRollId = `${formattedId}${sortedAttributes.map((attribute) => `_ROLL_${attribute.toUpperCase()}`).join('')}`;
+        const attributeRollId = `${item.itemId}${sortedAttributes.map((attribute) => `_ROLL_${attribute.toUpperCase()}`).join('')}`;
         const attributeRollPrice = prices[attributeRollId];
         if (attributeRollPrice > item.price) {
             item.price = attributeRollPrice;
             item.base = attributeRollPrice;
             item.calculation.push({
-                id: attributeRollId.slice(formattedId.length + 1),
+                id: attributeRollId.slice(item.itemId.length + 1),
                 type: 'ATTRIBUTE_ROLL',
                 price: attributeRollPrice,
                 count: 1,
