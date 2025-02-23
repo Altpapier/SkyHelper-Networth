@@ -7,7 +7,7 @@ async function decodeItems(base64Strings) {
             base64Strings.flat().map(async (item) => {
                 try {
                     if (!item || !item.length) {
-                        return null;
+                        return {};
                     }
 
                     const unzippedData = await new Promise((resolve, reject) =>
@@ -21,7 +21,7 @@ async function decodeItems(base64Strings) {
                     const simplified = nbt.simplify(parsed.data);
                     return simplified.i;
                 } catch {
-                    return null;
+                    return {};
                 }
             }),
         );
