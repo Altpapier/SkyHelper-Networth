@@ -80,21 +80,18 @@ const parseItems = async (profileData, museumData) => {
 const postParseItems = async (profileData, items) => {
     // Parse Cake Bags - Process all items in a single loop
     const processCakeBags = async (items) => {
-        const promises = [];
         for (const categoryItems of Object.values(items)) {
             for (const item of categoryItems) {
-                if (item?.tag?.ExtraAttributes?.new_year_cake_bag_data) {
-                    promises.push(
-                        decodeItem(item.tag.ExtraAttributes.new_year_cake_bag_data).then((cakes) => {
-                            item.tag.ExtraAttributes.new_year_cake_bag_years = cakes
-                                .filter((cake) => cake.id && cake.tag?.ExtraAttributes?.new_years_cake)
-                                .map((cake) => cake.tag.ExtraAttributes.new_years_cake);
-                        }),
-                    );
+                if (!item?.tag?.ExtraAttributes?.new_year_cake_bag_data) {
+                    continue;
                 }
+
+                const cakeBagData = await decodeItem(Buffer.from(item.tag.ExtraAttributes.new_year_cake_bag_data, 'base64'));
+                item.tag.ExtraAttributes.new_year_cake_bag_years = cakeBagData
+                    .filter((cake) => cake.id && cake.tag?.ExtraAttributes?.new_years_cake)
+                    .map((cake) => cake.tag.ExtraAttributes.new_years_cake);
             }
         }
-        await Promise.all(promises);
     };
 
     await Promise.all([
@@ -109,10 +106,12 @@ const postParseItems = async (profileData, items) => {
         })(),
         (() => {
             items.essence = profileData.currencies?.essence
-                ? Object.entries(profileData.currencies.essence).map(([id, data]) => ({
-                      id: `ESSENCE_${id}`,
-                      amount: data.current,
-                  }))
+                ? Object.entries(profileData.currencies.essence).map(([id, data]) => {
+                      return {
+                          id: `ESSENCE_${id.toUpperCase()}`,
+                          amount: data,
+                      };
+                  })
                 : [];
         })(),
         (() => {
