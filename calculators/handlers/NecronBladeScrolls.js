@@ -10,7 +10,7 @@ class NecronBladeScrollsHandler {
      * @returns {boolean} Whether the handler applies to the item
      */
     applies(item) {
-        return item.extraAttributes.ability_scroll;
+        return item.extraAttributes.ability_scroll?.length > 0;
     }
 
     /**
