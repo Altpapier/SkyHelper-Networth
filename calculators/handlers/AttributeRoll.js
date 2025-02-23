@@ -26,7 +26,7 @@ class AttributeRollHandler {
             item.base = attributeRollPrice;
             item.calculation.push({
                 id: attributeRollId.slice(formattedId.length + 1),
-                type: 'GOD_ROLL',
+                type: 'ATTRIBUTE_ROLL',
                 price: attributeRollPrice,
                 count: 1,
             });
