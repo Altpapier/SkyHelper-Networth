@@ -1,4 +1,4 @@
-const { PICKONIMBUS_DURABILITY } = require('../../constants/misc');
+const PICKONIMBUS_DURABILITY = 5000;
 
 /**
  * A handler for the Pickonimbus modifier on an item
@@ -10,7 +10,7 @@ class PickonimbusHandler {
      * @returns {boolean} Whether the handler applies to the item
      */
     applies(item) {
-        return item.itemId === 'PICKONIMBUS' && item.itemData.tag.ExtraAttributes.pickonimbus_durability;
+        return item.itemId === 'PICKONIMBUS' && item.extraAttributes.pickonimbus_durability < PICKONIMBUS_DURABILITY;
     }
 
     /**
@@ -19,13 +19,13 @@ class PickonimbusHandler {
      * @param {object} prices A prices object generated from the getPrices function
      */
     calculate(item) {
-        const reduction = item.itemData.tag.ExtraAttributes.pickonimbus_durability / PICKONIMBUS_DURABILITY;
+        const reduction = item.extraAttributes.pickonimbus_durability / PICKONIMBUS_DURABILITY;
 
         const calculationData = {
             id: 'PICKONIMBUS_DURABLITY',
             type: 'PICKONIMBUS',
-            price: item.price * (reduction - 1),
-            count: PICKONIMBUS_DURABILITY - item.itemData.tag.ExtraAttributes.pickonimbus_durability,
+            price: item.base * (reduction - 1),
+            count: PICKONIMBUS_DURABILITY - item.extraAttributes.pickonimbus_durability,
         };
 
         item.price += calculationData.price;
