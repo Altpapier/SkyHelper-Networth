@@ -21,7 +21,7 @@ class AttributeRollHandler {
         const attributeRollId = `${item.itemId}${sortedAttributes.map((attribute) => `_ROLL_${attribute.toUpperCase()}`).join('')}`;
         const attributeRollPrice = prices[attributeRollId];
         if (attributeRollPrice > item.price) {
-            item.price = attributeRollPrice;
+            item.price = attributeRollPrice + item.calculation.reduce((acc, curr) => acc + curr.price, 0);
             item.base = attributeRollPrice;
             item.calculation.push({
                 id: attributeRollId.slice(item.itemId.length + 1),

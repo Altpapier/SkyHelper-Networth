@@ -42,7 +42,7 @@ class EnchantedBookHandler {
             }
         }
         if (enchantmentPrice) {
-            item.price = enchantmentPrice;
+            item.price = enchantmentPrice + item.calculation.reduce((acc, curr) => acc + curr.price, 0);
         }
     }
 }

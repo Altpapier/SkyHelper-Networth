@@ -38,7 +38,7 @@ class MidasWeaponHandler {
                 price: prices[type] || item.price,
                 count: 1,
             };
-            item.price = calculationData.price;
+            item.price = calculationData.price + item.calculation.reduce((acc, curr) => acc + curr.price, 0);
             item.calculation.push(calculationData);
         } else {
             // Else use winning bid amount
@@ -48,7 +48,7 @@ class MidasWeaponHandler {
                 price: winningBid * APPLICATION_WORTH.winningBid,
                 count: 1,
             };
-            item.price = calculationData.price;
+            item.price = calculationData.price + item.calculation.reduce((acc, curr) => acc + curr.price, 0);
             item.calculation.push(calculationData);
 
             if (additionalCoins) {
