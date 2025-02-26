@@ -11,8 +11,8 @@ class PetCandyHandler {
      * @returns {boolean} Whether the handler applies to the pet
      */
     applies(pet) {
-        const maxPetCandyXp = pet.petData.candyUsed * 1000000;
-        const xpLessPetCandy = pet.petData.exp - maxPetCandyXp;
+        const maxPetCandyXp = (pet.petData.candyUsed ?? 0) * 1000000;
+        const xpLessPetCandy = (pet.petData.exp ?? 0) - maxPetCandyXp;
         return pet.petData.candyUsed > 0 && !BLOCKED_CANDY_REDUCE_PETS.includes(pet.petData.type) && xpLessPetCandy < pet.level.xpMax;
     }
 
