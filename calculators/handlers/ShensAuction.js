@@ -10,7 +10,7 @@ class ShensAuctionHandler {
      * @returns {boolean} Whether the handler applies to the item
      */
     applies(item) {
-        return item.extraAttributes.price && item.extraAttributes.auction !== undefined && item.extraAttributes.bid !== undefined;
+        return item.extraAttributes.price !== undefined && item.extraAttributes.auction !== undefined && item.extraAttributes.bid !== undefined;
     }
 
     /**
