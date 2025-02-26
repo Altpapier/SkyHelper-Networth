@@ -11,10 +11,11 @@ class RecombobulatorHandler {
      * @returns {boolean} Whether the handler applies to the item
      */
     applies(item) {
+        const hasEnchantments = Object.keys(item.extraAttributes.enchantments || {}).length > 0;
         const allowsRecomb = ALLOWED_RECOMBOBULATED_CATEGORIES.includes(item.skyblockItem.category) || ALLOWED_RECOMBOBULATED_IDS.includes(item.itemId);
-        const lastLoreLine = item.itemLore.length ? item.itemLore.at(-1) : null;
+        const lastLoreLine = item.itemLore.length ? item.itemLore.at(-1) : '';
         const isAccessory = lastLoreLine?.includes('ACCESSORY') || lastLoreLine?.includes('HATCESSORY');
-        return item.isRecombobulated() && (item.extraAttributes.enchantments || allowsRecomb || isAccessory);
+        return item.isRecombobulated() && (hasEnchantments || allowsRecomb || isAccessory);
     }
 
     /**
