@@ -10,7 +10,7 @@ class TransmissionTunerHandler {
      * @returns {boolean} Whether the handler applies to the item
      */
     applies(item) {
-        return item.extraAttributes.tuned_transmission;
+        return item.extraAttributes.tuned_transmission > 0;
     }
 
     /**
