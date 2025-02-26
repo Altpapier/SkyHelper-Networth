@@ -11,7 +11,7 @@ class ReforgeHandler {
      * @returns {boolean} Whether the handler applies to the item
      */
     applies(item) {
-        return item.extraAttributes.modifier && item.skyblockItme?.category !== 'ACCESSORY';
+        return Boolean(item.extraAttributes.modifier) && item.skyblockItem?.category !== 'ACCESSORY';
     }
 
     /**
