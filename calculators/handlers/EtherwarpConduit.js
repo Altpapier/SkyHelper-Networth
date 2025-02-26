@@ -26,7 +26,6 @@ class EtherwarpConduitHandler {
             count: 1,
         };
 
-        item.price += calculationData.price;
         item.calculation.push(calculationData);
     }
 }

@@ -25,7 +25,6 @@ class GemstonePowerScrollHandler {
             price: (prices[item.extraAttributes.power_ability_scroll] ?? 0) * APPLICATION_WORTH.gemstonePowerScroll,
             count: 1,
         };
-        item.price += calculationData.price;
         item.calculation.push(calculationData);
     }
 }

@@ -25,7 +25,6 @@ class PocketSackInASackHandler {
             price: (prices['POCKET_SACK_IN_A_SACK'] ?? 0) * item.extraAttributes.sack_pss * APPLICATION_WORTH.pocketSackInASack,
             count: item.extraAttributes.sack_pss,
         };
-        item.price += calculationData.price;
         item.calculation.push(calculationData);
     }
 }

@@ -39,11 +39,9 @@ class HotPotatoBookHandler {
                 count: fumingPotatoBookCount,
             };
 
-            item.price += calculationData.price;
             item.calculation.push(calculationData);
         }
 
-        item.price += calculationData.price;
         item.calculation.push(calculationData);
     }
 }

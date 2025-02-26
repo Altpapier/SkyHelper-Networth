@@ -28,7 +28,6 @@ class PulseRingThunderHandler {
             price: (prices['THUNDER_IN_A_BOTTLE'] ?? 0) * thunderUpgrades * APPLICATION_WORTH.thunderInABottle,
             count: thunderUpgrades,
         };
-        item.price += calculationData.price;
         item.calculation.push(calculationData);
     }
 }

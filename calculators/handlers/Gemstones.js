@@ -78,7 +78,6 @@ class GemstonesHandler {
                         price: total * application,
                         count: 1,
                     };
-                    item.price += calculationData.price;
                     item.calculation.push(calculationData);
 
                     gemstoneSlots.splice(slotIndex, 1);
@@ -94,7 +93,6 @@ class GemstonesHandler {
                 price: (prices[`${gemstone.tier}_${gemstone.type}_GEM`.toUpperCase()] ?? 0) * APPLICATION_WORTH.gemstone,
                 count: 1,
             };
-            item.price += calculationData.price;
             item.calculation.push(calculationData);
         }
     }

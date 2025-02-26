@@ -22,11 +22,13 @@ class BaseHandlerTest {
                         handler.calculate(item, prices);
                     }
                     assert.deepStrictEqual(item.calculation, expectedCalculation, 'Calculation does not match expected');
+
+                    const newPrice = item.price + item.calculation.filter((c) => !c.ignore).reduce((acc, c) => acc + c.price, 0);
                     if (expectedNewPrice !== undefined) {
-                        assert.strictEqual(item.price, expectedNewPrice, `Expected price to be set to ${expectedNewPrice} but got ${item.price}`);
+                        assert.strictEqual(newPrice, expectedNewPrice, `Expected price to be set to ${expectedNewPrice} but got ${item.price}`);
                     } else {
                         assert.strictEqual(
-                            item.price - priceBefore,
+                            newPrice - priceBefore,
                             expectedPriceChange,
                             `Expected price to increase by ${expectedPriceChange} but got ${item.price - priceBefore}`,
                         );

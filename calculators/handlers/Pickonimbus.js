@@ -28,7 +28,6 @@ class PickonimbusHandler {
             count: PICKONIMBUS_DURABILITY - item.extraAttributes.pickonimbus_durability,
         };
 
-        item.price += calculationData.price;
         item.calculation.push(calculationData);
     }
 }

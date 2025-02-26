@@ -26,8 +26,26 @@ class PrestigeHandler {
         for (const prestigeItem of prestige) {
             const foundItem = getHypixelItemInformationFromId(prestigeItem);
             if (isNaN(item.price)) item.price = 0;
-            if (foundItem?.upgrade_costs) item.price += starCosts(prices, item.calculation, foundItem?.upgrade_costs, prestigeItem);
-            if (foundItem?.prestige?.costs) item.price += starCosts(prices, item.calculation, foundItem?.prestige.costs, prestigeItem);
+            if (foundItem?.upgrade_costs) {
+                const calculationData = {
+                    id: prestigeItem,
+                    type: 'PRESTIGE',
+                    price: starCosts(prices, item.calculation, foundItem?.upgrade_costs, prestigeItem),
+                    count: 1,
+                };
+
+                item.calculation.push(calculationData);
+            }
+            if (foundItem?.prestige?.costs) {
+                const calculationData = {
+                    id: prestigeItem,
+                    type: 'PRESTIGE',
+                    price: starCosts(prices, item.calculation, foundItem?.prestige.costs, prestigeItem),
+                    count: 1,
+                };
+
+                item.calculation.push(calculationData);
+            }
         }
     }
 }

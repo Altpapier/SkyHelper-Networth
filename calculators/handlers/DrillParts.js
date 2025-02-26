@@ -29,7 +29,6 @@ class DrillPartsHandler {
                     price: (prices[item.extraAttributes[type].toUpperCase()] ?? 0) * APPLICATION_WORTH.drillPart,
                     count: 1,
                 };
-                item.price += calculationData.price;
                 item.calculation.push(calculationData);
             }
         }

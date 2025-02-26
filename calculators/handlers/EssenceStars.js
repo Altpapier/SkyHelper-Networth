@@ -31,7 +31,16 @@ class EssenceStarsHandler {
      */
     calculate(item, prices) {
         const level = this.#getUpgradeLevel(item);
-        item.price += starCosts(prices, item.calculation, item.skyblockItem.upgrade_costs.slice(0, level));
+        console.log('Level:', level);
+        console.log(item.skyblockItem.upgrade_costs.slice(0, level));
+        const calculationData = {
+            id: 'ESSENCE_STARS',
+            type: 'ESSENCE_STARS',
+            price: starCosts(prices, item.calculation, item.skyblockItem.upgrade_costs.slice(0, level)),
+            count: level,
+        };
+
+        item.calculation.push(calculationData);
     }
 }
 

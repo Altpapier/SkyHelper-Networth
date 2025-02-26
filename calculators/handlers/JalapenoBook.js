@@ -25,7 +25,6 @@ class JalapenoBookHandler {
             price: (prices['JALAPENO_BOOK'] ?? 0) * item.extraAttributes.jalapeno_count * APPLICATION_WORTH.jalapenoBook,
             count: item.extraAttributes.jalapeno_count,
         };
-        item.price += calculationData.price;
         item.calculation.push(calculationData);
     }
 }

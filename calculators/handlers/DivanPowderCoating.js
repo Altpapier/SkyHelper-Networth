@@ -25,7 +25,6 @@ class DivanPowderCoatingHandler {
             price: (prices['DIVAN_POWDER_COATING'] ?? 0) * APPLICATION_WORTH.divanPowderCoating,
             count: item.extraAttributes.divan_powder_coating,
         };
-        item.price += calculationData.price;
         item.calculation.push(calculationData);
     }
 }

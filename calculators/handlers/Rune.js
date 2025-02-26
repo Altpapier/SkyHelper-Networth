@@ -36,7 +36,6 @@ class RuneHandler {
                 price: (prices[`RUNE_${runeId}`] ?? 0) * APPLICATION_WORTH.runes,
                 count: 1,
             };
-            item.price += calculationData.price;
             item.calculation.push(calculationData);
         }
     }

@@ -26,7 +26,6 @@ class NecronBladeScrollsHandler {
                 price: (prices[id.toUpperCase()] ?? 0) * APPLICATION_WORTH.necronBladeScroll,
                 count: 1,
             };
-            item.price += calculationData.price;
             item.calculation.push(calculationData);
         }
     }

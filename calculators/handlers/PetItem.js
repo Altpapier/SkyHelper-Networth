@@ -27,7 +27,6 @@ class PetItemHandler {
         };
 
         pet.calculation.push(calculationData);
-        pet.price += calculationData.price;
     }
 }
 

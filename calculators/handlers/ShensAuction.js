@@ -26,6 +26,7 @@ class ShensAuctionHandler {
                 type: 'SHENS_AUCTION',
                 price: pricePaid,
                 count: 1,
+                ignore: true,
             });
         }
     }

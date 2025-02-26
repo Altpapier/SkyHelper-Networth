@@ -25,7 +25,6 @@ class FarmingForDummiesHandler {
             price: (prices['FARMING_FOR_DUMMIES'] ?? 0) * item.extraAttributes.farming_for_dummies_count * APPLICATION_WORTH.farmingForDummies,
             count: item.extraAttributes.farming_for_dummies_count,
         };
-        item.price += calculationData.price;
         item.calculation.push(calculationData);
     }
 }

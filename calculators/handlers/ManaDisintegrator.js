@@ -25,7 +25,6 @@ class ManaDisintegratorHandler {
             price: (prices['MANA_DISINTEGRATOR'] ?? 0) * item.extraAttributes.mana_disintegrator_count * APPLICATION_WORTH.manaDisintegrator,
             count: item.extraAttributes.mana_disintegrator_count,
         };
-        item.price += calculationData.price;
         item.calculation.push(calculationData);
     }
 }

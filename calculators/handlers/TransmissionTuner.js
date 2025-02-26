@@ -25,7 +25,6 @@ class TransmissionTunerHandler {
             price: (prices['TRANSMISSION_TUNER'] ?? 0) * item.extraAttributes.tuned_transmission * APPLICATION_WORTH.tunedTransmission,
             count: item.extraAttributes.tuned_transmission,
         };
-        item.price += calculationData.price;
         item.calculation.push(calculationData);
     }
 }

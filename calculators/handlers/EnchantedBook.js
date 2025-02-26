@@ -41,8 +41,12 @@ class EnchantedBookHandler {
                 item.itemName = SPECIAL_ENCHANTMENT_NAMES[name] || titleCase(name.replace(/_/g, ' '));
             }
         }
+
+        // if it's valid enchantment (has price), set price to 0 so later on it gets correct price
+        // ENCHANTED_BOOK has price of 100, so in the end when we would add modifiers it would be 100 + enchantmentPrice
+        // but we want it to be just enchantmentPrice
         if (enchantmentPrice) {
-            item.price = enchantmentPrice;
+            item.price = 0;
         }
     }
 }
