@@ -18,7 +18,7 @@ class RuneHandler {
      * @returns {boolean} Whether the handler applies to the item
      */
     applies(item) {
-        return item.extraAttributes.runes && Object.keys(item.extraAttributes.runes).length > 0 && !item.itemId.startsWith('RUNE');
+        return Object.keys(item.extraAttributes.runes ?? {}).length > 0 && !item.itemId.startsWith('RUNE');
     }
 
     /**
