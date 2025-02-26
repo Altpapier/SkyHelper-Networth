@@ -10,7 +10,7 @@ class WoodSingularityHandler {
      * @returns {boolean} Whether the handler applies to the item
      */
     applies(item) {
-        return item.extraAttributes.wood_singularity_count;
+        return item.extraAttributes.wood_singularity_count > 0;
     }
 
     /**
