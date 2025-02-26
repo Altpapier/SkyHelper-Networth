@@ -10,7 +10,7 @@ class PetItemHandler {
      * @returns {boolean} Whether the handler applies to the pet
      */
     applies(pet) {
-        return !!pet.petData.heldItem;
+        return Boolean(pet.petData.heldItem);
     }
 
     /**
