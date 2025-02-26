@@ -88,7 +88,7 @@ class SkyBlockItemNetworthCalculator extends SkyBlockItemNetworthHelper {
             loreName: this.itemData.tag.display.Name,
             id: this.extraAttributes.id,
             customId: this.itemId,
-            price: this.price,
+            price: this.price + this.calculation.filter((c) => !c.ignore).reduce((acc, c) => acc + c.price, 0),
             base: this.base,
             calculation: this.calculation,
             count: this.itemData.Count || 1,

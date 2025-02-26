@@ -77,7 +77,7 @@ class PetNetworthCalculator extends PetNetworthHelper {
             id: this.petData.type,
             customId: this.getPetId(prices, this.nonCosmetic),
             name: this.petName,
-            price: this.price,
+            price: this.price + this.calculation.filter((c) => !c.ignore).reduce((acc, c) => acc + c.price, 0),
             base: this.base,
             calculation: this.calculation,
             soulbound: this.isSoulbound(),
