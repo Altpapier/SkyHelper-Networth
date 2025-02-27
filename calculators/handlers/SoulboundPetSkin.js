@@ -10,7 +10,7 @@ class SoulboundPetSkinHandler {
      * @returns {boolean} Whether the handler applies to the pet
      */
     applies(pet) {
-        return pet.petData.skin && pet.isSoulbound() && !pet.nonCosmetic;
+        return Boolean(pet.petData.skin) && pet.isSoulbound() && !pet.nonCosmetic;
     }
 
     /**
