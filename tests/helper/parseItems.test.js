@@ -140,7 +140,9 @@ describe('postParseItems', () => {
         },
         currencies: {
             essence: {
-                gold: 420,
+                gold: {
+                    current: 420,
+                },
             },
         },
         pets_data: {

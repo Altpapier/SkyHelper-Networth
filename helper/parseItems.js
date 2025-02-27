@@ -109,7 +109,7 @@ const postParseItems = async (profileData, items) => {
                 ? Object.entries(profileData.currencies.essence).map(([id, data]) => {
                       return {
                           id: `ESSENCE_${id.toUpperCase()}`,
-                          amount: data,
+                          amount: data.current,
                       };
                   })
                 : [];
