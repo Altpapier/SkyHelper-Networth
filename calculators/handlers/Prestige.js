@@ -30,6 +30,17 @@ class PrestigeHandler {
             if (isNaN(item.price)) item.price = 0;
             if (foundItem?.upgrade_costs) item.price += starCosts(prices, item.calculation, foundItem?.upgrade_costs, prestigeItem);
             if (foundItem?.prestige?.costs) item.price += starCosts(prices, item.calculation, foundItem?.prestige.costs, prestigeItem);
+
+            if (prices[prestigeItem]) {
+                item.calculation.push({
+                    id: prestigeItem,
+                    type: 'BASE_PRESTIGE_ITEM',
+                    price: prices[prestigeItem],
+                    count: 1,
+                });
+                item.price += prices[prestigeItem];
+                break;
+            }
         }
     }
 }
