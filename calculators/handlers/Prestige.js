@@ -27,7 +27,6 @@ class PrestigeHandler {
         if (prices[item.itemId]) return;
         for (const prestigeItem of PRESTIGES[item.itemId]) {
             const foundItem = getHypixelItemInformationFromId(prestigeItem);
-            if (isNaN(item.price)) item.price = 0;
             if (foundItem?.upgrade_costs) item.price += starCosts(prices, item.calculation, foundItem?.upgrade_costs, prestigeItem);
             if (foundItem?.prestige?.costs) item.price += starCosts(prices, item.calculation, foundItem?.prestige.costs, prestigeItem);
 
