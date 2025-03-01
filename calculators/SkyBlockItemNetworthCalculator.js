@@ -76,7 +76,9 @@ class SkyBlockItemNetworthCalculator extends SkyBlockItemNetworthHelper {
             }
 
             // Calculate the price of this modifier
-            handler.calculate(this, prices);
+            const handlerCalculation = handler.calculate(this, prices);
+            this.price += handlerCalculation.reduce((acc, { price }) => acc + price, 0);
+            this.calculation.push(...handlerCalculation);
         }
 
         if (this.isCosmetic() && this.nonCosmetic) {

@@ -17,16 +17,17 @@ class ArtOfPeaceHandler {
      * Calculates and adds the price of the modifier to the item
      * @param {object} item The item data
      * @param {object} prices A prices object generated from the getPrices function
+     * @returns {Array<object>} An array containing the price of the modifier
      */
     calculate(item, prices) {
-        const calculationData = {
-            id: 'THE_ART_OF_PEACE',
-            type: 'THE_ART_OF_PEACE',
-            price: (prices['THE_ART_OF_PEACE'] ?? 0) * item.extraAttributes.artOfPeaceApplied * APPLICATION_WORTH.artOfPeace,
-            count: item.extraAttributes.artOfPeaceApplied,
-        };
-        item.price += calculationData.price;
-        item.calculation.push(calculationData);
+        return [
+            {
+                id: 'THE_ART_OF_PEACE',
+                type: 'THE_ART_OF_PEACE',
+                price: (prices['THE_ART_OF_PEACE'] ?? 0) * item.extraAttributes.artOfPeaceApplied * APPLICATION_WORTH.artOfPeace,
+                count: item.extraAttributes.artOfPeaceApplied,
+            },
+        ];
     }
 }
 
