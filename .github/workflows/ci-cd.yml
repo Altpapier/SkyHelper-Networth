@@ -1,0 +1,125 @@
+name: 'CI/CD'
+
+on: [push, pull_request, workflow_dispatch]
+
+env:
+    NODE_VERSION: '18'
+    CONTAINER_REGISTRY: ghcr.io
+    IMAGE_NAME: ${{ github.repository }}
+
+jobs:
+    npm:
+        name: install dependencies (npm)
+        runs-on: ubuntu-latest
+        steps:
+            - name: Git checkout
+              uses: actions/checkout@v3
+
+            - name: Use Node.js ${{ env.NODE_VERSION }}
+              uses: actions/setup-node@v3
+              with:
+                  node-version: ${{ env.NODE_VERSION }}
+                  cache: 'npm'
+
+            - name: Install node dependencies
+              run: npm i
+
+    es-lint:
+        name: check linting (es-lint)
+        needs: [npm]
+        runs-on: ubuntu-latest
+        steps:
+            - name: Git checkout
+              uses: actions/checkout@v3
+
+            - name: Use Node.js ${{ env.NODE_VERSION }}
+              uses: actions/setup-node@v3
+              with:
+                  node-version: ${{ env.NODE_VERSION }}
+                  cache: 'npm'
+
+            - name: Install node dependencies
+              run: npm i
+
+            - name: Check ESlint
+              run: npm run lint
+
+    prettier:
+        name: check format (prettier)
+        needs: [npm]
+        runs-on: ubuntu-latest
+        steps:
+            - name: Git checkout
+              uses: actions/checkout@v3
+
+            - name: Use Node.js ${{ env.NODE_VERSION }}
+              uses: actions/setup-node@v3
+              with:
+                  node-version: ${{ env.NODE_VERSION }}
+                  cache: 'npm'
+
+            - name: Install node dependencies
+              run: npm i
+
+            - name: Check Prettier
+              run: npm run prettier
+
+    security-audit:
+        name: Security Audit
+        needs: [npm]
+        runs-on: ubuntu-latest
+        steps:
+            - name: Git checkout
+              uses: actions/checkout@v3
+
+            - name: Use Node.js ${{ env.NODE_VERSION }}
+              uses: actions/setup-node@v3
+              with:
+                  node-version: ${{ env.NODE_VERSION }}
+                  cache: 'npm'
+
+            - name: Install node dependencies
+              run: npm install
+
+            - name: Run npm audit
+              run: npm audit --production
+
+    jest:
+        name: run tests (jest)
+        needs: [npm]
+        runs-on: ubuntu-latest
+        steps:
+            - name: Git checkout
+              uses: actions/checkout@v3
+
+            - name: Use Node.js ${{ env.NODE_VERSION }}
+              uses: actions/setup-node@v3
+              with:
+                  node-version: ${{ env.NODE_VERSION }}
+                  cache: 'npm'
+
+            - name: Install node dependencies
+              run: npm i
+
+            - name: Run tests
+              run: npm test
+
+    #  coverage:
+    #    name: Code Coverage
+    #    needs: [jest]
+    #    runs-on: ubuntu-latest
+    #    steps:
+    #      - name: Git checkout
+    #        uses: actions/checkout@v3
+    #
+    #      - name: Use Node.js ${{ env.NODE_VERSION }}
+    #        uses: actions/setup-node@v3
+    #        with:
+    #          node-version: ${{ env.NODE_VERSION }}
+    #          cache: 'npm'
+    #
+    #      - name: Install node dependencies
+    #        run: npm install
+    #
+    #      - name: Run tests with coverage
+    #        run: npm test -- --coverage
