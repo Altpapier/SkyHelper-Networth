@@ -29,7 +29,6 @@ class ReforgeHandler {
                 price: (prices[REFORGES[reforge]] ?? 0) * APPLICATION_WORTH.reforge,
                 count: 1,
             };
-            item.price += calculationData.price;
             item.calculation.push(calculationData);
         }
     }

@@ -20,6 +20,7 @@ const testCases = [
                 type: 'SHENS_AUCTION',
                 price: 2500000000 * APPLICATION_WORTH.shensAuctionPrice,
                 count: 1,
+                ignore: true,
             },
         ],
     },

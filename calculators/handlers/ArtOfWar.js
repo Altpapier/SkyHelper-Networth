@@ -27,7 +27,6 @@ class ArtOfWarHandler {
             price: (prices['THE_ART_OF_WAR'] ?? 0) * artOfWarCount * APPLICATION_WORTH.artOfWar,
             count: artOfWarCount,
         };
-        item.price += calculationData.price;
         item.calculation.push(calculationData);
     }
 }

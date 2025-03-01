@@ -18,6 +18,7 @@ const testCases = [
                 id: 'ROLL_MANA_POOL_ROLL_MANA_REGENERATION',
                 type: 'ATTRIBUTE_ROLL',
                 price: 20000000,
+                ignore: true,
                 count: 1,
             },
         ],

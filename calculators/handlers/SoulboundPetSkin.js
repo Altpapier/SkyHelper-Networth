@@ -30,7 +30,6 @@ class SoulboundPetSkinHandler {
             count: 1,
         };
 
-        pet.price += calculationData.price;
         pet.calculation.push(calculationData);
     }
 }

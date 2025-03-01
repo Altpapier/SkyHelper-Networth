@@ -41,7 +41,6 @@ class MasterStarsHandler {
                     price: (prices[MASTER_STARS[star]] ?? 0) * APPLICATION_WORTH.masterStar,
                     count: 1,
                 };
-                item.price += calculationData.price;
                 item.calculation.push(calculationData);
             }
         }

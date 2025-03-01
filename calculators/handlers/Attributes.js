@@ -45,7 +45,6 @@ class AttributesHandler {
             if (!baseAttributePrice) continue;
             const attributePrice = baseAttributePrice * shards * APPLICATION_WORTH.attributes;
 
-            item.price += attributePrice;
             item.calculation.push({
                 id: `${attributeName}_${tier}`.toUpperCase(),
                 type: 'ATTRIBUTE',

@@ -25,7 +25,6 @@ class PolarvoidBookHandler {
             price: (prices['POLARVOID_BOOK'] ?? 0) * item.extraAttributes.polarvoid * APPLICATION_WORTH.polarvoidBook,
             count: item.extraAttributes.polarvoid,
         };
-        item.price += calculationData.price;
         item.calculation.push(calculationData);
     }
 }

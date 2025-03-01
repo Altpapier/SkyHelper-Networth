@@ -25,7 +25,6 @@ class WoodSingularityHandler {
             price: (prices['WOOD_SINGULARITY'] ?? 0) * item.extraAttributes.wood_singularity_count * APPLICATION_WORTH.woodSingularity,
             count: item.extraAttributes.wood_singularity_count,
         };
-        item.price += calculationData.price;
         item.calculation.push(calculationData);
     }
 }

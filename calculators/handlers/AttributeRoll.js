@@ -28,6 +28,7 @@ class AttributeRollHandler {
                 type: 'ATTRIBUTE_ROLL',
                 price: attributeRollPrice,
                 count: 1,
+                ignore: true,
             });
         }
     }

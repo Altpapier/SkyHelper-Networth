@@ -39,7 +39,6 @@ class ItemEnchantmentsHandler {
                         price: (prices['SIL_EX'] ?? 0) * efficiencyLevel * APPLICATION_WORTH.silex,
                         count: efficiencyLevel,
                     };
-                    item.price += calculationData.price;
                     item.calculation.push(calculationData);
                 }
             }
@@ -52,7 +51,6 @@ class ItemEnchantmentsHandler {
                     price: (prices['GOLDEN_BOUNTY'] ?? 0) * APPLICATION_WORTH.goldenBounty,
                     count: 1,
                 };
-                item.price += calculationData.price;
                 item.calculation.push(calculationData);
             }
 
@@ -64,7 +62,6 @@ class ItemEnchantmentsHandler {
                     price: (prices['PESTHUNTING_GUIDE'] ?? 0) * APPLICATION_WORTH.pesthuntingGuide,
                     count: 1,
                 };
-                item.price += calculationData.price;
                 item.calculation.push(calculationData);
             }
 
@@ -75,7 +72,6 @@ class ItemEnchantmentsHandler {
                 count: 1,
             };
             if (calculationData.price) {
-                item.price += calculationData.price;
                 item.calculation.push(calculationData);
             }
         }

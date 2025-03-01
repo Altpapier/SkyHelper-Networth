@@ -28,7 +28,6 @@ class EnrichmentHandler {
                 price: enrichmentPrice * APPLICATION_WORTH.enrichment,
                 count: 1,
             };
-            item.price += calculationData.price;
             item.calculation.push(calculationData);
         }
     }

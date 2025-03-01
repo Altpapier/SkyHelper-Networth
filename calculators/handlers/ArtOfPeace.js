@@ -25,7 +25,6 @@ class ArtOfPeaceHandler {
             price: (prices['THE_ART_OF_PEACE'] ?? 0) * item.extraAttributes.artOfPeaceApplied * APPLICATION_WORTH.artOfPeace,
             count: item.extraAttributes.artOfPeaceApplied,
         };
-        item.price += calculationData.price;
         item.calculation.push(calculationData);
     }
 }

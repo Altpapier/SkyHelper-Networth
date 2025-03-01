@@ -33,7 +33,6 @@ class DyeHandler {
             price: (prices[item.extraAttributes.dye_item.toUpperCase()] ?? 0) * APPLICATION_WORTH.dye,
             count: 1,
         };
-        item.price += calculationData.price;
         item.calculation.push(calculationData);
     }
 }
