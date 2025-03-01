@@ -4,7 +4,7 @@ const { ValidationError } = require('../../helper/errors');
 describe('PetNetworthHelper', () => {
     const mockPetData = {
         type: 'WOLF',
-        tier: 'LEGENDARY',
+        tier: 'EPIC',
         exp: 100000,
         heldItem: null,
         skin: null,
@@ -27,11 +27,11 @@ describe('PetNetworthHelper', () => {
     describe('getTier() and getTierName()', () => {
         test('should return original tier if no tier boost', () => {
             const helper = new PetNetworthHelper(mockPetData);
-            expect(helper.getTier()).toBe(4);
-            expect(helper.getTierName()).toBe('LEGENDARY');
+            expect(helper.getTier()).toBe(3);
+            expect(helper.getTierName()).toBe('EPIC');
         });
 
-        test('should return lower tier if tier boost present', () => {
+        test('should return original tier if tier boost present', () => {
             const petWithBoost = { ...mockPetData, heldItem: 'PET_ITEM_TIER_BOOST' };
             const helper = new PetNetworthHelper(petWithBoost);
             expect(helper.getTier()).toBe(3);
@@ -42,11 +42,11 @@ describe('PetNetworthHelper', () => {
     describe('getTierBoostedTier() and getTierBoostedTierName()', () => {
         test('should return original tier if no tier boost', () => {
             const helper = new PetNetworthHelper(mockPetData);
-            expect(helper.getTierBoostedTier()).toBe(4);
-            expect(helper.getTierBoostedTierName()).toBe('LEGENDARY');
+            expect(helper.getTierBoostedTier()).toBe(3);
+            expect(helper.getTierBoostedTierName()).toBe('EPIC');
         });
 
-        test('should return original tier if tier boost present', () => {
+        test('should return higher tier if tier boost present', () => {
             const petWithBoost = { ...mockPetData, heldItem: 'PET_ITEM_TIER_BOOST' };
             const helper = new PetNetworthHelper(petWithBoost);
             expect(helper.getTierBoostedTier()).toBe(4);
@@ -78,8 +78,8 @@ describe('PetNetworthHelper', () => {
         test('should return base prices for non-skinned pet', () => {
             const helper = new PetNetworthHelper(mockPetData);
             const mockPrices = {
-                LVL_1_LEGENDARY_WOLF: 1000,
-                LVL_100_LEGENDARY_WOLF: 100000,
+                LVL_1_EPIC_WOLF: 1000,
+                LVL_100_EPIC_WOLF: 100000,
             };
             const prices = helper.getPetLevelPrices(mockPrices);
             expect(prices.LVL_1).toBe(1000);
@@ -91,9 +91,9 @@ describe('PetNetworthHelper', () => {
         test('should return correct pet ID format', () => {
             const helper = new PetNetworthHelper(mockPetData);
             const mockPrices = {
-                LVL_100_LEGENDARY_WOLF: 100000,
+                LVL_100_EPIC_WOLF: 100000,
             };
-            expect(helper.getPetId(mockPrices)).toBe('LVL_100_LEGENDARY_WOLF');
+            expect(helper.getPetId(mockPrices)).toBe('LVL_100_EPIC_WOLF');
         });
     });
 
@@ -105,7 +105,7 @@ describe('PetNetworthHelper', () => {
             expect(level).toHaveProperty('xpMax');
             expect(level).toHaveProperty('xp');
             expect(level.xp).toBe(mockPetData.exp);
-            expect(level.level).toBe(31);
+            expect(level.level).toBe(35);
         });
     });
 
@@ -124,8 +124,8 @@ describe('PetNetworthHelper', () => {
             };
             const helper = new PetNetworthHelper(petData);
             const mockPrices = {
-                LVL_1_LEGENDARY_WOLF: 1000,
-                LVL_100_LEGENDARY_WOLF: 100000,
+                LVL_1_EPIC_WOLF: 1000,
+                LVL_100_EPIC_WOLF: 100000,
             };
 
             helper.getBasePrice(mockPrices);
@@ -142,8 +142,8 @@ describe('PetNetworthHelper', () => {
             };
             const helper = new PetNetworthHelper(petData);
             const mockPrices = {
-                LVL_100_LEGENDARY_GOLDEN_DRAGON: 100000,
-                LVL_200_LEGENDARY_GOLDEN_DRAGON: 200000,
+                LVL_100_EPIC_GOLDEN_DRAGON: 100000,
+                LVL_200_EPIC_GOLDEN_DRAGON: 200000,
             };
 
             helper.getBasePrice(mockPrices);
