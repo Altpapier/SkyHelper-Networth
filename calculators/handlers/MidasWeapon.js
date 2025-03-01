@@ -24,6 +24,7 @@ class MidasWeaponHandler {
      * Calculates and adds the price of the modifier to the item
      * @param {object} item The item data
      * @param {object} prices A prices object generated from the getPrices function
+     * @returns {Array<object>} An array containing the price of the modifier
      */
     calculate(item, prices) {
         const { maxBid, type } = MIDAS_SWORDS[item.itemId];
@@ -32,35 +33,36 @@ class MidasWeaponHandler {
 
         // If max price paid
         if (winningBid + additionalCoins >= maxBid) {
-            const calculationData = {
-                id: item.itemId,
-                type: type,
-                price: prices[type] || item.price,
-                count: 1,
-            };
-            item.price = calculationData.price;
-            item.calculation.push(calculationData);
+            return [
+                {
+                    id: item.itemId,
+                    type: type,
+                    price: prices[type] || item.price,
+                    count: 1,
+                },
+            ];
         } else {
             // Else use winning bid amount
-            const calculationData = {
-                id: item.itemId,
-                type: 'WINNING_BID',
-                price: winningBid * APPLICATION_WORTH.winningBid,
-                count: 1,
-            };
-            item.price = calculationData.price;
-            item.calculation.push(calculationData);
+            const calculation = [
+                {
+                    id: item.itemId,
+                    type: 'WINNING_BID',
+                    price: winningBid * APPLICATION_WORTH.winningBid,
+                    count: 1,
+                },
+            ];
+            // This won't work since the price will also be added in the calculator after its returned...
+            item.price = winningBid * APPLICATION_WORTH.winningBid;
 
             if (additionalCoins) {
-                const calculationData = {
+                calculation.push({
                     id: item.itemId,
                     type: 'ADDITIONAL_COINS',
                     price: additionalCoins * APPLICATION_WORTH.winningBid,
                     count: 1,
-                };
-                item.price += calculationData.price;
-                item.calculation.push(calculationData);
+                });
             }
+            return [calculation];
         }
     }
 }
