@@ -4,6 +4,9 @@ const { starCosts } = require('../../helper/essenceStars');
 
 /**
  * A handler for Prestige on an item (e.g. crimson).
+ *
+ * This handler is hardly used any more since you can sell prestiged kuudra armor now. As of the time of writing, the only items
+ * that use this handler are Infernal Hollow armor, Fiery Fervor armor, and Internal Fervor armor.
  */
 class PrestigeHandler {
     /**
@@ -12,7 +15,7 @@ class PrestigeHandler {
      * @returns {boolean} Whether the handler applies to the item
      */
     applies(item) {
-        return PRESTIGES[item.itemId];
+        return item.itemId in PRESTIGES;
     }
 
     /**
@@ -22,8 +25,7 @@ class PrestigeHandler {
      */
     calculate(item, prices) {
         if (prices[item.itemId]) return;
-        const prestige = PRESTIGES[item.itemId];
-        for (const prestigeItem of prestige) {
+        for (const prestigeItem of PRESTIGES[item.itemId]) {
             const foundItem = getHypixelItemInformationFromId(prestigeItem);
             if (isNaN(item.price)) item.price = 0;
             if (foundItem?.upgrade_costs) item.price += starCosts(prices, item.calculation, foundItem?.upgrade_costs, prestigeItem);
