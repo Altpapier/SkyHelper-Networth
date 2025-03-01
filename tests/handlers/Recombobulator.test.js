@@ -5,6 +5,17 @@ const BaseHandlerTest = require('./BaseHandlerTest');
 
 jest.mock('../../managers/NetworthManager', () => null);
 
+jest.mock('../../constants/itemsMap', () => {
+    const itemsMapMock = new Map();
+    itemsMapMock.set('HEGEMONY_ARTIFACT', { category: 'ACCESSORY' });
+    itemsMapMock.set('MITHRIL_BELT', { category: 'BELT' });
+    itemsMapMock.set('RADIANT_POWER_ORB', { category: 'DEPLOYABLE' });
+
+    return {
+        getHypixelItemInformationFromId: jest.fn((id) => itemsMapMock.get(id)),
+    };
+});
+
 const testCases = [
     {
         description: 'Applies correctly',
@@ -27,7 +38,7 @@ const testCases = [
         ],
     },
     {
-        description: 'Applies correctly with accessory',
+        description: 'Applies correctly with accessory via category',
         item: new SkyBlockItemNetworthCalculator({
             tag: {
                 display: { Name: '' },
