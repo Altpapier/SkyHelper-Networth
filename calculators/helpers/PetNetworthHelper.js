@@ -18,12 +18,11 @@ class PetNetworthHelper {
 
         // Extract pet properties
         this.nonCosmetic = false;
-        this.tier = this.getTier();
         this.skin = this.petData.skin;
-        this.basePetId = `${this.tier}_${this.petData.type}`;
+        this.basePetId = `${this.getTierName()}_${this.petData.type}`;
         this.petId = `${this.basePetId}${this.skin ? `_SKINNED_${this.skin}` : ''}`;
         this.level = this.getPetLevel();
-        this.petName = `[Lvl ${this.level.level}] ${titleCase(`${this.tier} ${CUSTOM_PET_NAMES[this.petData.type] ?? titleCase(this.petData.type)}`)}${
+        this.petName = `[Lvl ${this.level.level}] ${titleCase(`${this.getTierBoostedTierName()} ${CUSTOM_PET_NAMES[this.petData.type] ?? titleCase(this.petData.type)}`)}${
             this.petData.skin ? ' ✦' : ''
         }`;
 
@@ -47,11 +46,35 @@ class PetNetworthHelper {
     }
 
     /**
-     * Gets the pet's tier
-     * @returns {string} The pet's tier
+     * Gets the pet's actual tier
+     * @returns {number} The pet's actual tier
      */
     getTier() {
-        return this.petData.heldItem === 'PET_ITEM_TIER_BOOST' ? TIERS[TIERS.indexOf(this.petData.tier) + 1] : this.petData.tier;
+        return this.petData.heldItem === 'PET_ITEM_TIER_BOOST' ? this.getTierBoostedTier() - 1 : this.getTierBoostedTier();
+    }
+
+    /**
+     * Gets the pet's actual tier name
+     * @returns {string} The pet's actual tier name
+     */
+    getTierName() {
+        return TIERS[this.getTier()];
+    }
+
+    /**
+     * Gets the pet's tier boosted tier
+     * @returns {number} The pet's tier boosted tier
+     */
+    getTierBoostedTier() {
+        return TIERS.indexOf(this.petData.tier);
+    }
+
+    /**
+     * Gets the pet's tier boosted tier name
+     * @returns {string} The pet's tier boosted tier name
+     */
+    getTierBoostedTierName() {
+        return this.petData.tier;
     }
 
     /**
@@ -146,7 +169,7 @@ class PetNetworthHelper {
      */
     getPetLevel() {
         const maxPetLevel = SPECIAL_LEVELS[this.petData.type] ? SPECIAL_LEVELS[this.petData.type] : 100;
-        const petOffset = RARITY_OFFSET[this.petData.type === 'BINGO' ? 'COMMON' : this.tier];
+        const petOffset = RARITY_OFFSET[this.petData.type === 'BINGO' ? 'COMMON' : this.getTierName()];
         const petLEVELS = LEVELS.slice(petOffset, petOffset + maxPetLevel - 1);
 
         let level = 1,

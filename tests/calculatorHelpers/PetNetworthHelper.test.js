@@ -24,17 +24,33 @@ describe('PetNetworthHelper', () => {
         });
     });
 
-    describe('getTier', () => {
+    describe('getTier() and getTierName()', () => {
         test('should return original tier if no tier boost', () => {
             const helper = new PetNetworthHelper(mockPetData);
-            expect(helper.getTier()).toBe('LEGENDARY');
+            expect(helper.getTier()).toBe(4);
+            expect(helper.getTierName()).toBe('LEGENDARY');
         });
 
-        test('should return higher tier if tier boost present', () => {
+        test('should return lower tier if tier boost present', () => {
             const petWithBoost = { ...mockPetData, heldItem: 'PET_ITEM_TIER_BOOST' };
             const helper = new PetNetworthHelper(petWithBoost);
-            expect(helper.getTier()).not.toBe('LEGENDARY');
-            expect(helper.getTier()).toBe('MYTHIC');
+            expect(helper.getTier()).toBe(3);
+            expect(helper.getTierName()).toBe('EPIC');
+        });
+    });
+
+    describe('getTierBoostedTier() and getTierBoostedTierName()', () => {
+        test('should return original tier if no tier boost', () => {
+            const helper = new PetNetworthHelper(mockPetData);
+            expect(helper.getTierBoostedTier()).toBe(4);
+            expect(helper.getTierBoostedTierName()).toBe('LEGENDARY');
+        });
+
+        test('should return original tier if tier boost present', () => {
+            const petWithBoost = { ...mockPetData, heldItem: 'PET_ITEM_TIER_BOOST' };
+            const helper = new PetNetworthHelper(petWithBoost);
+            expect(helper.getTierBoostedTier()).toBe(4);
+            expect(helper.getTierBoostedTierName()).toBe('LEGENDARY');
         });
     });
 
