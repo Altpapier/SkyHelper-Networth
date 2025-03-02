@@ -7,12 +7,13 @@ const testCases = [
         item: {
             itemId: 'BURNING_FERVOR_LEGGINGS',
             extraAttributes: { attributes: { mana_regeneration: 10, mana_pool: 10 } },
+            basePrice: 10000000,
             price: 10000000,
             calculation: [],
         },
         prices: { BURNING_FERVOR_LEGGINGS_ROLL_MANA_POOL_ROLL_MANA_REGENERATION: 20000000 },
         shouldApply: true,
-        expectedNewPrice: 20000000,
+        expectedNewBasePrice: 20000000,
         expectedCalculation: [
             {
                 id: 'ROLL_MANA_POOL_ROLL_MANA_REGENERATION',

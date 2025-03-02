@@ -8,12 +8,13 @@ const testCases = [
         item: {
             itemId: 'ENCHANTED_BOOK',
             extraAttributes: { enchantments: { ultimate_legion: 7 } },
+            basePrice: 0,
             price: 100,
             calculation: [],
         },
         prices: { ENCHANTMENT_ULTIMATE_LEGION_7: 50000000 },
         shouldApply: true,
-        expectedNewPrice: 50000000,
+        expectedNewBasePrice: 50000000,
         expectedCalculation: [
             {
                 id: 'ULTIMATE_LEGION_7',
@@ -28,12 +29,13 @@ const testCases = [
         item: {
             itemId: 'ENCHANTED_BOOK',
             extraAttributes: { enchantments: { ultimate_legion: 7, smite: 7 } },
+            basePrice: 0,
             price: 100,
             calculation: [],
         },
         prices: { ENCHANTMENT_ULTIMATE_LEGION_7: 50000000, ENCHANTMENT_SMITE_7: 4000000 },
         shouldApply: true,
-        expectedNewPrice: 50000000 * APPLICATION_WORTH.enchantments + 4000000 * APPLICATION_WORTH.enchantments,
+        expectedNewBasePrice: 50000000 * APPLICATION_WORTH.enchantments + 4000000 * APPLICATION_WORTH.enchantments,
         expectedCalculation: [
             {
                 id: 'ULTIMATE_LEGION_7',
@@ -54,12 +56,13 @@ const testCases = [
         item: {
             itemId: 'ENCHANTED_BOOK',
             extraAttributes: { enchantments: { smite: 5 } },
+            basePrice: 0,
             price: 100,
             calculation: [],
         },
         prices: {},
         shouldApply: true,
-        expectedPriceChange: 0,
+        expectedNewBasePrice: 0,
         expectedCalculation: [],
     },
     {

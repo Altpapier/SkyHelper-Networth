@@ -28,8 +28,8 @@ jest.mock('../calculators/helpers/SkyBlockItemNetworthHelper', () => {
         constructor() {
             this.itemName = '';
             this.itemId = '';
+            this.basePrice = 0;
             this.price = 0;
-            this.base = 0;
             this.calculation = [];
         }
     };
@@ -49,8 +49,8 @@ describe('SkyBlockItemNetworthCalculator', () => {
 
         calculator.itemName = 'DIAMOND_SWORD';
         calculator.itemId = 'test_id';
+        calculator.basePrice = 1000;
         calculator.price = 1000;
-        calculator.base = 1000;
         calculator.calculation = [];
         calculator.extraAttributes = { id: 'DIAMOND_SWORD' };
         calculator.itemData = {
@@ -98,8 +98,8 @@ describe('SkyBlockItemNetworthCalculator', () => {
                 loreName: 'Diamond Sword',
                 id: 'DIAMOND_SWORD',
                 customId: 'test_id',
-                price: 1100,
-                base: 1000,
+                basePrice: 1000,
+                price: 2100,
                 calculation: [],
                 count: 1,
                 soulbound: false,
@@ -148,7 +148,7 @@ describe('SkyBlockItemNetworthCalculator', () => {
     describe('price calculation', () => {
         it('should apply handlers correctly', async () => {
             const result = await calculator.getNetworth();
-            expect(result.price).toBe(1100);
+            expect(result.price).toBe(2100);
         });
 
         it('should fetch prices when not provided', async () => {

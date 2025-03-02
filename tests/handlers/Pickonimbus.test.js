@@ -7,8 +7,8 @@ const testCases = [
         item: {
             itemId: 'PICKONIMBUS',
             extraAttributes: { pickonimbus_durability: 2500 },
+            basePrice: 50000,
             price: 50000,
-            base: 50000,
             calculation: [],
         },
         prices: {},
@@ -28,8 +28,8 @@ const testCases = [
         item: {
             itemId: 'PICKONIMBUS',
             extraAttributes: {},
+            basePrice: 50000,
             price: 50000,
-            base: 50000,
             calculation: [],
         },
         prices: {},
@@ -40,8 +40,8 @@ const testCases = [
         item: {
             itemId: 'PICKONIMBUS',
             extraAttributes: { pickonimbus_durability: 5000 },
+            basePrice: 50000,
             price: 50000,
-            base: 50000,
             calculation: [],
         },
         prices: {},

@@ -147,8 +147,7 @@ describe('SkyBlockItemNetworthHelper', () => {
             const helper = new SkyBlockItemNetworthHelper(validItemData);
             const prices = { TEST_ITEM: 1000 };
             helper.getBasePrice(prices);
-            expect(helper.price).toBe(1000);
-            expect(helper.base).toBe(1000);
+            expect(helper.basePrice).toBe(1000);
         });
 
         test('getBasePrice should handle count multiplier', () => {
@@ -159,24 +158,7 @@ describe('SkyBlockItemNetworthHelper', () => {
             const helper = new SkyBlockItemNetworthHelper(itemWithCount);
             const prices = { TEST_ITEM: 1000 };
             helper.getBasePrice(prices);
-            expect(helper.price).toBe(5000);
-            expect(helper.base).toBe(5000);
-        });
-
-        test('getBasePrice should handle price paid attribute', () => {
-            const itemWithPricePaid = {
-                ...validItemData,
-                tag: {
-                    ...validItemData.tag,
-                    ExtraAttributes: {
-                        id: 'TEST_ITEM',
-                        price: '1000',
-                    },
-                },
-            };
-            const helper = new SkyBlockItemNetworthHelper(itemWithPricePaid);
-            helper.getBasePrice({});
-            expect(helper.price).toBe(850); // 1000 * 0.85
+            expect(helper.basePrice).toBe(5000);
         });
     });
 

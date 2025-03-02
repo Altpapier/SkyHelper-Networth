@@ -8,8 +8,8 @@ const testCases = [
         item: {
             petData: { candyUsed: 10 },
             level: { xpMax: 25000000, level: 100 },
+            basePrice: 100000,
             price: 100000,
-            base: 100000,
             calculation: [],
         },
         prices: {},
@@ -29,8 +29,8 @@ const testCases = [
         item: {
             petData: { candyUsed: 10 },
             level: { xpMax: 25000000, level: 100 },
+            basePrice: 100000000,
             price: 100000000,
-            base: 100000000,
             calculation: [],
         },
         prices: {},
@@ -50,8 +50,8 @@ const testCases = [
         item: {
             petData: { candyUsed: 10 },
             level: { xpMax: 25000000, level: 90 },
+            basePrice: 100000000,
             price: 100000000,
-            base: 100000000,
             calculation: [],
         },
         prices: {},
@@ -71,8 +71,8 @@ const testCases = [
         item: {
             petData: {},
             level: { xpMax: 25000000 },
+            basePrice: 50000,
             price: 50000,
-            base: 50000,
             calculation: [],
         },
         prices: {},
@@ -83,8 +83,8 @@ const testCases = [
         item: {
             petData: { exp: 35000000, candyUsed: 10 },
             level: { xpMax: 25000000 },
+            basePrice: 50000,
             price: 50000,
-            base: 50000,
             calculation: [],
         },
         prices: {},

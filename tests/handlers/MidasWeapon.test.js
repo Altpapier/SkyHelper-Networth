@@ -8,12 +8,13 @@ const testCases = [
         item: {
             itemId: 'MIDAS_SWORD',
             extraAttributes: { winning_bid: 10000000 },
+            basePrice: 100,
             price: 100,
             calculation: [],
         },
         prices: {},
         shouldApply: true,
-        expectedNewPrice: 10000000 * APPLICATION_WORTH.winningBid,
+        expectedNewBasePrice: 10000000 * APPLICATION_WORTH.winningBid,
         expectedCalculation: [
             {
                 id: 'MIDAS_SWORD',
@@ -28,12 +29,14 @@ const testCases = [
         item: {
             itemId: 'MIDAS_SWORD',
             extraAttributes: { winning_bid: 20000000, additional_coins: 25000000 },
+            basePrice: 100,
             price: 100,
             calculation: [],
         },
         prices: {},
         shouldApply: true,
-        expectedNewPrice: 20000000 + 25000000,
+        expectedNewBasePrice: 20000000,
+        expectedPriceChange: 25000000,
         expectedCalculation: [
             {
                 id: 'MIDAS_SWORD',
@@ -54,12 +57,13 @@ const testCases = [
         item: {
             itemId: 'MIDAS_SWORD',
             extraAttributes: { winning_bid: 50000000 },
+            basePrice: 100,
             price: 100,
             calculation: [],
         },
         prices: { MIDAS_SWORD_50M: 300000000 },
         shouldApply: true,
-        expectedNewPrice: 300000000,
+        expectedNewBasePrice: 300000000,
         expectedCalculation: [
             {
                 id: 'MIDAS_SWORD',
@@ -74,12 +78,13 @@ const testCases = [
         item: {
             itemId: 'MIDAS_STAFF',
             extraAttributes: { winning_bid: 50000000, additional_coins: 50000000 },
+            basePrice: 100,
             price: 100,
             calculation: [],
         },
         prices: { MIDAS_STAFF_100M: 400000000 },
         shouldApply: true,
-        expectedNewPrice: 400000000,
+        expectedNewBasePrice: 400000000,
         expectedCalculation: [
             {
                 id: 'MIDAS_STAFF',
@@ -94,12 +99,13 @@ const testCases = [
         item: {
             itemId: 'STARRED_MIDAS_STAFF',
             extraAttributes: { winning_bid: 50000000, additional_coins: 1000000000000 },
+            basePrice: 100,
             price: 100,
             calculation: [],
         },
         prices: { STARRED_MIDAS_STAFF_500M: 580000000 },
         shouldApply: true,
-        expectedNewPrice: 580000000,
+        expectedNewBasePrice: 580000000,
         expectedCalculation: [
             {
                 id: 'STARRED_MIDAS_STAFF',

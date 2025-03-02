@@ -114,7 +114,7 @@ describe('PetNetworthHelper', () => {
             const helper = new PetNetworthHelper(mockPetData);
             const emptyPrices = {};
             helper.getBasePrice(emptyPrices);
-            expect(helper.price).toBe(0);
+            expect(helper.basePrice).toBe(0);
         });
 
         test('should calculate price correctly for pet level < 100', () => {
@@ -129,9 +129,8 @@ describe('PetNetworthHelper', () => {
             };
 
             helper.getBasePrice(mockPrices);
-            expect(helper.price).toBeGreaterThan(1000);
-            expect(helper.price).toBeLessThan(100000);
-            expect(helper.base).toBe(helper.price);
+            expect(helper.basePrice).toBeGreaterThan(1000);
+            expect(helper.basePrice).toBeLessThan(100000);
         });
 
         test('should calculate price correctly for pet level between 100-200', () => {
@@ -147,9 +146,8 @@ describe('PetNetworthHelper', () => {
             };
 
             helper.getBasePrice(mockPrices);
-            expect(helper.price).toBeGreaterThan(100000);
-            expect(helper.price).toBeLessThan(200000);
-            expect(helper.base).toBe(helper.price);
+            expect(helper.basePrice).toBeGreaterThan(100000);
+            expect(helper.basePrice).toBeLessThan(200000);
         });
     });
 });

@@ -8,12 +8,13 @@ const testCases = [
         item: {
             itemId: 'CLOVER_HELMET',
             extraAttributes: { auction: 6, bid: 6, price: 2500000000n },
+            basePrice: 100,
             price: 100,
             calculation: [],
         },
         prices: {},
         shouldApply: true,
-        expectedNewPrice: 2500000000 * APPLICATION_WORTH.shensAuctionPrice,
+        expectedNewBasePrice: 2500000000 * APPLICATION_WORTH.shensAuctionPrice,
         expectedCalculation: [
             {
                 id: 'CLOVER_HELMET',
@@ -28,6 +29,7 @@ const testCases = [
         item: {
             itemId: 'RANDOM_ITEM',
             extraAttributes: { price: 1000000 },
+            basePrice: 100,
             price: 100,
             calculation: [],
         },
