@@ -21,20 +21,18 @@ class PetCandyHandler {
      * @param {object} pet The pet data
      */
     calculate(pet) {
-        const reducedValue = pet.price * APPLICATION_WORTH.petCandy;
-        if (!isNaN(pet.price)) {
-            const oldPrice = pet.price;
-            const petPriceReduction = pet.level.level === 100 ? 5000000 : 2500000;
-            pet.price = Math.max(reducedValue, pet.price - petPriceReduction);
+        let reduceValue = pet.basePrice * (1 - APPLICATION_WORTH.petCandy);
+        const maxReduction = pet.level.level === 100 ? 5000000 : 2500000;
+        reduceValue = Math.min(reduceValue, maxReduction);
 
-            const calculationData = {
-                id: 'CANDY',
-                type: 'PET_CANDY',
-                price: pet.price - oldPrice,
-                count: pet.petData.candyUsed,
-            };
-            pet.calculation.push(calculationData);
-        }
+        const calculationData = {
+            id: 'CANDY',
+            type: 'PET_CANDY',
+            price: -reduceValue,
+            count: pet.petData.candyUsed,
+        };
+        pet.calculation.push(calculationData);
+        pet.price += calculationData.price;
     }
 }
 
