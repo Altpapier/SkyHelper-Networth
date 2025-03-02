@@ -195,12 +195,6 @@ class SkyBlockItemNetworthHelper {
         const itemPrice = prices[this.itemId] ?? 0;
         this.price = itemPrice * this.itemData.Count;
         this.base = itemPrice * this.itemData.Count;
-
-        // Check if the item has a price paid attribute - TODO: might want to move to a handler?
-        if (!this.price && this.extraAttributes.price) {
-            this.price = parseInt(this.extraAttributes.price) * 0.85;
-            this.base = parseInt(this.extraAttributes.price) * 0.85;
-        }
     }
 }
 
