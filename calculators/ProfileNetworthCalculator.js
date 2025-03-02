@@ -186,7 +186,7 @@ class ProfileNetworthCalculator {
                             if (existing) {
                                 existing.price += item.price;
                                 existing.count += item.count;
-                                existing.base = existing.base || item.base;
+                                existing.basePrice = existing.basePrice || item.basePrice;
                                 existing.calculation = existing.calculation || item.calculation;
                             } else {
                                 acc.push(item);

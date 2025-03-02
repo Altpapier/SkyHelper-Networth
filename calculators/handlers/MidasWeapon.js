@@ -31,14 +31,14 @@ class MidasWeaponHandler {
         const additionalCoins = item.extraAttributes.additional_coins ?? 0;
 
         // If max price paid
-        if (winningBid + additionalCoins >= maxBid) {
+        if (winningBid + additionalCoins >= maxBid && prices[type]) {
             const calculationData = {
                 id: item.itemId,
                 type: type,
-                price: prices[type] || item.price,
+                price: prices[type],
                 count: 1,
             };
-            item.price = calculationData.price;
+            item.basePrice = calculationData.price;
             item.calculation.push(calculationData);
         } else {
             // Else use winning bid amount
@@ -48,7 +48,7 @@ class MidasWeaponHandler {
                 price: winningBid * APPLICATION_WORTH.winningBid,
                 count: 1,
             };
-            item.price = calculationData.price;
+            item.basePrice = calculationData.price;
             item.calculation.push(calculationData);
 
             if (additionalCoins) {

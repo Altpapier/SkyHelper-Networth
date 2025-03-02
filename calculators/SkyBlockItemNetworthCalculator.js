@@ -61,6 +61,7 @@ class SkyBlockItemNetworthCalculator extends SkyBlockItemNetworthHelper {
 
         // Get the base price for the item
         this.getBasePrice(prices);
+        console.log(this.basePrice, this.price);
 
         for (const Handler of handlers) {
             // Create a new instance of the handler
@@ -88,8 +89,8 @@ class SkyBlockItemNetworthCalculator extends SkyBlockItemNetworthHelper {
             loreName: this.itemData.tag.display.Name,
             id: this.extraAttributes.id,
             customId: this.itemId,
-            price: this.price,
-            base: this.base,
+            price: this.price + this.basePrice,
+            basePrice: this.basePrice,
             calculation: this.calculation,
             count: this.itemData.Count || 1,
             soulbound: this.isSoulbound(),

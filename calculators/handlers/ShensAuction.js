@@ -19,8 +19,8 @@ class ShensAuctionHandler {
      */
     calculate(item) {
         const pricePaid = Number(item.extraAttributes.price) * APPLICATION_WORTH.shensAuctionPrice;
-        if (pricePaid > item.price) {
-            item.price = pricePaid;
+        if (pricePaid > item.basePrice) {
+            item.basePrice = pricePaid;
             item.calculation.push({
                 id: item.itemId,
                 type: 'SHENS_AUCTION',

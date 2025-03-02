@@ -28,8 +28,8 @@ class PetNetworthHelper {
 
         // Initialize calculation properties
         this.calculation = [];
+        this.basePrice = 0;
         this.price = 0;
-        this.base = 0;
     }
 
     /**
@@ -131,11 +131,11 @@ class PetNetworthHelper {
         }
 
         // Calculate the pet's price based on the percentage of the level from 1 to its max level
-        this.price = LVL_200 || LVL_100;
+        this.basePrice = LVL_200 || LVL_100;
         if (this.level.level < 100 && this.level.xpMax) {
             const baseFormula = (LVL_100 - LVL_1) / this.level.xpMax;
             if (baseFormula) {
-                this.price = baseFormula * this.level.xp + LVL_1;
+                this.basePrice = baseFormula * this.level.xp + LVL_1;
             }
         }
 
@@ -145,12 +145,10 @@ class PetNetworthHelper {
             if (level !== 1) {
                 const baseFormula = (LVL_200 - LVL_100) / 100;
                 if (baseFormula) {
-                    this.price = baseFormula * level + LVL_100;
+                    this.basePrice = baseFormula * level + LVL_100;
                 }
             }
         }
-
-        this.base = this.price;
     }
 
     /**

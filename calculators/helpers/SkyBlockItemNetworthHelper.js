@@ -29,8 +29,8 @@ class SkyBlockItemNetworthHelper {
         // Initialize calculation properties
         this.nonCosmetic = false;
         this.calculation = [];
+        this.basePrice = 0;
         this.price = 0;
-        this.base = 0;
     }
 
     /**
@@ -193,8 +193,7 @@ class SkyBlockItemNetworthHelper {
 
         // Get the base price for the item
         const itemPrice = prices[this.itemId] ?? 0;
-        this.price = itemPrice * this.itemData.Count;
-        this.base = itemPrice * this.itemData.Count;
+        this.basePrice = itemPrice * this.itemData.Count;
     }
 }
 

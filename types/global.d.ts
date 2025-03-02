@@ -1,5 +1,3 @@
-import { NetworthOptions } from './shared';
-
 export interface NetworthOptions {
     /**
      *  A prices object generated from the getPrices function. If not provided, the prices will be retrieved every time the function is called.
@@ -50,13 +48,13 @@ export type Item = {
     /**
      * The price of the item.
      */
+    basePrice: number;
+    /**
+     * The calculation of the item.
+     */
     price: number;
     /**
      * The base price of the item.
-     */
-    base: number;
-    /**
-     * The calculation of the item.
      */
     calculation: Calculation[];
     /**
