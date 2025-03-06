@@ -41,7 +41,7 @@ class SkyBlockItemNetworthHelper {
             throw new ValidationError('Item must be an object');
         }
 
-        if (this.itemData?.tag === undefined) {
+        if (this.itemData?.tag?.display?.Name === undefined) {
             throw new ValidationError('Invalid item provided');
         }
     }

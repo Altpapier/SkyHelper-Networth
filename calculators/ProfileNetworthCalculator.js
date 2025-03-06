@@ -154,7 +154,12 @@ class ProfileNetworthCalculator {
                 }
 
                 // Instantiate the calculator
-                const calculator = new calculatorClass(item);
+                let calculator = null;
+                try {
+                    calculator = new calculatorClass(item);
+                } catch {
+                    continue;
+                }
                 // Calculate the networth of the item
                 const result = nonCosmetic
                     ? await calculator.getNonCosmeticNetworth({ prices, includeItemData })
