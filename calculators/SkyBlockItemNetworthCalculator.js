@@ -91,7 +91,7 @@ class SkyBlockItemNetworthCalculator extends SkyBlockItemNetworthHelper {
             price: this.price + this.basePrice,
             basePrice: this.basePrice,
             calculation: this.calculation,
-            count: this.itemData.Count || 1,
+            count: this.itemData.Count ?? 1,
             soulbound: this.isSoulbound(),
             cosmetic: this.isCosmetic(),
         };

@@ -193,7 +193,7 @@ class SkyBlockItemNetworthHelper {
 
         // Get the base price for the item
         const itemPrice = prices[this.itemId] ?? 0;
-        this.basePrice = itemPrice * this.itemData.Count;
+        this.basePrice = itemPrice * (this.itemData.Count ?? 1);
     }
 }
 
