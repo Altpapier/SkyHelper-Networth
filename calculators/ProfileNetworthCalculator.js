@@ -107,13 +107,14 @@ class ProfileNetworthCalculator {
      * @param {NetworthOptions} [options] The options for calculating networth.
      * @returns {Promise<NetworthResult>} The networth result.
      */
-    async #calculate({ prices, nonCosmetic, cachePrices, pricesRetries, cachePricesTime, onlyNetworth, includeItemData, stackItems }) {
+    async #calculate({ prices, nonCosmetic, cachePrices, pricesRetries, cachePricesTime, onlyNetworth, includeItemData, sortItems, stackItems }) {
         // Set default options
         cachePrices ??= networthManager.getCachePrices();
         pricesRetries ??= networthManager.getPricesRetries();
         cachePricesTime ??= networthManager.getCachePricesTime();
         onlyNetworth ??= networthManager.getOnlyNetworth();
         includeItemData ??= networthManager.getIncludeItemData();
+        sortItems ??= networthManager.getSortItems();
         stackItems ??= networthManager.getStackItems();
 
         // Get prices and items
@@ -175,33 +176,33 @@ class ProfileNetworthCalculator {
             }
 
             // Sort items by price
-            if (!onlyNetworth && categories[category].items.length > 0) {
+            if (sortItems && !onlyNetworth && categories[category].items.length > 0) {
                 categories[category].items = categories[category].items.sort((a, b) => b.price - a.price);
+            }
 
-                // Stack items with the same id and price
-                if (stackItems) {
-                    categories[category].items = categories[category].items.reduce((acc, item) => {
-                        if (!item?.isPet) {
-                            const existing = acc.find(
-                                (existingItem) =>
-                                    existingItem.id === item.id &&
-                                    existingItem.price / existingItem.count === item.price / item.count &&
-                                    existingItem.soulbound === item.soulbound,
-                            );
-                            if (existing) {
-                                existing.price += item.price;
-                                existing.count += item.count;
-                                existing.basePrice = existing.basePrice || item.basePrice;
-                                existing.calculation = existing.calculation || item.calculation;
-                            } else {
-                                acc.push(item);
-                            }
+            // Stack items with the same id and price
+            if (stackItems) {
+                categories[category].items = categories[category].items.reduce((acc, item) => {
+                    if (!item?.isPet) {
+                        const existing = acc.find(
+                            (existingItem) =>
+                                existingItem.id === item.id &&
+                                existingItem.price / existingItem.count === item.price / item.count &&
+                                existingItem.soulbound === item.soulbound,
+                        );
+                        if (existing) {
+                            existing.price += item.price;
+                            existing.count += item.count;
+                            existing.basePrice = existing.basePrice || item.basePrice;
+                            existing.calculation = existing.calculation || item.calculation;
                         } else {
                             acc.push(item);
                         }
-                        return acc;
-                    }, []);
-                }
+                    } else {
+                        acc.push(item);
+                    }
+                    return acc;
+                }, []);
             }
 
             // Remove items if only networth is requested

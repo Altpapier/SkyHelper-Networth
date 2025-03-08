@@ -1,6 +1,6 @@
 import { NetworthManagerOptions } from './types/NetworthManager';
 import { Items, NetworthResult } from './types/ProfileNetworthCalculator';
-import { NetworthOptions, Item } from './types/global';
+import { Item, NetworthOptions } from './types/global';
 
 declare class NetworthManager {
     /**
@@ -32,6 +32,11 @@ declare class NetworthManager {
      * Sets the onlyNetworth option.
      */
     setOnlyNetworth(onlyNetworth: boolean): void;
+
+    /**
+     * Sets the sortItems option.
+     */
+    setSortItems(sortItems: boolean): void;
 
     /**
      * Sets the stackItems option.

@@ -36,6 +36,12 @@ export interface NetworthManagerOptions {
     onlyNetworth?: boolean;
 
     /**
+     * Whether to sort items by price.
+     * Default: true
+     */
+    sortItems?: boolean;
+
+    /**
      * Whether to stack items with the same name and price.
      * Default: true
      */

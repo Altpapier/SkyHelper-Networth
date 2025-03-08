@@ -62,6 +62,7 @@ describe('ProfileNetworthCalculator', () => {
         networthManager.getCachePricesTime = jest.fn().mockReturnValue(300);
         networthManager.getOnlyNetworth = jest.fn().mockReturnValue(false);
         networthManager.getIncludeItemData = jest.fn().mockReturnValue(true);
+        networthManager.getSortItems = jest.fn().mockReturnValue(true);
         networthManager.getStackItems = jest.fn().mockReturnValue(true);
         networthManager.clearIntervals = jest.fn();
 

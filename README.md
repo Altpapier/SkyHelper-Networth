@@ -138,6 +138,7 @@ new NetworthManager(options?: NetworthManagerOptions)
 | `setItemsRetries()`    | `itemsRetries`    | `number`  | `3`              | The amount of retries to fetch the items when failing to fetch them.               |
 | `setItemsInterval()`   | `itemsInterval`   | `number`  | `43200000` (12h) | The interval to fetch the items from the Hypixel API in milliseconds.              |
 | `setOnlyNetworth()`    | `onlyNetworth`    | `boolean` | `false`          | Whether to only return the total networth or the items as well.                    |
+| `setSortItems()`       | `sortItems`       | `boolean` | `true`           | Whether to sort items by price.                                                    |
 | `setStackItems()`      | `stackItems`      | `boolean` | `true`           | Whether to stack items with the same name and price.                               |
 | `setIncludeItemData()` | `includeItemData` | `boolean` | `false`          | hether to include the item data as a property in the item object.                  |
 
@@ -178,6 +179,7 @@ updateManager.disable(); // Stop automatic checks
 | `pricesRetries`   | `number`  | `3`      | The amount of retries to fetch the prices when failing to fetch them.              |
 | `onlyNetworth`    | `boolean` | `false`  | Whether to only return the total networth or the items as well.                    |
 | `includeItemData` | `boolean` | `false`  | Whether to include the item data as a property in the item object.                 |
+| `sortItems`       | `boolean` | `true`   | Whether to sort items by price.                                                    |
 | `stackItems`      | `boolean` | `true`   | Whether to stack items with the same name and price.                               |
 
 ### 📜 NetworthResult

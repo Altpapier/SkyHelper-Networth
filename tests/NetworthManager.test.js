@@ -32,6 +32,7 @@ describe('NetworthManager', () => {
             expect(networthManager.getPricesRetries()).toBe(3);
             expect(networthManager.getCachePricesTime()).toBe(1000 * 60 * 5);
             expect(networthManager.getOnlyNetworth()).toBe(false);
+            expect(networthManager.getSortItems()).toBe(true);
             expect(networthManager.getStackItems()).toBe(true);
             expect(networthManager.getIncludeItemData()).toBe(false);
         });
@@ -44,6 +45,7 @@ describe('NetworthManager', () => {
                 .setPricesRetries(5)
                 .setCachePricesTime(1000)
                 .setOnlyNetworth(true)
+                .setSortItems(false)
                 .setStackItems(false)
                 .setIncludeItemData(true);
 
@@ -62,6 +64,9 @@ describe('NetworthManager', () => {
 
             networthManager.setOnlyNetworth(true);
             expect(networthManager.getOnlyNetworth()).toBe(true);
+
+            networthManager.setSortItems(false);
+            expect(networthManager.getSortItems()).toBe(false);
 
             networthManager.setStackItems(false);
             expect(networthManager.getStackItems()).toBe(false);

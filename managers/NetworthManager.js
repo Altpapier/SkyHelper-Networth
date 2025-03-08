@@ -10,6 +10,7 @@ class NetworthManager {
     #itemsRetries;
     #itemsInterval;
     #onlyNetworth;
+    #sortItems;
     #stackItems;
     #includeItemData;
     #itemsIntervalInstance;
@@ -22,10 +23,11 @@ class NetworthManager {
      * @param {number} [options.itemsRetries=3] - The amount of retries to fetch the items when failing to fetch them
      * @param {number} [options.itemsInterval=1000 * 60 * 60 * 12] - The interval to fetch the items from the Hypixel API
      * @param {boolean} [options.onlyNetworth=false] - Whether to only return the total networth or the items as well
+     * @param {boolean} [options.sortItems=true] - Whether to sort items by price
      * @param {boolean} [options.stackItems=true] - Whether to stack items with the same name and price
      * @param {boolean} [options.includeItemData=false] - Whether to include the item data as a property in the item object
      */
-    constructor({ cachePrices, pricesRetries, cachePricesTime, itemsRetries, itemsInterval, onlyNetworth, stackItems, includeItemData } = {}) {
+    constructor({ cachePrices, pricesRetries, cachePricesTime, itemsRetries, itemsInterval, onlyNetworth, sortItems, stackItems, includeItemData } = {}) {
         if (NetworthManager.instance) {
             return NetworthManager.instance;
         }
@@ -38,6 +40,7 @@ class NetworthManager {
         this.#itemsRetries = itemsRetries || 3;
         this.#itemsInterval = itemsInterval || 1000 * 60 * 60 * 12;
         this.#onlyNetworth = onlyNetworth || false;
+        this.#sortItems = sortItems || true;
         this.#stackItems = stackItems || true;
         this.#includeItemData = includeItemData || false;
 
@@ -109,6 +112,16 @@ class NetworthManager {
      */
     setOnlyNetworth(onlyNetworth) {
         this.#onlyNetworth = onlyNetworth;
+        return this;
+    }
+
+    /**
+     * Whether to sort items by price. Default: true
+     * @param {boolean} sortItems
+     * @returns {NetworthManager} The NetworthManager instance
+     */
+    setSortItems(sortItems) {
+        this.#sortItems = sortItems;
         return this;
     }
 
@@ -204,6 +217,14 @@ class NetworthManager {
      */
     getIncludeItemData() {
         return this.#includeItemData;
+    }
+
+    /**
+     * Get the sort items value
+     * @returns {boolean} The sort items value
+     */
+    getSortItems() {
+        return this.#sortItems;
     }
 
     /**
