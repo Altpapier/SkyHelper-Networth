@@ -8,7 +8,7 @@ class AttributeRollHandler {
      * @returns {boolean} Whether the handler applies to the item
      */
     applies(item) {
-        return item.itemId !== 'ATTRIBUTE_SHARD' && Object.keys(item.extraAttributes.attributes ?? {}).length > 0;
+        return Object.keys(item.extraAttributes.attributes ?? {}).length > 0;
     }
 
     /**
@@ -17,8 +17,13 @@ class AttributeRollHandler {
      * @param {object} prices A prices object generated from the getPrices function
      */
     calculate(item, prices) {
-        const sortedAttributes = Object.keys(item.extraAttributes.attributes).sort((a, b) => a.toUpperCase().localeCompare(b.toUpperCase()));
-        const attributeRollId = `${item.itemId}${sortedAttributes.map((attribute) => `_ROLL_${attribute.toUpperCase()}`).join('')}`;
+        let attributeRollId = '';
+        if (item.itemId === 'ATTRIBUTE_SHARD') {
+            attributeRollId = `ATTRIBUTE_SHARD_${Object.keys(item.extraAttributes.attributes)[0].toUpperCase()}`;
+        } else {
+            const sortedAttributes = Object.keys(item.extraAttributes.attributes).sort((a, b) => a.toUpperCase().localeCompare(b.toUpperCase()));
+            attributeRollId = `${item.itemId}${sortedAttributes.map((attribute) => `_ROLL_${attribute.toUpperCase()}`).join('')}`;
+        }
         const attributeRollPrice = prices[attributeRollId];
         if (attributeRollPrice > item.basePrice) {
             item.basePrice = attributeRollPrice;

@@ -14,7 +14,7 @@ const testCases = [
         },
         prices: { ATTRIBUTE_SHARD_LIFELINE: 1000000 },
         shouldApply: true,
-        // No increase in price since the base tier is 1, should be accounted for in the base attrbiute shard price
+        // No increase in price since the base tier is 1, should be accounted for in the base attribute shard price
         expectedPriceChange: 0,
         expectedCalculation: [],
     },
