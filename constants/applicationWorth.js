@@ -33,7 +33,6 @@ const APPLICATION_WORTH = {
     polarvoidBook: 1,
     prestigeItem: 1,
     reforge: 1,
-    winningBid: 1,
     petCandy: 0.65,
     soulboundPetSkins: 0.8,
     soulboundSkins: 0.8,

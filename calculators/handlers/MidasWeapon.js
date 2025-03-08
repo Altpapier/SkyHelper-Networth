@@ -1,5 +1,3 @@
-const { APPLICATION_WORTH } = require('../../constants/applicationWorth');
-
 const MIDAS_SWORDS = {
     MIDAS_SWORD: { maxBid: 50_000_000, type: 'MIDAS_SWORD_50M' },
     STARRED_MIDAS_SWORD: { maxBid: 250_000_000, type: 'STARRED_MIDAS_SWORD_250M' },
@@ -40,28 +38,8 @@ class MidasWeaponHandler {
             };
             item.basePrice = calculationData.price;
             item.calculation.push(calculationData);
-        } else {
-            // Else use winning bid amount
-            const calculationData = {
-                id: item.itemId,
-                type: 'WINNING_BID',
-                price: winningBid * APPLICATION_WORTH.winningBid,
-                count: 1,
-            };
-            item.basePrice = calculationData.price;
-            item.calculation.push(calculationData);
-
-            if (additionalCoins) {
-                const calculationData = {
-                    id: item.itemId,
-                    type: 'ADDITIONAL_COINS',
-                    price: additionalCoins * APPLICATION_WORTH.winningBid,
-                    count: 1,
-                };
-                item.price += calculationData.price;
-                item.calculation.push(calculationData);
-            }
         }
+        // Otherwise use the normal AH price
     }
 }
 

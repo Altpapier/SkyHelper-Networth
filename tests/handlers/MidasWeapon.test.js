@@ -14,15 +14,8 @@ const testCases = [
         },
         prices: {},
         shouldApply: true,
-        expectedNewBasePrice: 10000000 * APPLICATION_WORTH.winningBid,
-        expectedCalculation: [
-            {
-                id: 'MIDAS_SWORD',
-                type: 'WINNING_BID',
-                price: 10000000 * APPLICATION_WORTH.winningBid,
-                count: 1,
-            },
-        ],
+        expectedPriceChange: 0,
+        expectedCalculation: [],
     },
     {
         description: 'Applies correctly less than max price paid with additonal coins',
@@ -35,22 +28,8 @@ const testCases = [
         },
         prices: {},
         shouldApply: true,
-        expectedNewBasePrice: 20000000,
-        expectedPriceChange: 25000000,
-        expectedCalculation: [
-            {
-                id: 'MIDAS_SWORD',
-                type: 'WINNING_BID',
-                price: 20000000 * APPLICATION_WORTH.winningBid,
-                count: 1,
-            },
-            {
-                id: 'MIDAS_SWORD',
-                type: 'ADDITIONAL_COINS',
-                price: 25000000 * APPLICATION_WORTH.winningBid,
-                count: 1,
-            },
-        ],
+        expectedPriceChange: 0,
+        expectedCalculation: [],
     },
     {
         description: 'Applies correctly max price paid',
