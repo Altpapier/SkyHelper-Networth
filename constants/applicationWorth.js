@@ -36,6 +36,7 @@ const APPLICATION_WORTH = {
     winningBid: 1,
     petCandy: 0.65,
     soulboundPetSkins: 0.8,
+    soulboundSkins: 0.8,
     petItem: 1,
 };
 

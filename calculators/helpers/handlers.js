@@ -31,6 +31,7 @@ const NecronBladeScrollsHandler = require('../handlers/NecronBladeScrolls');
 const DrillPartsHandler = require('../handlers/DrillParts');
 const EtherwarpConduitHandler = require('../handlers/EtherwarpConduit');
 const NewYearCakeBagHandler = require('../handlers/NewYearCakeBag');
+const SoulboundSkinHandler = require('../handlers/SoulboundSkin');
 
 // For each handler, check if it applies and add the calculation to the total price
 const handlers = [
@@ -67,6 +68,7 @@ const handlers = [
     DrillPartsHandler,
     EtherwarpConduitHandler,
     NewYearCakeBagHandler,
+    SoulboundSkinHandler,
 ];
 
 module.exports = handlers;
