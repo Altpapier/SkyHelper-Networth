@@ -18,7 +18,7 @@ class SoulboundSkinHandler {
      * @returns {boolean} Whether the handler applies to the item
      */
     applies(item) {
-        return Boolean(item.extraAttributes.skin) && item.isSoulbound() && !item.nonCosmetic;
+        return Boolean(item.extraAttributes.skin) && !item.itemId.includes(item.extraAttributes.skin) && item.isSoulbound() && !item.nonCosmetic;
     }
 
     /**

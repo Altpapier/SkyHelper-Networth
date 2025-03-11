@@ -48,6 +48,17 @@ const testCases = [
         prices: {},
         shouldApply: false,
     },
+    {
+        description: 'Does not apply when already has skin value',
+        item: {
+            itemId: 'WITHER_GOGGLES_SKINNED_WITHER_GOGGLES_CELESTIAL',
+            extraAttributes: { skin: 'WITHER_GOGGLES_CELESTIAL' },
+            price: 100,
+            calculation: [],
+        },
+        prices: {},
+        shouldApply: false,
+    },
 ];
 
 new BaseHandlerTest(SoulboundSkinHandler, testCases).runTests();
