@@ -1,98 +1,129 @@
-declare module 'skyhelper-networth' {
-  export interface NetworthOptions {
-    v2Endpoint?: boolean;
-    cache?: boolean;
-    onlyNetworth?: boolean;
-    prices?: object;
-    returnItemData?: boolean;
-    museumData?: object;
-  }
+import { NetworthManagerOptions } from './types/NetworthManager';
+import { Items, NetworthResult } from './types/ProfileNetworthCalculator';
+import { Item, NetworthOptions } from './types/global';
 
-  export interface PreDecodedNetworthOptions {
-    v2Endpoint?: boolean;
-    cache?: boolean;
-    onlyNetworth?: boolean;
-    prices?: object;
-    returnItemData?: boolean;
-  }
+declare class NetworthManager {
+    /**
+     * Creates a new instance of NetworthManager. This class is a singleton and should be accessed through the networthManager instance.
+     */
+    constructor(options?: NetworthManagerOptions);
 
-  export interface ItemNetworthOptions {
-    cache?: boolean;
-    prices?: object;
-    returnItemData?: boolean;
-  }
+    /**
+     * Sets the cachePrices option.
+     */
+    setCachePrices(cachePrices: boolean | number): void;
 
-  export interface ItemCalculation {
-    id: string;
-    type: string;
-    price: number;
-    count: number;
-    star?: number;
-    shards?: number;
-  }
+    /**
+     * Sets the pricesRetries option.
+     */
+    setPricesRetries(pricesRetries: number): void;
 
-  export interface Item {
-    uuid?: string | null;
-    uniqueId?: string;
-    type?: string;
-    exp?: number;
-    active?: boolean;
-    tier?: string;
-    heldItem?: string | null;
-    candyUsed?: number;
-    skin?: string | null;
-    level?: number;
-    xpMax?: number;
-    name: string;
-    loreName?: string;
-    id: string;
-    price: number;
-    base: number;
-    calculation: ItemCalculation[];
-    count: number;
-    soulbound: boolean;
-    item?: object;
-  }
+    /**
+     * Sets the itemsRetries option.
+     */
+    setItemsRetries(itemsRetries: number): void;
 
-  export interface Category {
-    total: number;
-    unsoulboundTotal: number;
-    items?: Item[];
-  }
+    /**
+     * Sets the itemsInterval option and restarts the items fetch interval.
+     */
+    setItemsInterval(itemsInterval: number): void;
 
-  export interface Categories {
-    armor: Category;
-    equipment: Category;
-    wardrobe: Category;
-    inventory: Category;
-    enderchest: Category;
-    accessories: Category;
-    personal_vault: Category;
-    fishing_bag: Category;
-    potion_bag: Category;
-    candy_inventory: Category;
-    carvinal_mask_inventory: Category;
-    storage: Category;
-    museum: Category;
-    sacks: Category;
-    essence: Category;
-    pets: Category;
-  }
+    /**
+     * Sets the onlyNetworth option.
+     */
+    setOnlyNetworth(onlyNetworth: boolean): void;
 
-  export interface NetworthResult {
-    noInventory: boolean;
-    networth: number;
-    unsoulboundNetworth: number;
-    purse: number;
-    bank: number;
-    types: Categories;
-  }
+    /**
+     * Sets the sortItems option.
+     */
+    setSortItems(sortItems: boolean): void;
 
-  export function getNetworth(profileData: object, bankBalance: number, options?: NetworthOptions): Promise<NetworthResult>;
+    /**
+     * Sets the stackItems option.
+     */
+    setStackItems(stackItems: boolean): void;
 
-  export function getPreDecodedNetworth(profileData: object, items: object, bankBalance: number, options?: PreDecodedNetworthOptions): Promise<NetworthResult>;
+    /**
+     * Sets the includeItemData option.
+     */
+    setIncludeItemData(includeItemData: boolean): void;
 
-  export function getItemNetworth(item: object, options?: ItemNetworthOptions): Promise<Item>;
-
-  export function getPrices(cache?: boolean): Promise<object>;
+    /**
+     * Manually updates the items from the Hypixel API.
+     * @param retries The number of retries to fetch the items.
+     * @param retryInterval The interval in milliseconds between retries.
+     * @param currentRetry The current retry count.
+     */
+    updateItems(retries?: number, retryInterval?: number, currentRetry?: number): Promise<void>;
 }
+
+declare class UpdateManager {
+    /**
+     * Creates an instance of UpdateManager and starts the interval for checking for updates (default: 1 minute).
+     */
+    constructor();
+
+    /**
+     * Disables the interval for checking for updates.
+     */
+    disable(): void;
+
+    /**
+     * Enables the interval for checking for updates if it was disabled.
+     */
+    enable(): void;
+
+    /**
+     * Changes the interval for checking for updates.
+     * @param interval The interval in milliseconds to check for updates.
+     */
+    setInterval(interval: number): void;
+
+    /**
+     * Checks for updates of the package on npm.
+     */
+    checkForUpdate(): Promise<void>;
+}
+
+declare class ProfileNetworthCalculator {
+    /**
+     * Creates a new instance of ProfileNetworthCalculator.
+     */
+    constructor(profileData: object, museumData?: object, bankBalance?: number);
+
+    /**
+     * Gets the networth of the player.
+     */
+    getNetworth(options?: NetworthOptions): Promise<NetworthResult>;
+
+    /**
+     * Gets the networth of the player without the cosmetic items.
+     */
+    getNonCosmeticNetworth(options?: NetworthOptions): Promise<NetworthResult>;
+
+    /**
+     * Returns the instance of the ProfileNetworthCalculator.
+     */
+    fromPreParsed(profileData: object, items: Items, bankBalance: number): ProfileNetworthCalculator;
+}
+
+declare class ItemNetworthCalculator {
+    /**
+     * Creates a new instance of ItemNetworthCalculator.
+     */
+    constructor(item: object);
+
+    /**
+     * Returns the networth of an item.
+     */
+    getNetworth(options?: NetworthOptions): Promise<Item>;
+
+    /**
+     * Returns the non-cosmetic networth of an item.
+     */
+    getNonCosmeticNetworth(options?: NetworthOptions): Promise<Item>;
+}
+
+declare function getPrices(cache?: boolean, cacheTime?: number, retries?: number): Promise<Record<string, number>>;
+
+declare function parseItems(profileData: object, museumData: object): Promise<object>;

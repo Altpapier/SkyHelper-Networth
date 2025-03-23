@@ -1,132 +1,126 @@
-const { getPetLevel } = require('../constants/pets');
-const { decodeData } = require('../helper/functions');
+const { decodeItems, decodeItemsObject, decodeItem } = require('./decode');
 
-const singleContainers = {
-  armor: 'inv_armor',
-  equipment: 'equipment_contents',
-  wardrobe: 'wardrobe_contents',
-  inventory: 'inv_contents',
-  enderchest: 'ender_chest_contents',
-  accessories: 'talisman_bag',
-  personal_vault: 'personal_vault_contents',
-  fishing_bag: 'fishing_bag',
-  potion_bag: 'potion_bag',
-  sacks_bag: 'sacks_bag',
-  candy_inventory: 'candy_inventory_contents',
-  carnival_mask_inventory: 'carnival_mask_inventory_contents',
-};
+const parseItems = async (profileData, museumData) => {
+    const INVENTORY = profileData.inventory;
+    const SHARED_INVENTORY = profileData.shared_inventory;
+    const outputPromises = {
+        armor: INVENTORY?.inv_armor?.data ?? '',
+        equipment: INVENTORY?.equipment_contents?.data ?? '',
+        wardrobe: INVENTORY?.wardrobe_contents?.data ?? '',
+        inventory: INVENTORY?.inv_contents?.data ?? '',
+        enderchest: INVENTORY?.ender_chest_contents?.data ?? '',
+        accessories: INVENTORY?.bag_contents?.talisman_bag?.data ?? '',
+        personal_vault: INVENTORY?.personal_vault_contents?.data ?? '',
+        fishing_bag: INVENTORY?.bag_contents?.fishing_bag?.data ?? '',
+        potion_bag: INVENTORY?.bag_contents?.potion_bag?.data ?? '',
+        sacks_bag: INVENTORY?.bag_contents?.sacks_bag?.data ?? '',
+        candy_inventory: SHARED_INVENTORY?.candy_inventory_contents?.data ?? '',
+        carnival_mask_inventory: SHARED_INVENTORY?.carnival_mask_inventory_contents?.data ?? '',
+        quiver: INVENTORY?.bag_contents?.quiver?.data ?? '',
 
-const bagContainers = ['fishing_bag', 'potion_bag', 'talisman_bag', 'sacks_bag']; // In the v2 endpoint: profileData.inventory.bag_contents
-const sharedContainers = ['candy_inventory_contents', 'carnival_mask_inventory_contents']; // In the v2 endpoint: profileData.shared_inventory
+        ...Object.fromEntries([
+            ...Object.entries(INVENTORY?.backpack_contents ?? {}).map(([key, value]) => [`storage_${key}`, value.data ?? '']),
+            ...Object.entries(INVENTORY?.backpack_icons ?? {}).map(([key, value]) => [`storage_icon_${key}`, value.data ?? '']),
+        ]),
+    };
 
-const parseItems = async (profileData, museumData, v2Endpoint) => {
-  const items = {};
+    const entries = Object.entries(outputPromises);
+    const decodedItems = await decodeItems(entries.map(([_, value]) => value));
 
-  // Parse Single Containers (Armor, Equipment, Wardrobe, Inventory, Enderchest, Personal Vault)
-  for (const [container, key] of Object.entries(singleContainers)) {
-    items[container] = [];
-    if (v2Endpoint) {
-      const containerData = bagContainers.includes(key) ? profileData.inventory?.bag_contents?.[key] : sharedContainers.includes(key) ? profileData.shared_inventory?.[key] : profileData.inventory?.[key];
-      if (containerData) {
-        items[container] = await decodeData(containerData.data);
-      }
+    const items = entries.reduce((acc, [key, _], idx) => {
+        if (!decodedItems[idx]) {
+            acc[key] = [];
+            return acc;
+        }
+
+        const filteredItems = decodedItems[idx].filter((item) => item && Object.keys(item).length);
+        if (key.includes('storage')) {
+            acc.storage = (acc.storage || []).concat(filteredItems);
+        } else {
+            acc[key] = filteredItems;
+        }
+
+        return acc;
+    }, {});
+
+    items.storage ??= [];
+
+    if (museumData && Object.keys(museumData).length > 0 && museumData.items && Object.keys(museumData.items).length > 0) {
+        if (Object.values(museumData.items).at(0).items.length && museumData.special.length) {
+            items.museum = [
+                ...Object.values(museumData.items)
+                    .filter((item) => !item.borrowing)
+                    .map((item) => item.items)
+                    .flat(),
+                ...museumData.special.map((special) => special.items).flat(),
+            ];
+        } else {
+            const specialItems = museumData.special?.map((special) => special.items.data) ?? [];
+            const [decodedMuseumItems, decodedSpecialItems] = await Promise.all([
+                decodeItemsObject(
+                    Object.fromEntries(
+                        Object.entries(museumData.items || {})
+                            .filter(([_, value]) => !value.borrowing)
+                            .map(([key, value]) => [key, value.items.data]),
+                    ),
+                ),
+                decodeItems(specialItems),
+            ]);
+
+            items.museum = [...Object.values(decodedMuseumItems).flat(), ...decodedSpecialItems.flat()];
+        }
     } else {
-      if (profileData[key]) {
-        items[container] = await decodeData(profileData[key].data);
-      }
-    }
-  }
-
-  // Parse Storage
-  items.storage = [];
-  const inventoryData = v2Endpoint ? profileData.inventory : profileData;
-  if (inventoryData?.backpack_contents && inventoryData?.backpack_icons) {
-    // Parse Storage Contents
-    for (const backpackContent of Object.values(inventoryData.backpack_contents)) {
-      items.storage.push(await decodeData(backpackContent.data));
+        items.museum ??= [];
     }
 
-    // Parse Storage Backpacks
-    for (const backpack of Object.values(inventoryData.backpack_icons)) {
-      items.storage.push(await decodeData(backpack.data));
-    }
-
-    items.storage = items.storage.flat();
-  }
-
-  // Parse Museum
-  items.museum = [];
-  if (museumData?.items) {
-    for (const data of Object.values(museumData.items)) {
-      if (data?.items?.data === undefined || data?.borrowing) continue;
-
-      const decodedItem = await decodeData(data.items.data);
-
-      items.museum.push(...decodedItem);
-    }
-
-    for (const data of museumData.special || []) {
-      if (data?.items?.data === undefined) continue;
-
-      const decodedItem = await decodeData(data.items.data);
-
-      items.museum.push(...decodedItem);
-    }
-  }
-
-  await postParseItems(profileData, items, v2Endpoint);
-
-  return items;
+    await postParseItems(profileData, items);
+    return items;
 };
 
-const postParseItems = async (profileData, items, v2Endpoint) => {
-  // Parse Cake Bags
-  for (const categoryItems of Object.values(items)) {
-    for (const item of categoryItems) {
-      if (!item?.tag?.ExtraAttributes?.new_year_cake_bag_data) continue;
-      const cakes = await decodeData(item.tag?.ExtraAttributes?.new_year_cake_bag_data);
-      if (item?.tag?.ExtraAttributes) {
-        item.tag.ExtraAttributes.new_year_cake_bag_years = cakes.filter((cake) => cake.id && cake.tag?.ExtraAttributes?.new_years_cake).map((cake) => cake.tag.ExtraAttributes.new_years_cake);
-      }
-    }
-  }
+const postParseItems = async (profileData, items) => {
+    // Parse Cake Bags - Process all items in a single loop
+    const processCakeBags = async (items) => {
+        for (const categoryItems of Object.values(items)) {
+            for (const item of categoryItems) {
+                if (!item?.tag?.ExtraAttributes?.new_year_cake_bag_data) {
+                    continue;
+                }
 
-  // Parse Sacks
-  items.sacks = [];
-  if (profileData.sacks_counts || profileData.inventory?.sacks_counts) {
-    for (const [id, amount] of Object.entries(profileData.sacks_counts || profileData.inventory.sacks_counts)) {
-      if (amount) items.sacks.push({ id, amount });
-    }
-  }
+                const cakeBagData = await decodeItem(Buffer.from(item.tag.ExtraAttributes.new_year_cake_bag_data, 'base64'));
+                item.tag.ExtraAttributes.new_year_cake_bag_years = cakeBagData
+                    .filter((cake) => cake.id && cake.tag?.ExtraAttributes?.new_years_cake)
+                    .map((cake) => cake.tag.ExtraAttributes.new_years_cake);
+            }
+        }
+    };
 
-  // Parse Essence
-  items.essence = [];
-  if (v2Endpoint) {
-    if (profileData.currencies?.essence) {
-      for (const id of Object.keys(profileData.currencies?.essence)) {
-        items.essence.push({ id: `essence_${id}`, amount: profileData.currencies.essence[id]?.current });
-      }
-    }
-  } else {
-    for (const id of Object.keys(profileData)) {
-      if (id.startsWith('essence_')) items.essence.push({ id, amount: profileData[id] });
-    }
-  }
-
-  // Parse Pets
-  items.pets = [];
-  if (profileData.pets || profileData.pets_data?.pets) {
-    for (const pet of profileData.pets || profileData.pets_data.pets) {
-      const newPet = { ...pet };
-      const level = getPetLevel(newPet);
-      newPet.level = level.level;
-      newPet.xpMax = level.xpMax;
-      items.pets.push(newPet);
-    }
-  }
+    await Promise.all([
+        processCakeBags(items),
+        (() => {
+            const sacksData = profileData.sacks_counts || profileData.inventory?.sacks_counts;
+            items.sacks = sacksData
+                ? Object.entries(sacksData)
+                      .filter(([_, amount]) => amount)
+                      .map(([id, amount]) => ({ id, amount }))
+                : [];
+        })(),
+        (() => {
+            items.essence = profileData.currencies?.essence
+                ? Object.entries(profileData.currencies.essence).map(([id, data]) => {
+                      return {
+                          id: `ESSENCE_${id.toUpperCase()}`,
+                          amount: data.current,
+                      };
+                  })
+                : [];
+        })(),
+        (() => {
+            items.pets = profileData.pets_data?.pets?.map((pet) => ({ ...pet })) ?? [];
+        })(),
+    ]);
 };
 
 module.exports = {
-  parseItems,
-  postParseItems,
+    parseItems,
+    postParseItems,
 };
