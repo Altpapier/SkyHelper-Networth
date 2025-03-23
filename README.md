@@ -1,4 +1,4 @@
-﻿# SkyHelper-Networth (TypeScript)
+﻿# SkyHelper-Networth
 
 [![discord](https://img.shields.io/discord/720018827433345138?logo=discord)](https://discord.com/invite/fd4Be4W)
 [![license](https://img.shields.io/badge/license-MIT-green)](LICENSE)
