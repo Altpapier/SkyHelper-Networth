@@ -140,7 +140,7 @@ new NetworthManager(options?: NetworthManagerOptions)
 | `setOnlyNetworth()`    | `onlyNetworth`    | `boolean` | `false`          | Whether to only return the total networth or the items as well.                    |
 | `setSortItems()`       | `sortItems`       | `boolean` | `true`           | Whether to sort items by price.                                                    |
 | `setStackItems()`      | `stackItems`      | `boolean` | `true`           | Whether to stack items with the same name and price.                               |
-| `setIncludeItemData()` | `includeItemData` | `boolean` | `false`          | Whether to include the item data as a property in the item object.                  |
+| `setIncludeItemData()` | `includeItemData` | `boolean` | `false`          | Whether to include the item data as a property in the item object.                 |
 
 ---
 
