@@ -25,10 +25,10 @@ class ItemEnchantmentsHandler {
             if (BLOCKED_ENCHANTMENTS[item.itemId]?.includes(name)) continue;
             if (IGNORED_ENCHANTMENTS[name] === value) continue;
 
-            // STACKING ENCHANTS
+            // Set stacking enchantments to 1 since that is the only value we track
             if (STACKING_ENCHANTMENTS.includes(name)) value = 1;
 
-            // SILEX
+            // Silex
             if (name === 'EFFICIENCY' && value >= 6 && !IGNORE_SILEX.includes(item.itemId)) {
                 const efficiencyLevel = value - (item.itemId === 'STONK_PICKAXE' ? 6 : 5);
 
@@ -44,7 +44,7 @@ class ItemEnchantmentsHandler {
                 }
             }
 
-            // GOLDEN BOUNTY
+            // Golden Bounty - Scavenger
             if (name === 'SCAVENGER' && value >= 6) {
                 const calculationData = {
                     id: 'GOLDEN_BOUNTY',
@@ -56,12 +56,24 @@ class ItemEnchantmentsHandler {
                 item.calculation.push(calculationData);
             }
 
-            // A Beginner's Guide To Pesthunting
+            // A Beginner's Guide To Pesthunting - Pesterminator
             if (name === 'PESTERMINATOR' && value >= 6) {
                 const calculationData = {
                     id: 'PESTHUNTING_GUIDE',
                     type: 'PESTHUNTING_GUIDE',
                     price: (prices['PESTHUNTING_GUIDE'] ?? 0) * APPLICATION_WORTH.pesthuntingGuide,
+                    count: 1,
+                };
+                item.price += calculationData.price;
+                item.calculation.push(calculationData);
+            }
+
+            // Gold Bottle Cap - Luck of the Sea
+            if (name === 'LUCK_OF_THE_SEA' && value >= 7) {
+                const calculationData = {
+                    id: 'GOLD_BOTTLE_CAP',
+                    type: 'GOLD_BOTTLE_CAP',
+                    price: (prices['GOLD_BOTTLE_CAP'] ?? 0) * APPLICATION_WORTH.pesthuntingGuide,
                     count: 1,
                 };
                 item.price += calculationData.price;
