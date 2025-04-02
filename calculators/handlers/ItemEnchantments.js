@@ -73,7 +73,7 @@ class ItemEnchantmentsHandler {
                 const calculationData = {
                     id: 'GOLD_BOTTLE_CAP',
                     type: 'GOLD_BOTTLE_CAP',
-                    price: (prices['GOLD_BOTTLE_CAP'] ?? 0) * APPLICATION_WORTH.pesthuntingGuide,
+                    price: (prices['GOLD_BOTTLE_CAP'] ?? 0) * APPLICATION_WORTH.goldBottleCap,
                     count: 1,
                 };
                 item.price += calculationData.price;
