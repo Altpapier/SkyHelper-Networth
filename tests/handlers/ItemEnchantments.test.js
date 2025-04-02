@@ -264,6 +264,41 @@ const testCases = [
         ],
     },
     // endregion
+    // region Gold Bottle Cap
+    {
+        description: 'Applies correctly without gold bottle cap',
+        item: {
+            itemId: 'ROD_OF_THE_SEA',
+            extraAttributes: { enchantments: { luck_of_the_sea: 6 } },
+            price: 100,
+            calculation: [],
+        },
+        prices: { GOLD_BOTTLE_CAP: 28000000 },
+        shouldApply: true,
+        expectedPriceChange: 0,
+        expectedCalculation: [],
+    },
+    {
+        description: 'Applies correctly with gold bottle cap',
+        item: {
+            itemId: 'ROD_OF_THE_SEA',
+            extraAttributes: { enchantments: { luck_of_the_sea: 7 } },
+            price: 100,
+            calculation: [],
+        },
+        prices: { GOLD_BOTTLE_CAP: 28000000 },
+        shouldApply: true,
+        expectedPriceChange: 28000000 * APPLICATION_WORTH.goldBottleCap,
+        expectedCalculation: [
+            {
+                id: 'GOLD_BOTTLE_CAP',
+                type: 'GOLD_BOTTLE_CAP',
+                price: 28000000 * APPLICATION_WORTH.goldBottleCap,
+                count: 1,
+            },
+        ],
+    },
+    // endregion
     // region Does not apply
     {
         description: 'Does not apply',

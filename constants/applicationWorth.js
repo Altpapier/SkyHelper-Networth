@@ -15,6 +15,7 @@ const APPLICATION_WORTH = {
     artOfPeace: 0.8,
     divanPowderCoating: 0.8,
     pesthuntingGuide: 0.8,
+    goldBottleCap: 0.8,
     jalapenoBook: 0.8,
     manaDisintegrator: 0.8,
     recombobulator: 0.8,
