@@ -28,6 +28,7 @@ class RodPartsHandler {
                     type: 'ROD_PART',
                     price: (prices[item.extraAttributes[type].part.toUpperCase()] ?? 0) * APPLICATION_WORTH.rodPart,
                     count: 1,
+                    soulbound: true,
                 };
                 item.price += calculationData.price;
                 item.calculation.push(calculationData);

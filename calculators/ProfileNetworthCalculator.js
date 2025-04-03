@@ -165,11 +165,28 @@ class ProfileNetworthCalculator {
                 const result = nonCosmetic
                     ? await calculator.getNonCosmeticNetworth({ prices, includeItemData })
                     : await calculator.getNetworth({ prices, includeItemData });
+                if (!result) {
+                    continue;
+                }
 
-                // Add the item to the category
-                const price = isNaN(result?.price) ? 0 : result?.price;
+                let price = 0,
+                    unsoulboundPrice = 0;
+                for (const calculation of result.calculation) {
+                    if (!calculation.price) {
+                        continue;
+                    }
+
+                    price += calculation.price;
+                    if (!calculation.soulbound) {
+                        unsoulboundPrice += calculation.price;
+                    }
+                }
+
+                result.price = result.basePrice + price;
+                result.unsoulboundPrice = result.basePrice + unsoulboundPrice;
+
                 categories[category].total += price;
-                if (!result?.soulbound) categories[category].unsoulboundTotal += price;
+                categories[category].unsoulboundTotal += unsoulboundPrice;
                 if (!onlyNetworth && result && price) {
                     categories[category].items.push(result);
                 }
