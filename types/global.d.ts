@@ -111,4 +111,8 @@ type Calculation = {
      * The amount of stars on the item.
      */
     star?: number;
+    /**
+     * Whether this part of the calculation is soulbound.
+     */
+    soulbound?: boolean;
 };
