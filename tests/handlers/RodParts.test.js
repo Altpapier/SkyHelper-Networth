@@ -43,62 +43,6 @@ const testCases = [
         ],
     },
     {
-        description: 'Applies correctly with soulbound',
-        item: {
-            itemId: 'ROD_OF_THE_SEA',
-            extraAttributes: {
-                line: { part: 'titan_line' },
-                hook: { part: 'hotspot_hook', donated_museum: 1 },
-            },
-            price: 100,
-            calculation: [],
-        },
-        prices: { TITAN_LINE: 220000000, HOTSPOT_HOOK: 16000000 },
-        shouldApply: true,
-        expectedPriceChange: 220000000 * APPLICATION_WORTH.rodPart + 16000000 * APPLICATION_WORTH.rodPart,
-        expectedCalculation: [
-            {
-                id: 'TITAN_LINE',
-                type: 'ROD_PART',
-                price: 220000000 * APPLICATION_WORTH.rodPart,
-                count: 1,
-                soulbound: false,
-            },
-            {
-                id: 'HOTSPOT_HOOK',
-                type: 'ROD_PART',
-                price: 16000000 * APPLICATION_WORTH.rodPart,
-                count: 1,
-                soulbound: true,
-            },
-        ],
-    },
-    {
-        description: 'Applies correctly without soulbound',
-        item: {
-            itemId: 'ROD_OF_THE_SEA',
-            extraAttributes: {
-                line: { part: 'titan_line' },
-                hook: { part: 'hotspot_hook', donated_museum: 1 },
-            },
-            price: 100,
-            calculation: [],
-            nonCosmetic: true,
-        },
-        prices: { TITAN_LINE: 220000000, HOTSPOT_HOOK: 16000000 },
-        shouldApply: true,
-        expectedPriceChange: 220000000 * APPLICATION_WORTH.rodPart,
-        expectedCalculation: [
-            {
-                id: 'TITAN_LINE',
-                type: 'ROD_PART',
-                price: 220000000 * APPLICATION_WORTH.rodPart,
-                count: 1,
-                soulbound: false,
-            },
-        ],
-    },
-    {
         description: 'Does not apply',
         item: {
             itemId: 'ROD_OF_THE_SEA',

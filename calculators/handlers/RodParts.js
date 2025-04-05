@@ -24,7 +24,6 @@ class RodPartsHandler {
         for (const type of ROD_PART_TYPES) {
             if (item.extraAttributes[type]?.part) {
                 const soulbound = Boolean(item.extraAttributes[type].donated_museum);
-                if (item.nonCosmetic && soulbound) continue;
                 const calculationData = {
                     id: item.extraAttributes[type].part.toUpperCase(),
                     type: 'ROD_PART',
