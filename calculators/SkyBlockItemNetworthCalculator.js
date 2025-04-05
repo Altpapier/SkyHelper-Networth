@@ -61,6 +61,8 @@ class SkyBlockItemNetworthCalculator extends SkyBlockItemNetworthHelper {
 
         // Get the base price for the item
         this.getBasePrice(prices);
+        this.price = 0;
+        this.calculation = [];
 
         for (const Handler of handlers) {
             // Create a new instance of the handler
