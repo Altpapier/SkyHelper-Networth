@@ -23,11 +23,14 @@ class RodPartsHandler {
     calculate(item, prices) {
         for (const type of ROD_PART_TYPES) {
             if (item.extraAttributes[type]?.part) {
+                const soulbound = Boolean(item.extraAttributes[type].donated_museum);
+                if (item.nonCosmetic && soulbound) continue;
                 const calculationData = {
                     id: item.extraAttributes[type].part.toUpperCase(),
                     type: 'ROD_PART',
                     price: (prices[item.extraAttributes[type].part.toUpperCase()] ?? 0) * APPLICATION_WORTH.rodPart,
                     count: 1,
+                    soulbound,
                 };
                 item.price += calculationData.price;
                 item.calculation.push(calculationData);
