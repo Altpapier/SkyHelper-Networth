@@ -31,7 +31,7 @@ class SkyBlockItemNetworthHelper {
         this.calculation = [];
         this.basePrice = 0;
         this.price = 0;
-        this.soulboundPrice = 0;
+        this.soulboundPortion = 0;
     }
 
     /**

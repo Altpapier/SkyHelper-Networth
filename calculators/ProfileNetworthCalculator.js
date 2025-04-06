@@ -168,9 +168,9 @@ class ProfileNetworthCalculator {
 
                 // Add the item to the category
                 const price = isNaN(result?.price) ? 0 : result?.price;
-                const soulboundPrice = isNaN(result?.soulboundPrice) ? 0 : result?.soulboundPrice;
-                categories[category].total += price + soulboundPrice;
-                if (!result?.soulbound) categories[category].unsoulboundTotal += price;
+                const soulboundPortion = isNaN(result?.soulboundPortion) ? 0 : result?.soulboundPortion;
+                categories[category].total += price;
+                if (!result?.soulbound) categories[category].unsoulboundTotal += price - soulboundPortion;
                 if (!onlyNetworth && result && price) {
                     categories[category].items.push(result);
                 }

@@ -31,8 +31,8 @@ class RodPartsHandler {
                     count: 1,
                     soulbound,
                 };
-                if (soulbound) item.soulboundPrice += calculationData.price;
-                else item.price += calculationData.price;
+                item.price += calculationData.price;
+                if (soulbound) item.soulboundPortion += calculationData.price;
                 item.calculation.push(calculationData);
             }
         }
