@@ -5,6 +5,10 @@ const ENCHANTMENT_UPGRADES = {
     SCAVENGER: { upgradeItem: 'GOLDEN_BOUNTY', tier: 6 },
     PESTERMINATOR: { upgradeItem: 'PESTHUNTING_GUIDE', tier: 6 },
     LUCK_OF_THE_SEA: { upgradeItem: 'GOLD_BOTTLE_CAP', tier: 7 },
+    PISCARY: { upgradeItem: 'TROUBLED_BUBBLE', tier: 7 },
+    FRAIL: { upgradeItem: 'SEVERED_PINCER', tier: 7 },
+    SPIKED_HOOK: { upgradeItem: 'OCTOPUS_TENDRIL', tier: 7 },
+    CHARM: { upgradeItem: 'CHAIN_END_TIMES', tier: 6 },
 };
 
 /**
