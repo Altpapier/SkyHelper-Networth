@@ -57,6 +57,8 @@ class PetNetworthCalculator extends PetNetworthHelper {
 
         // Get the base price
         this.getBasePrice(prices);
+        this.price = 0;
+        this.calculation = [];
 
         // For each handler, check if it applies and add the calculation to the total price
         const handlers = [PetItemHandler, SoulboundPetSkinHandler];

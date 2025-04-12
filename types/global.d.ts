@@ -51,15 +51,19 @@ export type Item = {
      */
     id: string;
     /**
-     * The price of the item.
+     * The base price of the item.
      */
     basePrice: number;
     /**
-     * The calculation of the item.
+     * The price of the item.
      */
     price: number;
     /**
-     * The base price of the item.
+     * The soulbound portion of the item. This is present when part of an item is soulbound but the item itself is not.
+     */
+    soulboundPortion?: number;
+    /**
+     * The calculation of the item.
      */
     calculation: Calculation[];
     /**
@@ -111,4 +115,8 @@ type Calculation = {
      * The amount of stars on the item.
      */
     star?: number;
+    /**
+     * Whether this part of the calculation is soulbound.
+     */
+    soulbound?: boolean;
 };

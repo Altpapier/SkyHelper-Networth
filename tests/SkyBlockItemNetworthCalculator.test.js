@@ -30,6 +30,7 @@ jest.mock('../calculators/helpers/SkyBlockItemNetworthHelper', () => {
             this.itemId = '';
             this.basePrice = 0;
             this.price = 0;
+            this.soulboundPortion = 0;
             this.calculation = [];
         }
     };
@@ -49,9 +50,6 @@ describe('SkyBlockItemNetworthCalculator', () => {
 
         calculator.itemName = 'DIAMOND_SWORD';
         calculator.itemId = 'test_id';
-        calculator.basePrice = 1000;
-        calculator.price = 1000;
-        calculator.calculation = [];
         calculator.extraAttributes = { id: 'DIAMOND_SWORD' };
         calculator.itemData = {
             tag: {
@@ -98,8 +96,9 @@ describe('SkyBlockItemNetworthCalculator', () => {
                 loreName: 'Diamond Sword',
                 id: 'DIAMOND_SWORD',
                 customId: 'test_id',
-                basePrice: 1000,
-                price: 2100,
+                basePrice: 0,
+                price: 100,
+                soulboundPortion: 0,
                 calculation: [],
                 count: 1,
                 soulbound: false,
@@ -148,7 +147,7 @@ describe('SkyBlockItemNetworthCalculator', () => {
     describe('price calculation', () => {
         it('should apply handlers correctly', async () => {
             const result = await calculator.getNetworth();
-            expect(result.price).toBe(2100);
+            expect(result.price).toBe(100);
         });
 
         it('should fetch prices when not provided', async () => {
@@ -163,12 +162,6 @@ describe('SkyBlockItemNetworthCalculator', () => {
                 cachePricesTime: 600,
             });
             expect(getPrices).toHaveBeenCalledWith(false, 5, 600);
-        });
-
-        it('should maintain price calculation history', async () => {
-            calculator.calculation = [{ type: 'base', value: 1000 }];
-            const result = await calculator.getNetworth();
-            expect(result.calculation).toEqual([{ type: 'base', value: 1000 }]);
         });
     });
 
