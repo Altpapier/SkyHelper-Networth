@@ -218,12 +218,12 @@ const testCases = [
         },
         prices: { GOLDEN_BOUNTY: 30000000 },
         shouldApply: true,
-        expectedPriceChange: 30000000 * APPLICATION_WORTH.goldenBounty,
+        expectedPriceChange: 30000000 * APPLICATION_WORTH.enchantmentUpgrades,
         expectedCalculation: [
             {
                 id: 'GOLDEN_BOUNTY',
-                type: 'GOLDEN_BOUNTY',
-                price: 30000000 * APPLICATION_WORTH.goldenBounty,
+                type: 'ENCHANTMENT_UPGRADE',
+                price: 30000000 * APPLICATION_WORTH.enchantmentUpgrades,
                 count: 1,
             },
         ],
@@ -253,12 +253,12 @@ const testCases = [
         },
         prices: { PESTHUNTING_GUIDE: 10000000 },
         shouldApply: true,
-        expectedPriceChange: 10000000 * APPLICATION_WORTH.pesthuntingGuide,
+        expectedPriceChange: 10000000 * APPLICATION_WORTH.enchantmentUpgrades,
         expectedCalculation: [
             {
                 id: 'PESTHUNTING_GUIDE',
-                type: 'PESTHUNTING_GUIDE',
-                price: 10000000 * APPLICATION_WORTH.pesthuntingGuide,
+                type: 'ENCHANTMENT_UPGRADE',
+                price: 10000000 * APPLICATION_WORTH.enchantmentUpgrades,
                 count: 1,
             },
         ],
@@ -288,12 +288,12 @@ const testCases = [
         },
         prices: { GOLD_BOTTLE_CAP: 28000000 },
         shouldApply: true,
-        expectedPriceChange: 28000000 * APPLICATION_WORTH.goldBottleCap,
+        expectedPriceChange: 28000000 * APPLICATION_WORTH.enchantmentUpgrades,
         expectedCalculation: [
             {
                 id: 'GOLD_BOTTLE_CAP',
-                type: 'GOLD_BOTTLE_CAP',
-                price: 28000000 * APPLICATION_WORTH.goldBottleCap,
+                type: 'ENCHANTMENT_UPGRADE',
+                price: 28000000 * APPLICATION_WORTH.enchantmentUpgrades,
                 count: 1,
             },
         ],
