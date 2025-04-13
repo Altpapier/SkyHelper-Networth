@@ -44,7 +44,7 @@ describe('UpdateManager', () => {
             jest.isolateModules(() => {
                 require('../managers/UpdateManager');
             });
-            expect(setIntervalSpy).toHaveBeenCalledWith(expect.any(Function), 60000);
+            expect(setIntervalSpy).toHaveBeenCalledWith(expect.any(Function), 600000);
             setIntervalSpy.mockRestore();
         });
 
@@ -58,7 +58,7 @@ describe('UpdateManager', () => {
             const setIntervalSpy = jest.spyOn(global, 'setInterval');
             UpdateManager.disable();
             UpdateManager.enable();
-            expect(setIntervalSpy).toHaveBeenCalledWith(expect.any(Function), 60000);
+            expect(setIntervalSpy).toHaveBeenCalledWith(expect.any(Function), 600000);
         });
 
         test('enable() should not set new interval if already enabled', () => {
