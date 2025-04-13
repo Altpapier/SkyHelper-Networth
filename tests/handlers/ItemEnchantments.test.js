@@ -218,12 +218,12 @@ const testCases = [
         },
         prices: { GOLDEN_BOUNTY: 30000000 },
         shouldApply: true,
-        expectedPriceChange: 30000000 * APPLICATION_WORTH.goldenBounty,
+        expectedPriceChange: 30000000 * APPLICATION_WORTH.enchantmentUpgrades,
         expectedCalculation: [
             {
                 id: 'GOLDEN_BOUNTY',
-                type: 'GOLDEN_BOUNTY',
-                price: 30000000 * APPLICATION_WORTH.goldenBounty,
+                type: 'ENCHANTMENT_UPGRADE',
+                price: 30000000 * APPLICATION_WORTH.enchantmentUpgrades,
                 count: 1,
             },
         ],
@@ -253,12 +253,12 @@ const testCases = [
         },
         prices: { PESTHUNTING_GUIDE: 10000000 },
         shouldApply: true,
-        expectedPriceChange: 10000000 * APPLICATION_WORTH.pesthuntingGuide,
+        expectedPriceChange: 10000000 * APPLICATION_WORTH.enchantmentUpgrades,
         expectedCalculation: [
             {
                 id: 'PESTHUNTING_GUIDE',
-                type: 'PESTHUNTING_GUIDE',
-                price: 10000000 * APPLICATION_WORTH.pesthuntingGuide,
+                type: 'ENCHANTMENT_UPGRADE',
+                price: 10000000 * APPLICATION_WORTH.enchantmentUpgrades,
                 count: 1,
             },
         ],
@@ -288,12 +288,152 @@ const testCases = [
         },
         prices: { GOLD_BOTTLE_CAP: 28000000 },
         shouldApply: true,
-        expectedPriceChange: 28000000 * APPLICATION_WORTH.goldBottleCap,
+        expectedPriceChange: 28000000 * APPLICATION_WORTH.enchantmentUpgrades,
         expectedCalculation: [
             {
                 id: 'GOLD_BOTTLE_CAP',
-                type: 'GOLD_BOTTLE_CAP',
-                price: 28000000 * APPLICATION_WORTH.goldBottleCap,
+                type: 'ENCHANTMENT_UPGRADE',
+                price: 28000000 * APPLICATION_WORTH.enchantmentUpgrades,
+                count: 1,
+            },
+        ],
+    },
+    // endregion
+    // region Troubled Bubble
+    {
+        description: 'Applies correctly without troubled bubble',
+        item: {
+            itemId: 'ROD_OF_THE_SEA',
+            extraAttributes: { enchantments: { piscary: 6 } },
+            price: 100,
+            calculation: [],
+        },
+        prices: { TROUBLED_BUBBLE: 150000000 },
+        shouldApply: true,
+        expectedPriceChange: 0,
+        expectedCalculation: [],
+    },
+    {
+        description: 'Applies correctly with troubled bubble',
+        item: {
+            itemId: 'ROD_OF_THE_SEA',
+            extraAttributes: { enchantments: { piscary: 7 } },
+            price: 100,
+            calculation: [],
+        },
+        prices: { TROUBLED_BUBBLE: 150000000 },
+        shouldApply: true,
+        expectedPriceChange: 150000000 * APPLICATION_WORTH.enchantmentUpgrades,
+        expectedCalculation: [
+            {
+                id: 'TROUBLED_BUBBLE',
+                type: 'ENCHANTMENT_UPGRADE',
+                price: 150000000 * APPLICATION_WORTH.enchantmentUpgrades,
+                count: 1,
+            },
+        ],
+    },
+    // endregion
+    // region Severed Pincer
+    {
+        description: 'Applies correctly without severed pincer',
+        item: {
+            itemId: 'ROD_OF_THE_SEA',
+            extraAttributes: { enchantments: { frail: 6 } },
+            price: 100,
+            calculation: [],
+        },
+        prices: { SEVERED_PINCER: 4000000 },
+        shouldApply: true,
+        expectedPriceChange: 0,
+        expectedCalculation: [],
+    },
+    {
+        description: 'Applies correctly with severed pincer',
+        item: {
+            itemId: 'ROD_OF_THE_SEA',
+            extraAttributes: { enchantments: { frail: 7 } },
+            price: 100,
+            calculation: [],
+        },
+        prices: { SEVERED_PINCER: 4000000 },
+        shouldApply: true,
+        expectedPriceChange: 4000000 * APPLICATION_WORTH.enchantmentUpgrades,
+        expectedCalculation: [
+            {
+                id: 'SEVERED_PINCER',
+                type: 'ENCHANTMENT_UPGRADE',
+                price: 4000000 * APPLICATION_WORTH.enchantmentUpgrades,
+                count: 1,
+            },
+        ],
+    },
+    // endregion
+    // region Octopus Tendril
+    {
+        description: 'Applies correctly without octopus tendril',
+        item: {
+            itemId: 'ROD_OF_THE_SEA',
+            extraAttributes: { enchantments: { spiked_hook: 6 } },
+            price: 100,
+            calculation: [],
+        },
+        prices: { OCTOPUS_TENDRIL: 4500000 },
+        shouldApply: true,
+        expectedPriceChange: 0,
+        expectedCalculation: [],
+    },
+    {
+        description: 'Applies correctly with octopus tendril',
+        item: {
+            itemId: 'ROD_OF_THE_SEA',
+            extraAttributes: { enchantments: { spiked_hook: 7 } },
+            price: 100,
+            calculation: [],
+        },
+        prices: { OCTOPUS_TENDRIL: 4500000 },
+        shouldApply: true,
+        expectedPriceChange: 4500000 * APPLICATION_WORTH.enchantmentUpgrades,
+        expectedCalculation: [
+            {
+                id: 'OCTOPUS_TENDRIL',
+                type: 'ENCHANTMENT_UPGRADE',
+                price: 4500000 * APPLICATION_WORTH.enchantmentUpgrades,
+                count: 1,
+            },
+        ],
+    },
+    // endregion
+    // region Chain of the End Times
+    {
+        description: 'Applies correctly without chain of the end times',
+        item: {
+            itemId: 'ROD_OF_THE_SEA',
+            extraAttributes: { enchantments: { charm: 5 } },
+            price: 100,
+            calculation: [],
+        },
+        prices: { CHAIN_END_TIMES: 2000000 },
+        shouldApply: true,
+        expectedPriceChange: 0,
+        expectedCalculation: [],
+    },
+    {
+        description: 'Applies correctly with chain of the end times',
+        item: {
+            itemId: 'ROD_OF_THE_SEA',
+            extraAttributes: { enchantments: { charm: 6 } },
+            price: 100,
+            calculation: [],
+        },
+        prices: { CHAIN_END_TIMES: 2000000 },
+        shouldApply: true,
+        expectedPriceChange: 2000000 * APPLICATION_WORTH.enchantmentUpgrades,
+        expectedCalculation: [
+            {
+                id: 'CHAIN_END_TIMES',
+                type: 'ENCHANTMENT_UPGRADE',
+                price: 2000000 * APPLICATION_WORTH.enchantmentUpgrades,
                 count: 1,
             },
         ],

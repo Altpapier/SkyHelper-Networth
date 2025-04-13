@@ -1,6 +1,16 @@
 const { APPLICATION_WORTH, ENCHANTMENTS_WORTH } = require('../../constants/applicationWorth');
 const { BLOCKED_ENCHANTMENTS, IGNORED_ENCHANTMENTS, STACKING_ENCHANTMENTS, IGNORE_SILEX } = require('../../constants/misc');
 
+const ENCHANTMENT_UPGRADES = {
+    SCAVENGER: { upgradeItem: 'GOLDEN_BOUNTY', tier: 6 },
+    PESTERMINATOR: { upgradeItem: 'PESTHUNTING_GUIDE', tier: 6 },
+    LUCK_OF_THE_SEA: { upgradeItem: 'GOLD_BOTTLE_CAP', tier: 7 },
+    PISCARY: { upgradeItem: 'TROUBLED_BUBBLE', tier: 7 },
+    FRAIL: { upgradeItem: 'SEVERED_PINCER', tier: 7 },
+    SPIKED_HOOK: { upgradeItem: 'OCTOPUS_TENDRIL', tier: 7 },
+    CHARM: { upgradeItem: 'CHAIN_END_TIMES', tier: 6 },
+};
+
 /**
  * A handler for the enchantments on an item.
  */
@@ -44,40 +54,17 @@ class ItemEnchantmentsHandler {
                 }
             }
 
-            // Golden Bounty - Scavenger
-            if (name === 'SCAVENGER' && value >= 6) {
-                const calculationData = {
-                    id: 'GOLDEN_BOUNTY',
-                    type: 'GOLDEN_BOUNTY',
-                    price: (prices['GOLDEN_BOUNTY'] ?? 0) * APPLICATION_WORTH.goldenBounty,
-                    count: 1,
-                };
-                item.price += calculationData.price;
-                item.calculation.push(calculationData);
-            }
-
-            // A Beginner's Guide To Pesthunting - Pesterminator
-            if (name === 'PESTERMINATOR' && value >= 6) {
-                const calculationData = {
-                    id: 'PESTHUNTING_GUIDE',
-                    type: 'PESTHUNTING_GUIDE',
-                    price: (prices['PESTHUNTING_GUIDE'] ?? 0) * APPLICATION_WORTH.pesthuntingGuide,
-                    count: 1,
-                };
-                item.price += calculationData.price;
-                item.calculation.push(calculationData);
-            }
-
-            // Gold Bottle Cap - Luck of the Sea
-            if (name === 'LUCK_OF_THE_SEA' && value >= 7) {
-                const calculationData = {
-                    id: 'GOLD_BOTTLE_CAP',
-                    type: 'GOLD_BOTTLE_CAP',
-                    price: (prices['GOLD_BOTTLE_CAP'] ?? 0) * APPLICATION_WORTH.goldBottleCap,
-                    count: 1,
-                };
-                item.price += calculationData.price;
-                item.calculation.push(calculationData);
+            for (const [enchantment, { upgradeItem, tier }] of Object.entries(ENCHANTMENT_UPGRADES)) {
+                if (name === enchantment && value >= tier) {
+                    const calculationData = {
+                        id: upgradeItem,
+                        type: 'ENCHANTMENT_UPGRADE',
+                        price: (prices[upgradeItem] ?? 0) * APPLICATION_WORTH.enchantmentUpgrades,
+                        count: 1,
+                    };
+                    item.price += calculationData.price;
+                    item.calculation.push(calculationData);
+                }
             }
 
             const calculationData = {
