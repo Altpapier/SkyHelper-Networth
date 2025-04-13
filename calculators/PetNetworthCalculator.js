@@ -5,6 +5,13 @@ const PetItemHandler = require('./handlers/PetItem');
 const SoulboundPetSkinHandler = require('./handlers/SoulboundPetSkin');
 const PetNetworthHelper = require('./helpers/PetNetworthHelper');
 
+// Define pet handlers array for faster access
+const petHandlers = [
+    PetItemHandler,
+    SoulboundPetSkinHandler,
+    PetCandyHandler, // Must be last
+];
+
 /**
  * Class for calculating the networth of a pet
  */
@@ -17,8 +24,8 @@ class PetNetworthCalculator extends PetNetworthHelper {
      * @param {number} [options.pricesRetries] The number of times to retry fetching prices
      * @returns {object} An object containing the pets's networth calculation
      */
-    async getNetworth({ prices, cachePrices, pricesRetries } = {}) {
-        return await this.#calculate({ prices, nonCosmetic: false, cachePrices, pricesRetries });
+    async getNetworth(options = {}) {
+        return await this.#calculate({ ...options, nonCosmetic: false });
     }
 
     /**
@@ -29,8 +36,8 @@ class PetNetworthCalculator extends PetNetworthHelper {
      * @param {number} [options.pricesRetries] The number of times to retry fetching prices
      * @returns {object} An object containing the pet's networth calculation
      */
-    async getNonCosmeticNetworth({ prices, cachePrices, pricesRetries } = {}) {
-        return await this.#calculate({ prices, nonCosmetic: true, cachePrices, pricesRetries });
+    async getNonCosmeticNetworth(options = {}) {
+        return await this.#calculate({ ...options, nonCosmetic: true });
     }
 
     /**
@@ -44,10 +51,14 @@ class PetNetworthCalculator extends PetNetworthHelper {
      */
     async #calculate({ prices, nonCosmetic, cachePrices, pricesRetries, cachePricesTime }) {
         // Set default values
-        this.nonCosmetic = nonCosmetic;
+        this.nonCosmetic = nonCosmetic ?? false;
         cachePrices ??= networthManager.getCachePrices();
         pricesRetries ??= networthManager.getPricesRetries();
         cachePricesTime ??= networthManager.getCachePricesTime();
+
+        if (nonCosmetic && this.isCosmetic()) {
+            return;
+        }
 
         // Get prices
         await networthManager.itemsPromise;
@@ -56,25 +67,29 @@ class PetNetworthCalculator extends PetNetworthHelper {
         }
 
         // Get the base price
-        this.getBasePrice(prices);
+        const basePrice = this.getBasePrice(prices, nonCosmetic);
+        if (basePrice === null) {
+            return null;
+        }
+
         this.price = 0;
         this.calculation = [];
 
         // For each handler, check if it applies and add the calculation to the total price
-        const handlers = [PetItemHandler, SoulboundPetSkinHandler];
-        handlers.push(PetCandyHandler); // Must be last
-        for (const Handler of handlers) {
-            // Create a new instance of the handler
-            const handler = new Handler();
-            // Check if the handler applies to the pet
+        for (const HandlerClass of petHandlers) {
+            const handler = new HandlerClass();
             if (handler.applies(this) === false) {
                 continue;
             }
 
-            // Calculate the price of this modifier
-            handler.calculate(this, prices);
+            try {
+                handler.calculate(this, prices);
+            } catch {
+                //
+            }
         }
 
+        // Include isPet flag for item stakcing
         return {
             id: this.petData.type,
             customId: this.getPetId(prices, this.nonCosmetic),
@@ -85,6 +100,7 @@ class PetNetworthCalculator extends PetNetworthHelper {
             soulbound: this.isSoulbound(),
             cosmetic: this.isCosmetic(),
             petData: this.petData,
+            isPet: true,
         };
     }
 }

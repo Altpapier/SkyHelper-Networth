@@ -103,6 +103,61 @@ class ProfileNetworthCalculator {
     }
 
     /**
+     * Processes a batch of items to calculate their networth
+     * @private
+     */
+    async #processBatchedItems(items, category, calculators, options) {
+        const { prices, nonCosmetic, includeItemData } = options;
+        const batchPromises = [];
+
+        const chunkSize = 10;
+        for (let i = 0; i < items.length; i += chunkSize) {
+            const chunk = items.slice(i, i + chunkSize);
+
+            const promise = Promise.all(
+                chunk.map(async (item) => {
+                    if (!item || Object.keys(item).length === 0) return null;
+
+                    let calculatorClass = categoryCalculatorMap[category] ?? categoryCalculatorMap.default;
+                    let processedItem = item;
+
+                    if (item.tag?.ExtraAttributes?.petInfo) {
+                        try {
+                            processedItem = JSON.parse(item.tag.ExtraAttributes.petInfo);
+                            calculatorClass = PetNetworthCalculator;
+                        } catch {
+                            return null;
+                        }
+                    } else if (!item.tag?.ExtraAttributes && item.exp === undefined && typeof item.id !== 'string') {
+                        return null;
+                    }
+
+                    let calculator;
+                    try {
+                        calculator = new calculatorClass(processedItem);
+                    } catch {
+                        return null;
+                    }
+
+                    const result = nonCosmetic
+                        ? await calculator.getNonCosmeticNetworth({ prices, includeItemData })
+                        : await calculator.getNetworth({ prices, includeItemData });
+
+                    if (!result) return null;
+
+                    return result;
+                }),
+            );
+
+            batchPromises.push(promise);
+        }
+
+        const batchResults = await Promise.all(batchPromises);
+
+        return batchResults.flat().filter(Boolean);
+    }
+
+    /**
      * Calculates the networth of a profile
      * @param {NetworthOptions} [options] The options for calculating networth.
      * @returns {Promise<NetworthResult>} The networth result.
@@ -118,102 +173,116 @@ class ProfileNetworthCalculator {
         stackItems ??= networthManager.getStackItems();
 
         // Get prices and items
-        await networthManager.itemsPromise;
-        if (!prices) {
-            prices = await getPrices(cachePrices, pricesRetries, cachePricesTime);
-        }
+        const [priceData, itemsData] = await Promise.all([
+            (async () => {
+                await networthManager.itemsPromise;
+                if (!prices) {
+                    return await getPrices(cachePrices, pricesRetries, cachePricesTime);
+                }
+                return prices;
+            })(),
+            (async () => {
+                if (!this.items || !Object.keys(this.items).length) {
+                    return await parseItems(this.profileData, this.museumData);
+                }
+                return this.items;
+            })(),
+        ]);
 
-        // Parse inventories if not already parsed
-        if (!this.items || !Object.keys(this.items).length) {
-            this.items = await parseItems(this.profileData, this.museumData);
-        }
+        prices = priceData;
+        this.items = itemsData;
 
-        // Calculate networth for each category
         const categories = {};
+        for (const category in this.items) {
+            categories[category] = {
+                total: 0,
+                unsoulboundTotal: 0,
+                items: onlyNetworth ? undefined : [],
+            };
+        }
+
+        const categoryPromises = [];
+        const calculators = {};
+
         for (const [category, categoryItems] of Object.entries(this.items)) {
-            categories[category] = { total: 0, unsoulboundTotal: 0, items: [] };
+            if (!categoryItems || !categoryItems.length) continue;
 
-            // Calculate networth for each item in the category
-            for (let item of categoryItems) {
-                if (!item || Object.keys(item).length === 0) continue;
+            const promise = (async () => {
+                calculators[category] = {};
 
-                // Get the calculator for the item
-                let calculatorClass = categoryCalculatorMap[category] ?? categoryCalculatorMap.default;
-                /**
-                 * @type {SkyBlockItemNetworthCalculator | PetNetworthCalculator | BasicItemNetworthCalculator}
-                 */
+                const results = await this.#processBatchedItems(categoryItems, category, calculators, { prices, nonCosmetic, includeItemData });
 
-                if (item.tag?.ExtraAttributes?.petInfo) {
-                    try {
-                        item = JSON.parse(item.tag.ExtraAttributes.petInfo);
-                        calculatorClass = PetNetworthCalculator;
-                    } catch {
-                        continue;
+                const categoryData = categories[category];
+
+                for (const result of results) {
+                    const price = Number(result.price) || 0;
+                    const soulboundPortion = Number(result.soulboundPortion) || 0;
+
+                    categoryData.total += price;
+                    if (!result.soulbound) {
+                        categoryData.unsoulboundTotal += price - soulboundPortion;
                     }
-                } else if (!item.tag?.ExtraAttributes && item.exp === undefined && typeof item.id !== 'string') {
-                    continue;
+
+                    if (!onlyNetworth && price > 0) {
+                        categoryData.items.push(result);
+                    }
                 }
 
-                // Instantiate the calculator
-                let calculator = null;
-                try {
-                    calculator = new calculatorClass(item);
-                } catch {
-                    continue;
+                if (sortItems && !onlyNetworth && categoryData.items && categoryData.items.length > 0) {
+                    categoryData.items.sort((a, b) => b.price - a.price);
                 }
-                // Calculate the networth of the item
-                const result = nonCosmetic
-                    ? await calculator.getNonCosmeticNetworth({ prices, includeItemData })
-                    : await calculator.getNetworth({ prices, includeItemData });
 
-                // Add the item to the category
-                const price = isNaN(result?.price) ? 0 : result?.price;
-                const soulboundPortion = isNaN(result?.soulboundPortion) ? 0 : result?.soulboundPortion;
-                categories[category].total += price;
-                if (!result?.soulbound) categories[category].unsoulboundTotal += price - soulboundPortion;
-                if (!onlyNetworth && result && price) {
-                    categories[category].items.push(result);
-                }
-            }
+                return { category, categoryData };
+            })();
 
-            // Sort items by price
-            if (sortItems && !onlyNetworth && categories[category].items.length > 0) {
-                categories[category].items = categories[category].items.sort((a, b) => b.price - a.price);
-            }
+            categoryPromises.push(promise);
+        }
 
-            // Stack items with the same id and price
-            if (stackItems) {
-                categories[category].items = categories[category].items.reduce((acc, item) => {
-                    if (!item?.isPet) {
-                        const existing = acc.find(
-                            (existingItem) =>
-                                existingItem.id === item.id &&
-                                existingItem.price / existingItem.count === item.price / item.count &&
-                                existingItem.soulbound === item.soulbound,
-                        );
-                        if (existing) {
-                            existing.price += item.price;
-                            existing.count += item.count;
-                            existing.basePrice = existing.basePrice || item.basePrice;
-                            existing.calculation = existing.calculation || item.calculation;
-                        } else {
-                            acc.push(item);
+        await Promise.all(categoryPromises);
+
+        if (stackItems) {
+            for (const category in categories) {
+                const categoryData = categories[category];
+
+                if (!onlyNetworth && categoryData.items && categoryData.items.length > 1) {
+                    const itemStackMap = new Map();
+
+                    for (const item of categoryData.items) {
+                        // Dont stack pets
+                        if (item.isPet) {
+                            itemStackMap.set(`pet:${Math.random()}`, item);
+                            continue;
                         }
-                    } else {
-                        acc.push(item);
-                    }
-                    return acc;
-                }, []);
-            }
 
-            // Remove items if only networth is requested
-            if (onlyNetworth) delete categories[category].items;
+                        // Create a unique key for each stackable item
+                        const key = `${item.id}:${Math.floor(item.price / item.count)}:${item.soulbound}`;
+
+                        if (itemStackMap.has(key)) {
+                            const existingItem = itemStackMap.get(key);
+                            existingItem.price += item.price;
+                            existingItem.count += item.count;
+                            if (!existingItem.basePrice && item.basePrice) existingItem.basePrice = item.basePrice;
+                            if (!existingItem.calculation && item.calculation) existingItem.calculation = item.calculation;
+                        } else {
+                            itemStackMap.set(key, item);
+                        }
+                    }
+
+                    categoryData.items = Array.from(itemStackMap.values());
+                }
+            }
         }
 
         // Calculate total networth
-        const rawCoinsBalance = (this.bankBalance ?? 0) + (this.purse ?? 0) + (this.personalBankBalance ?? 0);
-        const total = Object.values(categories).reduce((acc, category) => acc + category.total, 0) + rawCoinsBalance;
-        const unsoulboundTotal = Object.values(categories).reduce((acc, category) => acc + category.unsoulboundTotal, 0) + rawCoinsBalance;
+        const rawCoinsBalance = (this.bankBalance || 0) + (this.purse || 0) + (this.personalBankBalance || 0);
+        let total = rawCoinsBalance;
+        let unsoulboundTotal = rawCoinsBalance;
+
+        for (const category in categories) {
+            const categoryData = categories[category];
+            total += categoryData.total;
+            unsoulboundTotal += categoryData.unsoulboundTotal;
+        }
 
         return {
             networth: total,

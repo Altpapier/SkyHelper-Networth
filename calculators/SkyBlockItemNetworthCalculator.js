@@ -59,13 +59,36 @@ class SkyBlockItemNetworthCalculator extends SkyBlockItemNetworthHelper {
             prices = await getPrices(cachePrices, pricesRetries, cachePricesTime);
         }
 
+        if (nonCosmetic && this.isCosmetic()) {
+            return;
+        }
+
         // Get the base price for the item
         this.getBasePrice(prices);
+
+        if (this.basePrice <= 0 && !this.nonCosmetic) {
+            const count = this.itemData.Count ?? 1;
+            return {
+                name: this.itemName,
+                loreName: this.itemData.tag.display.Name,
+                id: this.extraAttributes.id,
+                customId: this.itemId,
+                price: 0,
+                soulboundPortion: 0,
+                basePrice: 0,
+                calculation: [],
+                count: count,
+                soulbound: this.isSoulbound(),
+                cosmetic: this.isCosmetic(),
+            };
+        }
+
         this.price = 0;
         this.soulboundPortion = 0;
         this.calculation = [];
 
-        for (const Handler of handlers) {
+        for (let i = 0; i < handlers.length; i++) {
+            const Handler = handlers[i];
             // Create a new instance of the handler
             const handler = new Handler();
             // Check if the handler applies to the item
@@ -82,9 +105,7 @@ class SkyBlockItemNetworthCalculator extends SkyBlockItemNetworthHelper {
             handler.calculate(this, prices);
         }
 
-        if (this.isCosmetic() && this.nonCosmetic) {
-            return;
-        }
+        const count = this.itemData.Count ?? 1;
 
         const data = {
             name: this.itemName,
@@ -95,11 +116,16 @@ class SkyBlockItemNetworthCalculator extends SkyBlockItemNetworthHelper {
             soulboundPortion: this.soulboundPortion,
             basePrice: this.basePrice,
             calculation: this.calculation,
-            count: this.itemData.Count ?? 1,
+            count: count,
             soulbound: this.isSoulbound(),
             cosmetic: this.isCosmetic(),
         };
-        return includeItemData ? { ...data, item: this.itemData } : data;
+
+        if (includeItemData) {
+            data.item = this.itemData;
+        }
+
+        return data;
     }
 }
 
