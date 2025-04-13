@@ -104,7 +104,7 @@ declare class ProfileNetworthCalculator {
     /**
      * Returns the instance of the ProfileNetworthCalculator.
      */
-    fromPreParsed(profileData: object, items: Items, bankBalance: number): ProfileNetworthCalculator;
+    static fromPreParsed(profileData: object, items: Items, bankBalance: number): ProfileNetworthCalculator;
 }
 
 declare class ItemNetworthCalculator {
