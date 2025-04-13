@@ -14,7 +14,7 @@ class UpdateManager {
 
         UpdateManager.instance = this;
         this.checkForUpdate = this.checkForUpdate.bind(this);
-        this.#interval = 1000 * 60; // 1 minute
+        this.#interval = 1000 * 60 * 10; // 10 minutes
         this.#intervalInstance = setInterval(this.checkForUpdate, this.#interval);
     }
 
