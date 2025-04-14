@@ -2,7 +2,9 @@ import { NetworthManagerOptions } from './types/NetworthManager';
 import { Items, NetworthResult } from './types/ProfileNetworthCalculator';
 import { Item, NetworthOptions } from './types/global';
 
-declare class NetworthManager {
+export { Item, Items, NetworthManagerOptions, NetworthOptions, NetworthResult };
+
+export declare class NetworthManager {
     /**
      * Creates a new instance of NetworthManager. This class is a singleton and should be accessed through the networthManager instance.
      */
@@ -11,42 +13,42 @@ declare class NetworthManager {
     /**
      * Sets the cachePrices option.
      */
-    setCachePrices(cachePrices: boolean | number): void;
+    static setCachePrices(cachePrices: boolean | number): void;
 
     /**
      * Sets the pricesRetries option.
      */
-    setPricesRetries(pricesRetries: number): void;
+    static setPricesRetries(pricesRetries: number): void;
 
     /**
      * Sets the itemsRetries option.
      */
-    setItemsRetries(itemsRetries: number): void;
+    static setItemsRetries(itemsRetries: number): void;
 
     /**
      * Sets the itemsInterval option and restarts the items fetch interval.
      */
-    setItemsInterval(itemsInterval: number): void;
+    static setItemsInterval(itemsInterval: number): void;
 
     /**
      * Sets the onlyNetworth option.
      */
-    setOnlyNetworth(onlyNetworth: boolean): void;
+    static setOnlyNetworth(onlyNetworth: boolean): void;
 
     /**
      * Sets the sortItems option.
      */
-    setSortItems(sortItems: boolean): void;
+    static setSortItems(sortItems: boolean): void;
 
     /**
      * Sets the stackItems option.
      */
-    setStackItems(stackItems: boolean): void;
+    static setStackItems(stackItems: boolean): void;
 
     /**
      * Sets the includeItemData option.
      */
-    setIncludeItemData(includeItemData: boolean): void;
+    static setIncludeItemData(includeItemData: boolean): void;
 
     /**
      * Manually updates the items from the Hypixel API.
@@ -54,10 +56,10 @@ declare class NetworthManager {
      * @param retryInterval The interval in milliseconds between retries.
      * @param currentRetry The current retry count.
      */
-    updateItems(retries?: number, retryInterval?: number, currentRetry?: number): Promise<void>;
+    static updateItems(retries?: number, retryInterval?: number, currentRetry?: number): Promise<void>;
 }
 
-declare class UpdateManager {
+export declare class UpdateManager {
     /**
      * Creates an instance of UpdateManager and starts the interval for checking for updates (default: 1 minute).
      */
@@ -66,26 +68,26 @@ declare class UpdateManager {
     /**
      * Disables the interval for checking for updates.
      */
-    disable(): void;
+    static disable(): void;
 
     /**
      * Enables the interval for checking for updates if it was disabled.
      */
-    enable(): void;
+    static enable(): void;
 
     /**
      * Changes the interval for checking for updates.
      * @param interval The interval in milliseconds to check for updates.
      */
-    setInterval(interval: number): void;
+    static setInterval(interval: number): void;
 
     /**
      * Checks for updates of the package on npm.
      */
-    checkForUpdate(): Promise<void>;
+    static checkForUpdate(): Promise<void>;
 }
 
-declare class ProfileNetworthCalculator {
+export declare class ProfileNetworthCalculator {
     /**
      * Creates a new instance of ProfileNetworthCalculator.
      */
@@ -104,10 +106,10 @@ declare class ProfileNetworthCalculator {
     /**
      * Returns the instance of the ProfileNetworthCalculator.
      */
-    static fromPreParsed(profileData: object, items: Items, bankBalance: number): ProfileNetworthCalculator;
+    fromPreParsed(profileData: object, items: Items, bankBalance: number): ProfileNetworthCalculator;
 }
 
-declare class ItemNetworthCalculator {
+export declare class ItemNetworthCalculator {
     /**
      * Creates a new instance of ItemNetworthCalculator.
      */
@@ -124,6 +126,6 @@ declare class ItemNetworthCalculator {
     getNonCosmeticNetworth(options?: NetworthOptions): Promise<Item>;
 }
 
-declare function getPrices(cache?: boolean, cacheTime?: number, retries?: number): Promise<Record<string, number>>;
+export declare function getPrices(cache?: boolean, cacheTime?: number, retries?: number): Promise<Record<string, number>>;
 
-declare function parseItems(profileData: object, museumData: object): Promise<object>;
+export declare function parseItems(profileData: object, museumData: object): Promise<object>;
