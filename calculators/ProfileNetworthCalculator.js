@@ -130,8 +130,19 @@ class ProfileNetworthCalculator {
 
         // Calculate networth for each category
         const categories = {};
+        const rawCoinsBalance = (this.bankBalance ?? 0) + (this.purse ?? 0) + (this.personalBankBalance ?? 0);
+        let total = rawCoinsBalance;
+        let unsoulboundTotal = rawCoinsBalance;
+
         for (const [category, categoryItems] of Object.entries(this.items)) {
-            categories[category] = { total: 0, unsoulboundTotal: 0, items: [] };
+            if (!categoryItems || !categoryItems.length) {
+                continue;
+            }
+
+            const categoryData = { total: 0, unsoulboundTotal: 0 };
+            if (!onlyNetworth) {
+                categoryData.items = [];
+            }
 
             // Calculate networth for each item in the category
             for (let item of categoryItems) {
@@ -155,7 +166,7 @@ class ProfileNetworthCalculator {
                 }
 
                 // Instantiate the calculator
-                let calculator = null;
+                let calculator;
                 try {
                     calculator = new calculatorClass(item);
                 } catch {
@@ -165,55 +176,69 @@ class ProfileNetworthCalculator {
                 const result = nonCosmetic
                     ? await calculator.getNonCosmeticNetworth({ prices, includeItemData })
                     : await calculator.getNetworth({ prices, includeItemData });
+                if (!result) {
+                    continue;
+                }
 
                 // Add the item to the category
-                const price = isNaN(result?.price) ? 0 : result?.price;
-                const soulboundPortion = isNaN(result?.soulboundPortion) ? 0 : result?.soulboundPortion;
-                categories[category].total += price;
-                if (!result?.soulbound) categories[category].unsoulboundTotal += price - soulboundPortion;
-                if (!onlyNetworth && result && price) {
-                    categories[category].items.push(result);
+                const price = isNaN(result.price) ? 0 : result.price;
+                if (price <= 0) {
+                    continue;
+                }
+
+                const soulboundPortion = isNaN(result.soulboundPortion) ? 0 : result.soulboundPortion;
+                categoryData.total += price;
+
+                if (!result.soulbound) {
+                    categoryData.unsoulboundTotal += price - soulboundPortion;
+                }
+
+                if (!onlyNetworth) {
+                    categoryData.items.push(result);
                 }
             }
 
             // Sort items by price
-            if (sortItems && !onlyNetworth && categories[category].items.length > 0) {
-                categories[category].items = categories[category].items.sort((a, b) => b.price - a.price);
+            if (sortItems && !onlyNetworth && categoryData.items?.length > 0) {
+                categoryData.items.sort((a, b) => b.price - a.price);
             }
 
             // Stack items with the same id and price
-            if (stackItems) {
-                categories[category].items = categories[category].items.reduce((acc, item) => {
-                    if (!item?.isPet) {
-                        const existing = acc.find(
+            if (stackItems && !onlyNetworth && categoryData.items?.length > 0) {
+                const stacked = [];
+                const pets = [];
+
+                for (const item of categoryData.items) {
+                    if (item.isPet) {
+                        pets.push(item);
+                    } else {
+                        const existing = stacked.find(
                             (existingItem) =>
                                 existingItem.id === item.id &&
                                 existingItem.price / existingItem.count === item.price / item.count &&
                                 existingItem.soulbound === item.soulbound,
                         );
+
                         if (existing) {
                             existing.price += item.price;
                             existing.count += item.count;
                             existing.basePrice = existing.basePrice || item.basePrice;
                             existing.calculation = existing.calculation || item.calculation;
                         } else {
-                            acc.push(item);
+                            stacked.push(item);
                         }
-                    } else {
-                        acc.push(item);
                     }
-                    return acc;
-                }, []);
+                }
+
+                categoryData.items = [...stacked, ...pets];
             }
 
-            // Remove items if only networth is requested
-            if (onlyNetworth) delete categories[category].items;
+            if (categoryData.total > 0) {
+                total += categoryData.total;
+                unsoulboundTotal += categoryData.unsoulboundTotal;
+                categories[category] = categoryData;
+            }
         }
-
-        // Calculate total networth
-        const rawCoinsBalance = (this.bankBalance ?? 0) + (this.purse ?? 0) + (this.personalBankBalance ?? 0);
-        const total = Object.values(categories).reduce((acc, category) => acc + category.total, 0) + rawCoinsBalance;
-        const unsoulboundTotal = Object.values(categories).reduce((acc, category) => acc + category.unsoulboundTotal, 0) + rawCoinsBalance;
 
         return {
             networth: total,

@@ -47,11 +47,15 @@ class SkyBlockItemNetworthCalculator extends SkyBlockItemNetworthHelper {
      */
     async #calculate({ prices, nonCosmetic, cachePrices, pricesRetries, cachePricesTime, includeItemData }) {
         // Set default values
-        this.nonCosmetic = nonCosmetic;
+        this.nonCosmetic = nonCosmetic ?? false;
         cachePrices ??= networthManager.getCachePrices();
         pricesRetries ??= networthManager.getPricesRetries();
         cachePricesTime ??= networthManager.getCachePricesTime();
         includeItemData ??= networthManager.getIncludeItemData();
+
+        if (nonCosmetic && this.isCosmetic()) {
+            return;
+        }
 
         // Get prices
         await networthManager.itemsPromise;
@@ -99,7 +103,12 @@ class SkyBlockItemNetworthCalculator extends SkyBlockItemNetworthHelper {
             soulbound: this.isSoulbound(),
             cosmetic: this.isCosmetic(),
         };
-        return includeItemData ? { ...data, item: this.itemData } : data;
+
+        if (includeItemData) {
+            data.item = this.itemData;
+        }
+
+        return data;
     }
 }
 

@@ -74,10 +74,14 @@ class BasicItemNetworthCalculator {
      * @returns An object containing the item's networth calculation
      */
     async #calculate({ prices, nonCosmetic, cachePrices, pricesRetries, cachePricesTime }) {
+        if (!this.amount || this.amount <= 0) return null;
+
+        if (this.id.startsWith('RUNE_') && nonCosmetic) return null;
+
         // Set default values
         cachePrices ??= networthManager.getCachePrices();
         pricesRetries ??= networthManager.getPricesRetries();
-        cachePricesTime ??= networthManager.getCachePrices;
+        cachePricesTime ??= networthManager.getCachePricesTime();
 
         // Get prices
         await networthManager.itemsPromise;
@@ -85,18 +89,21 @@ class BasicItemNetworthCalculator {
             prices = await getPrices(cachePrices, pricesRetries, cachePricesTime);
         }
 
-        if (this.id.startsWith('RUNE_') && nonCosmetic) return null;
-
         // Get the base price for the item
         const itemPrice = prices[this.id];
         if (!itemPrice) {
             return null;
         }
 
+        const totalPrice = itemPrice * this.amount;
+        if (!totalPrice || totalPrice <= 0) {
+            return null;
+        }
+
         return {
             name: this.itemName,
             id: this.id,
-            price: itemPrice * this.amount,
+            price: totalPrice,
             calculation: [],
             count: this.amount,
             soulbound: false,
