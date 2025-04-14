@@ -45,11 +45,6 @@ class PetNetworthCalculator extends PetNetworthHelper {
     async #calculate({ prices, nonCosmetic, cachePrices, pricesRetries, cachePricesTime }) {
         // Set default values
         this.nonCosmetic = nonCosmetic ?? false;
-        if (nonCosmetic && this.isCosmetic()) {
-            console.log(`Pet ${this.petName} is cosmetic, skipping non-cosmetic calculation`);
-            //return;
-        }
-
         cachePrices ??= networthManager.getCachePrices();
         pricesRetries ??= networthManager.getPricesRetries();
         cachePricesTime ??= networthManager.getCachePricesTime();
