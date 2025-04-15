@@ -1,6 +1,6 @@
 const { decodeItems, decodeItemsObject, decodeItem } = require('./decode');
 
-const parseItems = async (profileData, museumData) => {
+const parseItems = async (profileData, museumData, options = { removeEmptyItems: true }) => {
     const INVENTORY = profileData.inventory;
     const SHARED_INVENTORY = profileData.shared_inventory;
     const outputPromises = {
@@ -33,7 +33,7 @@ const parseItems = async (profileData, museumData) => {
             return acc;
         }
 
-        const filteredItems = decodedItems[idx].filter((item) => item && Object.keys(item).length);
+        const filteredItems = options.removeEmptyItems ? decodedItems[idx].filter((item) => item && Object.keys(item).length) : decodedItems[idx];
         if (key.includes('storage')) {
             acc.storage = (acc.storage || []).concat(filteredItems);
         } else {
