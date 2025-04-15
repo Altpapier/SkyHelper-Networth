@@ -1,6 +1,6 @@
 const { decodeItems, decodeItemsObject, decodeItem } = require('./decode');
 
-const parseItems = async (profileData, museumData, options = { removeEmptyItems: true }) => {
+const parseItems = async (profileData, museumData, options = { removeEmptyItems: true, combineStorage: true, additionalInventories: null }) => {
     const INVENTORY = profileData.inventory;
     const SHARED_INVENTORY = profileData.shared_inventory;
     const outputPromises = {
@@ -17,11 +17,12 @@ const parseItems = async (profileData, museumData, options = { removeEmptyItems:
         candy_inventory: SHARED_INVENTORY?.candy_inventory_contents?.data ?? '',
         carnival_mask_inventory: SHARED_INVENTORY?.carnival_mask_inventory_contents?.data ?? '',
         quiver: INVENTORY?.bag_contents?.quiver?.data ?? '',
-
         ...Object.fromEntries([
             ...Object.entries(INVENTORY?.backpack_contents ?? {}).map(([key, value]) => [`storage_${key}`, value.data ?? '']),
             ...Object.entries(INVENTORY?.backpack_icons ?? {}).map(([key, value]) => [`storage_icon_${key}`, value.data ?? '']),
         ]),
+
+        ...(options.additionalInventories ?? {}),
     };
 
     const entries = Object.entries(outputPromises);
@@ -34,7 +35,7 @@ const parseItems = async (profileData, museumData, options = { removeEmptyItems:
         }
 
         const filteredItems = options.removeEmptyItems ? decodedItems[idx].filter((item) => item && Object.keys(item).length) : decodedItems[idx];
-        if (key.includes('storage')) {
+        if (key.includes('storage') && options.combineStorage) {
             acc.storage = (acc.storage || []).concat(filteredItems);
         } else {
             acc[key] = filteredItems;

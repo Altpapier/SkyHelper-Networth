@@ -128,4 +128,8 @@ export declare class ItemNetworthCalculator {
 
 export declare function getPrices(cache?: boolean, cacheTime?: number, retries?: number): Promise<Record<string, number>>;
 
-export declare function parseItems(profileData: object, museumData: object, options?: { removeEmptyItems?: boolean }): Promise<Items>;
+export declare function parseItems(
+    profileData: object,
+    museumData: object,
+    options?: { removeEmptyItems?: boolean; combineStorage?: boolean; additionalInventories?: Record<string, string> },
+): Promise<Items>;
