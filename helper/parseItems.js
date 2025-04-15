@@ -1,10 +1,12 @@
 const { decodeItems, decodeItem } = require('./decode');
 
 const parseItems = async (profileData, museumData, options = { removeEmptyItems: true, combineStorage: true, additionalInventories: null }) => {
+    // Prepare data
     const INVENTORY = profileData.inventory ?? {};
     const SHARED_INVENTORY = profileData.shared_inventory ?? {};
 
-    const outputPromises = {
+    // Setup inventory data
+    const rawData = {
         armor: INVENTORY.inv_armor?.data ?? '',
         equipment: INVENTORY.equipment_contents?.data ?? '',
         wardrobe: INVENTORY.wardrobe_contents?.data ?? '',
@@ -25,32 +27,43 @@ const parseItems = async (profileData, museumData, options = { removeEmptyItems:
         ...(options.additionalInventories ?? {}),
     };
 
-    const entries = Object.entries(outputPromises);
-    const decodedItems = await decodeItems(entries.map(([_, value]) => value));
+    // Decode data
+    const decodedItems = await decodeItems(Object.values(rawData));
 
+    // Prepare return object
     const items = {};
     if (options.combineStorage) {
         items.storage = [];
     }
 
-    entries.forEach(([key, _], idx) => {
-        if (!decodedItems[idx]) {
+    // Loop through inventories
+    Object.keys(rawData).forEach((key, idx) => {
+        let currentInventoryItems = decodedItems[idx];
+        // If empty, skip
+        if (!currentInventoryItems) {
             items[key] = [];
             return;
         }
 
-        const filteredItems = options.removeEmptyItems ? decodedItems[idx].filter((item) => item && Object.keys(item).length) : decodedItems[idx];
+        // Filter empty items
+        if (options.removeEmptyItems) {
+            currentInventoryItems = currentInventoryItems.filter((item) => item && Object.keys(item).length);
+        }
+
+        // Add to return object, combining storage if requested
         if (key.includes('storage') && options.combineStorage) {
-            items.storage = items.storage.concat(filteredItems);
+            items.storage = items.storage.concat(currentInventoryItems);
         } else {
-            items[key] = filteredItems;
+            items[key] = currentInventoryItems;
         }
     });
 
+    // If we have museum data, decode it
     if (museumData?.items && Object.keys(museumData.items ?? {}).length > 0) {
+        // @DuckySoLucky please comment this if statement and what it's used for
         const firstItem = Object.values(museumData.items)[0];
-
         if (firstItem?.items?.length && museumData.special?.length) {
+            // Filter out borrowing items and flatten the arrays
             items.museum = [
                 ...Object.values(museumData.items)
                     .filter((item) => !item.borrowing)
@@ -58,32 +71,39 @@ const parseItems = async (profileData, museumData, options = { removeEmptyItems:
                 ...museumData.special.flatMap((special) => special.items),
             ];
         } else {
+            // Prepare special items data
             const specialItemsData = museumData.special?.map((special) => special.items.data) ?? [];
 
+            // Filter out borrowing items and prepare the items
             const museumItemsData = Object.values(museumData.items ?? {})
                 .filter((item) => !item.borrowing)
                 .map((item) => item.items.data);
 
+            // Decode the items
             const [decodedMuseumItems, decodedSpecialItems] = await Promise.all([decodeItems(museumItemsData), decodeItems(specialItemsData)]);
 
+            // Put the decoded items into the return object
             items.museum = [...decodedMuseumItems.flat(), ...decodedSpecialItems.flat()];
         }
     } else {
         items.museum = [];
     }
 
+    // Post process the inventories and return it
     await postParseItems(profileData, items);
     return items;
 };
 
 const postParseItems = async (profileData, items) => {
-    const allItems = Object.values(items)
-        .filter(Array.isArray)
-        .flat()
-        .filter((item) => item?.tag?.ExtraAttributes?.new_year_cake_bag_data);
-
     await Promise.all([
+        // Process new year cake bags
         (async () => {
+            // Get the new years cake bags
+            const allItems = Object.values(items)
+                .filter(Array.isArray)
+                .flat()
+                .filter((item) => item?.tag?.ExtraAttributes?.new_year_cake_bag_data);
+            // Decode the cakes from the new years cake bags data
             for (const item of allItems) {
                 const cakeBagData = await decodeItem(Buffer.from(item.tag.ExtraAttributes.new_year_cake_bag_data, 'base64'));
                 item.tag.ExtraAttributes.new_year_cake_bag_years = cakeBagData
@@ -91,25 +111,33 @@ const postParseItems = async (profileData, items) => {
                     .map((cake) => cake.tag.ExtraAttributes.new_years_cake);
             }
         })(),
+        // Add the sacks inventory
         (() => {
+            // Get the data
             const sacksData = profileData.sacks_counts || profileData.inventory?.sacks_counts;
-            items.sacks = sacksData
-                ? Object.entries(sacksData)
-                      .filter(([_, amount]) => amount)
-                      .map(([id, amount]) => ({ id, amount }))
-                : [];
+            // Process the data
+            if (sacksData) {
+                items.sacks = Object.entries(sacksData)
+                    .filter(([_, amount]) => amount)
+                    .map(([id, amount]) => ({ id, amount }));
+            } else {
+                items.sacks = [];
+            }
         })(),
+        // Add the essence inventory
         (() => {
-            items.essence = profileData.currencies?.essence
-                ? Object.entries(profileData.currencies.essence).map(([id, data]) => {
-                      return {
-                          id: `ESSENCE_${id.toUpperCase()}`,
-                          amount: data.current,
-                      };
-                  })
-                : [];
+            // Get the data
+            const essenceData = profileData.currencies?.essence;
+            // Process the data
+            if (essenceData) {
+                items.essence = Object.entries(essenceData).map(([id, data]) => ({ id: `ESSENCE_${id.toUpperCase()}`, amount: data.current }));
+            } else {
+                items.essence = [];
+            }
         })(),
+        // Add the pets inventory
         (() => {
+            // Process the data
             items.pets = profileData.pets_data?.pets?.map((pet) => ({ ...pet })) ?? [];
         })(),
     ]);
