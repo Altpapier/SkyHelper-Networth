@@ -99,12 +99,12 @@ const postParseItems = async (profileData, items) => {
         // Process new year cake bags
         (async () => {
             // Get the new years cake bags
-            const allItems = Object.values(items)
+            const cakeBags = Object.values(items)
                 .filter(Array.isArray)
                 .flat()
                 .filter((item) => item?.tag?.ExtraAttributes?.new_year_cake_bag_data);
             // Decode the cakes from the new years cake bags data
-            for (const item of allItems) {
+            for (const item of cakeBags) {
                 const cakeBagData = await decodeItem(Buffer.from(item.tag.ExtraAttributes.new_year_cake_bag_data, 'base64'));
                 item.tag.ExtraAttributes.new_year_cake_bag_years = cakeBagData
                     .filter((cake) => cake.id && cake.tag?.ExtraAttributes?.new_years_cake)
