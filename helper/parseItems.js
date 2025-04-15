@@ -68,6 +68,8 @@ const parseItems = async (profileData, museumData, options = { removeEmptyItems:
 
             items.museum = [...decodedMuseumItems.flat(), ...decodedSpecialItems.flat()];
         }
+    } else {
+        items.museum = [];
     }
 
     await postParseItems(profileData, items);
@@ -90,27 +92,25 @@ const postParseItems = async (profileData, items) => {
             }
         })(),
         (() => {
-            const sacksData = profileData.sacks_counts ?? profileData.inventory?.sacks_counts;
-            if (sacksData) {
-                items.sacks = Object.entries(sacksData)
-                    .filter(([_, amount]) => amount)
-                    .map(([id, amount]) => ({ id, amount }));
-            }
+            const sacksData = profileData.sacks_counts || profileData.inventory?.sacks_counts;
+            items.sacks = sacksData
+                ? Object.entries(sacksData)
+                      .filter(([_, amount]) => amount)
+                      .map(([id, amount]) => ({ id, amount }))
+                : [];
         })(),
         (() => {
-            const essenceData = profileData.currencies?.essence;
-            if (essenceData) {
-                items.essence = Object.entries(essenceData).map(([id, data]) => ({
-                    id: `ESSENCE_${id.toUpperCase()}`,
-                    amount: data.current,
-                }));
-            }
+            items.essence = profileData.currencies?.essence
+                ? Object.entries(profileData.currencies.essence).map(([id, data]) => {
+                      return {
+                          id: `ESSENCE_${id.toUpperCase()}`,
+                          amount: data.current,
+                      };
+                  })
+                : [];
         })(),
         (() => {
-            const petsData = profileData.pets_data?.pets;
-            if (petsData) {
-                items.pets = petsData.map((pet) => ({ ...pet }));
-            }
+            items.pets = profileData.pets_data?.pets?.map((pet) => ({ ...pet })) ?? [];
         })(),
     ]);
 };
