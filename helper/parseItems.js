@@ -1,6 +1,6 @@
 const { decodeItems, decodeItem } = require('./decode');
 
-const parseItems = async (profileData, museumData, options = { removeEmptyItems: true, combineStorage: true, additionalInventories: null }) => {
+const parseItems = async (profileData, museumData, options = { removeEmptyItems: true, combineStorage: true, additionalInventories: null, parsedInventories: null }) => {
     // Prepare data
     const INVENTORY = profileData.inventory ?? {};
     const SHARED_INVENTORY = profileData.shared_inventory ?? {};
@@ -27,14 +27,26 @@ const parseItems = async (profileData, museumData, options = { removeEmptyItems:
         ...(options.additionalInventories ?? {}),
     };
 
-    // Decode data
-    const decodedItems = await decodeItems(Object.values(rawData));
-
     // Prepare return object
     const items = {};
     if (options.combineStorage) {
         items.storage = [];
     }
+
+    // If parsedInventories are set, remove them from the rawData and add them to the items
+    if (options.parsedInventories !== null) {
+        for (const key in options.parsedInventories) {
+            if (!options.parsedInventories[key]) {
+                continue;
+            }
+
+            delete rawData[key];
+            items[key] = options.parsedInventories[key];
+        }
+    }
+
+    // Decode data
+    const decodedItems = await decodeItems(Object.values(rawData));
 
     // Loop through inventories
     Object.keys(rawData).forEach((key, idx) => {

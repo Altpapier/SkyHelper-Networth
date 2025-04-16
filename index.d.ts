@@ -131,5 +131,10 @@ export declare function getPrices(cache?: boolean, cacheTime?: number, retries?:
 export declare function parseItems(
     profileData: object,
     museumData: object,
-    options?: { removeEmptyItems?: boolean; combineStorage?: boolean; additionalInventories?: Record<string, string> },
+    options?: {
+        removeEmptyItems?: boolean;
+        combineStorage?: boolean;
+        additionalInventories?: Record<string, string>;
+        parsedInventories?: Record<string, object[]>;
+    },
 ): Promise<Items>;
