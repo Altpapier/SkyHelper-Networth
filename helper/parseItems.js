@@ -60,7 +60,7 @@ const parseItems = async (profileData, museumData, options = { removeEmptyItems:
 
     // If we have museum data, decode it
     if (museumData?.items && Object.keys(museumData.items ?? {}).length > 0) {
-        // @DuckySoLucky please comment this if statement and what it's used for
+        // Check whether museum items are already decoded, if so skip decoding
         const firstItem = Object.values(museumData.items)[0];
         if (firstItem?.items?.length && museumData.special?.length) {
             // Filter out borrowing items and flatten the arrays
@@ -95,52 +95,50 @@ const parseItems = async (profileData, museumData, options = { removeEmptyItems:
 };
 
 const postParseItems = async (profileData, items) => {
-    await Promise.all([
-        // Process new year cake bags
-        (async () => {
-            // Get the new years cake bags
-            const cakeBags = Object.values(items)
-                .filter(Array.isArray)
-                .flat()
-                .filter((item) => item?.tag?.ExtraAttributes?.new_year_cake_bag_data);
-            // Decode the cakes from the new years cake bags data
-            for (const item of cakeBags) {
-                const cakeBagData = await decodeItem(Buffer.from(item.tag.ExtraAttributes.new_year_cake_bag_data, 'base64'));
-                item.tag.ExtraAttributes.new_year_cake_bag_years = cakeBagData
-                    .filter((cake) => cake.id && cake.tag?.ExtraAttributes?.new_years_cake)
-                    .map((cake) => cake.tag.ExtraAttributes.new_years_cake);
-            }
-        })(),
-        // Add the sacks inventory
-        (() => {
-            // Get the data
-            const sacksData = profileData.sacks_counts || profileData.inventory?.sacks_counts;
-            // Process the data
-            if (sacksData) {
-                items.sacks = Object.entries(sacksData)
-                    .filter(([_, amount]) => amount)
-                    .map(([id, amount]) => ({ id, amount }));
-            } else {
-                items.sacks = [];
-            }
-        })(),
-        // Add the essence inventory
-        (() => {
-            // Get the data
-            const essenceData = profileData.currencies?.essence;
-            // Process the data
-            if (essenceData) {
-                items.essence = Object.entries(essenceData).map(([id, data]) => ({ id: `ESSENCE_${id.toUpperCase()}`, amount: data.current }));
-            } else {
-                items.essence = [];
-            }
-        })(),
-        // Add the pets inventory
-        (() => {
-            // Process the data
-            items.pets = profileData.pets_data?.pets?.map((pet) => ({ ...pet })) ?? [];
-        })(),
-    ]);
+    // Process new year cake bags
+    await (async () => {
+        // Get the new years cake bags
+        const cakeBags = Object.values(items)
+            .filter(Array.isArray)
+            .flat()
+            .filter((item) => item?.tag?.ExtraAttributes?.new_year_cake_bag_data);
+
+        // Decode the cakes from the new years cake bags data
+        for (const item of cakeBags) {
+            const cakeBagData = await decodeItem(Buffer.from(item.tag.ExtraAttributes.new_year_cake_bag_data, 'base64'));
+            item.tag.ExtraAttributes.new_year_cake_bag_years = cakeBagData
+                .filter((cake) => cake.id && cake.tag?.ExtraAttributes?.new_years_cake)
+                .map((cake) => cake.tag.ExtraAttributes.new_years_cake);
+        }
+    })();
+
+    // Add the sacks inventory
+    const sacksData = profileData.sacks_counts || profileData.inventory?.sacks_counts;
+    // Process the data
+    if (sacksData) {
+        items.sacks = Object.entries(sacksData)
+            .filter(([_, amount]) => amount)
+            .map(([id, amount]) => ({ id, amount }));
+    } else {
+        items.sacks = [];
+    }
+
+    // Add the essence inventory
+    const essenceData = profileData.currencies?.essence;
+    // Process the data
+    if (essenceData) {
+        items.essence = Object.entries(essenceData).map(([id, data]) => ({ id: `ESSENCE_${id.toUpperCase()}`, amount: data.current }));
+    } else {
+        items.essence = [];
+    }
+
+    // Add the pets inventory
+    const petsData = profileData.pets_data?.pets;
+    if (petsData) {
+        items.pets = petsData.map((pet) => ({ ...pet }));
+    } else {
+        items.pets = [];
+    }
 };
 
 module.exports = {
