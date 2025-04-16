@@ -47,7 +47,7 @@ describe('Decode functions', () => {
             expect(result).toEqual([]);
         });
 
-        test('should return null for invalid input (null)', async () => {
+        test('should return empty array for invalid input (null)', async () => {
             const result = await decodeItems(null);
             expect(result).toEqual([]);
         });
