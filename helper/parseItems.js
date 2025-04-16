@@ -45,13 +45,11 @@ const parseItems = async (profileData, museumData, options = { removeEmptyItems:
         }
     }
 
-    const [rawKeys, rawDataValues] = Object.entries(rawData);
-
     // Decode data
-    const decodedItems = await decodeItems(rawDataValues);
+    const decodedItems = await decodeItems(Object.values(rawData));
 
     // Loop through inventories
-    rawKeys.forEach((key, idx) => {
+    Object.keys(rawData).forEach((key, idx) => {
         let currentInventoryItems = decodedItems[idx];
         // If empty, skip
         if (!currentInventoryItems) {
