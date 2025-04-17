@@ -51,6 +51,11 @@ export declare class NetworthManager {
     static setIncludeItemData(includeItemData: boolean): void;
 
     /**
+     * Sets the removeEmptyItems option
+     */
+    static removeEmptyItems(removeEmptyItems: boolean): void;
+
+    /**
      * Manually updates the items from the Hypixel API.
      * @param retries The number of retries to fetch the items.
      * @param retryInterval The interval in milliseconds between retries.
