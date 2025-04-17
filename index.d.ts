@@ -134,6 +134,7 @@ export declare function parseItems(
     options?: {
         removeEmptyItems?: boolean;
         combineStorage?: boolean;
+        returnRawMuseum?: boolean;
         additionalInventories?: Record<string, string>;
         parsedInventories?: Record<string, object[]>;
     },

@@ -214,6 +214,7 @@ describe('postParseItems', () => {
     });
 
     it('should handle missing data', async () => {
+        const items = {};
         await postParseItems({}, items);
 
         expect(items.sacks).toEqual([]);
