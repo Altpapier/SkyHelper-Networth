@@ -54,7 +54,8 @@ type Inventories =
     | 'sacks'
     | 'essence'
     | 'pets'
-    | 'quiver';
+    | 'quiver'
+    | string;
 
 type Inventory = {
     /**

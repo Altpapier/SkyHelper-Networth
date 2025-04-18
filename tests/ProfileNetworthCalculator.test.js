@@ -64,6 +64,7 @@ describe('ProfileNetworthCalculator', () => {
         networthManager.getIncludeItemData = jest.fn().mockReturnValue(true);
         networthManager.getSortItems = jest.fn().mockReturnValue(true);
         networthManager.getStackItems = jest.fn().mockReturnValue(true);
+        networthManager.getRemoveEmptyItems = jest.fn().mockReturnValue(true);
         networthManager.clearIntervals = jest.fn();
 
         mockAxios = jest.spyOn(axios, 'get').mockImplementation(() => {
