@@ -53,7 +53,7 @@ export declare class NetworthManager {
     /**
      * Sets the removeEmptyItems option
      */
-    static removeEmptyItems(removeEmptyItems: boolean): void;
+    static setRemoveEmptyItems(removeEmptyItems: boolean): void;
 
     /**
      * Manually updates the items from the Hypixel API.
