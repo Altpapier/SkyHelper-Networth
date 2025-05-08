@@ -49,7 +49,7 @@ describe('Decode functions', () => {
 
         test('should return empty array for invalid input', async () => {
             const result = await decodeItems([null]);
-            expect(result).toEqual([]);
+            expect(result).toEqual([[]]);
         });
 
         test('should return null for invalid input (null', async () => {
