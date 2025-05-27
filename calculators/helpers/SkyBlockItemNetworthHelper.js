@@ -162,9 +162,10 @@ class SkyBlockItemNetworthHelper {
         const testId = (this.itemId + this.itemName).toUpperCase();
         const isSkinOrDye = testId.includes('DYE') || testId.includes('SKIN');
         const isCosmetic = this.skyblockItem.category === 'COSMETIC' || this.itemLore.at(-1)?.includes('COSMETIC');
+        const isMemento = this.skyblockItem.category === 'MEMENTO';
         const isOnCosmeticBlacklist = NON_COSMETIC_ITEMS.has(this.baseItemId);
 
-        return isCosmetic || isSkinOrDye || isOnCosmeticBlacklist || this.isRune() || this.isUniqueRune();
+        return isCosmetic || isSkinOrDye || isMemento || isOnCosmeticBlacklist || this.isRune() || this.isUniqueRune();
     }
 
     /**
