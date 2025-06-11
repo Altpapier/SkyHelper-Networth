@@ -81,7 +81,7 @@ class SkyBlockItemNetworthHelper {
         }
 
         // If the item is a crab party hat
-        if (['PARTY_HAT_CRAB', 'PARTY_HAT_CRAB_ANIMATED', 'BALLOON_HAT_2024'].includes(this.itemId) && this.extraAttributes.party_hat_color) {
+        if (['PARTY_HAT_CRAB', 'PARTY_HAT_CRAB_ANIMATED', 'BALLOON_HAT_2024', 'BALLOON_HAT_2025'].includes(this.itemId) && this.extraAttributes.party_hat_color) {
             return `${this.itemId}_${this.extraAttributes.party_hat_color.toUpperCase()}`;
         }
 
