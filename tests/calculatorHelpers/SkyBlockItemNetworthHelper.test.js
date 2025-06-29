@@ -229,6 +229,19 @@ describe('SkyBlockItemNetworthHelper', () => {
             expect(helper.getItemId({})).toBe('BALLOON_HAT_2024_BLUE');
         });
 
+        test('should handle attribute shards', () => {
+            const helper = new SkyBlockItemNetworthHelper({
+                tag: {
+                    display: { Name: 'Bitbug' },
+                    ExtraAttributes: {
+                        id: 'ATTRIBUTE_SHARD',
+                        attributes: { cookie_eater: 1 },
+                    },
+                },
+            });
+            expect(helper.getItemId({})).toBe('ATTRIBUTE_SHARD_COOKIE_EATER');
+        });
+
         test('should handle space helmet with edition', () => {
             const helper = new SkyBlockItemNetworthHelper({
                 tag: {
