@@ -81,7 +81,7 @@ class SkyBlockItemNetworthHelper {
         }
 
         // If the item is a crab party hat
-        if (['PARTY_HAT_CRAB', 'PARTY_HAT_CRAB_ANIMATED', 'BALLOON_HAT_2024'].includes(this.itemId) && this.extraAttributes.party_hat_color) {
+        if (['PARTY_HAT_CRAB', 'PARTY_HAT_CRAB_ANIMATED', 'BALLOON_HAT_2024', 'BALLOON_HAT_2025'].includes(this.itemId) && this.extraAttributes.party_hat_color) {
             return `${this.itemId}_${this.extraAttributes.party_hat_color.toUpperCase()}`;
         }
 
@@ -162,9 +162,10 @@ class SkyBlockItemNetworthHelper {
         const testId = (this.itemId + this.itemName).toUpperCase();
         const isSkinOrDye = testId.includes('DYE') || testId.includes('SKIN');
         const isCosmetic = this.skyblockItem.category === 'COSMETIC' || this.itemLore.at(-1)?.includes('COSMETIC');
+        const isMemento = this.skyblockItem.category === 'MEMENTO';
         const isOnCosmeticBlacklist = NON_COSMETIC_ITEMS.has(this.baseItemId);
 
-        return isCosmetic || isSkinOrDye || isOnCosmeticBlacklist || this.isRune() || this.isUniqueRune();
+        return isCosmetic || isSkinOrDye || isMemento || isOnCosmeticBlacklist || this.isRune() || this.isUniqueRune();
     }
 
     /**

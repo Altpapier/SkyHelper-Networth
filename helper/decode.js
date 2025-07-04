@@ -4,29 +4,26 @@ const { gunzip } = require('zlib');
 async function decodeItems(base64Strings) {
     try {
         const results = await Promise.allSettled(
-            base64Strings
-                .flat()
-                .filter((item) => item)
-                .map(async (item) => {
-                    try {
-                        if (!item || !item.length) {
-                            return [];
-                        }
-
-                        const unzippedData = await new Promise((resolve, reject) =>
-                            gunzip(Buffer.from(item, 'base64'), (error, unzippedData) => {
-                                if (error) reject(error);
-                                else resolve(unzippedData);
-                            }),
-                        );
-
-                        const parsed = nbt.protos.big.parsePacketBuffer('nbt', unzippedData, 0);
-                        const simplified = nbt.simplify(parsed.data);
-                        return simplified.i;
-                    } catch {
+            base64Strings.flat().map(async (item) => {
+                try {
+                    if (!item || !item.length) {
                         return [];
                     }
-                }),
+
+                    const unzippedData = await new Promise((resolve, reject) =>
+                        gunzip(Buffer.from(item, 'base64'), (error, unzippedData) => {
+                            if (error) reject(error);
+                            else resolve(unzippedData);
+                        }),
+                    );
+
+                    const parsed = nbt.protos.big.parsePacketBuffer('nbt', unzippedData, 0);
+                    const simplified = nbt.simplify(parsed.data);
+                    return simplified.i;
+                } catch {
+                    return [];
+                }
+            }),
         );
 
         return results.filter((result) => result.status === 'fulfilled').map((result) => result.value);
