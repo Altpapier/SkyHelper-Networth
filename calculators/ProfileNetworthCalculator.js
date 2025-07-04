@@ -193,7 +193,7 @@ class ProfileNetworthCalculator {
                 if (!onlyNetworth && result && price) {
                     categories[category].items.push(result);
                 } else if (removeEmptyItems === false) {
-                    categories[category].items.push({);
+                    categories[category].items.push({});
                 }
             }
 
