@@ -20,6 +20,7 @@ const APPLICATION_WORTH = {
     thunderInABottle: 0.8,
     enchantments: 0.85,
     shensAuctionPrice: 0.85,
+    booster: 0.8,
     dye: 0.9,
     gemstoneChambers: 0.9,
     attributes: 1,
