@@ -86,7 +86,7 @@ class SkyBlockItemNetworthHelper {
         }
 
         // If the item is an attribute shard
-        if (this.itemId === 'ATTRIBUTE_SHARD' && Object.entries(this.extraAttributes.attributes).length === 1) {
+        if (this.itemId === 'ATTRIBUTE_SHARD' && this.extraAttributes?.attributes && Object.entries(this.extraAttributes.attributes).length === 1) {
             const attribute = Object.keys(this.extraAttributes.attributes)[0];
             return `ATTRIBUTE_SHARD_${attribute.toUpperCase()}`;
         }
