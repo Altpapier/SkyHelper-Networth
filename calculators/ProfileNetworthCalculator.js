@@ -138,7 +138,7 @@ class ProfileNetworthCalculator {
             for (let item of categoryItems) {
                 if (!item || Object.keys(item).length === 0) {
                     if (removeEmptyItems === false) {
-                        categoryData.items.push({});
+                        categories[category].items.push({});
                     }
 
                     continue;
@@ -156,14 +156,14 @@ class ProfileNetworthCalculator {
                         calculatorClass = PetNetworthCalculator;
                     } catch {
                         if (removeEmptyItems === false) {
-                            categoryData.items.push({});
+                            categories[category].items.push({});
                         }
 
                         continue;
                     }
                 } else if (!item.tag?.ExtraAttributes && item.exp === undefined && typeof item.id !== 'string') {
                     if (removeEmptyItems === false) {
-                        categoryData.items.push({});
+                        categories[category].items.push({});
                     }
 
                     continue;
@@ -175,7 +175,7 @@ class ProfileNetworthCalculator {
                     calculator = new calculatorClass(item);
                 } catch {
                     if (removeEmptyItems === false) {
-                        categoryData.items.push({});
+                        categories[category].items.push({});
                     }
 
                     continue;
