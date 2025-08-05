@@ -47,8 +47,8 @@ const ENRICHMENTS = [
 
 const SPECIAL_ENCHANTMENT_NAMES = {
     aiming: 'Dragon Tracer',
-    counter_strike: 'Counter-Strike',
     pristine: 'Prismatic',
+    counter_strike: 'Counter-Strike',
     turbo_cacti: 'Turbo-Cacti',
     turbo_cane: 'Turbo-Cane',
     turbo_carrot: 'Turbo-Carrot',
@@ -61,6 +61,8 @@ const SPECIAL_ENCHANTMENT_NAMES = {
     turbo_wheat: 'Turbo-Wheat',
     ultimate_reiterate: 'Ultimate Duplex',
     ultimate_bobbin_time: "Ultimate Bobbin' Time",
+    arcane: 'Woodsplitter',
+    dragon_hunter: 'Gravity',
 };
 
 const GEMSTONE_SLOTS = ['COMBAT', 'OFFENSIVE', 'DEFENSIVE', 'MINING', 'UNIVERSAL', 'CHISEL'];
