@@ -6,7 +6,7 @@ const { starCosts } = require('../../helper/essenceStars');
  * A handler for Prestige on an item (e.g. crimson).
  *
  * This handler is hardly used any more since you can sell prestiged kuudra armor now. As of the time of writing, the only items
- * that use this handler are Infernal Hollow armor, Fiery Fervor armor, and Internal Fervor armor.
+ * that use this handler are Infernal Hollow Helmet, Fiery Fervor Boots, and Infernal Fervor armor.
  */
 class PrestigeHandler {
     /**
