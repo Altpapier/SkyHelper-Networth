@@ -19,7 +19,7 @@ class AvariceCoinsCollectedHandler {
     calculate(item, prices) {
         const zeroPrice = prices['CROWN_OF_AVARICE'] ?? 0;
         const billionPrice = prices['CROWN_OF_AVARICE_1B'] ?? 0;
-        const coinsCollected = Math.min(item.extraAttributes.collected_coins, 1_000_000_000);
+        const coinsCollected = Math.min(Number(item.extraAttributes.collected_coins), 1_000_000_000);
         const newPrice = zeroPrice + (billionPrice - zeroPrice) * (coinsCollected / 1_000_000_000);
 
         const calculationData = {
