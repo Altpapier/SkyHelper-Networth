@@ -32,6 +32,7 @@ const NewYearCakeBagHandler = require('../handlers/NewYearCakeBag');
 const SoulboundSkinHandler = require('../handlers/SoulboundSkin');
 const RodPartsHandler = require('../handlers/RodParts');
 const BoosterHandler = require('../handlers/Booster');
+const AvariceCoinsCollectedHandler = require('../handlers/AvariceCoinsCollected');
 
 // For each handler, check if it applies and add the calculation to the total price
 const handlers = [
@@ -39,6 +40,7 @@ const handlers = [
     PrestigeHandler,
     ShensAuctionHandler,
     MidasWeaponsHandler,
+    AvariceCoinsCollectedHandler,
     EnchantedBookHandler,
     ItemEnchantmentsHandler,
     PocketSackInASackHandler,
