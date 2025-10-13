@@ -41,7 +41,7 @@ import { ProfileNetworthCalculator } from 'skyhelper-networth';
 const profile = // https://api.hypixel.net/#tag/SkyBlock/paths/~1v2~1skyblock~1profile/get - profile.members[uuid]
 const museumData = // https://api.hypixel.net/v2/skyblock/museum - museum.members[uuid]
 const bankBalance = profile.banking.balance;
-const profileData = profile.members[uid];
+const profileData = profile.members[uuid];
 
 // Initialize the NetworthManager
 const networthManager = new ProfileNetworthCalculator(profileData, museumData, bankBalance);
