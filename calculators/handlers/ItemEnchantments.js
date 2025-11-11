@@ -9,6 +9,7 @@ const ENCHANTMENT_UPGRADES = {
     FRAIL: { upgradeItem: 'SEVERED_PINCER', tier: 7 },
     SPIKED_HOOK: { upgradeItem: 'OCTOPUS_TENDRIL', tier: 7 },
     CHARM: { upgradeItem: 'CHAIN_END_TIMES', tier: 6 },
+    VENOMOUS: { upgradeItem: 'FATEFUL_STINGER', tier: 7 },
 };
 
 /**

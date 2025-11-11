@@ -439,6 +439,42 @@ const testCases = [
         ],
     },
     // endregion
+    // endregion
+    // region Fateful Stinger
+    {
+        description: 'Applies correctly without chain of the end times',
+        item: {
+            itemId: 'HYPERION',
+            extraAttributes: { enchantments: { venomous: 6 } },
+            price: 100,
+            calculation: [],
+        },
+        prices: { FATEFUL_STINGER: 1000000 },
+        shouldApply: true,
+        expectedPriceChange: 0,
+        expectedCalculation: [],
+    },
+    {
+        description: 'Applies correctly with chain of the end times',
+        item: {
+            itemId: 'HYPERION',
+            extraAttributes: { enchantments: { venomous: 7 } },
+            price: 100,
+            calculation: [],
+        },
+        prices: { FATEFUL_STINGER: 1000000 },
+        shouldApply: true,
+        expectedPriceChange: 1000000 * APPLICATION_WORTH.enchantmentUpgrades,
+        expectedCalculation: [
+            {
+                id: 'FATEFUL_STINGER',
+                type: 'ENCHANTMENT_UPGRADE',
+                price: 1000000 * APPLICATION_WORTH.enchantmentUpgrades,
+                count: 1,
+            },
+        ],
+    },
+    // endregion
     // region Does not apply
     {
         description: 'Does not apply',
