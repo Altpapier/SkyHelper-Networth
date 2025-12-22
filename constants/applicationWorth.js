@@ -1,6 +1,7 @@
 const APPLICATION_WORTH = {
     enrichment: 0.5,
     farmingForDummies: 0.5,
+    overclocker3000: 0.9,
     gemstonePowerScroll: 0.5,
     woodSingularity: 0.5,
     artOfWar: 0.6,
