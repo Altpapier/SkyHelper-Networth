@@ -24075,10 +24075,6 @@
           "Name": "§9Rampart Chestplate"
         },
         "ExtraAttributes": {
-          "attributes": {
-            "blazing_resistance": 1,
-            "breeze": 1
-          },
           "id": "RAMPART_CHESTPLATE",
           "uuid": "b363a906-66a6-4851-bb23-2708b435f4bc",
           "timestamp": [
@@ -24163,10 +24159,6 @@
           "Name": "§9Rampart Leggings"
         },
         "ExtraAttributes": {
-          "attributes": {
-            "blazing_resistance": 1,
-            "breeze": 1
-          },
           "id": "RAMPART_LEGGINGS",
           "uuid": "29aa3878-4325-4548-8c16-f4e245d56c6c",
           "timestamp": [
@@ -35274,10 +35266,6 @@
           "Name": "§9Magma Necklace"
         },
         "ExtraAttributes": {
-          "attributes": {
-            "undead_resistance": 1,
-            "arachno_resistance": 1
-          },
           "id": "MAGMA_NECKLACE",
           "uuid": "4c984e71-3560-46be-a659-6b98112d601b",
           "donated_museum": 1,
@@ -35325,10 +35313,6 @@
           "Name": "§9Ghast Cloak"
         },
         "ExtraAttributes": {
-          "attributes": {
-            "blazing_resistance": 1,
-            "arachno_resistance": 1
-          },
           "id": "GHAST_CLOAK",
           "uuid": "49e25fbc-1b2b-4e98-9e0b-404221c1fcc5",
           "donated_museum": 1,
@@ -35374,10 +35358,6 @@
           "Name": "§9Blaze Belt"
         },
         "ExtraAttributes": {
-          "attributes": {
-            "life_regeneration": 1,
-            "mana_pool": 1
-          },
           "id": "BLAZE_BELT",
           "uuid": "3dc1a3dd-be6a-468e-a7bb-cacfd1a18a26",
           "donated_museum": 1,
@@ -35420,10 +35400,6 @@
           "Name": "§9Glowstone Gauntlet"
         },
         "ExtraAttributes": {
-          "attributes": {
-            "blazing_resistance": 1,
-            "experience": 1
-          },
           "id": "GLOWSTONE_GAUNTLET",
           "uuid": "c1f6081e-c56b-4eaf-bca6-36e030aeab51",
           "donated_museum": 1,
@@ -37278,10 +37254,6 @@
           "Name": "§9Blade of the Volcano"
         },
         "ExtraAttributes": {
-          "attributes": {
-            "undead": 1,
-            "combo": 1
-          },
           "id": "BLADE_OF_THE_VOLCANO",
           "uuid": "ae271987-5d22-4703-ad65-27ea61b3cda9",
           "donated_museum": 1,
@@ -37600,10 +37572,6 @@
           "Name": "§9Staff of the Volcano"
         },
         "ExtraAttributes": {
-          "attributes": {
-            "midas_touch": 1,
-            "attack_speed": 1
-          },
           "id": "STAFF_OF_THE_VOLCANO",
           "uuid": "e90391d6-ac48-44cc-8e51-e859dcd3ba7b",
           "donated_museum": 1,
@@ -39074,10 +39042,6 @@
           "Name": "§aSword of Bad Health"
         },
         "ExtraAttributes": {
-          "attributes": {
-            "elite": 1,
-            "life_recovery": 1
-          },
           "id": "SWORD_OF_BAD_HEALTH",
           "uuid": "2f88af20-4dcb-4b0b-b89d-52df06ebe628",
           "donated_museum": 1,
@@ -40420,10 +40384,6 @@
           "Name": "§6Hollow Wand"
         },
         "ExtraAttributes": {
-          "attributes": {
-            "ender": 1,
-            "arachno": 1
-          },
           "id": "HOLLOW_WAND",
           "boss_tier": 0,
           "uuid": "c0520f45-78b4-4f82-84db-b6a9f4285040",

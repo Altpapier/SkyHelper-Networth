@@ -85,12 +85,6 @@ class SkyBlockItemNetworthHelper {
             return `${this.itemId}_${this.extraAttributes.party_hat_color.toUpperCase()}`;
         }
 
-        // If the item is an attribute shard
-        if (this.itemId === 'ATTRIBUTE_SHARD' && this.extraAttributes?.attributes && Object.entries(this.extraAttributes.attributes).length === 1) {
-            const attribute = Object.keys(this.extraAttributes.attributes)[0];
-            return `ATTRIBUTE_SHARD_${attribute.toUpperCase()}`;
-        }
-
         // If the item is a space helmet
         if (this.itemId === 'DCTR_SPACE_HELM' && this.extraAttributes.edition !== undefined) {
             return 'DCTR_SPACE_HELM_EDITIONED';

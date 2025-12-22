@@ -7414,14 +7414,7 @@
           "customId": "HOLLOW_WAND",
           "price": 199000,
           "basePrice": 199000,
-          "calculation": [
-            {
-              "id": "ROLL_ARACHNO_ROLL_ENDER",
-              "type": "ATTRIBUTE_ROLL",
-              "price": 199000,
-              "count": 1
-            }
-          ],
+          "calculation": [],
           "count": 1,
           "soulbound": true,
           "cosmetic": false
@@ -7433,14 +7426,7 @@
           "customId": "STAFF_OF_THE_VOLCANO",
           "price": 150000,
           "basePrice": 150000,
-          "calculation": [
-            {
-              "id": "ROLL_ATTACK_SPEED_ROLL_MIDAS_TOUCH",
-              "type": "ATTRIBUTE_ROLL",
-              "price": 150000,
-              "count": 1
-            }
-          ],
+          "calculation": [],
           "count": 1,
           "soulbound": true,
           "cosmetic": false
