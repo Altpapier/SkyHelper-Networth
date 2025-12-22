@@ -1,5 +1,4 @@
 const Overclocker3000Handler = require('../../calculators/handlers/Overclocker3000');
-const PolarvoidBookHandler = require('../../calculators/handlers/PolarvoidBook');
 const { APPLICATION_WORTH } = require('../../constants/applicationWorth');
 const BaseHandlerTest = require('./BaseHandlerTest');
 
