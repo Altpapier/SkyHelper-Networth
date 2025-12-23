@@ -33,6 +33,7 @@ const SoulboundSkinHandler = require('../handlers/SoulboundSkin');
 const RodPartsHandler = require('../handlers/RodParts');
 const BoosterHandler = require('../handlers/Booster');
 const AvariceCoinsCollectedHandler = require('../handlers/AvariceCoinsCollected');
+const Overclocker3000Handler = require('../handlers/Overclocker3000');
 
 // For each handler, check if it applies and add the calculation to the total price
 const handlers = [
@@ -71,6 +72,7 @@ const handlers = [
     SoulboundSkinHandler,
     RodPartsHandler,
     BoosterHandler,
+    Overclocker3000Handler,
 ];
 
 module.exports = handlers;
