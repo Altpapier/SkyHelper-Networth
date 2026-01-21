@@ -32,6 +32,7 @@ function loadItems() {
         itemsMap = new Map(itemsArray);
         itemsBackupLoaded = true;
     } catch (error) {
+        console.log('[SKYHELPER-NETWORTH] Failed to load backup items. Fetching new items...');
         fs.unlinkSync(filePath);
         getItems().then((items) => {
             if (items) {
