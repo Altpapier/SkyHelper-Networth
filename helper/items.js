@@ -1,4 +1,4 @@
-const { default: axios } = require('axios');
+const axios = require('axios');
 const { ItemsError } = require('./errors');
 const { sleep } = require('./functions');
 const { itemsBackupLoaded } = require('../constants/itemsMap');
