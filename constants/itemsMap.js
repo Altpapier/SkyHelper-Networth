@@ -1,5 +1,6 @@
 const fs = require('fs');
 const path = require('path');
+const { getItems } = require('../helper/items');
 
 let itemsMap = new Map();
 
@@ -21,11 +22,22 @@ function setItems(items) {
 
 function loadItems() {
     const filePath = path.join(__dirname, '..', '.itemsBackup.json');
-    if (fs.existsSync(filePath)) {
+    if (fs.existsSync(filePath) === false) {
+        return;
+    }
+
+    try {
         const data = fs.readFileSync(filePath);
         const itemsArray = JSON.parse(data);
         itemsMap = new Map(itemsArray);
         itemsBackupLoaded = true;
+    } catch (error) {
+        fs.unlinkSync(filePath);
+        getItems().then((items) => {
+            if (items) {
+                setItems(items);
+            }
+        });
     }
 }
 
