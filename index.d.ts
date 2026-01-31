@@ -51,6 +51,11 @@ export declare class NetworthManager {
     static setIncludeItemData(includeItemData: boolean): void;
 
     /**
+     * Sets the removeEmptyItems option
+     */
+    static setRemoveEmptyItems(removeEmptyItems: boolean): void;
+
+    /**
      * Manually updates the items from the Hypixel API.
      * @param retries The number of retries to fetch the items.
      * @param retryInterval The interval in milliseconds between retries.
@@ -128,4 +133,14 @@ export declare class ItemNetworthCalculator {
 
 export declare function getPrices(cache?: boolean, cacheTime?: number, retries?: number): Promise<Record<string, number>>;
 
-export declare function parseItems(profileData: object, museumData: object): Promise<object>;
+export declare function parseItems(
+    profileData: object,
+    museumData: object,
+    options?: {
+        removeEmptyItems?: boolean;
+        combineStorage?: boolean;
+        returnRawMuseum?: boolean;
+        additionalInventories?: Record<string, string>;
+        parsedInventories?: Record<string, object[]>;
+    },
+): Promise<Items>;

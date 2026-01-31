@@ -44,24 +44,24 @@ describe('parseItems', () => {
         const items = await parseItems(profileData);
 
         expect(items).toEqual({
-            armor: [],
-            equipment: [],
-            wardrobe: [],
-            inventory: [],
-            enderchest: [],
             accessories: [],
-            personal_vault: [],
-            fishing_bag: [],
-            potion_bag: [],
-            sacks_bag: [],
+            armor: [],
             candy_inventory: [],
             carnival_mask_inventory: [],
-            quiver: [],
-            storage: [],
-            museum: [],
-            sacks: [],
+            enderchest: [],
+            equipment: [],
             essence: [],
+            fishing_bag: [],
+            inventory: [],
+            museum: [],
+            personal_vault: [],
             pets: [],
+            potion_bag: [],
+            quiver: [],
+            sacks: [],
+            sacks_bag: [],
+            storage: [],
+            wardrobe: [],
         });
     });
 
@@ -214,6 +214,7 @@ describe('postParseItems', () => {
     });
 
     it('should handle missing data', async () => {
+        const items = {};
         await postParseItems({}, items);
 
         expect(items.sacks).toEqual([]);
