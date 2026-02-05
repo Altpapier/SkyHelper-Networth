@@ -13,8 +13,7 @@ const isServerless = !!(
     process.env.VERCEL ||
     process.env.NETLIFY ||
     process.env.AWS_EXECUTION_ENV ||
-    process.env.FUNCTIONS_WORKER_RUNTIME ||
-    process.env.SKYHELPER_SERVERLESS
+    process.env.FUNCTIONS_WORKER_RUNTIME
 );
 
 function setItems(items) {
