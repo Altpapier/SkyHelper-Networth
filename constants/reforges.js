@@ -73,7 +73,7 @@ const REFORGES = {
     withered: 'WITHER_BLOOD',
     glacial: 'FRIGID_HUSK',
     heated: 'HOT_STUFF',
-    bloodshot: 'SHRIVELED_CORNEA',
+    blood_shot: 'SHRIVELED_CORNEA',
     // Non-bazaar
     dirty: 'DIRT_BOTTLE',
     moil: 'MOIL_LOG',
