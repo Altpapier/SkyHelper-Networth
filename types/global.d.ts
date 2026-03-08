@@ -35,6 +35,11 @@ export interface NetworthOptions {
      * Default: true
      */
     stackItems?: boolean;
+    /**
+     * Whether to remove empty objects from the output
+     * Default: true
+     */
+    removeEmptyItems?: boolean;
 }
 
 export type Item = {

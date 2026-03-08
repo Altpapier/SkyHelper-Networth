@@ -107,7 +107,7 @@ class ProfileNetworthCalculator {
      * @param {NetworthOptions} [options] The options for calculating networth.
      * @returns {Promise<NetworthResult>} The networth result.
      */
-    async #calculate({ prices, nonCosmetic, cachePrices, pricesRetries, cachePricesTime, onlyNetworth, includeItemData, sortItems, stackItems }) {
+    async #calculate({ prices, nonCosmetic, cachePrices, pricesRetries, cachePricesTime, onlyNetworth, includeItemData, sortItems, stackItems, removeEmptyItems }) {
         // Set default options
         cachePrices ??= networthManager.getCachePrices();
         pricesRetries ??= networthManager.getPricesRetries();
@@ -116,6 +116,7 @@ class ProfileNetworthCalculator {
         includeItemData ??= networthManager.getIncludeItemData();
         sortItems ??= networthManager.getSortItems();
         stackItems ??= networthManager.getStackItems();
+        removeEmptyItems ??= networthManager.getRemoveEmptyItems();
 
         // Get prices and items
         await networthManager.itemsPromise;
@@ -135,7 +136,13 @@ class ProfileNetworthCalculator {
 
             // Calculate networth for each item in the category
             for (let item of categoryItems) {
-                if (!item || Object.keys(item).length === 0) continue;
+                if (!item || Object.keys(item).length === 0) {
+                    if (removeEmptyItems === false) {
+                        categories[category].items.push({});
+                    }
+
+                    continue;
+                }
 
                 // Get the calculator for the item
                 let calculatorClass = categoryCalculatorMap[category] ?? categoryCalculatorMap.default;
@@ -148,9 +155,17 @@ class ProfileNetworthCalculator {
                         item = JSON.parse(item.tag.ExtraAttributes.petInfo);
                         calculatorClass = PetNetworthCalculator;
                     } catch {
+                        if (removeEmptyItems === false) {
+                            categories[category].items.push({});
+                        }
+
                         continue;
                     }
                 } else if (!item.tag?.ExtraAttributes && item.exp === undefined && typeof item.id !== 'string') {
+                    if (removeEmptyItems === false) {
+                        categories[category].items.push({});
+                    }
+
                     continue;
                 }
 
@@ -159,6 +174,10 @@ class ProfileNetworthCalculator {
                 try {
                     calculator = new calculatorClass(item);
                 } catch {
+                    if (removeEmptyItems === false) {
+                        categories[category].items.push({});
+                    }
+
                     continue;
                 }
                 // Calculate the networth of the item
@@ -173,6 +192,8 @@ class ProfileNetworthCalculator {
                 if (!result?.soulbound) categories[category].unsoulboundTotal += price - soulboundPortion;
                 if (!onlyNetworth && result && price) {
                     categories[category].items.push(result);
+                } else if (removeEmptyItems === false) {
+                    categories[category].items.push({});
                 }
             }
 

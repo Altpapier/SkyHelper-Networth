@@ -14,6 +14,7 @@ class NetworthManager {
     #stackItems;
     #includeItemData;
     #itemsIntervalInstance;
+    #removeEmptyItems;
     /**
      * Create a new NetworthManager instance. This class is a singleton and should be accessed through the networthManager instance
      * @param {Object} options - Options for the NetworthManager
@@ -26,23 +27,36 @@ class NetworthManager {
      * @param {boolean} [options.sortItems=true] - Whether to sort items by price
      * @param {boolean} [options.stackItems=true] - Whether to stack items with the same name and price
      * @param {boolean} [options.includeItemData=false] - Whether to include the item data as a property in the item object
+     * @param {boolean} [options.removeEmptyItems=true] - Whether to remove empty objects from the output
      */
-    constructor({ cachePrices, pricesRetries, cachePricesTime, itemsRetries, itemsInterval, onlyNetworth, sortItems, stackItems, includeItemData } = {}) {
+    constructor({
+        cachePrices,
+        pricesRetries,
+        cachePricesTime,
+        itemsRetries,
+        itemsInterval,
+        onlyNetworth,
+        sortItems,
+        stackItems,
+        includeItemData,
+        removeEmptyItems,
+    } = {}) {
         if (NetworthManager.instance) {
             return NetworthManager.instance;
         }
 
         NetworthManager.instance = this;
 
-        this.#cachePrices = cachePrices || true;
+        this.#cachePrices = cachePrices ?? true;
         this.#pricesRetries = pricesRetries || 3;
         this.#cachePricesTime = cachePricesTime || 1000 * 60 * 5;
         this.#itemsRetries = itemsRetries || 3;
-        this.#itemsInterval = itemsInterval || 1000 * 60 * 60 * 12;
+        this.#itemsInterval = itemsInterval ?? 1000 * 60 * 60 * 12;
         this.#onlyNetworth = onlyNetworth || false;
-        this.#sortItems = sortItems || true;
-        this.#stackItems = stackItems || true;
+        this.#sortItems = sortItems ?? true;
+        this.#stackItems = stackItems ?? true;
         this.#includeItemData = includeItemData || false;
+        this.#removeEmptyItems = removeEmptyItems ?? true;
 
         this.itemsPromise = this.updateItems(this.#itemsRetries);
         this.#itemsIntervalInstance = setInterval(() => {
@@ -146,6 +160,16 @@ class NetworthManager {
     }
 
     /**
+     * Whether to remove empty objects from the output. Default: true
+     * @param {boolean} removeEmptyItems
+     * @returns {NetworthManager} The NetworthManager instance
+     */
+    setRemoveEmptyItems(removeEmptyItems) {
+        this.#removeEmptyItems = removeEmptyItems;
+        return this;
+    }
+
+    /**
      * Manually update the items from the Hypixel API
      * @param {number} [retries = 3] The amount of retries to fetch the items when failing to fetch them
      * @param {number} [retryInterval = 1000] The interval in milliseconds to fetch the items from the Hypixel API when failing to fetch them
@@ -233,6 +257,14 @@ class NetworthManager {
      */
     getStackItems() {
         return this.#stackItems;
+    }
+
+    /**
+     * Get the remove empty items value
+     * @returns {boolean} The remove empty items value
+     */
+    getRemoveEmptyItems() {
+        return this.#removeEmptyItems;
     }
 }
 
