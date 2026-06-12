@@ -1,5 +1,4 @@
-import { Item } from './SkyBlockItemNetworthCalculator';
-import { NetworthOptions } from './global';
+import { NetworthOptions, Item } from './global';
 
 interface NetworthResult {
     /**
