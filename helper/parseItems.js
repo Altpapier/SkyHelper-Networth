@@ -6,7 +6,6 @@ const parseItems = async (profileData, museumData) => {
     const outputPromises = {
         armor: INVENTORY?.inv_armor?.data ?? '',
         equipment: INVENTORY?.equipment_contents?.data ?? '',
-        wardrobe: INVENTORY?.wardrobe_contents?.data ?? '',
         inventory: INVENTORY?.inv_contents?.data ?? '',
         enderchest: INVENTORY?.ender_chest_contents?.data ?? '',
         accessories: INVENTORY?.bag_contents?.talisman_bag?.data ?? '',
@@ -24,6 +23,15 @@ const parseItems = async (profileData, museumData) => {
         ]),
     };
 
+    for (const [i, layout] of Object.entries(profileData.loadout?.armor || {})) {
+        outputPromises[`wardrobe_${i}_helmet`] = layout.HELMET?.data ?? '';
+        outputPromises[`wardrobe_${i}_chestplate`] = layout.CHESTPLATE?.data ?? '';
+        outputPromises[`wardrobe_${i}_leggings`] = layout.LEGGINGS?.data ?? '';
+        outputPromises[`wardrobe_${i}_boots`] = layout.BOOTS?.data ?? '';
+    }
+
+    console.log(outputPromises);
+
     const entries = Object.entries(outputPromises);
     const decodedItems = await decodeItems(entries.map(([_, value]) => value));
 
@@ -36,6 +44,8 @@ const parseItems = async (profileData, museumData) => {
         const filteredItems = decodedItems[idx].filter((item) => item && Object.keys(item).length);
         if (key.includes('storage')) {
             acc.storage = (acc.storage || []).concat(filteredItems);
+        } else if (key.startsWith('wardrobe_')) {
+            acc.wardrobe = (acc.wardrobe || []).concat(filteredItems);
         } else {
             acc[key] = filteredItems;
         }
