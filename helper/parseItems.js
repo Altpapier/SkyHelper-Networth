@@ -30,8 +30,6 @@ const parseItems = async (profileData, museumData) => {
         outputPromises[`wardrobe_${i}_boots`] = layout.BOOTS?.data ?? '';
     }
 
-    console.log(outputPromises);
-
     const entries = Object.entries(outputPromises);
     const decodedItems = await decodeItems(entries.map(([_, value]) => value));
 
