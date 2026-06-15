@@ -54,9 +54,16 @@ class UpdateManager {
         try {
             const packageInfo = await axios.get('https://registry.npmjs.org/skyhelper-networth');
             const latestVersion = packageInfo.data['dist-tags'].latest;
+            const packageInstallAgent = process.env.npm_config_user_agent ?? 'unknown/0.0.0 node/v0.0.0 linux x64';
+            const releaseTime = new Date(packageInfo.data.time[latestVersion]).getTime()
+            const currentTime = Date.now()
             const currentVersion = require('../package.json').version;
             const [latestMajor, latestMinor, latestPatch] = latestVersion.split('.').map(Number);
             const [currentMajor, currentMinor, currentPatch] = currentVersion.split('.').map(Number);
+
+            // Since pnpm v11 it won't install packages newer then a day by default. This is designed to help stop supply chain attacks
+            // Alerting a user of a package release that they cannot install will just be annoying and clutter logs
+            if (packageInstallAgent.startsWith("pnpm/") && (releaseTime + (24 * 60 * 60 * 1000)) >= currentTime) return;
 
             if (latestMajor > currentMajor) {
                 console.warn(
