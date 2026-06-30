@@ -175,7 +175,6 @@ class PetNetworthHelper {
         for (let i = 0; i < maxPetLevel; i++) {
             totalExp += petLEVELS[i];
             if (totalExp > this.petData.exp) {
-                totalExp -= petLEVELS[i];
                 break;
             }
 

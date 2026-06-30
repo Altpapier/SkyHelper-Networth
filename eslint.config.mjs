@@ -13,6 +13,9 @@ const compat = new FlatCompat({
 });
 
 export default [
+    {
+        ignores: ['testing/**'],
+    },
     ...compat.extends('eslint:recommended'),
     {
         languageOptions: {

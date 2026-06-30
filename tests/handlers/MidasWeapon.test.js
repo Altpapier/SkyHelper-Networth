@@ -1,5 +1,4 @@
 const MidasWeaponHandler = require('../../calculators/handlers/MidasWeapon');
-const { APPLICATION_WORTH } = require('../../constants/applicationWorth');
 const BaseHandlerTest = require('./BaseHandlerTest');
 
 const testCases = [
