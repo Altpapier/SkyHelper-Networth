@@ -131,7 +131,7 @@ class PetNetworthHelper {
         }
 
         // Calculate the pet's price based on the percentage of the level from 1 to its max level
-        this.basePrice = this.level.level <= 100 ? LVL_100 : LVL_200 || LVL_100;
+        this.basePrice = this.level.level <= 101 ? LVL_100 : LVL_200 || LVL_100;
         if (this.level.level < 100 && this.level.xpMax) {
             const baseFormula = (LVL_100 - LVL_1) / this.level.xpMaxTo100;
             if (baseFormula) {
@@ -145,7 +145,7 @@ class PetNetworthHelper {
             if (level !== 1) {
                 const baseFormula = (LVL_200 - LVL_100) / 100;
                 if (baseFormula) {
-                    this.basePrice = baseFormula * (this.level.level - 100) + LVL_100;
+                    this.basePrice = baseFormula * level + LVL_100;
                 }
             }
         }
