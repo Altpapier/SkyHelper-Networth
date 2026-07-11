@@ -1,4 +1,4 @@
-const { TIERS, SOULBOUND_PETS, SPECIAL_LEVELS, RARITY_OFFSET, LEVELS, CUSTOM_PET_NAMES } = require('../../constants/pets');
+const { TIERS, SOULBOUND_PETS, SPECIAL_LEVELS, RARITY_OFFSET, LEVELS, CUSTOM_PET_NAMES, XP_TO_LEVEL_100 } = require('../../constants/pets');
 const { ValidationError } = require('../../helper/errors');
 const { titleCase } = require('../../helper/functions');
 
@@ -131,9 +131,9 @@ class PetNetworthHelper {
         }
 
         // Calculate the pet's price based on the percentage of the level from 1 to its max level
-        this.basePrice = LVL_200 || LVL_100;
+        this.basePrice = this.level.level <= 100 ? LVL_100 : LVL_200 || LVL_100;
         if (this.level.level < 100 && this.level.xpMax) {
-            const baseFormula = (LVL_100 - LVL_1) / this.level.xpMax;
+            const baseFormula = (LVL_100 - LVL_1) / this.level.xpMaxTo100;
             if (baseFormula) {
                 this.basePrice = baseFormula * this.level.xp + LVL_1;
             }
@@ -145,7 +145,7 @@ class PetNetworthHelper {
             if (level !== 1) {
                 const baseFormula = (LVL_200 - LVL_100) / 100;
                 if (baseFormula) {
-                    this.basePrice = baseFormula * level + LVL_100;
+                    this.basePrice = baseFormula * (this.level.level - 100) + LVL_100;
                 }
             }
         }
@@ -185,6 +185,7 @@ class PetNetworthHelper {
         return {
             level: Math.min(level, maxPetLevel),
             xpMax: petLEVELS.reduce((a, b) => a + b, 0),
+            xpMaxTo100: XP_TO_LEVEL_100[this.getTierBoostedTierName()],
             xp: this.petData.exp,
         };
     }
