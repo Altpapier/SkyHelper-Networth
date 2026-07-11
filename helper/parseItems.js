@@ -30,6 +30,13 @@ const parseItems = async (profileData, museumData) => {
         outputPromises[`wardrobe_${i}_boots`] = layout.BOOTS?.data ?? '';
     }
 
+    for (const [i, layout] of Object.entries(profileData.loadout?.equipment || {})) {
+        outputPromises[`equipment_${i}_1`] = layout.EQUIPMENT_SLOT_1?.data ?? '';
+        outputPromises[`equipment_${i}_2`] = layout.EQUIPMENT_SLOT_2?.data ?? '';
+        outputPromises[`equipment_${i}_3`] = layout.EQUIPMENT_SLOT_3?.data ?? '';
+        outputPromises[`equipment_${i}_4`] = layout.EQUIPMENT_SLOT_4?.data ?? '';
+    }
+
     const entries = Object.entries(outputPromises);
     const decodedItems = await decodeItems(entries.map(([_, value]) => value));
 
@@ -44,6 +51,8 @@ const parseItems = async (profileData, museumData) => {
             acc.storage = (acc.storage || []).concat(filteredItems);
         } else if (key.startsWith('wardrobe_')) {
             acc.wardrobe = (acc.wardrobe || []).concat(filteredItems);
+        } else if (key.startsWith('equipment_')) {
+            acc.equipment = (acc.equipment || []).concat(filteredItems);
         } else {
             acc[key] = filteredItems;
         }
