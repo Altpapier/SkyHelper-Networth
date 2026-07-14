@@ -1,3 +1,5 @@
+const { getHypixelItemInformationFromId } = require('../constants/itemsMap');
+
 function titleCase(str) {
     if (!str) return '';
 
@@ -17,7 +19,35 @@ async function sleep(ms) {
     return new Promise((resolve) => setTimeout(resolve, ms));
 }
 
+function createToolkitItem(extraAttributes = {}) {
+    const itemData = getHypixelItemInformationFromId(extraAttributes.id);
+    if (!itemData) {
+        return {
+            Count: 1,
+            tag: {
+                ExtraAttributes: extraAttributes,
+                display: {
+                    Name: titleCase(extraAttributes.id),
+                    Lore: [],
+                },
+            },
+        };
+    }
+
+    return {
+        Count: 1,
+        tag: {
+            ExtraAttributes: extraAttributes,
+            display: {
+                Name: itemData.name,
+                Lore: [],
+            },
+        },
+    };
+}
+
 module.exports = {
     titleCase,
     sleep,
+    createToolkitItem,
 };

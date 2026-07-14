@@ -53,7 +53,9 @@ type Inventories =
     | 'sacks'
     | 'essence'
     | 'pets'
-    | 'quiver';
+    | 'quiver'
+    | 'farming_toolkit'
+    | 'hunting_toolkit';
 
 type Inventory = {
     /**

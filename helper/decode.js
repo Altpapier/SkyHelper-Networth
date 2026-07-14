@@ -41,6 +41,23 @@ async function decodeItemsObject(base64Strings) {
     }
 }
 
+async function decodeToolkit(encodedToolkit) {
+    try {
+        const unzippedData = await new Promise((resolve, reject) =>
+            gunzip(Buffer.from(encodedToolkit, 'base64'), (error, unzippedData) => {
+                if (error) reject(error);
+                else resolve(unzippedData);
+            }),
+        );
+
+        const parsed = nbt.protos.big.parsePacketBuffer('nbt', unzippedData, 0);
+        const simplified = nbt.simplify(parsed.data);
+        return simplified;
+    } catch {
+        return {};
+    }
+}
+
 async function decodeItem(encodedItem) {
     try {
         const unzippedData = await new Promise((resolve, reject) =>
@@ -62,4 +79,5 @@ module.exports = {
     decodeItem,
     decodeItems,
     decodeItemsObject,
+    decodeToolkit,
 };

@@ -1,4 +1,5 @@
-const { decodeItems, decodeItemsObject, decodeItem } = require('./decode');
+const { decodeItems, decodeItemsObject, decodeItem, decodeToolkit } = require('./decode');
+const { createToolkitItem } = require('./functions');
 
 const parseItems = async (profileData, museumData) => {
     const INVENTORY = profileData.inventory;
@@ -89,6 +90,64 @@ const parseItems = async (profileData, museumData) => {
         }
     } else {
         items.museum ??= [];
+    }
+
+    items.farming_toolkit ??= [];
+    if (profileData.garden_player_data?.farming_toolkit?.IS_UNLOCKED) {
+        const farmingToolkit = profileData.garden_player_data.farming_toolkit ?? {};
+        // prettier-ignore
+        const cropIds = Array.from(
+            new Set([
+                ...Object.keys(farmingToolkit.IN_USE ?? {}),
+                ...Object.keys(farmingToolkit)
+            ]),
+        ).filter((key) => key !== 'IN_USE' && key !== 'IS_UNLOCKED');
+
+        for (const cropId of cropIds) {
+            for (const [index, farmingTool] of Object.entries(farmingToolkit[cropId] || {})) {
+                const inUse = farmingToolkit.IN_USE[cropId];
+                if (!inUse || inUse[index] !== false) {
+                    continue;
+                }
+
+                if (!farmingTool?.data) {
+                    continue;
+                }
+
+                const decodedFarmingTool = await decodeToolkit(farmingTool.data);
+                const item = createToolkitItem(decodedFarmingTool);
+                items.farming_toolkit.push(item);
+            }
+        }
+    }
+
+    items.hunting_toolkit ??= [];
+    if (profileData.foraging?.hunting_toolkit?.IS_UNLOCKED) {
+        const huntingToolkit = profileData.foraging.hunting_toolkit ?? {};
+        // prettier-ignore
+        const huntingToolkitItems = Array.from(
+            new Set([
+                ...Object.keys(huntingToolkit),
+                ...Object.keys(huntingToolkit.IN_USE ?? {}),
+            ]),
+        ).filter((key) => key !== 'IN_USE' && key !== 'IS_UNLOCKED');
+
+        for (const huntingToolkitItem of huntingToolkitItems) {
+            for (const [index, huntingTool] of Object.entries(huntingToolkit[huntingToolkitItem] || {})) {
+                const inUse = huntingToolkit.IN_USE[huntingToolkitItem];
+                if (!inUse || inUse[index] !== false) {
+                    continue;
+                }
+
+                if (!huntingTool?.data) {
+                    continue;
+                }
+
+                const decodedHuntingTool = await decodeToolkit(huntingTool.data);
+                const item = createToolkitItem(decodedHuntingTool);
+                items.hunting_toolkit.push(item);
+            }
+        }
     }
 
     await postParseItems(profileData, items);
