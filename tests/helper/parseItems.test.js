@@ -62,6 +62,8 @@ describe('parseItems', () => {
             sacks: [],
             essence: [],
             pets: [],
+            farming_toolkit: [],
+            hunting_toolkit: [],
         });
     });
 
