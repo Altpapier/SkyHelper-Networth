@@ -97,8 +97,8 @@ const parseItems = async (profileData, museumData) => {
         parseToolkit(profileData.foraging?.hunting_toolkit),
     ]);
 
-    items.farming_toolkit = farmingToolkit;
-    items.hunting_toolkit = huntingToolkit;
+    items.farming_toolkit = farmingToolkit ?? [];
+    items.hunting_toolkit = huntingToolkit ?? [];
 
     await postParseItems(profileData, items);
     return items;
