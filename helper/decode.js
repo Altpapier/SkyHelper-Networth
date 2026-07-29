@@ -1,32 +1,38 @@
 const nbt = require('prismarine-nbt');
 const { gunzip } = require('zlib');
 
-async function decodeItems(base64Strings) {
+async function decodeNbtData(encodedData) {
     try {
-        const results = await Promise.allSettled(
-            base64Strings.flat().map(async (item) => {
-                try {
-                    if (!item || !item.length) {
-                        return [];
-                    }
+        if (!encodedData) {
+            return {};
+        }
 
-                    const unzippedData = await new Promise((resolve, reject) =>
-                        gunzip(Buffer.from(item, 'base64'), (error, unzippedData) => {
-                            if (error) reject(error);
-                            else resolve(unzippedData);
-                        }),
-                    );
-
-                    const parsed = nbt.protos.big.parsePacketBuffer('nbt', unzippedData, 0);
-                    const simplified = nbt.simplify(parsed.data);
-                    return simplified.i;
-                } catch {
-                    return [];
-                }
+        const unzippedData = await new Promise((resolve, reject) =>
+            gunzip(Buffer.from(encodedData, 'base64'), (error, data) => {
+                if (error) reject(error);
+                else resolve(data);
             }),
         );
 
-        return results.filter((result) => result.status === 'fulfilled').map((result) => result.value);
+        const parsed = nbt.protos.big.parsePacketBuffer('nbt', unzippedData, 0);
+        return nbt.simplify(parsed.data);
+    } catch {
+        return {};
+    }
+}
+
+async function decodeItems(base64Strings) {
+    try {
+        return await Promise.all(
+            base64Strings.flat().map(async (item) => {
+                if (!item || !item.length) {
+                    return [];
+                }
+
+                const decodedData = await decodeNbtData(item);
+                return decodedData.i ?? [];
+            }),
+        );
     } catch {
         return [];
     }
@@ -42,23 +48,12 @@ async function decodeItemsObject(base64Strings) {
 }
 
 async function decodeItem(encodedItem) {
-    try {
-        const unzippedData = await new Promise((resolve, reject) =>
-            gunzip(Buffer.from(encodedItem, 'base64'), (error, unzippedData) => {
-                if (error) reject(error);
-                else resolve(unzippedData);
-            }),
-        );
-
-        const parsed = nbt.protos.big.parsePacketBuffer('nbt', unzippedData, 0);
-        const simplified = nbt.simplify(parsed.data);
-        return simplified.i;
-    } catch {
-        return {};
-    }
+    const decodedData = await decodeNbtData(encodedItem);
+    return decodedData.i ?? {};
 }
 
 module.exports = {
+    decodeNbtData,
     decodeItem,
     decodeItems,
     decodeItemsObject,

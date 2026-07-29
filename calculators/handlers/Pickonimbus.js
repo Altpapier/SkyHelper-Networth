@@ -1,4 +1,4 @@
-const PICKONIMBUS_DURABILITY = 5000;
+const PICKONIMBUS_DURABILITY = 2000;
 
 /**
  * A handler for the Pickonimbus modifier on an item
