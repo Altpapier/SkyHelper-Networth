@@ -155,7 +155,7 @@ class ProfileNetworthCalculator {
                 }
 
                 // Instantiate the calculator
-                let calculator = null;
+                let calculator;
                 try {
                     calculator = new calculatorClass(item);
                 } catch {
