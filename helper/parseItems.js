@@ -1,4 +1,5 @@
 const { decodeItems, decodeItemsObject, decodeItem } = require('./decode');
+const { parseToolkit } = require('./toolkits');
 
 const parseItems = async (profileData, museumData) => {
     const INVENTORY = profileData.inventory;
@@ -90,6 +91,14 @@ const parseItems = async (profileData, museumData) => {
     } else {
         items.museum ??= [];
     }
+
+    const [farmingToolkit, huntingToolkit] = await Promise.all([
+        parseToolkit(profileData.garden_player_data?.farming_toolkit),
+        parseToolkit(profileData.foraging?.hunting_toolkit),
+    ]);
+
+    items.farming_toolkit = farmingToolkit ?? [];
+    items.hunting_toolkit = huntingToolkit ?? [];
 
     await postParseItems(profileData, items);
     return items;

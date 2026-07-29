@@ -62,7 +62,20 @@ describe('parseItems', () => {
             sacks: [],
             essence: [],
             pets: [],
+            farming_toolkit: [],
+            hunting_toolkit: [],
         });
+    });
+
+    it('should return empty toolkit inventories for missing or locked toolkits', async () => {
+        const items = await parseItems({
+            garden_player_data: {
+                farming_toolkit: { IS_UNLOCKED: false },
+            },
+        });
+
+        expect(items.farming_toolkit).toEqual([]);
+        expect(items.hunting_toolkit).toEqual([]);
     });
 
     it('should handle backpack contents and icons', async () => {

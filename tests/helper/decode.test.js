@@ -1,4 +1,4 @@
-const { decodeItem, decodeItems, decodeItemsObject } = require('../../helper/decode');
+const { decodeNbtData, decodeItem, decodeItems, decodeItemsObject } = require('../../helper/decode');
 const nbt = require('prismarine-nbt');
 const { gzipSync } = require('zlib');
 
@@ -13,6 +13,18 @@ describe('Decode functions', () => {
 
     const encodedNBT = nbt.writeUncompressed(nbtComponent, 'big');
     const gzippedEncodedNBT = gzipSync(encodedNBT);
+
+    describe('decodeNbtData', () => {
+        test('should decode valid base64 NBT data', async () => {
+            const result = await decodeNbtData(gzippedEncodedNBT);
+            expect(result).toEqual({ i: mockNBTData });
+        });
+
+        test.each(['invalid-base64', null, undefined, ''])('should return an empty object for invalid input %#', async (input) => {
+            const result = await decodeNbtData(input);
+            expect(result).toEqual({});
+        });
+    });
 
     describe('decodeItem', () => {
         test('should decode valid base64 NBT item data', async () => {
