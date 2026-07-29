@@ -38,13 +38,13 @@ async function parseToolkit(toolkit) {
     const encodedItems = [];
     for (const category of categories) {
         const categoryItems = toolkit[category];
-        const inUseSlots = inUseByCategory[category];
-        if (!isObject(categoryItems) || !isObject(inUseSlots)) {
+        const inUseSlots = isObject(inUseByCategory[category]) ? inUseByCategory[category] : {};
+        if (!isObject(categoryItems)) {
             continue;
         }
 
         for (const [index, toolkitItem] of Object.entries(categoryItems)) {
-            if (inUseSlots[index] !== false || !isRecord(toolkitItem) || typeof toolkitItem.data !== 'string' || !toolkitItem.data) {
+            if (inUseSlots[index] === true || !isRecord(toolkitItem) || typeof toolkitItem.data !== 'string' || !toolkitItem.data) {
                 continue;
             }
 
