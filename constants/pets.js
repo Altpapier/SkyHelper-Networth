@@ -6,7 +6,7 @@ const SPECIAL_LEVELS = {
 
 const SOULBOUND_PETS = ['GRANDMA_WOLF', 'KUUDRA', 'BINGO'];
 
-const BLOCKED_CANDY_REDUCE_PETS = ['ENDER_DRAGON', 'GOLDEN_DRAGON', 'SCATHA'];
+const BLOCKED_CANDY_REDUCE_PETS = ['ENDER_DRAGON', 'GOLDEN_DRAGON', 'SCATHA', 'JADE_DRAGON', 'ROSE_DRAGON'];
 
 const RARITY_OFFSET = { COMMON: 0, UNCOMMON: 6, RARE: 11, EPIC: 16, LEGENDARY: 20, MYTHIC: 20 };
 
@@ -26,6 +26,10 @@ const LEVELS = [
     1886700, 1886700, 1886700, 1886700, 1886700, 1886700, 1886700, 1886700,
 ];
 
+const XP_TO_LEVEL_100 = Object.fromEntries(
+    Object.entries(RARITY_OFFSET).map(([rarity, offset]) => [rarity, LEVELS.slice(offset, offset + 99).reduce((total, xp) => total + xp, 0)]),
+);
+
 const CUSTOM_PET_NAMES = {
     TYRANNOSAURUS: 'T-Rex',
     FRACTURED_MONTEZUMA_SOUL: 'Montezuma',
@@ -35,6 +39,7 @@ module.exports = {
     SPECIAL_LEVELS,
     RARITY_OFFSET,
     LEVELS,
+    XP_TO_LEVEL_100,
     BLOCKED_CANDY_REDUCE_PETS,
     SOULBOUND_PETS,
     TIERS,
