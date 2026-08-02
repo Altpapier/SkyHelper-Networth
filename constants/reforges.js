@@ -74,6 +74,9 @@ const REFORGES = {
     glacial: 'FRIGID_HUSK',
     heated: 'HOT_STUFF',
     blood_shot: 'SHRIVELED_CORNEA',
+    overpriced: 'OVERPRICED_DRINK',
+    deep_fried: 'HASHBROWN',
+    geometric: 'GEOMETRIC_ODDITY',
     // Non-bazaar
     dirty: 'DIRT_BOTTLE',
     moil: 'MOIL_LOG',
