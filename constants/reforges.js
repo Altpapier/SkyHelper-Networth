@@ -79,6 +79,7 @@ const REFORGES = {
     geometric: 'GEOMETRIC_ODDITY',
     sticky: 'EXTREMELY_MILD_ADHESIVE',
     majestic: 'MORNING_DEW',
+    marshy: 'MARSHROOM',
     // Non-bazaar
     dirty: 'DIRT_BOTTLE',
     moil: 'MOIL_LOG',
