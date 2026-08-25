@@ -77,6 +77,7 @@ const REFORGES = {
     overpriced: 'OVERPRICED_DRINK',
     deep_fried: 'HASHBROWN',
     geometric: 'GEOMETRIC_ODDITY',
+    thorny: 'BLOOMING_THORNS',
     sticky: 'EXTREMELY_MILD_ADHESIVE',
     majestic: 'MORNING_DEW',
     marshy: 'MARSHROOM',
