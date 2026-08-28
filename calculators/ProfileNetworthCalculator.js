@@ -5,6 +5,7 @@ const SkyBlockItemNetworthCalculator = require('./SkyBlockItemNetworthCalculator
 const PetNetworthCalculator = require('./PetNetworthCalculator');
 const BasicItemNetworthCalculator = require('./BasicItemNetworthCalculator');
 const { ValidationError } = require('../helper/errors');
+const { ITEMS_WITH_UNIQUE_MODIFIERS } = require('../constants/misc');
 
 const categoryCalculatorMap = {
     pets: PetNetworthCalculator,
@@ -130,6 +131,9 @@ class ProfileNetworthCalculator {
 
         // Calculate networth for each category
         const categories = {};
+        const uniqueModifierItemIds = new Set(ITEMS_WITH_UNIQUE_MODIFIERS);
+        const modifierCalculations = new WeakMap();
+        const countedModifiers = new Map();
         for (const [category, categoryItems] of Object.entries(this.items)) {
             categories[category] = { total: 0, unsoulboundTotal: 0, items: [] };
 
@@ -171,14 +175,12 @@ class ProfileNetworthCalculator {
                 const soulboundPortion = isNaN(result?.soulboundPortion) ? 0 : result?.soulboundPortion;
                 categories[category].total += price;
                 if (!result?.soulbound) categories[category].unsoulboundTotal += price - soulboundPortion;
-                if (!onlyNetworth && result && price) {
+                if (result && price && uniqueModifierItemIds.has(result.id)) {
+                    modifierCalculations.set(result, result.calculation ?? []);
+                }
+                if ((!onlyNetworth || uniqueModifierItemIds.has(result?.id)) && result && price) {
                     categories[category].items.push(result);
                 }
-            }
-
-            // Sort items by price
-            if (sortItems && !onlyNetworth && categories[category].items.length > 0) {
-                categories[category].items = categories[category].items.sort((a, b) => b.price - a.price);
             }
 
             // Stack items with the same id and price
@@ -196,6 +198,9 @@ class ProfileNetworthCalculator {
                             existing.count += item.count;
                             existing.basePrice = existing.basePrice || item.basePrice;
                             existing.calculation = existing.calculation || item.calculation;
+                            if (uniqueModifierItemIds.has(item.id)) {
+                                modifierCalculations.set(existing, [...(modifierCalculations.get(existing) ?? []), ...(modifierCalculations.get(item) ?? [])]);
+                            }
                         } else {
                             acc.push(item);
                         }
@@ -204,6 +209,43 @@ class ProfileNetworthCalculator {
                     }
                     return acc;
                 }, []);
+            }
+
+            // Some combined items remain as separate records across containers.
+            // Remove repeated modifier values after stacking so their prices are
+            // counted once across the entire profile, while base prices remain intact.
+            for (const item of categories[category].items) {
+                if (!uniqueModifierItemIds.has(item.id)) continue;
+
+                const seen = countedModifiers.get(item.id) ?? new Set();
+                const calculations = modifierCalculations.get(item) ?? [];
+                const retainedCalculations = [];
+                let duplicatePrice = 0;
+                let duplicateSoulboundPortion = 0;
+
+                for (const calculation of calculations) {
+                    const modifierKey = `${calculation.type}:${calculation.id}`;
+                    if (seen.has(modifierKey)) {
+                        duplicatePrice += calculation.price;
+                        if (calculation.soulbound) duplicateSoulboundPortion += calculation.price;
+                    } else {
+                        seen.add(modifierKey);
+                        retainedCalculations.push(calculation);
+                    }
+                }
+
+                countedModifiers.set(item.id, seen);
+                item.price -= duplicatePrice;
+                item.soulboundPortion -= duplicateSoulboundPortion;
+                item.calculation = retainedCalculations;
+                categories[category].total -= duplicatePrice;
+                if (!item.soulbound) categories[category].unsoulboundTotal -= duplicatePrice - duplicateSoulboundPortion;
+            }
+
+            categories[category].items = categories[category].items.filter((item) => item.price);
+
+            if (sortItems && !onlyNetworth && categories[category].items.length > 0) {
+                categories[category].items = categories[category].items.sort((a, b) => b.price - a.price);
             }
 
             // Remove items if only networth is requested

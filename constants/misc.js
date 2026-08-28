@@ -83,6 +83,10 @@ const NON_COSMETIC_ITEMS = new Set([
     'POTATO_BASKET',
 ]);
 
+// These items can appear multiple times when their upgrades are combined. Each
+// distinct modifier should only contribute to a profile's networth once.
+const ITEMS_WITH_UNIQUE_MODIFIERS = ['SAFARI_BELT'];
+
 module.exports = {
     BLOCKED_ENCHANTMENTS,
     IGNORED_ENCHANTMENTS,
@@ -95,4 +99,5 @@ module.exports = {
     SPECIAL_ENCHANTMENT_NAMES,
     GEMSTONE_SLOTS,
     NON_COSMETIC_ITEMS,
+    ITEMS_WITH_UNIQUE_MODIFIERS,
 };

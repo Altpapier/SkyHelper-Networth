@@ -170,6 +170,49 @@ describe('ProfileNetworthCalculator', () => {
                 expect(category.items).toBeUndefined();
             });
         });
+
+        test.each([false, true])('should count Safari Belt modifiers once across containers (onlyNetworth: %s)', async (onlyNetworth) => {
+            const safariBelt = () => ({
+                tag: {
+                    display: {
+                        Name: 'Bloodshot Safari Belt',
+                        Lore: ['§8§l* §8Soulbound §8§l*'],
+                    },
+                    ExtraAttributes: {
+                        id: 'SAFARI_BELT',
+                        modifier: 'blood_shot',
+                    },
+                },
+                Count: 1,
+            });
+            const items = {
+                inventory: [safariBelt(), safariBelt()],
+                storage: [safariBelt()],
+            };
+            const prices = {
+                SAFARI_BELT: 0,
+                SHRIVELED_CORNEA: 100,
+            };
+            const calculator = ProfileNetworthCalculator.fromPreParsed(validProfileData, items, 0);
+
+            const result = await calculator.getNetworth({ prices, onlyNetworth });
+
+            expect(result.networth).toBe(1600);
+            expect(result.types.inventory.total).toBe(100);
+            expect(result.types.storage.total).toBe(0);
+
+            if (!onlyNetworth) {
+                expect(result.types.inventory.items).toEqual([
+                    expect.objectContaining({
+                        id: 'SAFARI_BELT',
+                        price: 100,
+                        count: 2,
+                        calculation: [{ id: 'SHRIVELED_CORNEA', type: 'REFORGE', price: 100, count: 1 }],
+                    }),
+                ]);
+                expect(result.types.storage.items).toEqual([]);
+            }
+        });
     });
 
     describe('Edge cases', () => {
