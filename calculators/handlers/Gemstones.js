@@ -57,10 +57,10 @@ class GemstonesHandler {
 
         // UNLOCKED GEMSTONE SLOTS
         // Currently just gemstone chambers
-        const isDivansArmor = /^DIVAN_(HELMET|CHESTPLATE|LEGGINGS|BOOTS)$/.test(item.itemId);
-        const isCrimsonArmor = /^(|HOT_|FIERY_|BURNING_|INFERNAL_)(AURORA|CRIMSON|TERROR|HOLLOW|FERVOR)(_HELMET|_CHESTPLATE|_LEGGINGS|_BOOTS)$/.test(item.itemId);
-        if (isDivansArmor || isCrimsonArmor) {
-            const application = isDivansArmor ? APPLICATION_WORTH.gemstoneChambers : APPLICATION_WORTH.gemstoneSlots;
+        const isDivans = /^DIVAN_(HELMET|CHESTPLATE|LEGGINGS|BOOTS|PENDANT)$/.test(item.baseItemId);
+        const isKuudraArmor = /^((HOT|FIERY|BURNING|INFERNAL)_)?(AURORA|CRIMSON|TERROR|HOLLOW|FERVOR)_(HELMET|CHESTPLATE|LEGGINGS|BOOTS)$/.test(item.baseItemId);
+        if (isDivans || isKuudraArmor) {
+            const application = isDivans ? APPLICATION_WORTH.gemstoneChambers : APPLICATION_WORTH.gemstoneSlots;
             const gemstoneSlots = JSON.parse(JSON.stringify(item.skyblockItem.gemstone_slots));
             for (const unlockedSlot of unlockedSlots) {
                 const slot = gemstoneSlots.find((s) => s.slot_type === unlockedSlot);
