@@ -66,6 +66,8 @@ const SPECIAL_ENCHANTMENT_NAMES = {
     ultimate_bobbin_time: "Ultimate Bobbin' Time",
     arcane: 'Woodsplitter',
     dragon_hunter: 'Gravity',
+    magmarizer: 'Pyroclasm',
+    triple_strike: 'Triple-Strike',
 };
 
 const GEMSTONE_SLOTS = ['COMBAT', 'OFFENSIVE', 'DEFENSIVE', 'MINING', 'UNIVERSAL', 'CHISEL'];
