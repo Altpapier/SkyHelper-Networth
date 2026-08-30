@@ -25,8 +25,12 @@ class BoosterHandler {
                 const boosterUpgrades = Array.from({ length: tier - 1 }, (_, t) => `${booster.toUpperCase()}_BOOSTER_${TIERS.at(t + 1)}`);
                 const boosterIds = [`${booster.toUpperCase()}_BOOSTER`, ...boosterUpgrades];
 
-                for (const boosterId of boosterIds) {
-                    const boosterPrice = prices[boosterId] ?? 0;
+                for (let boosterId of boosterIds) {
+                    let boosterPrice = prices[boosterId] ?? 0;
+                    if (!boosterPrice && boosterId.endsWith('_BOOSTER')) {
+                        boosterId = `${boosterId}_COMMON`;
+                        boosterPrice = prices[boosterId] ?? 0;
+                    }
                     if (boosterPrice) {
                         const calculationData = {
                             id: boosterId,
