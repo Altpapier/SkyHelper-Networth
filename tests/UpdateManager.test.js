@@ -79,7 +79,7 @@ describe('UpdateManager', () => {
     describe('Update Checking', () => {
         test('should warn about major version update', async () => {
             axios.get.mockResolvedValueOnce({
-                data: { 'dist-tags': { latest: '2.0.0' } },
+                data: { 'dist-tags': { latest: '2.0.0' }, 'time': { '2.0.0': '2025-03-23T11:03:18.811Z' } },
             });
 
             await UpdateManager.checkForUpdate();
@@ -90,7 +90,7 @@ describe('UpdateManager', () => {
 
         test('should warn about minor version update', async () => {
             axios.get.mockResolvedValueOnce({
-                data: { 'dist-tags': { latest: '1.1.0' } },
+                data: { 'dist-tags': { latest: '1.1.0' }, 'time': { '1.1.0': '2022-09-28T18:11:13.755Z' } },
             });
 
             await UpdateManager.checkForUpdate();
@@ -101,7 +101,7 @@ describe('UpdateManager', () => {
 
         test('should warn about patch version update', async () => {
             axios.get.mockResolvedValueOnce({
-                data: { 'dist-tags': { latest: '1.0.1' } },
+                data: { 'dist-tags': { latest: '1.0.1' }, 'time': { '1.0.1': '2022-09-11T12:51:42.374Z' } },
             });
 
             await UpdateManager.checkForUpdate();
@@ -112,7 +112,7 @@ describe('UpdateManager', () => {
 
         test('should not warn when on latest version', async () => {
             axios.get.mockResolvedValueOnce({
-                data: { 'dist-tags': { latest: '1.0.0' } },
+                data: { 'dist-tags': { latest: '1.0.0' }, 'time': { '1.0.1': '2022-09-11T10:16:32.508Z' } },
             });
 
             await UpdateManager.checkForUpdate();
