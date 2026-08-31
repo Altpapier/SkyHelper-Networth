@@ -66,6 +66,8 @@ const SPECIAL_ENCHANTMENT_NAMES = {
     ultimate_bobbin_time: "Ultimate Bobbin' Time",
     arcane: 'Woodsplitter',
     dragon_hunter: 'Gravity',
+    magmarizer: 'Pyroclasm',
+    triple_strike: 'Triple-Strike',
 };
 
 const GEMSTONE_SLOTS = ['COMBAT', 'OFFENSIVE', 'DEFENSIVE', 'MINING', 'UNIVERSAL', 'CHISEL'];
@@ -81,6 +83,10 @@ const NON_COSMETIC_ITEMS = new Set([
     'POTATO_BASKET',
 ]);
 
+// These items can appear multiple times when their upgrades are combined. Each
+// distinct modifier should only contribute to a profile's networth once.
+const ITEMS_WITH_UNIQUE_MODIFIERS = ['SAFARI_BELT'];
+
 module.exports = {
     BLOCKED_ENCHANTMENTS,
     IGNORED_ENCHANTMENTS,
@@ -93,4 +99,5 @@ module.exports = {
     SPECIAL_ENCHANTMENT_NAMES,
     GEMSTONE_SLOTS,
     NON_COSMETIC_ITEMS,
+    ITEMS_WITH_UNIQUE_MODIFIERS,
 };

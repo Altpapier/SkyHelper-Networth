@@ -1,15 +1,41 @@
 const { APPLICATION_WORTH, ENCHANTMENTS_WORTH } = require('../../constants/applicationWorth');
 const { BLOCKED_ENCHANTMENTS, IGNORED_ENCHANTMENTS, STACKING_ENCHANTMENTS, IGNORE_SILEX } = require('../../constants/misc');
 
+const TURBO_CROP_UPGRADES = [
+    { upgradeItem: 'TURBO_GOURD', tier: 6, oncePerItem: true },
+    { upgradeItem: 'ENCHANTED_TURBO_GOURD', tier: 7, oncePerItem: true },
+];
+
 const ENCHANTMENT_UPGRADES = {
-    SCAVENGER: { upgradeItem: 'GOLDEN_BOUNTY', tier: 6 },
-    PESTERMINATOR: { upgradeItem: 'PESTHUNTING_GUIDE', tier: 6 },
-    LUCK_OF_THE_SEA: { upgradeItem: 'GOLD_BOTTLE_CAP', tier: 7 },
-    PISCARY: { upgradeItem: 'TROUBLED_BUBBLE', tier: 7 },
-    FRAIL: { upgradeItem: 'SEVERED_PINCER', tier: 7 },
-    SPIKED_HOOK: { upgradeItem: 'OCTOPUS_TENDRIL', tier: 7 },
-    CHARM: { upgradeItem: 'CHAIN_END_TIMES', tier: 6 },
-    VENOMOUS: { upgradeItem: 'FATEFUL_STINGER', tier: 7 },
+    SCAVENGER: [{ upgradeItem: 'GOLDEN_BOUNTY', tier: 6 }],
+    PESTERMINATOR: [{ upgradeItem: 'PESTHUNTING_GUIDE', tier: 6 }],
+    LUCK_OF_THE_SEA: [{ upgradeItem: 'GOLD_BOTTLE_CAP', tier: 7 }],
+    PISCARY: [{ upgradeItem: 'TROUBLED_BUBBLE', tier: 7 }],
+    FRAIL: [{ upgradeItem: 'SEVERED_PINCER', tier: 7 }],
+    SPIKED_HOOK: [{ upgradeItem: 'OCTOPUS_TENDRIL', tier: 7 }],
+    CHARM: [{ upgradeItem: 'CHAIN_END_TIMES', tier: 6 }],
+    SMITE: [{ upgradeItem: 'SEVERED_HAND', tier: 7 }],
+    ENDER_SLAYER: [{ upgradeItem: 'ENDSTONE_IDOL', tier: 7 }],
+    BANE_OF_ARTHROPODS: [{ upgradeItem: 'ENSNARED_SNAIL', tier: 7 }],
+    VENOMOUS: [{ upgradeItem: 'FATEFUL_STINGER', tier: 7 }],
+    TURBO_WHEAT: TURBO_CROP_UPGRADES,
+    TURBO_CARROT: TURBO_CROP_UPGRADES,
+    TURBO_POTATO: TURBO_CROP_UPGRADES,
+    TURBO_PUMPKIN: TURBO_CROP_UPGRADES,
+    TURBO_MELON: TURBO_CROP_UPGRADES,
+    TURBO_MUSHROOMS: TURBO_CROP_UPGRADES,
+    TURBO_COCOA: TURBO_CROP_UPGRADES,
+    TURBO_CACTI: TURBO_CROP_UPGRADES,
+    TURBO_CANE: TURBO_CROP_UPGRADES,
+    TURBO_WARTS: TURBO_CROP_UPGRADES,
+    TURBO_SUNFLOWER: TURBO_CROP_UPGRADES,
+    TURBO_MOONFLOWER: TURBO_CROP_UPGRADES,
+    TURBO_ROSE: TURBO_CROP_UPGRADES,
+    THORNS: [{ upgradeItem: 'PRICKLY_CREEPER', tier: 4 }],
+    SCUBA: [{ upgradeItem: 'VIBRANT_CORAL', tier: 6 }],
+    FOREST_PLEDGE: [{ upgradeItem: 'WATER_HYACINTH', tier: 6 }],
+    KARMA: [{ upgradeItem: 'FORESTS_FAVOR', tier: 6 }],
+    STEALTH: [{ upgradeItem: 'DISTANT_ECHO', tier: 6 }],
 };
 
 /**
@@ -31,6 +57,8 @@ class ItemEnchantmentsHandler {
      * @param {object} prices A prices object generated from the getPrices function
      */
     calculate(item, prices) {
+        const appliedOncePerItemUpgrades = new Set();
+
         for (let [name, value] of Object.entries(item.extraAttributes.enchantments)) {
             name = name.toUpperCase();
             if (BLOCKED_ENCHANTMENTS[item.itemId]?.includes(name)) continue;
@@ -55,8 +83,8 @@ class ItemEnchantmentsHandler {
                 }
             }
 
-            for (const [enchantment, { upgradeItem, tier }] of Object.entries(ENCHANTMENT_UPGRADES)) {
-                if (name === enchantment && value >= tier) {
+            for (const { upgradeItem, tier, oncePerItem = false } of ENCHANTMENT_UPGRADES[name] ?? []) {
+                if (value >= tier && (!oncePerItem || !appliedOncePerItemUpgrades.has(upgradeItem))) {
                     const calculationData = {
                         id: upgradeItem,
                         type: 'ENCHANTMENT_UPGRADE',
@@ -65,6 +93,10 @@ class ItemEnchantmentsHandler {
                     };
                     item.price += calculationData.price;
                     item.calculation.push(calculationData);
+
+                    if (oncePerItem) {
+                        appliedOncePerItemUpgrades.add(upgradeItem);
+                    }
                 }
             }
 

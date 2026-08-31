@@ -6,7 +6,7 @@ const testCases = [
     {
         description: 'Applies correctly v1',
         item: {
-            itemId: 'HYPERION',
+            baseItemId: 'HYPERION',
             skyblockItem: {
                 gemstone_slots: [
                     {
@@ -60,7 +60,7 @@ const testCases = [
     {
         description: 'Applies correctly v2',
         item: {
-            itemId: 'HYPERION',
+            baseItemId: 'HYPERION',
             skyblockItem: {
                 gemstone_slots: [
                     {
@@ -115,7 +115,7 @@ const testCases = [
     {
         description: 'Applies correctly simple',
         item: {
-            itemId: 'ADAPTIVE_BOOTS',
+            baseItemId: 'ADAPTIVE_BOOTS',
             skyblockItem: { gemstone_slots: [{ slot_type: 'COMBAT' }] },
             extraAttributes: { gems: { COMBAT_0: 'FINE', COMBAT_0_gem: 'JASPER' } },
             price: 100,
@@ -136,7 +136,7 @@ const testCases = [
     {
         description: 'Applies correctly with pre-parsed',
         item: {
-            itemId: 'HYPERION',
+            baseItemId: 'HYPERION',
             skyblockItem: {
                 gemstone_slots: [
                     {
@@ -192,7 +192,7 @@ const testCases = [
     {
         description: 'Applies correctly with divan',
         item: {
-            itemId: 'DIVAN_CHESTPLATE',
+            baseItemId: 'DIVAN_CHESTPLATE',
             skyblockItem: {
                 gemstone_slots: [
                     { slot_type: 'AMBER', costs: [{ type: 'ITEM', item_id: 'GEMSTONE_CHAMBER', amount: 1 }] },
@@ -288,7 +288,7 @@ const testCases = [
     {
         description: 'Applies correctly with divan unlocked and no gems',
         item: {
-            itemId: 'DIVAN_CHESTPLATE',
+            baseItemId: 'DIVAN_CHESTPLATE',
             skyblockItem: {
                 gemstone_slots: [
                     { slot_type: 'AMBER', costs: [{ type: 'ITEM', item_id: 'GEMSTONE_CHAMBER', amount: 1 }] },
@@ -341,7 +341,7 @@ const testCases = [
     {
         description: 'Applies correctly with kuudra',
         item: {
-            itemId: 'INFERNAL_AURORA_CHESTPLATE',
+            baseItemId: 'INFERNAL_AURORA_CHESTPLATE',
             skyblockItem: {
                 gemstone_slots: [
                     {
@@ -417,7 +417,7 @@ const testCases = [
     {
         description: 'Does not apply',
         item: {
-            itemId: 'HYPERION',
+            baseItemId: 'HYPERION',
             skyblockItem: { gemstone_slots: [{ slot_type: 'SAPPHIRE', costs: [{ type: 'COINS', coins: 250000 }] }] },
             extraAttributes: {},
             price: 100,

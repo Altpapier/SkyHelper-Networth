@@ -1,4 +1,5 @@
 const { decodeItems, decodeItemsObject, decodeItem } = require('./decode');
+const { parseToolkit } = require('./toolkits');
 
 const parseItems = async (profileData, museumData) => {
     const INVENTORY = profileData.inventory;
@@ -30,6 +31,13 @@ const parseItems = async (profileData, museumData) => {
         outputPromises[`wardrobe_${i}_boots`] = layout.BOOTS?.data ?? '';
     }
 
+    for (const [i, layout] of Object.entries(profileData.loadout?.equipment || {})) {
+        outputPromises[`equipment_${i}_1`] = layout.EQUIPMENT_SLOT_1?.data ?? '';
+        outputPromises[`equipment_${i}_2`] = layout.EQUIPMENT_SLOT_2?.data ?? '';
+        outputPromises[`equipment_${i}_3`] = layout.EQUIPMENT_SLOT_3?.data ?? '';
+        outputPromises[`equipment_${i}_4`] = layout.EQUIPMENT_SLOT_4?.data ?? '';
+    }
+
     const entries = Object.entries(outputPromises);
     const decodedItems = await decodeItems(entries.map(([_, value]) => value));
 
@@ -44,6 +52,8 @@ const parseItems = async (profileData, museumData) => {
             acc.storage = (acc.storage || []).concat(filteredItems);
         } else if (key.startsWith('wardrobe_')) {
             acc.wardrobe = (acc.wardrobe || []).concat(filteredItems);
+        } else if (key.startsWith('equipment_')) {
+            acc.equipment = (acc.equipment || []).concat(filteredItems);
         } else {
             acc[key] = filteredItems;
         }
@@ -54,8 +64,8 @@ const parseItems = async (profileData, museumData) => {
     items.storage ??= [];
     items.wardrobe ??= [];
 
-    if (museumData && Object.keys(museumData).length > 0 && museumData.items && Object.keys(museumData.items).length > 0) {
-        if (Object.values(museumData.items).at(0).items.length && museumData.special.length) {
+    if (museumData && Object.keys(museumData).length > 0) {
+        if (museumData.items && Object.keys(museumData.items).length > 0 && Object.values(museumData.items).at(0).items.length && museumData.special.length) {
             items.museum = [
                 ...Object.values(museumData.items)
                     .filter((item) => !item.borrowing)
@@ -81,6 +91,14 @@ const parseItems = async (profileData, museumData) => {
     } else {
         items.museum ??= [];
     }
+
+    const [farmingToolkit, huntingToolkit] = await Promise.all([
+        parseToolkit(profileData.garden_player_data?.farming_toolkit),
+        parseToolkit(profileData.foraging?.hunting_toolkit),
+    ]);
+
+    items.farming_toolkit = farmingToolkit ?? [];
+    items.hunting_toolkit = huntingToolkit ?? [];
 
     await postParseItems(profileData, items);
     return items;

@@ -6,7 +6,7 @@ const testCases = [
         description: 'Applies correctly',
         item: {
             itemId: 'PICKONIMBUS',
-            extraAttributes: { pickonimbus_durability: 2500 },
+            extraAttributes: { pickonimbus_durability: 1000 },
             basePrice: 50000,
             price: 50000,
             calculation: [],
@@ -19,7 +19,7 @@ const testCases = [
                 id: 'PICKONIMBUS_DURABLITY',
                 type: 'PICKONIMBUS',
                 price: -25000,
-                count: 2500,
+                count: 1000,
             },
         ],
     },
@@ -39,7 +39,7 @@ const testCases = [
         description: 'Does not apply',
         item: {
             itemId: 'PICKONIMBUS',
-            extraAttributes: { pickonimbus_durability: 5000 },
+            extraAttributes: { pickonimbus_durability: 2000 },
             basePrice: 50000,
             price: 50000,
             calculation: [],
