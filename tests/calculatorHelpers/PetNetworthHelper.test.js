@@ -151,3 +151,36 @@ describe('PetNetworthHelper', () => {
         });
     });
 });
+
+describe('Phoenix rarity conversion', () => {
+    test.each([
+        ['SPECIAL', 'EPIC', 18608500],
+        ['VERY_SPECIAL', 'LEGENDARY', 25353230],
+    ])('%s keeps the %s XP curve and price interpolation', (tier, formerTier, maxXP) => {
+        for (const exp of [0, maxXP / 2, maxXP, maxXP + 1000]) {
+            const helper = new PetNetworthHelper({ type: 'PHOENIX', tier, exp });
+            const former = new PetNetworthHelper({ type: 'PHOENIX', tier: formerTier, exp });
+            expect(helper.level).toEqual(former.level);
+            expect(helper.level.xpMax).toBe(maxXP);
+            expect(helper.level.xpMaxTo100).toBe(maxXP);
+            expect(helper.petName).toContain(tier === 'SPECIAL' ? 'Special Phoenix' : 'Very Special Phoenix');
+            expect(helper.basePetId).toBe(`${tier}_PHOENIX`);
+            const prices = {
+                [`LVL_1_${tier}_PHOENIX`]: 1000,
+                [`LVL_100_${tier}_PHOENIX`]: 100000,
+            };
+            helper.getBasePrice(prices);
+            expect(helper.basePrice).toBeCloseTo(exp >= maxXP ? 100000 : 1000 + (99000 * exp) / maxXP);
+            expect(helper.getPetId(prices)).toBe(`LVL_100_${tier}_PHOENIX`);
+        }
+    });
+
+    test.each(['SPECIAL', 'VERY_SPECIAL'])('%s Phoenix ignores Tier Boost for its rarity and XP', (tier) => {
+        const petData = { type: 'PHOENIX', tier, exp: 100000 };
+        const original = new PetNetworthHelper(petData);
+        const boosted = new PetNetworthHelper({ ...petData, heldItem: 'PET_ITEM_TIER_BOOST' });
+        expect(boosted.getTierBoostedTier()).toBe(original.getTier());
+        expect(boosted.getTierBoostedTierName()).toBe(tier);
+        expect(boosted.level).toEqual(original.level);
+    });
+});

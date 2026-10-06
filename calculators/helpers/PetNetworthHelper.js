@@ -66,7 +66,7 @@ class PetNetworthHelper {
      * @returns {number} The pet's tier boosted tier
      */
     getTierBoostedTier() {
-        return this.petData.heldItem === 'PET_ITEM_TIER_BOOST' ? this.getTier() + 1 : this.getTier();
+        return this.petData.heldItem === 'PET_ITEM_TIER_BOOST' && this.petData.type !== 'PHOENIX' ? this.getTier() + 1 : this.getTier();
     }
 
     /**
