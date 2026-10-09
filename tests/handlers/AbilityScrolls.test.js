@@ -1,4 +1,4 @@
-const NecronBladeScrollsHandler = require('../../calculators/handlers/NecronBladeScrolls');
+const AbilityScrollsHandler = require('../../calculators/handlers/AbilityScrolls');
 const { APPLICATION_WORTH } = require('../../constants/applicationWorth');
 const BaseHandlerTest = require('./BaseHandlerTest');
 
@@ -13,18 +13,18 @@ const testCases = [
         },
         prices: { WITHER_SHIELD_SCROLL: 280000000, IMPLOSION_SCROLL: 300000000 },
         shouldApply: true,
-        expectedPriceChange: 280000000 * APPLICATION_WORTH.necronBladeScroll + 300000000 * APPLICATION_WORTH.necronBladeScroll,
+        expectedPriceChange: 280000000 * APPLICATION_WORTH.abilityScroll + 300000000 * APPLICATION_WORTH.abilityScroll,
         expectedCalculation: [
             {
                 id: 'WITHER_SHIELD_SCROLL',
-                type: 'NECRON_SCROLL',
-                price: 280000000 * APPLICATION_WORTH.necronBladeScroll,
+                type: 'ABILITY_SCROLL',
+                price: 280000000 * APPLICATION_WORTH.abilityScroll,
                 count: 1,
             },
             {
                 id: 'IMPLOSION_SCROLL',
-                type: 'NECRON_SCROLL',
-                price: 300000000 * APPLICATION_WORTH.necronBladeScroll,
+                type: 'ABILITY_SCROLL',
+                price: 300000000 * APPLICATION_WORTH.abilityScroll,
                 count: 1,
             },
         ],
@@ -42,4 +42,4 @@ const testCases = [
     },
 ];
 
-new BaseHandlerTest(NecronBladeScrollsHandler, testCases).runTests();
+new BaseHandlerTest(AbilityScrollsHandler, testCases).runTests();

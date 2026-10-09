@@ -1,9 +1,9 @@
 const { APPLICATION_WORTH } = require('../../constants/applicationWorth');
 
 /**
- * A handler for Necron Blade Scroll modifiers on an item.
+ * A handler for Ability Scroll modifiers on an item.
  */
-class NecronBladeScrollsHandler {
+class AbilityScrollsHandler {
     /**
      * Checks if the handler applies to the item
      * @param {object} item The item data
@@ -22,8 +22,8 @@ class NecronBladeScrollsHandler {
         for (const id of Object.values(item.extraAttributes.ability_scroll)) {
             const calculationData = {
                 id,
-                type: 'NECRON_SCROLL',
-                price: (prices[id.toUpperCase()] ?? 0) * APPLICATION_WORTH.necronBladeScroll,
+                type: 'ABILITY_SCROLL',
+                price: (prices[id.toUpperCase()] ?? 0) * APPLICATION_WORTH.abilityScroll,
                 count: 1,
             };
             item.price += calculationData.price;
@@ -32,4 +32,4 @@ class NecronBladeScrollsHandler {
     }
 }
 
-module.exports = NecronBladeScrollsHandler;
+module.exports = AbilityScrollsHandler;
