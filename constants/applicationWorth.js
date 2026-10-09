@@ -30,7 +30,7 @@ const APPLICATION_WORTH = {
     masterStar: 1,
     gemstone: 1,
     hotPotatoBook: 1,
-    necronBladeScroll: 1,
+    abilityScroll: 1,
     polarvoidBook: 1,
     prestigeItem: 1,
     reforge: 1,

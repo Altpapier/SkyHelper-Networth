@@ -25,7 +25,7 @@ const GemstonePowerScrollHandler = require('../handlers/GemstonePowerScroll');
 const ReforgeHandler = require('../handlers/Reforge');
 const MasterStarsHandler = require('../handlers/MasterStars');
 const EssenceStarsHandler = require('../handlers/EssenceStars');
-const NecronBladeScrollsHandler = require('../handlers/NecronBladeScrolls');
+const AbilityScrollsHandler = require('../handlers/AbilityScrolls');
 const DrillPartsHandler = require('../handlers/DrillParts');
 const EtherwarpConduitHandler = require('../handlers/EtherwarpConduit');
 const NewYearCakeBagHandler = require('../handlers/NewYearCakeBag');
@@ -65,7 +65,7 @@ const handlers = [
     ReforgeHandler,
     MasterStarsHandler,
     EssenceStarsHandler,
-    NecronBladeScrollsHandler,
+    AbilityScrollsHandler,
     DrillPartsHandler,
     EtherwarpConduitHandler,
     NewYearCakeBagHandler,
