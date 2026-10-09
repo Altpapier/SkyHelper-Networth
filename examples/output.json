@@ -4157,19 +4157,19 @@
             },
             {
               "id": "SHADOW_WARP_SCROLL",
-              "type": "NECRON_SCROLL",
+              "type": "ABILITY_SCROLL",
               "price": 259367438.3,
               "count": 1
             },
             {
               "id": "WITHER_SHIELD_SCROLL",
-              "type": "NECRON_SCROLL",
+              "type": "ABILITY_SCROLL",
               "price": 267601202.2,
               "count": 1
             },
             {
               "id": "IMPLOSION_SCROLL",
-              "type": "NECRON_SCROLL",
+              "type": "ABILITY_SCROLL",
               "price": 282999999.6,
               "count": 1
             }
