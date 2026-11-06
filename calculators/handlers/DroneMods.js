@@ -21,7 +21,7 @@ class DroneModsHandler {
     calculate(pet, prices) {
         for (const mod in pet.petData.extra) {
             if (mod.endsWith('_mod') && pet.petData.extra[mod]) {
-                const itemId = mod.replace('_mod', '').toUpperCase();
+                const itemId = mod.slice(0, -4).toUpperCase();
                 if (prices[itemId]) {
                     const calculationData = {
                         id: itemId,
