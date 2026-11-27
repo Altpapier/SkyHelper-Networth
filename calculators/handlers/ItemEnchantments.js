@@ -36,6 +36,8 @@ const ENCHANTMENT_UPGRADES = {
     FOREST_PLEDGE: [{ upgradeItem: 'WATER_HYACINTH', tier: 6 }],
     KARMA: [{ upgradeItem: 'FORESTS_FAVOR', tier: 6 }],
     STEALTH: [{ upgradeItem: 'DISTANT_ECHO', tier: 6 }],
+    BUTCHER: [{ upgradeItem: 'NATURE_SPIRIT', tier: 7 }],
+    CRITICAL: [{ upgradeItem: 'POINTY_EYE', tier: 7 }],
 };
 
 /**
