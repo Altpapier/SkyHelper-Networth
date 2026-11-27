@@ -4,6 +4,7 @@ const PetCandyHandler = require('./handlers/PetCandy');
 const PetItemHandler = require('./handlers/PetItem');
 const SoulboundPetSkinHandler = require('./handlers/SoulboundPetSkin');
 const PetNetworthHelper = require('./helpers/PetNetworthHelper');
+const DroneModsHandler = require('./handlers/DroneMods');
 
 /**
  * Class for calculating the networth of a pet
@@ -65,7 +66,7 @@ class PetNetworthCalculator extends PetNetworthHelper {
         this.calculation = [];
 
         // For each handler, check if it applies and add the calculation to the total price
-        const handlers = [PetItemHandler, SoulboundPetSkinHandler];
+        const handlers = [PetItemHandler, SoulboundPetSkinHandler, DroneModsHandler];
         handlers.push(PetCandyHandler); // Must be last
         for (const Handler of handlers) {
             // Create a new instance of the handler

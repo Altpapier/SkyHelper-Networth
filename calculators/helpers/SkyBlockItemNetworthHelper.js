@@ -106,8 +106,8 @@ class SkyBlockItemNetworthHelper {
         }
 
         // If the item is fragged
-        if (this.itemId?.startsWith('STARRED_') && !prices[this.itemId] && prices[this.itemId.replace('STARRED_', '')]) {
-            return this.itemId.replace('STARRED_', '');
+        if (this.itemId?.startsWith('STARRED_') && !prices[this.itemId] && prices[this.itemId.slice(8)]) {
+            return this.itemId.slice(8);
         }
 
         // Otherwise, return the item id
